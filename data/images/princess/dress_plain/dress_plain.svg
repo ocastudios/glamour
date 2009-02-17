@@ -1,0 +1,2408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docname="dress_plain.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/media/sdb1/Glamour/2dgame/test images/walk_0.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5656">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5658" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5660" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5475">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5477" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5479" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5465">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5467" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5469" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5455">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5457" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5459" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5444">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5446" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5448" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5433">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5435" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5437" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5439"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,-0.3004937)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5450"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5461"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5471"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.1836605,0.1836605)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5481"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-0.2256257,-0.1128128)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5495"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(197.37892,-3.9013741)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5497"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(197.60454,-4.0890551)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5499"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(197.60454,-3.7885621)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5501"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(197.60454,-3.7885621)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5503"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(197.7882,-3.6049011)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5519"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(199.77437,-0.1128133)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5521"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(198.23183,2.2535332)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5523"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(200,-3e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5525"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(200,-3e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5527"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(200.18366,0.1836597)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5543"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(399.77438,3.8871861)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5545"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(400.00001,3.6995051)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5547"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(400.00001,3.9999991)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5549"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(400.00001,3.9999991)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5551"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(400.18367,4.1836591)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5567"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(599.77439,-0.1128136)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5569"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(600.00002,-0.3004946)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5571"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(600.00002,-5.6689453e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5573"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(600.00002,-5.6689453e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5575"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(600.18368,0.1836594)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5591"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(799.77438,-0.1128126)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5593"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(800,-0.3004936)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5595"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(800,3.7133789e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5597"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(800,3.7133789e-7)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5599"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(800.18366,0.1836614)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5615"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(999.77442,3.8871874)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5617"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1000,3.6995064)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5619"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(1000,3.9999994)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5621"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(1000,3.9999994)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5623"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1000.1837,4.1836604)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5475"
+       id="linearGradient5639"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1199.7743,-0.1128158)"
+       x1="94.875595"
+       y1="28.524498"
+       x2="39.371677"
+       y2="55.486763" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5433"
+       id="linearGradient5641"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1199.9999,-0.3004958)"
+       x1="28.24641"
+       y1="33.826973"
+       x2="48.37949"
+       y2="47.799931" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5444"
+       id="linearGradient5643"
+       gradientUnits="userSpaceOnUse"
+       x1="53.365356"
+       y1="19.594091"
+       x2="80.220177"
+       y2="49.804058"
+       gradientTransform="translate(1199.9999,-2.7717316e-6)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5455"
+       id="linearGradient5645"
+       gradientUnits="userSpaceOnUse"
+       x1="101.39417"
+       y1="37.321739"
+       x2="110.51793"
+       y2="57.635002"
+       gradientTransform="translate(1199.9999,-2.7717316e-6)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5465"
+       id="linearGradient5647"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1200.1836,0.1836582)"
+       x1="57.355968"
+       y1="143.92216"
+       x2="73.971619"
+       y2="64.0392" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5662"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-0.8792297,0.9556844)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5668"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(199.26561,0.9807514)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5674"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(399.29483,4.8632106)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5680"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(599.29483,0.9899712)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5686"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(799.29483,0.9899712)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5692"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(999.29481,4.8632106)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5656"
+       id="linearGradient5698"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1199.1188,1.1660275)"
+       x1="63.304539"
+       y1="42.273838"
+       x2="60.208118"
+       y2="39.33033" />
+    <filter
+       inkscape:collect="always"
+       id="filter4238">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.47393112"
+         id="feGaussianBlur4240" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4289">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.46518021"
+         id="feGaussianBlur4291" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3893">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.64138716"
+         id="feGaussianBlur3895" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3897"
+       x="-0.13574209"
+       width="1.2714842"
+       y="-0.036116858"
+       height="1.0722337">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.64138716"
+         id="feGaussianBlur3899" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3909"
+       x="-0.13369459"
+       width="1.2673892"
+       y="-0.03557208"
+       height="1.0711442">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63171263"
+         id="feGaussianBlur3911" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3913">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63171263"
+         id="feGaussianBlur3915" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3925">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63288145"
+         id="feGaussianBlur3927" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3929"
+       x="-0.13691863"
+       width="1.2738373"
+       y="-0.035898244"
+       height="1.0717965">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63288145"
+         id="feGaussianBlur3931" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3941">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.61559315"
+         id="feGaussianBlur3943" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3945"
+       x="-0.13441666"
+       width="1.2688333"
+       y="-0.034604298"
+       height="1.0692086">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.61559315"
+         id="feGaussianBlur3947" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3957">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.62756368"
+         id="feGaussianBlur3959" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3961"
+       x="-0.13885449"
+       width="1.277709"
+       y="-0.035766718"
+       height="1.0715334">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.62756368"
+         id="feGaussianBlur3963" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3981">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63690442"
+         id="feGaussianBlur3983" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3985"
+       x="-0.13479291"
+       width="1.2695858"
+       y="-0.035864432"
+       height="1.0717289">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63690442"
+         id="feGaussianBlur3987" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4005">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63831151"
+         id="feGaussianBlur4007" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4009"
+       x="-0.1350907"
+       width="1.2701814"
+       y="-0.035943666"
+       height="1.0718873">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63831151"
+         id="feGaussianBlur4011" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4021">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.64607807"
+         id="feGaussianBlur4023" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4025"
+       x="-0.1367344"
+       width="1.2734688"
+       y="-0.036381005"
+       height="1.072762">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.64607807"
+         id="feGaussianBlur4027" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4037">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.62729704"
+         id="feGaussianBlur4039" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4041"
+       x="-0.13275963"
+       width="1.2655193"
+       y="-0.035323435"
+       height="1.0706469">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.62729704"
+         id="feGaussianBlur4043" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4053">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63835593"
+         id="feGaussianBlur4055" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4057"
+       x="-0.10866395"
+       width="1.2173279"
+       y="-0.036566543"
+       height="1.0731331">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63835593"
+         id="feGaussianBlur4059" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4069">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63911087"
+         id="feGaussianBlur4071" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4073">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63911087"
+         id="feGaussianBlur4075" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4085">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.66842797"
+         id="feGaussianBlur4087" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4089">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.66842797"
+         id="feGaussianBlur4091" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4101">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63911087"
+         id="feGaussianBlur4103" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4105">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63911087"
+         id="feGaussianBlur4107" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4117">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63835573"
+         id="feGaussianBlur4119" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4121"
+       x="-0.10866398"
+       width="1.217328"
+       y="-0.036566532"
+       height="1.0731331">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.63835573"
+         id="feGaussianBlur4123" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4133">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.67584615"
+         id="feGaussianBlur4135" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4137">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.67584615"
+         id="feGaussianBlur4139" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4149">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.67352199"
+         id="feGaussianBlur4151" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4153">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.67352199"
+         id="feGaussianBlur4155" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4165">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.61907656"
+         id="feGaussianBlur4167" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4169"
+       x="-0.21529648"
+       width="1.430593"
+       y="-0.033760234"
+       height="1.0675205">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.61907656"
+         id="feGaussianBlur4171" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.25343012"
+     inkscape:cx="629.9729"
+     inkscape:cy="-826.39358"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     gridtolerance="32"
+     inkscape:object-nodes="true"
+     objecttolerance="50"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-nodes="true"
+     guidetolerance="1"
+     inkscape:bbox-paths="true"
+     inkscape:snap-global="true"
+     inkscape:window-width="1439"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="25">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3176"
+       visible="true"
+       enabled="true"
+       spacingx="200px"
+       spacingy="200px" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="217.02235,-104.56531"
+       id="guide2746" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="706.74068,-165.54119"
+       id="guide2778" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="254.60073,-703.81407"
+       id="guide2890" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="611.04175,-765.19726"
+       id="guide3684" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="354.63425,-1106.3207"
+       id="guide3807" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.74591,158.40353 C 105.73891,152.52873 111.11598,152.12541 112.63643,157.42244 L 121.18547,176.71112 C 120.81205,189.01417 104.63018,187.47116 104.16184,179.13503 L 105.74591,158.40353 z"
+       id="path3170"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.1282782"
+       inkscape:transform-center-y="14.118682" />
+    <path
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.704,113.24816 C 105.69389,108.21341 111.11287,107.60589 112.64802,112.07175 L 122.53555,141.9114 C 123.52789,155.24149 105.91561,154.92776 105.3797,144.81785 L 105.704,113.24816 z"
+       id="path3164"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.0187303"
+       inkscape:transform-center-y="17.929708" />
+    <path
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 98.746963,101.467 L 107.49118,101.15786 C 112.95943,126.16203 118.40599,131.73422 118.33154,147.42102 C 117.357,160.46219 90.510693,161.11383 88.561663,147.42102 C 85.770709,137.25523 94.377173,130.18076 98.746963,101.467 z"
+       id="rect3158"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path2383"
+       sodipodi:cx="104.28571"
+       sodipodi:cy="55"
+       sodipodi:rx="35"
+       sodipodi:ry="35"
+       d="M 139.28571,55 A 35,35 0 1 1 69.285713,55 A 35,35 0 1 1 139.28571,55 z"
+       transform="matrix(1.2241038,0,0,1.2241038,-23.599698,-5.8044618)" />
+    <rect
+       style="opacity:1;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3178"
+       width="61.213207"
+       height="18.677614"
+       x="0"
+       y="0" />
+    <path
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.856673,157.59399 C 95.499323,151.95349 100.77333,153.07601 100.7455,158.58686 L 103.53538,179.49993 C 99.722923,191.20331 84.625044,185.1793 86.515913,177.04694 L 93.856673,157.59399 z"
+       id="path3168"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="2.4730609"
+       inkscape:transform-center-y="13.91098" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.74591,358.40353 C 105.73891,352.52873 111.11598,352.12541 112.63643,357.42244 L 121.18547,376.71112 C 120.81205,389.01417 104.63018,387.47116 104.16184,379.13503 L 105.74591,358.40353 z"
+       id="path3346"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.1282782"
+       inkscape:transform-center-y="14.118682" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.704,313.24816 C 105.69389,308.21341 111.11287,307.60589 112.64802,312.07175 L 122.53555,341.9114 C 123.52789,355.24149 105.91561,354.92776 105.3797,344.81785 L 105.704,313.24816 z"
+       id="path3348"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.0187303"
+       inkscape:transform-center-y="17.929708" />
+    <path
+       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 98.746968,301.467 L 107.49118,301.15786 C 112.95943,326.16203 118.40599,331.73422 118.33154,347.42102 C 117.357,360.46219 90.510698,361.11383 88.561668,347.42102 C 85.770708,337.25523 94.377178,330.18076 98.746968,301.467 z"
+       id="path3350"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.741868,311.03569 C 97.270728,307.4446 101.55492,310.81806 99.511208,315.07526 L 85.592348,343.26095 C 76.936628,353.44694 64.619658,340.85396 71.338648,333.28083 L 93.741868,311.03569 z"
+       id="path3352"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="12.056184"
+       inkscape:transform-center-y="14.838382" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3354"
+       sodipodi:cx="104.28571"
+       sodipodi:cy="55"
+       sodipodi:rx="35"
+       sodipodi:ry="35"
+       d="M 139.28571,55 A 35,35 0 1 1 69.285713,55 A 35,35 0 1 1 139.28571,55 z"
+       transform="matrix(1.2241038,0,0,1.2241038,-23.599696,194.19554)" />
+    <rect
+       style="opacity:1;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3356"
+       width="61.213207"
+       height="18.677614"
+       x="0"
+       y="200" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.856678,357.59399 C 95.499328,351.95349 100.77333,353.07601 100.7455,358.58686 L 103.53538,379.49993 C 99.722928,391.20331 84.625048,385.1793 86.515918,377.04694 L 93.856678,357.59399 z"
+       id="path3358"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="2.4730609"
+       inkscape:transform-center-y="13.91098" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-201.67969"
+       y="117.16749"
+       id="text3430"><tspan
+         sodipodi:role="line"
+         id="tspan3432"
+         x="-201.67969"
+         y="117.16749">walk</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-201.67969"
+       y="330.06949"
+       id="text3434"><tspan
+         sodipodi:role="line"
+         id="tspan3436"
+         x="-201.67969"
+         y="330.06949">jump</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-199.27734"
+       y="503.97943"
+       id="text3438"><tspan
+         sodipodi:role="line"
+         id="tspan3440"
+         x="-199.27734"
+         y="503.97943">fall</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-200.91797"
+       y="717.96808"
+       id="text3442"><tspan
+         sodipodi:role="line"
+         id="tspan3444"
+         x="-200.91797"
+         y="717.96808">stay</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-203.63281"
+       y="918.45428"
+       id="text3508"><tspan
+         sodipodi:role="line"
+         id="tspan3510"
+         x="-203.63281"
+         y="918.45428">kiss</tspan></text>
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.7459,958.40344 C 105.7389,952.52864 111.11597,952.12534 112.63642,957.42244 L 121.18546,976.71104 C 120.81204,989.01414 104.63017,987.47114 104.16183,979.13494 L 105.7459,958.40344 z"
+       id="path3512"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.1282782"
+       inkscape:transform-center-y="14.118682" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.70399,913.24814 C 105.69388,908.21334 111.11286,907.60584 112.64801,912.07174 L 122.53554,941.91134 C 123.52788,955.24144 105.9156,954.92774 105.37969,944.81784 L 105.70399,913.24814 z"
+       id="path3514"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.0187303"
+       inkscape:transform-center-y="17.929708" />
+    <path
+       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 98.746962,901.46694 L 107.49117,901.15784 C 112.95942,926.16194 118.40598,931.73414 118.33153,947.42094 C 117.35699,960.46214 90.510692,961.11374 88.561662,947.42094 C 85.770712,937.25514 94.377172,930.18074 98.746962,901.46694 z"
+       id="path3516"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.741862,911.03564 C 97.270722,907.44454 101.55491,910.81804 99.511202,915.07524 L 85.592342,943.26094 C 76.936622,953.44694 64.619652,940.85394 71.338652,933.28074 L 93.741862,911.03564 z"
+       id="path3518"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="12.056184"
+       inkscape:transform-center-y="14.838382" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3520"
+       sodipodi:cx="104.28571"
+       sodipodi:cy="55"
+       sodipodi:rx="35"
+       sodipodi:ry="35"
+       d="M 139.28571,55 A 35,35 0 1 1 69.285713,55 A 35,35 0 1 1 139.28571,55 z"
+       transform="matrix(1.2241038,0,0,1.2241038,-23.599698,794.1955)" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.856672,957.59394 C 95.499322,951.95344 100.77332,953.07594 100.74549,958.58684 L 103.53537,979.49984 C 99.722922,991.20324 84.625042,985.17924 86.515912,977.04694 L 93.856672,957.59394 z"
+       id="path3524"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="2.4730609"
+       inkscape:transform-center-y="13.91098" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-203.63284"
+       y="1118.4542"
+       id="text3616"><tspan
+         sodipodi:role="line"
+         id="tspan3618"
+         x="-203.63284"
+         y="1118.4542">hit</tspan></text>
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.74586,1158.4034 C 105.73886,1152.5286 111.11593,1152.1253 112.63638,1157.4224 L 121.18542,1176.711 C 120.812,1189.0141 104.63013,1187.4711 104.16179,1179.1349 L 105.74586,1158.4034 z"
+       id="path3620"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.1282782"
+       inkscape:transform-center-y="14.118682" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.70395,1113.2481 C 105.69384,1108.2133 111.11282,1107.6058 112.64797,1112.0717 L 122.5355,1141.9113 C 123.52784,1155.2414 105.91556,1154.9277 105.37965,1144.8178 L 105.70395,1113.2481 z"
+       id="path3622"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.0187303"
+       inkscape:transform-center-y="17.929708" />
+    <path
+       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 98.746933,1101.4669 L 107.49113,1101.1578 C 112.95938,1126.1619 118.40594,1131.7341 118.33149,1147.4209 C 117.35695,1160.4621 90.510663,1161.1137 88.561633,1147.4209 C 85.770683,1137.2551 94.377143,1130.1807 98.746933,1101.4669 z"
+       id="path3624"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.741833,1111.0356 C 97.270693,1107.4445 101.55487,1110.818 99.511173,1115.0752 L 85.592313,1143.2609 C 76.936593,1153.4469 64.619623,1140.8539 71.338623,1133.2807 L 93.741833,1111.0356 z"
+       id="path3626"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="12.056184"
+       inkscape:transform-center-y="14.838382" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3628"
+       sodipodi:cx="104.28571"
+       sodipodi:cy="55"
+       sodipodi:rx="35"
+       sodipodi:ry="35"
+       d="M 139.28571,55 A 35,35 0 1 1 69.285713,55 A 35,35 0 1 1 139.28571,55 z"
+       transform="matrix(1.2241038,0,0,1.2241038,-23.599727,994.19553)" />
+    <rect
+       style="opacity:1;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3630"
+       width="61.213207"
+       height="18.677614"
+       x="-3.0517578e-05"
+       y="1000" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.856643,1157.5939 C 95.499293,1151.9534 100.77328,1153.0759 100.74545,1158.5868 L 103.53533,1179.4998 C 99.722893,1191.2032 84.625013,1185.1792 86.515883,1177.0469 L 93.856643,1157.5939 z"
+       id="path3632"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="2.4730609"
+       inkscape:transform-center-y="13.91098" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="-203.63281"
+       y="1318.0524"
+       id="text3766"><tspan
+         sodipodi:role="line"
+         id="tspan3768"
+         x="-203.63281"
+         y="1318.0524">celebrate</tspan></text>
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.74588,1358.4035 C 105.73888,1352.5287 111.11595,1352.1254 112.6364,1357.4225 L 121.18544,1376.7111 C 120.81202,1389.0142 104.63015,1387.4712 104.16181,1379.135 L 105.74588,1358.4035 z"
+       id="path3770"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.1282782"
+       inkscape:transform-center-y="14.118682" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 105.70397,1313.2482 C 105.69386,1308.2134 111.11284,1307.6059 112.64799,1312.0718 L 122.53552,1341.9114 C 123.52786,1355.2415 105.91558,1354.9278 105.37967,1344.8179 L 105.70397,1313.2482 z"
+       id="path3772"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-4.0187303"
+       inkscape:transform-center-y="17.929708" />
+    <path
+       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 98.746963,1301.467 L 107.49115,1301.1579 C 112.9594,1326.162 118.40596,1331.7342 118.33151,1347.421 C 117.35697,1360.4622 90.510693,1361.1138 88.561663,1347.421 C 85.770713,1337.2552 94.377173,1330.1808 98.746963,1301.467 z"
+       id="path3774"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.741863,1311.0357 C 97.270723,1307.4446 101.55489,1310.8181 99.511203,1315.0753 L 85.592343,1343.261 C 76.936623,1353.447 64.619653,1340.854 71.338653,1333.2808 L 93.741863,1311.0357 z"
+       id="path3776"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="12.056184"
+       inkscape:transform-center-y="14.838382" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3778"
+       sodipodi:cx="104.28571"
+       sodipodi:cy="55"
+       sodipodi:rx="35"
+       sodipodi:ry="35"
+       d="M 139.28571,55 A 35,35 0 1 1 69.285713,55 A 35,35 0 1 1 139.28571,55 z"
+       transform="matrix(1.2241038,0,0,1.2241038,-23.599701,1194.1956)" />
+    <rect
+       style="opacity:1;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3780"
+       width="61.213207"
+       height="18.677614"
+       x="0"
+       y="1200" />
+    <path
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.856673,1357.594 C 95.499323,1351.9535 100.7733,1353.076 100.74547,1358.5869 L 103.53535,1379.4999 C 99.722923,1391.2033 84.625043,1385.1793 86.515913,1377.047 L 93.856673,1357.594 z"
+       id="path3782"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="2.4730609"
+       inkscape:transform-center-y="13.91098" />
+    <path
+       style="fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;opacity:1"
+       d="M 94.232125,119.89194 C 98.915125,124.15142 106.15812,112.20798 96.931653,108.94786 L 97.558002,107.00069 L 99.609173,107.98013 C 104.14631,109.67627 104.57934,115.34933 108.18986,114.71017 C 111.33293,114.15376 108.7075,109.56123 109.29351,108.55698 L 109.63704,109.59638 C 115.7344,127.34762 120.17185,138.71689 120.73213,160.83016 C 109.91359,166.23784 97.961869,165.9796 85.171413,161.52769 C 85.519034,146.29261 88.644775,134.29821 94.232125,119.89194 z"
+       id="rect3432"
+       sodipodi:nodetypes="ccccsccccc" />
+    <path
+       style="opacity:0.04895105;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 98.28125 107.5 L 97.6875 109.40625 C 98.423738 109.6664 99.030136 109.98397 99.5625 110.34375 C 99.80852 109.70578 100.03725 109.06145 100.3125 108.46875 L 98.28125 107.5 z M 95.03125 120.125 C 89.553498 134.24869 86.497065 146.03251 86.15625 160.96875 C 98.695821 165.33333 110.42492 165.58286 121.03125 160.28125 C 120.99491 158.84694 120.94399 157.44072 120.875 156.09375 C 120.87496 156.09303 120.84379 156.09447 120.84375 156.09375 C 119.01658 157.04638 117.09502 157.68373 115.09375 157.96875 C 95.3653 160.77845 92.577816 151.12811 95.5625 128.84375 C 95.924594 126.14027 96.328182 123.51982 96.78125 121 C 96.185313 120.91662 95.586748 120.63026 95.03125 120.125 z "
+       id="path4208" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289);opacity:0.11888112"
+       d="M 108.11572,114.98523 C 109.44502,114.55803 109.63162,113.67376 109.82708,112.79303 C 114.66378,125.69903 119.38584,141.17816 119.45538,154.63832 C 119.51096,156.82364 114.30915,154.00358 114.52969,150.97625 C 113.97807,138.5987 112.36771,125.97514 108.11572,114.98523 z"
+       id="rect4242"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 294.23211,119.00785 C 298.91511,123.26733 306.15811,111.32389 296.93164,108.06377 L 297.55799,106.1166 L 299.60916,107.09604 C 304.1463,108.79218 304.57933,114.46524 308.18985,113.82608 C 311.33292,113.26967 308.70749,108.67714 309.2935,107.67289 L 309.63703,108.71229 C 315.73439,126.46353 320.91169,138.81927 320.11558,160.06938 C 309.29704,165.47706 296.48215,164.54062 283.6917,160.08871 C 285.02579,145.34687 288.64476,133.41412 294.23211,119.00785 z"
+       id="path4311"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 298.28124,106.61591 L 297.68749,108.52216 C 298.42372,108.78231 299.03012,109.09988 299.56249,109.45966 C 299.80851,108.82169 300.03724,108.17736 300.31249,107.58466 L 298.28124,106.61591 z M 295.03124,119.24091 C 289.55348,133.3646 286.49705,145.14842 286.15624,160.08466 C 298.69581,164.44924 310.42491,164.69877 321.03124,159.39716 C 320.9949,157.96285 320.94398,156.55663 320.87499,155.20966 C 320.87495,155.20894 320.84378,155.21038 320.84374,155.20966 C 319.01657,156.16229 317.09501,156.79964 315.09374,157.08466 C 295.36529,159.89436 292.5778,150.24402 295.56249,127.95966 C 295.92458,125.25618 296.32817,122.63573 296.78124,120.11591 C 296.1853,120.03253 295.58673,119.74617 295.03124,119.24091 z"
+       id="path4313"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 308.11571,114.10114 C 309.44501,113.67394 309.63161,112.78967 309.82707,111.90894 C 314.66377,124.81494 319.38583,140.29407 319.45537,153.75423 C 319.51095,155.93955 314.30914,153.11949 314.52968,150.09216 C 313.97806,137.71461 312.3677,125.09105 308.11571,114.10114 z"
+       id="path4315"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 494.23213,123.89194 C 498.91513,128.15142 506.15813,116.20798 496.93166,112.94786 L 497.55801,111.00069 L 499.60918,111.98013 C 504.14632,113.67627 504.82597,119.10271 508.43649,118.46355 C 511.57956,117.90714 508.70751,113.56123 509.29352,112.55698 L 509.63705,113.59638 C 515.73441,131.34762 520.73038,146.8536 523.38327,163.47377 C 512.56473,168.88145 495.98894,167.63674 483.19849,163.18483 C 485.14912,157.93771 488.64478,138.29821 494.23213,123.89194 z"
+       id="path4321"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 498.28126,111.5 L 497.68751,113.40625 C 498.42374,113.6664 499.03014,113.98397 499.56251,114.34375 C 499.80853,113.70578 500.03726,113.06145 500.31251,112.46875 L 498.28126,111.5 z M 495.03126,124.125 C 489.5535,138.24869 486.49707,150.03251 486.15626,164.96875 C 498.69583,169.33333 510.42493,169.58286 521.03126,164.28125 C 520.99492,162.84694 520.944,161.44072 520.87501,160.09375 C 520.87497,160.09303 520.8438,160.09447 520.84376,160.09375 C 519.01659,161.04638 517.09503,161.68373 515.09376,161.96875 C 495.36531,164.77845 492.57782,155.12811 495.56251,132.84375 C 495.9246,130.14027 496.32819,127.51982 496.78126,125 C 496.18532,124.91662 495.58675,124.63026 495.03126,124.125 z"
+       id="path4323"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 508.11573,118.98523 C 509.44503,118.55803 509.63163,117.67376 509.82709,116.79303 C 514.66379,129.69903 519.38585,145.17816 519.45539,158.63832 C 519.51097,160.82364 514.30916,158.00358 514.5297,154.97625 C 513.97808,142.5987 512.36772,129.97514 508.11573,118.98523 z"
+       id="path4325"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 694.23213,119.89194 C 698.91513,124.15142 706.15813,112.20798 696.93166,108.94786 L 697.55801,107.00069 L 699.60918,107.98013 C 704.14632,109.67627 704.57935,115.34933 708.18987,114.71017 C 711.33294,114.15376 708.70751,109.56123 709.29352,108.55698 L 709.63705,109.59638 C 715.73441,127.34762 719.29994,139.58881 719.86022,161.70208 C 709.04168,167.10976 697.43872,166.85152 684.64827,162.39961 C 684.99589,147.16453 688.64478,134.29821 694.23213,119.89194 z"
+       id="path4329"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 698.28126,107.5 L 697.68751,109.40625 C 698.42374,109.6664 699.03014,109.98397 699.56251,110.34375 C 699.80853,109.70578 700.03726,109.06145 700.31251,108.46875 L 698.28126,107.5 z M 695.03126,120.125 C 689.5535,134.24869 686.49707,146.03251 686.15626,160.96875 C 698.69583,165.33333 710.42493,165.58286 721.03126,160.28125 C 720.99492,158.84694 720.944,157.44072 720.87501,156.09375 C 720.87497,156.09303 720.8438,156.09447 720.84376,156.09375 C 719.01659,157.04638 717.09503,157.68373 715.09376,157.96875 C 695.36531,160.77845 692.57782,151.12811 695.56251,128.84375 C 695.9246,126.14027 696.32819,123.51982 696.78126,121 C 696.18532,120.91662 695.58675,120.63026 695.03126,120.125 z"
+       id="path4331"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 708.11573,114.98523 C 709.44503,114.55803 709.63163,113.67376 709.82709,112.79303 C 714.66379,125.69903 719.38585,141.17816 719.45539,154.63832 C 719.51097,156.82364 714.30916,154.00358 714.5297,150.97625 C 713.97808,138.5987 712.36772,125.97514 708.11573,114.98523 z"
+       id="path4333"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 894.2321,119.89194 C 898.9151,124.15142 906.1581,112.20798 896.93163,108.94786 L 897.55798,107.00069 L 899.60915,107.98013 C 904.14629,109.67627 904.57932,115.34933 908.18984,114.71017 C 911.33291,114.15376 908.70748,109.56123 909.29349,108.55698 L 909.63702,109.59638 C 915.73438,127.34762 919.80187,139.08681 920.36217,161.20007 C 909.54365,166.60775 896.60545,166.34951 883.815,161.8976 C 886.13555,147.7723 888.64475,134.29821 894.2321,119.89194 z"
+       id="path4337"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 898.28123,107.5 L 897.68748,109.40625 C 898.42371,109.6664 899.03011,109.98397 899.56248,110.34375 C 899.8085,109.70578 900.03723,109.06145 900.31248,108.46875 L 898.28123,107.5 z M 895.03123,120.125 C 889.55347,134.24869 886.49704,146.0325 886.15623,160.96874 C 898.6958,165.33332 910.4249,165.58285 921.03119,160.28124 C 920.99489,158.84693 920.94399,157.44071 920.87499,156.09374 C 920.87489,156.09302 920.84379,156.09446 920.84369,156.09374 C 919.01659,157.04637 917.095,157.68372 915.09373,157.96874 C 895.36528,160.77844 892.57779,151.1281 895.56248,128.84375 C 895.92457,126.14027 896.32816,123.51982 896.78123,121 C 896.18529,120.91662 895.58672,120.63026 895.03123,120.125 z"
+       id="path4339"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 908.1157,114.98523 C 909.445,114.55803 909.6316,113.67376 909.82706,112.79303 C 914.66376,125.69903 919.38579,141.17815 919.45539,154.63831 C 919.51089,156.82363 914.30913,154.00357 914.52967,150.97624 C 913.97805,138.5987 912.36769,125.97514 908.1157,114.98523 z"
+       id="path4341"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1094.2322,123.89194 C 1098.9152,128.15142 1106.1582,116.20798 1096.9317,112.94786 L 1097.558,111.00069 L 1099.6092,111.98013 C 1104.1464,113.67627 1104.5794,119.34933 1108.1899,118.71017 C 1111.333,118.15376 1108.7075,113.56123 1109.2936,112.55698 L 1109.6371,113.59638 C 1115.7344,131.34762 1120.7884,149.49884 1119.4991,163.84369 C 1108.6805,169.25137 1095.4957,167.88336 1082.7053,163.43145 C 1084.6559,152.38885 1088.6448,138.29821 1094.2322,123.89194 z"
+       id="path4345"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 1098.2813,111.5 L 1097.6875,113.40625 C 1098.4238,113.6664 1099.0302,113.98397 1099.5625,114.34375 C 1099.8086,113.70578 1100.0373,113.06145 1100.3125,112.46875 L 1098.2813,111.5 z M 1095.0313,124.125 C 1089.5535,138.24869 1086.4971,150.03251 1086.1563,164.96875 C 1098.6959,169.33333 1110.425,169.58286 1121.0313,164.28125 C 1120.995,162.84694 1120.944,161.44072 1120.875,160.09375 C 1120.875,160.09303 1120.8438,160.09447 1120.8438,160.09375 C 1119.0166,161.04638 1117.0951,161.68373 1115.0938,161.96875 C 1095.3653,164.77845 1092.5779,155.12811 1095.5625,132.84375 C 1095.9246,130.14027 1096.3282,127.51982 1096.7813,125 C 1096.1854,124.91662 1095.5868,124.63026 1095.0313,124.125 z"
+       id="path4347"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 1108.1158,118.98523 C 1109.4451,118.55803 1109.6317,117.67376 1109.8271,116.79303 C 1114.6638,129.69903 1119.3859,145.17816 1119.4554,158.63832 C 1119.511,160.82364 1114.3092,158.00358 1114.5297,154.97625 C 1113.9781,142.5987 1112.3678,129.97514 1108.1158,118.98523 z"
+       id="path4349"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1294.2321,119.89194 C 1298.9151,124.15142 1306.1581,112.20798 1296.9317,108.94786 L 1297.558,107.00069 L 1299.6092,107.98013 C 1304.1463,109.67627 1304.5794,115.34933 1308.1899,114.71017 C 1311.333,114.15376 1308.7075,109.56123 1309.2935,108.55698 L 1309.6371,109.59638 C 1315.7344,127.34762 1319.8019,139.08681 1320.3622,161.20007 C 1309.5437,166.60775 1296.6055,166.34951 1283.815,161.8976 C 1286.1356,147.7723 1288.6448,134.29821 1294.2321,119.89194 z"
+       id="path4375"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 1298.2813,107.5 L 1297.6875,109.40625 C 1298.4238,109.6664 1299.0302,109.98397 1299.5625,110.34375 C 1299.8085,109.70578 1300.0373,109.06145 1300.3125,108.46875 L 1298.2813,107.5 z M 1295.0313,120.125 C 1289.5535,134.24869 1286.4971,146.0325 1286.1563,160.96874 C 1298.6958,165.33332 1310.4249,165.58285 1321.0312,160.28124 C 1320.9949,158.84693 1320.944,157.44071 1320.875,156.09374 C 1320.8749,156.09302 1320.8438,156.09446 1320.8437,156.09374 C 1319.0166,157.04637 1317.095,157.68372 1315.0938,157.96874 C 1295.3653,160.77844 1292.5778,151.1281 1295.5625,128.84375 C 1295.9246,126.14027 1296.3282,123.51982 1296.7813,121 C 1296.1853,120.91662 1295.5868,120.63026 1295.0313,120.125 z"
+       id="path4377"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 1308.1157,114.98523 C 1309.445,114.55803 1309.6316,113.67376 1309.8271,112.79303 C 1314.6638,125.69903 1319.3858,141.17815 1319.4554,154.63831 C 1319.5109,156.82363 1314.3092,154.00357 1314.5297,150.97624 C 1313.9781,138.5987 1312.3677,125.97514 1308.1157,114.98523 z"
+       id="path4379"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 294.23212,319.89194 C 298.91512,324.15142 306.15811,312.20798 296.93165,308.94786 L 297.55799,307.00069 L 299.60917,307.98013 C 304.1463,309.67627 304.57933,315.34933 308.18985,314.71017 C 311.33292,314.15376 308.70749,309.56123 309.2935,308.55698 L 309.63703,309.59638 C 315.73439,327.34762 320.41846,338.22366 320.97874,360.33693 C 310.1602,365.74461 297.71524,366.47283 284.92479,362.02092 C 285.27241,346.78584 288.64477,334.29821 294.23212,319.89194 z"
+       id="path2740"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 298.28124,307.5 L 297.68749,309.40625 C 298.42373,309.6664 299.03013,309.98397 299.56249,310.34375 C 299.80851,309.70578 300.03724,309.06145 300.31249,308.46875 L 298.28124,307.5 z M 295.03124,320.125 C 289.55349,334.24869 286.49706,346.03251 286.15624,360.96875 C 298.69581,365.33333 310.42491,365.58286 321.03124,360.28125 C 320.9949,358.84694 320.94398,357.44072 320.87499,356.09375 C 320.87495,356.09303 320.84378,356.09447 320.84374,356.09375 C 319.01657,357.04638 317.09501,357.68373 315.09374,357.96875 C 295.36529,360.77845 292.57781,351.12811 295.56249,328.84375 C 295.92459,326.14027 296.32817,323.51982 296.78124,321 C 296.18531,320.91662 295.58674,320.63026 295.03124,320.125 z"
+       id="path2742"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 308.11571,314.98523 C 309.44501,314.55803 309.63161,313.67376 309.82707,312.79303 C 314.66377,325.69903 319.38583,341.17816 319.45537,354.63832 C 319.51095,356.82364 314.30914,354.00358 314.52968,350.97625 C 313.97806,338.5987 312.3677,325.97514 308.11571,314.98523 z"
+       id="path2744"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 494.23212,319.89195 C 498.91512,324.15143 506.15811,312.20799 496.93165,308.94787 L 497.55799,307.0007 L 499.60917,307.98014 C 504.1463,309.67628 504.57933,315.34934 508.18985,314.71018 C 511.33292,314.15377 508.70749,309.56124 509.2935,308.55699 L 509.63703,309.59639 C 515.37358,326.2972 519.49925,335.87761 520.57995,355.30993 C 520.64793,356.53216 521.93206,357.30208 521.96521,358.61063 C 511.14667,364.01831 498.45509,368.19915 485.66464,363.74724 C 486.01226,348.51216 488.64477,334.29822 494.23212,319.89195 z"
+       id="path2754"
+       sodipodi:nodetypes="ccccsccsccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 498.28124,307.50001 L 497.68749,309.40626 C 498.42373,309.66641 499.03013,309.98398 499.56249,310.34376 C 499.80851,309.70579 500.03724,309.06146 500.31249,308.46876 L 498.28124,307.50001 z M 495.03124,320.12501 C 489.55349,334.2487 486.49706,346.03252 486.15624,360.96876 C 498.69581,365.33334 511.55841,364.1878 522.16474,358.88619 C 522.1284,357.45188 520.94398,357.44073 520.87499,356.09376 C 520.87495,356.09304 520.84378,356.09448 520.84374,356.09376 C 519.01657,357.04639 517.09501,357.68374 515.09374,357.96876 C 495.36529,360.77846 492.57781,351.12812 495.56249,328.84376 C 495.92459,326.14028 496.32817,323.51983 496.78124,321.00001 C 496.18531,320.91663 495.58674,320.63027 495.03124,320.12501 z"
+       id="path2756"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 508.11571,314.98524 C 509.44501,314.55804 509.63161,313.67377 509.82707,312.79304 C 514.66377,325.69904 519.38583,341.17817 519.45537,354.63833 C 519.51095,356.82365 514.30914,354.00359 514.52968,350.97626 C 513.97806,338.59871 512.3677,325.97515 508.11571,314.98524 z"
+       id="path2758"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 694.23213,319.89194 C 698.91513,324.15142 706.15812,312.20798 696.93166,308.94786 L 697.558,307.00069 L 699.60918,307.98013 C 704.14631,309.67627 704.57934,315.34933 708.18986,314.71017 C 711.33293,314.15376 708.7075,309.56123 709.29351,308.55698 L 709.63704,309.59638 C 715.37359,326.29719 718.01956,329.46558 719.10026,348.8979 C 719.16824,350.12013 722.30199,350.02689 722.33514,351.33544 C 715.18585,352.3499 707.83103,361.75651 701.36426,364.39662 C 697.31596,366.04937 687.74903,367.36877 685.66465,363.74723 C 686.01227,348.51215 688.64478,334.29821 694.23213,319.89194 z"
+       id="path2772"
+       sodipodi:nodetypes="ccccsccscscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 698.28125,307.5 L 697.6875,309.40625 C 698.42374,309.6664 699.03014,309.98397 699.5625,310.34375 C 699.80852,309.70578 700.03725,309.06145 700.3125,308.46875 L 698.28125,307.5 z M 695.03125,320.125 C 689.5535,334.24869 686.49707,346.03251 686.15625,360.96875 C 693.02364,373.9649 700.58399,361.84494 711.19032,356.54333 C 711.15398,355.10902 715.50559,352.94921 714.33967,352.2712 C 709.03738,349.18777 718.13101,349.80575 718.99413,350.42157 C 720.67154,351.61838 714.01232,354.2311 712.01105,354.51612 C 692.2826,357.32582 692.57782,351.12811 695.5625,328.84375 C 695.9246,326.14027 696.32818,323.51982 696.78125,321 C 696.18532,320.91662 695.58675,320.63026 695.03125,320.125 z"
+       id="path2774"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 708.11572,314.98523 C 709.44502,314.55803 709.63162,313.67376 709.82708,312.79303 C 714.66378,325.69903 718.39937,350.05635 719.94861,350.56915 C 720.00419,352.75447 714.30915,354.00358 714.52969,350.97625 C 713.97807,338.5987 712.36771,325.97514 708.11572,314.98523 z"
+       id="path2776"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 894.23213,319.89194 C 898.91513,324.15142 906.15812,312.20798 896.93166,308.94786 L 897.558,307.00069 L 899.60918,307.98013 C 904.14631,309.67627 904.57934,315.34933 908.18986,314.71017 C 911.33293,314.15376 908.7075,309.56123 909.29351,308.55698 L 909.63704,309.59638 C 915.37359,326.29719 917.89625,329.09566 918.97695,348.52798 C 919.04493,349.75021 920.69898,348.79381 921.34867,351.21213 C 914.19938,352.22659 908.01282,362.25512 901.36426,364.39662 C 897.10289,365.76921 887.50241,368.23193 885.41803,364.61039 C 885.76565,349.37531 888.64478,334.29821 894.23213,319.89194 z"
+       id="path2826"
+       sodipodi:nodetypes="ccccsccscscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 898.28125,307.5 L 897.6875,309.40625 C 898.42374,309.6664 899.03014,309.98397 899.5625,310.34375 C 899.80852,309.70578 900.03725,309.06145 900.3125,308.46875 L 898.28125,307.5 z M 895.03125,320.125 C 889.5535,334.24869 886.49707,346.03251 886.15625,360.96875 C 893.02364,373.9649 900.58399,361.84494 911.19032,356.54333 C 911.15398,355.10902 915.50559,352.94921 914.33967,352.2712 C 909.03738,349.18777 918.13101,349.80575 918.99413,350.42157 C 920.67154,351.61838 914.01232,354.2311 912.01105,354.51612 C 892.2826,357.32582 892.57782,351.12811 895.5625,328.84375 C 895.9246,326.14027 896.32818,323.51982 896.78125,321 C 896.18532,320.91662 895.58675,320.63026 895.03125,320.125 z"
+       id="path2828"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 908.11572,314.98523 C 909.44502,314.55803 909.63162,313.67376 909.82708,312.79303 C 914.66378,325.69903 918.39937,350.05635 919.94861,350.56915 C 920.00419,352.75447 914.30915,354.00358 914.52969,350.97625 C 913.97807,338.5987 912.36771,325.97514 908.11572,314.98523 z"
+       id="path2830"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1094.2321,319.89194 C 1098.9151,324.15142 1106.1581,312.20798 1096.9316,308.94786 L 1097.558,307.00069 L 1099.6092,307.98013 C 1104.1463,309.67627 1104.5793,315.34933 1108.1898,314.71017 C 1111.3329,314.15376 1108.7075,309.56123 1109.2935,308.55698 L 1109.637,309.59638 C 1115.3736,326.29719 1117.8962,329.09566 1118.9769,348.52798 C 1119.0449,349.75021 1120.263,350.18888 1120.9126,352.6072 C 1113.4147,357.80688 1108.0128,362.25512 1101.3642,364.39662 C 1097.1029,365.76921 1087.5024,367.01124 1085.418,363.3897 C 1085.7656,348.15462 1088.6448,334.29821 1094.2321,319.89194 z"
+       id="path2848"
+       sodipodi:nodetypes="ccccsccscscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 1098.2812,307.5 L 1097.6875,309.40625 C 1098.4237,309.6664 1099.0301,309.98397 1099.5625,310.34375 C 1099.8085,309.70578 1100.0372,309.06145 1100.3125,308.46875 L 1098.2812,307.5 z M 1095.0312,320.125 C 1089.5535,334.24869 1086.497,346.03251 1086.1562,360.96875 C 1093.0236,373.9649 1100.584,361.84494 1111.1903,356.54333 C 1111.154,355.10902 1115.5056,352.94921 1114.3396,352.2712 C 1109.0374,349.18777 1118.131,349.80575 1118.9941,350.42157 C 1120.6715,351.61838 1114.0123,354.2311 1112.011,354.51612 C 1092.2826,357.32582 1092.5778,351.12811 1095.5625,328.84375 C 1095.9246,326.14027 1096.3282,323.51982 1096.7812,321 C 1096.1853,320.91662 1095.5867,320.63026 1095.0312,320.125 z"
+       id="path2850"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 1108.1157,314.98523 C 1109.445,314.55803 1109.6316,313.67376 1109.8271,312.79303 C 1114.6638,325.69903 1118.3993,350.05635 1119.9486,350.56915 C 1120.0042,352.75447 1114.3091,354.00358 1114.5297,350.97625 C 1113.978,338.5987 1112.3677,325.97514 1108.1157,314.98523 z"
+       id="path2852"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 294.23212,519.89194 C 298.91512,524.15142 306.15811,512.20798 296.93165,508.94786 L 297.55799,507.00069 L 299.60917,507.98013 C 304.1463,509.67627 304.57933,515.34933 308.18985,514.71017 C 311.33292,514.15376 308.70749,509.56123 309.2935,508.55698 L 309.63703,509.59638 C 315.26122,525.97009 319.1912,530.5675 320.51127,549.2938 C 320.62233,550.86926 323.04026,551.75795 323.57697,558.40631 C 312.75843,563.81399 296.48216,564.00667 283.69171,559.55476 C 284.40457,555.00349 286.54809,553.85757 286.52031,550.54154 C 286.42236,538.85073 289.372,532.42313 294.23212,519.89194 z"
+       id="path2868"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/fall/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 298.28124,507.5 L 297.68749,509.40625 C 298.42373,509.6664 299.03013,509.98397 299.56249,510.34375 C 299.80851,509.70578 300.03724,509.06145 300.31249,508.46875 L 298.28124,507.5 z M 295.03124,520.125 C 289.55349,534.24869 286.49706,546.03251 286.15624,560.96875 C 298.69581,565.33333 310.42491,565.58286 321.03124,560.28125 C 320.9949,558.84694 320.94398,557.44072 320.87499,556.09375 C 320.87495,556.09303 320.84378,556.09447 320.84374,556.09375 C 319.01657,557.04638 317.09501,557.68373 315.09374,557.96875 C 295.36529,560.77845 292.57781,551.12811 295.56249,528.84375 C 295.92459,526.14027 296.32817,523.51982 296.78124,521 C 296.18531,520.91662 295.58674,520.63026 295.03124,520.125 z"
+       id="path2870"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/fall/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 308.11571,514.98523 C 309.44501,514.55803 309.63161,513.67376 309.82707,512.79303 C 314.66377,525.69903 319.38583,541.17816 319.45537,554.63832 C 319.51095,556.82364 314.30914,554.00358 314.52968,550.97625 C 313.97806,538.5987 312.3677,525.97514 308.11571,514.98523 z"
+       id="path2872"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/fall/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 94.232118,719.89195 C 98.915118,724.15143 106.15811,712.20799 96.931648,708.94787 L 97.557988,707.0007 L 99.609168,707.98014 C 104.1463,709.67628 104.57933,715.34934 108.18985,714.71018 C 111.33292,714.15377 108.70749,709.56124 109.2935,708.55699 L 109.63703,709.59639 C 115.73439,727.34763 120.17184,738.7169 120.73212,760.83017 C 109.91358,766.23785 97.961858,765.97961 85.17141,761.5277 C 85.51903,746.29262 88.64477,734.29822 94.232118,719.89195 z"
+       id="path2876"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 98.281238,707.50001 L 97.687488,709.40626 C 98.423728,709.66641 99.030128,709.98398 99.562488,710.34376 C 99.808508,709.70579 100.03724,709.06146 100.31249,708.46876 L 98.281238,707.50001 z M 95.031238,720.12501 C 89.55349,734.2487 86.49706,746.03252 86.15624,760.96876 C 98.695808,765.33334 110.42491,765.58287 121.03124,760.28126 C 120.9949,758.84695 120.94398,757.44073 120.87499,756.09376 C 120.87495,756.09304 120.84378,756.09448 120.84374,756.09376 C 119.01657,757.04639 117.09501,757.68374 115.09374,757.96876 C 95.365288,760.77846 92.577808,751.12812 95.562488,728.84376 C 95.924588,726.14028 96.328168,723.51983 96.781238,721.00001 C 96.185308,720.91663 95.586738,720.63027 95.031238,720.12501 z"
+       id="path2878"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 108.11571,714.98524 C 109.44501,714.55804 109.63161,713.67377 109.82707,712.79304 C 114.66377,725.69904 119.38583,741.17817 119.45537,754.63833 C 119.51095,756.82365 114.30914,754.00359 114.52968,750.97626 C 113.97806,738.59871 112.3677,725.97515 108.11571,714.98524 z"
+       id="path2880"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 296.09162,920.82668 C 299.45442,926.19001 309.6464,916.63856 301.63888,911.01402 L 302.76649,909.30749 L 304.47809,910.80316 C 308.39077,913.65857 307.27993,919.23864 310.92918,919.59549 C 314.10597,919.90613 312.81441,914.77621 313.64923,913.96689 L 313.70014,915.06041 C 314.51108,928.98441 315.38841,939.26756 313.56318,952.43286 C 312.9322,956.98407 314.07086,958.20525 311.982,964.06357 C 300.1068,966.35778 289.71255,965.69277 278.41931,957.61185 C 280.38054,952.71338 279.21776,949.44188 281.07585,945.34222 C 284.95181,936.79033 289.83172,929.1877 296.09162,920.82668 z"
+       id="path2884"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 301.76894,909.18416 L 301.17519,911.09041 C 301.91143,911.35056 302.51783,911.66813 303.05019,912.02791 C 303.29621,911.38994 303.52494,910.74561 303.80019,910.15291 L 301.76894,909.18416 z M 298.51894,921.80916 C 293.04119,935.93285 291.58087,947.01423 291.92439,960.73478 C 304.46396,965.09936 313.91261,967.26702 324.51894,961.96541 C 324.4826,960.5311 324.43168,959.12488 324.36269,957.77791 C 324.36265,957.77719 324.33148,957.77863 324.33144,957.77791 C 322.50427,958.73054 320.58271,959.36789 318.58144,959.65291 C 298.85299,962.46261 296.06551,952.81227 299.05019,930.52791 C 299.41229,927.82443 299.81587,925.20398 300.26894,922.68416 C 299.67301,922.60078 299.07444,922.31442 298.51894,921.80916 z"
+       id="path2886"
+       transform="matrix(0.9630504,0.2693211,-0.2693211,0.9630504,257.57229,-46.879808)"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 311.60341,916.66939 C 312.93271,916.24219 313.11931,915.35792 313.31477,914.47719 C 318.15147,927.38319 322.87353,942.86232 322.94307,956.32248 C 322.99865,958.5078 317.79684,955.68774 318.01738,952.66041 C 317.46576,940.28286 315.8554,927.6593 311.60341,916.66939 z"
+       id="path2888"
+       sodipodi:nodetypes="ccccc"
+       transform="matrix(0.9630504,0.2693211,-0.2693211,0.9630504,257.57229,-46.879808)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 504.94512,921.64308 C 506.64102,927.74208 519.13134,921.48918 513.05749,913.81688 L 514.62446,912.50219 L 515.83917,914.42342 C 518.77649,918.27499 516.12232,923.30752 519.51878,924.689 C 522.4755,925.8916 522.69857,920.60629 523.72933,920.06827 L 523.46666,921.13099 C 520.27812,934.70925 518.19023,944.81635 512.69079,956.91647 C 510.78964,961.09944 513.27471,961.33499 511.6964,965.65816 C 499.65962,964.47499 488.84145,965.44965 480.31763,954.48686 C 482.42622,951.04589 482.71249,942.34873 485.66129,938.94811 C 491.8125,931.85441 496.56308,927.87483 504.94512,921.64308 z"
+       id="path2896"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4133)"
+       d="M 514.97079,913.30995 L 513.4532,914.60734 C 513.93786,915.21957 514.28206,915.81127 514.5411,916.39927 C 515.08904,915.99025 515.62574,915.56664 516.17432,915.21152 L 514.97079,913.30995 z M 505.49743,922.26587 C 493.3404,931.30417 483.4325,940.69746 482.16633,954.2051 C 490.45648,964.5764 494.32266,968.94035 506.12333,970.10031 C 506.85629,968.86688 507.56195,967.64947 508.22077,966.4726 C 508.22113,966.47196 508.19398,966.45659 508.19432,966.45596 C 506.14047,966.2894 504.17459,965.80573 502.32885,964.98137 C 484.13362,956.85492 486.91262,947.20213 501.30468,929.92875 C 503.05069,927.83319 504.7876,925.83 506.51282,923.93834 C 506.0528,923.55045 505.69861,922.98934 505.49743,922.26587 z"
+       id="path2898"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4137)"
+       d="M 519.30956,924.88235 C 520.66221,925.22855 521.29101,924.57942 521.92542,923.938 C 519.14744,937.43768 514.90232,953.05434 507.7941,964.48475 C 506.67754,966.36411 503.77605,961.20727 505.57467,958.76222 C 511.69838,947.99151 517.0569,936.44881 519.30956,924.88235 z"
+       id="path2900"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 704.9451,921.64305 C 706.641,927.74205 719.13132,921.48915 713.05747,913.81685 L 714.62444,912.50216 L 715.83915,914.42339 C 718.77647,918.27496 716.1223,923.30749 719.51876,924.68897 C 722.47548,925.89157 722.69855,920.60626 723.72931,920.06824 L 723.46664,921.13096 C 720.2781,934.70922 718.19021,944.81632 712.69077,956.91644 C 710.78962,961.09941 712.054,960.11427 711.522,965.13498 C 701.05467,965.87003 691.10842,966.84469 681.5383,955.00998 C 681.3799,949.4764 682.71247,942.3487 685.66127,938.94808 C 691.81248,931.85438 696.56306,927.8748 704.9451,921.64305 z"
+       id="path3678"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4149)"
+       d="M 714.97077,913.30992 L 713.45318,914.60731 C 713.93784,915.21954 714.28204,915.81124 714.54108,916.39924 C 715.08902,915.99022 715.62572,915.56661 716.1743,915.21149 L 714.97077,913.30992 z M 705.49741,922.26584 C 693.34038,931.30414 680.11918,942.79004 682.86384,954.37945 C 691.15399,964.75075 694.32264,968.94032 706.12331,970.10028 C 706.85627,968.86685 707.56193,967.64944 708.22075,966.47257 C 708.22111,966.47193 708.19396,966.45656 708.1943,966.45593 C 706.14045,966.28937 704.17457,965.8057 702.32883,964.98134 C 684.1336,956.85489 686.9126,947.2021 701.30466,929.92872 C 703.05067,927.83316 704.78758,925.82997 706.5128,923.93831 C 706.05278,923.55042 705.69859,922.98931 705.49741,922.26584 z"
+       id="path3680"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4153)"
+       d="M 719.30954,925.52162 C 720.66219,925.86782 721.29099,925.21869 721.9254,924.57727 C 719.14742,938.07695 714.9023,953.69361 707.79408,965.12402 C 706.67752,967.00338 703.77603,961.84654 705.57465,959.40149 C 711.69836,948.63078 717.05688,937.08808 719.30954,925.52162 z"
+       id="path3682"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 892.41998,922.05461 C 896.71254,926.70733 904.97224,915.44306 896.0662,911.38859 L 896.86044,909.50363 L 898.81811,910.6587 C 903.1895,912.74514 903.12481,918.43429 906.77735,918.11337 C 909.95701,917.83397 907.74329,913.02942 908.41492,912.08024 L 908.6662,913.14572 C 912.0263,926.68254 913.90952,936.62849 914.53873,949.90484 C 914.75629,954.4944 914.03662,957.226 915.33157,961.23856 C 906.35343,966.66993 897.25087,966.67072 883.33426,960.50831 C 882.06286,954.43628 882.26238,947.48609 883.33409,943.11447 C 885.56969,933.99526 887.80598,931.42506 892.41998,922.05461 z"
+       id="path3705"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4165)"
+       d="M 897.53724,910.06431 L 896.77905,911.91132 C 897.48974,912.23485 898.06606,912.60424 898.56487,913.00922 C 898.86579,912.39517 899.15,911.77331 899.47605,911.20695 L 897.53724,910.06431 z M 893.19564,922.35668 C 886.50367,935.94724 879.98198,952.20128 887.71356,961.26054 C 899.82336,966.70504 904.55491,968.98661 915.58427,964.63285 C 915.67345,963.20088 915.74573,961.79558 915.79479,960.44775 C 915.79486,960.447 915.76364,960.44574 915.76371,960.44499 C 913.86018,961.2342 911.89023,961.70108 909.87173,961.80997 C 889.97319,962.88359 888.04033,953.02645 892.96235,931.08851 C 893.55948,928.42706 894.19067,925.85195 894.86243,923.38137 C 894.27602,923.24623 893.70477,922.90862 893.19564,922.35668 z"
+       id="path3707"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4169)"
+       d="M 906.67945,918.38089 C 908.04097,918.0716 908.30419,917.20703 908.57601,916.34673 C 912.26549,929.62627 914.3951,946.33096 913.28718,959.74568 C 913.15149,961.92746 909.43691,957.79137 909.92133,954.79494 C 910.45427,942.41658 909.95401,929.70056 906.67945,918.38089 z"
+       id="path3709"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 293.47713,1120.2047 C 298.44736,1124.1252 304.83477,1111.7031 295.40236,1109.0982 L 295.89058,1107.1119 L 298.00541,1107.9451 C 302.65033,1109.3188 303.48022,1114.9475 307.03702,1114.0567 C 310.13332,1113.2812 307.19222,1108.8841 307.70635,1107.8412 L 308.12194,1108.854 C 315.44939,1126.1337 320.32461,1137.3382 323.48091,1158.8345 C 313.06832,1164.9877 300.08161,1165.0453 287.0104,1161.5015 C 286.98607,1147.5003 288.91403,1134.9674 293.47713,1120.2047 z"
+       id="path3713"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4117)"
+       d="M 296.64707,1107.5593 L 296.1885,1109.5025 C 296.94117,1109.7104 297.56835,1109.9846 298.12464,1110.3062 C 298.3253,1109.6525 298.50828,1108.9938 298.74127,1108.3832 L 296.64707,1107.5593 z M 294.29063,1120.3812 C 289.81704,1134.8543 287.59469,1146.8235 288.30237,1161.7469 C 301.1172,1165.2212 312.83492,1164.6473 323.04325,1158.6149 C 322.9064,1157.1866 322.75696,1155.7874 322.59367,1154.4486 C 322.59358,1154.4479 322.56258,1154.4515 322.56249,1154.4508 C 320.80664,1155.5292 318.93452,1156.2998 316.95817,1156.7245 C 297.47539,1160.9111 294.01788,1151.48 295.43213,1129.0412 C 295.60371,1126.319 295.82248,1123.6766 296.09769,1121.1313 C 295.49738,1121.0899 294.8802,1120.8463 294.29063,1120.3812 z"
+       id="path3715"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4121)"
+       d="M 306.98236,1114.3363 C 308.27842,1113.817 308.40253,1112.9217 308.53574,1112.0295 C 314.26578,1124.5645 320.06196,1139.6742 321.07545,1153.0963 C 321.28418,1155.2724 315.89738,1152.8241 315.90503,1149.7888 C 314.48657,1137.4804 311.99474,1125.0009 306.98236,1114.3363 z"
+       id="path3717"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 487.65635,1118.8375 C 493.19869,1121.8962 498.20424,1105.4532 487.74737,1107.5657 L 487.90563,1105.5265 L 490.12791,1106.0042 C 494.93452,1106.6032 496.66988,1112.0216 500.03416,1110.5635 C 502.96285,1109.2942 499.25782,1106.5682 499.59527,1105.4555 L 500.17023,1106.0383 C 508.85436,1119.7483 515.05516,1128.6887 520.8505,1144.2364 C 521.75758,1146.6699 524.57296,1146.6495 525.46814,1149.4503 C 516.54524,1158.2632 502.52055,1163.3993 488.00044,1160.6361 C 485.69657,1146.8258 485.55801,1134.1462 487.65635,1118.8375 z"
+       id="path3731"
+       sodipodi:nodetypes="ccccsccsccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4101)"
+       d="M 488.72488,1105.8447 L 488.58885,1107.8366 C 489.36533,1107.9192 490.02878,1108.0876 490.63002,1108.3143 C 490.72155,1107.6367 490.79483,1106.957 490.92529,1106.3166 L 488.72488,1105.8447 z M 488.48773,1118.8792 C 486.43056,1133.8876 486.18686,1146.0589 489.31513,1160.6679 C 502.52466,1162.0091 513.99254,1159.5348 523.08234,1151.9207 C 522.71474,1150.5337 522.33946,1149.1775 521.96035,1147.8832 C 521.96015,1147.8825 521.93015,1147.8911 521.92994,1147.8905 C 520.37313,1149.2404 518.65147,1150.3055 516.77066,1151.0464 C 498.22962,1158.3496 493.28256,1149.6073 491.02413,1127.2377 C 490.75016,1124.5239 490.53574,1121.8812 490.39281,1119.325 C 489.79377,1119.3819 489.14516,1119.2421 488.48773,1118.8792 z"
+       id="path3733"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4105)"
+       d="M 500.02575,1110.8483 C 501.21996,1110.1249 501.19662,1109.2213 501.18278,1108.3194 C 508.87746,1119.754 517.05665,1133.7182 520.24219,1146.7962 C 520.80248,1148.9092 515.08891,1147.3708 514.6022,1144.3747 C 511.19845,1132.4616 506.70779,1120.5544 500.02575,1110.8483 z"
+       id="path3735"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 685.69442,1120.8194 C 691.66732,1122.9164 693.87623,1108.5838 684.0379,1108.3323 L 683.73243,1107.6515 L 686.00317,1107.754 C 690.84255,1107.5474 693.45258,1112.6029 696.52842,1110.607 C 699.20602,1108.8695 696.20993,1109.0153 696.35815,1107.862 L 697.02181,1108.0948 C 707.85965,1120.1745 714.34768,1125.9897 722.64155,1140.3608 C 723.93969,1142.6101 726.71268,1142.123 728.06002,1144.7366 C 719.71175,1156.6462 708.45365,1161.0963 690.00722,1158.7759 C 689.42286,1156.3895 690.941,1155.7715 690.11526,1152.6805 C 687.44479,1142.6842 686.05332,1132.6164 685.69442,1120.8194 z"
+       id="path3741"
+       sodipodi:nodetypes="ccccsccsccsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4085)"
+       d="M 684.59311,1107.8294 L 684.78935,1109.8163 C 685.56878,1109.7689 686.25096,1109.8249 686.88148,1109.9487 C 686.85936,1109.2654 686.81888,1108.583 686.84132,1107.9297 L 684.59311,1107.8294 z M 686.5212,1120.7226 C 686.98187,1135.8643 688.76033,1147.9075 694.26837,1161.7952 C 707.51739,1160.9269 718.41602,1156.5848 726.11702,1147.5685 C 725.52445,1146.2617 724.92943,1144.9865 724.34089,1143.773 C 724.34058,1143.7724 724.31242,1143.7858 724.31211,1143.7852 C 723.00077,1145.3747 721.47962,1146.7106 719.74775,1147.7532 C 702.67487,1158.0305 696.3463,1150.2299 690.40884,1128.5447 C 689.68854,1125.9139 689.03877,1123.3434 688.47383,1120.8463 C 687.89253,1121.0018 687.22971,1120.9714 686.5212,1120.7226 z"
+       id="path3743"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4089)"
+       d="M 696.56737,1110.8892 C 697.62505,1109.9778 697.45216,1109.0906 697.28891,1108.2035 C 706.7736,1118.2034 717.15566,1130.6176 722.46623,1142.986 C 723.36923,1144.9769 717.47964,1144.4074 716.50273,1141.5335 C 711.17018,1130.35 704.76674,1119.3526 696.56737,1110.8892 z"
+       id="path3745"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 887.65636,1118.8375 C 893.1987,1121.8962 898.20425,1105.4532 887.74738,1107.5657 L 887.90564,1105.5265 L 890.12792,1106.0042 C 894.93453,1106.6032 896.66989,1112.0216 900.03417,1110.5635 C 902.96286,1109.2942 899.25783,1106.5682 899.59528,1105.4555 L 900.17024,1106.0383 C 908.85437,1119.7483 915.05517,1128.6887 920.85051,1144.2364 C 921.75759,1146.6699 924.57297,1146.6495 925.46815,1149.4503 C 916.54525,1158.2632 902.52056,1163.3993 888.00045,1160.6361 C 885.69658,1146.8258 885.55802,1134.1462 887.65636,1118.8375 z"
+       id="path3751"
+       sodipodi:nodetypes="ccccsccsccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4069)"
+       d="M 888.72489,1105.8447 L 888.58886,1107.8366 C 889.36534,1107.9192 890.02879,1108.0876 890.63003,1108.3143 C 890.72156,1107.6367 890.79484,1106.957 890.9253,1106.3166 L 888.72489,1105.8447 z M 888.48774,1118.8792 C 886.43057,1133.8876 886.18687,1146.0589 889.31514,1160.6679 C 902.52467,1162.0091 913.99255,1159.5348 923.08235,1151.9207 C 922.71475,1150.5337 922.33947,1149.1775 921.96036,1147.8832 C 921.96016,1147.8825 921.93016,1147.8911 921.92995,1147.8905 C 920.37314,1149.2404 918.65148,1150.3055 916.77067,1151.0464 C 898.22963,1158.3496 893.28257,1149.6073 891.02414,1127.2377 C 890.75017,1124.5239 890.53575,1121.8812 890.39282,1119.325 C 889.79378,1119.3819 889.14517,1119.2421 888.48774,1118.8792 z"
+       id="path3753"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4073)"
+       d="M 900.02576,1110.8483 C 901.21997,1110.1249 901.19663,1109.2213 901.18279,1108.3194 C 908.87747,1119.754 917.05666,1133.7182 920.2422,1146.7962 C 920.80249,1148.9092 915.08892,1147.3708 914.60221,1144.3747 C 911.19846,1132.4616 906.7078,1120.5544 900.02576,1110.8483 z"
+       id="path3755"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1093.4771,1120.2047 C 1098.4474,1124.1252 1104.8348,1111.7031 1095.4024,1109.0982 L 1095.8906,1107.1119 L 1098.0054,1107.9451 C 1102.6503,1109.3188 1103.4802,1114.9475 1107.037,1114.0567 C 1110.1333,1113.2812 1107.1922,1108.8841 1107.7064,1107.8412 L 1108.1219,1108.854 C 1115.4494,1126.1337 1120.3246,1137.3382 1123.4809,1158.8345 C 1113.0683,1164.9877 1100.0816,1165.0453 1087.0104,1161.5015 C 1086.9861,1147.5003 1088.914,1134.9674 1093.4771,1120.2047 z"
+       id="path3777"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4053)"
+       d="M 1096.6471,1107.5593 L 1096.1885,1109.5025 C 1096.9412,1109.7104 1097.5684,1109.9846 1098.1246,1110.3062 C 1098.3253,1109.6525 1098.5083,1108.9938 1098.7413,1108.3832 L 1096.6471,1107.5593 z M 1094.2906,1120.3812 C 1089.817,1134.8543 1087.5947,1146.8235 1088.3024,1161.7469 C 1101.1172,1165.2212 1112.8349,1164.6473 1123.0433,1158.6149 C 1122.9064,1157.1866 1122.757,1155.7874 1122.5937,1154.4486 C 1122.5936,1154.4479 1122.5626,1154.4515 1122.5625,1154.4508 C 1120.8066,1155.5292 1118.9345,1156.2998 1116.9582,1156.7245 C 1097.4754,1160.9111 1094.0179,1151.48 1095.4321,1129.0412 C 1095.6037,1126.319 1095.8225,1123.6766 1096.0977,1121.1313 C 1095.4974,1121.0899 1094.8802,1120.8463 1094.2906,1120.3812 z"
+       id="path3779"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4057)"
+       d="M 1106.9824,1114.3363 C 1108.2784,1113.817 1108.4025,1112.9217 1108.5357,1112.0295 C 1114.2658,1124.5645 1120.062,1139.6742 1121.0755,1153.0963 C 1121.2842,1155.2724 1115.8974,1152.8241 1115.905,1149.7888 C 1114.4866,1137.4804 1111.9947,1125.0009 1106.9824,1114.3363 z"
+       id="path3781"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 294.23213,1319.8919 C 298.91513,1324.1514 306.15812,1312.208 296.93166,1308.9479 L 297.558,1307.0007 L 299.60918,1307.9801 C 304.14631,1309.6763 304.57934,1315.3493 308.18986,1314.7102 C 311.33293,1314.1538 308.7075,1309.5612 309.29351,1308.557 L 309.63704,1309.5964 C 315.7344,1327.3476 320.17185,1338.7169 320.73213,1360.8302 C 309.91359,1366.2378 297.96187,1365.9796 285.17142,1361.5277 C 285.51904,1346.2926 288.64478,1334.2982 294.23213,1319.8919 z"
+       id="path3789"
+       sodipodi:nodetypes="ccccsccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 298.28125,1307.5 L 297.6875,1309.4062 C 298.42374,1309.6664 299.03014,1309.984 299.5625,1310.3437 C 299.80852,1309.7058 300.03725,1309.0614 300.3125,1308.4687 L 298.28125,1307.5 z M 295.03125,1320.125 C 289.5535,1334.2487 286.49707,1346.0325 286.15625,1360.9687 C 298.69582,1365.3333 310.42492,1365.5829 321.03125,1360.2812 C 320.99491,1358.8469 320.94399,1357.4407 320.875,1356.0937 C 320.87496,1356.093 320.84379,1356.0945 320.84375,1356.0937 C 319.01658,1357.0464 317.09502,1357.6837 315.09375,1357.9687 C 295.3653,1360.7784 292.57782,1351.1281 295.5625,1328.8437 C 295.9246,1326.1403 296.32818,1323.5198 296.78125,1321 C 296.18532,1320.9166 295.58675,1320.6303 295.03125,1320.125 z"
+       id="path3791"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 308.11572,1314.9852 C 309.44502,1314.558 309.63162,1313.6738 309.82708,1312.793 C 314.66378,1325.699 319.38584,1341.1782 319.45538,1354.6383 C 319.51096,1356.8236 314.30915,1354.0036 314.52969,1350.9762 C 313.97807,1338.5987 312.36771,1325.9751 308.11572,1314.9852 z"
+       id="path3793"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 494.23213,1321.892 C 498.91513,1326.1515 506.15812,1314.208 496.93165,1310.9479 L 497.558,1309.0007 L 499.60917,1309.9802 C 504.14631,1311.6763 504.57934,1317.3494 508.18986,1316.7102 C 511.33293,1316.1538 508.7075,1311.5613 509.29351,1310.557 L 509.63704,1311.5964 C 514.96595,1327.1105 519.02697,1337.7498 520.33998,1354.947 C 520.52932,1357.4269 521.35905,1358.9969 521.42967,1361.7839 C 515.99892,1364.4985 509.58508,1366.8316 503.62048,1366.8769 C 497.70306,1366.9218 490.66933,1363.8266 484.29949,1361.6095 C 484.36739,1358.6339 485.41317,1357.7002 485.69066,1354.9298 C 486.83391,1343.5155 489.73604,1333.4846 494.23213,1321.892 z"
+       id="path3801"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4238)"
+       d="M 498.28125,1309.5 L 497.6875,1311.4063 C 498.42374,1311.6664 499.03014,1311.984 499.5625,1312.3438 C 499.80852,1311.7058 500.03725,1311.0615 500.3125,1310.4688 L 498.28125,1309.5 z M 495.03125,1322.125 C 489.5535,1336.2487 486.49707,1348.0326 486.15625,1362.9688 C 498.69582,1367.3334 510.42492,1367.5829 521.03125,1362.2813 C 520.99491,1360.847 520.94399,1359.4408 520.875,1358.0938 C 520.87496,1358.0931 520.84379,1358.0945 520.84375,1358.0938 C 519.01658,1359.0464 517.09502,1359.6838 515.09375,1359.9688 C 495.3653,1362.7785 492.57782,1353.1282 495.5625,1330.8438 C 495.9246,1328.1403 496.32818,1325.5199 496.78125,1323 C 496.18531,1322.9167 495.58675,1322.6303 495.03125,1322.125 z"
+       id="path3803"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4289)"
+       d="M 508.11572,1316.9853 C 509.44502,1316.5581 509.63162,1315.6738 509.82708,1314.7931 C 514.66378,1327.6991 519.38584,1343.1782 519.45538,1356.6384 C 519.51096,1358.8237 514.30915,1356.0036 514.52969,1352.9763 C 513.97807,1340.5987 512.36771,1327.9752 508.11572,1316.9853 z"
+       id="path3805"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 694.3863,1321.7687 C 699.0693,1326.0282 706.31229,1314.0847 697.08582,1310.8246 L 697.71218,1308.8774 L 699.76335,1309.8569 C 704.30048,1311.553 704.73352,1317.2261 708.34404,1316.5869 C 711.4871,1316.0305 708.86167,1311.438 709.44768,1310.4337 L 709.79121,1311.4731 C 715.12013,1326.9872 719.18115,1337.6265 720.49415,1354.8237 C 720.68349,1357.3036 720.6413,1359.7455 720.71192,1362.5325 C 715.28118,1365.2471 709.73926,1366.7083 703.77466,1366.7536 C 697.85723,1366.7985 692.0442,1364.5752 685.67436,1362.3581 C 685.74226,1359.3825 685.56734,1357.5769 685.84483,1354.8065 C 686.98808,1343.3922 689.89021,1333.3613 694.3863,1321.7687 z"
+       id="path3811"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3893)"
+       d="M 698.43542,1309.3767 L 697.84168,1311.283 C 698.57791,1311.5431 699.18431,1311.8607 699.71668,1312.2205 C 699.96269,1311.5825 700.19142,1310.9382 700.46668,1310.3455 L 698.43542,1309.3767 z M 695.18542,1322.0017 C 689.70767,1336.1254 686.65125,1347.9093 686.31042,1362.8455 C 698.84999,1367.2101 710.57909,1367.4596 721.18542,1362.158 C 721.14909,1360.7237 721.09816,1359.3175 721.02918,1357.9705 C 721.02914,1357.9698 720.99796,1357.9712 720.99792,1357.9705 C 719.17075,1358.9231 717.2492,1359.5605 715.24793,1359.8455 C 695.51948,1362.6552 692.73199,1353.0049 695.71668,1330.7205 C 696.07878,1328.017 696.48235,1325.3966 696.93542,1322.8767 C 696.33949,1322.7934 695.74092,1322.507 695.18542,1322.0017 z"
+       id="path3813"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3897)"
+       d="M 708.2699,1316.862 C 709.5992,1316.4348 709.7858,1315.5505 709.98125,1314.6698 C 714.81796,1327.5758 719.54001,1343.0549 719.60956,1356.5151 C 719.66514,1358.7004 714.46332,1355.8803 714.68386,1352.853 C 714.13225,1340.4754 712.52189,1327.8519 708.2699,1316.862 z"
+       id="path3815"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 894.38629,1319.7688 C 899.06929,1324.0283 906.31228,1312.0848 897.08581,1308.8247 L 897.71217,1306.8775 L 899.76334,1307.857 C 904.30047,1309.5531 904.73351,1315.2262 908.34403,1314.587 C 911.48709,1314.0306 908.86166,1309.4381 909.44767,1308.4338 L 909.7912,1309.4732 C 915.12012,1324.9873 918.83237,1335.801 920.14537,1352.9982 C 920.33471,1355.4781 920.29252,1357.92 920.36314,1360.707 C 914.9324,1363.4216 909.73925,1364.7084 903.77465,1364.7537 C 897.85722,1364.7986 892.56734,1362.5753 886.1975,1360.3582 C 886.2654,1357.3826 886.09048,1355.4026 886.36797,1352.6322 C 887.51122,1341.2179 889.8902,1331.3614 894.38629,1319.7688 z"
+       id="path3819"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3913)"
+       d="M 898.43541,1307.3768 L 897.84167,1309.2831 C 898.5779,1309.5432 899.1843,1309.8608 899.71667,1310.2206 C 899.96268,1309.5826 900.19141,1308.9383 900.46667,1308.3456 L 898.43541,1307.3768 z M 895.18541,1320.0018 C 889.70766,1334.1255 886.77455,1345.1696 886.43372,1360.1058 C 898.97329,1364.4704 909.22269,1365.4597 919.82902,1360.1581 C 919.79269,1358.7238 920.99795,1356.0946 919.64152,1356.0939 C 917.58094,1356.0928 917.24919,1357.5606 915.24792,1357.8456 C 895.51947,1360.6553 892.73198,1351.005 895.71667,1328.7206 C 896.07877,1326.0171 896.48234,1323.3967 896.93541,1320.8768 C 896.33948,1320.7935 895.74091,1320.5071 895.18541,1320.0018 z"
+       id="path3821"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3909)"
+       d="M 908.26989,1314.8621 C 909.59919,1314.4349 909.78579,1313.5506 909.98124,1312.6699 C 914.81795,1325.5759 919.54,1341.055 919.60955,1354.5152 C 919.66513,1356.7005 914.46331,1353.8804 914.68385,1350.8531 C 914.13224,1338.4755 912.52188,1325.852 908.26989,1314.8621 z"
+       id="path3823"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1094.3863,1315.7688 C 1099.0693,1320.0283 1106.3123,1308.0848 1097.0858,1304.8247 L 1097.7122,1302.8775 L 1099.7634,1303.857 C 1104.3005,1305.5531 1104.7335,1311.2262 1108.344,1310.587 C 1111.4871,1310.0306 1108.8617,1305.4381 1109.4477,1304.4338 L 1109.7912,1305.4732 C 1115.1201,1320.9873 1118.0926,1330.3213 1119.4056,1347.5185 C 1119.5949,1349.9984 1120.0459,1353.1802 1120.1166,1355.9672 C 1114.6858,1358.6818 1109.7393,1360.7084 1103.7747,1360.7537 C 1097.8572,1360.7986 1093.3072,1358.5753 1086.9373,1356.3582 C 1087.0052,1353.3826 1086.8303,1345.977 1087.1078,1343.2066 C 1088.251,1331.7923 1089.8902,1327.3614 1094.3863,1315.7688 z"
+       id="path3827"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3925)"
+       d="M 1098.4354,1303.3768 L 1097.8417,1305.2831 C 1098.5779,1305.5432 1099.1843,1305.8608 1099.7167,1306.2206 C 1099.9627,1305.5826 1100.1914,1304.9383 1100.4667,1304.3456 L 1098.4354,1303.3768 z M 1095.1854,1316.0018 C 1088.994,1329.7686 1086.5183,1341.8429 1086.3104,1356.8456 C 1099.0338,1361.7616 1109.3667,1361.3985 1119.829,1355.6649 C 1119.7927,1354.2306 1119.395,1352.0946 1119.3949,1352.0939 C 1117.5678,1353.0465 1117.2492,1353.5606 1115.2479,1353.8456 C 1095.5195,1356.6553 1092.732,1347.005 1095.7167,1324.7206 C 1096.0788,1322.0171 1096.4824,1319.3967 1096.9354,1316.8768 C 1096.3395,1316.7935 1095.7409,1316.5071 1095.1854,1316.0018 z"
+       id="path3829"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3929)"
+       d="M 1108.2699,1310.8621 C 1109.5992,1310.4349 1109.7858,1309.5506 1109.9813,1308.6699 C 1114.818,1321.5759 1119.2934,1336.6851 1119.363,1350.1453 C 1119.4185,1352.3306 1114.4633,1349.8804 1114.6839,1346.8531 C 1114.1323,1334.4755 1112.5219,1321.852 1108.2699,1310.8621 z"
+       id="path3831"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1294.3864,1311.7688 C 1299.0694,1316.0283 1306.3124,1304.0848 1297.0859,1300.8247 L 1297.7123,1298.8775 L 1299.7635,1299.857 C 1304.3006,1301.5531 1304.7336,1307.2262 1308.3441,1306.587 C 1311.4872,1306.0306 1308.8618,1301.4381 1309.4478,1300.4338 L 1309.7913,1301.4732 C 1315.1202,1316.9873 1318.0927,1326.3213 1319.4057,1343.5185 C 1319.595,1345.9984 1319.5528,1348.687 1318.8836,1352.2138 C 1313.4528,1354.9284 1309.984,1355.6832 1304.0214,1355.5206 C 1296.8708,1355.3189 1294.2938,1354.5753 1287.9239,1352.3582 C 1287.2519,1348.8894 1286.8304,1341.977 1287.1079,1339.2066 C 1288.2511,1327.7923 1289.8903,1323.3614 1294.3864,1311.7688 z"
+       id="path3837"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3941)"
+       d="M 1298.4355,1299.3768 L 1297.8418,1301.2831 C 1298.578,1301.5432 1299.1844,1301.8608 1299.7168,1302.2206 C 1299.9628,1301.5826 1300.1915,1300.9383 1300.4668,1300.3456 L 1298.4355,1299.3768 z M 1295.1855,1312.0018 C 1289.7078,1326.1255 1286.3026,1334.3345 1288.0543,1352.1481 C 1300.5939,1356.5127 1308.0506,1357.1981 1318.6569,1351.8965 C 1318.6206,1350.4622 1319.1801,1349.056 1319.1111,1347.709 C 1319.111,1347.7083 1317.2493,1349.5606 1315.248,1349.8456 C 1295.5196,1352.6553 1292.7321,1343.005 1295.7168,1320.7206 C 1296.0789,1318.0171 1296.4825,1315.3967 1296.9355,1312.8768 C 1296.3396,1312.7935 1295.741,1312.5071 1295.1855,1312.0018 z"
+       id="path3839"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3945)"
+       d="M 1308.27,1306.8621 C 1309.5993,1306.4349 1309.7859,1305.5506 1309.9814,1304.6699 C 1314.8181,1317.5759 1319.1913,1333.1422 1319.2609,1346.6024 C 1319.3164,1348.7877 1314.4634,1345.8804 1314.684,1342.8531 C 1314.1324,1330.4755 1312.522,1317.852 1308.27,1306.8621 z"
+       id="path3841"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1494.3864,1313.2562 C 1499.0694,1317.5157 1506.3124,1305.5722 1497.0859,1302.3121 L 1497.7123,1300.3649 L 1499.7635,1301.3444 C 1504.3006,1303.0405 1504.7336,1308.7136 1508.3441,1308.0744 C 1511.4872,1307.518 1508.8618,1302.9255 1509.4478,1301.9212 L 1509.7913,1302.9606 C 1515.1202,1318.4747 1518.0927,1327.8087 1519.4057,1345.0059 C 1519.595,1347.4858 1520.7859,1350.0511 1520.1167,1353.5779 C 1515.3024,1355.676 1509.8607,1356.8007 1503.8981,1356.6381 C 1496.7475,1356.4364 1491.581,1355.8161 1485.951,1353.8456 C 1485.279,1350.3768 1486.8304,1343.4644 1487.1079,1340.694 C 1488.2511,1329.2797 1489.8903,1324.8488 1494.3864,1313.2562 z"
+       id="path3847"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3957)"
+       d="M 1498.4355,1300.8642 L 1497.8418,1302.7705 C 1498.578,1303.0306 1499.1844,1303.3482 1499.7168,1303.708 C 1499.9628,1303.07 1500.1915,1302.4257 1500.4668,1301.833 L 1498.4355,1300.8642 z M 1495.1855,1313.4892 C 1489.7078,1327.6129 1486.5281,1338.5336 1486.1872,1353.4698 C 1498.7268,1357.8344 1509.2228,1358.3306 1519.8291,1353.029 C 1519.7928,1351.5947 1519.5184,1349.2121 1519.5183,1349.2114 C 1517.6912,1350.164 1517.2493,1351.048 1515.248,1351.333 C 1495.5196,1354.1427 1492.7321,1344.4924 1495.7168,1322.208 C 1496.0789,1319.5045 1496.4825,1316.8841 1496.9355,1314.3642 C 1496.3396,1314.2809 1495.741,1313.9945 1495.1855,1313.4892 z"
+       id="path3849"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3961)"
+       d="M 1508.27,1308.3495 C 1509.5993,1307.9223 1509.7859,1307.038 1509.9814,1306.1573 C 1514.8181,1319.0633 1519.0469,1333.9259 1519.1165,1347.3861 C 1519.172,1349.5714 1514.4634,1347.3678 1514.684,1344.3405 C 1514.1324,1331.9629 1512.522,1319.3394 1508.27,1308.3495 z"
+       id="path3851"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1694.3864,1317.2561 C 1699.0694,1321.5156 1706.3124,1309.5721 1697.0859,1306.312 L 1697.7123,1304.3648 L 1699.7635,1305.3443 C 1704.3006,1307.0404 1704.7336,1312.7135 1708.3441,1312.0743 C 1711.4872,1311.5179 1708.8618,1306.9254 1709.4478,1305.9211 L 1709.7913,1306.9605 C 1715.1202,1322.4746 1717.8461,1330.0823 1719.1591,1347.2795 C 1719.3484,1349.7594 1722.019,1352.6946 1721.3498,1356.2214 C 1716.5355,1358.3195 1709.7374,1360.554 1703.7748,1360.3914 C 1696.6242,1360.1897 1686.8953,1358.7062 1683.9781,1355.3793 C 1683.3061,1351.9105 1686.7071,1346.1079 1686.9846,1343.3375 C 1688.1278,1331.9232 1689.8903,1328.8487 1694.3864,1317.2561 z"
+       id="path3855"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3981)"
+       d="M 1698.4355,1304.8641 L 1697.8418,1306.7704 C 1698.578,1307.0305 1699.1844,1307.3481 1699.7168,1307.7079 C 1699.9628,1307.0699 1700.1915,1306.4256 1700.4668,1305.8329 L 1698.4355,1304.8641 z M 1695.1855,1317.4891 C 1687.8225,1331.9899 1687.5164,1343.7817 1684.741,1355.194 C 1696.4777,1360.9294 1710.6816,1361.8628 1720.6623,1355.7272 C 1720.626,1354.2929 1720.2264,1353.5842 1720.1574,1352.2372 C 1720.1573,1352.2365 1717.2493,1355.0479 1715.248,1355.3329 C 1695.5196,1358.1426 1692.7321,1348.4923 1695.7168,1326.2079 C 1696.0789,1323.5044 1696.4825,1320.884 1696.9355,1318.3641 C 1696.3396,1318.2808 1695.741,1317.9944 1695.1855,1317.4891 z"
+       id="path3857"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3985)"
+       d="M 1708.27,1312.3494 C 1709.5993,1311.9222 1709.7859,1311.0379 1709.9814,1310.1572 C 1714.8181,1323.0632 1719.5401,1338.5423 1719.6097,1352.0025 C 1719.6652,1354.1878 1714.4634,1351.3677 1714.684,1348.3404 C 1714.1324,1335.9628 1712.522,1323.3393 1708.27,1312.3494 z"
+       id="path3859"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1894.3864,1321.2562 C 1899.0694,1325.5157 1906.3124,1313.5722 1897.0859,1310.3121 L 1897.7123,1308.3649 L 1899.7635,1309.3444 C 1904.3006,1311.0405 1904.7336,1316.7136 1908.3441,1316.0744 C 1911.4872,1315.518 1908.8618,1310.9255 1909.4478,1309.9212 L 1909.7913,1310.9606 C 1915.1202,1326.4747 1918.3393,1336.0553 1919.1591,1348.8134 C 1919.3186,1351.2954 1921.3215,1356.3459 1921.873,1359.1752 C 1917.0587,1361.2733 1909.9118,1364.0309 1903.9492,1363.8683 C 1896.7986,1363.6666 1886.0234,1362.0088 1883.1062,1358.6819 C 1883.6549,1355.9106 1886.6865,1347.6019 1887.2312,1344.8714 C 1889.3609,1334.197 1889.8903,1332.8488 1894.3864,1321.2562 z"
+       id="path3863"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4005)"
+       d="M 1898.4355,1308.8642 L 1897.8418,1310.7705 C 1898.578,1311.0306 1899.1844,1311.3482 1899.7168,1311.708 C 1899.9628,1311.07 1900.1915,1310.4257 1900.4668,1309.833 L 1898.4355,1308.8642 z M 1895.1855,1321.4892 C 1889.7078,1335.6129 1887.5146,1345.6705 1884.2143,1358.8804 C 1896.8566,1364.1697 1910.303,1366.0643 1920.6923,1358.8094 C 1920.656,1357.3751 1920.7284,1357.202 1920.6594,1355.855 C 1920.6593,1355.8543 1917.2493,1359.048 1915.248,1359.333 C 1895.5196,1362.1427 1892.7321,1352.4924 1895.7168,1330.208 C 1896.0789,1327.5045 1896.4825,1324.8841 1896.9355,1322.3642 C 1896.3396,1322.2809 1895.741,1321.9945 1895.1855,1321.4892 z"
+       id="path3865"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4009)"
+       d="M 1908.27,1316.3495 C 1909.5993,1315.9223 1909.7859,1315.038 1909.9814,1314.1573 C 1914.8181,1327.0633 1919.5401,1342.5424 1919.6097,1356.0026 C 1919.6652,1358.1879 1914.4634,1355.3678 1914.684,1352.3405 C 1914.1324,1339.9629 1912.522,1327.3394 1908.27,1316.3495 z"
+       id="path3867"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 2094.3865,1323.2562 C 2099.0695,1327.5157 2106.3125,1315.5722 2097.086,1312.3121 L 2097.7124,1310.3649 L 2099.7636,1311.3444 C 2104.3007,1313.0405 2104.7337,1318.7136 2108.3442,1318.0744 C 2111.4873,1317.518 2108.8619,1312.9255 2109.4479,1311.9212 L 2109.7914,1312.9606 C 2115.1203,1328.4747 2118.3394,1338.0553 2119.1592,1350.8134 C 2119.3187,1353.2954 2121.1472,1357.9971 2122.9194,1359.9545 C 2118.1051,1362.0526 2110.0863,1365.159 2104.1237,1364.9964 C 2096.9731,1364.7947 2085.326,1362.4393 2082.4088,1359.1124 C 2085.0501,1356.6899 2086.6866,1349.6019 2087.2313,1346.8714 C 2089.361,1336.197 2089.8904,1334.8488 2094.3865,1323.2562 z"
+       id="path3871"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4021)"
+       d="M 2098.4356,1310.8642 L 2097.8419,1312.7705 C 2098.5781,1313.0306 2099.1845,1313.3482 2099.7169,1313.708 C 2099.9629,1313.07 2100.1916,1312.4257 2100.4669,1311.833 L 2098.4356,1310.8642 z M 2095.1856,1323.4892 C 2089.0914,1337.243 2088.0079,1349.7667 2083.3512,1359.4007 C 2097.987,1365.9848 2106.5101,1366.8509 2121.8021,1359.6996 C 2121.7658,1358.2653 2120.9751,1359.3253 2120.9061,1357.9783 C 2120.906,1357.9776 2117.2494,1361.048 2115.2481,1361.333 C 2095.5197,1364.1427 2092.7322,1354.4924 2095.7169,1332.208 C 2096.079,1329.5045 2096.4826,1326.8841 2096.9356,1324.3642 C 2096.3397,1324.2809 2095.7411,1323.9945 2095.1856,1323.4892 z"
+       id="path3873"
+       sodipodi:nodetypes="ccccccccssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4025)"
+       d="M 2108.2701,1318.3495 C 2109.5994,1317.9223 2109.786,1317.038 2109.9815,1316.1573 C 2114.8182,1329.0633 2119.5402,1344.5424 2119.6098,1358.0026 C 2119.6653,1360.1879 2114.4635,1357.3678 2114.6841,1354.3405 C 2114.1325,1341.9629 2112.5221,1329.3394 2108.2701,1318.3495 z"
+       id="path3875"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 2294.3865,1321.2562 C 2299.0695,1325.5157 2306.3125,1313.5722 2297.086,1310.3121 L 2297.7124,1308.3649 L 2299.7636,1309.3444 C 2304.3007,1311.0405 2304.7337,1316.7136 2308.3442,1316.0744 C 2311.4873,1315.518 2308.8619,1310.9255 2309.4479,1309.9212 L 2309.7914,1310.9606 C 2315.1203,1326.4747 2319.0369,1338.3223 2319.8567,1351.0804 C 2320.0162,1353.5624 2320.7984,1356.5203 2322.5706,1359.524 C 2317.7563,1361.6221 2310.0863,1363.159 2304.1237,1362.9964 C 2296.9731,1362.7947 2287.0698,1363.5782 2284.1526,1360.2513 C 2286.7939,1357.8288 2286.5122,1349.5201 2287.0569,1346.7896 C 2289.1866,1336.1152 2289.8904,1332.8488 2294.3865,1321.2562 z"
+       id="path3879"
+       sodipodi:nodetypes="ccccsccscscsc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.04895103000000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4037)"
+       d="M 2298.4356,1308.8642 L 2297.8419,1310.7705 C 2298.5781,1311.0306 2299.1845,1311.3482 2299.7169,1311.708 C 2299.9629,1311.07 2300.1916,1310.4257 2300.4669,1309.833 L 2298.4356,1308.8642 z M 2295.1856,1321.4892 C 2287.735,1335.1197 2289.1177,1346.7803 2285.3241,1360.4834 C 2293.178,1362.9984 2310.2094,1364.4809 2320.8157,1359.1793 C 2320.7794,1357.745 2321.0984,1358.805 2321.0294,1357.458 C 2321.0293,1357.4573 2320.9982,1357.4587 2320.9981,1357.458 C 2319.171,1358.4106 2317.2494,1359.048 2315.2481,1359.333 C 2295.5197,1362.1427 2292.7322,1352.4924 2295.7169,1330.208 C 2296.079,1327.5045 2296.4826,1324.8841 2296.9356,1322.3642 C 2296.3397,1322.2809 2295.7411,1321.9945 2295.1856,1321.4892 z"
+       id="path3881"
+       sodipodi:nodetypes="ccccccccsssscc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.11888111000000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4041)"
+       d="M 2308.2701,1316.3495 C 2309.5994,1315.9223 2309.786,1315.038 2309.9815,1314.1573 C 2314.8182,1327.0633 2319.5402,1342.5424 2319.6098,1356.0026 C 2319.6653,1358.1879 2314.4635,1355.3678 2314.6841,1352.3405 C 2314.1325,1339.9629 2312.5221,1327.3394 2308.2701,1316.3495 z"
+       id="path3883"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2751"
+       width="200"
+       height="200"
+       x="200"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3523"
+       width="200"
+       height="200"
+       x="400"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3525"
+       width="200"
+       height="200"
+       x="600"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3527"
+       width="200"
+       height="200"
+       x="800"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3529"
+       width="200"
+       height="200"
+       x="1000"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3531"
+       width="200"
+       height="200"
+       x="1200"
+       y="0"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3533"
+       width="200"
+       height="200"
+       x="200"
+       y="200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3535"
+       width="200"
+       height="200"
+       x="400"
+       y="200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3537"
+       width="200"
+       height="200"
+       x="600"
+       y="200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3539"
+       width="200"
+       height="200"
+       x="800"
+       y="200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3541"
+       width="200"
+       height="200"
+       x="1000"
+       y="200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/jump/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3543"
+       width="200"
+       height="200"
+       x="200"
+       y="400"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/fall/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3545"
+       width="200"
+       height="200"
+       x="0"
+       y="600"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3547"
+       width="200"
+       height="200"
+       x="200"
+       y="800"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3549"
+       width="200"
+       height="200"
+       x="400"
+       y="800"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3551"
+       width="200"
+       height="200"
+       x="600"
+       y="800"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3553"
+       width="200"
+       height="200"
+       x="800"
+       y="800"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/kiss/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3555"
+       width="200"
+       height="200"
+       x="200"
+       y="1000"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3557"
+       width="200"
+       height="200"
+       x="400"
+       y="1000"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3559"
+       width="200"
+       height="200"
+       x="600"
+       y="1000"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3561"
+       width="200"
+       height="200"
+       x="800"
+       y="1000"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3563"
+       width="200"
+       height="200"
+       x="1000"
+       y="1000"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/ouch/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3565"
+       width="200"
+       height="200"
+       x="200"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3567"
+       width="200"
+       height="200"
+       x="400"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3569"
+       width="200"
+       height="200"
+       x="600"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3571"
+       width="200"
+       height="200"
+       x="800"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3573"
+       width="200"
+       height="200"
+       x="1000"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3575"
+       width="200"
+       height="200"
+       x="1200"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3577"
+       width="200"
+       height="200"
+       x="1400"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3579"
+       width="200"
+       height="200"
+       x="1600"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3581"
+       width="200"
+       height="200"
+       x="1800"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3583"
+       width="200"
+       height="200"
+       x="2000"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3585"
+       width="200"
+       height="200"
+       x="2200"
+       y="1200"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/dress_plain/celebrate/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

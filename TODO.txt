@@ -1,0 +1,1 @@
+Quando a camera se mexer, o mundo se mexerá, quando a princesa se mexer, é ela quem se afasta do centro do iniverso. A camera se move com base nos movimentos da princesa.
