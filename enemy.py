@@ -9,22 +9,14 @@ from obj_images import *
 class Enemy():
     def __init__(self,speed,directory, pos, level,walk_margin=[0,0,0,0],stay_margin=[0,0,0,0],kissed_margin=[0,0,0,0],dirty=False):
         self.x_distance_from_center = pos
-        try:
-            self.walk = ObjectImages(directory+'/walk/',walk_margin)
-        except:
-           pass 
-        try:
-            self.stay = ObjectImages(directory+'/stay/',stay_margin)
-        except:
-            pass
-        try:
-            self.kissed = ObjectImages(directory+'/kissed/',kissed_margin)
-        except:
-            pass
-        try:
-            self.image = self.walk.left[0]
-        except:
-            self.image = self.stay.left[0]
+        try: self.walk = ObjectImages(directory+'/walk/',walk_margin)
+        except: pass 
+        try: self.stay = ObjectImages(directory+'/stay/',stay_margin)
+        except: pass
+        try: self.kissed = ObjectImages(directory+'/kissed/',kissed_margin)
+        except: pass
+        try: self.image = self.walk.left[0]
+        except: self.image = self.stay.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True
         self.level = level

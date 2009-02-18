@@ -6,12 +6,21 @@ from getscreen import os_screen
 from stage import *
 
 class Princess():
-    """Creates the princess"""
+    """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
+Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
+This class uses obj_images module for retrieving images from directories.
+It is one of the first classes written, whitch means that it is somewhat old and may contain som old and useless code that was not well cleaned. This will be corrected soon, I hope.
+You need only a 'self' as a parameter for this class. The other atributes are default.
+Problems to be fixed in this class are:
+Princess controls are not good enough, probably because of the clock tick;
+Princess movement determines the camera, and this may not continue for Princess needs to move in the camera more freely;
+Princess shoes are moving weirdly while she jumps.
+The code is not yet well commented
+"""
     def __init__(self):
         self.parts = []
         self.size = (80,180)
         self.pos = (((os_screen.current_w*20)/100),Level_01.floor-self.size[1])
-
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
         self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
@@ -25,20 +34,16 @@ class Princess():
         self.life = 1000
         self.gforce = 0
         self.effects = []
-
-        
         self.rect = Rect(self.pos,self.size)
-        self.look_around = False
         self.move = False
-        self.dir = 'left'
+        self.direction = 'left'
         self.half_the_movement = False
         self.got_hitten = 0
         self.alive = True
         Level_01.princesses.append(self)
         self.jump = 0
         self.celebrate = 0
-        self.kiss = 0
-        
+        self.kiss = 0        
         self.parts.remove(self.dirty)
     def control(self, dir, act):
         self.effects = []
@@ -47,7 +52,7 @@ class Princess():
             self.change_clothes((self.accessory),'accessory_shades',6)
         if action[0] == 'changedress':
             self.change_clothes((self.dress),'dress_pink',4)
-        if self.dir == 'right':
+        if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
         else:
             self.rect = Rect((self.pos[0]+100,self.pos[1]),self.size)
@@ -60,7 +65,7 @@ class Princess():
             self.pos= (self.pos[0],(Level_01.floor-self.size[1]))
         if self.pos[1]+self.size[1] == Level_01.floor:
             self.gforce = 0
-        self.dir = dir
+        self.direction = dir
         once = False
         if act[0]!= 'jump' and act[0]!= 'jump2':
             self.jump = 0

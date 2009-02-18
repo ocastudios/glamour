@@ -5,9 +5,10 @@ from pygame.locals import *
 from obj_images import *
 
 class Scenario():
-    def __init__(self,pos,dir,level,index = 1,speed = 1,type = None):
+    """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
+    def __init__(self,pos,dir,level,index = 1,type = None):
         self.images = ObjectImages(dir)
-        self.image_number = 0
+        self.image_number = -1
         self.speed = 1
         if type == 'alea':
             if random.randint(1,2)%2==0:
@@ -38,28 +39,21 @@ class Background():
         self.images = ObjectImages(dir)
         self.image_number = 0
         self.image_list = self.images.left
-            
         self.image = self.image_list[self.image_number]
-        
         self.size = self.image.get_size()
         self.pos = pos
-
         for i in level:
             i.background.insert(index,self)
-
-
     def update_image(self):
         self.image_number += 1
         if self.image_number > len(self.image_list)-1:
             self.image_number = -1
         self.image = self.image_list[self.image_number]
-        
 class Floor():
     images = None
     def __init__(self,index,dir,level,type='standard'):
         if self.images == None:
             self.images = ObjectImages(dir)
-            
         self.image_number = 0
         if type == 'alea':
             if random.randint(1,2)%2==0:
@@ -70,10 +64,8 @@ class Floor():
             self.image_list = self.images.left
         self.image = self.image_list[self.image_number]
         self.size = self.image.get_size()
-        
         self.distance_from_center = (self.size[0]*(index))
         self.type = type
-
         for i in level:
             i.floor_image.insert(index,self)
         self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
@@ -82,6 +74,6 @@ class Floor():
         if self.image_number > len(self.image_list)-1:
             self.image_number = 0
         self.image = self.image_list[self.image_number]
-
-
         self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
+#class Bridge():
+#    def __init__():

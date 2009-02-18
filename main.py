@@ -20,7 +20,7 @@ pygame.display.init()
 pygame.mixer.pre_init(44100, 8, 1, 4096)
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load("data/NeMedohounkou.ogg")+
+pygame.mixer.music.load("data/NeMedohounkou.ogg")
 
 def create_clouds(number):
     count = 0
@@ -56,41 +56,25 @@ def create_floor(number):
         floor = Floor(count,'data/images/scenario/bathhouse_st/floor/tile/',[Level_01])
         count +=1
 
-
-bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
-
-
-
-#main_panel = Panel((0,0),(os_screen.current_w, 100),None)
-
-schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
-carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
-butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
-#casa = Scenario((750,universe.floor-315),'data/casa/',[Level_01])
-
-fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01])
-#fundo = pygame.image.load('data/images/scenario/skies/daytime/daytime.png').convert()
-
 #Instance Stuff
-#create_trees(20)
+bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
+bathhouse = Scenario((650,100),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01])
+bathhouse_door = Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
+carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
+schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
+
+butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
+fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01])
 create_posts(15)
 create_floor(30)
 create_clouds(50)
 Main_Star= Glamour_Stars((0,0),True)
-#while count < 10:
-#    Glamour_Stars((random.randint(1600,10600),random.randint(300,700)))
-#    Bunny((random.randint(1400,15000),150))
-#    count +=1
 try:
     pygame.mixer.music.play()
 except:
     print "Warning: no music loaded."
 
-info_glamour_points = Data('Glamour Points', princess.glamour_points, (0, 100), [Level_01],0,160)
-info_schnauzer_pos = Data('Enemy pos',schnauzer.pos, (0,0),[Level_01],1)
-info_princess_life = Data('Life',princess.life, (0,50), [Level_01],2)
-info_schnauzer_rect = Data('Enemy rect',schnauzer.rect, (0,150),[Level_01],3)
-info_princess_rect = Data('princess rect',princess.rect, (0,200), [Level_01],4)
+info_glamour_points = Data('', princess.glamour_points, (300, 0), [Level_01],0,size=120)
 castle = Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()
 #create_screen()
@@ -129,34 +113,19 @@ while True:
             princess.doonce = False
             if (dir == 'left' and event.key == K_LEFT) or (dir == 'right' and event.key == K_RIGHT):
                 action[1] = 'stand'
-    #desenha o fundo
-    #screen_surface.blit(fundo,(0,0))
     keystate = pygame.event.get()
     time_passed = clock.tick(12)    
-    #screen_surface.fill([255,255,255])
-    info_schnauzer_pos.update(schnauzer.pos)
+    screen_surface.fill([255,255,255])
+
     info_glamour_points.update(princess.glamour_points)
-    info_princess_life.update(princess.life)
-    info_schnauzer_rect.update(schnauzer.rect)
-    info_princess_rect.update(princess.rect)
-#    for n in clouds:
-#        n.movement(dir, action)
-#        screen_surface.blit(n.image,n.pos)
     stage.blit_all(screen_surface,action,dir)
     #clouds.sort(compare_deep)
     princess.control(dir,action)
     princess.ive_been_caught()
-    for star in stars:
-        if star.fixed!= True:
-            star.move()
-        else:
-            star.update_images()
+
+    #This is a really old code and MUST be replaced for a princess movement related to the center of the universe and a Camera object
     if action[1] == 'move':
         universe.movement(dir,10)
-    
-    for b in bunnies:
-        b.set_pos()
-        screen_surface.blit(b.image,b.pos)
     
 
 

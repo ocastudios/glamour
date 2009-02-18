@@ -4,6 +4,8 @@ from screen_surface import *
 from globals import *
 
 class Stage():
+    """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
+It is still in its early development"""
     def __init__(self,level,size,universe):
         self.level = level
         self.enemies = []
@@ -20,12 +22,8 @@ class Stage():
         self.clouds = []
         self.size = size
         self.panel = []
-        self.floor = universe.floor-186
-        
-        
-        
+        self.floor = universe.floor-186  
     def blit_all(self,surface,act,dir):
-
         for i in self.sky:
             surface.blit(i.background,(0,0))
             i.set_light()
@@ -48,9 +46,6 @@ class Stage():
             surface.blit(i.image,i.pos)
         for i in self.enemies:
             i.movement()
-            #i.set_image()
-            #i.set_pos()
-            #i.look_around()
             surface.blit(i.image,i.pos)
         for i in self.objects:
             if i.alive == True:
@@ -63,11 +58,9 @@ class Stage():
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
 
-
         for i in self.floor_image:
             i.update_pos()
             surface.blit(i.image,i.pos)
-
         for i in self.panel:
             surface.blit(i[0],i[1])
             
