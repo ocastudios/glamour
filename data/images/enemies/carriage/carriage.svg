@@ -14957,16 +14957,6 @@
        y2="603.79077" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3373"
-       id="linearGradient12945"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(4524.8617,1951.3239)"
-       x1="-510.35715"
-       y1="589.14789"
-       x2="-430"
-       y2="506.00232" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient3325"
        id="linearGradient12947"
        gradientUnits="userSpaceOnUse"
@@ -15064,16 +15054,6 @@
        y1="684.65411"
        x2="-385.80359"
        y2="685.66431" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3390"
-       id="linearGradient12967"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(300.35714,44.561746)"
-       x1="-439.10715"
-       y1="535.57648"
-       x2="-456.78571"
-       y2="510.39789" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3363"
@@ -17853,26 +17833,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3642"
-       id="linearGradient17204"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.13694,-0.9905793,-0.9905793,0.13694,5219.7221,3345.5133)"
-       x1="117.14286"
-       y1="884.14795"
-       x2="172.14285"
-       y2="787.005" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3642"
-       id="linearGradient17206"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.8068472,0.5907602,-0.5907602,0.8068472,5085.0989,2562.6209)"
-       x1="117.14286"
-       y1="884.14795"
-       x2="172.14285"
-       y2="787.005" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3642"
        id="linearGradient17212"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-0.13694,0.9905793,-0.9905793,-0.13694,5220.2273,3604.2445)"
@@ -17910,6 +17870,26 @@
        y1="884.14795"
        x2="172.14285"
        y2="787.005" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3373"
+       id="linearGradient17354"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(4524.8617,1951.3239)"
+       x1="-510.35715"
+       y1="589.14789"
+       x2="-430"
+       y2="506.00232" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3390"
+       id="linearGradient17356"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(300.35714,44.561746)"
+       x1="-439.10715"
+       y1="535.57648"
+       x2="-456.78571"
+       y2="510.39789" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -17918,9 +17898,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="5021.0877"
-     inkscape:cy="-2306.2572"
+     inkscape:zoom="0.043749999"
+     inkscape:cx="5756.527"
+     inkscape:cy="-981.62464"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -17931,7 +17911,7 @@
      inkscape:window-x="0"
      inkscape:window-y="24"
      gridtolerance="25"
-     inkscape:snap-global="false">
+     inkscape:snap-global="true">
     <sodipodi:guide
        orientation="0,1"
        position="37.375644,310.11683"
@@ -17963,6 +17943,10 @@
        orientation="0,1"
        position="3652.8572,-491.42858"
        id="guide16416" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="3332.4933,-814.68804"
+       id="guide17248" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -41901,7 +41885,7 @@
     </g>
     <g
        id="g10767"
-       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,340.7928)"
+       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,338.7928)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -41918,7 +41902,7 @@
     </g>
     <g
        id="g10773"
-       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,340.7928)"
+       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,338.7928)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -41935,7 +41919,7 @@
     </g>
     <g
        id="g10779"
-       transform="matrix(0.9331664,-4.7616136e-2,4.7616136e-2,0.9331664,4812.9718,318.65161)"
+       transform="matrix(0.9331664,-4.7616136e-2,4.7616136e-2,0.9331664,4812.9718,316.65161)"
        inkscape:transform-center-y="-32.103696"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
@@ -42146,7 +42130,7 @@
     </g>
     <g
        id="g10825"
-       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,340.7928)"
+       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,338.7928)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -42193,7 +42177,7 @@
     </g>
     <g
        id="g10837"
-       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,340.7928)"
+       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,338.7928)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -42244,7 +42228,7 @@
        width="340.42139"
        height="7.0710683"
        x="4134.9585"
-       y="1127.8594"
+       y="1125.8594"
        ry="3.0304773"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
@@ -42771,7 +42755,7 @@
        inkscape:export-ydpi="90" />
     <g
        id="g10963"
-       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,340.7928)"
+       transform="matrix(0.9343805,0,0,0.9343805,4848.7241,338.7928)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -44427,9 +44411,9 @@
     </g>
     <g
        id="g11659"
-       inkscape:transform-center-x="12.993121"
-       inkscape:transform-center-y="-32.195772"
-       transform="matrix(0.9945726,-0.1040445,0.1040445,0.9945726,3740.3705,-670.70264)"
+       inkscape:transform-center-x="12.547364"
+       inkscape:transform-center-y="-33.251243"
+       transform="matrix(0.997257,-7.4015995e-2,7.4015995e-2,0.997257,3814.7566,-682.97479)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/5.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -52360,60 +52344,67 @@
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/8.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
-       sodipodi:nodetypes="cccccsc"
-       id="path12621"
-       d="M 4100.9331,2413.9746 C 4082.7045,2409.2469 4072.8762,2418.0551 4064.9776,2423.2041 L 4058.5016,2417.1951 C 4066.7607,2406.478 4080.1868,2405.9639 4089.8617,2406.296 C 4128.7307,2411.5789 4124.5316,2431.0538 4161.2903,2451.8317 C 4164.0011,2455.9756 4168.001,2472.0284 4161.2978,2471.7291 C 4139.8398,2470.7709 4126.9682,2439.5348 4100.9331,2413.9746 z"
-       style="fill:#6b6b6b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
-       sodipodi:nodetypes="ccccc"
-       id="path12623"
-       d="M 4082.7188,2452.2576 L 4087.0046,2407.9719 C 4131.5879,2413.9689 4140.9602,2457.1939 4177.7189,2474.4004 L 4099.1474,2500.829 C 4100.6574,2497.0678 4102.3253,2477.8178 4082.7188,2452.2576 z"
-       style="fill:#dadbdd;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
-       sodipodi:nodetypes="ccccc"
-       id="path12633"
-       d="M 4082.3617,2451.9005 L 4093.076,2448.329 C 4137.6593,2454.3262 4085.6031,2455.4083 4122.3617,2472.6147 C 4110.4535,2490.0201 4119.6552,2462.1151 4098.2852,2507.0378 C 4101.3104,2494.1852 4101.9682,2477.4607 4082.3617,2451.9005 z"
-       style="fill:url(#linearGradient12945);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
     <g
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
+       id="g17317"
+       transform="matrix(0.9995088,-3.1337999e-2,3.1337999e-2,0.9995088,-74.796535,131.94811)"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
-       transform="translate(4224.8617,1905.8692)"
-       id="g12675">
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         style="fill:#6b6b6b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 4100.9331,2413.9746 C 4082.7045,2409.2469 4072.8762,2418.0551 4064.9776,2423.2041 L 4058.5016,2417.1951 C 4066.7607,2406.478 4080.1868,2405.9639 4089.8617,2406.296 C 4128.7307,2411.5789 4124.5316,2431.0538 4161.2903,2451.8317 C 4164.0011,2455.9756 4168.001,2472.0284 4161.2978,2471.7291 C 4139.8398,2470.7709 4126.9682,2439.5348 4100.9331,2413.9746 z"
+         id="path12621"
+         sodipodi:nodetypes="cccccsc"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
       <path
          style="fill:#dadbdd;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
-         d="M -154.7587,508.55083 C -134.18782,491.50978 -118.19964,511.61234 -116.21542,530.3351 C -115.22239,539.7051 -122.06606,558.15425 -144.56867,554.42106 C -149.73588,558.60457 -157.81935,561.56291 -162.4834,565.69942 C -166.49159,575.47168 -176.36023,576.40854 -181.84285,572.09489 C -185.88234,568.91668 -188.79231,560.87544 -182.14396,553.1828 C -179.03538,548.51695 -171.18894,535.67327 -168.0444,529.29725 C -165.21662,523.56349 -167.06085,524.26788 -164.73908,520.25146 C -160.72335,513.30466 -154.7587,508.55083 -154.7587,508.55083 z"
-         id="path12677"
-         sodipodi:nodetypes="csccscssc" />
+         d="M 4082.7188,2452.2576 L 4087.0046,2407.9719 C 4131.5879,2413.9689 4140.9602,2457.1939 4177.7189,2474.4004 L 4099.1474,2500.829 C 4100.6574,2497.0678 4102.3253,2477.8178 4082.7188,2452.2576 z"
+         id="path12623"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
       <path
-         style="fill:#dadbdd;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
-         d="M -147.70813,489.40492 C -137.98671,496.43359 -140.30965,501.51304 -135.33327,507.61027 C -137.9722,511.11439 -141.87243,511.04485 -146.52872,508.83313 C -146.52872,508.83313 -145.81776,506.02256 -145.89985,504.53919 C -146.00167,502.6995 -146.62415,501.2896 -147.1429,498.79128 C -147.79698,495.64115 -148.74123,493.75746 -147.70813,489.40492 z"
-         id="path12679"
-         sodipodi:nodetypes="cccssc" />
-      <path
-         style="fill:url(#linearGradient12967);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
-         d="M -116.45536,528.28049 C -116.58372,528.54407 -116.70765,528.78822 -116.86161,529.03049 C -114.87682,543.49493 -131.0824,559.15762 -145.48661,551.09299 C -151.40949,551.55765 -154.97442,554.86074 -160.45536,557.56174 C -163.88289,564.91314 -166.26397,569.95893 -171.48661,572.40549 C -174.78855,574.03318 -177.99754,574.00109 -180.67411,572.90549 C -175.05442,576.27447 -166.19958,574.84667 -162.45536,565.71799 C -157.79131,561.58148 -149.71633,558.62026 -144.54911,554.43674 C -122.0465,558.16993 -115.18108,539.74423 -116.17411,530.37424 C -116.24723,529.68429 -116.34468,528.97226 -116.45536,528.28049 z"
-         id="path12681" />
-      <path
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
-         d="M -151.33159,527.28289 C -150.50426,528.85248 -151.10667,530.79781 -152.67627,531.62514 C -154.24586,532.45247 -156.19119,531.85006 -157.01852,530.28046 C -157.42952,529.50073 -156.89967,527.89643 -154.97678,526.78196 C -153.90469,526.16172 -152.15677,525.81311 -151.33159,527.28289 z"
-         id="path12683"
-         sodipodi:nodetypes="csssc" />
-      <path
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
-         d="M -158.34044,531.02772 L -157.50904,530.09399 L -150.782,524.97461 C -150.28391,526.87918 -151.07366,527.01254 -150.59931,527.90621 L -156.92455,530.93744 L -158.34044,531.02772 z"
-         id="path12685"
-         sodipodi:nodetypes="cccccc" />
+         style="fill:url(#linearGradient17354);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 4082.3617,2451.9005 L 4093.076,2448.329 C 4137.6593,2454.3262 4085.6031,2455.4083 4122.3617,2472.6147 C 4110.4535,2490.0201 4119.6552,2462.1151 4098.2852,2507.0378 C 4101.3104,2494.1852 4101.9682,2477.4607 4082.3617,2451.9005 z"
+         id="path12633"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <g
+         id="g12675"
+         transform="translate(4224.8617,1905.8692)"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/9.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <path
+           sodipodi:nodetypes="csccscssc"
+           id="path12677"
+           d="M -154.7587,508.55083 C -134.18782,491.50978 -118.19964,511.61234 -116.21542,530.3351 C -115.22239,539.7051 -122.06606,558.15425 -144.56867,554.42106 C -149.73588,558.60457 -157.81935,561.56291 -162.4834,565.69942 C -166.49159,575.47168 -176.36023,576.40854 -181.84285,572.09489 C -185.88234,568.91668 -188.79231,560.87544 -182.14396,553.1828 C -179.03538,548.51695 -171.18894,535.67327 -168.0444,529.29725 C -165.21662,523.56349 -167.06085,524.26788 -164.73908,520.25146 C -160.72335,513.30466 -154.7587,508.55083 -154.7587,508.55083 z"
+           style="fill:#dadbdd;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cccssc"
+           id="path12679"
+           d="M -147.70813,489.40492 C -137.98671,496.43359 -140.30965,501.51304 -135.33327,507.61027 C -137.9722,511.11439 -141.87243,511.04485 -146.52872,508.83313 C -146.52872,508.83313 -145.81776,506.02256 -145.89985,504.53919 C -146.00167,502.6995 -146.62415,501.2896 -147.1429,498.79128 C -147.79698,495.64115 -148.74123,493.75746 -147.70813,489.40492 z"
+           style="fill:#dadbdd;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+           id="path12681"
+           d="M -116.45536,528.28049 C -116.58372,528.54407 -116.70765,528.78822 -116.86161,529.03049 C -114.87682,543.49493 -131.0824,559.15762 -145.48661,551.09299 C -151.40949,551.55765 -154.97442,554.86074 -160.45536,557.56174 C -163.88289,564.91314 -166.26397,569.95893 -171.48661,572.40549 C -174.78855,574.03318 -177.99754,574.00109 -180.67411,572.90549 C -175.05442,576.27447 -166.19958,574.84667 -162.45536,565.71799 C -157.79131,561.58148 -149.71633,558.62026 -144.54911,554.43674 C -122.0465,558.16993 -115.18108,539.74423 -116.17411,530.37424 C -116.24723,529.68429 -116.34468,528.97226 -116.45536,528.28049 z"
+           style="fill:url(#linearGradient17356);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="csssc"
+           id="path12683"
+           d="M -151.33159,527.28289 C -150.50426,528.85248 -151.10667,530.79781 -152.67627,531.62514 C -154.24586,532.45247 -156.19119,531.85006 -157.01852,530.28046 C -157.42952,529.50073 -156.89967,527.89643 -154.97678,526.78196 C -153.90469,526.16172 -152.15677,525.81311 -151.33159,527.28289 z"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cccccc"
+           id="path12685"
+           d="M -158.34044,531.02772 L -157.50904,530.09399 L -150.782,524.97461 C -150.28391,526.87918 -151.07366,527.01254 -150.59931,527.90621 L -156.92455,530.93744 L -158.34044,531.02772 z"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1" />
+      </g>
     </g>
     <path
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
@@ -52761,10 +52752,30 @@
     <path
        style="fill:url(#linearGradient17220);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
        d="M 4451.8907,3309.271 C 4447.9282,3332.7434 4424.1774,3350.1863 4400.6838,3346.9979 C 4377.0567,3344.8648 4357.818,3322.5939 4359.1662,3298.8506 C 4359.4714,3275.134 4380.19,3254.3569 4403.754,3253.7589 C 4426.3477,3252.2681 4448.0655,3269.441 4451.9132,3291.7614 C 4452.9726,3297.5338 4453.0026,3303.5012 4451.8907,3309.271 z"
-       id="path17216" />
+       id="path17216"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:url(#linearGradient17222);fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:20, 10, 5, 10;stroke-dashoffset:0;stroke-opacity:1"
        d="M 4768.6078,3335.931 C 4787.386,3321.3011 4791.4636,3292.1167 4777.5048,3272.9526 C 4764.4114,3253.1698 4735.6771,3246.8091 4715.4196,3259.2668 C 4694.6905,3270.7938 4686.2388,3298.8922 4696.8984,3319.9157 C 4706.3116,3340.5092 4731.7358,3351.472 4753.2075,3344.2629 C 4758.791,3342.4551 4764.0575,3339.6488 4768.6078,3335.931 z"
-       id="path17218" />
+       id="path17218"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/enemies/carriage/walk/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.77622375;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.34599999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect17250"
+       width="68.571426"
+       height="45.714287"
+       x="3200"
+       y="1950" />
+    <rect
+       style="opacity:0.55944058;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.34599999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect17278"
+       width="85.714333"
+       height="71.428596"
+       x="3200"
+       y="2650" />
   </g>
 </svg>
