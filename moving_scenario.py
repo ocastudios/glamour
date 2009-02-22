@@ -19,12 +19,8 @@ class MovingScenario():
         self.size = self.image.get_size()
         for i in level:
             i.moving_scenario.insert(index,self)
-    def set_pos(self,act,dir):
-        self.pos = (universe.center_x + self.distance_from_center, universe.floor - ((self.size[1])-100))
-        if act[1] == 'move':
-            if dir == 'right' :
-                self.distance_from_center += self.speed
-            else:
-                self.distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(universe.floor-self.size[1])),(self.size))
-   
+    def set_pos(self,act,direction):
+        if universe.speed != 0:
+            self.distance_from_center -= universe.speed/2
+        self.pos = (universe.center_x + self.distance_from_center,universe.floor - (self.size[1]-100))
+

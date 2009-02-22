@@ -16,6 +16,7 @@ from globals import *
 from moving_scenario import *
 from skies import *
 from panel import *
+from camera import *
 pygame.display.init()
 pygame.mixer.pre_init(44100, 8, 1, 4096)
 pygame.init()
@@ -59,7 +60,7 @@ def create_floor(number):
 #Instance Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
 bathhouse = Scenario((650,100),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01])
-bathhouse_door = Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
+#bathhouse_door = Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
 schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
 
@@ -82,6 +83,7 @@ pygame.init()
 stage = Level_01
 #create_screen()
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
+gamecamera = GameCamera([Level_01])
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -118,16 +120,10 @@ while True:
     screen_surface.fill([255,255,255])
 
     info_glamour_points.update(princess.glamour_points)
-    stage.blit_all(screen_surface,action,dir)
-    #clouds.sort(compare_deep)
+    stage.blit_all(screen_surface,action,dir,universe)
+
     princess.control(dir,action)
     princess.ive_been_caught()
-
-    #This is a really old code and MUST be replaced for a princess movement related to the center of the universe and a Camera object
-    if action[1] == 'move':
-        universe.movement(dir,10)
-    
-
 
     clock_pointer.update_image()
 

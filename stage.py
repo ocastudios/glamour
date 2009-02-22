@@ -22,17 +22,23 @@ It is still in its early development"""
         self.clouds = []
         self.size = size
         self.panel = []
+        self.cameras = []
         self.floor = universe.floor-186  
-    def blit_all(self,surface,act,dir):
+    def blit_all(self,surface,act,dir,universe):
+        for i in self.cameras:
+            i.update_pos(universe)
+        universe.movement(dir)
+
         for i in self.sky:
             surface.blit(i.background,(0,0))
             i.set_light()
         #self.darkness[0].set_alpha(255)
         #surface.blit(self.darkness[0],(0,0))
         for i in self.clouds:
+            surface.blit(i.image,i.pos)
             i.movement(dir,act)
             i.set_image()
-            surface.blit(i.image,i.pos)
+
         for i in self.background:
             surface.blit(i.image,i.pos)
             i.update_image()
@@ -42,25 +48,31 @@ It is still in its early development"""
         for i in self.clock:
             surface.blit(i.image,i.pos)
         for i in self.scenarios:
+            surface.blit(i.image,i.pos)
             i.update_pos()
-            surface.blit(i.image,i.pos)
+
         for i in self.enemies:
-            i.movement()
             surface.blit(i.image,i.pos)
+            i.movement()
+
         for i in self.objects:
             if i.alive == True:
                 surface.blit(i.image,i.pos)
         for i in self.menus:
             surface.blit(i.image,i.pos)
         for i in self.princesses:
+
             for part in i.parts:
                 surface.blit(part.image,part.pos)
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
-
+            i.update_pos(act,dir)
         for i in self.floor_image:
-            i.update_pos()
             surface.blit(i.image,i.pos)
+            i.update_pos()
+
         for i in self.panel:
             surface.blit(i[0],i[1])
+
+
             

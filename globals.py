@@ -11,18 +11,30 @@ from game_clock import *
 
 
 
+
 class Universe():
     def __init__(self):
         self.gravity = 3
         self.center_x = 0
         self.center_y = 0
         self.floor = os_screen.current_h
-    def movement(self,dir,pace):
-        if dir == 'right':
-            self.center_x -= pace
-        if dir == 'left':
-            self.center_x += pace
-            
+        self.speed = 0
+    def movement(self,dir):
+        max_speed = 11
+        if self.speed > max_speed:
+            self.speed = max_speed
+        elif self.speed< -max_speed:
+            self.speed = -max_speed
+        self.center_x += self.speed
+        if self.center_x > 0:
+            self.speed = 0
+            self.center_x = 0
+        if self.center_x < -3000:
+            self.speed = 0
+            self.center_x = -3000
+#        self.center_x += self.speed
+
+
 #Create lists
 data_list = []
 clouds = []
