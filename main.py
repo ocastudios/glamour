@@ -17,6 +17,7 @@ from moving_scenario import *
 from skies import *
 from panel import *
 from camera import *
+from mousepointer import *
 pygame.display.init()
 pygame.mixer.pre_init(44100, 8, 1, 4096)
 pygame.init()
@@ -84,6 +85,10 @@ stage = Level_01
 #create_screen()
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 gamecamera = GameCamera([Level_01])
+mouse_pos = pygame.mouse.get_pos()
+mousepointer = MousePointer(mouse_pos,[Level_01])
+
+pygame.mouse.set_visible(0)
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -110,11 +115,15 @@ while True:
                 action[0] = 'change'
             if event.key == K_i:
                 action[0] = 'changedress'
+            if event.key == K_h:
+                action[0] = 'changehair'
         elif event.type == KEYUP:
             action[0]=None
             princess.doonce = False
             if (dir == 'left' and event.key == K_LEFT) or (dir == 'right' and event.key == K_RIGHT):
                 action[1] = 'stand'
+    mouse_pos = pygame.mouse.get_pos()
+    mousepointer.update(mouse_pos)
     keystate = pygame.event.get()
     time_passed = clock.tick(12)    
     screen_surface.fill([255,255,255])

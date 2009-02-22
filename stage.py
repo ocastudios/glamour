@@ -23,6 +23,7 @@ It is still in its early development"""
         self.size = size
         self.panel = []
         self.cameras = []
+        self.pointer = []
         self.floor = universe.floor-186  
     def blit_all(self,surface,act,dir,universe):
         for i in self.cameras:
@@ -45,8 +46,7 @@ It is still in its early development"""
         for i in self.moving_scenario:
             surface.blit(i.image,i.pos)
             i.set_pos(act,dir)
-        for i in self.clock:
-            surface.blit(i.image,i.pos)
+
         for i in self.scenarios:
             surface.blit(i.image,i.pos)
             i.update_pos()
@@ -70,9 +70,12 @@ It is still in its early development"""
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
-
+        for i in self.clock:
+            surface.blit(i.image,i.pos)
         for i in self.panel:
             surface.blit(i[0],i[1])
+        for i in self.pointer:
+            surface.blit(i.image,i.pos)
 
 
             
