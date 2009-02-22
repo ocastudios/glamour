@@ -1825,9 +1825,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.48"
-     inkscape:cx="1471.0463"
-     inkscape:cy="-808.05972"
+     inkscape:zoom="1.357645"
+     inkscape:cx="621.87233"
+     inkscape:cy="-834.04531"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1843,9 +1843,9 @@
      inkscape:bbox-paths="false"
      inkscape:snap-global="true"
      inkscape:window-width="1439"
-     inkscape:window-height="847"
+     inkscape:window-height="848"
      inkscape:window-x="0"
-     inkscape:window-y="25">
+     inkscape:window-y="24">
     <inkscape:grid
        type="xygrid"
        id="grid3176"
@@ -1853,6 +1853,10 @@
        enabled="true"
        spacingx="200px"
        spacingy="200px" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="89.493202,95.938186"
+       id="guide2801" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">

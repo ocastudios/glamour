@@ -6755,6 +6755,66 @@
        y1="-529.94788"
        x2="897.39575"
        y2="-361.45834" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3443"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3453"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3463"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3473"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3483"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3847"
+       id="linearGradient3493"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-119.53125,2.6041666)"
+       x1="980.91687"
+       y1="-430.59894"
+       x2="1015.7552"
+       y2="-346.35416" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -6763,9 +6823,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.96"
-     inkscape:cx="2395.7721"
-     inkscape:cy="-1126.3789"
+     inkscape:zoom="1.357645"
+     inkscape:cx="1647.8631"
+     inkscape:cy="35.393343"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -7005,7 +7065,7 @@
        height="200"
        x="400"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/1.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7015,7 +7075,7 @@
        height="200"
        x="600"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/2.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7025,7 +7085,7 @@
        height="200"
        x="800"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/3.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7035,7 +7095,7 @@
        height="200"
        x="1000"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/4.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7045,7 +7105,7 @@
        height="200"
        x="1200"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/5.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7065,7 +7125,7 @@
        height="200"
        x="400"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/1.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7075,7 +7135,7 @@
        height="200"
        x="600"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/2.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7085,7 +7145,7 @@
        height="200"
        x="800"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/3.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7095,7 +7155,7 @@
        height="200"
        x="1000"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/4.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7105,7 +7165,7 @@
        height="200"
        x="1200"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/5.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7417,8 +7477,8 @@
     <g
        id="g3856"
        transform="matrix(0.9946524,-0.1032788,0.1032788,0.9946524,-560.30988,490.98807)"
-       inkscape:transform-center-x="25.250521"
-       inkscape:transform-center-y="16.930843"
+       inkscape:transform-center-x="27.920586"
+       inkscape:transform-center-y="11.682785"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -7435,7 +7495,7 @@
     <g
        id="g10052"
        transform="translate(-399.87772,403.82732)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/1.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -7469,27 +7529,9 @@
          style="opacity:0.03146853;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       id="g10064"
-       transform="matrix(0.9985083,-5.4599826e-2,5.4599826e-2,0.9985083,-381.17617,451.35218)"
-       inkscape:transform-center-x="25.895652"
-       inkscape:transform-center-y="15.831604"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/1.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:nodetypes="ccscccccccc"
-         id="path10066"
-         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
-         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path10068"
-         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
-         style="opacity:0.65734265;fill:url(#linearGradient10074);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
        id="g10078"
        transform="translate(-199.87775,399.82732)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/2.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -7525,7 +7567,7 @@
     <g
        id="g10104"
        transform="translate(0.1222963,399.82732)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/3.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -7561,7 +7603,7 @@
     <g
        id="g10180"
        transform="translate(200.12231,403.82733)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/4.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -7597,7 +7639,7 @@
     <g
        id="g10204"
        transform="translate(400.12231,399.82733)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/5.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -7629,78 +7671,6 @@
          id="path10214"
          d="M 938.19886,-373.37005 L 947.12977,-364.255 L 937.4808,-349.84227 C 935.65353,-351.50309 934.82331,-352.33895 932.02355,-353.75665 L 938.19886,-373.37005 z"
          style="opacity:0.03146853;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
-       id="g10228"
-       transform="matrix(0.999963,8.6058398e-3,-8.6058398e-3,0.999963,-204.98546,393.43215)"
-       inkscape:transform-center-x="26.66218"
-       inkscape:transform-center-y="14.380796"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/2.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:nodetypes="ccscccccccc"
-         id="path10230"
-         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
-         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path10232"
-         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
-         style="opacity:0.65734265;fill:url(#linearGradient10236);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
-       id="g10238"
-       transform="matrix(0.9987086,-5.0805665e-2,5.0805665e-2,0.9987086,17.290179,447.91544)"
-       inkscape:transform-center-x="25.943861"
-       inkscape:transform-center-y="15.746307"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/3.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:nodetypes="ccscccccccc"
-         id="path10240"
-         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
-         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path10242"
-         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
-         style="opacity:0.65734265;fill:url(#linearGradient10246);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
-       id="g10248"
-       transform="matrix(0.9955875,-9.3838753e-2,9.3838753e-2,0.9955875,235.47051,486.59253)"
-       inkscape:transform-center-x="25.379314"
-       inkscape:transform-center-y="16.717081"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/4.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:nodetypes="ccscccccccc"
-         id="path10250"
-         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
-         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path10252"
-         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
-         style="opacity:0.65734265;fill:url(#linearGradient10256);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
-       id="g10258"
-       transform="matrix(0.9997544,-2.216464e-2,2.216464e-2,0.9997544,406.14381,421.80697)"
-       inkscape:transform-center-x="26.298869"
-       inkscape:transform-center-y="15.097469"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/5.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:nodetypes="ccscccccccc"
-         id="path10260"
-         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
-         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path10262"
-         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
-         style="opacity:0.65734265;fill:url(#linearGradient10266);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
        id="g10268"
@@ -9150,6 +9120,96 @@
          id="path10950"
          d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
          style="opacity:0.65734265;fill:url(#linearGradient10954);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3435"
+       transform="matrix(0.9979842,-6.3462597e-2,6.3462597e-2,0.9979842,-377.32987,459.25754)"
+       inkscape:transform-center-x="28.24008"
+       inkscape:transform-center-y="10.68055"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccscccccccc"
+         id="path3437"
+         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
+         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         id="path3439"
+         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
+         style="opacity:0.65734265;fill:url(#linearGradient3443);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3445"
+       transform="matrix(0.9999,-1.4137241e-2,1.4137241e-2,0.9999,-196.36521,410.21973)"
+       inkscape:transform-center-x="28.58683"
+       inkscape:transform-center-y="9.4472084"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccscccccccc"
+         id="path3447"
+         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
+         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         id="path3449"
+         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
+         style="opacity:0.65734265;fill:url(#linearGradient3453);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3455"
+       transform="matrix(0.9999042,-1.383523e-2,1.383523e-2,0.9999042,3.5251755,409.94134)"
+       inkscape:transform-center-x="28.588809"
+       inkscape:transform-center-y="9.439564"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccscccccccc"
+         id="path3457"
+         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
+         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         id="path3459"
+         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
+         style="opacity:0.65734265;fill:url(#linearGradient3463);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3475"
+       transform="matrix(0.9989121,-4.6630337e-2,4.6630337e-2,0.9989121,215.92013,443.98436)"
+       inkscape:transform-center-x="28.364522"
+       inkscape:transform-center-y="10.261408"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccscccccccc"
+         id="path3477"
+         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
+         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         id="path3479"
+         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
+         style="opacity:0.65734265;fill:url(#linearGradient3483);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3485"
+       transform="matrix(0.9963399,-8.5477929e-2,8.5477929e-2,0.9963399,431.89723,475.08312)"
+       inkscape:transform-center-x="28.067979"
+       inkscape:transform-center-y="11.233109"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/princess/hair_cinderella/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccscccccccc"
+         id="path3487"
+         d="M 865.80514,-334.37546 C 867.68021,-340.89844 872.97775,-344.62121 879.397,-347.42622 C 881.00703,-348.43264 881.8228,-349.78704 882.78042,-351.02936 C 890.19615,-360.64976 893.03108,-362.45812 902.47677,-363.69209 C 910.29484,-368.20049 916.81214,-369.54265 926.27934,-362.11877 C 933.49274,-355.38481 929.44154,-352.61353 926.59104,-349.02642 C 925.24447,-355.23197 918.76469,-352.37313 914.41396,-349.23998 C 905.52945,-348.31416 904.89171,-344.37045 902.92578,-339.78187 C 899.67508,-333.91442 898.40993,-328.72735 887.1802,-325.25361 C 883.51262,-320.99354 885.69126,-318.88188 888.58032,-314.28686 C 865.92656,-315.32875 865.09847,-329.22448 865.80514,-334.37546 z"
+         style="fill:#94311d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         id="path3489"
+         d="M 913.34375,-366.44791 C 907.58185,-366.07668 902.90575,-361.97165 897.21875,-361.69791 C 887.48035,-359.37617 885.50275,-347.1834 875.96875,-344.47916 C 860.63465,-337.6824 870.15781,-316.40567 884.90635,-317.72916 C 881.36365,-322.2382 884.72565,-329.12947 890.31255,-329.54166 C 899.07245,-332.43096 900.26385,-342.40281 905.21875,-348.79166 C 908.83195,-352.24787 914.39455,-351.72457 918.34375,-354.76041 C 921.17485,-356.35346 925.19125,-356.04647 927.34375,-353.94791 C 931.02225,-358.52473 923.93915,-362.87507 920.46875,-364.76041 C 918.20265,-365.82779 915.86075,-366.6197 913.34375,-366.44791 z"
+         style="opacity:0.65734265;fill:url(#linearGradient3493);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
   </g>
 </svg>
