@@ -20,7 +20,10 @@ The code is not yet well commented
     def __init__(self):
         self.parts = []
         self.size = (80,180)
-        self.pos = (((os_screen.current_w*20)/100),Level_01.floor-self.size[1])
+        self.distance_from_center = (os_screen.current_w/2)-100
+        self.pos = (universe.center_x+self.distance_from_center,Level_01.floor-self.size[1])
+
+
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
         self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
@@ -33,6 +36,7 @@ The code is not yet well commented
         self.glamour_points = 0
         self.life = 1000
         self.gforce = 0
+        self.speed = 10
         self.effects = []
         self.rect = Rect(self.pos,self.size)
         self.move = False
@@ -135,7 +139,13 @@ The code is not yet well commented
             self.got_hitten +=1
             if self.got_hitten == 75:#75 at 25 frames per second
                 self.got_hitten = 0
- 
+    def update_pos(self,act,direction):
+         self.pos = (universe.center_x+self.distance_from_center, self.pos[1])
+         if act[1]=='move':
+            if direction == 'right':
+                self.distance_from_center += self.speed
+            else:
+                self.distance_from_center -= self.speed
     def choose_parts(self,act,direction):
         for part in self.parts:
             if act[0] == 'ouch':
