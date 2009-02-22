@@ -29,9 +29,9 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -3000:
+        if self.center_x < -5000:
             self.speed = 0
-            self.center_x = -3000
+            self.center_x = -5000
 #        self.center_x += self.speed
 
 
