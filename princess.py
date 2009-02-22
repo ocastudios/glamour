@@ -32,7 +32,7 @@ The code is not yet well commented
         self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
         self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
         self.lips = ObjectImages('data/images/effects/kiss/')
-        self.dirty = PrincessPart(self,'data/images/princess/dirt',7)
+        self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
         self.glamour_points = 0
         self.life = 1000
         self.gforce = 0
@@ -56,6 +56,10 @@ The code is not yet well commented
             self.change_clothes((self.accessory),'accessory_shades',6)
         if action[0] == 'changedress':
             self.change_clothes((self.dress),'dress_pink',4)
+        if action[0] == 'changehair':
+            self.change_clothes((self.hair),'hair_cinderella',2)
+
+
         if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
         else:
@@ -135,6 +139,7 @@ The code is not yet well commented
                             self.life -= 10
                             self.got_hitten +=1
                             self.parts.insert(7,self.dirty)
+                #Insert elif dirty2 not in self.parts and elif dirty3 not in self.parts to introduce differente levels of dirt.
         else:
             self.got_hitten +=1
             if self.got_hitten == 75:#75 at 25 frames per second
@@ -191,8 +196,6 @@ class PrincessPart():
         self.fall = ObjectImages(str(directory)+'/fall/')
         self.jump = ObjectImages(str(directory)+'/jump/')
         self.ouch = ObjectImages(str(directory)+'/ouch/')
-        
-
         self.celebrate = ObjectImages(str(directory)+'/celebrate/')
         self.image_number = 0
         self.list = self.stand

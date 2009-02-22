@@ -21,7 +21,6 @@ class GameCamera():
         else:
             self.count = 0            
 #            universe.speed = 0
-            
             if universe.speed != 0:            
                 if princess.pos[0]+100 > (self.end_x - (self.end_x*(self.limit+0.1))):
                     universe.speed += 1
