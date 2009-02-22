@@ -13,14 +13,15 @@ class MovingScenario():
         self.dir = 'left'
         self.distance_from_center = 0
         self.speed = 8
-        self.pos = (self.distance_from_center, 200)
+
         self.count = 0
         self.image = self.image_list[self.image_number]
         self.size = self.image.get_size()
+        self.pos = (universe.center_x+self.distance_from_center, universe.floor - self.size[1])
         for i in level:
             i.moving_scenario.insert(index,self)
     def set_pos(self,act,direction):
         if universe.speed != 0:
             self.distance_from_center -= universe.speed/2
-        self.pos = (universe.center_x + self.distance_from_center,universe.floor - (self.size[1]-100))
+        self.pos = (universe.center_x + self.distance_from_center,universe.floor - (self.size[1]))
 

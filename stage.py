@@ -24,7 +24,7 @@ It is still in its early development"""
         self.panel = []
         self.cameras = []
         self.pointer = []
-        self.floor = universe.floor-186  
+        self.floor = universe.floor-186
     def blit_all(self,surface,act,dir,universe):
         for i in self.cameras:
             i.update_pos(universe)
@@ -70,6 +70,7 @@ It is still in its early development"""
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
+
         for i in self.clock:
             surface.blit(i.image,i.pos)
         for i in self.panel:

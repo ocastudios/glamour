@@ -10,6 +10,7 @@ from princess import *
 from clouds import *
 from bunny import *
 from scenarios import *
+from floor import *
 from enemy import *
 from glamour_stars import *
 from globals import *
@@ -87,7 +88,7 @@ screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_
 gamecamera = GameCamera([Level_01])
 mouse_pos = pygame.mouse.get_pos()
 mousepointer = MousePointer(mouse_pos,[Level_01])
-
+japanese_bridge = Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
 pygame.mouse.set_visible(0)
 while True:
     for event in pygame.event.get():
@@ -125,7 +126,7 @@ while True:
     mouse_pos = pygame.mouse.get_pos()
     mousepointer.update(mouse_pos)
     keystate = pygame.event.get()
-    time_passed = clock.tick(12)    
+    time_passed = clock.tick(15)    
     screen_surface.fill([255,255,255])
 
     info_glamour_points.update(princess.glamour_points)
