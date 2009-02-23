@@ -23,6 +23,7 @@ Margin may be used to better program interaction during the game. Margin default
                 images.append(img)
             except:
                 list_of_images.remove(item)
+                print 'couldnt load image in:'+str(dir)+str(item)
         return images    
     def invert_images(self,list):
         inv_list=[]
@@ -30,4 +31,7 @@ Margin may be used to better program interaction during the game. Margin default
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
-    
+class ObjectImages_OneSided(ObjectImages):
+    def __init__(self,directory,margin = [0,0,0,0]):
+        self.margin = margin
+        self.list = self.find_images(directory)

@@ -1,1 +1,6 @@
-Quando a camera se mexer, o mundo se mexerá, quando a princesa se mexer, é ela quem se afasta do centro do iniverso. A camera se move com base nos movimentos da princesa.
+TODO
+
+1 - Make Objects that use only one sided images use class ObjectImages_OneSided
+2 - Establish and follow a pattern for the classes parameters
+3 - Extend classes instead of creating new ones
+
