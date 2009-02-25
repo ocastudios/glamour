@@ -105,7 +105,6 @@ class Carriage(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
-        self.count+=1 
         if self.move == True:
             if self.direction == 'right':
                 actual_list = self.walk.right
@@ -115,14 +114,14 @@ class Carriage(Enemy):
             if self.direction == 'right':
                 actual_list = self.stay.right
             else:
-                actual_list = self.stay.left    
-    
+                actual_list = self.stay.left  
+  
+
         number_of_files = len(actual_list)-2
-        if self.count%2==0:
-            if self.image_number <= number_of_files:
-                self.image_number +=1
-            else:
-                self.image_number = 0
+        if self.image_number <= number_of_files:
+            self.image_number +=1
+        else:
+            self.image_number = 0
         self.image = actual_list[self.image_number]
 class Butterfly(Enemy):
     height = 100
@@ -143,18 +142,12 @@ class Butterfly(Enemy):
         if self.up_direction == 'going_up':
             self.height -= 5 
         self.pos = (universe.center_x + self.x_distance_from_center, self.height)
-        #self.level[0].floor+self.margin[2]-(self.size[1]*2))        
-        print self.pos
-        
-
-
         if self.move == True:
             if self.direction == 'right' :
                 self.x_distance_from_center += self.speed
             else:
                 self.x_distance_from_center -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
-        
     def set_image(self):
 #choose list
         self.count+=1
