@@ -7,7 +7,7 @@ from obj_images import *
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
-    def __init__(self,speed,directory, pos, level,walk_margin=[0,0,0,0],stay_margin=[0,0,0,0],kissed_margin=[0,0,0,0],dirty=False):
+    def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.x_distance_from_center = pos
         try:        self.walk = ObjectImages(directory+'/walk/',walk_margin)
         except:     pass 
@@ -165,6 +165,38 @@ class Butterfly(Enemy):
     
         number_of_files = len(actual_list)-2
         #if self.count%2==0:
+        if self.image_number <= number_of_files:
+            self.image_number +=1
+        else:
+            self.image_number = 0
+        self.image = actual_list[self.image_number]
+class OldLady(Enemy):
+    def movement(self,princess):
+        self.set_pos()
+        self.set_image()
+    def set_pos(self):
+        self.pos = (universe.center_x + self.x_distance_from_center, self.level[0].floor+self.margin[2]-(self.size[1]))        
+        if self.move == True:
+            if self.direction == 'right' :
+                self.x_distance_from_center += self.speed
+            else:
+                self.x_distance_from_center -= self.speed
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+    def set_image(self):
+#choose list
+        if self.move == True:
+            if self.direction == 'right':
+                actual_list = self.walk.right
+            else:
+                actual_list = self.walk.left
+        else:
+            if self.direction == 'right':
+                actual_list = self.stay.right
+            else:
+                actual_list = self.stay.left  
+  
+
+        number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1
         else:

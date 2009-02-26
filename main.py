@@ -39,7 +39,7 @@ def create_trees(number):
 def create_posts(number):
     count =0
     while count <= number:
-        post = Scenario((count*500,100),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
+        post = Scenario((count*1000,100),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
         count += 1
 def create_floor(number):
     count = 0
@@ -49,9 +49,12 @@ def create_floor(number):
 
 #Instancing Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
-bathhouse = Scenario((650,100),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01])
+bathhouse = Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
+smallhouse = Scenario((3400,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
+home = Scenario((3800,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
 #bathhouse_door = Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
+oldlady = OldLady(2,'data/images/enemies/old_lady/',4000,[Level_01])
 schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
 butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
 fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01])
