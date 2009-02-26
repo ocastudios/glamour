@@ -4,7 +4,7 @@ from pygame.locals import *
 from globals import *
 from stage import *
 from obj_images import *
-
+pygame.mixer.init()
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
@@ -29,7 +29,7 @@ class Enemy():
         self.direction = 'left'
         self.lookside = 0
         enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0])),(level[0].floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
@@ -37,6 +37,11 @@ class Enemy():
         for i in level:
             i.enemies.append(self)
 class Schnauzer(Enemy):
+    bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
+    def barf(self):
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            self.bow.play()
     def movement(self,princess):
         self.look_around(princess)
         self.set_pos()
@@ -66,7 +71,7 @@ class Schnauzer(Enemy):
                 self.x_distance_from_center += self.speed
             else:
                 self.x_distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0])),(self.level[0].floor-self.size[1])),(self.size))
     def set_image(self):
         #choose list
         if self.move == True:

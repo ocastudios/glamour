@@ -63,6 +63,10 @@ It is still in its early development"""
         for i in self.enemies:
             surface.blit(i.image,i.pos)
             i.movement((self.princesses[0]))
+            if i.dirty == True:
+                i.barf()
+
+            
 
         for i in self.objects:
             if i.alive == True:

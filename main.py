@@ -21,9 +21,10 @@ from camera import *
 from mousepointer import *
 pygame.display.init()
 pygame.mixer.pre_init(44100, 8, 1, 4096)
-pygame.init()
 pygame.mixer.init()
 pygame.mixer.music.load("data/NeMedohounkou.ogg")
+pygame.init()
+
 
 def create_clouds(number):
     count = 0
@@ -37,10 +38,9 @@ def create_trees(number):
         #scenario_stuff.append(tree)
         count += 1
 def create_posts(number):
-    count =0
-    while count <= number:
-        post = Scenario((count*1000,100),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
-        count += 1
+    posts = [3000, 3600,5200, 5800]
+    for i in posts:
+        post = Scenario((i,0),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
 def create_floor(number):
     count = 0
     while count <= number:
@@ -49,6 +49,7 @@ def create_floor(number):
 
 #Instancing Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
+gate1 = Scenario((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
 bathhouse = Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
 smallhouse = Scenario((3400,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
 home = Scenario((3800,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
