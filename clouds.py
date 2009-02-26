@@ -13,11 +13,7 @@ class Cloud():
         for i in level:
             i.clouds.insert(self.deep,self)
     def movement(self,dir,act):
-        if act[1]=='move':
-            if dir == 'right':
-                self.pos = (self.pos[0]-10*self.deep,self.pos[1])
-            if dir == 'left':
-                self.pos = (self.pos[0]+10*self.deep,self.pos[1])
+        self.pos = (self.pos[0]-10*self.deep,self.pos[1])
         self.set_image
     def set_image(self):
         #choose list

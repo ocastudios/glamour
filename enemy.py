@@ -2,21 +2,22 @@
 import pygame
 from pygame.locals import *
 from globals import *
-from princess import *
 from stage import *
 from obj_images import *
 
 class Enemy():
+    """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[0,0,0,0],stay_margin=[0,0,0,0],kissed_margin=[0,0,0,0],dirty=False):
         self.x_distance_from_center = pos
-        try: self.walk = ObjectImages(directory+'/walk/',walk_margin)
-        except: pass 
-        try: self.stay = ObjectImages(directory+'/stay/',stay_margin)
-        except: pass
-        try: self.kissed = ObjectImages(directory+'/kissed/',kissed_margin)
-        except: pass
-        try: self.image = self.walk.left[0]
-        except: self.image = self.stay.left[0]
+        try:        self.walk = ObjectImages(directory+'/walk/',walk_margin)
+        except:     pass 
+        try:        self.stay = ObjectImages(directory+'/stay/',stay_margin)
+        except:     pass
+        try:        self.kissed = ObjectImages(directory+'/kissed/',kissed_margin)
+        except:     pass
+        try:        self.image = self.walk.left[0]
+        except:     self.image = self.stay.left[0]
+
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True
         self.level = level
@@ -36,11 +37,11 @@ class Enemy():
         for i in level:
             i.enemies.append(self)
 class Schnauzer(Enemy):
-    def movement(self):
-        self.look_around()
+    def movement(self,princess):
+        self.look_around(princess)
         self.set_pos()
         self.set_image()
-    def look_around(self):
+    def look_around(self,princess):
         self.count +=1
         if self.count > 130:
             self.move = False
@@ -92,7 +93,7 @@ class Schnauzer(Enemy):
         
         self.image = actual_list[self.image_number]
 class Carriage(Enemy):
-    def movement(self):
+    def movement(self,princess):
         self.set_pos()
         self.set_image()
     def set_pos(self):
@@ -126,7 +127,7 @@ class Carriage(Enemy):
 class Butterfly(Enemy):
     height = 100
     up_direction = 'going_down'
-    def movement(self):
+    def movement(self,princess):
         self.set_pos()
         self.set_image()
     def set_pos(self):

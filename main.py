@@ -30,18 +30,6 @@ def create_clouds(number):
     while count <= number:
         nuvem = Cloud((random.randint(100,25000),random.randint(0,300)),[Level_01])
         count += 1
-
-
-#Scenario((0,88),'data/images/scenario/bathhouse_st/billboard_city/',[Level_01],0,0.5)
-
-def compare_deep(x,y):
-    if x.deep>y.deep:
-        return 1
-    elif x.deep == y.deep:
-        return 0
-    else:
-        return -1
-
 def create_trees(number):
     count = 0
     while count <= number:
@@ -59,36 +47,38 @@ def create_floor(number):
         floor = Floor(count,'data/images/scenario/bathhouse_st/floor/tile/',[Level_01])
         count +=1
 
-#Instance Stuff
+#Instancing Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
 bathhouse = Scenario((650,100),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01])
 #bathhouse_door = Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
 schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
-
 butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
 fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01])
 create_posts(15)
 create_floor(30)
 create_clouds(50)
 Main_Star= Glamour_Stars((0,0),True)
-try:
-    pygame.mixer.music.play()
-except:
-    print "Warning: no music loaded."
 
+try:       pygame.mixer.music.play()
+except:    print "Warning: no music loaded."
+
+princess = Princess()
 info_glamour_points = Data('', princess.glamour_points, (300, 0), [Level_01],0,size=120)
 castle = Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()
 #create_screen()
 #Grande Loop
 stage = Level_01
+japanese_bridge = Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
+mouse_pos = pygame.mouse.get_pos()
+mousepointer = MousePointer(mouse_pos,[Level_01])
+
 #create_screen()
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 gamecamera = GameCamera([Level_01])
-mouse_pos = pygame.mouse.get_pos()
-mousepointer = MousePointer(mouse_pos,[Level_01])
-japanese_bridge = Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
+
+
 pygame.mouse.set_visible(0)
 while True:
     for event in pygame.event.get():
