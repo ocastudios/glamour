@@ -19,14 +19,14 @@ class Scenario():
 
         for i in level:
             i.scenarios.insert(index,self)
-        self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-5))
+        self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-15))
     def update_pos(self):
         self.image_number += 1
         if self.image_number > len(self.image_list)-1:
             self.image_number = 0
         self.image = self.image_list[self.image_number]
 
-        self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-5))
+        self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-15))
 class Building():
     def __init__(directory,pos):
         self.images = ObjectImages(directory)

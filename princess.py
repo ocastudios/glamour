@@ -21,8 +21,7 @@ The code is not yet well commented
         self.parts = []
         self.size = (80,180)
         self.distance_from_center = (os_screen.current_w/2)-100
-        self.pos = (universe.center_x+self.distance_from_center,Level_01.floor-self.size[1])
-
+        self.pos = (universe.center_x+self.distance_from_center,universe.floor - 186 -self.size[1])
 
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
@@ -49,6 +48,7 @@ The code is not yet well commented
         self.celebrate = 0
         self.kiss = 0        
         self.parts.remove(self.dirty)
+        self.floor = universe.floor - 186
     def control(self, dir, act):
         self.effects = []
         #update rect        
@@ -65,19 +65,19 @@ The code is not yet well commented
         else:
             self.rect = Rect((self.pos[0]+100,self.pos[1]),self.size)
         #fall
-        if self.pos[1]+self.size[1] < Level_01.floor:
+        if self.pos[1]+self.size[1] < self.floor:
             self.pos = (self.pos[0], self.pos[1]+self.gforce)
             self.gforce += universe.gravity
         #do not fall beyond the floor
-        if self.pos[1]+self.size[1] > Level_01.floor:
-            self.pos= (self.pos[0],(Level_01.floor-self.size[1]))
-        if self.pos[1]+self.size[1] == Level_01.floor:
+        if self.pos[1]+self.size[1] > self.floor:
+            self.pos= (self.pos[0],(self.floor-self.size[1]))
+        if self.pos[1]+self.size[1] == self.floor:
             self.gforce = 0
         self.direction = dir
         once = False
         if act[0]!= 'jump' and act[0]!= 'jump2':
             self.jump = 0
-        if self.pos[1]+self.size[1] == Level_01.floor and self.jump == 0:
+        if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if act[0]== 'jump':
                 self.jump = 1
         if self.jump > 0 and self.jump <20:
@@ -89,9 +89,9 @@ The code is not yet well commented
             if self.jump > 10:
                 act[0]= 'fall'
         if act[0]=='fall':
-            if self.pos[1]+self.size[1]==Level_01.floor:
+            if self.pos[1]+self.size[1]== self.floor:
                 act[0]=None
-        if act[0]!='jump' and act[0]!='jump2' and self.pos[1]+self.size[1]<Level_01.floor:
+        if act[0]!='jump' and act[0]!='jump2' and self.pos[1]+self.size[1]<self.floor:
             act[0]='fall'
         if self.celebrate > 0:
             act[0]=['celebrate']
@@ -106,7 +106,7 @@ The code is not yet well commented
             self.kiss +=1
             if self.kiss == 1:
                 for part in self.parts:
-                    part.reset_count = 0       
+                    part.reset_count = 0
         if self.kiss > 0:
             act[0] = 'kiss'
             if self.kiss > 3:
@@ -145,12 +145,13 @@ The code is not yet well commented
             if self.got_hitten == 75:#75 at 25 frames per second
                 self.got_hitten = 0
     def update_pos(self,act,direction):
-         self.pos = (universe.center_x+self.distance_from_center, self.pos[1])
-         if act[1]=='move':
-            if direction == 'right':
-                self.distance_from_center += self.speed
-            else:
-                self.distance_from_center -= self.speed
+        self.floor = universe.floor-Level_01.what_is_my_height(self)
+        self.pos = (universe.center_x+self.distance_from_center, self.pos[1])
+        if act[1]=='move':
+           if direction == 'right':
+               self.distance_from_center += self.speed
+           else:
+               self.distance_from_center -= self.speed
     def choose_parts(self,act,direction):
         for part in self.parts:
             if act[0] == 'ouch':
@@ -218,16 +219,7 @@ class PrincessPart():
             self.pos = (princess.pos[0]-invert,princess.pos[1])
         else:
             self.pos = princess.pos
-        
-
         if self.image_number >= number_of_files:
             self.image_number=0
         self.image_number+=1
         self.image = self.actual_list[self.image_number-2]
-
-
-
-
-
-princess = Princess()
-    
