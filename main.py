@@ -8,7 +8,6 @@ from pygame.locals import *
 from sys import exit
 from princess import *
 from clouds import *
-from bunny import *
 from scenarios import *
 from floor import *
 from enemy import *
@@ -67,7 +66,7 @@ Main_Star= Glamour_Stars((0,0),True)
 try:       pygame.mixer.music.play()
 except:    print "Warning: no music loaded."
 
-princess = Princess()
+princess = Princess([Level_01])
 info_glamour_points = Data('', princess.glamour_points, (300, 0), [Level_01],0,size=120)
 castle = Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()
@@ -120,14 +119,11 @@ while True:
     mouse_pos = pygame.mouse.get_pos()
     mousepointer.update(mouse_pos)
     keystate = pygame.event.get()
-    time_passed = clock.tick(15)    
+    time_passed = clock.tick(15)
     screen_surface.fill([255,255,255])
 
     info_glamour_points.update(princess.glamour_points)
     stage.blit_all(screen_surface,action,dir,universe)
-
-    princess.control(dir,action)
-    princess.ive_been_caught()
 
     clock_pointer.update_image()
 
