@@ -1,8 +1,6 @@
-import random
-import pygame
+
 from globals import *
-from pygame.locals import *
-from obj_images import *
+
 
 class Floor():
     images = None

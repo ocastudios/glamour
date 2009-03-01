@@ -1,5 +1,4 @@
-from pygame import *
-import pygame
+from globals import *
 
 def jump(self,height):
     if self.pos[1]+self.size[1] >= universe.floor:

@@ -1,6 +1,5 @@
-import pygame
-from pygame.locals import *
-from getscreen import *
+
+from globals import *
 
 
 class Panel():

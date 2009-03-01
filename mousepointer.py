@@ -1,6 +1,5 @@
-import pygame
-from obj_images import *
-from stage import *
+from globals import *
+
 
 class MousePointer():
     def __init__(self,mouse_pos,level):        
@@ -13,8 +12,7 @@ class MousePointer():
         self.count = 0
         for i in level:
             i.pointer.append(self)
-        
-        
+
     def update(self,mouse_pos):
         self.pos = (mouse_pos[0]-(self.size[0]/2),mouse_pos[1]-(self.size[1]/2))
         number_of_files = len(self.image_list)-2

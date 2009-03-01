@@ -1,32 +1,30 @@
-import pygame
-from pygame.locals import *
-from screen_surface import *
 from globals import *
 
 class Stage():
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
 It is still in its early development"""
     def __init__(self,level,size,universe):
-        self.level = level
-        self.enemies = []
-        self.scenarios = []
         self.background = []
-        self.objects = []
-        self.moving_scenario = []
-        self.menus = []
-        self.princesses = []
-        self.clock = []
-        self.floor_image = []
-        self.darkness = []
-        self.sky = []
-        self.clouds = []
-        self.size = size
-        self.panel = []
         self.cameras = []
-        self.pointer = []
-        self.floor = universe.floor-186
+        self.clock = []
+        self.clouds = []
+
+        self.enemies = []
         self.floor_heights = {}
+        self.floor_image = []
+        self.floor = universe.floor-186
+        self.level = level
+        self.menus = []
+        self.moving_scenario = []
+        self.night = []
+        self.objects = []
+        self.panel = []
+        self.pointer = []
+        self.princesses = []
+        self.scenarios = []
         self.set_floor()
+        self.size = size
+        self.sky = []
         #self.floor_list = {0:186,620:186}
         
 
@@ -35,14 +33,14 @@ It is still in its early development"""
         except:     y_height = 186 
         return      y_height
 
-    def blit_all(self,surface,act,dir,universe):
+    def blit_all(self,surface,act,dir,universe,clock_pointer):
         for i in self.cameras:
             i.update_pos(universe,self.princesses[0])
         universe.movement(dir)
 
         for i in self.sky:
             surface.blit(i.background,(0,0))
-            i.set_light()
+            i.set_light(clock_pointer)
 
         for i in self.clouds:
             surface.blit(i.image,i.pos)
@@ -55,6 +53,10 @@ It is still in its early development"""
         for i in self.moving_scenario:
             surface.blit(i.image,i.pos)
             i.set_pos(act,dir)
+
+        for i in self.sky:
+            surface.blit(i.night_back_image,(0,0))
+            
 
         for i in self.scenarios:
             surface.blit(i.image,i.pos)
@@ -75,13 +77,16 @@ It is still in its early development"""
             surface.blit(i.image,i.pos)
         for i in self.princesses:
             for part in i.parts:
-                surface.blit(part.image,part.pos)
+                if i.got_hitten%2 == 0:
+                    surface.blit(part.image,part.pos)
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
             i.control(dir,act)
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
+        for i in self.sky:
+            surface.blit(i.night_front_image,(0,0))
 
         for i in self.clock:
             surface.blit(i.image,i.pos)

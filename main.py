@@ -1,26 +1,30 @@
 #!/usr/bin/env python
 #importando modulosimport pygame
-from getscreen import *
-import os
-import random
-from math import *
-from pygame.locals import *
-from sys import exit
-from princess import *
-from clouds import *
-from scenarios import *
-from floor import *
-from enemy import *
-from glamour_stars import *
+
 from globals import *
 from moving_scenario import *
-from skies import *
-from panel import *
 from camera import *
+from clouds import *
+from enemy import *
+from floor import *
+from getscreen import *
+from getscreen import os_screen
+from glamour_stars import *
 from mousepointer import *
+from panel import *
+from princess import *
+from pygame.locals import *
+from scenarios import *
+from skies import *
+
+try:
+    import Numeric
+    import pygame.surfarray as surfarray
+except ImportError:
+    raise ImportError, "Numeric and Surfarray are required."
+
+
 pygame.display.init()
-pygame.mixer.pre_init(44100, 8, 1, 4096)
-pygame.mixer.init()
 pygame.mixer.music.load("data/NeMedohounkou.ogg")
 pygame.init()
 
@@ -57,7 +61,7 @@ carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,
 oldlady = OldLady(2,'data/images/enemies/old_lady/',4000,[Level_01])
 schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
 butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
-fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01])
+#fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01],clock_pointer)
 create_posts(15)
 create_floor(30)
 create_clouds(50)
@@ -70,14 +74,12 @@ princess = Princess([Level_01])
 info_glamour_points = Data('', princess.glamour_points, (300, 0), [Level_01],0,size=120)
 castle = Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()
-#create_screen()
-#Grande Loop
 stage = Level_01
 japanese_bridge = Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
 mouse_pos = pygame.mouse.get_pos()
 mousepointer = MousePointer(mouse_pos,[Level_01])
 
-#create_screen()
+
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 gamecamera = GameCamera([Level_01])
 
@@ -111,6 +113,8 @@ while True:
                 action[0] = 'changedress'
             if event.key == K_h:
                 action[0] = 'changehair'
+
+                
         elif event.type == KEYUP:
             action[0]=None
             princess.doonce = False
@@ -123,7 +127,7 @@ while True:
     screen_surface.fill([255,255,255])
 
     info_glamour_points.update(princess.glamour_points)
-    stage.blit_all(screen_surface,action,dir,universe)
+    stage.blit_all(screen_surface,action,dir,universe,clock_pointer)
 
     clock_pointer.update_image()
 

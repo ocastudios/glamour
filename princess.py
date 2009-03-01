@@ -1,9 +1,4 @@
 from globals import *
-from obj_images import *
-import random
-from random import randint
-from getscreen import os_screen
-from stage import *
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -136,8 +131,10 @@ The code is not yet well commented
                 #Insert elif dirty2 not in self.parts and elif dirty3 not in self.parts to introduce differente levels of dirt.
         else:
             self.got_hitten +=1
-            if self.got_hitten == 75:#75 at 25 frames per second
+            if self.got_hitten == 30:#75 at 25 frames per second
                 self.got_hitten = 0
+
+
     def update_pos(self,action):
         #fall
         if self.pos[1]+self.size[1] < self.floor:

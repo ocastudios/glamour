@@ -1,7 +1,5 @@
 from globals import *
-from obj_images import *
-from princess import *
-from getscreen import os_screen
+
 
 class MovingScenario():
     def __init__(self,index,level,dir):

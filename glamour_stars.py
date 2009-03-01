@@ -1,10 +1,7 @@
-import pygame
-from pygame.locals import *
 from globals import *
 from princess import *
 from screen_surface import *
-from obj_images import *
-from stage import *
+
 
 class Glamour_Stars():
     rotating = None
