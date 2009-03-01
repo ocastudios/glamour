@@ -31,8 +31,8 @@ It is still in its early development"""
         
 
     def what_is_my_height(self,object):
-        try:        y_height = self.floor_heights[object.distance_from_center]
-        except:     y_height = 186
+        try:        y_height = self.floor_heights[object.distance_from_center+(object.size[0]/2)]
+        except:     y_height = 186 
         return      y_height
 
     def blit_all(self,surface,act,dir,universe):
@@ -74,12 +74,11 @@ It is still in its early development"""
         for i in self.menus:
             surface.blit(i.image,i.pos)
         for i in self.princesses:
-
             for part in i.parts:
                 surface.blit(part.image,part.pos)
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
-            i.update_pos(act,dir)
+            i.control(dir,act)
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
@@ -94,31 +93,33 @@ It is still in its early development"""
     def set_floor(self):
         self.floor_heights = {}
         count = 0
-        n = 1070
-        a = 10
+        n = 1120
+        a = 15
         while count < 1200:
             self.floor_heights[n+count] = 186
-            if count >= 260 and count <= 299:
+            if count >= 250:
                 self.floor_heights[n+count] = 186 + a
-            if count >= 290 and count <= 329:
+            if count >= 290:
                 self.floor_heights[n+count] = 196 + a
-            if count >= 320 and count <= 359:
+            if count >= 320:
                 self.floor_heights[n+count] = 206 + a
-            if count >= 350 and count <= 399:
+            if count >= 350:
                 self.floor_heights[n+count] = 216 + a
-            if count >= 390 and count <= 439:
+            if count >= 390:
                 self.floor_heights[n+count] = 236 + a
-            if count >= 430 and count <= 499:
+            if count >= 430:
                 self.floor_heights[n+count] = 246 + a
-            if count >= 490 and count <= 729:
+            if count >= 490:
                 self.floor_heights[n+count] = 256 + a
-            if count >= 730 and count <= 789:
+            if count >= 730+10:
                 self.floor_heights[n+count] = 246 + a
-            if count >= 790 and count <= 839:                self.floor_heights[n+count] = 236 + a
-            if count >= 840 and count <= 879:                self.floor_heights[n+count] = 226 + a
-            if count >= 880 and count <= 899:                self.floor_heights[n+count] = 216 + a
-            if count >= 910 and count <= 939:                self.floor_heights[n+count] = 206 + a
-            if count >= 940 and count <= 969:                self.floor_heights[n+count] = 196 + a
+            if count >= 790+10:                self.floor_heights[n+count] = 236 + a
+            if count >= 840+10:                self.floor_heights[n+count] = 226 + a
+            if count >= 880+10:                self.floor_heights[n+count] = 216 + a
+            if count >= 910+10:                self.floor_heights[n+count] = 206 + a
+            if count >= 940+10:                self.floor_heights[n+count] = 196 + a
+            if count >= 969+10:
+                self.floor_heights[n+count] = 186
 
             count += 1
-        print self.floor_heights
+

@@ -8,7 +8,7 @@ pygame.mixer.init()
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
-        self.x_distance_from_center = pos
+        self.distance_from_center = pos
         try:        self.walk = ObjectImages(directory+'/walk/',walk_margin)
         except:     pass 
         try:        self.stay = ObjectImages(directory+'/stay/',stay_margin)
@@ -22,18 +22,21 @@ class Enemy():
         self.alive = True
         self.level = level
         self.speed = speed
-        self.pos = (pos,(level[0].floor-(self.size[1])))
+        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.margin = walk_margin
+        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
         self.lookside = 0
         enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0])),(level[0].floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
-        self.margin = self.walk.margin
+
         for i in level:
             i.enemies.append(self)
 class Schnauzer(Enemy):
@@ -65,13 +68,15 @@ class Schnauzer(Enemy):
     def got_kissed(self):
         self.gotkissed == True
     def set_pos(self):
-        self.pos = (universe.center_x + self.x_distance_from_center, self.level[0].floor+self.margin[2]-(self.size[1]))        
+        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+
         if self.move == True:
             if self.direction == 'right' :
-                self.x_distance_from_center += self.speed
+                self.distance_from_center += self.speed
             else:
-                self.x_distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0])),(self.level[0].floor-self.size[1])),(self.size))
+                self.distance_from_center -= self.speed
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
     def set_image(self):
         #choose list
         if self.move == True:
@@ -102,12 +107,14 @@ class Carriage(Enemy):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.pos = (universe.center_x + self.x_distance_from_center, self.level[0].floor+self.margin[2]-(self.size[1]))        
+        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+
         if self.move == True:
             if self.direction == 'right' :
-                self.x_distance_from_center += self.speed
+                self.distance_from_center += self.speed
             else:
-                self.x_distance_from_center -= self.speed
+                self.distance_from_center -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
@@ -147,12 +154,12 @@ class Butterfly(Enemy):
             self.height += 5
         if self.up_direction == 'going_up':
             self.height -= 5 
-        self.pos = (universe.center_x + self.x_distance_from_center, self.height)
+        self.pos = (universe.center_x + self.distance_from_center, self.height)
         if self.move == True:
             if self.direction == 'right' :
-                self.x_distance_from_center += self.speed
+                self.distance_from_center += self.speed
             else:
-                self.x_distance_from_center -= self.speed
+                self.distance_from_center -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
     def set_image(self):
 #choose list
@@ -180,12 +187,15 @@ class OldLady(Enemy):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.pos = (universe.center_x + self.x_distance_from_center, self.level[0].floor+self.margin[2]-(self.size[1]))        
+        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+
+
         if self.move == True:
             if self.direction == 'right' :
-                self.x_distance_from_center += self.speed
+                self.distance_from_center += self.speed
             else:
-                self.x_distance_from_center -= self.speed
+                self.distance_from_center -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
