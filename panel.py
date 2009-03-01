@@ -18,7 +18,7 @@ class Data():
         self.title = title
         self.index = index
         self.pos = pos
-        self.font=pygame.font.Font('data/Ayuma2yk.ttf',size)
+        self.font=pygame.font.Font('data/fonts/Domestic_Manners.ttf',size)
         self.label = self.font.render((self.title+str(variable)),1,(0,0,0))
 
         for i in level:
