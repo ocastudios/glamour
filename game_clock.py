@@ -1,8 +1,4 @@
-import pygame
-from pygame.locals import *
 from globals import *
-from stage import *
-from getscreen import os_screen
 
 class GameClock():
     def __init__(self,level):
@@ -24,6 +20,7 @@ class ClockPointer():
         self.clock_pointer = []
         self.count = 0
         self.tick = 0
+        self.time = 'day' #morning,day,evening,night
         for degree in self.rotate_list:
             image = pygame.transform.rotate(self.clock_pointer_basic,degree)
             self.clock_pointer.append(image)

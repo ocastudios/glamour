@@ -1,10 +1,6 @@
 
-import pygame
-from pygame.locals import *
 from globals import *
-from stage import *
-from obj_images import *
-pygame.mixer.init()
+
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):

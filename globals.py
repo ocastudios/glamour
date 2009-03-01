@@ -1,15 +1,14 @@
-
-import pygame
+from getscreen import *
 from pygame.locals import *
-import pygame.display
-import os
-from getscreen import os_screen
+pygame.mixer.init()
+import random
+from sys import exit
+from math import *
+from random import randint
 from stage import *
-from globals import *
 from game_clock import *
-
-
-
+from obj_images import *
+from numpy import uint8
 
 
 class Universe():

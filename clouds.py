@@ -1,7 +1,4 @@
-import pygame
-from pygame.locals import *
-from obj_images import *
-import random
+from globals import *
 
 class Cloud():
     def __init__(self, p,level):

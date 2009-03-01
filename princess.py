@@ -1,9 +1,4 @@
 from globals import *
-from obj_images import *
-import random
-from random import randint
-from getscreen import os_screen
-from stage import *
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -29,8 +24,11 @@ The code is not yet well commented
         self.dress = PrincessPart(self,'data/images/princess/dress_plain',4)
         self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
         self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
-        self.lips = ObjectImages('data/images/effects/kiss/')
         self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
+
+        self.lips = ObjectImages('data/images/effects/kiss/')
+        self.dirt_cloud = ObjectImages('data/images/effects/dirt/')
+
         self.glamour_points = 0
         self.gforce = 0
         self.speed = 10
@@ -45,7 +43,8 @@ The code is not yet well commented
         self.jump = 0
         self.celebrate = 0
         self.kiss = 0        
-        self.parts.remove(self.dirty)
+        self.parts.remove(self.dirty,)
+
         self.floor = universe.floor - 186
     def control(self, dir, action):
         self.effects = []
@@ -58,11 +57,20 @@ The code is not yet well commented
         self.celebrating(action)
         self.hurting(action)
         self.kissing(action,dir)
+        self.dirt_cloud_funciton()
         #for images to restart reset must be true
         self.choose_parts(action,dir)
         for part in self.parts:
             part.update_image(self,dir,once=True,reset=True,invert=part.invert)
         self.syncimages(action)
+
+    def dirt_cloud_funciton(self):
+        if self.got_hitten > 0 and self.got_hitten < 24:
+            if self.got_hitten > len(self.dirt_cloud.left):
+                dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1-len(self.dirt_cloud.left)])
+            else:
+                dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
+            self.effects.append((dirt_cloud_image,(self.pos)))
     def update_rect(self,action):
         if action[0] == 'change':
             self.change_clothes((self.accessory),'accessory_shades',6)
@@ -133,11 +141,22 @@ The code is not yet well commented
                         if self.rect.colliderect(e.rect):
                             self.got_hitten +=1
                             self.parts.insert(7,self.dirty)
+
                 #Insert elif dirty2 not in self.parts and elif dirty3 not in self.parts to introduce differente levels of dirt.
         else:
             self.got_hitten +=1
-            if self.got_hitten == 75:#75 at 25 frames per second
+
+            if self.got_hitten == 30:#75 at 25 frames per second
                 self.got_hitten = 0
+
+
+
+
+
+
+
+
+
     def update_pos(self,action):
         #fall
         if self.pos[1]+self.size[1] < self.floor:
@@ -208,14 +227,12 @@ class PrincessPart():
         princess.parts.insert(index,self)
         self.image = self.actual_list[self.image_number]
         self.invert = invert
-
     def update_image(self,princess,direction,once = False,reset = False,invert = 0):
         if reset == True:
             if self.reset_count == 0:
                 self.image_number = 1
                 self.reset_count = 1
         number_of_files = len(self.actual_list)
-
         if direction == 'left':
             self.pos = (princess.pos[0]-invert,princess.pos[1])
         else:
