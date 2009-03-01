@@ -14133,7 +14133,10 @@
        sodipodi:nodetypes="csscccccccccccccccc" />
     <g
        id="g5885"
-       transform="translate(-233.87865,202.10018)">
+       transform="translate(-233.87865,202.10018)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/make-up/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(1.1760558,0,0,1.4758175,-410.10254,-502.25144)"
          d="M -217.54256,1142.0985 A 17.716536,17.716536 0 1 1 -252.97563,1142.0985 A 17.716536,17.716536 0 1 1 -217.54256,1142.0985 z"
@@ -14343,7 +14346,10 @@
     </g>
     <g
        id="g5983"
-       transform="matrix(0.8571588,0,0,0.8571588,-266.27616,489.65482)">
+       transform="matrix(0.8571588,0,0,0.8571588,-266.27616,489.65482)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/ribbon/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccc"
          id="path5985"
@@ -14437,7 +14443,10 @@
     </g>
     <g
        id="g6039"
-       transform="translate(-282.7746,369.26708)">
+       transform="translate(-282.7746,369.26708)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/bath/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="ccccc"
          id="path6041"
@@ -14545,7 +14554,10 @@
        height="79.999924"
        x="-960"
        y="1344.252"
-       ry="0.23371334" />
+       ry="0.23371334"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/make-up/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10000000000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6107"
@@ -14569,7 +14581,10 @@
        height="79.999924"
        x="-880"
        y="1424.252"
-       ry="0.23371334" />
+       ry="0.23371334"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/ribbon/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10000000000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6113"
@@ -14577,6 +14592,9 @@
        height="79.999924"
        x="-960"
        y="1504.252"
-       ry="0.23371334" />
+       ry="0.23371334"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/bath/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
