@@ -52,7 +52,7 @@ class Gate(Scenario):
                 self.arrow_image_number = 0
             self.arrow_image = self.arrow_up.list[self.arrow_image_number]
             self.arrow_size = self.arrow_image.get_size()
-            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1])
+            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-75)
 
 class Building():
     def __init__(directory,pos):

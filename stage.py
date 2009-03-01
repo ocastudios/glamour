@@ -41,7 +41,7 @@ It is still in its early development"""
 
         for i in self.sky:
             surface.blit(i.background,(0,0))
-            i.set_light(clock_pointer)
+#            i.set_light(clock_pointer)
 
         for i in self.clouds:
             surface.blit(i.image,i.pos)
@@ -55,8 +55,8 @@ It is still in its early development"""
             surface.blit(i.image,i.pos)
             i.set_pos(act,dir)
 
-        for i in self.sky:
-            surface.blit(i.night_back_image,(0,0))
+#        for i in self.sky:
+#            surface.blit(i.night_back_image,(0,0))
             
 
         for i in self.scenarios:
@@ -85,16 +85,23 @@ It is still in its early development"""
             surface.blit(i.image,i.pos)
         for i in self.princesses:
             for part in i.parts:
-                if i.got_hitten%2 == 0:
+                if i.got_hitten > 5:
+                    if i.got_hitten%2 == 0:
+                        surface.blit(part.image,part.pos)
+                else:
                     surface.blit(part.image,part.pos)
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
             i.control(dir,act)
+
+
+
+
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
-        for i in self.sky:
-            surface.blit(i.night_front_image,(0,0))
+#        for i in self.sky:
+#            surface.blit(i.night_front_image,(0,0))
 
         for i in self.clock:
             surface.blit(i.image,i.pos)

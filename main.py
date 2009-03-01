@@ -61,7 +61,7 @@ carriage = Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,
 oldlady = OldLady(2,'data/images/enemies/old_lady/',4000,[Level_01])
 schnauzer = Schnauzer(10,'data/images/enemies/schnauzer/',2600,[Level_01],[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
 butterflies = Butterfly(4,'data/images/enemies/butterflies/',6000,[Level_01])
-#fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01],clock_pointer)
+fundo = Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01],clock_pointer)
 create_posts(15)
 create_floor(30)
 create_clouds(50)
