@@ -13,6 +13,7 @@ It is still in its early development"""
         self.floor_heights = {}
         self.floor_image = []
         self.floor = universe.floor-186
+        self.gates = []
         self.level = level
         self.menus = []
         self.moving_scenario = []
@@ -61,6 +62,13 @@ It is still in its early development"""
         for i in self.scenarios:
             surface.blit(i.image,i.pos)
             i.update_pos()
+
+        for i in self.gates:
+            surface.blit(i.image,i.pos)
+            i.update_pos()
+            i.indicate_exit(self.princesses[0])
+            if self.princesses[0].rect.colliderect(i.rect)== True:
+                surface.blit(i.arrow_image,i.arrow_pos)
 
         for i in self.enemies:
             surface.blit(i.image,i.pos)

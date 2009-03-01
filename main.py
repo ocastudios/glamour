@@ -52,7 +52,7 @@ def create_floor(number):
 
 #Instancing Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
-gate1 = Scenario((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
+gate1 = Gate((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
 bathhouse = Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
 smallhouse = Scenario((3400,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
 home = Scenario((3800,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
