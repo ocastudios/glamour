@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#importando modulosimport pygame
 
 from globals import *
 from moving_scenario import *

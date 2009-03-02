@@ -35,6 +35,7 @@ class Enemy():
 
         for i in level:
             i.enemies.append(self)
+
 class Schnauzer(Enemy):
     bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
     def barf(self):
@@ -179,14 +180,67 @@ class Butterfly(Enemy):
             self.image_number = 0
         self.image = actual_list[self.image_number]
 class OldLady(Enemy):
+    def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
+        self.distance_from_center = pos
+        self.walk = ObjectImages(directory+'/walk/',walk_margin)
+        self.hover = ObjectImages(directory+'/hover/',stay_margin)
+        self.hover_inv_left = list(reversed(self.hover.left))
+        self.hover_inv_right = list(reversed(self.hover.right))
+        self.hover.left +=  self.hover_inv_left
+        self.hover.right += self.hover_inv_right
+        self.image = self.walk.left[0]
+        self.mouseovercount = 0
+        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.alive = True
+        self.level = level
+        self.speed = speed
+        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.margin = walk_margin
+        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.decide = False
+        self.count = 0
+        self.move = True
+        self.direction = 'left'
+        self.lookside = 0
+        enemies.append(self)
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
+        self.gotkissed = False
+        self.image_number = 0
+        self.dirty = dirty
+
+        for i in level:
+            i.enemies.append(self)
+
+
     def movement(self,princess):
         self.set_pos()
         self.set_image()
+#        if self.rect.collidepoint(mouse_pos):
+
+
+#        else:
+#            self.set_pos()
+#            self.set_image()
+##            mouse_pos = pygame.mouse.get_pos()
+#        if self.rect.collidepoint(mouse_pos):
+#            self.bow.play()
+
     def set_pos(self):
+        if self.mouseovercount == 0:
+            self.move = True
+        else:
+            self.move = False
+            if self.mouseovercount > 17:
+                self.mouseovercount = 0
+
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            self.mouseovercount += 1
+        else:
+            self.mouseovercount = 0
+
         self.floor = universe.floor-self.level[0].what_is_my_height(self)
         self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
-
-
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -202,9 +256,9 @@ class OldLady(Enemy):
                 actual_list = self.walk.left
         else:
             if self.direction == 'right':
-                actual_list = self.stay.right
+                actual_list = self.hover.right
             else:
-                actual_list = self.stay.left  
+                actual_list = self.hover.left  
   
 
         number_of_files = len(actual_list)-2
