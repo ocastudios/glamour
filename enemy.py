@@ -207,24 +207,8 @@ class OldLady(Enemy):
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
-
         for i in level:
             i.enemies.append(self)
-
-
-    def movement(self,princess):
-        self.set_pos()
-        self.set_image()
-#        if self.rect.collidepoint(mouse_pos):
-
-
-#        else:
-#            self.set_pos()
-#            self.set_image()
-##            mouse_pos = pygame.mouse.get_pos()
-#        if self.rect.collidepoint(mouse_pos):
-#            self.bow.play()
-
     def set_pos(self):
         if self.mouseovercount == 0:
             self.move = True

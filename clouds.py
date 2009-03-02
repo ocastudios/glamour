@@ -9,6 +9,9 @@ class Cloud():
         self.image_number = 0
         for i in level:
             i.clouds.insert(self.deep,self)
+    def update_all(self,dir,act):
+        self.movement(dir,act)
+        self.set_image()
     def movement(self,dir,act):
         self.pos = (self.pos[0]-10*self.deep,self.pos[1])
         self.set_image

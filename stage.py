@@ -8,7 +8,6 @@ It is still in its early development"""
         self.cameras = []
         self.clock = []
         self.clouds = []
-
         self.enemies = []
         self.floor_heights = {}
         self.floor_image = []
@@ -27,13 +26,10 @@ It is still in its early development"""
         self.size = size
         self.sky = []
         #self.floor_list = {0:186,620:186}
-        
-
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.distance_from_center+(object.size[0]/2)]
         except:     y_height = 186 
         return      y_height
-
     def blit_all(self,surface,act,dir,universe,clock_pointer):
         for i in self.cameras:
             i.update_pos(universe,self.princesses[0])
@@ -45,8 +41,7 @@ It is still in its early development"""
 
         for i in self.clouds:
             surface.blit(i.image,i.pos)
-            i.movement(dir,act)
-            i.set_image()
+            i.update_all(dir,act)
 
         for i in self.background:
             surface.blit(i.image,i.pos)
