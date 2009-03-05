@@ -9,7 +9,6 @@ class Glamour_Stars():
         self.fixed = fixed
         if self.rotating == None:
             self.rotating = ObjectImages('data/images/interface/star/')
-            
         self.image = self.rotating.left[0]
         self.distance_from_center = [distance_center[0],distance_center[1]]
         self.size = self.image.get_size()
@@ -21,7 +20,7 @@ class Glamour_Stars():
         self.rect = Rect(self.pos, self.size)
         self.dir = 'up'
         stars.append(self)
-        Level_01.objects.append(self)
+        Level_01.pointer.append(self)
         self.count ={'image':0}
     def move(self):
         if self.dir == 'up':

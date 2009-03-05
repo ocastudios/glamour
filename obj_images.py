@@ -15,7 +15,7 @@ Margin may be used to better program interaction during the game. Margin default
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
         self.left = self.find_images(dir)
-        self.right = self.invert_images(self.left)        
+        self.right = self.invert_images(self.left)
     def find_images(self,dir):
         list_of_images = []
         images = []
@@ -34,12 +34,18 @@ Margin may be used to better program interaction during the game. Margin default
         inv_list=[]
         for img in list:
             inv = pygame.transform.flip(img,1,0)
-
-
-
             inv_list.append(inv)
         return inv_list
 class ObjectImages_OneSided(ObjectImages):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
         self.list = self.find_images(directory)
+class ObjectImages_There_and_back_again(ObjectImages):
+    def __init__(self,dir,margin=[0,0,0,0]):
+        self.margin = margin
+        preleft = self.find_images(dir)
+        preright = self.invert_images(preleft)
+        posleft = list(reversed(preleft))
+        posright = list(reversed(preright))
+        self.left = preleft + posleft
+        self.right = preright + posright

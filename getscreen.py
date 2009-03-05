@@ -2,6 +2,7 @@ import pygame
 pygame.display.init()
 
 splash = pygame.image.load('data/splash.png').convert(32)
+pygame.init()
 import os
 os_screen = pygame.display.Info()
 os.environ['SDL_VIDEO_CENTERED'] = '1' 

@@ -106,7 +106,7 @@ class Carriage(Enemy):
     def set_pos(self):
         self.floor = universe.floor-self.level[0].what_is_my_height(self)
         self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
-
+        self.direction = 'right'
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -183,11 +183,8 @@ class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.distance_from_center = pos
         self.walk = ObjectImages(directory+'/walk/',walk_margin)
-        self.hover = ObjectImages(directory+'/hover/',stay_margin)
-        self.hover_inv_left = list(reversed(self.hover.left))
-        self.hover_inv_right = list(reversed(self.hover.right))
-        self.hover.left +=  self.hover_inv_left
-        self.hover.right += self.hover_inv_right
+        self.hover = ObjectImages_There_and_back_again(directory+'/hover/',stay_margin)
+        self.broom = ObjectImages_There_and_back_again(directory+'/act/',stay_margin)
         self.image = self.walk.left[0]
         self.mouseovercount = 0
         self.size = (self.image.get_width()/2, self.image.get_height())
@@ -201,7 +198,7 @@ class OldLady(Enemy):
         self.count = 0
         self.move = True
         self.direction = 'left'
-        self.lookside = 0
+        self.action = 'move'
         enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
         self.gotkissed = False
@@ -215,51 +212,58 @@ class OldLady(Enemy):
     def movement(self,princess):
         self.set_pos()
         self.set_image()
-#        if self.rect.collidepoint(mouse_pos):
 
+    def wave_to_princess(self):
+        mouse_pos = pygame.mouse.get_pos()
+        if self.action != 'wave':
+            if self.rect.collidepoint(mouse_pos):
+                self.action = 'wave'
+                self.count = 0
+        if count > 34:
+            self.action = 'move'
+            self.count = 0
 
-#        else:
-#            self.set_pos()
-#            self.set_image()
-##            mouse_pos = pygame.mouse.get_pos()
-#        if self.rect.collidepoint(mouse_pos):
-#            self.bow.play()
+    def brooming(self):
+        if self.action != 'broom':
+            if self.count == 60:
+                self.action = 'broom'
+        else:
+            if self.count == 105:
+                self.action = 'move'
+                self.count = 0
+        self.count += 1
+            
 
     def set_pos(self):
-        if self.mouseovercount == 0:
-            self.move = True
-        else:
-            self.move = False
-            if self.mouseovercount > 17:
-                self.mouseovercount = 0
-
-        mouse_pos = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_pos):
-            self.mouseovercount += 1
-        else:
-            self.mouseovercount = 0
+        self.wave_to_princess()
+        self.brooming()
 
         self.floor = universe.floor-self.level[0].what_is_my_height(self)
         self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
-        if self.move == True:
+        if self.action == 'move':
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
             else:
                 self.distance_from_center -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+
     def set_image(self):
 #choose list
-        if self.move == True:
+        if self.action == 'move':
             if self.direction == 'right':
                 actual_list = self.walk.right
             else:
                 actual_list = self.walk.left
-        else:
+        elif self.action == 'wave':
             if self.direction == 'right':
                 actual_list = self.hover.right
             else:
-                actual_list = self.hover.left  
-  
+                actual_list = self.hover.left
+        elif self.action == 'broom':
+            if self.direction == 'right':
+                actual_list = self.broom.right
+            else:
+                actual_list = self.broom.left
 
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
