@@ -29,25 +29,18 @@ pygame.init()
 
 
 def create_clouds(number):
-    count = 0
-    while count <= number:
+    for i in range(number):
         nuvem = Cloud((random.randint(100,25000),random.randint(0,300)),[Level_01])
-        count += 1
 def create_trees(number):
-    count = 0
-    while count <= number:
+    for i in range(number):
         tree = Scenario((random.randint(100,25000),random.randint(0,300)),'data/images/cenario/apple-tree/',[Level_01],1,1,'alea')
-        #scenario_stuff.append(tree)
-        count += 1
 def create_posts(number):
     posts = [3000, 3600,5200, 5800]
     for i in posts:
         post = Scenario((i,0),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
 def create_floor(number):
-    count = 0
-    while count <= number:
+    for i in range(number):
         floor = Floor(count,'data/images/scenario/bathhouse_st/floor/tile/',[Level_01])
-        count +=1
 
 #Instancing Stuff
 bilboard = MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')

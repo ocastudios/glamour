@@ -89,9 +89,6 @@ It is still in its early development"""
                 surface.blit(effect[0],effect[1])
             i.control(dir,act)
 
-
-
-
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()
