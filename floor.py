@@ -15,7 +15,6 @@ class Floor():
         self.type = type
         for i in level:
             i.floor_image.insert(index,self)
-
         self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
     def update_pos(self):
         self.image_number += 1
@@ -23,8 +22,6 @@ class Floor():
             self.image_number = 0
         self.image = self.image_list[self.image_number]
         self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
-
-
 class Bridge():
     def __init__(self,directory,index,level,main=True):
         if main == True:    self.images = ObjectImages_OneSided(directory+'bridge/')

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#importando modulosimport pygame
 
 from globals import *
 from moving_scenario import *
@@ -107,6 +106,7 @@ while True:
             if event.key == K_UP:
                 if princess.jump == 0:
                     action[0] ='jump'
+                    princess.jump_sound.play()
             if event.key == K_c:
                 action[0] = 'change'
             if event.key == K_i:

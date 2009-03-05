@@ -25,7 +25,8 @@ The code is not yet well commented
         self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
         self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
         self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
-
+        self.dirty2 = PrincessPart(self,'data/images/princess/dirt2',7)
+        self.dirty3 = PrincessPart(self,'data/images/princess/dirt3',7)
         self.lips = ObjectImages('data/images/effects/kiss/')
         self.dirt_cloud = ObjectImages('data/images/effects/dirt/')
 
@@ -43,8 +44,10 @@ The code is not yet well commented
         self.jump = 0
         self.celebrate = 0
         self.kiss = 0        
-        self.parts.remove(self.dirty,)
-
+        self.parts.remove(self.dirty)
+        self.parts.remove(self.dirty2)
+        self.parts.remove(self.dirty3)
+        self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
         self.floor = universe.floor - 186
     def control(self, dir, action):
         self.effects = []
@@ -88,6 +91,7 @@ The code is not yet well commented
             self.jump = 0
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
+
                 self.jump = 1
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)
@@ -141,7 +145,14 @@ The code is not yet well commented
                         if self.rect.colliderect(e.rect):
                             self.got_hitten +=1
                             self.parts.insert(7,self.dirty)
-
+                    elif self.dirty2 not in self.parts:
+                        if self.rect.colliderect(e.rect):
+                            self.got_hitten+=1
+                            self.parts.insert(7,self.dirty2)
+                    elif self.dirty3 not in self.parts:
+                        if self.rect.colliderect(e.rect):
+                            self.got_hitten += 1
+                            self.parts.insert(7,self.dirty3)
                 #Insert elif dirty2 not in self.parts and elif dirty3 not in self.parts to introduce differente levels of dirt.
         else:
             self.got_hitten +=1

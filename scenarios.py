@@ -13,7 +13,6 @@ class Scenario():
         self.distance_from_center = pos[0]
         self.type = type
         self.parts = parts
-
         for i in level:
             i.scenarios.insert(index,self)
         self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-15))
@@ -24,7 +23,7 @@ class Scenario():
             self.image_number = 0
         self.image = self.image_list[self.image_number]
         self.pos = (universe.center_x+(self.distance_from_center),Level_01.floor-(self.size[1]-15))
-
+        self.rect = Rect(self.pos, self.size)
 class Gate(Scenario):
     def __init__(self,pos,dir,level,index = 1,type = None, parts=None):
         self.images = ObjectImages(dir)
@@ -52,7 +51,7 @@ class Gate(Scenario):
                 self.arrow_image_number = 0
             self.arrow_image = self.arrow_up.list[self.arrow_image_number]
             self.arrow_size = self.arrow_image.get_size()
-            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-75)
+            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
 
 class Building():
     def __init__(directory,pos):
