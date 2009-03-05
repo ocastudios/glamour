@@ -124,9 +124,7 @@ class Carriage(Enemy):
             if self.direction == 'right':
                 actual_list = self.stay.right
             else:
-                actual_list = self.stay.left  
-  
-
+                actual_list = self.stay.left
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1
@@ -145,8 +143,6 @@ class Butterfly(Enemy):
             self.up_direction = 'going_down'
         elif self.pos[1] > 500:
             self.up_direction = 'going_up'
-
-
         if self.up_direction == 'going_down':
             self.height += 5
         if self.up_direction == 'going_up':
@@ -204,12 +200,11 @@ class OldLady(Enemy):
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
-
         for i in level:
             i.enemies.append(self)
-
-
     def movement(self,princess):
+        self.wave_to_princess()
+        self.brooming()
         self.set_pos()
         self.set_image()
 
@@ -218,15 +213,18 @@ class OldLady(Enemy):
         if self.action != 'wave':
             if self.rect.collidepoint(mouse_pos):
                 self.action = 'wave'
+                self.image_number = 0
                 self.count = 0
-        if count > 34:
-            self.action = 'move'
-            self.count = 0
+        else:
+            if self.count > 33:
+                self.action = 'move'
+                self.count = 0
 
     def brooming(self):
         if self.action != 'broom':
             if self.count == 60:
                 self.action = 'broom'
+                self.image_number = 0
         else:
             if self.count == 105:
                 self.action = 'move'
@@ -235,8 +233,7 @@ class OldLady(Enemy):
             
 
     def set_pos(self):
-        self.wave_to_princess()
-        self.brooming()
+
 
         self.floor = universe.floor-self.level[0].what_is_my_height(self)
         self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
