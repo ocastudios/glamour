@@ -202,6 +202,7 @@ class OldLady(Enemy):
         self.dirty = dirty
         for i in level:
             i.enemies.append(self)
+
     def movement(self,princess):
         self.wave_to_princess()
         self.brooming()
