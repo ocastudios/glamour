@@ -48,7 +48,7 @@ It is still in its early development"""
             i.update_image()
         for i in self.moving_scenario:
             surface.blit(i.image,i.pos)
-            i.set_pos(act,dir)
+            i.update_all(act,dir)
 
 #        for i in self.sky:
 #            surface.blit(i.night_back_image,(0,0))
@@ -56,18 +56,17 @@ It is still in its early development"""
 
         for i in self.scenarios:
             surface.blit(i.image,i.pos)
-            i.update_pos()
+            i.update_all()
 
         for i in self.gates:
             surface.blit(i.image,i.pos)
-            i.update_pos()
-            i.indicate_exit(self.princesses[0])
+            i.update_all(self.princesses[0])
             if self.princesses[0].rect.colliderect(i.rect)== True:
                 surface.blit(i.arrow_image,i.arrow_pos)
 
         for i in self.enemies:
             surface.blit(i.image,i.pos)
-            i.movement((self.princesses[0]))
+            i.update_all((self.princesses[0]))
             if i.dirty == True:
                 i.barf()
 

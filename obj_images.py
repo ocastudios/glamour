@@ -6,7 +6,7 @@ try:
 except ImportError:
     raise ImportError, "Numeric and Surfarray are required."
 
-class ObjectImages():
+class TwoSided():
     jeringonca = False
     """This class identify and loads images from a given directory. It also invert the image so that it can be used in a game. It generates two lists of images: self.left and self.right. To use the images you will need to especify the image number between 0 and x, where x is the number of images in the directory.
 The object generated has yet other optional atribute, which is: margin.
@@ -36,11 +36,11 @@ Margin may be used to better program interaction during the game. Margin default
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
-class ObjectImages_OneSided(ObjectImages):
+class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
         self.list = self.find_images(directory)
-class ObjectImages_There_and_back_again(ObjectImages):
+class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
         preleft = self.find_images(dir)

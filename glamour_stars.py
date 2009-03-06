@@ -8,8 +8,8 @@ class Glamour_Stars():
     def __init__(self,distance_center,fixed = False):
         self.fixed = fixed
         if self.rotating == None:
-            self.rotating = ObjectImages('data/images/interface/star/')
-        self.image = self.rotating.left[0]
+            self.rotating = obj_images.OneSided('data/images/interface/star/')
+        self.image = self.rotating.list[0]
         self.distance_from_center = [distance_center[0],distance_center[1]]
         self.size = self.image.get_size()
         if self.fixed == False:
@@ -44,11 +44,10 @@ class Glamour_Stars():
 
 
     def update_images(self):
-        self.actual_list =  self.rotating.left
-        number_of_files = len(self.actual_list)-2
+        number_of_files = len(self.rotating.list)-2
                 
         if self.count['image'] <= number_of_files:
             self.count['image']+=1
         else:                
             self.count['image']=0        
-        self.image = self.actual_list[self.count['image']]
+        self.image = self.rotating.list[self.count['image']]

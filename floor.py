@@ -6,7 +6,7 @@ class Floor():
     images = None
     def __init__(self,index,dir,level,height={'all':186},type='standard'):
         if self.images == None:
-            self.images = ObjectImages_OneSided(dir)
+            self.images = obj_images.OneSided(dir)
         self.image_number = 0
         self.image_list = self.images.list
         self.image = self.image_list[self.image_number]
@@ -24,8 +24,8 @@ class Floor():
         self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
 class Bridge():
     def __init__(self,directory,index,level,main=True):
-        if main == True:    self.images = ObjectImages_OneSided(directory+'bridge/')
-        else:               self.images = ObjectImages_OneSided(directory) 
+        if main == True:    self.images = obj_images.OneSided(directory+'bridge/')
+        else:               self.images = obj_images.OneSided(directory) 
 
         if main == True:
             self.left_bank = Bridge(str(directory)+'left_bank/',index-1,level,main = False)
