@@ -4785,6 +4785,34 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5384"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5471"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8697"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective14054"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -4793,9 +4821,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.19676471"
-     inkscape:cx="1980.2313"
-     inkscape:cy="-2146.2377"
+     inkscape:zoom="0.13913366"
+     inkscape:cx="1041.5264"
+     inkscape:cy="-2551.9239"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -4835,6 +4863,10 @@
        enabled="true"
        spacingx="100px"
        spacingy="100px" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="2652.126,-1520.121"
+       id="guide5477" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -4852,13 +4884,38 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
+       y="2614.6199"
+       x="-2001.5782"
+       id="image8699"
+       height="520"
+       width="280"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/left_corner_house/base/0.png"
+       xlink:href="left_corner_house/base/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="2495.9939"
+       x="3718.894"
+       id="image5386"
+       height="640"
+       width="1080"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/magic_beauty_salon/base/0.png"
+       xlink:href="magic_beauty_salon/base/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
        y="2798.4604"
-       x="3414.8428"
+       x="3422.03"
        id="image4375"
        height="340"
        width="260"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png"
-       xlink:href="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png" />
+       xlink:href="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2795.9192"
        x="-1735.979"
@@ -4866,7 +4923,10 @@
        height="340"
        width="260"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png"
-       xlink:href="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png" />
+       xlink:href="/media/sdb1/Glamour/2dgame/art/scenario/omni/gate/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2506.1399"
        x="-1000"
@@ -4874,7 +4934,21 @@
        height="812"
        width="3401"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/billboard_city.png"
-       xlink:href="billboard_city.png" />
+       xlink:href="billboard_city.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="2419.4875"
+       x="1314.8372"
+       id="image4460"
+       height="720"
+       width="1300"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/home/castelo/0.png"
+       xlink:href="home/castelo/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g6046"
        transform="translate(6451.9583,-164.6446)">
@@ -5824,29 +5898,16 @@
        y="2417.9998"
        rx="3.0615237" />
     <rect
-       style="opacity:1;fill:#ffff82;fill-opacity:1;stroke:none;stroke-width:4.69999981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5012"
-       width="1078.1362"
-       height="637.07642"
-       x="3712.5989"
-       y="2485.4617"
-       rx="1.1416968" />
-    <rect
        style="opacity:1;fill:#ffff82;fill-opacity:1;stroke:none;stroke-width:4.69999980999999956;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5010"
        width="710.80225"
        height="525.07642"
        x="2636.5989"
        y="2601.4617"
-       rx="0.75270712" />
-    <rect
-       style="opacity:1;fill:#ffff82;fill-opacity:1;stroke:none;stroke-width:4.69999980999999956;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5004"
-       width="551.08655"
-       height="542.44897"
-       x="410.59888"
-       y="2592.0891"
-       rx="0.58357543" />
+       rx="0.75270712"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2719.885"
        x="908.33331"
@@ -5854,7 +5915,10 @@
        height="426"
        width="450"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/small_house/base/0.png"
-       xlink:href="small_house/base/0.png" />
+       xlink:href="small_house/base/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2760"
        x="-800"
@@ -5862,7 +5926,10 @@
        height="558"
        width="1200"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/japanese bridge/japanese_bridge.png"
-       xlink:href="japanese_bridge.png" />
+       xlink:href="japanese_bridge.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:1;fill:#800000;fill-opacity:1;stroke:none;stroke-width:4.69999981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4600"
@@ -8734,7 +8801,10 @@
        height="200"
        x="800"
        y="2932"
-       rx="1.1381664" />
+       rx="1.1381664"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="-800"
@@ -8742,7 +8812,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/left_bank.png"
-       xlink:href="left_bank.png" />
+       xlink:href="left_bank.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="0"
@@ -8750,7 +8823,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/right_bank.png"
-       xlink:href="right_bank.png" />
+       xlink:href="right_bank.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#af0010;fill-opacity:1;stroke:none;stroke-width:4.69999981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M -777.29475,-1222.6105 C -787.72377,-1222.6105 -796.19137,-1215.4688 -796.19137,-1206.6604 C -796.19137,-1200.1323 -791.53505,-1194.539 -784.8827,-1192.0684 L -784.8827,-1188.9341 L -792.49994,-1186.949 L -792.49994,-1182.2476 L -798.12498,-1179.4963 L -798.12498,-1162.7104 L -793.75972,-1159.9591 L -793.75972,-1149.999 L -800,-1146.2726 L -800,-1008.3977 L -754.99967,-1008.3977 L -754.99967,-1146.2726 L -761.88449,-1149.999 L -761.88449,-1159.9591 L -756.87469,-1162.3273 L -756.87469,-1179.8794 L -763.43723,-1182.2476 L -763.43723,-1187.158 L -770.73221,-1188.9341 L -770.73221,-1191.7202 C -763.54531,-1193.9787 -758.42743,-1199.8068 -758.42743,-1206.6604 C -758.42743,-1215.4688 -766.86575,-1222.6106 -777.29475,-1222.6105 z"
@@ -9430,47 +9506,43 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
-       y="2796"
-       x="1200"
+       y="2811.2466"
+       x="1281.3154"
        id="image4964"
        height="336"
        width="43"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
-       xlink:href="light_post.png" />
+       xlink:href="light_post.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2796"
-       x="1957"
+       x="335.77432"
        id="image4968"
        height="336"
        width="43"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
-       xlink:href="light_post.png" />
+       xlink:href="light_post.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
-       y="2796"
-       x="2800"
-       id="image4970"
-       height="336"
-       width="43"
-       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
-       xlink:href="light_post.png" />
-    <image
-       y="2796"
-       x="3600"
-       id="image4972"
-       height="336"
-       width="43"
-       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
-       xlink:href="light_post.png" />
-    <image
-       y="2796"
-       x="4400"
-       id="image4974"
-       height="336"
-       width="43"
-       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
-       xlink:href="light_post.png" />
+       y="2495.0955"
+       x="3717.8413"
+       id="image5473"
+       height="640"
+       width="1080"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/magic_beauty_salon/portal/0.png"
+       xlink:href="magic_beauty_salon/portal/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0.29370632;fill:#670009;fill-opacity:1;stroke:none;stroke-width:4.69999981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4982"
@@ -9487,14 +9559,6 @@
        width="43"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
        xlink:href="light_post.png" />
-    <rect
-       style="opacity:1;fill:#ffff82;fill-opacity:1;stroke:none;stroke-width:4.69999980999999956;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5000"
-       width="226.80225"
-       height="461.07642"
-       x="-1997.4011"
-       y="2669.4617"
-       rx="0.24017321" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 5645.5405,2755.4482 C 6832.6361,3056.3894 7927.13,2963.7733 8994.3982,2755.4482"
@@ -9506,7 +9570,10 @@
        id="rect5018" />
     <g
        id="g5026"
-       transform="translate(2647.9024,0)">
+       transform="translate(2647.9024,0)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          rx="1.2966453"
          y="2416"
@@ -10896,7 +10963,18 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="2557.7673"
+       x="328.422"
+       id="image14056"
+       height="580"
+       width="680"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/left_house/base/0.png"
+       xlink:href="left_house/base/0.png" />
     <image
        y="3132"
        x="800"
@@ -10904,7 +10982,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="400"
@@ -10912,7 +10993,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="3200"
@@ -10920,7 +11004,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="2800"
@@ -10928,7 +11015,21 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="2800.4919"
+       x="2559.2244"
+       id="image4970"
+       height="336"
+       width="43"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
+       xlink:href="light_post.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="2400"
@@ -10936,7 +11037,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="1999.9999"
@@ -10944,7 +11048,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="4400"
@@ -10952,7 +11059,21 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="2800.4922"
+       x="3694.7427"
+       id="image4974"
+       height="336"
+       width="43"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
+       xlink:href="light_post.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="4000"
@@ -10960,7 +11081,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="3600"
@@ -10968,7 +11092,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="-1200"
@@ -10976,7 +11103,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="-1600"
@@ -10984,7 +11114,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="-2000"
@@ -10992,7 +11125,10 @@
        height="186"
        width="400"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/simple_floor/regular.png"
-       xlink:href="regular.png" />
+       xlink:href="regular.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2316"
        x="-1488"
@@ -11000,7 +11136,10 @@
        height="816"
        width="810"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse st/bathhouse/Bathhouse.png"
-       xlink:href="bathhouse/Bathhouse.png" />
+       xlink:href="bathhouse/Bathhouse.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2854"
        x="-1218"
@@ -11008,7 +11147,10 @@
        height="270"
        width="270"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse st/bathhouse/door_shut/0.png"
-       xlink:href="bathhouse/door_shut/0.png" />
+       xlink:href="bathhouse/door_shut/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g3898"
        transform="translate(-1193.0592,421.24827)"
@@ -11072,12 +11214,15 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <image
-       y="2419.4875"
-       x="1314.8372"
-       id="image4460"
-       height="720"
-       width="1300"
-       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/home/castelo/0.png"
-       xlink:href="home/castelo/0.png" />
+       y="2796"
+       x="3359.2244"
+       id="image4972"
+       height="336"
+       width="43"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/light_post.png"
+       xlink:href="light_post.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
