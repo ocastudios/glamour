@@ -4813,6 +4813,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective13969"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -4822,8 +4829,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.13913366"
-     inkscape:cx="1041.5264"
-     inkscape:cy="-2551.9239"
+     inkscape:cx="696.89419"
+     inkscape:cy="-3175.0739"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -4883,6 +4890,17 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <image
+       y="2666.6724"
+       x="2583.3687"
+       id="image13971"
+       height="470"
+       width="770"
+       sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/right_house/base/0.png"
+       xlink:href="right_house/base/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="2614.6199"
        x="-2001.5782"
@@ -5897,17 +5915,6 @@
        x="5625.4395"
        y="2417.9998"
        rx="3.0615237" />
-    <rect
-       style="opacity:1;fill:#ffff82;fill-opacity:1;stroke:none;stroke-width:4.69999980999999956;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5010"
-       width="710.80225"
-       height="525.07642"
-       x="2636.5989"
-       y="2601.4617"
-       rx="0.75270712"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <image
        y="2719.885"
        x="908.33331"
@@ -10974,7 +10981,10 @@
        height="580"
        width="680"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/left_house/base/0.png"
-       xlink:href="left_house/base/0.png" />
+       xlink:href="left_house/base/0.png"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="3132"
        x="800"
