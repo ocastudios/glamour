@@ -8,9 +8,9 @@ class Cloud():
             if nimbus1 != False and nimbus2 != False and nimbus3 != False:
                 pass
         except: 
-            nimbus1 = ObjectImages_OneSided('data/images/scenario/skies/nimbus/1/')
-            nimbus2 = ObjectImages_OneSided('data/images/scenario/skies/nimbus/2/')
-            nimbus3 = ObjectImages_OneSided('data/images/scenario/skies/nimbus/3/')
+            nimbus1 = obj_images.OneSided('data/images/scenario/skies/nimbus/1/')
+            nimbus2 = obj_images.OneSided('data/images/scenario/skies/nimbus/2/')
+            nimbus3 = obj_images.OneSided('data/images/scenario/skies/nimbus/3/')
             nimbus.append(nimbus1)
             nimbus.append(nimbus2)
             nimbus.append(nimbus3)

@@ -5,11 +5,11 @@ class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.distance_from_center = pos
-        try:        self.walk = ObjectImages(directory+'/walk/',walk_margin)
+        try:        self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
         except:     pass 
-        try:        self.stay = ObjectImages(directory+'/stay/',stay_margin)
+        try:        self.stay = obj_images.TwoSided(directory+'/stay/',stay_margin)
         except:     pass
-        try:        self.kissed = ObjectImages(directory+'/kissed/',kissed_margin)
+        try:        self.kissed = obj_images.TwoSided(directory+'/kissed/',kissed_margin)
         except:     pass
         try:        self.image = self.walk.left[0]
         except:     self.image = self.stay.left[0]
@@ -42,7 +42,7 @@ class Schnauzer(Enemy):
         mouse_pos = pygame.mouse.get_pos()
         if self.rect.collidepoint(mouse_pos):
             self.bow.play()
-    def movement(self,princess):
+    def update_all(self,princess):
         self.look_around(princess)
         self.set_pos()
         self.set_image()
@@ -100,7 +100,7 @@ class Schnauzer(Enemy):
         
         self.image = actual_list[self.image_number]
 class Carriage(Enemy):
-    def movement(self,princess):
+    def update_all(self,princess):
         self.set_pos()
         self.set_image()
     def set_pos(self):
@@ -134,7 +134,7 @@ class Carriage(Enemy):
 class Butterfly(Enemy):
     height = 100
     up_direction = 'going_down'
-    def movement(self,princess):
+    def update_all(self,princess):
         self.set_pos()
         self.set_image()
     def set_pos(self):
@@ -178,9 +178,9 @@ class Butterfly(Enemy):
 class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.distance_from_center = pos
-        self.walk = ObjectImages(directory+'/walk/',walk_margin)
-        self.hover = ObjectImages_There_and_back_again(directory+'/hover/',stay_margin)
-        self.broom = ObjectImages_There_and_back_again(directory+'/act/',stay_margin)
+        self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
+        self.hover = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
+        self.broom = obj_images.There_and_back_again(directory+'/act/',stay_margin)
         self.image = self.walk.left[0]
         self.mouseovercount = 0
         self.size = (self.image.get_width()/2, self.image.get_height())
@@ -203,7 +203,7 @@ class OldLady(Enemy):
         for i in level:
             i.enemies.append(self)
 
-    def movement(self,princess):
+    def update_all(self,princess):
         self.wave_to_princess()
         self.brooming()
         self.set_pos()

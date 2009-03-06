@@ -30,8 +30,8 @@ class Sky():
         self.background = pygame.image.load(background).convert()
         self.count = 0
         self.count = (clock_pointer.count-120)
-        self.night_back = ObjectImages_OneSided(directory+'night_back/')
-        self.night_front = ObjectImages_OneSided(directory+'night_front/')
+        self.night_back = obj_images.OneSided(directory+'night_back/')
+        self.night_front = obj_images.OneSided(directory+'night_front/')
         
 #        count = 1
 #        for i in range(25):

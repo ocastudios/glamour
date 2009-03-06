@@ -9,6 +9,10 @@ class GameCamera():
         self.count = 0
         for i in self.level:
             i.cameras.append(self)
+
+    def update_all(self,universe,princess):
+        self.update_pos(universe,princess)
+
     def update_pos(self,universe,princess):
         if princess.pos[0]+100 > (self.end_x - (self.end_x*self.limit)):
             universe.speed -= self.count

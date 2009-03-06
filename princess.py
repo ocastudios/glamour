@@ -27,8 +27,8 @@ The code is not yet well commented
         self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
         self.dirty2 = PrincessPart(self,'data/images/princess/dirt2',7)
         self.dirty3 = PrincessPart(self,'data/images/princess/dirt3',7)
-        self.lips = ObjectImages('data/images/effects/kiss/')
-        self.dirt_cloud = ObjectImages('data/images/effects/dirt/')
+        self.lips = obj_images.TwoSided('data/images/effects/kiss/')
+        self.dirt_cloud = obj_images.TwoSided('data/images/effects/dirt/')
 
         self.glamour_points = 0
         self.gforce = 0
@@ -222,13 +222,13 @@ The code is not yet well commented
 
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):
-        self.walk = ObjectImages(str(directory)+'/walk/')
-        self.stand = ObjectImages(str(directory)+'/stay/')
-        self.kiss = ObjectImages(str(directory)+'/kiss/')
-        self.fall = ObjectImages(str(directory)+'/fall/')
-        self.jump = ObjectImages(str(directory)+'/jump/')
-        self.ouch = ObjectImages(str(directory)+'/ouch/')
-        self.celebrate = ObjectImages(str(directory)+'/celebrate/')
+        self.walk = obj_images.TwoSided(str(directory)+'/walk/')
+        self.stand = obj_images.TwoSided(str(directory)+'/stay/')
+        self.kiss = obj_images.TwoSided(str(directory)+'/kiss/')
+        self.fall = obj_images.TwoSided(str(directory)+'/fall/')
+        self.jump = obj_images.TwoSided(str(directory)+'/jump/')
+        self.ouch = obj_images.TwoSided(str(directory)+'/ouch/')
+        self.celebrate = obj_images.TwoSided(str(directory)+'/celebrate/')
         self.image_number = 0
         self.list = self.stand
         self.actual_list = self.list.left

@@ -7,7 +7,7 @@ from math import *
 from random import randint
 from stage import *
 from game_clock import *
-from obj_images import *
+import obj_images
 from numpy import uint8
 
 
