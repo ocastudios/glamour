@@ -22,6 +22,7 @@ It is still in its early development"""
         self.pointer = []
         self.princesses = []
         self.scenarios = []
+        self.scenarios_front = []
         self.set_floor()
         self.size = size
         self.sky = []
@@ -87,6 +88,9 @@ It is still in its early development"""
             for effect in i.effects:
                 surface.blit(effect[0],effect[1])
             i.control(dir,act)
+        for i in self.scenarios_front:
+            surface.blit(i.image,i.pos)
+            i.update_all()
 
         for i in self.floor_image:
             surface.blit(i.image,i.pos)

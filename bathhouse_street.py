@@ -31,7 +31,7 @@ def create_clouds(number):
 def create_posts(number):
     posts = [2300,3350,4700, 5470,5770]
     for i in posts:
-        post = scenarios.Scenario((i,0),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
+        post = scenarios.Scenario((i,0),'data/images/scenario/bathhouse_st/light_post/post/',Level_01)
 def create_floor(number):
     count = 0
     while count <= number:
@@ -39,19 +39,19 @@ def create_floor(number):
         count +=1
 
 #Instancing Stuff
-lef_corner_house = scenarios.Scenario((0,100),'data/images/scenario/bathhouse_st/left_corner_house/base/',[Level_01],index=0)
-gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
-bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
+lef_corner_house = scenarios.Scenario((0,100),'data/images/scenario/bathhouse_st/left_corner_house/base/',Level_01,index=0)
+gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
+bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',Level_01,index =0)
 
-left_house = scenarios.Scenario((2350,100),'data/images/scenario/bathhouse_st/left_house/base/',[Level_01],index = 0)
+left_house = scenarios.Scenario((2350,100),'data/images/scenario/bathhouse_st/left_house/base/',Level_01,index = 0)
 
-smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
+smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/small_house/base/',Level_01,index =0)
 
-home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
-right_house = scenarios.Scenario((4700,100),'data/images/scenario/bathhouse_st/right_house/base/',[Level_01],index=0)
-gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
-magic_beauty_sallon = scenarios.Scenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',[Level_01],index=0)
-
+home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',Level_01,index =0)
+right_house = scenarios.Scenario((4700,100),'data/images/scenario/bathhouse_st/right_house/base/',Level_01,index=0)
+gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
+magic_beauty_salon = scenarios.Scenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',Level_01,index=0)
+magic_beauty_salon_portal = scenarios.FrontScenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/portal/',Level_01,index=0)
 #bathhouse_door = scenarios.Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = enemy.Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
 oldlady = enemy.OldLady(2,'data/images/enemies/old_lady/',4000,[Level_01])
@@ -69,7 +69,7 @@ except:    print "Warning: no music loaded."
 doll = princess.Princess(Level_01)
 
 info_glamour_points = panel.Data('', doll.glamour_points, (300, 0), [Level_01],0,size=120)
-castle = scenarios.Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
+castle = scenarios.Background((110,0),Level_01,0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()
 stage = Level_01
 japanese_bridge = floors.Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
@@ -130,3 +130,4 @@ while True:
     clock_pointer.update_image()
 
     pygame.display.update()
+

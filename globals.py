@@ -28,9 +28,9 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -9000:
+        if self.center_x < -5430:
             self.speed = 0
-            self.center_x = -9000
+            self.center_x = -5430
 #        self.center_x += self.speed
 
 
@@ -51,7 +51,7 @@ count = 0
 
 universe = Universe()
 
-Level_01 = Stage(1,2000,universe)
+Level_01 = Stage(1,6000,universe)
 game_clock = GameClock([Level_01])
 clock_pointer = ClockPointer([Level_01])
 
