@@ -1,4 +1,6 @@
-from globals import *
+import globals
+import os
+import pygame
 
 try:
     import Numeric

@@ -1,4 +1,4 @@
-from globals import *
+
 
 class Stage():
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.

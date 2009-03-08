@@ -46,7 +46,7 @@ def create_floor(number):
         count +=1
 
 #Instancing Stuff
-bilboard = moving_scenario.MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
+
 gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
 bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
 smallhouse = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
@@ -61,12 +61,13 @@ fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',[Level_01],cl
 create_posts(15)
 create_floor(30)
 create_clouds(50)
-Main_Star= glamour_stars.Glamour_Stars((0,0),True)
+bilboard = moving_scenario.MovingScenario(1,[Level_01],'data/images/scenario/bathhouse_st/billboard_city/billboard/')
+Main_Star= glamour_stars.Glamour_Stars((0,0),Level_01,True)
 
 try:       pygame.mixer.music.play()
 except:    print "Warning: no music loaded."
+doll = princess.Princess(Level_01)
 
-doll = princess.Princess([Level_01])
 info_glamour_points = panel.Data('', doll.glamour_points, (300, 0), [Level_01],0,size=120)
 castle = scenarios.Background((110,0),[Level_01],0,'data/images/scenario/ballroom/ballroom_day/')
 pygame.init()

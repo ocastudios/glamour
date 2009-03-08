@@ -1,4 +1,5 @@
-from globals import *
+
+import obj_images
 
 
 class MousePointer():

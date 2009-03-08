@@ -1,5 +1,4 @@
-
-from globals import *
+import pygame
 
 
 class Panel():

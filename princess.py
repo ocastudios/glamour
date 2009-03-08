@@ -1,4 +1,7 @@
-from globals import *
+import globals
+import obj_images
+import pygame
+from pygame.locals import *
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -12,11 +15,11 @@ Princess movement determines the camera, and this may not continue for Princess 
 Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
-    def __init__(self,levels):
+    def __init__(self,level):
         self.parts = []
         self.size = (80,180)
         self.distance_from_center = 4200
-        self.pos = (universe.center_x+self.distance_from_center,universe.floor - 186 -self.size[1])
+        self.pos = (globals.universe.center_x+self.distance_from_center,globals.universe.floor - 186 -self.size[1])
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
         self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
@@ -39,8 +42,8 @@ The code is not yet well commented
         self.direction = 'left'
         self.got_hitten = 0
         self.alive = True
-        for level in levels:
-            level.princesses.append(self)
+        self.level = level
+        level.princesses.append(self)
         self.jump = 0
         self.celebrate = 0
         self.kiss = 0        
@@ -48,7 +51,7 @@ The code is not yet well commented
         self.parts.remove(self.dirty2)
         self.parts.remove(self.dirty3)
         self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
-        self.floor = universe.floor - 186
+        self.floor = globals.universe.floor - 186
     def control(self, dir, action):
         self.effects = []
         self.direction = dir
@@ -139,7 +142,7 @@ The code is not yet well commented
         part = PrincessPart(princess,'data/images/princess/'+str(dir),index)
     def ive_been_caught(self):
         if self.got_hitten == 0:
-            for e in enemies:
+            for e in globals.enemies:
                 if e.dirty == True:
                     if self.dirty not in self.parts:
                         if self.rect.colliderect(e.rect):
@@ -172,14 +175,14 @@ The code is not yet well commented
         #fall
         if self.pos[1]+self.size[1] < self.floor:
             self.pos = (self.pos[0], self.pos[1]+self.gforce)
-            self.gforce += universe.gravity
+            self.gforce += globals.universe.gravity
         #do not fall beyond the floor
         if self.pos[1]+self.size[1] > self.floor:
             self.pos= (self.pos[0],(self.floor-self.size[1]))
         if self.pos[1]+self.size[1] == self.floor:
             self.gforce = 0
-        self.floor = universe.floor-Level_01.what_is_my_height(self)
-        self.pos = (universe.center_x+self.distance_from_center, self.pos[1])
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x+self.distance_from_center, self.pos[1])
         if action[1]=='move':
            if self.direction == 'right':
                self.distance_from_center += self.speed
