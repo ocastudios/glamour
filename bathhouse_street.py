@@ -18,13 +18,6 @@ from pygame.locals import *
 import scenarios
 import skies
 
-try:
-    import Numeric
-    import pygame.surfarray as surfarray
-except ImportError:
-    raise ImportError, "Numeric and Surfarray are required."
-
-
 pygame.display.init()
 pygame.mixer.music.load("data/NeMedohounkou.ogg")
 pygame.init()
@@ -36,7 +29,7 @@ def create_clouds(number):
         nuvem = clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[Level_01])
         count += 1
 def create_posts(number):
-    posts = [3000, 3600,5200, 5800]
+    posts = [2300,3350,4700, 5470,5770]
     for i in posts:
         post = scenarios.Scenario((i,0),'data/images/scenario/bathhouse_st/light_post/post/',[Level_01])
 def create_floor(number):
@@ -46,12 +39,19 @@ def create_floor(number):
         count +=1
 
 #Instancing Stuff
-
+lef_corner_house = scenarios.Scenario((0,100),'data/images/scenario/bathhouse_st/left_corner_house/base/',[Level_01],index=0)
 gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
 bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',[Level_01],index =0)
-smallhouse = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
-home = scenarios.Scenario((3800,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
-magic_beauty_sallon = scenarios.Scenario((7000,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',[Level_01],index=0)
+
+left_house = scenarios.Scenario((2350,100),'data/images/scenario/bathhouse_st/left_house/base/',[Level_01],index = 0)
+
+smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/small_house/base/',[Level_01],index =0)
+
+home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',[Level_01],index =0)
+right_house = scenarios.Scenario((4700,100),'data/images/scenario/bathhouse_st/right_house/base/',[Level_01],index=0)
+gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',[Level_01],index = 0)
+magic_beauty_sallon = scenarios.Scenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',[Level_01],index=0)
+
 #bathhouse_door = scenarios.Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = enemy.Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
 oldlady = enemy.OldLady(2,'data/images/enemies/old_lady/',4000,[Level_01])

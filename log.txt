@@ -1,0 +1,7 @@
+couldnt load image in:data/images/scenario/omni/gate/gate.svg
+couldnt load image in:data/images/interface/up-arrow/up-arrow.svg
+couldnt load image in:data/images/scenario/bathhouse_st/bathhouse/bathhouse/door
+couldnt load image in:data/images/scenario/bathhouse_st/home/castelo/compression_tests
+couldnt load image in:data/images/interface/star/star.svg
+couldnt load image in:data/images/effects/kiss/effect_kiss.svg
+couldnt load image in:data/images/effects/dirt/dirt.svg
