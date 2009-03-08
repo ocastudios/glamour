@@ -8,7 +8,7 @@ class MovingScenario():
         self.image_number = 0
         self.move = False
         self.dir = 'left'
-        self.distance_from_center = 0
+        self.distance_from_center = 1500
         self.speed = 4
         self.count = 0
         self.image = self.images.list[self.image_number]

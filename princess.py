@@ -15,7 +15,7 @@ The code is not yet well commented
     def __init__(self,levels):
         self.parts = []
         self.size = (80,180)
-        self.distance_from_center = (os_screen.current_w/2)-100
+        self.distance_from_center = 4200
         self.pos = (universe.center_x+self.distance_from_center,universe.floor - 186 -self.size[1])
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)

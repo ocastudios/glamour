@@ -1,20 +1,21 @@
 from getscreen import *
 from pygame.locals import *
+
 pygame.mixer.init()
 import random
 from sys import exit
 from math import *
 from random import randint
-from stage import *
+
 from game_clock import *
 import obj_images
 from numpy import uint8
-
+import stages
 
 class Universe():
     def __init__(self):
         self.gravity = 3
-        self.center_x = -3400
+        self.center_x = 0
         self.center_y = 0
         self.floor = os_screen.current_h
         self.speed = 0
@@ -35,25 +36,17 @@ class Universe():
 
 
 #Create lists
-
-data_list = []
-
-cenario_stuff = []
-action = [None, 'stand']
-stars = []
-bunnies = []
-enemies = []
-clock = pygame.time.Clock()
-
-
-dir = None
-count = 0
-
-universe = Universe()
-
-Level_01 = Stage(1,2000,universe)
-game_clock = GameClock([Level_01])
-clock_pointer = ClockPointer([Level_01])
-
+try:
+    if count == 0:
+        pass
+except:
+    action = [None, 'stand']
+    clock = pygame.time.Clock()
+    dir = None
+    count = 0
+    universe = Universe()
+    Level_01 = stages.Stage(1,2000,universe)
+    game_clock = GameClock(Level_01)
+    clock_pointer = ClockPointer(Level_01)
 
 

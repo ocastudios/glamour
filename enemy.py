@@ -1,5 +1,8 @@
 
-from globals import *
+import globals
+import pygame
+import obj_images
+from pygame.locals import *
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
@@ -18,16 +21,16 @@ class Enemy():
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
 
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
         self.lookside = 0
-        enemies.append(self)
+        globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
@@ -65,8 +68,8 @@ class Schnauzer(Enemy):
     def got_kissed(self):
         self.gotkissed == True
     def set_pos(self):
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
 
         if self.move == True:
             if self.direction == 'right' :
@@ -104,8 +107,8 @@ class Carriage(Enemy):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
         if self.move == True:
             if self.direction == 'right' :
@@ -147,7 +150,7 @@ class Butterfly(Enemy):
             self.height += 5
         if self.up_direction == 'going_up':
             self.height -= 5 
-        self.pos = (universe.center_x + self.distance_from_center, self.height)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.height)
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -187,15 +190,15 @@ class OldLady(Enemy):
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
         self.action = 'move'
-        enemies.append(self)
+        globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
@@ -236,8 +239,8 @@ class OldLady(Enemy):
     def set_pos(self):
 
 
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'move':
             if self.direction == 'right' :
                 self.distance_from_center += self.speed

@@ -1,5 +1,6 @@
 
-from globals import *
+import globals
+import obj_images
 
 
 class Floor():
@@ -15,13 +16,13 @@ class Floor():
         self.type = type
         for i in level:
             i.floor_image.insert(index,self)
-        self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
+        self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
     def update_pos(self):
         self.image_number += 1
         if self.image_number > len(self.image_list)-1:
             self.image_number = 0
         self.image = self.image_list[self.image_number]
-        self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
+        self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
 class Bridge():
     def __init__(self,directory,index,level,main=True):
         if main == True:    self.images = obj_images.OneSided(directory+'bridge/')
@@ -38,7 +39,7 @@ class Bridge():
         if main == True:    self.distance_from_center = (400*(index))-400
         else:               self.distance_from_center = (400*(index))
 
-        self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
+        self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
         if main == True:
             for i in level:
                 del i.floor_image[index]
@@ -53,4 +54,4 @@ class Bridge():
             self.image_number = 0
         self.image = self.images.list[self.image_number]
         
-        self.pos = (universe.center_x+(self.distance_from_center),universe.floor-self.size[1])
+        self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
