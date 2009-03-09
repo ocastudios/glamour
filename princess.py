@@ -59,6 +59,7 @@ The code is not yet well commented
         self.direction = dir
         self.update_pos(action)
         self.update_rect(action)
+        self.new_clothes(action)
         self.ive_been_caught()
         self.jumping(action)
         self.falling(action)
@@ -79,13 +80,14 @@ The code is not yet well commented
             else:
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
-    def update_rect(self,action):
+    def new_clothes(self,action):
         if action[0] == 'change':
             self.change_clothes((self.accessory),'accessory_shades',6)
         if action[0] == 'changedress':
             self.change_clothes((self.dress),'dress_pink',4)
         if action[0] == 'changehair':
             self.change_clothes((self.hair),'hair_cinderella',2)
+    def update_rect(self,action):
         #Correct rect position when turned left
         if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
@@ -96,8 +98,8 @@ The code is not yet well commented
             self.jump = 0
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
-
                 self.jump = 1
+
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)
             self.jump +=1
@@ -110,7 +112,7 @@ The code is not yet well commented
         if action[0]=='fall':
             if self.pos[1]+self.size[1]== self.floor:
                 action[0]=None
-        if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor:
+        if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor and self.jump==0:
             action[0]='fall'
     def celebrating(self,action):
         if self.celebrate > 0:
@@ -164,15 +166,6 @@ The code is not yet well commented
 
             if self.got_hitten == 30:#75 at 25 frames per second
                 self.got_hitten = 0
-
-
-
-
-
-
-
-
-
     def update_pos(self,action):
         #fall
         if self.pos[1]+self.size[1] < self.floor:
