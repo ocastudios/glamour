@@ -20,12 +20,14 @@ The code is not yet well commented
         self.size = (80,180)
         self.distance_from_center = 4200
         self.pos = (globals.universe.center_x+self.distance_from_center,globals.universe.floor - 186 -self.size[1])
+        self.hair_back = None
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
         self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
         self.shoes = PrincessPart(self,'data/images/princess/shoes_slipper',3)
         self.dress = PrincessPart(self,'data/images/princess/dress_plain',4)
         self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
+        self.arm_dress = None
         self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
         self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
         self.dirty2 = PrincessPart(self,'data/images/princess/dirt2',7)

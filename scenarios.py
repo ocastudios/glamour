@@ -70,6 +70,13 @@ class Building():
     def create_parts(self):
         for i in self.parts:
             i = BuildingPart(i[name],i[pos],i[directory])
+class BuildingPart():
+    def __init__(self,name,pos,dir):
+        self.name = name
+        self.pos = pos
+        self.dir = dir
+        
+
 
 class Background():
     def __init__(self,pos,level,index,dir):
@@ -87,4 +94,3 @@ class Background():
         self.image = self.images.list[self.image_number]
     def update_all(self):
         self.update_image()
-            

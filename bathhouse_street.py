@@ -2,7 +2,6 @@
 
 from getscreen import *
 from globals import *
-
 import moving_scenario
 import camera
 import clouds
@@ -11,9 +10,7 @@ import floors
 import glamour_stars
 import mousepointer
 import panel
-
 import princess
-
 from pygame.locals import *
 import scenarios
 import skies
@@ -21,7 +18,6 @@ import skies
 pygame.display.init()
 pygame.mixer.music.load("data/NeMedohounkou.ogg")
 pygame.init()
-
 
 def create_clouds(number):
     count = 0
@@ -42,11 +38,8 @@ def create_floor(number):
 lef_corner_house = scenarios.Scenario((0,100),'data/images/scenario/bathhouse_st/left_corner_house/base/',Level_01,index=0)
 gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
 bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',Level_01,index =0)
-
 left_house = scenarios.Scenario((2350,100),'data/images/scenario/bathhouse_st/left_house/base/',Level_01,index = 0)
-
 smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/small_house/base/',Level_01,index =0)
-
 home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',Level_01,index =0)
 right_house = scenarios.Scenario((4700,100),'data/images/scenario/bathhouse_st/right_house/base/',Level_01,index=0)
 gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
@@ -76,10 +69,8 @@ japanese_bridge = floors.Bridge('data/images/scenario/bathhouse_st/floor/japanes
 mouse_pos = pygame.mouse.get_pos()
 game_mouse = mousepointer.MousePointer(mouse_pos,[Level_01])
 
-
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 gamecamera = camera.GameCamera([Level_01])
-
 
 pygame.mouse.set_visible(0)
 while True:
@@ -112,7 +103,6 @@ while True:
             if event.key == K_h:
                 action[0] = 'changehair'
 
-                
         elif event.type == KEYUP:
             action[0]=None
             doll.doonce = False
@@ -123,7 +113,6 @@ while True:
     keystate = pygame.event.get()
     time_passed = clock.tick(15)
     screen_surface.fill([255,255,255])
-
     info_glamour_points.update(doll.glamour_points)
     stage.blit_all(screen_surface,action,dir,universe,clock_pointer)
 
