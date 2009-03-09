@@ -21,6 +21,8 @@ Margin may be used to better program interaction during the game. Margin default
         self.margin = margin
         self.left = self.find_images(dir)
         self.right = self.invert_images(self.left)
+        self.number = 0
+
     def find_images(self,dir):
         list_of_images = []
         images = []
@@ -45,6 +47,8 @@ class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
         self.list = self.find_images(directory)
+        self.number = 0
+        self.size = self.list[self.number].get_size()
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
