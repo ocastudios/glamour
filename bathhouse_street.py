@@ -45,7 +45,7 @@ smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/sm
 home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',Level_01,index =0)
 right_house = scenarios.Scenario((4700,100),'data/images/scenario/bathhouse_st/right_house/base/',Level_01,index=0)
 gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
-magic_beauty_salon = scenarios.Scenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',Level_01,index=0)
+magic_beauty_salon = scenarios.Building((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/base/',Level_01,{'pos':(270,540),'directory':'data/images/scenario/bathhouse_st/magic_beauty_salon/door/'},index=0)
 magic_beauty_salon_portal = scenarios.FrontScenario((5790,100),'data/images/scenario/bathhouse_st/magic_beauty_salon/portal/',Level_01,index=0)
 #bathhouse_door = scenarios.Scenario((920,90),'data/images/scenario/bathhouse_st/bathhouse/door_close/',[Level_01])
 carriage = enemy.Carriage(3,'data/images/enemies/carriage/',3000,[Level_01],[10,10,10,10],[10,10,10,10],[10,10,10,10])
