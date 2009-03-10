@@ -35,9 +35,11 @@ def create_floor(number):
         count +=1
 
 #Instancing Stuff
+
 lef_corner_house = scenarios.Scenario((0,100),'data/images/scenario/bathhouse_st/left_corner_house/base/',Level_01,index=0)
 gate1 = scenarios.Gate((300,0),'data/images/scenario/omni/gate/',Level_01,index = 0)
-bathhouse = scenarios.Scenario((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',Level_01,index =0)
+bathhouse = scenarios.Building((550,0),'data/images/scenario/bathhouse_st/bathhouse/bathhouse/',Level_01,{'pos':(270,540),'directory':'data/images/scenario/bathhouse_st/bathhouse/door_shut/'},index =0)
+
 left_house = scenarios.Scenario((2350,100),'data/images/scenario/bathhouse_st/left_house/base/',Level_01,index = 0)
 smallhouse = scenarios.Scenario((2920,100),'data/images/scenario/bathhouse_st/small_house/base/',Level_01,index =0)
 home = scenarios.Scenario((3400,100),'data/images/scenario/bathhouse_st/home/castelo/',Level_01,index =0)
@@ -68,9 +70,9 @@ stage = Level_01
 japanese_bridge = floors.Bridge('data/images/scenario/bathhouse_st/floor/japanese_bridge/',4,[Level_01])
 mouse_pos = pygame.mouse.get_pos()
 game_mouse = mousepointer.MousePointer(mouse_pos,[Level_01])
+gamecamera = camera.GameCamera([Level_01])
 
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
-gamecamera = camera.GameCamera([Level_01])
 
 pygame.mouse.set_visible(0)
 while True:
