@@ -1,13 +1,10 @@
+import globals
 import pygame
-from pygame.locals import *
-from globals import *
-from stage import *
-from getscreen import os_screen
 
 class GameClock():
     def __init__(self,level):
         self.image = pygame.image.load('data/images/interface/clock/page_border.png').convert_alpha()
-        self.pos =((os_screen.current_w-self.image.get_width()),0)
+        self.pos =((globals.os_screen.current_w-self.image.get_width()),0)
         self.time = 'day' #morning,day,evening,night
         for l in level:
             l.clock.append(self)
@@ -24,6 +21,7 @@ class ClockPointer():
         self.clock_pointer = []
         self.count = 0
         self.tick = 0
+        self.time = 'day' #morning,day,evening,night
         for degree in self.rotate_list:
             image = pygame.transform.rotate(self.clock_pointer_basic,degree)
             self.clock_pointer.append(image)
@@ -33,7 +31,7 @@ class ClockPointer():
             
         self.image = self.clock_pointer[self.count]
         imagesize = self.image.get_size()
-        self.pos = (os_screen.current_w-imagesize[0],0)
+        self.pos = (globals.os_screen.current_w-imagesize[0],0)
         
 
     def update_image(self):
@@ -46,7 +44,7 @@ class ClockPointer():
                 self.count+=1
             self.image = self.clock_pointer[self.count]
             imagesize = self.image.get_size()
-            self.pos = (os_screen.current_w-imagesize[0],0)
+            self.pos = (globals.os_screen.current_w-imagesize[0],0)
         elif self.tick >number:
             self.tick = 0
     

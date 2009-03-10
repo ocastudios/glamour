@@ -1,21 +1,20 @@
-
-import pygame
+from getscreen import *
 from pygame.locals import *
-import pygame.display
-import os
-from getscreen import os_screen
+pygame.mixer.init()
+import random
+from sys import exit
+from math import *
+from random import randint
 from stage import *
-from globals import *
 from game_clock import *
-
-
-
+import obj_images
+from numpy import uint8
 
 
 class Universe():
     def __init__(self):
         self.gravity = 3
-        self.center_x = 0
+        self.center_x = -3400
         self.center_y = 0
         self.floor = os_screen.current_h
         self.speed = 0
@@ -29,16 +28,16 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -5000:
+        if self.center_x < -5430:
             self.speed = 0
-            self.center_x = -5000
+            self.center_x = -5430
 #        self.center_x += self.speed
 
 
 #Create lists
 
 data_list = []
-clouds = []
+
 cenario_stuff = []
 action = [None, 'stand']
 stars = []
@@ -52,7 +51,7 @@ count = 0
 
 universe = Universe()
 
-Level_01 = Stage(1,2000,universe)
+Level_01 = Stage(1,6000,universe)
 game_clock = GameClock([Level_01])
 clock_pointer = ClockPointer([Level_01])
 
