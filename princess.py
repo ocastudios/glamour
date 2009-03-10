@@ -1,7 +1,18 @@
 import globals
 import obj_images
 import pygame
+import ogg
+import ogg.vorbis
+import os
 from pygame.locals import *
+
+
+
+
+
+
+
+
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -53,6 +64,7 @@ The code is not yet well commented
         self.parts.remove(self.dirty2)
         self.parts.remove(self.dirty3)
         self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
+
         self.floor = globals.universe.floor - 186
     def control(self, dir, action):
         self.effects = []
@@ -96,8 +108,8 @@ The code is not yet well commented
             self.jump = 0
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
-
                 self.jump = 1
+                teste = os.popen4('ogg123 /home/nelson/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)
             self.jump +=1

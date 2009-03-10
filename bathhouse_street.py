@@ -95,7 +95,7 @@ while True:
             if event.key == K_UP:
                 if doll.jump == 0:
                     action[0] ='jump'
-                    doll.jump_sound.play(0,0)
+
             if event.key == K_c:
                 action[0] = 'change'
             if event.key == K_i:
