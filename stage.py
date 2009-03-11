@@ -193,4 +193,37 @@ It is still in its early development"""
             if count >= 979:
                 self.floor_heights[n+count] = 186
             count += 1
+    def dress_st(self):
+        pygame.mixer.music.load("data/NeMedohounkou.ogg")
+        def create_floor(number):
+            count = 0
+            while count <= number:
+                tile = floors.Floor(count,self.directory+'floor/',self)
+                count +=1
+        dress_tower =  scenarios.Building((0,100),self.directory+'Dress_Tower/',self,{'pos':(155,350),'directory':self.directory+'Dress_Tower/door/'},index =0)
+        fachwerk1   = scenarios.Scenario((1000,100),self.directory+'fachwerk_1/',self,index=0)
+        fachwerk2   = scenarios.Scenario((2000,100),self.directory+'fachwerk_2/',self,index=0)
+        fachwerk3   = scenarios.Scenario((3000,100),self.directory+'fachwerk_3/',self,index=0)
+        fence       = scenarios.Scenario((4000,100),self.directory+'fence/',self,index=0)
+        knightstatue= scenarios.Scenario((5000,100),self.directory+'knight_statue/',self,index=0)
+        gate1 = scenarios.Gate((400,0),'data/images/scenario/omni/gate/',self,index = 0)
+        gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)
+        bilboard = moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')
 
+        carriage = enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10])
+        oldlady = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
+        schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
+        butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
+        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,globals.clock_pointer)
+
+        create_floor(30)
+
+
+        Main_Star= glamour_stars.Glamour_Stars((0,0),self,True)
+
+        try:       pygame.mixer.music.play()
+        except:    print "Warning: no music loaded."
+        self.princess = princess.Princess(self)
+
+        info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
+        castle = scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')

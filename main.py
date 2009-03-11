@@ -6,8 +6,9 @@ import camera
 import mousepointer
 from pygame.locals import *
 
-level = Level_01
-level.bathhouse_street()
+level = Level_02
+#level.bathhouse_street()
+level.dress_st()
 
 mouse_pos = pygame.mouse.get_pos()
 game_mouse = mousepointer.MousePointer(mouse_pos,level)
