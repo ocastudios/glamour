@@ -53,8 +53,7 @@ It is still in its early development"""
         for i in self.gates:
             surface.blit(i.image,i.pos)
             i.update_all(self.princesses[0])
-            if self.princesses[0].rect.colliderect(i.rect)== True:
-                surface.blit(i.arrow_image,i.arrow_pos)
+
         for i in self.enemies:
             surface.blit(i.image,i.pos)
             i.update_all((self.princesses[0]))
@@ -79,6 +78,9 @@ It is still in its early development"""
         for i in self.scenarios_front:
             surface.blit(i.image,i.pos)
             i.update_all()
+        for i in self.gates:
+            if self.princesses[0].rect.colliderect(i.rect)== True:
+                surface.blit(i.arrow_image,i.arrow_pos)
         for i in self.floor_image:
             surface.blit(i.image,i.pos)
             i.update_pos()

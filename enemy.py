@@ -3,6 +3,7 @@ import globals
 import pygame
 import obj_images
 from pygame.locals import *
+import random
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
@@ -231,14 +232,16 @@ class OldLady(Enemy):
                 self.image_number = 0
         else:
             if self.count == 105:
+                if random.randint(0,1)>0:
+                    self.direction = 'left'
+                else:
+                    self.direction = 'right'
                 self.action = 'move'
                 self.count = 0
         self.count += 1
             
 
     def set_pos(self):
-
-
         self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'move':
