@@ -4,14 +4,6 @@ import pygame
 import os
 from pygame.locals import *
 
-
-
-
-
-
-
-
-
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
 Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
@@ -109,7 +101,6 @@ The code is not yet well commented
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
                 self.jump = 1
-
                 teste = os.popen4('ogg123 /home/nelson/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
 
         if self.jump > 0 and self.jump <20:

@@ -51,9 +51,9 @@ count = 0
 
 universe = Universe()
 
-Level_01 = Stage(1,6000,universe)
-game_clock = GameClock([Level_01])
-clock_pointer = ClockPointer([Level_01])
+Level_01 = Stage(1,6000,universe,'data/images/scenario/bathhouse_st/')
+game_clock = GameClock(Level_01)
+clock_pointer = ClockPointer(Level_01)
 
 
 

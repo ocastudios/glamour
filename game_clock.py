@@ -6,8 +6,7 @@ class GameClock():
         self.image = pygame.image.load('data/images/interface/clock/page_border.png').convert_alpha()
         self.pos =((globals.os_screen.current_w-self.image.get_width()),0)
         self.time = 'day' #morning,day,evening,night
-        for l in level:
-            l.clock.append(self)
+        level.clock.append(self)
 
 class ClockPointer():
     def __init__(self,level):    
@@ -26,8 +25,7 @@ class ClockPointer():
             image = pygame.transform.rotate(self.clock_pointer_basic,degree)
             self.clock_pointer.append(image)
         
-        for l in level:
-            l.clock.append(self)
+        level.clock.append(self)
             
         self.image = self.clock_pointer[self.count]
         imagesize = self.image.get_size()

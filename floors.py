@@ -14,8 +14,7 @@ class Floor():
         self.size = self.image.get_size()
         self.distance_from_center = (self.size[0]*(index))
         self.type = type
-        for i in level:
-            i.floor_image.insert(index,self)
+        level.floor_image.insert(index,self)
         self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
     def update_pos(self):
         self.image_number += 1
@@ -41,12 +40,10 @@ class Bridge():
 
         self.pos = (globals.universe.center_x+(self.distance_from_center),globals.universe.floor-self.size[1])
         if main == True:
-            for i in level:
-                del i.floor_image[index]
-                i.floor_image.insert(0,self)
+            del level.floor_image[index]
+            level.floor_image.insert(0,self)
         else:
-            for i in level:
-                i.floor_image[index]= self
+            level.floor_image[index]= self
 
     def update_pos(self):
         self.image_number += 1

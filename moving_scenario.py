@@ -16,8 +16,7 @@ class MovingScenario():
         self.speed = 4
         self.count = 0
 
-        for i in level:
-            i.moving_scenario.insert(index,self)
+        level.moving_scenario.insert(index,self)
     def update_all(self,act,direction):
         self.set_pos(act,direction)
     def set_pos(self,act,direction):

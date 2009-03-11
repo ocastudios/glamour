@@ -22,7 +22,7 @@ class Enemy():
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
         self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
 
@@ -32,13 +32,12 @@ class Enemy():
         self.direction = 'left'
         self.lookside = 0
         globals.enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
 
-        for i in level:
-            i.enemies.append(self)
+        self.level.enemies.append(self)
 
 class Schnauzer(Enemy):
     bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
@@ -69,7 +68,7 @@ class Schnauzer(Enemy):
     def got_kissed(self):
         self.gotkissed == True
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
 
         if self.move == True:
@@ -108,7 +107,7 @@ class Carriage(Enemy):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
         if self.move == True:
@@ -116,7 +115,7 @@ class Carriage(Enemy):
                 self.distance_from_center += self.speed
             else:
                 self.distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
         if self.move == True:
@@ -191,7 +190,7 @@ class OldLady(Enemy):
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
         self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
@@ -200,12 +199,11 @@ class OldLady(Enemy):
         self.direction = 'left'
         self.action = 'move'
         globals.enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = False
         self.image_number = 0
         self.dirty = dirty
-        for i in level:
-            i.enemies.append(self)
+        level.enemies.append(self)
 
     def update_all(self,princess):
         self.wave_to_princess()
@@ -242,14 +240,14 @@ class OldLady(Enemy):
             
 
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'move':
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
             else:
                 self.distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):
 #choose list
