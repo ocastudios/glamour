@@ -33,7 +33,7 @@ class Enemy():
         self.lookside = 0
         globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
-        self.gotkissed = False
+        self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
 
@@ -49,11 +49,12 @@ class Schnauzer(Enemy):
         self.look_around(princess)
         self.set_pos()
         self.set_image()
+        self.got_kissed(princess)
     def look_around(self,princess):
         self.count +=1
         if self.count > 130:
             self.move = False
-        if self.move == False:
+        if self.move == False and self.gotkissed == 0:
             if princess.pos[0] > self.pos[0]:
                 self.direction='right'
             else:
@@ -64,13 +65,19 @@ class Schnauzer(Enemy):
                 self.move = True
                 self.lookside = 0
                 self.count = 0
-        #self.gotkissed = True
-    def got_kissed(self):
-        self.gotkissed == True
+
+    def got_kissed(self,princess):
+        if self.rect.colliderect(princess.kiss_rect):
+            self.gotkissed += 1
+            self.move = False
+        if self.gotkissed != 0:
+            self.gotkissed +1
+        if self.gotkissed >= 250:
+            self.gotkissed = 0
+            self.move = True
     def set_pos(self):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
-
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -89,7 +96,7 @@ class Schnauzer(Enemy):
                 actual_list = self.walk.right[0:1]
             else:
                 actual_list = self.walk.left[0:1]
-        if self.gotkissed == True:
+        if self.gotkissed >= 1:
             self.move =False
             if self.direction == 'right':
                 actual_list = self.kissed.right
@@ -200,7 +207,7 @@ class OldLady(Enemy):
         self.action = 'move'
         globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
-        self.gotkissed = False
+        self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
         level.enemies.append(self)

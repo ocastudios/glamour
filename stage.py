@@ -13,7 +13,7 @@ import panel
 import pygame
 
 
-class Stage():
+class BathhouseSt():
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
 It is still in its early development"""
     enemy_dir = 'data/images/enemies/'
@@ -44,9 +44,7 @@ It is still in its early development"""
         self.size = size
         self.sky = []
         #self.floor_list = {0:186,620:186}
-
-
-    def bathhouse_street(self):
+    def instantiate_stuff(self,clock_pointer):
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         def create_clouds(number):
             count = 0
@@ -78,7 +76,7 @@ It is still in its early development"""
         oldlady = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
         schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
         butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
-        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,globals.clock_pointer)
+        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)
         create_posts(15)
         create_floor(30)
         create_clouds(50)
@@ -193,7 +191,8 @@ It is still in its early development"""
             if count >= 979:
                 self.floor_heights[n+count] = 186
             count += 1
-    def dress_st(self):
+class DressSt(BathhouseSt):
+    def instantiate_stuff(self,clock_pointer):
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         def create_floor(number):
             count = 0
@@ -201,12 +200,14 @@ It is still in its early development"""
                 tile = floors.Floor(count,self.directory+'floor/',self)
                 count +=1
         dress_tower =  scenarios.Building((0,100),self.directory+'Dress_Tower/',self,{'pos':(155,350),'directory':self.directory+'Dress_Tower/door/'},index =0)
+        dress_tower_flag = scenarios.Scenario((0,100),self.directory+'Dress_Tower/flag/',self,index=0)
         fachwerk1   = scenarios.Scenario((1000,100),self.directory+'fachwerk_1/',self,index=0)
         fachwerk2   = scenarios.Scenario((2000,100),self.directory+'fachwerk_2/',self,index=0)
+        apple_pillar= scenarios.Scenario((2500,100),self.directory+'apple_pillar/',self,index=0)
         fachwerk3   = scenarios.Scenario((3000,100),self.directory+'fachwerk_3/',self,index=0)
         fence       = scenarios.Scenario((4000,100),self.directory+'fence/',self,index=0)
         knightstatue= scenarios.Scenario((5000,100),self.directory+'knight_statue/',self,index=0)
-        gate1 = scenarios.Gate((400,0),'data/images/scenario/omni/gate/',self,index = 0)
+        gate1 = scenarios.Gate((600,0),'data/images/scenario/omni/gate/',self,index = 0)
         gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)
         bilboard = moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')
 
@@ -214,7 +215,7 @@ It is still in its early development"""
         oldlady = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
         schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
         butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
-        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,globals.clock_pointer)
+        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)
 
         create_floor(30)
 
@@ -227,3 +228,22 @@ It is still in its early development"""
 
         info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
         castle = scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')
+    def set_floor(self):
+        self.floor_heights = {}
+        count = 0
+        n = 0
+        a = 0
+        while count < 1200:
+            self.floor_heights[n+count] = 186
+            if count >= 60:
+                self.floor_heights[n+count] = 255 + a
+
+            if count >= 220:
+                self.floor_heights[n+count] = 240 + a
+            if count >= 250:
+                self.floor_heights[n+count] = 215 + a
+            if count >= 300:
+                self.floor_heights[n+count] = 195
+            if count >= 300:
+                self.floor_heights[n+count] = 186
+            count += 1

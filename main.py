@@ -7,8 +7,12 @@ import mousepointer
 from pygame.locals import *
 
 level = Level_02
-#level.bathhouse_street()
-level.dress_st()
+game_clock = GameClock(level)
+clock_pointer = ClockPointer(level)
+#level.bathhouse_street(clock_pointer)
+level.instantiate_stuff(clock_pointer)
+
+
 
 mouse_pos = pygame.mouse.get_pos()
 game_mouse = mousepointer.MousePointer(mouse_pos,level)

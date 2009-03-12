@@ -49,12 +49,13 @@ The code is not yet well commented
         level.princesses.append(self)
         self.jump = 0
         self.celebrate = 0
-        self.kiss = 0        
+        self.kiss = 0
+        self.kiss_direction = 'left'
         self.parts.remove(self.dirty)
         self.parts.remove(self.dirty2)
         self.parts.remove(self.dirty3)
         self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
-
+        self.kiss_rect = ((0,0),(0,0))
         self.floor = globals.universe.floor - 186
     def control(self, dir, action):
         self.effects = []
@@ -144,6 +145,7 @@ The code is not yet well commented
                 self.throwkiss(dir)
             else:
                 self.kiss = 0
+                self.kiss_rect = Rect ((0,0),(0,0))
     def change_clothes(princess,part,dir,index):
         princess.parts.remove(part)
         part = PrincessPart(princess,'data/images/princess/'+str(dir),index)
@@ -214,12 +216,17 @@ The code is not yet well commented
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number
     def throwkiss(self,direction):
-        if direction == 'right':
+        if self.kiss == 1:
+            self.kiss_direction = direction
+        if self.kiss_direction == 'right':
             kissimage = self.lips.left[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0],self.pos[1])))          
+            self.effects.append((kissimage,(self.pos[0],self.pos[1])))
+            self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.right[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))          
+            self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
+
+            self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
 
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):

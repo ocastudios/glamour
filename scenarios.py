@@ -24,7 +24,7 @@ class Scenario():
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
         self.image = self.images.list[self.images.number]
-        self.pos = (globals.universe.center_x+(self.distance_from_center),self.level.floor-(self.size[1]-15))
+        self.pos = (globals.universe.center_x+(self.distance_from_center),self.level.floor-(self.size[1]-10))
         self.rect = Rect(self.pos, self.size)
     def append_into_level_list(self):
         self.level.scenarios.insert(self.index,self)
