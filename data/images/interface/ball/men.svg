@@ -1092,9 +1092,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1469.3195"
-     inkscape:cy="340.30646"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="2495.8837"
+     inkscape:cy="255.55655"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1611,37 +1611,58 @@
        style="fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1073.8107,639.94975 L 1083.4467,636.06066 L 1089.8107,657.53553 C 1085.8087,655.73506 1078.6471,659.34311 1075.5784,662.13173 L 1073.8107,639.94975 z"
        id="rect4057"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#272727;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1075.5,662.125 C 1079.3567,658.12856 1086.0276,655.82435 1089.8125,657.53125 C 1093.1152,659.67472 1094.3819,664.26739 1094.25,667.5 C 1091.5353,668.72216 1084.3107,669.47279 1079.9988,668.52363 C 1077.1472,668.03785 1075.8185,667.31778 1075.125,666.5 C 1074.951,665.42397 1075.0048,663.55766 1075.5,662.125 z"
        id="rect4131"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:url(#linearGradient4154);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;opacity:0.17482517"
        d="M 1073.7537,639.53554 L 1083.3897,635.64645 L 1089.7537,657.12132 C 1085.7517,655.32085 1078.5901,658.9289 1075.5214,661.71752 L 1073.7537,639.53554 z"
        id="path4136"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1068.4833,639.94405 L 1059.2732,636.00222 L 1053.1904,657.76831 C 1057.0155,655.94343 1063.8606,659.60041 1066.7937,662.42684 L 1068.4833,639.94405 z"
        id="path4127"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:url(#linearGradient4162);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;opacity:0.17482517"
        d="M 1068.4263,639.8834 L 1059.2162,635.94157 L 1053.1334,657.70766 C 1056.9585,655.88278 1063.8036,659.53976 1066.7367,662.36619 L 1068.4263,639.8834 z"
        id="path4138"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#272727;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1066.647,662.04261 C 1062.7903,658.04617 1056.1194,655.74196 1052.3345,657.44886 C 1049.0318,659.59233 1047.7651,664.185 1047.897,667.41761 C 1050.6117,668.63977 1057.8363,669.3904 1062.1482,668.44124 C 1064.9998,667.95546 1066.3285,667.23539 1067.022,666.41761 C 1067.196,665.34158 1067.1422,663.47527 1066.647,662.04261 z"
        id="path4134"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g4119"
        inkscape:transform-center-y="16.672482"
        transform="matrix(0.9578026,0.2874268,-0.2874268,0.9578026,201.1978,-286.38253)"
-       inkscape:transform-center-x="6.251112">
+       inkscape:transform-center-x="6.251112"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(1.0950313,0,0,1.0950313,-134.77209,-47.149712)"
          d="M 1118.6429,619.80896 A 7.2478447,7.2478447 0 1 1 1104.1472,619.80896 A 7.2478447,7.2478447 0 1 1 1118.6429,619.80896 z"
@@ -1671,22 +1692,34 @@
        sodipodi:rx="18.384777"
        sodipodi:ry="18.384777"
        d="M 1091.7728,639.78473 A 18.384777,18.384777 0 1 1 1055.0033,639.78473 A 18.384777,18.384777 0 1 1 1091.7728,639.78473 z"
-       transform="matrix(1.0096154,0,0,0.8557692,-11.558476,79.725494)" />
+       transform="matrix(1.0096154,0,0,0.8557692,-11.558476,79.725494)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#272727;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1066.4954,591.73219 C 1070.567,587.9221 1077.4274,588.38459 1081.8734,589.69224 C 1084.4273,593.59685 1085.9189,604.39375 1085.87,608.69995 C 1090.5755,617.18543 1090.4045,619.62647 1091.1315,627.98035 C 1077.3028,638.79078 1060.5726,638.52693 1054.0988,629.86337 C 1052.6252,620.37867 1057.4606,610.10937 1060.8384,604.07686 C 1061.8158,600.2735 1063.8954,596.55387 1066.4954,591.73219 z"
        id="rect3395"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#ffd9d9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1069.4712,576.79023 L 1076.5725,575.2368 L 1080.5669,590.1052 L 1070.4382,594.28055 L 1069.2493,591.4367 L 1069.4712,576.79023 z"
        id="rect3191"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="opacity:0.2027972;fill:url(#linearGradient3202);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1069.5267,576.81076 L 1076.6279,575.25734 L 1080.6225,590.12574 L 1070.4936,594.30108 L 1069.3048,591.45723 L 1069.5267,576.81076 z"
        id="path3194"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1711,12 +1744,18 @@
        style="fill:#ffd9d9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1039.3832,518.04267 L 1096.1541,518.04267 L 1096.7997,557.62751 L 1094.1094,576.468 C 1091.2877,581.00893 1073.2499,588.53634 1055.8338,587.59261 C 1033.7434,581.40053 1030.7132,562.23963 1032.1917,551.46876 C 1032.4961,549.2522 1031.396,538.00533 1031.4801,534.46116 C 1031.6399,527.73365 1035.4037,521.81489 1039.3832,518.04267 z"
        id="rect2390"
-       sodipodi:nodetypes="cccccssc" />
+       sodipodi:nodetypes="cccccssc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#b1a30c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1026.123,530.36579 C 1026.1359,520.26459 1041.0357,507.80603 1049.4386,503.78405 C 1062.9522,498.27293 1081.8192,500.15746 1089.6392,504.0628 C 1094.4192,506.44999 1101.7763,512.70793 1101.6199,515.07802 C 1106.8063,516.41691 1111.3198,519.79274 1112.2988,525.85543 C 1113.3683,532.47917 1112.97,541.52915 1111.5953,548.11573 C 1110.0313,555.60984 1108.9221,560.50633 1103.8023,566.87233 C 1101.9838,569.13349 1093.5318,578.14689 1093.5318,578.14689 C 1095.5537,569.68938 1097.1966,555.77284 1092.3995,549.55878 C 1092.1247,550.05743 1091.1628,550.62753 1090.4477,550.8477 C 1088.7215,546.68206 1086.8979,543.06844 1085.5701,536.64009 C 1089.3955,535.31308 1094.3052,527.85097 1094.0253,521.15576 C 1073.0187,520.95285 1064.4442,531.19628 1050.0083,531.18348 C 1038.1547,528.14986 1033.1867,527.64165 1026.123,530.36579 z"
        id="rect2393"
-       sodipodi:nodetypes="ccscsssccccccc" />
+       sodipodi:nodetypes="ccscsssccccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="fill:#bebeff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1726,7 +1765,10 @@
        sodipodi:rx="2.0982144"
        sodipodi:ry="2.0982144"
        d="M 1054.9107,527.36609 A 2.0982144,2.0982144 0 1 1 1050.7143,527.36609 A 2.0982144,2.0982144 0 1 1 1054.9107,527.36609 z"
-       transform="matrix(1.8265612,0,0,1.8265612,-879.85347,-411.82198)" />
+       transform="matrix(1.8265612,0,0,1.8265612,-879.85347,-411.82198)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1736,7 +1778,10 @@
        sodipodi:rx="0.58035713"
        sodipodi:ry="0.58035713"
        d="M 1053.2143,527.27679 A 0.58035713,0.58035713 0 1 1 1052.0536,527.27679 A 0.58035713,0.58035713 0 1 1 1053.2143,527.27679 z"
-       transform="matrix(2.6695895,0,0,2.6695895,-1767.2536,-856.33122)" />
+       transform="matrix(2.6695895,0,0,2.6695895,-1767.2536,-856.33122)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1746,15 +1791,24 @@
        sodipodi:rx="0.58035713"
        sodipodi:ry="0.58035713"
        d="M 1053.2143,527.27679 A 0.58035713,0.58035713 0 1 1 1052.0536,527.27679 A 0.58035713,0.58035713 0 1 1 1053.2143,527.27679 z"
-       transform="matrix(3.3153764,0,0,3.3153764,-2445.6033,-1197.7756)" />
+       transform="matrix(3.3153764,0,0,3.3153764,-2445.6033,-1197.7756)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#b1a30c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1036.1056,542.97449 L 1048.6751,539.9297 L 1049.4847,543.85843 L 1036.4655,544.72059 L 1036.1056,542.97449 z"
        id="rect3176"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g3322"
-       transform="matrix(1.8265612,0,0,1.8265612,-878.11964,-424.27368)">
+       transform="matrix(1.8265612,0,0,1.8265612,-878.11964,-424.27368)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(1.4606858,0,0,1.4606858,-491.38069,-238.58999)"
          d="M 1071.7857,529.01788 A 4.5535712,4.5535712 0 1 1 1062.6786,529.01788 A 4.5535712,4.5535712 0 1 1 1071.7857,529.01788 z"
@@ -1810,22 +1864,34 @@
        style="opacity:0.45454544;fill:url(#linearGradient4076);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1048.0772,559.90054 L 1048.0772,566.97846 L 1054.9268,570.17495 L 1044.6524,571.08823 L 1048.0772,559.90054 z"
        id="rect3251"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.49845293;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 1052.9774,577.23259 C 1054.7887,577.87912 1057.2829,577.76085 1059.1109,576.8734 C 1059.8266,576.52598 1060.4854,576.17791 1060.7592,575.65217"
        id="path3265"
-       sodipodi:nodetypes="csc" />
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1068.087,591.99148 L 1070.567,594.66426 L 1077.3161,592.66389 C 1075.9431,604.03497 1074.8982,616.0162 1077.1048,626.91573 L 1066.2835,635.46858 L 1057.2658,626.20299 C 1059.12,614.79915 1061.4935,603.39533 1068.087,591.99148 z"
        id="rect3267"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:url(#radialGradient3286);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1068.0942,591.99148 L 1070.574,594.66426 L 1077.3232,592.66389 C 1075.9502,604.03497 1074.9051,616.0162 1077.1119,626.91573 L 1066.2906,635.46858 L 1057.2728,626.20299 C 1059.1269,614.79915 1061.5005,603.39533 1068.0942,591.99148 z"
        id="path3270"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1835,7 +1901,10 @@
        sodipodi:rx="1.5"
        sodipodi:ry="1.5"
        d="M 1061.5,619.375 A 1.5,1.5 0 1 1 1058.5,619.375 A 1.5,1.5 0 1 1 1061.5,619.375 z"
-       transform="matrix(0.887665,0,0,0.887665,124.82758,80.151469)" />
+       transform="matrix(0.887665,0,0,0.887665,124.82758,80.151469)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1845,7 +1914,10 @@
        sodipodi:rx="1.5"
        sodipodi:ry="1.5"
        d="M 1061.5,619.375 A 1.5,1.5 0 1 1 1058.5,619.375 A 1.5,1.5 0 1 1 1061.5,619.375 z"
-       transform="matrix(0.887665,0,0,0.887665,125.04949,73.715908)" />
+       transform="matrix(0.887665,0,0,0.887665,125.04949,73.715908)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1855,10 +1927,16 @@
        sodipodi:rx="1.5"
        sodipodi:ry="1.5"
        d="M 1061.5,619.375 A 1.5,1.5 0 1 1 1058.5,619.375 A 1.5,1.5 0 1 1 1061.5,619.375 z"
-       transform="matrix(0.887665,0,0,0.887665,125.93715,67.502245)" />
+       transform="matrix(0.887665,0,0,0.887665,125.93715,67.502245)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g3390"
-       transform="matrix(0.8847142,7.2316795e-2,-7.2316795e-2,0.8847142,193.48615,16.137026)">
+       transform="matrix(0.8847142,7.2316795e-2,-7.2316795e-2,0.8847142,193.48615,16.137026)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="ccscscs"
          id="path3388"
@@ -1959,7 +2037,10 @@
        id="g4114"
        inkscape:transform-center-y="16.766161"
        transform="matrix(0.9662027,-0.2577836,0.2577836,0.9662027,-118.36978,299.29497)"
-       inkscape:transform-center-x="-6.0239881">
+       inkscape:transform-center-x="-6.0239881"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(1.0950313,0,0,1.0950313,-134.77209,-47.149712)"
          d="M 1118.6429,619.80896 A 7.2478447,7.2478447 0 1 1 1104.1472,619.80896 A 7.2478447,7.2478447 0 1 1 1118.6429,619.80896 z"
@@ -1984,12 +2065,18 @@
        style="opacity:0.17482521000000001;fill:url(#linearGradient4173);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1065.1287,501.03769 C 1091.023,499.7816 1099.0956,511.01217 1101.0208,515.17982 L 1094.0381,520.78293 C 1074.1526,520.33385 1066.3932,529.54457 1050.4562,530.77082 L 1036.7173,513.5265 C 1044.4827,505.70991 1054.0642,501.78487 1065.1287,501.03769 z"
        id="rect4164"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="opacity:0.17482521000000001;fill:url(#linearGradient4184);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 1094.6014,520.81401 L 1101.3188,515.51071 C 1107.4394,516.96112 1109.3743,520.16028 1110.8963,522.78998 C 1112.447,528.59846 1113.3599,534.51323 1112.1022,540.78978 L 1090.9074,550.4161 C 1089.1829,545.91096 1087.2929,541.40583 1086.4697,536.90069 C 1093.6969,530.44199 1093.9769,525.66819 1094.6014,520.81401 z"
        id="rect4175"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/ball/prince_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#d38d5f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.50000000000000000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
