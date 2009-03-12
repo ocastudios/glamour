@@ -1,4 +1,5 @@
-from globals import *
+import obj_images
+import random
 
 class Cloud():
     def __init__(self, p,level):

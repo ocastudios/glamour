@@ -1,4 +1,9 @@
-from globals import *
+import globals
+import os
+import pygame
+### TODO Incorporate the variables image_number and size to the obj_images atributes, for their not atributes of the object, but of the images of the object and this will simplify a lot the code.
+### TODO include a function update_image, so that it will no longer be necessary to repeat the code in every object.
+### TODO include a function reset_image, so that it will be possible to restart the image number easily.
 
 try:
     import Numeric
@@ -16,6 +21,8 @@ Margin may be used to better program interaction during the game. Margin default
         self.margin = margin
         self.left = self.find_images(dir)
         self.right = self.invert_images(self.left)
+        self.number = 0
+
     def find_images(self,dir):
         list_of_images = []
         images = []
@@ -40,6 +47,8 @@ class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
         self.list = self.find_images(directory)
+        self.number = 0
+        self.size = self.list[self.number].get_size()
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin

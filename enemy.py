@@ -1,5 +1,9 @@
 
-from globals import *
+import globals
+import pygame
+import obj_images
+from pygame.locals import *
+import random
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
@@ -18,23 +22,22 @@ class Enemy():
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
 
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
         self.lookside = 0
-        enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
-        self.gotkissed = False
+        globals.enemies.append(self)
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
 
-        for i in level:
-            i.enemies.append(self)
+        self.level.enemies.append(self)
 
 class Schnauzer(Enemy):
     bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
@@ -46,11 +49,12 @@ class Schnauzer(Enemy):
         self.look_around(princess)
         self.set_pos()
         self.set_image()
+        self.got_kissed(princess)
     def look_around(self,princess):
         self.count +=1
         if self.count > 130:
             self.move = False
-        if self.move == False:
+        if self.move == False and self.gotkissed == 0:
             if princess.pos[0] > self.pos[0]:
                 self.direction='right'
             else:
@@ -61,13 +65,19 @@ class Schnauzer(Enemy):
                 self.move = True
                 self.lookside = 0
                 self.count = 0
-        #self.gotkissed = True
-    def got_kissed(self):
-        self.gotkissed == True
-    def set_pos(self):
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
 
+    def got_kissed(self,princess):
+        if self.rect.colliderect(princess.kiss_rect):
+            self.gotkissed += 1
+            self.move = False
+        if self.gotkissed != 0:
+            self.gotkissed +1
+        if self.gotkissed >= 250:
+            self.gotkissed = 0
+            self.move = True
+    def set_pos(self):
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -86,7 +96,7 @@ class Schnauzer(Enemy):
                 actual_list = self.walk.right[0:1]
             else:
                 actual_list = self.walk.left[0:1]
-        if self.gotkissed == True:
+        if self.gotkissed >= 1:
             self.move =False
             if self.direction == 'right':
                 actual_list = self.kissed.right
@@ -104,15 +114,15 @@ class Carriage(Enemy):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
             else:
                 self.distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
         if self.move == True:
@@ -147,7 +157,7 @@ class Butterfly(Enemy):
             self.height += 5
         if self.up_direction == 'going_up':
             self.height -= 5 
-        self.pos = (universe.center_x + self.distance_from_center, self.height)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.height)
         if self.move == True:
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
@@ -187,21 +197,20 @@ class OldLady(Enemy):
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
         self.action = 'move'
-        enemies.append(self)
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level[0].floor-self.pos[1])),(self.size))
-        self.gotkissed = False
+        globals.enemies.append(self)
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
-        for i in level:
-            i.enemies.append(self)
+        level.enemies.append(self)
 
     def update_all(self,princess):
         self.wave_to_princess()
@@ -228,22 +237,24 @@ class OldLady(Enemy):
                 self.image_number = 0
         else:
             if self.count == 105:
+                if random.randint(0,1)>0:
+                    self.direction = 'left'
+                else:
+                    self.direction = 'right'
                 self.action = 'move'
                 self.count = 0
         self.count += 1
             
 
     def set_pos(self):
-
-
-        self.floor = universe.floor-self.level[0].what_is_my_height(self)
-        self.pos = (universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'move':
             if self.direction == 'right' :
                 self.distance_from_center += self.speed
             else:
                 self.distance_from_center -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level[0].floor-self.size[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):
 #choose list

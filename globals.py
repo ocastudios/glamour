@@ -14,7 +14,7 @@ from numpy import uint8
 class Universe():
     def __init__(self):
         self.gravity = 3
-        self.center_x = 0
+        self.center_x = -3400
         self.center_y = 0
         self.floor = os_screen.current_h
         self.speed = 0
@@ -28,16 +28,16 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -9000:
+        if self.center_x < -5430:
             self.speed = 0
-            self.center_x = -9000
+            self.center_x = -5430
 #        self.center_x += self.speed
 
 
 #Create lists
 
 data_list = []
-clouds = []
+
 cenario_stuff = []
 action = [None, 'stand']
 stars = []
@@ -51,9 +51,9 @@ count = 0
 
 universe = Universe()
 
-Level_01 = Stage(1,2000,universe)
-game_clock = GameClock([Level_01])
-clock_pointer = ClockPointer([Level_01])
+Level_01 = BathhouseSt(1,6000,universe,'data/images/scenario/bathhouse_st/')
+Level_02 = DressSt(1,6000,universe,'data/images/scenario/dress_st/')
+
 
 
 

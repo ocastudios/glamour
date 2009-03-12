@@ -1,4 +1,8 @@
-from globals import *
+import globals
+import obj_images
+import pygame
+import os
+from pygame.locals import *
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -12,17 +16,19 @@ Princess movement determines the camera, and this may not continue for Princess 
 Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
-    def __init__(self,levels):
+    def __init__(self,level):
         self.parts = []
         self.size = (80,180)
-        self.distance_from_center = (os_screen.current_w/2)-100
-        self.pos = (universe.center_x+self.distance_from_center,universe.floor - 186 -self.size[1])
+        self.distance_from_center = 4200
+        self.pos = (globals.universe.center_x+self.distance_from_center,globals.universe.floor - 186 -self.size[1])
+        self.hair_back = None
         self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
         self.face = PrincessPart(self,'data/images/princess/face_simple',1)
         self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
         self.shoes = PrincessPart(self,'data/images/princess/shoes_slipper',3)
         self.dress = PrincessPart(self,'data/images/princess/dress_plain',4)
         self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
+        self.arm_dress = None
         self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
         self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
         self.dirty2 = PrincessPart(self,'data/images/princess/dirt2',7)
@@ -39,21 +45,24 @@ The code is not yet well commented
         self.direction = 'left'
         self.got_hitten = 0
         self.alive = True
-        for level in levels:
-            level.princesses.append(self)
+        self.level = level
+        level.princesses.append(self)
         self.jump = 0
         self.celebrate = 0
-        self.kiss = 0        
+        self.kiss = 0
+        self.kiss_direction = 'left'
         self.parts.remove(self.dirty)
         self.parts.remove(self.dirty2)
         self.parts.remove(self.dirty3)
         self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
-        self.floor = universe.floor - 186
+        self.kiss_rect = ((0,0),(0,0))
+        self.floor = globals.universe.floor - 186
     def control(self, dir, action):
         self.effects = []
         self.direction = dir
         self.update_pos(action)
         self.update_rect(action)
+        self.new_clothes(action)
         self.ive_been_caught()
         self.jumping(action)
         self.falling(action)
@@ -74,13 +83,14 @@ The code is not yet well commented
             else:
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
-    def update_rect(self,action):
+    def new_clothes(self,action):
         if action[0] == 'change':
             self.change_clothes((self.accessory),'accessory_shades',6)
         if action[0] == 'changedress':
             self.change_clothes((self.dress),'dress_pink',4)
         if action[0] == 'changehair':
             self.change_clothes((self.hair),'hair_cinderella',2)
+    def update_rect(self,action):
         #Correct rect position when turned left
         if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
@@ -91,8 +101,9 @@ The code is not yet well commented
             self.jump = 0
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
-
                 self.jump = 1
+                teste = os.popen4('ogg123 /home/nelson/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
+
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)
             self.jump +=1
@@ -105,7 +116,7 @@ The code is not yet well commented
         if action[0]=='fall':
             if self.pos[1]+self.size[1]== self.floor:
                 action[0]=None
-        if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor:
+        if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor and self.jump==0:
             action[0]='fall'
     def celebrating(self,action):
         if self.celebrate > 0:
@@ -134,12 +145,13 @@ The code is not yet well commented
                 self.throwkiss(dir)
             else:
                 self.kiss = 0
+                self.kiss_rect = Rect ((0,0),(0,0))
     def change_clothes(princess,part,dir,index):
         princess.parts.remove(part)
         part = PrincessPart(princess,'data/images/princess/'+str(dir),index)
     def ive_been_caught(self):
         if self.got_hitten == 0:
-            for e in enemies:
+            for e in globals.enemies:
                 if e.dirty == True:
                     if self.dirty not in self.parts:
                         if self.rect.colliderect(e.rect):
@@ -159,27 +171,18 @@ The code is not yet well commented
 
             if self.got_hitten == 30:#75 at 25 frames per second
                 self.got_hitten = 0
-
-
-
-
-
-
-
-
-
     def update_pos(self,action):
         #fall
         if self.pos[1]+self.size[1] < self.floor:
             self.pos = (self.pos[0], self.pos[1]+self.gforce)
-            self.gforce += universe.gravity
+            self.gforce += globals.universe.gravity
         #do not fall beyond the floor
         if self.pos[1]+self.size[1] > self.floor:
             self.pos= (self.pos[0],(self.floor-self.size[1]))
         if self.pos[1]+self.size[1] == self.floor:
             self.gforce = 0
-        self.floor = universe.floor-Level_01.what_is_my_height(self)
-        self.pos = (universe.center_x+self.distance_from_center, self.pos[1])
+        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x+self.distance_from_center, self.pos[1])
         if action[1]=='move':
            if self.direction == 'right':
                self.distance_from_center += self.speed
@@ -213,12 +216,17 @@ The code is not yet well commented
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number
     def throwkiss(self,direction):
-        if direction == 'right':
+        if self.kiss == 1:
+            self.kiss_direction = direction
+        if self.kiss_direction == 'right':
             kissimage = self.lips.left[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0],self.pos[1])))          
+            self.effects.append((kissimage,(self.pos[0],self.pos[1])))
+            self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.right[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))          
+            self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
+
+            self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
 
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):

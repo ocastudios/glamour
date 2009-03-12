@@ -1,5 +1,4 @@
-
-from globals import *
+import pygame
 
 
 class Panel():
@@ -21,10 +20,8 @@ class Data():
         self.font=pygame.font.Font('data/fonts/Domestic_Manners.ttf',size)
         self.label = self.font.render((self.title+str(variable)),1,(0,0,0))
 
-        for i in level:
-            i.panel.insert(index,(self.label,self.pos))
+        self.level.panel.insert(index,self)
 
     def update(self,variable):
         self.label = self.font.render((self.title+str(variable)),1,(0,0,0))
-        for i in self.level:
-            i.panel[self.index]=(self.label,self.pos)
+        self.level.panel[self.index]=(self)
