@@ -4,9 +4,33 @@ from getscreen import *
 from globals import *
 import camera
 import mousepointer
+import menu
 from pygame.locals import *
 
-level = Level_02
+
+gamemenu = menu.MainMenu()
+gamemenu.instantiate_stuff()
+level = 'menu'
+screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
+while level == 'menu':
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                exit()
+            if event.key == K_i:
+                level = Level_01
+            elif event.key == K_e:
+                level = Level_02
+    screen_surface.fill([255,255,255])
+    screen_surface.blit(gamemenu.background,(0,0))
+    gamemenu.update_all(screen_surface)
+
+    pygame.display.update()
+
+
+
 game_clock = GameClock(level)
 clock_pointer = ClockPointer(level)
 #level.bathhouse_street(clock_pointer)
