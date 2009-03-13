@@ -3118,8 +3118,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="1462.368"
-     inkscape:cy="29.709306"
+     inkscape:cx="2005.426"
+     inkscape:cy="137.18954"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -3150,6 +3150,10 @@
        enabled="true"
        spacingx="140px"
        spacingy="740px" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="1080.4592,-452.54834"
+       id="guide3772" />
   </sodipodi:namedview>
   <metadata
      id="metadata4463">
@@ -6612,7 +6616,10 @@
        sodipodi:nodetypes="cssssssssssssscssssssccsssssss" />
     <g
        id="g11306"
-       transform="translate(-1222.8571,102)">
+       transform="translate(-1222.8571,102)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/magic_beauty_salon/portal/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="ccccccccccccccccccccc"
          id="rect11274"
