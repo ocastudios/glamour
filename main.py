@@ -23,10 +23,9 @@ while level == 'menu':
                 level = Level_01
             elif event.key == K_e:
                 level = Level_02
-    screen_surface.fill([255,255,255])
-    screen_surface.blit(gamemenu.background,(0,0))
-    gamemenu.update_all(screen_surface)
+    screen_surface.fill([230,230,230])
 
+    gamemenu.update_all(screen_surface)
     pygame.display.update()
 
 

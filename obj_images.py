@@ -31,7 +31,7 @@ Margin may be used to better program interaction during the game. Margin default
         list_of_images.sort()
         for item in list_of_images:
             try:
-                img = pygame.image.load(dir+item).convert_alpha()    
+                img = pygame.image.load(dir+item).convert_alpha()
                 images.append(img)
             except:
                 list_of_images.remove(item)
