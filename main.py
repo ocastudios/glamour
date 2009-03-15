@@ -5,11 +5,13 @@ from globals import *
 import camera
 import mousepointer
 import menu
+import os
 from pygame.locals import *
 
 
-gamemenu = menu.MainMenu()
-gamemenu.instantiate_stuff()
+gamemenu = menu.MenuScreen((360,200))
+mainmenu = menu.Menu(gamemenu)
+mainmenu.instantiate_stuff()
 level = 'menu'
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 while level == 'menu':
@@ -23,10 +25,9 @@ while level == 'menu':
                 level = Level_01
             elif event.key == K_e:
                 level = Level_02
-    screen_surface.fill([230,230,230])
 
     gamemenu.update_all(screen_surface)
-    pygame.display.update()
+    pygame.display.flip()
 
 
 
@@ -46,7 +47,9 @@ pygame.mouse.set_visible(0)
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
-            exit()
+#            fecha = os.popen2('killall ogg123')
+            del level.musica
+            break
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 exit()
@@ -85,5 +88,5 @@ while True:
     level.update_all(screen_surface,action,dir,universe,clock_pointer)
     clock_pointer.update_image()
 
-    pygame.display.update()
-
+    pygame.display.flip()
+exit()

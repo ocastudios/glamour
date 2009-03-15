@@ -102,7 +102,7 @@ The code is not yet well commented
         if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
                 self.jump = 1
-                teste = os.popen4('ogg123 /home/nelson/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
+                teste = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
 
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)

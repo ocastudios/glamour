@@ -9,6 +9,7 @@ import random
 import moving_scenario
 import glamour_stars
 import princess
+import os
 import panel
 import pygame
 
@@ -43,9 +44,10 @@ It is still in its early development"""
         self.set_floor()
         self.size = size
         self.sky = []
-        #self.floor_list = {0:186,620:186}
+
     def instantiate_stuff(self,clock_pointer):
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
+
         def create_clouds(number):
             count = 0
             while count <= number:
@@ -71,7 +73,7 @@ It is still in its early development"""
         right_house = scenarios.Scenario((4700,100),self.directory+'right_house/base/',self,index=0)
         gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)
         magic_beauty_salon = scenarios.Building((5790,100),self.directory+'magic_beauty_salon/base/',self,{'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)
-        magic_beauty_salon_portal = scenarios.FrontScenario((5790,100),self.directory+'magic_beauty_salon/portal/',self,index=0)
+        magic_beauty_salon_portal = scenarios.FrontScenario((6440,100),self.directory+'magic_beauty_salon/portal/',self,index=0)
         carriage = enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10])
         oldlady = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
         schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
