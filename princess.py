@@ -2,6 +2,7 @@ import globals
 import obj_images
 import pygame
 import os
+import random
 from pygame.locals import *
 
 class Princess():
@@ -87,8 +88,14 @@ The code is not yet well commented
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
     def new_clothes(self,action):
+        if action[0] == 'changeskin':
+#            self.change_clothes((self.skin),        'skin_black')
+
+            self.change_clothes((self.arm),         'arm_black')
         if action[0] == 'changeshoes':
             self.change_clothes((self.shoes),       'shoes_crystal')
+        if action[0] == 'changeshoes2':
+            self.change_clothes((self.shoes),       'shoes_slipper')
         if action[0] == 'change':
             self.change_clothes((self.accessory),'accessory_shades')
         if action[0] == 'changedress':
@@ -100,6 +107,9 @@ The code is not yet well commented
             self.change_clothes((self.hair),       'hair_rapunzel')
             self.parts.pop(0)
             self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
+    def change_clothes(princess,part,dir):
+        princess.parts.pop(part.index)
+        part = PrincessPart(princess,'data/images/princess/'+str(dir),part.index)
 
     def update_rect(self,action):
         #Correct rect position when turned left
@@ -163,9 +173,7 @@ The code is not yet well commented
             else:
                 self.kiss = 0
                 self.kiss_rect = Rect ((0,0),(0,0))
-    def change_clothes(princess,part,dir):
-        princess.parts.pop(part.index)
-        part = PrincessPart(princess,'data/images/princess/'+str(dir),part.index)
+
     def ive_been_caught(self):
         if self.got_hitten == 0:
             for e in globals.enemies:
@@ -231,6 +239,11 @@ The code is not yet well commented
             for part in self.parts:
                 if part != None:
                     part.image_number = self.skin.image_number
+
+            if self.skin.image_number == 3:
+                soundwalk = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
+            if self.skin.image_number == 6:
+                soundwalk = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
 
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number

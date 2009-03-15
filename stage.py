@@ -13,7 +13,7 @@ import os
 import panel
 import pygame
 
-
+#TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
 class BathhouseSt():
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
 It is still in its early development"""
@@ -47,7 +47,7 @@ It is still in its early development"""
         self.sky = []
 
     def instantiate_stuff(self,clock_pointer):
-        pygame.mixer.music.load("data/NeMedohounkou.ogg")
+#        pygame.mixer.music.load("data/NeMedohounkou.ogg")
         def create_clouds(number):
             count = 0
             while count <= number:
