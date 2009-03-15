@@ -8,7 +8,7 @@ import random
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
-        self.distance_from_center = pos
+        self.center_distance = pos
         try:        self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
         except:     pass 
         try:        self.stay = obj_images.TwoSided(directory+'/stay/',stay_margin)
@@ -24,7 +24,7 @@ class Enemy():
         self.speed = speed
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
 
         self.decide = False
         self.count = 0
@@ -77,12 +77,12 @@ class Schnauzer(Enemy):
             self.move = True
     def set_pos(self):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         if self.move == True:
             if self.direction == 'right' :
-                self.distance_from_center += self.speed
+                self.center_distance += self.speed
             else:
-                self.distance_from_center -= self.speed
+                self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
     def set_image(self):
         #choose list
@@ -115,13 +115,13 @@ class Carriage(Enemy):
         self.set_image()
     def set_pos(self):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
         if self.move == True:
             if self.direction == 'right' :
-                self.distance_from_center += self.speed
+                self.center_distance += self.speed
             else:
-                self.distance_from_center -= self.speed
+                self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
@@ -157,12 +157,12 @@ class Butterfly(Enemy):
             self.height += 5
         if self.up_direction == 'going_up':
             self.height -= 5 
-        self.pos = (globals.universe.center_x + self.distance_from_center, self.height)
+        self.pos = (globals.universe.center_x + self.center_distance, self.height)
         if self.move == True:
             if self.direction == 'right' :
-                self.distance_from_center += self.speed
+                self.center_distance += self.speed
             else:
-                self.distance_from_center -= self.speed
+                self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
     def set_image(self):
 #choose list
@@ -187,7 +187,7 @@ class Butterfly(Enemy):
         self.image = actual_list[self.image_number]
 class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
-        self.distance_from_center = pos
+        self.center_distance = pos
         self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
         self.hover = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
         self.broom = obj_images.There_and_back_again(directory+'/act/',stay_margin)
@@ -199,7 +199,7 @@ class OldLady(Enemy):
         self.speed = speed
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
-        self.pos = (globals.universe.center_x+self.distance_from_center,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
         self.move = True
@@ -248,12 +248,12 @@ class OldLady(Enemy):
 
     def set_pos(self):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.distance_from_center, self.floor+self.margin[2]-(self.size[1]))
+        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'move':
             if self.direction == 'right' :
-                self.distance_from_center += self.speed
+                self.center_distance += self.speed
             else:
-                self.distance_from_center -= self.speed
+                self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):

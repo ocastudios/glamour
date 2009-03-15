@@ -80,6 +80,10 @@ while True:
                 action[0] = 'changedress'
             if event.key == K_h:
                 action[0] = 'changehair'
+            if event.key == K_x:
+                action[0] = 'changehair2'
+            if event.key == K_s:
+                action[0] = 'changeshoes'
 
         elif event.type == KEYUP:
             action[0]=None

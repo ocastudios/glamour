@@ -51,8 +51,8 @@ count = 0
 
 universe = Universe()
 
-Level_01 = BathhouseSt(1,6000,universe,'data/images/scenario/bathhouse_st/')
-Level_02 = DressSt(1,6000,universe,'data/images/scenario/dress_st/')
+Level_01 = BathhouseSt(1,6000,universe,'bathhouse_st/')
+Level_02 = DressSt(1,6000,universe,'dress_st/')
 
 
 

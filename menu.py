@@ -65,7 +65,7 @@ class Menu():
         self.buttons        = []
         self.backgrounds    = []
         self.position       = position
-        self.actual_position= (position[0],-500)
+        self.actual_position= (position[0],-600)
         self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self,0)
         self.itens          = []
         self.size           = self.selection_canvas.image.get_size()

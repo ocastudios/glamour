@@ -10,10 +10,10 @@ class Glamour_Stars():
         if self.rotating == None:
             self.rotating = obj_images.OneSided('data/images/interface/star/')
         self.image = self.rotating.list[0]
-        self.distance_from_center = [distance_center[0],distance_center[1]]
+        self.center_distance = [distance_center[0],distance_center[1]]
         self.size = self.image.get_size()
         if self.fixed == False:
-            self.pos = (globals.universe.center_x+self.distance_from_center[0], level.floor-self.size[1]-self.distance_from_center[1])
+            self.pos = (globals.universe.center_x+self.center_distance[0], level.floor-self.size[1]-self.center_distance[1])
         else:
             self.pos = (200,60)
         self.alive = True
@@ -24,12 +24,12 @@ class Glamour_Stars():
         self.count ={'image':0}
     def move(self,level,princess):
         if self.dir == 'up':
-            self.distance_from_center[1]-= 10
-            if self.distance_from_center[1] < 1:
+            self.center_distance[1]-= 10
+            if self.center_distance[1] < 1:
                 self.dir = 'down'
         else:
-            self.distance_from_center[1]+=10
-            if self.distance_from_center[1]> 300:
+            self.center_distance[1]+=10
+            if self.center_distance[1]> 300:
                 self.dir = 'up'
         if self.alive == True:
             if self.rect.colliderect(princess.rect)==True:
@@ -37,7 +37,7 @@ class Glamour_Stars():
                 princess.glamour_points += 1
                 princess.celebrate = 1
         #self.alive = False
-        self.pos = (globals.universe.center_x+self.distance_from_center[0],level.floor-self.size[1]-self.distance_from_center[1])
+        self.pos = (globals.universe.center_x+self.center_distance[0],level.floor-self.size[1]-self.center_distance[1])
         self.rect = Rect(self.pos, (200,200))
         self.update_images()
 

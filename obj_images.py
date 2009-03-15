@@ -5,11 +5,6 @@ import pygame
 ### TODO include a function update_image, so that it will no longer be necessary to repeat the code in every object.
 ### TODO include a function reset_image, so that it will be possible to restart the image number easily.
 
-try:
-    import Numeric
-    import pygame.surfarray as surfarray
-except ImportError:
-    raise ImportError, "Numeric and Surfarray are required."
 
 class TwoSided():
     jeringonca = False
@@ -19,13 +14,13 @@ Margin is the alpha space between the image and the actual drawing. You may spec
 Margin may be used to better program interaction during the game. Margin default to all zero."""
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
-        self.left = self.find_images(dir)
-        self.right = self.invert_images(self.left)
+        self.left   = self.find_images(dir)
+        self.right  = self.invert_images(self.left)
         self.number = 0
 
     def find_images(self,dir):
-        list_of_images = []
-        images = []
+        list_of_images  = []
+        images          = []
         for item in os.listdir(dir):
             list_of_images.append(item)
         list_of_images.sort()
@@ -38,7 +33,7 @@ Margin may be used to better program interaction during the game. Margin default
                 print 'couldnt load image in:'+str(dir)+str(item)
         return images    
     def invert_images(self,list):
-        inv_list=[]
+        inv_list    = []
         for img in list:
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
@@ -52,9 +47,9 @@ class OneSided(TwoSided):
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
-        preleft = self.find_images(dir)
-        preright = self.invert_images(preleft)
-        posleft = list(reversed(preleft))
-        posright = list(reversed(preright))
-        self.left = preleft + posleft
-        self.right = preright + posright
+        preleft     = self.find_images(dir)
+        preright    = self.invert_images(preleft)
+        posleft     = list(reversed(preleft))
+        posright    = list(reversed(preright))
+        self.left   = preleft + posleft
+        self.right  = preright + posright

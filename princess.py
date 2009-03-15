@@ -17,39 +17,41 @@ Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
     def __init__(self,level):
-        self.parts = []
-        self.size = (80,180)
-        self.distance_from_center = 4200
-        self.pos = (globals.universe.center_x+self.distance_from_center,globals.universe.floor - 186 -self.size[1])
-        self.hair_back = None
-        self.skin = PrincessPart(self,'data/images/princess/skin_pink',0)
-        self.face = PrincessPart(self,'data/images/princess/face_simple',1)
-        self.hair = PrincessPart(self,'data/images/princess/hair_yellow',2)
-        self.shoes = PrincessPart(self,'data/images/princess/shoes_slipper',3)
-        self.dress = PrincessPart(self,'data/images/princess/dress_plain',4)
-        self.arm = PrincessPart(self,'data/images/princess/arm_pink',5)
-        self.arm_dress = None
-        self.accessory = PrincessPart(self,'data/images/princess/accessory_ribbon',6)
-        self.dirty = PrincessPart(self,'data/images/princess/dirt1',7)
-        self.dirty2 = PrincessPart(self,'data/images/princess/dirt2',7)
-        self.dirty3 = PrincessPart(self,'data/images/princess/dirt3',7)
-        self.lips = obj_images.TwoSided('data/images/effects/kiss/')
-        self.dirt_cloud = obj_images.TwoSided('data/images/effects/dirt/')
-
+        self.parts      = []
+        self.size       = (80,180)
+        self.center_distance = 4200
+        self.pos        = (globals.universe.center_x+self.center_distance,
+                           globals.universe.floor - 186 -self.size[1])
+        self.hair_back  = None
+        self.parts.insert(0,self.hair_back)
+        self.skin       = PrincessPart(self,'data/images/princess/skin_pink',1)
+        self.face       = PrincessPart(self,'data/images/princess/face_simple',2)
+        self.hair       = PrincessPart(self,'data/images/princess/hair_yellow',3)
+        self.shoes      = PrincessPart(self,'data/images/princess/shoes_slipper',4)
+        self.dress      = PrincessPart(self,'data/images/princess/dress_plain',5)
+        self.arm        = PrincessPart(self,'data/images/princess/arm_pink',6)
+        self.arm_dress  = None
+        self.parts.insert(7,self.arm_dress)
+        self.accessory  = PrincessPart(self,'data/images/princess/accessory_ribbon',8)
+        self.dirty      = PrincessPart(self,'data/images/princess/dirt1',9)
+        self.dirty2     = PrincessPart(self,'data/images/princess/dirt2',9)
+        self.dirty3     = PrincessPart(self,'data/images/princess/dirt3',9)
+        self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
+        self.dirt_cloud= obj_images.TwoSided('data/images/effects/dirt/')
         self.glamour_points = 0
-        self.gforce = 0
-        self.speed = 10
-        self.effects = []
-        self.rect = Rect(self.pos,self.size)
-        self.move = False
-        self.direction = 'left'
+        self.gforce     = 0
+        self.speed      = 10
+        self.effects    = []
+        self.rect       = Rect(self.pos,self.size)
+        self.move       = False
+        self.direction  = 'left'
         self.got_hitten = 0
-        self.alive = True
-        self.level = level
+        self.alive      = True
+        self.level      = level
         level.princesses.append(self)
-        self.jump = 0
-        self.celebrate = 0
-        self.kiss = 0
+        self.jump       = 0
+        self.celebrate  = 0
+        self.kiss       = 0
         self.kiss_direction = 'left'
         self.parts.remove(self.dirty)
         self.parts.remove(self.dirty2)
@@ -73,7 +75,8 @@ The code is not yet well commented
         #for images to restart reset must be true
         self.choose_parts(action,dir)
         for part in self.parts:
-            part.update_image(self,dir,once=True,reset=True,invert=part.invert)
+            if part != None:
+                part.update_image(self,dir,once=True,reset=True,invert=part.invert)
         self.syncimages(action)
 
     def dirt_cloud_funciton(self):
@@ -84,34 +87,47 @@ The code is not yet well commented
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
     def new_clothes(self,action):
+        if action[0] == 'changeshoes':
+            self.change_clothes((self.shoes),       'shoes_crystal')
         if action[0] == 'change':
-            self.change_clothes((self.accessory),'accessory_shades',6)
+            self.change_clothes((self.accessory),'accessory_shades')
         if action[0] == 'changedress':
-            self.change_clothes((self.dress),'dress_pink',4)
+            self.change_clothes((self.dress),     'dress_pink')
         if action[0] == 'changehair':
-            self.change_clothes((self.hair),'hair_cinderella',2)
+            self.change_clothes((self.hair),       'hair_cinderella')
+            self.parts[0] = None
+        if action[0] == 'changehair2':
+            self.change_clothes((self.hair),       'hair_rapunzel')
+            self.parts.pop(0)
+            self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
+
     def update_rect(self,action):
         #Correct rect position when turned left
         if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
         else:
             self.rect = Rect((self.pos[0]+100,self.pos[1]),self.size)
+
     def jumping(self,action):
         if action[0]!= 'jump' and action[0]!= 'jump2':
             self.jump = 0
-        if self.pos[1]+self.size[1] == self.floor and self.jump == 0:
+        if self.pos[1] + self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
                 self.jump = 1
-                teste = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
-
+                soundjump = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
+                for part in self.parts:
+                    if part != None:
+                        part.reset_count = 0
         if self.jump > 0 and self.jump <20:
             self.pos = (self.pos[0],self.pos[1]-30)
-            self.jump +=1
             if self.jump > 5:
                 for part in self.parts:
-                    part.image_number = len(part.actual_list)-1
+                    if part != None:
+                        part.image_number = len(part.actual_list)-1
             if self.jump > 10:
                 action[0]= 'fall'
+            self.jump +=1
+
     def falling(self,action):
         if action[0]=='fall':
             if self.pos[1]+self.size[1]== self.floor:
@@ -134,7 +150,8 @@ The code is not yet well commented
             self.kiss +=1
             if self.kiss == 1:
                 for part in self.parts:
-                    part.reset_count = 0
+                    if part != None:
+                        part.reset_count = 0
         if self.kiss > 0:
             action[0] = 'kiss'
             if self.kiss > 3:
@@ -146,9 +163,9 @@ The code is not yet well commented
             else:
                 self.kiss = 0
                 self.kiss_rect = Rect ((0,0),(0,0))
-    def change_clothes(princess,part,dir,index):
-        princess.parts.remove(part)
-        part = PrincessPart(princess,'data/images/princess/'+str(dir),index)
+    def change_clothes(princess,part,dir):
+        princess.parts.pop(part.index)
+        part = PrincessPart(princess,'data/images/princess/'+str(dir),part.index)
     def ive_been_caught(self):
         if self.got_hitten == 0:
             for e in globals.enemies:
@@ -182,36 +199,38 @@ The code is not yet well commented
         if self.pos[1]+self.size[1] == self.floor:
             self.gforce = 0
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x+self.distance_from_center, self.pos[1])
+        self.pos = (globals.universe.center_x+self.center_distance, self.pos[1])
         if action[1]=='move':
            if self.direction == 'right':
-               self.distance_from_center += self.speed
+               self.center_distance += self.speed
            else:
-               self.distance_from_center -= self.speed
+               self.center_distance -= self.speed
     def choose_parts(self,action,direction):
         for part in self.parts:
-            if action[0] == 'ouch':
-                part.list = part.ouch
-            elif action[1] == 'move':
-                part.list = part.walk
-            elif action[1] == 'stand':
-                part.list = part.stand
-            if action[0] =='jump':
-                part.list = part.jump
-            if action[0] == 'kiss':
-                part.list = part.kiss
-            elif action[0] == 'fall':
-                part.list = part.fall
-            elif action[0] == 'celebrate':
-                part.list = part.celebrate
-            if direction == 'left':
-                part.actual_list = part.list.right
-            else:
-                part.actual_list = part.list.left
+            if part != None:
+                if action[0] == 'ouch':
+                    part.list = part.ouch
+                elif action[1] == 'move':
+                    part.list = part.walk
+                elif action[1] == 'stand':
+                    part.list = part.stand
+                if action[0] =='jump':
+                    part.list = part.jump
+                if action[0] == 'kiss':
+                    part.list = part.kiss
+                elif action[0] == 'fall':
+                    part.list = part.fall
+                elif action[0] == 'celebrate':
+                    part.list = part.celebrate
+                if direction == 'left':
+                    part.actual_list = part.list.right
+                else:
+                    part.actual_list = part.list.left
     def syncimages(self,action):
         if action[1]=='move':
             for part in self.parts:
-                part.image_number = self.skin.image_number
+                if part != None:
+                    part.image_number = self.skin.image_number
 
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number
@@ -230,6 +249,7 @@ The code is not yet well commented
 
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):
+        self.index = index
         self.walk = obj_images.TwoSided(str(directory)+'/walk/')
         self.stand = obj_images.TwoSided(str(directory)+'/stay/')
         self.kiss = obj_images.TwoSided(str(directory)+'/kiss/')

@@ -11,10 +11,10 @@ class Scenario():
         self.index = index
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
-        self.distance_from_center = pos[0]
+        self.center_distance = pos[0]
         self.level = level
         self.append_into_level_list()
-        self.pos = (globals.universe.center_x+(self.distance_from_center),level.floor-(self.size[1]-15))
+        self.pos = (globals.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15))
         self.rect = Rect(self.pos, self.size)
 
     def update_all(self):
@@ -24,7 +24,7 @@ class Scenario():
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
         self.image = self.images.list[self.images.number]
-        self.pos = (globals.universe.center_x+(self.distance_from_center),self.level.floor-(self.size[1]-10))
+        self.pos = (globals.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
         self.rect = Rect(self.pos, self.size)
     def append_into_level_list(self):
         self.level.scenarios.insert(self.index,self)
@@ -65,10 +65,10 @@ class Building(Scenario):
         self.image_list = self.images.list
         self.image = self.image_list[self.images.number]
         self.size = self.image.get_size()
-        self.distance_from_center = pos[0]
+        self.center_distance = pos[0]
         self.level = level
         self.append_into_level_list()
-        self.pos = (globals.universe.center_x+(self.distance_from_center),self.level.floor-(self.size[1]-15))
+        self.pos = (globals.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-15))
         self.rect = Rect(self.pos, self.size)
         self.door = BuildingDoor(self,door['pos'],door['directory'],level)
 
