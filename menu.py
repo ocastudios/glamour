@@ -23,29 +23,29 @@ class MenuScreen():
         self.backgrounds = []
         self.left_bar         = MenuBackground('data/images/interface/omni/left_bar/',(0,0),self,1)
         self.left_bar_pos = -800.
-        self.speed = 1
+        self.speed = 5.
         self.wait = True
     def update_all(self,surface):
         surface.fill(self.color)
         if self.left_bar_pos < 0:
             self.left_bar_pos += self.speed
             if self.left_bar_pos > -280:
-                self.speed -= .1
+                self.speed -= .5
             else:
-                self.speed += .1
+                self.speed += .5
             surface.blit(self.left_bar.image,(self.left_bar_pos,0))
         else:
+            self.left_bar_pos = 0
             if self.wait == True:
                 pygame.time.wait(700)
                 self.wait = False
-            self.left_bar_pos = 0
+
             for menu in self.menus:
                 menu.update_all()
                 for back in menu.backgrounds:
                     back.update_all()
                     surface.blit(back.image,menu.actual_position)
             surface.blit(self.left_bar.image,(self.left_bar_pos,0))
-
             for menu in self.menus:
                 for text in menu.texts:
                     text.update()
@@ -68,6 +68,8 @@ class Menu():
         self.actual_position= (position[0],-500)
         self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self,0)
         self.itens          = []
+        self.size           = self.selection_canvas.image.get_size()
+        self.rect           = Rect(self.pos,self.size)
         screen.menus.append(self)
     def instantiate_stuff(self):
         newgame          = Options('New Game',        (300,100), self, 0, font_size=40, color=(255,84,84))
@@ -81,15 +83,24 @@ class Menu():
         right_arrow      = MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0)
         lef_arrow        = MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)
     def update_all(self):
-        if self.actual_position[1]<self.pos[1]:
-            self.actual_position = (self.actual_position[0],self.actual_position[1]+self.speed)
-        if self.actual_position[1]>self.pos[1]:
-            self.actual_position = self.pos
-        if self.actual_position < self.pos[1]/2:
-            if self.speed > 1:
-                self.speed += .5
-        else:
-            self.speed += .5
+        self.actual_position = (self.actual_position[0],
+                                self.actual_position[1]+self.speed)
+        #Controling the speed.
+        if self.actual_position[1] != self.pos[1]:
+            #Breaks
+            if self.actual_position[1] < self.pos[1]+70 and self.actual_position[1] > self.pos[1]-70:
+                if self.speed > 0:
+                    self.speed -= self.speed*.15
+                elif self.speed < 0:
+                    self.speed += -self.speed*.15
+            #
+            elif self.actual_position[1] < self.pos[1]:
+                if self.actual_position[1] < self.pos[1] - 50: self.speed += 2
+            else:
+                if self.actual_position[1] > self.pos[1] + 50: self.speed -= 3
+
+        self.rect           = Rect(self.pos,self.size)
+
 class MenuBackground():
     def __init__(self,directory,position,menu,index,invert = False):
         self.position   = position

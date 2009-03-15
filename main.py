@@ -27,7 +27,12 @@ while level == 'menu':
                 level = Level_02
 
     gamemenu.update_all(screen_surface)
-    pygame.display.flip()
+    try:
+        if once:
+            pygame.display.update((0,0),(900,900))
+    except:
+        pygame.display.flip()
+        once = True
 
 
 
