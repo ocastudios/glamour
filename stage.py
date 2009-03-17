@@ -19,7 +19,6 @@ class BathhouseSt():
 It is still in its early development"""
     enemy_dir = 'data/images/enemies/'
     def __init__(self,level,size,universe,directory):
-        self.all = []
         self.maindir        = 'data/images/scenario/'
         self.directory      = self.maindir+directory
         self.background     = []

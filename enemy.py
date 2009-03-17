@@ -25,7 +25,6 @@ class Enemy():
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
         self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
-
         self.decide = False
         self.count = 0
         self.move = True
@@ -36,7 +35,6 @@ class Enemy():
         self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
-
         self.level.enemies.append(self)
 
 class Schnauzer(Enemy):

@@ -1,7 +1,7 @@
 import globals
 import os
 import pygame
-### TODO Incorporate the variables image_number and size to the obj_images atributes, for their not atributes of the object, but of the images of the object and this will simplify a lot the code.
+
 ### TODO include a function update_image, so that it will no longer be necessary to repeat the code in every object.
 ### TODO include a function reset_image, so that it will be possible to restart the image number easily.
 
@@ -17,6 +17,7 @@ Margin may be used to better program interaction during the game. Margin default
         self.left   = self.find_images(dir)
         self.right  = self.invert_images(self.left)
         self.number = 0
+        self.size   = self.left[0].get_size()
 
     def find_images(self,dir):
         list_of_images  = []
@@ -53,3 +54,4 @@ class There_and_back_again(TwoSided):
         posright    = list(reversed(preright))
         self.left   = preleft + posleft
         self.right  = preright + posright
+        self.size   = self.left[0].get_size()

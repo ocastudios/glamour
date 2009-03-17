@@ -5,14 +5,12 @@ import obj_images
 class MovingScenario():
     def __init__(self,index,level,dir):
         self.images = obj_images.OneSided(dir)
-        self.image_number = 0
-        self.image = self.images.list[self.image_number]
+        self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.center_distance = 2000
         self.pos = (globals.universe.center_x+self.center_distance, globals.universe.floor - self.size[1])
         self.move = False
         self.dir = 'left'
-
         self.speed = 4
         self.count = 0
 

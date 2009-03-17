@@ -47,13 +47,13 @@ class Gate(Scenario):
         self.update_pos()
 
     def indicate_exit(self,princess):
+        self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
         if self.rect.colliderect(princess.rect):
             self.arrow_image_number += 1
             if self.arrow_image_number > len(self.arrow_up.list)-1:
                 self.arrow_image_number = 0
             self.arrow_image = self.arrow_up.list[self.arrow_image_number]
             self.arrow_size = self.arrow_image.get_size()
-            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
     def append_into_level_list(self):
         self.level.gates.insert(self.index,self)
 
