@@ -36,7 +36,6 @@ class Enemy():
         self.image_number = 0
         self.dirty = dirty
         self.level.enemies.append(self)
-
 class Schnauzer(Enemy):
     bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
     def barf(self):

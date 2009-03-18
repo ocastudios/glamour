@@ -64,7 +64,7 @@ The code is not yet well commented
         self.effects = []
         self.direction = dir
         self.update_pos(action)
-        self.update_rect(action)
+        self.update_rect()
         self.new_clothes(action)
         self.ive_been_caught()
         self.jumping(action)
@@ -77,7 +77,7 @@ The code is not yet well commented
         self.choose_parts(action,dir)
         for part in self.parts:
             if part != None:
-                part.update_image(self,dir,once=True,reset=True,invert=part.invert)
+                part.update_image(self,dir,reset=True,invert=part.invert)
         self.syncimages(action)
 
     def dirt_cloud_funciton(self):
@@ -107,11 +107,11 @@ The code is not yet well commented
             self.change_clothes((self.hair),       'hair_rapunzel')
             self.parts.pop(0)
             self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
-    def change_clothes(princess,part,dir):
-        princess.parts.pop(part.index)
-        part = PrincessPart(princess,'data/images/princess/'+str(dir),part.index)
+    def change_clothes(self,part,dir):
+        self.parts.pop(part.index)
+        part = PrincessPart(self,'data/images/princess/'+str(dir),part.index)
 
-    def update_rect(self,action):
+    def update_rect(self):
         #Correct rect position when turned left
         if self.direction == 'right':
             self.rect   = Rect(self.pos,self.size)
@@ -124,7 +124,7 @@ The code is not yet well commented
         if self.pos[1] + self.size[1] == self.floor and self.jump == 0:
             if action[0]== 'jump':
                 self.jump = 1
-                soundjump = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
+                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
                 for part in self.parts:
                     if part != None:
                         part.reset_count = 0
@@ -137,11 +137,12 @@ The code is not yet well commented
             if self.jump > 10:
                 action[0]= 'fall'
             self.jump +=1
-
+            
     def falling(self,action):
         if action[0]=='fall':
             if self.pos[1]+self.size[1]== self.floor:
                 action[0]=None
+                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/fall/spike_heel/street/'+str(random.randint(0,0))+'.ogg')
         if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor and self.jump==0:
             action[0]='fall'
     def celebrating(self,action):
@@ -243,7 +244,7 @@ The code is not yet well commented
             if self.skin.image_number == 3:
                 soundwalk = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
             if self.skin.image_number == 6:
-                soundwalk = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
+                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
 
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number
@@ -279,7 +280,7 @@ class PrincessPart():
         princess.parts.insert(index,self)
         self.image = self.actual_list[self.image_number]
         self.invert = invert
-    def update_image(self,princess,direction,once = False,reset = False,invert = 0):
+    def update_image(self,princess,direction,reset = False,invert = 0):
         if reset == True:
             if self.reset_count == 0:
                 self.image_number = 1

@@ -82,6 +82,7 @@ class Menu():
         Level_02_menu    = GameText('Or e button to play Stage "E"',(400,650),self,3)
         right_arrow      = MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0)
         lef_arrow        = MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)
+    
     def update_all(self):
         self.actual_position = (self.actual_position[0],
                                 self.actual_position[1]+self.speed)
