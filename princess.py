@@ -3,6 +3,7 @@ import obj_images
 import pygame
 import os
 import random
+import enemy
 from pygame.locals import *
 
 class Princess():
@@ -17,6 +18,7 @@ Princess movement determines the camera, and this may not continue for Princess 
 Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
+    directory = 'data/images/princess/'
     def __init__(self,level):
         self.parts      = []
         self.size       = (80,180)
@@ -25,18 +27,18 @@ The code is not yet well commented
                            globals.universe.floor - 186 -self.size[1])
         self.hair_back  = None
         self.parts.insert(0,self.hair_back)
-        self.skin       = PrincessPart(self,'data/images/princess/skin_pink',1)
-        self.face       = PrincessPart(self,'data/images/princess/face_simple',2)
-        self.hair       = PrincessPart(self,'data/images/princess/hair_yellow',3)
-        self.shoes      = PrincessPart(self,'data/images/princess/shoes_slipper',4)
-        self.dress      = PrincessPart(self,'data/images/princess/dress_plain',5)
-        self.arm        = PrincessPart(self,'data/images/princess/arm_pink',6)
+        self.skin       = PrincessPart(self, self.directory+'skin_pink',1)
+        self.face       = PrincessPart(self, self.directory+'face_simple',2)
+        self.hair       = PrincessPart(self, self.directory+'hair_yellow',3)
+        self.shoes      = PrincessPart(self, self.directory+'shoes_slipper',4)
+        self.dress      = PrincessPart(self, self.directory+'dress_plain',5)
+        self.arm        = PrincessPart(self, self.directory+'arm_pink',6)
         self.arm_dress  = None
         self.parts.insert(7,self.arm_dress)
-        self.accessory  = PrincessPart(self,'data/images/princess/accessory_ribbon',8)
-        self.dirty      = PrincessPart(self,'data/images/princess/dirt1',9)
-        self.dirty2     = PrincessPart(self,'data/images/princess/dirt2',9)
-        self.dirty3     = PrincessPart(self,'data/images/princess/dirt3',9)
+        self.accessory  = PrincessPart(self,self.directory+'accessory_ribbon',8)
+        self.dirty      = PrincessPart(self,self.directory+'dirt1',9)
+        self.dirty2     = PrincessPart(self,self.directory+'dirt2',9)
+        self.dirty3     = PrincessPart(self,self.directory+'dirt3',9)
         self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
         self.dirt_cloud= obj_images.TwoSided('data/images/effects/dirt/')
         self.glamour_points = 0
@@ -177,8 +179,8 @@ The code is not yet well commented
 
     def ive_been_caught(self):
         if self.got_hitten == 0:
-            for e in globals.enemies:
-                if e.dirty == True:
+            for e in self.level.enemies:
+                if e.__class__ == enemy.Schnauzer:
                     if self.dirty not in self.parts:
                         if self.rect.colliderect(e.rect):
                             self.got_hitten +=1

@@ -36,23 +36,14 @@ class Universe():
 
 #Create lists
 
-data_list = []
-
-cenario_stuff = []
 action = [None, 'stand']
-stars = []
-bunnies = []
-enemies = []
 clock = pygame.time.Clock()
-
 
 dir = None
 count = 0
-
 universe = Universe()
 
-Level_01 = BathhouseSt(1,6000,universe,'bathhouse_st/')
-Level_02 = DressSt(1,6000,universe,'dress_st/')
+
 
 
 

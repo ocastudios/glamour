@@ -14,13 +14,17 @@ import panel
 import pygame
 
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
-class BathhouseSt():
+
+class Stage():
+    def __init__(self,level,size,universe,directory):
+        self.maindir        = 'data/images/scenario/'
+        self.directory      = self.maindir+directory
+        self.blit_order     = ()
+class BathhouseSt(Stage):
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
 It is still in its early development"""
     enemy_dir = 'data/images/enemies/'
     def __init__(self,level,size,universe,directory):
-        self.maindir        = 'data/images/scenario/'
-        self.directory      = self.maindir+directory
         self.background     = []
         self.cameras        = []
         self.clock          = []

@@ -8,11 +8,12 @@ import menu
 import os
 from pygame.locals import *
 
-
-gamemenu = menu.MenuScreen((360,200))
-mainmenu = menu.Menu(gamemenu)
-mainmenu.instantiate_stuff()
 level = 'menu'
+gamemenu = menu.MenuScreen((360,200))
+mainmenu = menu.Menu(gamemenu,level)
+mainmenu.instantiate_stuff()
+
+
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 while level == 'menu':
     for event in pygame.event.get():
@@ -22,10 +23,10 @@ while level == 'menu':
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                level = Level_01
+                level = 'bathhouse_st'
             elif event.key == K_e:
-                level = Level_02
-
+                level = 'dress_st'
+        level = mainmenu.level
     gamemenu.update_all(screen_surface)
     try:
         if once:
@@ -34,7 +35,10 @@ while level == 'menu':
         pygame.display.flip()
         once = True
 
-
+if level == 'bathhouse_st':
+    level = BathhouseSt(1,6000,universe,'bathhouse_st/')
+if level == 'dress_st':
+    level = DressSt(1,6000,universe,'dress_st/')
 
 game_clock = GameClock(level)
 clock_pointer = ClockPointer(level)

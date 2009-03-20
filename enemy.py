@@ -30,7 +30,6 @@ class Enemy():
         self.move = True
         self.direction = 'left'
         self.lookside = 0
-        globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
@@ -202,7 +201,6 @@ class OldLady(Enemy):
         self.move = True
         self.direction = 'left'
         self.action = 'move'
-        globals.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0

@@ -57,7 +57,7 @@ class MenuScreen():
                     b.update_all()
                     surface.blit(b.image,b.pos)
 class Menu():
-    def __init__(self,screen,position= (360,200),speed=2.):
+    def __init__(self,screen,level,position= (360,200),speed=2.):
         self.pos            = position
         self.speed          = speed
         self.texts          = []
@@ -65,6 +65,7 @@ class Menu():
         self.buttons        = []
         self.backgrounds    = []
         self.position       = position
+        self.level          = level
         self.actual_position= (position[0],-600)
         self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self,0)
         self.itens          = []
@@ -193,6 +194,7 @@ class Options(GameText):
     hover = False
     def insert_into_list(self):
         self.menu.options.insert(self.index,self)
+
     def update(self):
         self.size       = self.blit_text.get_size()
         self.pos        = (self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
@@ -200,9 +202,12 @@ class Options(GameText):
         self.menu.texts[self.index]=(self)
         self.rect       = Rect(self.pos,self.size)
         self.click_detection()
+
     def click_detection(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.rect.collidepoint(mouse_pos):
             self.blit_text = self.fontB
+            if pygame.mouse.get_pressed() == (1,0,0):
+                self.menu.level = 'bathhouse_st'
         else:
             self.blit_text = self.fontA
