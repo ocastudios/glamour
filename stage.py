@@ -16,15 +16,14 @@ import pygame
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
 
 class Stage():
+    enemy_dir = 'data/images/enemies/'
+    maindir        = 'data/images/scenario/'
     def __init__(self,level,size,universe,directory):
+        self.universe       = universe
         self.maindir        = 'data/images/scenario/'
         self.directory      = self.maindir+directory
         self.blit_order     = ()
-class BathhouseSt(Stage):
-    """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
-It is still in its early development"""
-    enemy_dir = 'data/images/enemies/'
-    def __init__(self,level,size,universe,directory):
+        self.directory      = self.maindir+directory
         self.background     = []
         self.cameras        = []
         self.clock          = []
@@ -48,6 +47,92 @@ It is still in its early development"""
         self.set_floor()
         self.size = size
         self.sky = []
+    def what_is_my_height(self,object):
+        try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
+        except:     y_height = 186 
+        return      y_height
+    def update_all(self,surface,act,dir,universe,clock_pointer):
+        for i in self.cameras:
+            i.update_all(self.princess)
+        universe.movement(dir)
+        for i in self.sky:
+            surface.blit(i.background,(0,0))
+#            i.set_light(clock_pointer)
+        for i in self.clouds:
+            surface.blit(i.image,i.pos)
+            i.update_all(dir,act)
+        for i in self.background:
+            surface.blit(i.image,i.pos)
+            i.update_all()
+        for i in self.moving_scenario:
+            surface.blit(i.image,i.pos)
+            i.update_all(act,dir)
+#        for i in self.sky:
+#            surface.blit(i.night_back_image,(0,0))
+        for i in self.scenarios:
+            surface.blit(i.image,i.pos)
+            i.update_all()
+        for i in self.gates:
+            surface.blit(i.image,i.pos)
+            i.update_all(self.princess)
+        for i in self.enemies:
+            surface.blit(i.image,i.pos)
+            i.update_all((self.princess))
+            if i.dirty == True:
+                i.barf()
+        for i in self.objects:
+            if i.alive == True:
+                surface.blit(i.image,i.pos)
+        for i in self.menus:
+            surface.blit(i.image,i.pos)
+        for part in self.princess.parts:
+            if self.princess.got_hitten > 5:
+                if self.princess.got_hitten%2 == 0 and part != None:
+                    surface.blit(part.image,part.pos)
+            else:
+                if part != None:
+                    surface.blit(part.image,part.pos)
+        for effect in self.princess.effects:
+            surface.blit(effect[0],effect[1])
+        self.princess.control(dir,act)
+
+        for i in self.scenarios_front:
+            surface.blit(i.image,i.pos)
+            i.update_all()
+        for i in self.gates:
+            if self.princesses[0].rect.colliderect(i.rect)== True:
+                surface.blit(i.arrow_image,i.arrow_pos)
+
+        for i in self.floor_image:
+            if i.__class__ == floors.Floor:
+                surface.blit(i.image,i.pos)
+                i.update_all()
+        for i in self.floor_image:
+            if i.__class__ == floors.Water:
+                surface.blit(i.image,i.pos)
+                i.update_all()
+        for i in self.floor_image:
+            if i.__class__ == floors.Water2:
+                surface.blit(i.image,i.pos)
+                i.update_all()
+
+
+
+
+
+
+        for i in self.clock:
+            surface.blit(i.image,i.pos)
+        for i in self.panel:
+            surface.blit(i.label,i.pos)
+            i.update(self.princesses[0].glamour_points)
+        for i in self.pointer:
+            surface.blit(i.image,i.pos)
+
+class BathhouseSt(Stage):
+    """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
+It is still in its early development"""
+
 
     def instantiate_stuff(self,clock_pointer):
 #        pygame.mixer.music.load("data/NeMedohounkou.ogg")
@@ -103,74 +188,7 @@ It is still in its early development"""
         self.princess = princess.Princess(self)
         info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
         japanese_bridge = floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
-    def what_is_my_height(self,object):
-        try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
-        except:     y_height = 186 
-        return      y_height
 
-    def update_all(self,surface,act,dir,universe,clock_pointer):
-        for i in self.cameras:
-            i.update_all(self.princess)
-        universe.movement(dir)
-        for i in self.sky:
-            surface.blit(i.background,(0,0))
-#            i.set_light(clock_pointer)
-        for i in self.clouds:
-            surface.blit(i.image,i.pos)
-            i.update_all(dir,act)
-        for i in self.background:
-            surface.blit(i.image,i.pos)
-            i.update_all()
-        for i in self.moving_scenario:
-            surface.blit(i.image,i.pos)
-            i.update_all(act,dir)
-#        for i in self.sky:
-#            surface.blit(i.night_back_image,(0,0))
-        for i in self.scenarios:
-            surface.blit(i.image,i.pos)
-            i.update_all()
-        for i in self.gates:
-            surface.blit(i.image,i.pos)
-            i.update_all(self.princess)
-        for i in self.enemies:
-            surface.blit(i.image,i.pos)
-            i.update_all((self.princess))
-            if i.dirty == True:
-                i.barf()
-        for i in self.objects:
-            if i.alive == True:
-                surface.blit(i.image,i.pos)
-        for i in self.menus:
-            surface.blit(i.image,i.pos)
-        for part in self.princess.parts:
-            if self.princess.got_hitten > 5:
-                if self.princess.got_hitten%2 == 0 and part != None:
-                    surface.blit(part.image,part.pos)
-            else:
-                if part != None:
-                    surface.blit(part.image,part.pos)
-        for effect in self.princess.effects:
-            surface.blit(effect[0],effect[1])
-        self.princess.control(dir,act)
-
-        for i in self.scenarios_front:
-            surface.blit(i.image,i.pos)
-            i.update_all()
-        for i in self.gates:
-            if self.princesses[0].rect.colliderect(i.rect)== True:
-                surface.blit(i.arrow_image,i.arrow_pos)
-        for i in self.floor_image:
-            surface.blit(i.image,i.pos)
-            i.update_pos()
-#        for i in self.sky:
-#            surface.blit(i.night_front_image,(0,0))
-        for i in self.clock:
-            surface.blit(i.image,i.pos)
-        for i in self.panel:
-            surface.blit(i.label,i.pos)
-            i.update(self.princesses[0].glamour_points)
-        for i in self.pointer:
-            surface.blit(i.image,i.pos)
 
     def set_floor(self):
         self.floor_heights = {}
@@ -203,7 +221,7 @@ It is still in its early development"""
             if count >= 979:
                 self.floor_heights[n+count] = 186
             count += 1
-class DressSt(BathhouseSt):
+class DressSt(Stage):
     def instantiate_stuff(self,clock_pointer):
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         def create_floor(number):
@@ -258,3 +276,58 @@ class DressSt(BathhouseSt):
             if count >= 300:
                 self.floor_heights[n+count] = 186
             count += 1
+class AccessorySt(Stage):
+    def instantiate_stuff(self,clock_pointer):
+        pygame.mixer.music.load("data/NeMedohounkou.ogg")
+        def create_floor(number):
+            count = 0
+            while count <= number:
+                tile = floors.Floor(count,self.directory+'floor/tile/',self)
+                count +=1
+        def create_water(number):
+            count = 0
+            while count <= number:
+                floors.Water(count,self.directory+'water/tile/',self)
+                floors.Water2(count,self.directory+'water/tile/',self)
+                count +=1
+
+        gate1 = scenarios.Gate((600,0),'data/images/scenario/omni/gate/',self,index = 0)
+        gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)
+        bilboard = moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')
+        carriage = enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10])
+        oldlady = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
+        schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
+        butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
+        fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)
+
+        create_floor(30)
+        create_water(10)
+
+
+        Main_Star= glamour_stars.Glamour_Stars((0,0),self,True)
+
+        try:       pygame.mixer.music.play()
+        except:    print "Warning: no music loaded."
+        self.princess = princess.Princess(self)
+
+        info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
+        castle = scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')
+    def set_floor(self):
+        self.floor_heights = {}
+        count = 0
+        n = 0
+        a = 0
+        while count < 1200:
+            self.floor_heights[n+count] = 186
+            if count >= 60:
+                self.floor_heights[n+count] = 255 + a
+            if count >= 220:
+                self.floor_heights[n+count] = 240 + a
+            if count >= 250:
+                self.floor_heights[n+count] = 215 + a
+            if count >= 300:
+                self.floor_heights[n+count] = 195
+            if count >= 300:
+                self.floor_heights[n+count] = 186
+            count += 1
+

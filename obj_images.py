@@ -39,12 +39,22 @@ Margin may be used to better program interaction during the game. Margin default
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
+    def update_number(self):
+        if self.number < len(self.left)-1:
+            self.number +=1
+        else:
+            self.number = 0
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
         self.list = self.find_images(directory)
         self.number = 0
         self.size = self.list[self.number].get_size()
+    def update_number(self):
+        if self.number < len(self.list)-1:
+            self.number +=1
+        else:
+            self.number = 0
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin

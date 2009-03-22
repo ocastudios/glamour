@@ -201,11 +201,11 @@ class OldLady(Enemy):
         self.move = True
         self.direction = 'left'
         self.action = 'move'
+        self.level.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
-        level.enemies.append(self)
 
     def update_all(self,princess):
         self.wave_to_princess()

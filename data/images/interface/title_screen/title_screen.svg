@@ -23,6 +23,17 @@
   <defs
      id="defs5201">
     <linearGradient
+       id="linearGradient11042">
+      <stop
+         style="stop-color:#d3d358;stop-opacity:0;"
+         offset="0"
+         id="stop11044" />
+      <stop
+         style="stop-color:#d3d358;stop-opacity:1;"
+         offset="1"
+         id="stop11046" />
+    </linearGradient>
+    <linearGradient
        inkscape:collect="always"
        id="linearGradient11536">
       <stop
@@ -52701,17 +52712,108 @@
        y1="1172.2333"
        x2="5038.3281"
        y2="1051.6493" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11522"
+       id="linearGradient11034"
+       gradientUnits="userSpaceOnUse"
+       x1="4994.8271"
+       y1="1001.1393"
+       x2="5055.7241"
+       y2="1062.0365" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11536"
+       id="linearGradient11036"
+       gradientUnits="userSpaceOnUse"
+       x1="5158.9121"
+       y1="1172.2333"
+       x2="5038.3281"
+       y2="1051.6493" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11042"
+       id="radialGradient11048"
+       cx="1157.1451"
+       cy="721.42291"
+       fx="1157.1451"
+       fy="721.42291"
+       r="6.5563488"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-7.3183523e-6,-1.0885284,1.0170974,-6.4075829e-6,423.97132,1980.3325)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11042"
+       id="radialGradient11052"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-7.3183523e-6,-1.0885284,1.0170974,-6.4075829e-6,743.39708,1999.3918)"
+       cx="1157.1451"
+       cy="721.42291"
+       fx="1157.1451"
+       fy="721.42291"
+       r="6.5563488" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11042"
+       id="radialGradient11056"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-3.3961454e-5,-1.5365065,4.7199294,-9.0445895e-6,-1911.4404,2547.0671)"
+       cx="1157.1451"
+       cy="721.42291"
+       fx="1157.1451"
+       fy="721.42291"
+       r="6.5563488" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11522"
+       id="linearGradient11080"
+       gradientUnits="userSpaceOnUse"
+       x1="4994.8271"
+       y1="1001.1393"
+       x2="5055.7241"
+       y2="1062.0365" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11536"
+       id="linearGradient11082"
+       gradientUnits="userSpaceOnUse"
+       x1="5158.9121"
+       y1="1172.2333"
+       x2="5038.3281"
+       y2="1051.6493" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11042"
+       id="radialGradient11084"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.4518785e-5,-3.6469129,3.4075967,-2.1467421e-5,3474.9389,4729.0434)"
+       cx="1157.1451"
+       cy="721.42291"
+       fx="1157.1451"
+       fy="721.42291"
+       r="6.5563488" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11042"
+       id="radialGradient11086"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.0465881e-4,-4.7350429,14.545378,-2.7872657e-5,-4611.2961,6137.1707)"
+       cx="1157.1451"
+       cy="721.42291"
+       fx="1157.1451"
+       fy="721.42291"
+       r="6.5563488" />
   </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="1"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="896.85453"
-     inkscape:cy="262.45584"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="5649.6838"
+     inkscape:cy="341.68348"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -69763,66 +69865,69 @@
          x="1156.9105"
          y="494.04755"
          id="tspan12718">return</tspan></text>
-    <path
-       sodipodi:type="arc"
-       style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path12725"
-       sodipodi:cx="5047.3281"
-       sodipodi:cy="1054.1493"
-       sodipodi:rx="43.133514"
-       sodipodi:ry="43.133514"
-       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
-       transform="matrix(0.3186282,0,0,0.3186282,-95.020035,137.02968)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#bbbb27;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 1508.5164,459.98923 C 1507.7331,460.27423 1506.9856,460.62873 1506.276,461.04473 L 1520.1463,461.04473 C 1519.4367,460.62873 1518.6892,460.27423 1517.9059,459.98923 L 1508.5164,459.98923 z M 1504.6032,462.19973 C 1504.1578,462.55863 1503.7359,462.94403 1503.3386,463.35473 L 1523.0837,463.35473 C 1522.6864,462.94403 1522.2645,462.55863 1521.8191,462.19973 L 1504.6032,462.19973 z M 1502.333,464.50973 C 1502.0511,464.87473 1501.781,465.26213 1501.5364,465.65483 L 1524.8859,465.65483 C 1524.6412,465.26213 1524.3711,464.87473 1524.0893,464.50973 L 1502.333,464.50973 z M 1500.8892,466.80983 C 1500.7035,467.18423 1500.5429,467.57223 1500.3913,467.96493 L 1526.031,467.96493 C 1525.8793,467.57223 1525.7188,467.18423 1525.533,466.80983 L 1500.8892,466.80983 z M 1500.003,469.11993 C 1499.8946,469.49883 1499.8002,469.88353 1499.7242,470.27493 L 1526.6981,470.27493 C 1526.6221,469.88353 1526.5277,469.49883 1526.4193,469.11993 L 1500.003,469.11993 z M 1499.545,471.42003 C 1499.504,471.80063 1499.4844,472.18583 1499.4752,472.57503 L 1526.947,472.57503 C 1526.9378,472.18583 1526.9182,471.80063 1526.8773,471.42003 L 1499.545,471.42003 z M 1499.4952,473.73013 C 1499.5184,474.12023 1499.5596,474.50443 1499.6147,474.88513 L 1526.8076,474.88513 C 1526.8627,474.50443 1526.9039,474.12023 1526.927,473.73013 L 1499.4952,473.73013 z M 1499.8337,476.05013 C 1499.9177,476.40803 1500.0111,476.75893 1500.1225,477.10553 L 1526.2998,477.10553 C 1526.4112,476.75893 1526.5045,476.40803 1526.5886,476.05013 L 1499.8337,476.05013 z M 1500.5506,478.26063 C 1500.7179,478.65503 1500.9062,479.04103 1501.1083,479.41563 L 1525.314,479.41563 C 1525.516,479.04103 1525.7044,478.65503 1525.8717,478.26063 L 1500.5506,478.26063 z M 1501.8052,480.57063 C 1502.0731,480.96833 1502.3647,481.34903 1502.6715,481.71563 L 1523.7508,481.71563 C 1524.0576,481.34903 1524.3492,480.96833 1524.617,480.57063 L 1501.8052,480.57063 z M 1503.7569,482.87073 C 1504.1932,483.28513 1504.6532,483.67103 1505.1409,484.02583 L 1521.2814,484.02583 C 1521.7691,483.67103 1522.2291,483.28513 1522.6654,482.87073 L 1503.7569,482.87073 z M 1507.0327,485.18083 C 1508.0585,485.69833 1509.1557,486.08783 1510.3086,486.33583 L 1516.1136,486.33583 C 1517.2666,486.08783 1518.3637,485.69833 1519.3895,485.18083 L 1507.0327,485.18083 z"
-       id="path12727"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       sodipodi:type="arc"
-       style="opacity:1;fill:url(#linearGradient12738);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path12730"
-       sodipodi:cx="5047.3281"
-       sodipodi:cy="1054.1493"
-       sodipodi:rx="43.133514"
-       sodipodi:ry="43.133514"
-       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
-       transform="matrix(0.3130879,0,0,0.3130879,-66.922095,142.74273)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       sodipodi:type="arc"
-       style="opacity:0.88111889;fill:url(#linearGradient12740);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path12732"
-       sodipodi:cx="5047.3281"
-       sodipodi:cy="1054.1493"
-       sodipodi:rx="43.133514"
-       sodipodi:ry="43.133514"
-       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
-       transform="matrix(0.3186282,0,0,0.3186282,-95.005095,137.02194)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <text
-       xml:space="preserve"
-       style="font-size:14.47410488px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffce;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
-       x="1504.7069"
-       y="478.04767"
-       id="text12734"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan12736"
-         x="1504.7069"
+    <g
+       id="g11012">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.020035,137.02968)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path12725"
+         style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="path12727"
+         d="M 1508.5164,459.98923 C 1507.7331,460.27423 1506.9856,460.62873 1506.276,461.04473 L 1520.1463,461.04473 C 1519.4367,460.62873 1518.6892,460.27423 1517.9059,459.98923 L 1508.5164,459.98923 z M 1504.6032,462.19973 C 1504.1578,462.55863 1503.7359,462.94403 1503.3386,463.35473 L 1523.0837,463.35473 C 1522.6864,462.94403 1522.2645,462.55863 1521.8191,462.19973 L 1504.6032,462.19973 z M 1502.333,464.50973 C 1502.0511,464.87473 1501.781,465.26213 1501.5364,465.65483 L 1524.8859,465.65483 C 1524.6412,465.26213 1524.3711,464.87473 1524.0893,464.50973 L 1502.333,464.50973 z M 1500.8892,466.80983 C 1500.7035,467.18423 1500.5429,467.57223 1500.3913,467.96493 L 1526.031,467.96493 C 1525.8793,467.57223 1525.7188,467.18423 1525.533,466.80983 L 1500.8892,466.80983 z M 1500.003,469.11993 C 1499.8946,469.49883 1499.8002,469.88353 1499.7242,470.27493 L 1526.6981,470.27493 C 1526.6221,469.88353 1526.5277,469.49883 1526.4193,469.11993 L 1500.003,469.11993 z M 1499.545,471.42003 C 1499.504,471.80063 1499.4844,472.18583 1499.4752,472.57503 L 1526.947,472.57503 C 1526.9378,472.18583 1526.9182,471.80063 1526.8773,471.42003 L 1499.545,471.42003 z M 1499.4952,473.73013 C 1499.5184,474.12023 1499.5596,474.50443 1499.6147,474.88513 L 1526.8076,474.88513 C 1526.8627,474.50443 1526.9039,474.12023 1526.927,473.73013 L 1499.4952,473.73013 z M 1499.8337,476.05013 C 1499.9177,476.40803 1500.0111,476.75893 1500.1225,477.10553 L 1526.2998,477.10553 C 1526.4112,476.75893 1526.5045,476.40803 1526.5886,476.05013 L 1499.8337,476.05013 z M 1500.5506,478.26063 C 1500.7179,478.65503 1500.9062,479.04103 1501.1083,479.41563 L 1525.314,479.41563 C 1525.516,479.04103 1525.7044,478.65503 1525.8717,478.26063 L 1500.5506,478.26063 z M 1501.8052,480.57063 C 1502.0731,480.96833 1502.3647,481.34903 1502.6715,481.71563 L 1523.7508,481.71563 C 1524.0576,481.34903 1524.3492,480.96833 1524.617,480.57063 L 1501.8052,480.57063 z M 1503.7569,482.87073 C 1504.1932,483.28513 1504.6532,483.67103 1505.1409,484.02583 L 1521.2814,484.02583 C 1521.7691,483.67103 1522.2291,483.28513 1522.6654,482.87073 L 1503.7569,482.87073 z M 1507.0327,485.18083 C 1508.0585,485.69833 1509.1557,486.08783 1510.3086,486.33583 L 1516.1136,486.33583 C 1517.2666,486.08783 1518.3637,485.69833 1519.3895,485.18083 L 1507.0327,485.18083 z"
+         style="opacity:1;fill:#bbbb27;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3130879,0,0,0.3130879,-66.922095,142.74273)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path12730"
+         style="opacity:1;fill:url(#linearGradient12738);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.005095,137.02194)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path12732"
+         style="opacity:0.88111889;fill:url(#linearGradient12740);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="text12734"
          y="478.04767"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising">X</tspan></text>
+         x="1504.7069"
+         style="font-size:14.47410488px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffce;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising"
+           y="478.04767"
+           x="1504.7069"
+           id="tspan12736"
+           sodipodi:role="line">X</tspan></text>
+    </g>
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -69883,5 +69988,208 @@
          x="1594.7388"
          y="681.34564"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising">OK</tspan></text>
+    <rect
+       style="opacity:0.71328670000000005;fill:url(#radialGradient11048);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect10240"
+       width="11.168154"
+       height="11.168154"
+       x="1152.1362"
+       y="714.84338"
+       ry="3.3632588" />
+    <g
+       id="g11020"
+       transform="translate(-310.20851,150.0925)">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.020035,137.02968)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11022"
+         style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="path11024"
+         d="M 1508.5164,459.98923 C 1507.7331,460.27423 1506.9856,460.62873 1506.276,461.04473 L 1520.1463,461.04473 C 1519.4367,460.62873 1518.6892,460.27423 1517.9059,459.98923 L 1508.5164,459.98923 z M 1504.6032,462.19973 C 1504.1578,462.55863 1503.7359,462.94403 1503.3386,463.35473 L 1523.0837,463.35473 C 1522.6864,462.94403 1522.2645,462.55863 1521.8191,462.19973 L 1504.6032,462.19973 z M 1502.333,464.50973 C 1502.0511,464.87473 1501.781,465.26213 1501.5364,465.65483 L 1524.8859,465.65483 C 1524.6412,465.26213 1524.3711,464.87473 1524.0893,464.50973 L 1502.333,464.50973 z M 1500.8892,466.80983 C 1500.7035,467.18423 1500.5429,467.57223 1500.3913,467.96493 L 1526.031,467.96493 C 1525.8793,467.57223 1525.7188,467.18423 1525.533,466.80983 L 1500.8892,466.80983 z M 1500.003,469.11993 C 1499.8946,469.49883 1499.8002,469.88353 1499.7242,470.27493 L 1526.6981,470.27493 C 1526.6221,469.88353 1526.5277,469.49883 1526.4193,469.11993 L 1500.003,469.11993 z M 1499.545,471.42003 C 1499.504,471.80063 1499.4844,472.18583 1499.4752,472.57503 L 1526.947,472.57503 C 1526.9378,472.18583 1526.9182,471.80063 1526.8773,471.42003 L 1499.545,471.42003 z M 1499.4952,473.73013 C 1499.5184,474.12023 1499.5596,474.50443 1499.6147,474.88513 L 1526.8076,474.88513 C 1526.8627,474.50443 1526.9039,474.12023 1526.927,473.73013 L 1499.4952,473.73013 z M 1499.8337,476.05013 C 1499.9177,476.40803 1500.0111,476.75893 1500.1225,477.10553 L 1526.2998,477.10553 C 1526.4112,476.75893 1526.5045,476.40803 1526.5886,476.05013 L 1499.8337,476.05013 z M 1500.5506,478.26063 C 1500.7179,478.65503 1500.9062,479.04103 1501.1083,479.41563 L 1525.314,479.41563 C 1525.516,479.04103 1525.7044,478.65503 1525.8717,478.26063 L 1500.5506,478.26063 z M 1501.8052,480.57063 C 1502.0731,480.96833 1502.3647,481.34903 1502.6715,481.71563 L 1523.7508,481.71563 C 1524.0576,481.34903 1524.3492,480.96833 1524.617,480.57063 L 1501.8052,480.57063 z M 1503.7569,482.87073 C 1504.1932,483.28513 1504.6532,483.67103 1505.1409,484.02583 L 1521.2814,484.02583 C 1521.7691,483.67103 1522.2291,483.28513 1522.6654,482.87073 L 1503.7569,482.87073 z M 1507.0327,485.18083 C 1508.0585,485.69833 1509.1557,486.08783 1510.3086,486.33583 L 1516.1136,486.33583 C 1517.2666,486.08783 1518.3637,485.69833 1519.3895,485.18083 L 1507.0327,485.18083 z"
+         style="opacity:1;fill:#bbbb27;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3130879,0,0,0.3130879,-66.922095,142.74273)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11026"
+         style="opacity:1;fill:url(#linearGradient11034);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.005095,137.02194)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11028"
+         style="opacity:0.88111889;fill:url(#linearGradient11036);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="text11030"
+         y="478.04767"
+         x="1504.7069"
+         style="font-size:14.47410488px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffce;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising"
+           y="478.04767"
+           x="1504.7069"
+           id="tspan11032"
+           sodipodi:role="line">X</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:13.51465893px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Domestic Manners;-inkscape-font-specification:Domestic Manners"
+       x="1188.4849"
+       y="647.83881"
+       id="text11038"><tspan
+         sodipodi:role="line"
+         x="1188.4849"
+         y="647.83881"
+         id="tspan11040">back</tspan></text>
+    <rect
+       style="opacity:0.7132867;fill:url(#radialGradient11052);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect11050"
+       width="11.168154"
+       height="11.168154"
+       x="1471.562"
+       y="733.90271"
+       ry="3.3632588"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/letter_selection/0.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="opacity:0.7132867;fill:url(#radialGradient11056);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect11054"
+       width="51.826794"
+       height="15.764348"
+       x="1467.6729"
+       y="760.77271"
+       ry="4.7473903"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/selection_back_space/0.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <g
+       id="g11058"
+       transform="matrix(3.1544349,0,0,3.1544349,312.57731,-503.26782)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.020035,137.02968)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11060"
+         style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="path11062"
+         d="M 1508.5164,459.98923 C 1507.7331,460.27423 1506.9856,460.62873 1506.276,461.04473 L 1520.1463,461.04473 C 1519.4367,460.62873 1518.6892,460.27423 1517.9059,459.98923 L 1508.5164,459.98923 z M 1504.6032,462.19973 C 1504.1578,462.55863 1503.7359,462.94403 1503.3386,463.35473 L 1523.0837,463.35473 C 1522.6864,462.94403 1522.2645,462.55863 1521.8191,462.19973 L 1504.6032,462.19973 z M 1502.333,464.50973 C 1502.0511,464.87473 1501.781,465.26213 1501.5364,465.65483 L 1524.8859,465.65483 C 1524.6412,465.26213 1524.3711,464.87473 1524.0893,464.50973 L 1502.333,464.50973 z M 1500.8892,466.80983 C 1500.7035,467.18423 1500.5429,467.57223 1500.3913,467.96493 L 1526.031,467.96493 C 1525.8793,467.57223 1525.7188,467.18423 1525.533,466.80983 L 1500.8892,466.80983 z M 1500.003,469.11993 C 1499.8946,469.49883 1499.8002,469.88353 1499.7242,470.27493 L 1526.6981,470.27493 C 1526.6221,469.88353 1526.5277,469.49883 1526.4193,469.11993 L 1500.003,469.11993 z M 1499.545,471.42003 C 1499.504,471.80063 1499.4844,472.18583 1499.4752,472.57503 L 1526.947,472.57503 C 1526.9378,472.18583 1526.9182,471.80063 1526.8773,471.42003 L 1499.545,471.42003 z M 1499.4952,473.73013 C 1499.5184,474.12023 1499.5596,474.50443 1499.6147,474.88513 L 1526.8076,474.88513 C 1526.8627,474.50443 1526.9039,474.12023 1526.927,473.73013 L 1499.4952,473.73013 z M 1499.8337,476.05013 C 1499.9177,476.40803 1500.0111,476.75893 1500.1225,477.10553 L 1526.2998,477.10553 C 1526.4112,476.75893 1526.5045,476.40803 1526.5886,476.05013 L 1499.8337,476.05013 z M 1500.5506,478.26063 C 1500.7179,478.65503 1500.9062,479.04103 1501.1083,479.41563 L 1525.314,479.41563 C 1525.516,479.04103 1525.7044,478.65503 1525.8717,478.26063 L 1500.5506,478.26063 z M 1501.8052,480.57063 C 1502.0731,480.96833 1502.3647,481.34903 1502.6715,481.71563 L 1523.7508,481.71563 C 1524.0576,481.34903 1524.3492,480.96833 1524.617,480.57063 L 1501.8052,480.57063 z M 1503.7569,482.87073 C 1504.1932,483.28513 1504.6532,483.67103 1505.1409,484.02583 L 1521.2814,484.02583 C 1521.7691,483.67103 1522.2291,483.28513 1522.6654,482.87073 L 1503.7569,482.87073 z M 1507.0327,485.18083 C 1508.0585,485.69833 1509.1557,486.08783 1510.3086,486.33583 L 1516.1136,486.33583 C 1517.2666,486.08783 1518.3637,485.69833 1519.3895,485.18083 L 1507.0327,485.18083 z"
+         style="opacity:1;fill:#bbbb27;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3130879,0,0,0.3130879,-66.922095,142.74273)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11064"
+         style="opacity:1;fill:url(#linearGradient11080);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         transform="matrix(0.3186282,0,0,0.3186282,-95.005095,137.02194)"
+         d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+         sodipodi:ry="43.133514"
+         sodipodi:rx="43.133514"
+         sodipodi:cy="1054.1493"
+         sodipodi:cx="5047.3281"
+         id="path11066"
+         style="opacity:0.88111889;fill:url(#linearGradient11082);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/button_cancel/0.png"
+         id="text11068"
+         y="478.04767"
+         x="1504.7069"
+         style="font-size:14.47410488px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffce;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising"
+           y="478.04767"
+           x="1504.7069"
+           id="tspan11070"
+           sodipodi:role="line">X</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:41.64804459px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Domestic Manners;-inkscape-font-specification:Domestic Manners"
+       x="6005.1641"
+       y="223.03369"
+       id="text11072"><tspan
+         sodipodi:role="line"
+         x="6005.1641"
+         y="223.03369"
+         id="tspan11074">back</tspan></text>
+    <rect
+       style="opacity:0.7132867;fill:url(#radialGradient11084);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect11076"
+       width="37.416832"
+       height="37.416832"
+       x="5914.521"
+       y="489.25623"
+       ry="11.267976"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/selection_letter/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.7132867;fill:url(#radialGradient11086);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect11078"
+       width="159.71432"
+       height="48.580898"
+       x="5802.0967"
+       y="632.35785"
+       ry="14.630004"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/selection_back_space/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

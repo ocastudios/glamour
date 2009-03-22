@@ -4322,7 +4322,7 @@
      inkscape:window-width="1432"
      inkscape:window-height="830"
      inkscape:window-x="0"
-     inkscape:window-y="39"
+     inkscape:window-y="24"
      gridtolerance="25"
      inkscape:snap-global="true">
     <inkscape:grid
@@ -14209,7 +14209,10 @@
     </g>
     <g
        id="g5909"
-       transform="matrix(1.0807628,0,0,1.0807628,-337.5029,71.457186)">
+       transform="matrix(1.0807628,0,0,1.0807628,-337.5029,71.457186)"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/dress/0.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600">
       <path
          sodipodi:nodetypes="ccccc"
          id="path5911"
@@ -14565,7 +14568,10 @@
        height="79.999924"
        x="-880"
        y="1344.252"
-       ry="0.23371334" />
+       ry="0.23371334"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/dress/0.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10000000000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6109"

@@ -39,6 +39,8 @@ if level == 'bathhouse_st':
     level = BathhouseSt(1,6000,universe,'bathhouse_st/')
 if level == 'dress_st':
     level = DressSt(1,6000,universe,'dress_st/')
+if level == 'accessory_st':
+    level = AccessorySt(1,6000,universe,'accessory_st/')
 
 game_clock = GameClock(level)
 clock_pointer = ClockPointer(level)
@@ -61,6 +63,7 @@ while True:
             break
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
+                level.princess.save()
                 exit()
             if event.key == K_LEFT:
                 dir = 'left'

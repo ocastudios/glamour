@@ -125,12 +125,10 @@ class MenuBackground():
         return inv_list
     def set_image(self):
         #choose list
-        number_of_files = len(self.images.list)-2
+
         self.image = self.images.list[self.images.number]
-        if self.images.number <= number_of_files:
-            self.images.number +=1
-        else:
-            self.images.number = 0
+        self.images.update_number()
+
 class MenuArrow():
     def __init__(self,directory,position,menu,index,invert = False):
         self.position   = position
@@ -208,6 +206,6 @@ class Options(GameText):
         if self.rect.collidepoint(mouse_pos):
             self.blit_text = self.fontB
             if pygame.mouse.get_pressed() == (1,0,0):
-                self.menu.level = 'bathhouse_st'
+                self.menu.level = 'accessory_st'
         else:
             self.blit_text = self.fontA

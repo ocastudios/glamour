@@ -262,7 +262,15 @@ The code is not yet well commented
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
 
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
-
+    def save(self):
+        self.save_number = 0
+        save_file = open('data/saves/'+str(self.save_number),'w')
+        save_file.write('Position: '+str(self.pos)+'\n'
+                        'Glamour_Points: '+str(self.glamour_points)+'\n'
+                        'Self_parts: '
+                        )
+        for part in self.parts:
+            save_file.write(str(part.index))
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):
         self.index = index
