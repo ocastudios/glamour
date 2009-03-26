@@ -2,8 +2,6 @@
 import globals
 import obj_images
 
-
-
 class Floor():
     images = None
 
@@ -11,46 +9,38 @@ class Floor():
         self.level = level
         if self.images == None:
             self.images = obj_images.OneSided(dir)
-        self.image_list = self.images.list
-        self.image = self.image_list[self.images.number]
+        self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.center_distance = (self.size[0]*(index))
         level.floor_image.insert(index,self)
+        self.set_pos()
+    def set_pos(self):
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
     def update_all(self):
         self.update_pos()
     def update_pos(self):
         self.images.update_number()
-        self.image = self.image_list[self.images.number]
+        self.image = self.images.list[self.images.number]
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
 
-        
 class Water(Floor):
     height = 90
+    max    = 100
+    min    = 90
     speed = [2,1]
     direction = 'up'
-    def __init__(self,index,dir,level,height={'all':186}):
-        self.level = level
-        if self.images == None:
-            self.images = obj_images.OneSided(dir)
-        self.image_list = self.images.list
-        self.image = self.image_list[self.images.number]
-        self.size = self.image.get_size()
-        self.center_distance = 2100+(self.size[0]*index)
-        level.floor_image.insert(index,self)
+    def set_pos(self):
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
     def update_pos(self):
         self.center_distance += self.speed[0]
         self.images.update_number()
-        self.image = self.image_list[self.images.number]
-        if self.direction == 'up':
-            self.height += self.speed[1]
-        else:
-            self.height -= self.speed[1]
-        if self.height > 100:
-            self.direction = 'down'
-        if self.height < 90:
-            self.direction = 'up'
+        self.image = self.images.list[self.images.number]
+
+        if self.direction == 'up':          self.height += self.speed[1]
+        else:                               self.height -= self.speed[1]
+
+        if self.height > self.max:          self.direction = 'down'
+        if self.height < self.min:          self.direction = 'up'
 
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
         if self.pos[0] > 1440:
@@ -60,27 +50,10 @@ class Water(Floor):
 
 class Water2(Water):
     height = 75
+    max = 85
+    min = 75
     direction = 'up'
     speed = [6,1]
-    def update_pos(self):
-        self.center_distance += self.speed[0]
-        self.images.update_number()
-        self.image = self.image_list[self.images.number]
-
-        if self.direction == 'up':
-            self.height += self.speed[1]
-        else:
-            self.height -= self.speed[1]
-        if self.height > 85:
-            self.direction = 'down'
-        if self.height < 75:
-            self.direction = 'up'
-
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
-        if self.pos[0] > 1440:
-            self.center_distance -= 1440+(self.size[0]*2)
-        if self.pos[0] < -self.size[0]:
-            self.center_distance += 1440+(self.size[0]*2)
 
 class Bridge():
     def __init__(self,directory,index,level,main=True):
@@ -106,9 +79,6 @@ class Bridge():
             level.floor_image[index]= self
 
     def update_pos(self):
-        self.image_number += 1
-        if self.image_number > len(self.images.list)-1:
-            self.image_number = 0
+        self.images.update_number()
         self.image = self.images.list[self.image_number]
-        
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])

@@ -36,11 +36,17 @@ class Enemy():
         self.dirty = dirty
         self.level.enemies.append(self)
 class Schnauzer(Enemy):
-    bow = pygame.mixer.Sound('data/sounds/enemies/dog1.ogg')
+    barfing = 0
+    bow = pygame.mixer.Sound('data/sounds/enemies/dog2.ogg')
     def barf(self):
         mouse_pos = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_pos):
+        if self.barfing == 1:
             self.bow.play()
+        if self.rect.collidepoint(mouse_pos)and self.barfing == 0 or self.barfing:
+            self.barfing += 1
+        if self.barfing > 100:
+            self.barfing = 0
+
     def update_all(self,princess):
         self.look_around(princess)
         self.set_pos()
@@ -50,7 +56,7 @@ class Schnauzer(Enemy):
         self.count +=1
         if self.count > 130:
             self.move = False
-        if self.move == False and self.gotkissed == 0:
+        if not self.move and not self.gotkissed:
             if princess.pos[0] > self.pos[0]:
                 self.direction='right'
             else:
@@ -72,9 +78,11 @@ class Schnauzer(Enemy):
             self.gotkissed = 0
             self.move = True
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
-        if self.move == True:
+        self.floor = globals.universe.floor - self.level.what_is_my_height(self)
+        self.pos = (globals.universe.center_x + self.center_distance,
+                    self.floor+self.margin[2]-(self.size[1]))
+
+        if self.move:
             if self.direction == 'right' :
                 self.center_distance += self.speed
             else:
@@ -82,11 +90,8 @@ class Schnauzer(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
     def set_image(self):
         #choose list
-        if self.move == True:
-            if self.direction == 'right':
-                actual_list = self.walk.right
-            else:
-                actual_list = self.walk.left
+        if self.move:
+            exec('actual_list = self.walk.'+self.direction)
         else:
             if self.lookside % 2 ==0:
                 actual_list = self.walk.right[0:1]
@@ -94,11 +99,9 @@ class Schnauzer(Enemy):
                 actual_list = self.walk.left[0:1]
         if self.gotkissed >= 1:
             self.move =False
-            if self.direction == 'right':
-                actual_list = self.kissed.right
-            else:
-                actual_list = self.kissed.left        
+            exec('actual_list = self.kissed.'+self.direction)
         number_of_files = len(actual_list)-2
+
         if self.image_number <= number_of_files:
             self.image_number +=1
         else:
@@ -113,7 +116,7 @@ class Carriage(Enemy):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
-        if self.move == True:
+        if self.move:
             if self.direction == 'right' :
                 self.center_distance += self.speed
             else:
@@ -121,16 +124,9 @@ class Carriage(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
     def set_image(self):
 #choose list
-        if self.move == True:
-            if self.direction == 'right':
-                actual_list = self.walk.right
-            else:
-                actual_list = self.walk.left
-        else:
-            if self.direction == 'right':
-                actual_list = self.stay.right
-            else:
-                actual_list = self.stay.left
+        if self.move:   exec('actual_list = self.walk.'+self.direction)
+        else:           exec('actual_list = self.stay.'+self.direction)
+
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1
@@ -163,19 +159,12 @@ class Butterfly(Enemy):
     def set_image(self):
 #choose list
         self.count+=1
-        if self.move == True:
-            if self.direction == 'right':
-                actual_list = self.walk.right
-            else:
-                actual_list = self.walk.left
+        if self.move:
+            exec('actual_list = self.walk.'+self.direction)
         else:
-            if self.direction == 'right':
-                actual_list = self.stay.right
-            else:
-                actual_list = self.stay.left    
-    
+            exec('actual_list = self.stay.'+self.direction)
+
         number_of_files = len(actual_list)-2
-        #if self.count%2==0:
         if self.image_number <= number_of_files:
             self.image_number +=1
         else:
@@ -184,23 +173,22 @@ class Butterfly(Enemy):
 class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.center_distance = pos
-        self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
-        self.hover = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
-        self.broom = obj_images.There_and_back_again(directory+'/act/',stay_margin)
-        self.image = self.walk.left[0]
+        self.walk   = obj_images.TwoSided(directory+'/walk/',walk_margin)
+        self.hover  = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
+        self.broom  = obj_images.There_and_back_again(directory+'/act/',stay_margin)
+        self.image  = self.walk.left[0]
         self.mouseovercount = 0
-        self.size = (self.image.get_width()/2, self.image.get_height())
-        self.alive = True
-        self.level = level
-        self.speed = speed
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
+        self.size   = (self.image.get_width()/2, self.image.get_height())
+        self.alive  = True
+        self.level  = level
+        self.speed  = speed
+        self.floor  = globals.universe.floor-self.level.what_is_my_height(self)
         self.margin = walk_margin
         self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
-        self.move = True
         self.direction = 'left'
-        self.action = 'move'
+        self.action = 'walk'
         self.level.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
@@ -222,7 +210,7 @@ class OldLady(Enemy):
                 self.count = 0
         else:
             if self.count > 33:
-                self.action = 'move'
+                self.action = 'walk'
                 self.count = 0
 
     def brooming(self):
@@ -236,7 +224,7 @@ class OldLady(Enemy):
                     self.direction = 'left'
                 else:
                     self.direction = 'right'
-                self.action = 'move'
+                self.action = 'walk'
                 self.count = 0
         self.count += 1
             
@@ -244,7 +232,7 @@ class OldLady(Enemy):
     def set_pos(self):
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
-        if self.action == 'move':
+        if self.action == 'walk':
             if self.direction == 'right' :
                 self.center_distance += self.speed
             else:
@@ -252,22 +240,8 @@ class OldLady(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):
-#choose list
-        if self.action == 'move':
-            if self.direction == 'right':
-                actual_list = self.walk.right
-            else:
-                actual_list = self.walk.left
-        elif self.action == 'wave':
-            if self.direction == 'right':
-                actual_list = self.hover.right
-            else:
-                actual_list = self.hover.left
-        elif self.action == 'broom':
-            if self.direction == 'right':
-                actual_list = self.broom.right
-            else:
-                actual_list = self.broom.left
+
+        exec('actual_list = self.'+self.action+'.'+self.direction)
 
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:

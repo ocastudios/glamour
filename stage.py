@@ -137,56 +137,52 @@ It is still in its early development"""
 
     def instantiate_stuff(self,clock_pointer):
 #        pygame.mixer.music.load("data/NeMedohounkou.ogg")
-        def create_clouds(number):
-            for cl in range(number):
-                nuvem = clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])
-        def create_posts(number):
-            posts = [2300,3350,4700, 5470,5770]
-            for i in posts:
-                post = scenarios.Scenario((i,0),self.directory+'light_post/post/',self)
-        def create_floor(number):
+         def create_floor(number):
             count = 0
             while count <= number:
                 tile = floors.Floor(count,self.directory+'floor/tile/',self)
                 count +=1
 
-        #Instancing Stuff
+         #Instancing Stuff
+ 
+         ### Instancing Scenarios
+         fundo    = skies.Sky(self.maindir+'skies/daytime/daytime.png',self,clock_pointer)
+         castle   = scenarios.Background((110,0),self,0,self.maindir+'ballroom/ballroom_day/')
+         bilboard = moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')
+         for i in [2300,3350,4700, 5470,5770]:
+             post = scenarios.Scenario((i,0),self.directory+'light_post/post/',self)
+         for cl in range(50):
+            nuvem = clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])
 
-        ### Instancing Scenarios
-        fundo    = skies.Sky(self.maindir+'skies/daytime/daytime.png',self,clock_pointer)
-        castle   = scenarios.Background((110,0),self,0,self.maindir+'ballroom/ballroom_day/')
-        bilboard = moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')
-        create_posts(15)
-        create_clouds(50)
 
-        ### Instancing Buildings
-        gate1 = scenarios.Gate((300,0), self.maindir+'omni/gate/',self,index = 0)
-        gate2 = scenarios.Gate((5510,0),self.maindir+'omni/gate/',self,index = 0)
-        bathhouse = scenarios.Building((550,0),self.directory+'bathhouse/bathhouse/',self,
+         ### Instancing Buildings
+         gate1 = scenarios.Gate((300,0), self.maindir+'omni/gate/',self,index = 0)
+         gate2 = scenarios.Gate((5510,0),self.maindir+'omni/gate/',self,index = 0)
+         bathhouse = scenarios.Building((550,0),self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door_shut/'},index =0)
-        lef_corner_house =  scenarios.Scenario((0,100),    self.directory+'left_corner_house/base/',self,index=0)
-        left_house       =  scenarios.Scenario((2350,100), self.directory+'left_house/base/',       self,index=0)
-        smallhouse       =  scenarios.Scenario((2920,100), self.directory+'small_house/base/',      self,index=0)
-        right_house      =  scenarios.Scenario((4700,100), self.directory+'right_house/base/',      self,index=0)
-        home = scenarios.Building((3400,100),self.directory+'home/castelo/',self,
-                                  {'pos':(537,490),'directory':self.directory+'home/door_shut/'},index =0)
-        magic_beauty_salon = scenarios.Building((5790,100),self.directory+'magic_beauty_salon/base/',self,
-                                  {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)
-        magic_beauty_salon_portal = scenarios.FrontScenario((6440,100),self.directory+'magic_beauty_salon/portal/',self,index=0)
+         lef_corner_house =  scenarios.Scenario((0,100),    self.directory+'left_corner_house/base/',self,index=0)
+         left_house       =  scenarios.Scenario((2350,100), self.directory+'left_house/base/',       self,index=0)
+         smallhouse       =  scenarios.Scenario((2920,100), self.directory+'small_house/base/',      self,index=0)
+         right_house      =  scenarios.Scenario((4700,100), self.directory+'right_house/base/',      self,index=0)
+         home = scenarios.Building((3400,100),self.directory+'home/castelo/',self,
+                                   {'pos':(537,490),'directory':self.directory+'home/door_shut/'},index =0)
+         magic_beauty_salon = scenarios.Building((5790,100),self.directory+'magic_beauty_salon/base/',self,
+                                   {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)
+         magic_beauty_salon_portal = scenarios.FrontScenario((6440,100),self.directory+'magic_beauty_salon/portal/',self,index=0)
+ 
+         ### Instancing Enemies
+         carriage    = enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10])
+         oldlady     = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
+         schnauzer   = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
+         butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
 
-        ### Instancing Enemies
-        carriage    = enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10])
-        oldlady     = enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self)
-        schnauzer   = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
-        butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
-
-        create_floor(30)
-        Main_Star= glamour_stars.Glamour_Stars((0,0),self,True)
-        try:       pygame.mixer.music.play()
-        except:    print "Warning: no music loaded."
-        self.princess = princess.Princess(self)
-        info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
-        japanese_bridge = floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
+         create_floor(30)
+         Main_Star= glamour_stars.Glamour_Stars((0,0),self,True)
+         try:       pygame.mixer.music.play()
+         except:    print "Warning: no music loaded."
+         self.princess = princess.Princess(self)
+         info_glamour_points = panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
+         japanese_bridge = floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
 
 
     def set_floor(self):
