@@ -12,3 +12,5 @@ class Sky():
         self.image_number = 0
         self.max_image_number = len(self.night_back.list)-1
         level.sky.insert(0,self)
+    def update_all(self):
+        pass

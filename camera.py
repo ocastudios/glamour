@@ -23,7 +23,7 @@ class GameCamera():
         else:
             self.count = 0
 
-            if globals.universe.speed != 0:            
+            if globals.universe.speed != 0:
                 if princess.pos[0]+100 > (self.end_x - (self.end_x*(self.limit+0.1))):
                     globals.universe.speed += 1
                 if princess.pos[0]+100 < (self.start_x + (self.end_x*(self.limit +0.1))):

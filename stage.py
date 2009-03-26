@@ -19,6 +19,7 @@ class Stage():
     enemy_dir = 'data/images/enemies/'
     maindir        = 'data/images/scenario/'
     def __init__(self,level,size,universe,directory):
+        self.sprites        = []
         self.universe       = universe
         self.maindir        = 'data/images/scenario/'
         self.directory      = self.maindir+directory
@@ -57,7 +58,7 @@ class Stage():
         universe.movement(dir)
         for i in self.sky:
             surface.blit(i.background,(0,0))
-#            i.set_light(clock_pointer)
+
         for i in self.clouds:
             surface.blit(i.image,i.pos)
             i.update_all(dir,act)
@@ -137,10 +138,8 @@ It is still in its early development"""
     def instantiate_stuff(self,clock_pointer):
 #        pygame.mixer.music.load("data/NeMedohounkou.ogg")
         def create_clouds(number):
-            count = 0
-            while count <= number:
+            for cl in range(number):
                 nuvem = clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])
-                count += 1
         def create_posts(number):
             posts = [2300,3350,4700, 5470,5770]
             for i in posts:
@@ -213,11 +212,16 @@ It is still in its early development"""
                 self.floor_heights[n+count] = 256 + a
             if count >= 740:
                 self.floor_heights[n+count] = 246 + a
-            if count >= 800:                self.floor_heights[n+count] = 236 + a
-            if count >= 850:                self.floor_heights[n+count] = 226 + a
-            if count >= 890:                self.floor_heights[n+count] = 216 + a
-            if count >= 920:                self.floor_heights[n+count] = 206 + a
-            if count >= 950:                self.floor_heights[n+count] = 196 + a
+            if count >= 800:
+                self.floor_heights[n+count] = 236 + a
+            if count >= 850:
+                self.floor_heights[n+count] = 226 + a
+            if count >= 890:
+                self.floor_heights[n+count] = 216 + a
+            if count >= 920:
+                self.floor_heights[n+count] = 206 + a
+            if count >= 950:
+                self.floor_heights[n+count] = 196 + a
             if count >= 979:
                 self.floor_heights[n+count] = 186
             count += 1
@@ -279,18 +283,6 @@ class DressSt(Stage):
 class AccessorySt(Stage):
     def instantiate_stuff(self,clock_pointer):
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
-        def create_floor(number):
-            count = 0
-            while count <= number:
-                tile = floors.Floor(count,self.directory+'floor/tile/',self)
-                count +=1
-        def create_water(number):
-            count = 0
-            while count <= number:
-                floors.Water(count,self.directory+'water/tile/',self)
-                floors.Water2(count,self.directory+'water/tile/',self)
-                count +=1
-
         gate1 = scenarios.Gate((600,0),'data/images/scenario/omni/gate/',self,index = 0)
         gate2 = scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)
         bilboard = moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')
@@ -299,10 +291,14 @@ class AccessorySt(Stage):
         schnauzer = enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True)
         butterflies = enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)
         fundo = skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)
+        for fl in range(30):
+            tile = floors.Floor(fl,self.directory+'floor/tile/',self)
+        for wat in range(11):
+            floors.Water(wat,self.directory+'water/tile/',self)
+            floors.Water2(wat,self.directory+'water/tile/',self)
 
-        create_floor(30)
-        create_water(10)
-
+        for cl in range(50):
+            nuvem = clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])
 
         Main_Star= glamour_stars.Glamour_Stars((0,0),self,True)
 

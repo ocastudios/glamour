@@ -23,12 +23,11 @@ class Floor():
         self.images.update_number()
         self.image = self.image_list[self.images.number]
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+
+        
 class Water(Floor):
-    height = 70
-    nx   = range(70,100)
-    tide = nx+list(reversed(nx))
-    iterat = iter(tide)
-    speed = [3,1]
+    height = 90
+    speed = [2,1]
     direction = 'up'
     def __init__(self,index,dir,level,height={'all':186}):
         self.level = level
@@ -58,9 +57,10 @@ class Water(Floor):
             self.center_distance -= 1440+(self.size[0]*2)
         if self.pos[0] < -self.size[0]:
             self.center_distance += 1440+(self.size[0]*2)
+
 class Water2(Water):
-    height = 63
-    direction = 'down'
+    height = 75
+    direction = 'up'
     speed = [6,1]
     def update_pos(self):
         self.center_distance += self.speed[0]
@@ -71,9 +71,9 @@ class Water2(Water):
             self.height += self.speed[1]
         else:
             self.height -= self.speed[1]
-        if self.height > 80:
+        if self.height > 85:
             self.direction = 'down'
-        if self.height < 70:
+        if self.height < 75:
             self.direction = 'up'
 
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)

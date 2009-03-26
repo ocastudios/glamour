@@ -1,9 +1,9 @@
 import globals
 import obj_images
-import pygame
 import os
 import random
 import enemy
+
 from pygame.locals import *
 
 class Princess():
@@ -19,26 +19,27 @@ Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
     directory = 'data/images/princess/'
-    def __init__(self,level):
-        self.parts      = []
+    def __init__(self,level,save = None):
+        self.file = open(save or 'data/saves/default').readlines()
+        self.parts = []
+        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory","dirty","dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = 4200
         self.pos        = (globals.universe.center_x+self.center_distance,
                            globals.universe.floor - 186 -self.size[1])
-        self.hair_back  = None
-        self.parts.insert(0,self.hair_back)
-        self.skin       = PrincessPart(self, self.directory+'skin_pink',1)
-        self.face       = PrincessPart(self, self.directory+'face_simple',2)
-        self.hair       = PrincessPart(self, self.directory+'hair_yellow',3)
-        self.shoes      = PrincessPart(self, self.directory+'shoes_slipper',4)
-        self.dress      = PrincessPart(self, self.directory+'dress_plain',5)
-        self.arm        = PrincessPart(self, self.directory+'arm_pink',6)
-        self.arm_dress  = None
-        self.parts.insert(7,self.arm_dress)
-        self.accessory  = PrincessPart(self,self.directory+'accessory_ribbon',8)
-        self.dirty      = PrincessPart(self,self.directory+'dirt1',9)
-        self.dirty2     = PrincessPart(self,self.directory+'dirt2',9)
-        self.dirty3     = PrincessPart(self,self.directory+'dirt3',9)
+        for part in self.part_keys:
+            for line in self.file:
+                if part in line:
+                    l = line.split()
+                    if part == l[0]:
+                        if l[1] != 'None':
+                            exec('self.'+l[0]+'= PrincessPart(self, self.directory+"'+l[1]+'",'+l[2]+")") 
+                        else:
+                            exec('self.'+l[0]+'= None')
+                            exec('self.parts.insert('+l[2]+',self.'+l[0]+')')
+        self.parts.remove(self.dirty)
+        self.parts.remove(self.dirty2)
+        self.parts.remove(self.dirty3)
         self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
         self.dirt_cloud= obj_images.TwoSided('data/images/effects/dirt/')
         self.glamour_points = 0
@@ -56,10 +57,7 @@ The code is not yet well commented
         self.celebrate  = 0
         self.kiss       = 0
         self.kiss_direction = 'left'
-        self.parts.remove(self.dirty)
-        self.parts.remove(self.dirty2)
-        self.parts.remove(self.dirty3)
-        self.jump_sound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
+
         self.kiss_rect = ((0,0),(0,0))
         self.floor = globals.universe.floor - 186
     def control(self, dir, action):
@@ -244,7 +242,7 @@ The code is not yet well commented
                     part.image_number = self.skin.image_number
 
             if self.skin.image_number == 3:
-                soundwalk = os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
+                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
             if self.skin.image_number == 6:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
 
@@ -270,7 +268,8 @@ The code is not yet well commented
                         'Self_parts: '
                         )
         for part in self.parts:
-            save_file.write(str(part.index))
+            try:            save_file.write(str(part.index or 0))
+            except:         save_file.write(str(Exception))
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):
         self.index = index

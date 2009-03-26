@@ -2,11 +2,6 @@ import pygame
 from pygame.locals import *
 
 
-
-def get_keyboard():
-    for event in pygame.event.get():
-        if 
-
 control_result = {}
 while True:
     for event in pygame.event.get():

@@ -5,8 +5,6 @@ from globals import *
 import camera
 import mousepointer
 import menu
-import os
-from pygame.locals import *
 
 level = 'menu'
 gamemenu = menu.MenuScreen((360,200))
@@ -105,6 +103,5 @@ while True:
     screen_surface.fill([255,255,255])
     level.update_all(screen_surface,action,dir,universe,clock_pointer)
     clock_pointer.update_image()
-
     pygame.display.flip()
 exit()
