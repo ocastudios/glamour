@@ -174,7 +174,7 @@ class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
         self.center_distance = pos
         self.walk   = obj_images.TwoSided(directory+'/walk/',walk_margin)
-        self.hover  = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
+        self.wave  = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
         self.broom  = obj_images.There_and_back_again(directory+'/act/',stay_margin)
         self.image  = self.walk.left[0]
         self.mouseovercount = 0
