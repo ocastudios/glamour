@@ -12,7 +12,6 @@ class ClockPointer():
     def __init__(self,level):    
         self.rotate_list=[]
         x = -90
-        
         while x != 0:
             self.rotate_list.append(x)
             x+= 0.5

@@ -1,5 +1,6 @@
 import obj_images
 import random
+from pygame.locals import *
 
 class Cloud():
     def __init__(self, p,level):
@@ -17,6 +18,7 @@ class Cloud():
         self.image = self.images.list[0]
         self.deep = random.random()/2
         self.image_number = 0
+        self.rect = Rect(self.pos,self.image.get_size())
         for i in level:
             i.clouds.insert(self.deep,self)
     def update_all(self,dir,act):
@@ -24,6 +26,7 @@ class Cloud():
         self.set_image()
     def movement(self,dir,act):
         self.pos = (self.pos[0]-10*self.deep,self.pos[1])
+        self.rect = Rect(self.pos,self.image.get_size())
         self.set_image
     def set_image(self):
         #choose list

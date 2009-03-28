@@ -119,10 +119,12 @@ class Background():
         self.size = self.image.get_size()
         self.pos = (pos[0],globals.universe.floor-self.size[1])
         level.background.insert(index,self)
+        self.rect = Rect(self.pos, self.size)
     def update_image(self):
         self.images.number += 1
         if self.images.number > len(self.images.list)-1:
             self.images.number = -1
         self.image = self.images.list[self.images.number]
+        self.rect = Rect(self.pos, self.size)
     def update_all(self):
         self.update_image()

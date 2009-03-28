@@ -1,5 +1,6 @@
 from globals import *
 import obj_images
+from pygame.locals import *
 
 class Sky():
     def __init__(self, background,level,clock_pointer):

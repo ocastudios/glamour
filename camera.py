@@ -1,7 +1,9 @@
 import globals
+from pygame.locals import *
 
 class GameCamera():
     def __init__(self,level):
+        self.rect = Rect((0,0),(globals.os_screen.current_w,globals.os_screen.current_h))
         self.end_x = float(globals.os_screen.current_w)
         self.start_x = 0
         self.level = level

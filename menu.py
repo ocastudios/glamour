@@ -25,6 +25,7 @@ class MenuScreen():
         self.left_bar_pos = -800.
         self.speed = 5.
         self.wait = True
+        self.drapes = []
     def update_all(self,surface):
         surface.fill(self.color)
         if self.left_bar_pos < 0:
@@ -56,6 +57,9 @@ class MenuScreen():
                 for b in menu.buttons:
                     b.update_all()
                     surface.blit(b.image,b.pos)
+#            for drape in self.drapes:
+#                drape.update_all()
+#                surface.blit(drape.images[image_number],drape.pos)
 class Menu():
     def __init__(self,screen,level,position= (360,200),speed=2.):
         self.pos            = position

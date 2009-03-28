@@ -5,12 +5,10 @@ from globals import *
 import camera
 import mousepointer
 import menu
-
 level = 'menu'
 gamemenu = menu.MenuScreen((360,200))
 mainmenu = menu.Menu(gamemenu,level)
 mainmenu.instantiate_stuff()
-
 
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 while level == 'menu':
@@ -32,7 +30,6 @@ while level == 'menu':
     except:
         pygame.display.flip()
         once = True
-
 if level == 'bathhouse_st':
     level = BathhouseSt(1,6000,universe,'bathhouse_st/')
 if level == 'dress_st':
@@ -44,8 +41,6 @@ game_clock = GameClock(level)
 clock_pointer = ClockPointer(level)
 #level.bathhouse_street(clock_pointer)
 level.instantiate_stuff(clock_pointer)
-
-
 
 mouse_pos = pygame.mouse.get_pos()
 game_mouse = mousepointer.MousePointer(mouse_pos,level)
@@ -78,7 +73,6 @@ while True:
             if event.key == K_UP:
                 if level.princess.jump == 0:
                     action[0] ='jump'
-
             if event.key == K_c:
                 action[0] = 'change'
             if event.key == K_i:
@@ -91,13 +85,11 @@ while True:
                 action[0] = 'changeshoes'
             if event.key == K_p:
                 action[0] = 'changeskin'
-
         elif event.type == KEYUP:
             action[0]=None
             level.princess.doonce = False
             if (dir == 'left' and event.key == K_LEFT) or (dir == 'right' and event.key == K_RIGHT):
                 action[1] = 'stand'
-
     game_mouse.update()
     time_passed = clock.tick(15)
     screen_surface.fill([255,255,255])

@@ -60,32 +60,40 @@ class Stage():
             surface.blit(i.background,(0,0))
 
         for i in self.clouds:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+              surface.blit(i.image,i.pos)
             i.update_all(dir,act)
         for i in self.background:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all()
         for i in self.moving_scenario:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all(act,dir)
 #        for i in self.sky:
 #            surface.blit(i.night_back_image,(0,0))
         for i in self.scenarios:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all()
         for i in self.gates:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all(self.princess)
         for i in self.enemies:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all((self.princess))
             if i.dirty == True:
                 i.barf()
         for i in self.objects:
-            if i.alive == True:
-                surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                if i.alive == True:
+                    surface.blit(i.image,i.pos)
         for i in self.menus:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
         for part in self.princess.parts:
             if self.princess.got_hitten > 5:
                 if self.princess.got_hitten%2 == 0 and part != None:
@@ -98,7 +106,8 @@ class Stage():
         self.princess.control(dir,act)
 
         for i in self.scenarios_front:
-            surface.blit(i.image,i.pos)
+            if i.rect.colliderect(self.cameras[0].rect):
+                surface.blit(i.image,i.pos)
             i.update_all()
         for i in self.gates:
             if self.princesses[0].rect.colliderect(i.rect)== True:
@@ -106,15 +115,18 @@ class Stage():
 
         for i in self.floor_image:
             if i.__class__ == floors.Floor:
-                surface.blit(i.image,i.pos)
+                if i.rect.colliderect(self.cameras[0].rect):
+                    surface.blit(i.image,i.pos)
                 i.update_all()
         for i in self.floor_image:
             if i.__class__ == floors.Water:
-                surface.blit(i.image,i.pos)
+                if i.rect.colliderect(self.cameras[0].rect):
+                    surface.blit(i.image,i.pos)
                 i.update_all()
         for i in self.floor_image:
             if i.__class__ == floors.Water2:
-                surface.blit(i.image,i.pos)
+                if i.rect.colliderect(self.cameras[0].rect):
+                    surface.blit(i.image,i.pos)
                 i.update_all()
 
 
