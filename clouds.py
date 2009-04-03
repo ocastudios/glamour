@@ -3,17 +3,14 @@ import random
 from pygame.locals import *
 
 class Cloud():
+    nimbus= 0
     def __init__(self, p,level):
         self.pos = p
-        try:
-            if nimbus1 != False and nimbus2 != False and nimbus3 != False:
-                pass
-        except:
-            nimbus = [
-                      obj_images.OneSided('data/images/scenario/skies/nimbus/1/'),
-                      obj_images.OneSided('data/images/scenario/skies/nimbus/2/'),
-                      obj_images.OneSided('data/images/scenario/skies/nimbus/3/')
-                      ]
+        nimbus = nimbus or [
+                            obj_images.OneSided('data/images/scenario/skies/nimbus/1/'),
+                            obj_images.OneSided('data/images/scenario/skies/nimbus/2/'),
+                            obj_images.OneSided('data/images/scenario/skies/nimbus/3/')
+                            ]
         self.images = nimbus[random.randint(0,2)]
         self.image = self.images.list[0]
         self.deep = random.random()/2

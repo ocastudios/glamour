@@ -11,6 +11,7 @@ import glamour_stars
 import princess
 import panel
 import pygame
+import drapes
 from pygame.locals import *
 
 class MenuScreen():
@@ -26,40 +27,73 @@ class MenuScreen():
         self.speed = 5.
         self.wait = True
         self.drapes = []
+        self.upper_drapes = []
+        self.ready = False
+        self.count = 0
+        for i in range(6):
+            i = drapes.Drape(i,'right')
+            self.drapes.append(i)
+        for i in range(6,13):
+            i = drapes.Drape(i,'left')
+            self.drapes.append(i)
+        for i in range(14):
+            i = drapes.UperDrape(i)
+            self.upper_drapes.append(i)
     def update_all(self,surface):
         surface.fill(self.color)
-        if self.left_bar_pos < 0:
-            self.left_bar_pos += self.speed
-            if self.left_bar_pos > -280:
-                self.speed -= .5
-            else:
-                self.speed += .5
-            surface.blit(self.left_bar.image,(self.left_bar_pos,0))
-        else:
-            self.left_bar_pos = 0
-            if self.wait == True:
-                pygame.time.wait(700)
-                self.wait = False
+        
+#        if self.count <= 500:       self.ready = False
+#        else:                       self.ready = True
+        self.count += 1
+        if self.ready == True:
+            self.update_left_bar(surface)
+        elif self.ready == False:
+            self.update_drape(surface)
 
-            for menu in self.menus:
-                menu.update_all()
-                for back in menu.backgrounds:
-                    back.update_all()
-                    surface.blit(back.image,menu.actual_position)
-            surface.blit(self.left_bar.image,(self.left_bar_pos,0))
-            for menu in self.menus:
-                for text in menu.texts:
-                    text.update()
-                    surface.blit(text.blit_text,text.pos)
-                for opt in menu.options:
-                    opt.update()
-                    surface.blit(opt.blit_text,opt.pos)
-                for b in menu.buttons:
-                    b.update_all()
-                    surface.blit(b.image,b.pos)
-#            for drape in self.drapes:
-#                drape.update_all()
-#                surface.blit(drape.images[image_number],drape.pos)
+    def update_left_bar(self,surface):
+            if self.left_bar_pos < 0:
+                self.left_bar_pos += self.speed
+                if self.left_bar_pos > -280:
+                    self.speed -= .5
+                else:
+                    self.speed += .5
+                surface.blit(self.left_bar.image,(self.left_bar_pos,0))
+            else:
+                self.left_bar_pos = 0
+                if self.wait == True:
+                    self.wait = False
+
+                for menu in self.menus:
+                    menu.update_all()
+                    for back in menu.backgrounds:
+                        back.update_all()
+                        surface.blit(back.image,menu.actual_position)
+                surface.blit(self.left_bar.image,(self.left_bar_pos,0))
+                for menu in self.menus:
+                    for text in menu.texts:
+                        text.update()
+                        surface.blit(text.blit_text,text.pos)
+                    for opt in menu.options:
+                        opt.update()
+                        surface.blit(opt.blit_text,opt.pos)
+                    for b in menu.buttons:
+                        b.update_all()
+                        surface.blit(b.image,b.pos)
+
+    def update_drape(self,surface):
+            for drape in self.drapes:
+                if self.count > 80:
+                    drape.action = 'open'
+                drape.update_all()
+                surface.blit(drape.image,drape.position)
+            for upperdrape in self.upper_drapes:
+                if self.count > 80:
+                    upperdrape.action = 'open'
+                upperdrape.update_all()
+                surface.blit(upperdrape.image,upperdrape.position)
+                if upperdrape.position[1] < -upperdrape.size[1]+100:
+                    self.ready = True
+
 class Menu():
     def __init__(self,screen,level,position= (360,200),speed=2.):
         self.pos            = position
@@ -87,7 +121,8 @@ class Menu():
         Level_02_menu    = GameText('Or e button to play Stage "E"',(400,650),self,3)
         right_arrow      = MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0)
         lef_arrow        = MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)
-    
+
+
     def update_all(self):
         self.actual_position = (self.actual_position[0],
                                 self.actual_position[1]+self.speed)
@@ -210,6 +245,7 @@ class Options(GameText):
         if self.rect.collidepoint(mouse_pos):
             self.blit_text = self.fontB
             if pygame.mouse.get_pressed() == (1,0,0):
-                self.menu.level = 'accessory_st'
+                self.menu.level = 'dress_st'
         else:
             self.blit_text = self.fontA
+

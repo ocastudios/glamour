@@ -26,12 +26,9 @@ Margin may be used to better program interaction during the game. Margin default
             list_of_images.append(item)
         list_of_images.sort()
         for item in list_of_images:
-            try:
+            if item[-4:] == '.png':
                 img = pygame.image.load(dir+item).convert_alpha()
                 images.append(img)
-            except:
-                list_of_images.remove(item)
-                print 'couldnt load image in:'+str(dir)+str(item)
         return images    
     def invert_images(self,list):
         inv_list    = []

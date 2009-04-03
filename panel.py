@@ -19,9 +19,7 @@ class Data():
         self.pos = pos
         self.font=pygame.font.Font('data/fonts/Domestic_Manners.ttf',size)
         self.label = self.font.render((self.title+str(variable)),1,(0,0,0))
-
         self.level.panel.insert(index,self)
-
     def update(self,variable):
         self.label = self.font.render((self.title+str(variable)),1,(0,0,0))
         self.level.panel[self.index]=(self)

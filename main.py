@@ -26,10 +26,14 @@ while level == 'menu':
     gamemenu.update_all(screen_surface)
     try:
         if once:
-            pygame.display.update((0,0),(900,900))
+            pygame.display.update()
+#(0,0),(900,900)
     except:
         pygame.display.flip()
         once = True
+
+
+
 if level == 'bathhouse_st':
     level = BathhouseSt(1,6000,universe,'bathhouse_st/')
 if level == 'dress_st':
@@ -49,25 +53,22 @@ screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_
 
 pygame.mouse.set_visible(0)
 while True:
+
     for event in pygame.event.get():
         if event.type == QUIT:
-#            fecha = os.popen2('killall ogg123')
-            del level.musica
-            break
+            exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 level.princess.save()
                 exit()
             if event.key == K_LEFT:
                 dir = 'left'
-                action[1] = 'move'
+                action[1] = 'walk'
             if event.key == K_RIGHT:
                 dir = 'right'
-                action[1] = 'move'
+                action[1] = 'walk'
             if event.key == K_LCTRL:
                 action[0] = 'kiss'
-            if event.key == K_LSHIFT:
-                action[0] = 'spin'
             if event.key == K_SPACE:
                 action[0] = 'celebrate'
             if event.key == K_UP:

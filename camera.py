@@ -18,13 +18,12 @@ class GameCamera():
     def update_pos(self,princess):
         if princess.pos[0]+100 > (self.end_x - (self.end_x*self.limit)):
             globals.universe.speed -= self.count
-            self.count += 2
+            self.count += 1
         elif princess.pos[0]+100 < (self.start_x + (self.end_x*self.limit)):
             globals.universe.speed += self.count
-            self.count += 2 
+            self.count += 1
         else:
             self.count = 0
-
             if globals.universe.speed != 0:
                 if princess.pos[0]+100 > (self.end_x - (self.end_x*(self.limit+0.1))):
                     globals.universe.speed += 1

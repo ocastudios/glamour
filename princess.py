@@ -73,7 +73,6 @@ The code is not yet well commented
         self.hurting(action)
         self.kissing(action,dir)
         self.dirt_cloud_funciton()
-        #for images to restart reset must be true
         self.choose_parts(action,dir)
         for part in self.parts:
             if part != None:
@@ -89,8 +88,6 @@ The code is not yet well commented
             self.effects.append((dirt_cloud_image,(self.pos)))
     def new_clothes(self,action):
         if action[0] == 'changeskin':
-#            self.change_clothes((self.skin),        'skin_black')
-
             self.change_clothes((self.arm),         'arm_black')
         if action[0] == 'changeshoes':
             self.change_clothes((self.shoes),       'shoes_crystal')
@@ -157,24 +154,22 @@ The code is not yet well commented
         elif self.got_hitten >=6:
             action[0]='stand'
     def kissing(self,action,dir):
-        if action[0] == 'kiss':
+        if action[0] == 'kiss' or self.kiss > 0:
             self.kiss +=1
             if self.kiss == 1:
                 for part in self.parts:
                     if part != None:
                         part.reset_count = 0
         if self.kiss > 0:
-            action[0] = 'kiss'
-            if self.kiss > 3:
+            if self.kiss< 4:
+                action[0] = 'kiss'
+            else:
                 action[0] = 'stand'
-            if action[0]!= 'kiss':
-                self.kiss +=1
             if self.kiss <9:
                 self.throwkiss(dir)
             else:
                 self.kiss = 0
                 self.kiss_rect = Rect ((0,0),(0,0))
-
     def ive_been_caught(self):
         if self.got_hitten == 0:
             for e in self.level.enemies:
@@ -209,7 +204,7 @@ The code is not yet well commented
             self.gforce = 0
         self.floor = globals.universe.floor-self.level.what_is_my_height(self)
         self.pos = (globals.universe.center_x+self.center_distance, self.pos[1])
-        if action[1]=='move':
+        if action[1]=='walk':
            if self.direction == 'right':
                self.center_distance += self.speed
            else:
@@ -217,26 +212,28 @@ The code is not yet well commented
     def choose_parts(self,action,direction):
         for part in self.parts:
             if part != None:
-                if action[0] == 'ouch':
-                    part.list = part.ouch
-                elif action[1] == 'move':
-                    part.list = part.walk
-                elif action[1] == 'stand':
-                    part.list = part.stand
-                if action[0] =='jump':
-                    part.list = part.jump
-                if action[0] == 'kiss':
-                    part.list = part.kiss
-                elif action[0] == 'fall':
-                    part.list = part.fall
-                elif action[0] == 'celebrate':
-                    part.list = part.celebrate
+                chosen = action[0] or action[1]
+                exec('part.list = part.'+ chosen)
+#                if action[0] == 'ouch':
+#                    part.list = part.ouch
+#                elif action[1] == 'walk':
+#                    part.list = part.walk
+#                elif action[1] == 'stand':
+#                    part.list = part.stand
+#                if action[0] =='jump':
+#                    part.list = part.jump
+#                if action[0] == 'kiss':
+#                    part.list = part.kiss
+#                elif action[0] == 'fall':
+#                    part.list = part.fall
+#                elif action[0] == 'celebrate':
+#                    part.list = part.celebrate
                 if direction == 'left':
                     part.actual_list = part.list.right
                 else:
                     part.actual_list = part.list.left
     def syncimages(self,action):
-        if action[1]=='move':
+        if action[1]=='walk':
             for part in self.parts:
                 if part != None:
                     part.image_number = self.skin.image_number

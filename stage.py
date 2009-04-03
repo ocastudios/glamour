@@ -14,6 +14,7 @@ import panel
 import pygame
 
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
+#TODO substitute all these lists by a single list, blitting on the screen using the class to estipulate the order.
 
 class Stage():
     enemy_dir = 'data/images/enemies/'
