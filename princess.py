@@ -19,12 +19,12 @@ Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
     directory = 'data/images/princess/'
-    def __init__(self,level,save = None):
+    def __init__(self,level,save = None, distance = 4200):
         self.file = open(save or 'data/saves/default').readlines()
         self.parts = []
         self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory","dirty","dirty2","dirty3"]
         self.size       = (80,180)
-        self.center_distance = 4200
+        self.center_distance = distance
         self.pos        = (globals.universe.center_x+self.center_distance,
                            globals.universe.floor - 186 -self.size[1])
         for part in self.part_keys:
@@ -52,7 +52,6 @@ The code is not yet well commented
         self.got_hitten = 0
         self.alive      = True
         self.level      = level
-        level.princesses.append(self)
         self.jump       = 0
         self.celebrate  = 0
         self.kiss       = 0
@@ -60,7 +59,9 @@ The code is not yet well commented
 
         self.kiss_rect = ((0,0),(0,0))
         self.floor = globals.universe.floor - 186
+        self.action = None
     def control(self, dir, action):
+        self.action = action
         self.effects = []
         self.direction = dir
         self.update_pos(action)
@@ -152,7 +153,7 @@ The code is not yet well commented
         if self.got_hitten > 0 and self.got_hitten <6:
             action[0]='ouch'
         elif self.got_hitten >=6:
-            action[0]='stand'
+            action[0]= None
     def kissing(self,action,dir):
         if action[0] == 'kiss' or self.kiss > 0:
             self.kiss +=1
@@ -164,7 +165,7 @@ The code is not yet well commented
             if self.kiss< 4:
                 action[0] = 'kiss'
             else:
-                action[0] = 'stand'
+                action[0] = None
             if self.kiss <9:
                 self.throwkiss(dir)
             else:
@@ -214,20 +215,6 @@ The code is not yet well commented
             if part != None:
                 chosen = action[0] or action[1]
                 exec('part.list = part.'+ chosen)
-#                if action[0] == 'ouch':
-#                    part.list = part.ouch
-#                elif action[1] == 'walk':
-#                    part.list = part.walk
-#                elif action[1] == 'stand':
-#                    part.list = part.stand
-#                if action[0] =='jump':
-#                    part.list = part.jump
-#                if action[0] == 'kiss':
-#                    part.list = part.kiss
-#                elif action[0] == 'fall':
-#                    part.list = part.fall
-#                elif action[0] == 'celebrate':
-#                    part.list = part.celebrate
                 if direction == 'left':
                     part.actual_list = part.list.right
                 else:
@@ -270,15 +257,11 @@ The code is not yet well commented
 class PrincessPart():
     def __init__(self, princess, directory,index,invert=0):
         self.index = index
-        self.walk = obj_images.TwoSided(str(directory)+'/walk/')
-        self.stand = obj_images.TwoSided(str(directory)+'/stay/')
-        self.kiss = obj_images.TwoSided(str(directory)+'/kiss/')
-        self.fall = obj_images.TwoSided(str(directory)+'/fall/')
-        self.jump = obj_images.TwoSided(str(directory)+'/jump/')
-        self.ouch = obj_images.TwoSided(str(directory)+'/ouch/')
-        self.celebrate = obj_images.TwoSided(str(directory)+'/celebrate/')
+        for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
+            exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
+        self.open_door = self.walk
         self.image_number = 0
-        self.list = self.stand
+        self.list = self.stay
         self.actual_list = self.list.left
         self.reset_count = 0
         self.once = 0

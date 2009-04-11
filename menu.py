@@ -30,33 +30,25 @@ class MenuScreen():
         self.upper_drapes = []
         self.ready = False
         self.count = 0
-        for i in range(6):
-            i = drapes.Drape(i,'right')
-            self.drapes.append(i)
-        for i in range(6,13):
-            i = drapes.Drape(i,'left')
-            self.drapes.append(i)
+        for i in range(13):
+            if i <= 5:      self.drapes.append(drapes.Drape(i,'right'))
+            else:           self.drapes.append(drapes.Drape(i,'left'))
         for i in range(14):
-            i = drapes.UperDrape(i)
-            self.upper_drapes.append(i)
+            self.upper_drapes.append(drapes.UperDrape(i))
+
+
     def update_all(self,surface):
         surface.fill(self.color)
-        
-#        if self.count <= 500:       self.ready = False
-#        else:                       self.ready = True
         self.count += 1
-        if self.ready == True:
-            self.update_left_bar(surface)
-        elif self.ready == False:
-            self.update_drape(surface)
+        if self.ready:  self.update_left_bar(surface)
+        else:           self.update_drape(surface)
+
 
     def update_left_bar(self,surface):
             if self.left_bar_pos < 0:
                 self.left_bar_pos += self.speed
-                if self.left_bar_pos > -280:
-                    self.speed -= .5
-                else:
-                    self.speed += .5
+                if self.left_bar_pos > -280:    self.speed -= .5
+                else:                           self.speed += .5
                 surface.blit(self.left_bar.image,(self.left_bar_pos,0))
             else:
                 self.left_bar_pos = 0
@@ -94,6 +86,7 @@ class MenuScreen():
                 if upperdrape.position[1] < -upperdrape.size[1]+100:
                     self.ready = True
 
+
 class Menu():
     def __init__(self,screen,level,position= (360,200),speed=2.):
         self.pos            = position
@@ -110,6 +103,8 @@ class Menu():
         self.size           = self.selection_canvas.image.get_size()
         self.rect           = Rect(self.pos,self.size)
         screen.menus.append(self)
+
+
     def instantiate_stuff(self):
         newgame          = Options('New Game',        (300,100), self, 0, font_size=40, color=(255,84,84))
         loadgame         = Options('Load Game',       (300,180), self, 0, font_size=40, color=(255,84,84))
@@ -129,7 +124,7 @@ class Menu():
         #Controling the speed.
         if self.actual_position[1] != self.pos[1]:
             #Breaks
-            if self.actual_position[1] < self.pos[1]+70 and self.actual_position[1] > self.pos[1]-70:
+            if self.pos[1]+70 > self.actual_position[1] > self.pos[1]-70:
                 if self.speed > 0:
                     self.speed -= self.speed*.15
                 elif self.speed < 0:

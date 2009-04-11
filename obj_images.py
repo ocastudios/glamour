@@ -20,27 +20,18 @@ Margin may be used to better program interaction during the game. Margin default
         self.size   = self.left[0].get_size()
 
     def find_images(self,dir):
-        list_of_images  = []
-        images          = []
-        for item in os.listdir(dir):
-            list_of_images.append(item)
-        list_of_images.sort()
-        for item in list_of_images:
-            if item[-4:] == '.png':
-                img = pygame.image.load(dir+item).convert_alpha()
-                images.append(img)
-        return images    
+        return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if item[-4:]=='.png']
+
     def invert_images(self,list):
-        inv_list    = []
-        for img in list:
-            inv = pygame.transform.flip(img,1,0)
-            inv_list.append(inv)
-        return inv_list
+        return [pygame.transform.flip(img,1,0) for img in list]
+
     def update_number(self):
         if self.number < len(self.left)-1:
             self.number +=1
         else:
             self.number = 0
+
+
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
@@ -59,6 +50,7 @@ class There_and_back_again(TwoSided):
         preright    = self.invert_images(preleft)
         posleft     = list(reversed(preleft))
         posright    = list(reversed(preright))
+
         self.left   = preleft + posleft
         self.right  = preright + posright
         self.size   = self.left[0].get_size()

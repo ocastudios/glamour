@@ -2187,8 +2187,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7883397"
-     inkscape:cx="465.2222"
-     inkscape:cy="544.86358"
+     inkscape:cx="205.81626"
+     inkscape:cy="697.08222"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2216,15 +2216,18 @@
     <rect
        style="opacity:1;fill:#00ffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3490"
-       width="600"
-       height="600"
-       x="87.41127"
-       y="166.59465"
+       width="750"
+       height="700"
+       x="-49.58551"
+       y="56.446739"
        rx="0"
-       ry="190.36232" />
+       ry="222.08937"
+       inkscape:export-filename="/home/sergio/Bazaar/Glamour/glamour/data/images/scenario/dress_st/fachwerk_1/fachwerk_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g4357"
-       transform="matrix(0.6814964,0,0,0.6814964,137.79221,81.920209)">
+       transform="matrix(0.8518705,0,0,0.7950791,13.390661,-42.340108)">
       <path
          sodipodi:nodetypes="ccccccc"
          id="rect2392"

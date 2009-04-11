@@ -7,7 +7,7 @@ class GameCamera():
         self.end_x = float(globals.os_screen.current_w)
         self.start_x = 0
         self.level = level
-        self.limit = 0.4
+        self.limit = 0.42
         self.count = 0
         for i in self.level:
             i.cameras.append(self)
@@ -29,4 +29,3 @@ class GameCamera():
                     globals.universe.speed += 1
                 if princess.pos[0]+100 < (self.start_x + (self.end_x*(self.limit +0.1))):
                     globals.universe.speed -= 1
-            

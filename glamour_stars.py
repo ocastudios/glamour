@@ -19,12 +19,10 @@ class Glamour_Stars():
         self.alive = True
         self.rect = Rect(self.pos, self.size)
         self.dir = 'up'
-#        stars.append(self)
-        level.pointer.append(self)
         self.count ={'image':0}
     def move(self,level,princess):
         if self.dir == 'up':
-            self.center_distance[1]-= 10
+            self.center_distance[1] -= 10
             if self.center_distance[1] < 1:
                 self.dir = 'down'
         else:

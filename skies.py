@@ -12,6 +12,5 @@ class Sky():
         self.night_front = obj_images.OneSided(directory+'night_front/')
         self.image_number = 0
         self.max_image_number = len(self.night_back.list)-1
-        level.sky.insert(0,self)
     def update_all(self):
         pass

@@ -5,32 +5,31 @@ from pygame.locals import *
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
     def __init__(self,pos,dir,level,index = 1):
-        self.images = obj_images.OneSided(dir)
-        self.images.number = -1
-        self.speed = 1
-        self.index = index
-        self.image = self.images.list[self.images.number]
-        self.size = self.image.get_size()
-        self.center_distance = pos[0]
-        self.level = level
-        self.append_into_level_list()
-        self.pos = (globals.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15))
-        self.rect = Rect(self.pos, self.size)
+        self.images         = obj_images.OneSided(dir)
+        self.images.number  = -1
+        self.speed          = 1
+        self.index          = index
+        self.image          = self.images.list[self.images.number]
+        self.size           = self.image.get_size()
+        self.center_distance= pos[0]
+        self.level          = level
+        self.pos            = (globals.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15))
+        self.rect           = Rect(self.pos, self.size)
 
-    def update_all(self):
+    def update_all(self,level):
         self.update_pos()
     def update_pos(self):
         self.images.number += 1
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
-        self.image = self.images.list[self.images.number]
-        self.pos = (globals.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
-        self.rect = Rect(self.pos, self.size)
-    def append_into_level_list(self):
-        self.level.scenarios.insert(self.index,self)
+        self.image          = self.images.list[self.images.number]
+        self.pos            = (globals.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
+        self.rect           = Rect(self.pos, self.size)
+
+
 class FrontScenario(Scenario):
-    def append_into_level_list(self):
-        self.level.scenarios_front.insert(self.index,self)
+        nonevar = None
+
 class Gate(Scenario):
     try:
         if arrow_up:
@@ -41,10 +40,14 @@ class Gate(Scenario):
     arrow_image = arrow_up.list[0]
     arrow_pos = (0,0)
     arrow_size = (0,0)
+    change_level = False
+    level = 'bathhouse_st'
 
-    def update_all(self,princess):
-        self.indicate_exit(princess)
+    def update_all(self,level):
+        self.indicate_exit(level.princess)
+        self.set_level(level.princess)
         self.update_pos()
+        
 
     def indicate_exit(self,princess):
         self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
@@ -54,20 +57,21 @@ class Gate(Scenario):
                 self.arrow_image_number = 0
             self.arrow_image = self.arrow_up.list[self.arrow_image_number]
             self.arrow_size = self.arrow_image.get_size()
-    def append_into_level_list(self):
-        self.level.gates.insert(self.index,self)
+
+    def set_level(self,princess):
+        if self.rect.colliderect(princess.rect):
+            if princess.action[0] == 'open_door':
+                self.change_level = True
 
 class Building(Scenario):
     def __init__(self,pos,directory,level,door,index = 1):
         self.images = obj_images.OneSided(directory)
         self.images.number = -1
         self.index = index
-        self.image_list = self.images.list
-        self.image = self.image_list[self.images.number]
+        self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.center_distance = pos[0]
         self.level = level
-        self.append_into_level_list()
         self.pos = (globals.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-15))
         self.rect = Rect(self.pos, self.size)
         self.door = BuildingDoor(self,door['pos'],door['directory'],level)
@@ -87,18 +91,23 @@ class BuildingDoor():
         self.arrow_pos = (0,0)
         self.arrow_size = (0,0)
         self.rect = Rect(self.pos, self.size)
+        self.level = 'bathhouse_st'
+        self.change_level = False
         level.gates.insert(building.index,self)
-    def update_all(self,princess):
-        self.indicate_exit(princess)
+    def update_all(self,level):
+        self.indicate_exit(level.princess)
         self.update_pos()
     def indicate_exit(self,princess):
+        self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
         if self.rect.colliderect(princess.rect):
             self.arrow_image_number += 1
             if self.arrow_image_number > len(self.arrow_up.list)-1:
                 self.arrow_image_number = 0
             self.arrow_image = self.arrow_up.list[self.arrow_image_number]
             self.arrow_size = self.arrow_image.get_size()
-            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
+            if princess.action[0] == 'open_door':
+                self.update_image()
+            
     def update_pos(self):
         self.pos = (self.building.pos[0]+self.position[0],self.building.pos[1]+self.position[1])
         self.rect = Rect(self.pos, self.size)
@@ -107,6 +116,9 @@ class BuildingDoor():
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
         self.image = self.images.list[self.images.number]
+
+    def set_level(self,princess):
+        pass
 
 
 
@@ -118,7 +130,6 @@ class Background():
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.pos = (pos[0],globals.universe.floor-self.size[1])
-        level.background.insert(index,self)
         self.rect = Rect(self.pos, self.size)
     def update_image(self):
         self.images.number += 1
@@ -126,5 +137,5 @@ class Background():
             self.images.number = -1
         self.image = self.images.list[self.images.number]
         self.rect = Rect(self.pos, self.size)
-    def update_all(self):
+    def update_all(self,level):
         self.update_image()

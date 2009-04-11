@@ -34,7 +34,6 @@ class Enemy():
         self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
-        self.level.enemies.append(self)
 class Schnauzer(Enemy):
     barfing = 0
     bow = pygame.mixer.Sound('data/sounds/enemies/dog2.ogg')
@@ -47,11 +46,13 @@ class Schnauzer(Enemy):
         if self.barfing > 100:
             self.barfing = 0
 
-    def update_all(self,princess):
-        self.look_around(princess)
+    def update_all(self,level):
+        self.look_around(level.princess)
         self.set_pos()
         self.set_image()
-        self.got_kissed(princess)
+        self.got_kissed(level.princess)
+
+
     def look_around(self,princess):
         self.count +=1
         if self.count > 130:
@@ -109,7 +110,7 @@ class Schnauzer(Enemy):
         
         self.image = actual_list[self.image_number]
 class Carriage(Enemy):
-    def update_all(self,princess):
+    def update_all(self,level):
         self.set_pos()
         self.set_image()
     def set_pos(self):
@@ -136,7 +137,7 @@ class Carriage(Enemy):
 class Butterfly(Enemy):
     height = 100
     up_direction = 'going_down'
-    def update_all(self,princess):
+    def update_all(self,level):
         self.set_pos()
         self.set_image()
     def set_pos(self):
@@ -189,13 +190,12 @@ class OldLady(Enemy):
         self.count = 0
         self.direction = 'left'
         self.action = 'walk'
-        self.level.enemies.append(self)
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
         self.dirty = dirty
 
-    def update_all(self,princess):
+    def update_all(self,level):
         self.wave_to_princess()
         self.brooming()
         self.set_pos()

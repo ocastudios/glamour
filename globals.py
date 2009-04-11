@@ -17,9 +17,10 @@ class Universe():
         self.center_x = -3400
         self.center_y = 0
         self.floor = os_screen.current_h
+        self.width = os_screen.current_w
         self.speed = 0
     def movement(self,dir):
-        max_speed = 11
+        max_speed = 10
         if self.speed > max_speed:
             self.speed = max_speed
         elif self.speed< -max_speed:
@@ -36,7 +37,7 @@ class Universe():
 
 #Create lists
 
-action = [None, 'stand']
+action = [None, 'stay']
 clock = pygame.time.Clock()
 
 dir = None
