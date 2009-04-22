@@ -2,7 +2,6 @@ import scenarios
 import obj_images
 import enemy
 import skies
-import globals
 import floors
 import clouds
 import random
@@ -31,19 +30,19 @@ class Stage():
         self.floor          = universe.floor-186
         self.level          = level
         self.menus          = []
-
-
         self.panel          = []
         self.pointer        = []
         self.princess       = None
-
         self.scenarios_front= []
         self.set_floor()
         self.size = size
+
+
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
         except:     y_height = 186 
         return      y_height
+
     def update_all(self,surface,act,dir,universe,clock_pointer):
 
         self.act = act
@@ -51,7 +50,9 @@ class Stage():
 
         for i in self.cameras:
             i.update_all(self.princess)
-        universe.movement(dir)
+
+        universe.movement(self.direction)
+
         [surface.blit(i.background,(0,0)) for i in self.sky]
 
         for att in ('clouds','background','moving_scenario','scenarios','gates','enemies','menus'):
@@ -65,6 +66,7 @@ class Stage():
             else:
                 if part != None:
                     surface.blit(part.image,part.pos)
+
         for effect in self.princess.effects:
             surface.blit(effect[0],effect[1])
         self.princess.control(dir,act)
@@ -73,6 +75,7 @@ class Stage():
             if i.rect.colliderect(self.cameras[0].rect):
                 surface.blit(i.image,i.pos)
             i.update_all(self)
+
         for i in self.gates:
             if self.princess.rect.colliderect(i.rect)== True:
                 surface.blit(i.arrow_image,i.arrow_pos)
@@ -128,23 +131,19 @@ It is still in its early development"""
 
 
         self.gates.extend( [scenarios.Gate((300,0), self.maindir+'omni/gate/',self,index = 0),
-                           scenarios.Gate((5510,0),self.maindir+'omni/gate/',self,index = 0)])
+                            scenarios.Gate((5510,0),self.maindir+'omni/gate/',self,index = 0)])
 
 
-        self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10]),
+        self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
-                           enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True),
+                           enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
-
-
-
-
 
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(30)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
 
-        self.sky =        [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,clock_pointer)]
+        self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,clock_pointer)]
 
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
@@ -152,7 +151,7 @@ It is still in its early development"""
 
         self.scenarios_front = [scenarios.FrontScenario((6440,100),self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
-        self.pointer = [glamour_stars.Glamour_Stars((0,0),self,True)]
+        self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True)]
 
 
         try:       pygame.mixer.music.play()
@@ -160,7 +159,6 @@ It is still in its early development"""
 
         self.princess = self.princess or princess.Princess(self)
         panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
-         
 
 
     def set_floor(self):
@@ -218,16 +216,12 @@ class DressSt(Stage):
 
                             scenarios.Scenario((3100,100),self.directory+'fachwerk_1/',self,index=0),
                             scenarios.Scenario((4300,100),self.directory+'snow_white_castle/',self,
-                                {'pos':(155,350),'directory':self.directory+'snow_white_castle/door/'})
-]
+                                {'pos':(155,350),'directory':self.directory+'snow_white_castle/door/'})]
 
 
-
-
-
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10]),
+        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True),
+                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
         self.gates.extend( [scenarios.Gate((1100,0),'data/images/scenario/omni/gate/',self,index = 0),
@@ -273,15 +267,11 @@ class AccessorySt(Stage):
         self.background =  [scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')]
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
         self.scenarios  =  [scenarios.Scenario((-3,100),self.directory+'accessory_tower/',self,index=0),
-                            scenarios.Scenario((800,100),self.directory+'accessory_tower/banner/',self,index = 0)
-]
+                            scenarios.Scenario((800,100),self.directory+'accessory_tower/banner/',self,index = 0)]
 
-
-
-
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self,[10,10,10,10],[10,10,10,10],[10,10,10,10]),
+        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],[22,22,22,22],[22,22,22,22],dirty=True),
+                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
         self.gates.extend([scenarios.Gate((1100,0),'data/images/scenario/omni/gate/',self,index = 0),

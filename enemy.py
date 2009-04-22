@@ -1,5 +1,4 @@
 
-import globals
 import pygame
 import obj_images
 from pygame.locals import *
@@ -7,36 +6,31 @@ import random
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
-    def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
+    def __init__(self,speed,directory, pos, level,margin=[10,10,10,10],dirty=False):
         self.center_distance = pos
-        try:        self.walk = obj_images.TwoSided(directory+'/walk/',walk_margin)
-        except:     pass 
-        try:        self.stay = obj_images.TwoSided(directory+'/stay/',stay_margin)
-        except:     pass
-        try:        self.kissed = obj_images.TwoSided(directory+'/kissed/',kissed_margin)
-        except:     pass
-        try:        self.image = self.walk.left[0]
-        except:     self.image = self.stay.left[0]
+        for i in ['kissed','walk','stay']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
 
+        self.image = self.walk.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True
         self.level = level
         self.speed = speed
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.margin = walk_margin
-        self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
+        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.margin = margin
+        self.pos = (self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
         self.move = True
         self.direction = 'left'
-        self.lookside = 0
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
-        self.dirty = dirty
+
 class Schnauzer(Enemy):
     barfing = 0
     bow = pygame.mixer.Sound('data/sounds/enemies/dog2.ogg')
+    lookside = 0
     def barf(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.barfing == 1:
@@ -78,9 +72,11 @@ class Schnauzer(Enemy):
         if self.gotkissed >= 250:
             self.gotkissed = 0
             self.move = True
+
+
     def set_pos(self):
-        self.floor = globals.universe.floor - self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.center_distance,
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+        self.pos = (self.level.universe.center_x + self.center_distance,
                     self.floor+self.margin[2]-(self.size[1]))
 
         if self.move:
@@ -111,11 +107,12 @@ class Schnauzer(Enemy):
         self.image = actual_list[self.image_number]
 class Carriage(Enemy):
     def update_all(self,level):
+        self.move = True
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         self.direction = 'right'
         if self.move:
             if self.direction == 'right' :
@@ -124,7 +121,6 @@ class Carriage(Enemy):
                 self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
     def set_image(self):
-#choose list
         if self.move:   exec('actual_list = self.walk.'+self.direction)
         else:           exec('actual_list = self.stay.'+self.direction)
 
@@ -133,7 +129,10 @@ class Carriage(Enemy):
             self.image_number +=1
         else:
             self.image_number = 0
+
         self.image = actual_list[self.image_number]
+
+
 class Butterfly(Enemy):
     height = 100
     up_direction = 'going_down'
@@ -150,7 +149,7 @@ class Butterfly(Enemy):
             self.height += 5
         if self.up_direction == 'going_up':
             self.height -= 5 
-        self.pos = (globals.universe.center_x + self.center_distance, self.height)
+        self.pos = (self.level.universe.center_x + self.center_distance, self.height)
         if self.move == True:
             if self.direction == 'right' :
                 self.center_distance += self.speed
@@ -172,30 +171,30 @@ class Butterfly(Enemy):
             self.image_number = 0
         self.image = actual_list[self.image_number]
 class OldLady(Enemy):
-    def __init__(self,speed,directory, pos, level,walk_margin=[10,10,10,10],stay_margin=[10,10,10,10],kissed_margin=[10,10,10,10],dirty=False):
+    def __init__(self,speed,directory, pos, level,margin=[10,10,10,10],dirty=False):
         self.center_distance = pos
-        self.walk   = obj_images.TwoSided(directory+'/walk/',walk_margin)
-        self.wave  = obj_images.There_and_back_again(directory+'/hover/',stay_margin)
-        self.broom  = obj_images.There_and_back_again(directory+'/act/',stay_margin)
+        self.walk   = obj_images.TwoSided(directory+'/walk/',margin)
+        self.wave   = obj_images.There_and_back_again(directory+'/hover/',margin)
+        self.broom  = obj_images.There_and_back_again(directory+'/act/',margin)
         self.image  = self.walk.left[0]
         self.mouseovercount = 0
         self.size   = (self.image.get_width()/2, self.image.get_height())
         self.alive  = True
         self.level  = level
         self.speed  = speed
-        self.floor  = globals.universe.floor-self.level.what_is_my_height(self)
-        self.margin = walk_margin
-        self.pos = (globals.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
+        self.floor  = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.margin = margin
+        self.pos = (self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
         self.decide = False
         self.count = 0
         self.direction = 'left'
         self.action = 'walk'
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
-        self.gotkissed = 0
         self.image_number = 0
-        self.dirty = dirty
+
 
     def update_all(self,level):
+        self.count += 1
         self.wave_to_princess()
         self.brooming()
         self.set_pos()
@@ -203,35 +202,26 @@ class OldLady(Enemy):
 
     def wave_to_princess(self):
         mouse_pos = pygame.mouse.get_pos()
-        if self.action != 'wave':
-            if self.rect.collidepoint(mouse_pos):
-                self.action = 'wave'
-                self.image_number = 0
-                self.count = 0
-        else:
-            if self.count > 33:
-                self.action = 'walk'
-                self.count = 0
+        if self.action != 'wave' and self.rect.collidepoint(mouse_pos):
+            self.action = 'wave'
+            self.image_number = 0
+            self.count = 0
+        elif self.count > 33:
+            self.action = 'walk'
+            self.count = 0
 
     def brooming(self):
-        if self.action != 'broom':
-            if self.count == 60:
-                self.action = 'broom'
-                self.image_number = 0
-        else:
-            if self.count == 105:
-                if random.randint(0,1)>0:
-                    self.direction = 'left'
-                else:
-                    self.direction = 'right'
-                self.action = 'walk'
-                self.count = 0
-        self.count += 1
-            
+        if self.action != 'broom' and self.count == 60:
+            self.action = 'broom'
+            self.image_number = 0
+        elif self.count == 105:
+            self.direction = random.choice(['left','right'])
+            self.action = 'walk'
+            self.count = 0
 
     def set_pos(self):
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
+        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.pos = (self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
         if self.action == 'walk':
             if self.direction == 'right' :
                 self.center_distance += self.speed

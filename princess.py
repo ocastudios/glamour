@@ -1,4 +1,4 @@
-import globals
+
 import obj_images
 import os
 import random
@@ -20,13 +20,14 @@ The code is not yet well commented
 """
     directory = 'data/images/princess/'
     def __init__(self,level,save = None, distance = 4200):
+        self.level = level
         self.file = open(save or 'data/saves/default').readlines()
         self.parts = []
-        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory","dirty","dirty2","dirty3"]
+        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = distance
-        self.pos        = (globals.universe.center_x+self.center_distance,
-                           globals.universe.floor - 186 -self.size[1])
+        self.pos        = (self.level.universe.center_x+self.center_distance,
+                           self.level.universe.floor - 186 -self.size[1])
         for part in self.part_keys:
             for line in self.file:
                 if part in line:
@@ -37,11 +38,12 @@ The code is not yet well commented
                         else:
                             exec('self.'+l[0]+'= None')
                             exec('self.parts.insert('+l[2]+',self.'+l[0]+')')
-        self.parts.remove(self.dirty)
+        self.parts.remove(self.dirty1)
         self.parts.remove(self.dirty2)
         self.parts.remove(self.dirty3)
+
         self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
-        self.dirt_cloud= obj_images.TwoSided('data/images/effects/dirt/')
+        self.dirt_cloud = obj_images.TwoSided('data/images/effects/dirt/')
         self.glamour_points = 0
         self.gforce     = 0
         self.speed      = 10
@@ -50,16 +52,15 @@ The code is not yet well commented
         self.move       = False
         self.direction  = 'left'
         self.got_hitten = 0
+        self.dirt       = 0
         self.alive      = True
-        self.level      = level
         self.jump       = 0
-        self.celebrate  = 0
         self.kiss       = 0
         self.kiss_direction = 'left'
-
         self.kiss_rect = ((0,0),(0,0))
-        self.floor = globals.universe.floor - 186
+        self.floor = self.level.universe.floor - 186
         self.action = None
+
     def control(self, dir, action):
         self.action = action
         self.effects = []
@@ -70,23 +71,22 @@ The code is not yet well commented
         self.ive_been_caught()
         self.jumping(action)
         self.falling(action)
-        self.celebrating(action)
         self.hurting(action)
         self.kissing(action,dir)
         self.dirt_cloud_funciton()
         self.choose_parts(action,dir)
-        for part in self.parts:
-            if part != None:
-                part.update_image(self,dir,reset=True,invert=part.invert)
+        [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
         self.syncimages(action)
 
     def dirt_cloud_funciton(self):
-        if self.got_hitten > 0 and self.got_hitten < 24:
+        if 0 < self.got_hitten < 24:
             if self.got_hitten > len(self.dirt_cloud.left):
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1-len(self.dirt_cloud.left)])
             else:
                 dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
+
+
     def new_clothes(self,action):
         if action[0] == 'changeskin':
             self.change_clothes((self.arm),         'arm_black')
@@ -117,9 +117,11 @@ The code is not yet well commented
             self.rect = Rect((self.pos[0]+100,self.pos[1]),self.size)
 
     def jumping(self,action):
+        feet_position = self.pos[1]+self.size[1]
+
         if action[0]!= 'jump' and action[0]!= 'jump2':
             self.jump = 0
-        if self.pos[1] + self.size[1] == self.floor and self.jump == 0:
+        if feet_position == self.floor and self.jump == 0:
             if action[0]== 'jump':
                 self.jump = 1
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
@@ -135,25 +137,30 @@ The code is not yet well commented
             if self.jump > 10:
                 action[0]= 'fall'
             self.jump +=1
-            
+
+
     def falling(self,action):
+        feet_position = self.pos[1]+self.size[1]
+
         if action[0]=='fall':
-            if self.pos[1]+self.size[1]== self.floor:
+            if feet_position == self.floor:
                 action[0]=None
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/fall/spike_heel/street/'+str(random.randint(0,0))+'.ogg')
-        if action[0]!='jump' and action[0]!='jump2' and self.pos[1]+self.size[1]<self.floor and self.jump==0:
+        if action[0]!='jump' and action[0]!='jump2' and feet_position <self.floor and self.jump==0:
             action[0]='fall'
+
+
     def celebrating(self,action):
-        if self.celebrate > 0:
-            action[0]=['celebrate']
-            self.celebrate +=1
-            if self.celebrate>12:
-                self.celebrate = 0
+        pass
+
+
     def hurting(self,action):
         if self.got_hitten > 0 and self.got_hitten <6:
             action[0]='ouch'
         elif self.got_hitten >=6:
             action[0]= None
+
+
     def kissing(self,action,dir):
         if action[0] == 'kiss' or self.kiss > 0:
             self.kiss +=1
@@ -171,45 +178,47 @@ The code is not yet well commented
             else:
                 self.kiss = 0
                 self.kiss_rect = Rect ((0,0),(0,0))
+
+
     def ive_been_caught(self):
         if self.got_hitten == 0:
             for e in self.level.enemies:
                 if e.__class__ == enemy.Schnauzer:
-                    if self.dirty not in self.parts:
-                        if self.rect.colliderect(e.rect):
-                            self.got_hitten +=1
-                            self.parts.insert(7,self.dirty)
-                    elif self.dirty2 not in self.parts:
-                        if self.rect.colliderect(e.rect):
-                            self.got_hitten+=1
-                            self.parts.insert(7,self.dirty2)
-                    elif self.dirty3 not in self.parts:
-                        if self.rect.colliderect(e.rect):
+                    if self.rect.colliderect(e.rect):
+                        if self.dirt <= 2:
                             self.got_hitten += 1
-                            self.parts.insert(7,self.dirty3)
-                #Insert elif dirty2 not in self.parts and elif dirty3 not in self.parts to introduce differente levels of dirt.
+                            self.dirt += 1
+                            exec('self.parts[7] = self.dirty'+str(self.dirt))
         else:
             self.got_hitten +=1
 
-            if self.got_hitten == 30:#75 at 25 frames per second
+            if self.got_hitten == 30   :#75 at 25 frames per second
                 self.got_hitten = 0
+
     def update_pos(self,action):
+        feet_position = self.pos[1]+self.size[1]
+
         #fall
-        if self.pos[1]+self.size[1] < self.floor:
+        if feet_position < self.floor:
             self.pos = (self.pos[0], self.pos[1]+self.gforce)
-            self.gforce += globals.universe.gravity
+            self.gforce += self.level.universe.gravity
+
         #do not fall beyond the floor
-        if self.pos[1]+self.size[1] > self.floor:
+        if feet_position > self.floor:
             self.pos= (self.pos[0],(self.floor-self.size[1]))
-        if self.pos[1]+self.size[1] == self.floor:
+        if feet_position == self.floor:
             self.gforce = 0
-        self.floor = globals.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (globals.universe.center_x+self.center_distance, self.pos[1])
+
+        self.floor = self.level.universe.floor-  self.level.what_is_my_height(self)
+
+        self.pos = (self.level.universe.center_x+self.center_distance, self.pos[1])
+
         if action[1]=='walk':
            if self.direction == 'right':
                self.center_distance += self.speed
            else:
                self.center_distance -= self.speed
+
     def choose_parts(self,action,direction):
         for part in self.parts:
             if part != None:
@@ -219,12 +228,12 @@ The code is not yet well commented
                     part.actual_list = part.list.right
                 else:
                     part.actual_list = part.list.left
+
     def syncimages(self,action):
         if action[1]=='walk':
             for part in self.parts:
                 if part != None:
                     part.image_number = self.skin.image_number
-
             if self.skin.image_number == 3:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
             if self.skin.image_number == 6:
@@ -232,6 +241,7 @@ The code is not yet well commented
 
         if action[0]=='celebrate':
             self.face.image_number=self.skin.image_number
+
     def throwkiss(self,direction):
         if self.kiss == 1:
             self.kiss_direction = direction
@@ -242,8 +252,8 @@ The code is not yet well commented
         else:
             kissimage = self.lips.right[self.kiss-1]
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
-
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
+
     def save(self):
         self.save_number = 0
         save_file = open('data/saves/'+str(self.save_number),'w')
@@ -254,8 +264,9 @@ The code is not yet well commented
         for part in self.parts:
             try:            save_file.write(str(part.index or 0))
             except:         save_file.write(str(Exception))
+
 class PrincessPart():
-    def __init__(self, princess, directory,index,invert=0):
+    def __init__(self, princess, directory,index):
         self.index = index
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
@@ -268,18 +279,25 @@ class PrincessPart():
         self.pos = princess.pos
         princess.parts.insert(index,self)
         self.image = self.actual_list[self.image_number]
-        self.invert = invert
+
+
     def update_image(self,princess,direction,reset = False,invert = 0):
         if reset == True:
             if self.reset_count == 0:
                 self.image_number = 1
                 self.reset_count = 1
-        number_of_files = len(self.actual_list)
+
+
         if direction == 'left':
             self.pos = (princess.pos[0]-invert,princess.pos[1])
         else:
             self.pos = princess.pos
+        self.update_number()
+        self.image = self.actual_list[self.image_number-2]
+
+    def update_number(self):
+        number_of_files = len(self.actual_list)
         if self.image_number >= number_of_files:
             self.image_number=0
         self.image_number+=1
-        self.image = self.actual_list[self.image_number-2]
+

@@ -1,4 +1,3 @@
-import globals
 import obj_images
 from pygame.locals import *
 
@@ -9,9 +8,9 @@ class MovingScenario():
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
 
-        self.center_distance = ((self.level.size-globals.universe.width) - self.size[0])*globals.universe.center_x/self.level.size
+        self.center_distance = ((self.level.size-self.level.universe.width) - self.size[0])*self.level.universe.center_x/self.level.size
 
-        self.pos = (self.center_distance, globals.universe.floor - self.size[1])
+        self.pos = (self.center_distance, self.level.universe.floor - self.size[1])
         self.move = False
         self.dir = 'left'
         self.speed = 4
@@ -22,6 +21,6 @@ class MovingScenario():
     def update_all(self,level):
         self.set_pos(level.act,level.direction)
     def set_pos(self,act,direction):
-        self.center_distance = ((self.level.size-globals.universe.width) - self.size[0])*globals.universe.center_x/self.level.size
-        self.pos = (self.center_distance,globals.universe.floor - (self.size[1]))
+        self.center_distance = ((self.level.size-self.level.universe.width) - self.size[0])*self.level.universe.center_x/self.level.size
+        self.pos = (self.center_distance,self.level.universe.floor - (self.size[1]))
         self.rect = Rect(self.pos, self.size)

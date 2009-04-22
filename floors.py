@@ -1,5 +1,4 @@
 
-import globals
 import obj_images
 from pygame.locals import *
 class Floor():
@@ -15,24 +14,30 @@ class Floor():
 
         self.set_pos()
         self.rect = Rect(self.pos, self.size)
+
     def set_pos(self):
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+
+
     def update_all(self):
         self.update_pos()
+
     def update_pos(self):
         self.images.update_number()
         self.image = self.images.list[self.images.number]
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
         self.rect = Rect(self.pos, self.size)
+
+
 class Water(Floor):
     height = 90
     max    = 100
     min    = 90
     speed = [2,1]
     direction = 'up'
+
     def set_pos(self):
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
-
 
     def update_pos(self):
         self.center_distance += self.speed[0]
@@ -61,10 +66,10 @@ class Water2(Water):
 
 class Bridge():
     def __init__(self,directory,index,level,main=True):
-        if main == True:    self.images = obj_images.OneSided(directory+'bridge/')
+        if main:    self.images = obj_images.OneSided(directory+'bridge/')
         else:               self.images = obj_images.OneSided(directory) 
 
-        if main == True:
+        if main:
             self.left_bank = Bridge(str(directory)+'left_bank/',index-1,level,main = False)
             self.right_bank= Bridge(str(directory)+'right_bank/',index+1,level,main = False)
 
@@ -72,11 +77,12 @@ class Bridge():
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-        if main == True:    self.center_distance = (400*(index))-400
+
+        if main:            self.center_distance = (400*(index))-400
         else:               self.center_distance = (400*(index))
 
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
-        if main == True:
+        if main:
             del level.floor_image[index]
             level.floor_image.insert(0,self)
         else:

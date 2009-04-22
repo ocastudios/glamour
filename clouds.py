@@ -14,21 +14,20 @@ class Cloud():
         self.images = self.nimbus[random.randint(0,2)]
         self.image = self.images.list[0]
         self.deep = random.random()/2
-        self.image_number = 0
         self.rect = Rect(self.pos,self.image.get_size())
+
+
     def update_all(self,level):
         self.movement(level.act,level.dir)
         self.set_image()
+
+
     def movement(self,dir,act):
-        self.pos = (self.pos[0]-10*self.deep,self.pos[1])
+        self.pos = (self.pos[0]-10 * self.deep,self.pos[1])
         self.rect = Rect(self.pos,self.image.get_size())
-        self.set_image
+
+
     def set_image(self):
-        #choose list
-        number_of_files = len(self.images.list)-2
-        if self.image_number <= number_of_files:
-            self.image_number +=1
-        else:
-            self.image_number = 0
-        self.image = self.images.list[self.image_number]
+        self.image = self.images.list[self.images.number]
+        self.images.update_number()
 
