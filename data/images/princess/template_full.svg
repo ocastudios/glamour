@@ -3273,9 +3273,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.16970563"
-     inkscape:cx="2996.7035"
-     inkscape:cy="-253.89025"
+     inkscape:zoom="7.6800001"
+     inkscape:cx="319.81154"
+     inkscape:cy="61.828409"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -3283,7 +3283,7 @@
      inkscape:guide-bbox="true"
      gridtolerance="38"
      inkscape:object-nodes="true"
-     objecttolerance="33"
+     objecttolerance="1"
      inkscape:snap-nodes="false"
      inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
@@ -3291,9 +3291,9 @@
      inkscape:bbox-paths="false"
      inkscape:snap-global="true"
      inkscape:window-width="1436"
-     inkscape:window-height="848"
+     inkscape:window-height="850"
      inkscape:window-x="0"
-     inkscape:window-y="28">
+     inkscape:window-y="26">
     <inkscape:grid
        type="xygrid"
        id="grid3176"
@@ -3321,6 +3321,16 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 305.67079,112.84688 C 306.13265,107.83335 311.58472,107.73644 312.69451,112.32653 L 319.74154,142.9616 C 319.48004,156.32602 301.97471,154.36281 302.38879,144.24718 L 305.67079,112.84688 z"
+       id="path3196"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="-1.1024538"
+       inkscape:transform-center-y="18.0024"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 719.27476,927.04194 C 715.1913,924.09674 717.87809,919.35164 722.3954,920.72808 L 752.36183,930.22445 C 763.73963,937.24022 753.15415,951.31991 744.65201,945.82344 L 719.27476,927.04194 z"
@@ -3394,24 +3404,6 @@
        sodipodi:nodetypes="ccccc"
        inkscape:transform-center-x="-7.4635311"
        inkscape:transform-center-y="13.390975"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 305.67079,112.84688 C 306.13265,107.83335 311.58472,107.73644 312.69451,112.32653 L 319.74154,142.9616 C 319.48004,156.32602 301.97471,154.36281 302.38879,144.24718 L 305.67079,112.84688 z"
-       id="path3196"
-       sodipodi:nodetypes="ccccc"
-       inkscape:transform-center-x="-1.1024538"
-       inkscape:transform-center-y="18.0024"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 298.74696,101.467 L 307.49118,101.15786 C 312.95943,126.16203 318.40599,131.73422 318.33154,147.42102 C 317.357,160.46219 290.51069,161.11383 288.56166,147.42102 C 285.77071,137.25523 294.37717,130.18076 298.74696,101.467 z"
-       id="path3200"
-       sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
@@ -5614,16 +5606,6 @@
        y="0" />
     <path
        style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 293.14,112.09745 C 295.3818,107.58934 300.5008,109.46855 299.8774,114.14957 L 295.3816,145.26155 C 290.3099,157.62898 274.6959,149.47453 278.7363,140.19161 L 293.14,112.09745 z"
-       id="path3202"
-       sodipodi:nodetypes="ccccc"
-       inkscape:transform-center-x="7.7789332"
-       inkscape:transform-center-y="17.074299"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/arm_pink/walk/walk_0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 492.8958,117.59658 C 493.2395,112.57356 498.6878,112.3483 499.9053,116.91098 L 507.6718,147.3716 C 507.7251,160.73846 490.1784,159.18802 490.3541,149.06545 L 492.8958,117.59658 z"
        id="path3228"
        sodipodi:nodetypes="ccccc"
@@ -6079,27 +6061,6 @@
        sodipodi:nodetypes="ccccc"
        inkscape:transform-center-x="12.056184"
        inkscape:transform-center-y="14.838382" />
-    <g
-       id="g4554"
-       transform="matrix(0.9573638,-0.2888852,0.2888852,0.9573638,102.9101,73.35855)"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/arm_pink/walk/walk_0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         inkscape:transform-center-y="14.838382"
-         inkscape:transform-center-x="12.056184"
-         sodipodi:nodetypes="ccccc"
-         id="path4546"
-         d="M 171.2996,92.364088 C 174.82846,88.772998 179.11265,92.146458 177.06894,96.403658 L 163.15008,124.58935 C 154.49436,134.77534 142.17739,122.18236 148.89639,114.60923 L 171.2996,92.364088 z"
-         style="opacity:0.60839156;fill:url(#linearGradient4709);fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         inkscape:transform-center-y="14.838382"
-         inkscape:transform-center-x="12.056184"
-         sodipodi:nodetypes="ccccc"
-         id="path4548"
-         d="M 171.29119,92.227718 C 174.82006,88.636628 179.10425,92.010088 177.06054,96.267288 L 163.14168,124.45298 C 154.48596,134.63897 142.16898,122.04599 148.88798,114.47286 L 171.29119,92.227718 z"
-         style="opacity:0.60839156;fill:url(#linearGradient4711);fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
     <rect
        style="opacity:0;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2676"
@@ -7247,5 +7208,78 @@
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/arm_pink/walk/5.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <path
+       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;opacity:0.70957096"
+       d="M 298.74696,101.467 L 307.49118,101.15786 C 312.95943,126.16203 318.40599,131.73422 318.33154,147.42102 C 317.357,160.46219 290.51069,161.11383 288.56166,147.42102 C 285.77071,137.25523 294.37717,130.18076 298.74696,101.467 z"
+       id="path3200"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#ffdcdc;fill-opacity:1"
+       d="M 295.96355,145.83333 L 312.10939,145.96353 L 330.72918,175.65104 C 312.5733,185.9934 284.09232,182.83789 276.56251,174.86979 L 295.96355,145.83333 z"
+       id="rect4731"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ee3c3c;fill-opacity:1;opacity:1"
+       d="M 287.63021,140.75521 C 298.54618,143.23713 308.87532,143.17613 318.75001,141.14583 C 326.07106,149.28235 322.84429,160.86671 331.51042,172.65624 C 329.46091,175.19013 323.84287,178.32216 317.71183,178.85786 C 309.91753,166.55472 311.52585,158.9446 303.64365,147.71764 C 297.21787,159.71697 297.99784,169.37405 289.71746,179.21218 C 284.96662,178.69693 277.29514,174.98916 275.00001,171.22395 C 281.80712,160.68034 280.30456,147.04429 287.63021,140.75521 z"
+       id="rect4728"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:#ee3c3c;fill-opacity:1;opacity:0.81518152"
+       d="M 297.20051,108.78907 L 299.55317,108.25307 L 302.68264,115.56487 L 305.16966,115.63281 L 307.95566,107.91166 L 309.5703,108.65886 L 316.99218,133.95347 C 312.7377,139.84727 294.85086,141.73165 289.64448,134.34804 L 297.20051,108.78907 z"
+       id="rect4737"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:#ffdcdc;fill-opacity:1;opacity:1"
+       d="M 289.45312,134.04947 C 296.89288,133.2909 303.84472,131.82018 316.95962,133.39843 C 317.92501,135.76329 318.7693,139.75712 318.48957,141.89452 C 311.30647,144.77097 295.14567,145.45292 287.63019,141.14583 C 287.57559,138.51548 288.61715,136.16734 289.45312,134.04947 z"
+       id="rect4734"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="opacity:0.81518148;fill:#ee3c3c;fill-opacity:1"
+       d="M 352.27144,111.83139 L 354.6241,111.29539 L 357.75357,118.60719 L 360.24059,118.67513 L 363.02659,110.95398 L 364.64123,111.70118 L 372.06311,136.99579 C 367.80863,142.88959 349.92179,144.77397 344.71541,137.39036 L 352.27144,111.83139 z"
+       id="path4740"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="opacity:1;fill:#ffdcdc;fill-opacity:1"
+       d="M 344.52405,137.09179 C 351.96381,136.33322 358.91565,134.8625 372.03055,136.44075 C 372.99594,138.80561 373.84023,142.79944 373.5605,144.93684 C 366.3774,147.81329 350.2166,148.49524 342.70112,144.18815 C 342.64652,141.5578 343.68808,139.20966 344.52405,137.09179 z"
+       id="path4742"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 293.14,112.09745 C 295.3818,107.58934 300.5008,109.46855 299.8774,114.14957 L 295.3816,145.26155 C 290.3099,157.62898 274.6959,149.47453 278.7363,140.19161 L 293.14,112.09745 z"
+       id="path3202"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="7.7789332"
+       inkscape:transform-center-y="17.074299"
+       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/arm_pink/walk/walk_0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.81518148;fill:#ee3c3c;fill-opacity:1"
+       id="path4744"
+       sodipodi:cx="286.15726"
+       sodipodi:cy="111.97993"
+       sodipodi:rx="7.3656955"
+       sodipodi:ry="7.3656955"
+       d="M 293.52295,111.97993 A 7.3656955,7.3656955 0 1 1 278.79156,111.97993 A 7.3656955,7.3656955 0 1 1 293.52295,111.97993 z"
+       transform="matrix(1.140479,0,0,1.140479,-30.981624,-10.109129)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.81518148;fill:#ee3c3c;fill-opacity:1"
+       id="path4746"
+       sodipodi:cx="286.15726"
+       sodipodi:cy="111.97993"
+       sodipodi:rx="7.3656955"
+       sodipodi:ry="7.3656955"
+       d="M 293.52295,111.97993 A 7.3656955,7.3656955 0 1 1 278.79156,111.97993 A 7.3656955,7.3656955 0 1 1 293.52295,111.97993 z"
+       transform="matrix(0.8832054,0,0,0.8832054,39.730919,26.763692)" />
+    <path
+       style="opacity:0.81518148;fill:#ee3c3c;fill-opacity:1"
+       d="M 280.59895,135.67709 C 285.12692,139.07645 290.0701,140.19397 296.35416,139.84375 L 298.17708,144.14063 C 293.4449,146.75663 279.49242,144.38165 276.17187,138.41146 L 280.59895,135.67709 z"
+       id="rect4748"
+       sodipodi:nodetypes="ccccc" />
   </g>
 </svg>
