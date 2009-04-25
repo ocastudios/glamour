@@ -17,11 +17,17 @@ class MenuScreen():
     """This class is meant to create the menu of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the menus."""
     enemy_dir = 'data/images/enemies/'
     def __init__(self,music=None,color=[230,230,230]):
-        self.menus          = []
+
         self.color          = color
         self.music          = music
-        self.backgrounds    = []
+
+        self.mainmenu = Menu(self,'menu')
+        self.mainmenu.instantiate_stuff()
+        self.menus          = [self.mainmenu]
+
+
         self.left_bar       = MenuBackground('data/images/interface/omni/left_bar/',(0,0),self,1)
+        self.backgrounds    = [self.left_bar]
         self.left_bar_pos   = -800.
         self.speed          = 5.
         self.wait           = True
@@ -41,6 +47,9 @@ class MenuScreen():
         self.count += 1
         if self.ready:  self.update_left_bar(surface)
         else:           self.update_drape(surface)
+
+
+
 
     def update_choose(self,surface):
         if self.ready:
@@ -130,16 +139,17 @@ class Menu():
     def __init__(self,screen,level,position= (360,200),speed=2.):
 
         self.speed          = speed
-        self.backgrounds    = []
+
         self.position       = position
         self.level          = level
         self.actual_position= (position[0],-600)
         self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self,0)
+        self.backgrounds    = [self.selection_canvas]
         self.itens          = []
         self.size           = self.selection_canvas.image.get_size()
         self.rect           = Rect(self.position,self.size)
         self.action         = None
-        screen.menus.append(self)
+
 
 
     def instantiate_stuff(self):
@@ -151,6 +161,13 @@ class Menu():
                          GameText('This is the very first of some pretty cool games of OCA STUDIOS',(400,550),self,1),
                          GameText('Press i button in order to play Stage I',(400,600),self,2),
                          GameText('Or e button to play Stage "E"',(400,650),self,3)]
+        self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0),
+                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)]
+
+    def intantiate_select_princess(self):
+        self.options = [ Options('skintone',        (300,100), self, 0, font_size=40, color=(255,84,84))
+                         ]
+        self.texts =    [GameText('Choose your appearence',(100,300),self,0)]
         self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0),
                          MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)
                          ]
@@ -190,7 +207,7 @@ class MenuBackground():
         self.image = self.images.list[self.images.number]
         self.index = index
         self.menu = menu
-        self.insert_into_list()
+
 
 
     def insert_into_list(self):
