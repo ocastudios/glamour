@@ -1,5 +1,5 @@
-from globals import *
 import obj_images
+import pygame
 from pygame.locals import *
 
 class Sky():

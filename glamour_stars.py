@@ -1,4 +1,3 @@
-import globals
 import princess
 import obj_images
 from pygame.locals import *
@@ -6,6 +5,7 @@ from pygame.locals import *
 class Glamour_Stars():
     rotating = None
     def __init__(self,distance_center,level,fixed = False):
+        self.level = level
         self.fixed = fixed
         if self.rotating == None:
             self.rotating = obj_images.OneSided('data/images/interface/star/')
@@ -13,7 +13,7 @@ class Glamour_Stars():
         self.center_distance = [distance_center[0],distance_center[1]]
         self.size = self.image.get_size()
         if self.fixed == False:
-            self.pos = (globals.universe.center_x+self.center_distance[0], level.floor-self.size[1]-self.center_distance[1])
+            self.pos = (self.level.universe.center_x+self.center_distance[0], level.floor-self.size[1]-self.center_distance[1])
         else:
             self.pos = (200,60)
         self.alive = True
@@ -35,7 +35,7 @@ class Glamour_Stars():
                 princess.glamour_points += 1
                 princess.celebrate = 1
         #self.alive = False
-        self.pos = (globals.universe.center_x+self.center_distance[0],level.floor-self.size[1]-self.center_distance[1])
+        self.pos = (self.level.universe.center_x+self.center_distance[0],level.floor-self.size[1]-self.center_distance[1])
         self.rect = Rect(self.pos, (200,200))
         self.update_images()
 

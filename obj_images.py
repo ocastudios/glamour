@@ -1,4 +1,3 @@
-import globals
 import os
 import pygame
 
@@ -17,7 +16,8 @@ Margin may be used to better program interaction during the game. Margin default
         self.left   = self.find_images(dir)
         self.right  = self.invert_images(self.left)
         self.number = 0
-        self.size   = self.left[0].get_size()
+        if len(self.left)>0:
+            self.size   = self.left[0].get_size()
 
     def find_images(self,dir):
         return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if item[-4:]=='.png']
@@ -26,23 +26,17 @@ Margin may be used to better program interaction during the game. Margin default
         return [pygame.transform.flip(img,1,0) for img in list]
 
     def update_number(self):
-        if self.number < len(self.left)-1:
-            self.number +=1
-        else:
-            self.number = 0
+        if self.number < len(self.left)-1:  self.number +=1
+        else:                               self.number = 0
 
 
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
-        self.list = self.find_images(directory)
+        self.list = self.left = self.find_images(directory)
         self.number = 0
         self.size = self.list[self.number].get_size()
-    def update_number(self):
-        if self.number < len(self.list)-1:
-            self.number +=1
-        else:
-            self.number = 0
+
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
