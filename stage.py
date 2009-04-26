@@ -43,7 +43,7 @@ class Stage():
         except:     y_height = 186 
         return      y_height
 
-    def update_all(self,surface,act,dir,universe,clock_pointer):
+    def update_all(self,surface,act,dir,universe):
 
         self.act = act
         self.direction = self.dir = dir
@@ -109,7 +109,7 @@ class BathhouseSt(Stage):
 It is still in its early development"""
 
 
-    def instantiate_stuff(self,clock_pointer):
+    def instantiate_stuff(self):
         self.background= [scenarios.Background((110,0),self,0,self.maindir+'ballroom/ballroom_day/')]
 
 
@@ -127,6 +127,7 @@ It is still in its early development"""
                                   {'pos':(537,490),'directory':self.directory+'home/door/'},index =0),
                            scenarios.Building((5790,100),self.directory+'magic_beauty_salon/base/',self,
                                   {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)]
+
         self.scenarios.extend([scenarios.Scenario((i,0),self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
 
 
@@ -143,7 +144,7 @@ It is still in its early development"""
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(30)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
 
-        self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,clock_pointer)]
+        self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
 
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
@@ -198,7 +199,7 @@ It is still in its early development"""
                 self.floor_heights[n+count] = 186
             count += 1
 class DressSt(Stage):
-    def instantiate_stuff(self,clock_pointer):
+    def instantiate_stuff(self):
         self.background =  [scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')]
 
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])]
@@ -229,7 +230,7 @@ class DressSt(Stage):
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
 
-        self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)]
+        self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
         self.scenarios_front = []
 
@@ -262,7 +263,7 @@ class DressSt(Stage):
                 self.floor_heights[n+count] = 186
             count += 1
 class AccessorySt(Stage):
-    def instantiate_stuff(self,clock_pointer):
+    def instantiate_stuff(self):
 
         self.background =  [scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')]
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
@@ -282,7 +283,7 @@ class AccessorySt(Stage):
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
 
 
-        self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,clock_pointer)]
+        self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
         self.scenarios_front = [scenarios.Scenario((178,100),self.directory+'accessory_tower/front/',self,index=0)]

@@ -1,47 +1,74 @@
 import pygame
 from pygame.locals import *
 
-
-control_result = {}
-while True:
+def main_menu(universe):
     for event in pygame.event.get():
-        if event.type == KEYUP:
-            if event.key == K_LCTRL:
-                control_result['action']    = 'kiss'
-            if event.key == K_LSHIFT:
-                control_result['action']    = 'spin'
-            if event.key == K_SPACE:
-                control_result['action']    = 'celebrate'
-        if event.type == KEYDOWN:
-            if event.key == K_LEFT:
-                control_result['direction'] ='left'
-                control_result['movement']  = 'move'
-            if event.key == K_RIGHT:
-                control_result['direction'] = 'right'
-                control_result['movement']  = 'move'
-            if event.key == K_UP:
-                if doll.jump == 0:
-                    control_result['action']='jump'
-            if event.key == K_c:
-                action[0] = 'change'
+        if event.type == QUIT:
+            exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                exit()
             if event.key == K_i:
-                action[0] = 'changedress'
+                universe.level = 'choose'
+            elif event.key == K_e:
+                universe.level = 'choose'
+            elif event.key == K_a:
+                universe.level = 'choose'
+
+def choose_menu(universe):
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                exit()
+            if event.key == K_i:
+                universe.level = 'bathhouse_st'
+            elif event.key == K_e:
+                universe.level = 'dress_st'
+            elif event.key == K_a:
+                universe.level = 'accessory_st'
+
+def stage(universe):
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            universe.actual_level.princess.save()
+            exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                universe.actual_level.princess.save()
+                exit()
+            if event.key == K_LEFT:
+                universe.dir = 'left'
+                universe.action[1] = 'walk'
+            if event.key == K_RIGHT:
+                universe.dir = 'right'
+                universe.action[1] = 'walk'
+            if event.key == K_LCTRL:
+                universe.action[0] = 'kiss'
+            if event.key == K_SPACE:
+                universe.action[0] = 'jump'
+            if event.key == K_UP:
+                if universe.actual_level.princess.jump == 0:
+                    universe.action[0] ='open_door'
+            if event.key == K_y:
+                universe.action[0]='celebrate'
+            if event.key == K_c:
+                universe.action[0] = 'change'
+            if event.key == K_i:
+                universe.action[0] = 'changedress'
             if event.key == K_h:
-                action[0] = 'changehair'
-
+                universe.action[0] = 'changehair'
+            if event.key == K_x:
+                universe.action[0] = 'changehair2'
+            if event.key == K_s:
+                universe.action[0] = 'changeshoes'
+            if event.key == K_p:
+                universe.action[0] = 'changeskin'
+            if event.key == K_z:
+                universe.action[0] = 'yellow_dress'
         elif event.type == KEYUP:
-            action[0]=None
-            doll.doonce = False
-            if (dir == 'left' and event.key == K_LEFT) or (dir == 'right' and event.key == K_RIGHT):
-                action[1] = 'stand'
-    mouse_pos = pygame.mouse.get_pos()
-    game_mouse.update(mouse_pos)
-    keystate = pygame.event.get()
-    time_passed = clock.tick(15)
-    screen_surface.fill([255,255,255])
-    info_glamour_points.update(doll.glamour_points)
-    stage.blit_all(screen_surface,action,dir,universe,clock_pointer)
-
-    clock_pointer.update_image()
-
-    pygame.display.update()
+            universe.action[0]=None
+            universe.actual_level.princess.doonce = False
+            if (universe.dir == 'left' and event.key == K_LEFT) or (universe.dir == 'right' and event.key == K_RIGHT):
+                universe.action[1] = 'stay'

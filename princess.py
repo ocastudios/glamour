@@ -23,7 +23,7 @@ The code is not yet well commented
         self.level = level
         self.file = open(save or 'data/saves/default').readlines()
         self.parts = []
-        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
+        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dress_sleeve', 'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = distance
         self.pos        = (self.level.universe.center_x+self.center_distance,
@@ -62,6 +62,7 @@ The code is not yet well commented
         self.action = None
 
     def control(self, dir, action):
+
         self.action = action
         self.effects = []
         self.direction = dir
@@ -75,8 +76,8 @@ The code is not yet well commented
         self.kissing(action,dir)
         self.dirt_cloud_funciton()
         self.choose_parts(action,dir)
-        [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
         self.syncimages(action)
+        [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -90,21 +91,31 @@ The code is not yet well commented
     def new_clothes(self,action):
         if action[0] == 'changeskin':
             self.change_clothes((self.arm),         'arm_black')
+            action[0] = None
         if action[0] == 'changeshoes':
             self.change_clothes((self.shoes),       'shoes_crystal')
+            action[0] = None
         if action[0] == 'changeshoes2':
             self.change_clothes((self.shoes),       'shoes_slipper')
+            action[0] = None
         if action[0] == 'change':
             self.change_clothes((self.accessory),'accessory_shades')
+            action[0] = None
         if action[0] == 'changedress':
             self.change_clothes((self.dress),     'dress_pink')
+            action[0] = None
+        if action[0] == 'yellow_dress':
+            self.change_clothes((self.dress),   'dress_yellow')
+            action[0] = None
         if action[0] == 'changehair':
             self.change_clothes((self.hair),       'hair_cinderella')
             self.parts[0] = None
+            action[0] = None
         if action[0] == 'changehair2':
             self.change_clothes((self.hair),       'hair_rapunzel')
             self.parts.pop(0)
             self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
+            action[0] = None
     def change_clothes(self,part,dir):
         self.parts.pop(part.index)
         part = PrincessPart(self,'data/images/princess/'+str(dir),part.index)
@@ -240,7 +251,8 @@ The code is not yet well commented
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
 
         if action[0]=='celebrate':
-            self.face.image_number=self.skin.image_number
+            self.face.image_number  = self.dress.image_number = self.skin.image_number
+
 
     def throwkiss(self,direction):
         if self.kiss == 1:
