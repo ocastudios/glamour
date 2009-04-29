@@ -4,14 +4,14 @@ import obj_images
 from pygame.locals import *
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
-    def __init__(self,pos,dir,level,index = 1):
+    def __init__(self,center_distance,dir,level,index = 1):
         self.images         = obj_images.OneSided(dir)
         self.images.number  = -1
         self.speed          = 1
         self.index          = index
         self.image          = self.images.list[self.images.number]
         self.size           = self.image.get_size()
-        self.center_distance= pos[0]
+        self.center_distance= center_distance
         self.level          = level
         self.pos            = (self.level.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15))
         self.rect           = Rect(self.pos, self.size)
@@ -64,13 +64,13 @@ class Gate(Scenario):
                 self.change_level = True
 
 class Building(Scenario):
-    def __init__(self,pos,directory,level,door,index = 1):
+    def __init__(self,center_distance,directory,level,door,index = 1):
         self.images = obj_images.OneSided(directory)
         self.images.number = -1
         self.index = index
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
-        self.center_distance = pos[0]
+        self.center_distance = center_distance
         self.level = level
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-15))
         self.rect = Rect(self.pos, self.size)
@@ -123,14 +123,14 @@ class BuildingDoor():
 
 
 class Background():
-    def __init__(self,pos,level,index,dir):
+    def __init__(self,pos_x,level,index,dir):
         self.level = level
         self.index = index
         self.images = obj_images.OneSided(dir)
         self.images.number = 0
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
-        self.pos = (pos[0],self.level.universe.floor-self.size[1])
+        self.pos = (pos_x,self.level.universe.floor-self.size[1])
         self.rect = Rect(self.pos, self.size)
     def update_image(self):
         self.images.number += 1

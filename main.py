@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from getscreen import *
-from globals import *
+
 from pygame.locals import *
 pygame.mixer.init()
 import random
