@@ -26,9 +26,23 @@ class Scenario():
         self.pos            = (self.level.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
         self.rect           = Rect(self.pos, self.size)
 
+class Flower(Scenario):
+    def __init__(self,center_distance,dir,level,frames,index = 1):
+        self.images         = obj_images.GrowingUngrowing(dir,frames)
+        self.images.number  = -1
+        self.speed          = 1
+        self.index          = index
+        self.image          = self.images.list[self.images.number]
+        self.size           = self.image.get_size()
+        self.center_distance= center_distance
+        self.level          = level
+        self.pos            = (self.level.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15))
+        self.rect           = Rect(self.pos, self.size)
+
+
 
 class FrontScenario(Scenario):
-        nonevar = None
+        pass
 
 class Gate(Scenario):
     try:

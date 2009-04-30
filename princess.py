@@ -61,7 +61,7 @@ The code is not yet well commented
         self.floor = self.level.universe.floor - 186
         self.action = None
 
-    def control(self, dir, action):
+    def update_all(self, dir, action):
 
         self.action = action
         self.effects = []
@@ -111,11 +111,13 @@ The code is not yet well commented
             self.change_clothes((self.hair),       'hair_cinderella')
             self.parts[0] = None
             action[0] = None
+
         if action[0] == 'changehair2':
             self.change_clothes((self.hair),       'hair_rapunzel')
             self.parts.pop(0)
             self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
             action[0] = None
+
     def change_clothes(self,part,dir):
         self.parts.pop(part.index)
         part = PrincessPart(self,'data/images/princess/'+str(dir),part.index)
@@ -241,7 +243,7 @@ The code is not yet well commented
                     part.actual_list = part.list.left
 
     def syncimages(self,action):
-        if action[1]=='walk':
+        if action[1]=='walk' or action[0] == 'celebrate':
             for part in self.parts:
                 if part != None:
                     part.image_number = self.skin.image_number
@@ -249,10 +251,6 @@ The code is not yet well commented
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
             if self.skin.image_number == 6:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
-
-        if action[0]=='celebrate':
-            self.face.image_number  = self.dress.image_number = self.skin.image_number
-
 
     def throwkiss(self,direction):
         if self.kiss == 1:

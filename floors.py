@@ -66,7 +66,7 @@ class Water2(Water):
 
 class Bridge():
     def __init__(self,directory,index,level,main=True):
-        if main:    self.images = obj_images.OneSided(directory+'bridge/')
+        if main:            self.images = obj_images.OneSided(directory+'bridge/')
         else:               self.images = obj_images.OneSided(directory) 
 
         if main:

@@ -61,7 +61,7 @@ class Stage():
 
         for part in self.princess.parts:
             if self.princess.got_hitten > 5:
-                if self.princess.got_hitten%2 == 0 and part != None:
+                if self.princess.got_hitten % 2 == 0 and part != None:
                     surface.blit(part.image,part.pos)
             else:
                 if part != None:
@@ -69,7 +69,8 @@ class Stage():
 
         for effect in self.princess.effects:
             surface.blit(effect[0],effect[1])
-        self.princess.control(dir,act)
+
+        self.princess.update_all(dir,act)
 
         for i in self.scenarios_front:
             if i.rect.colliderect(self.cameras[0].rect):
@@ -118,6 +119,7 @@ It is still in its early development"""
 
 
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
+                           scenarios.Flower(0, 'data/images/scenario/omni/flower_0/',self,4),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
                            scenarios.Scenario(2920, self.directory+'small_house/base/',      self,index=0),
                            scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
