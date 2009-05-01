@@ -55,9 +55,13 @@ class GrowingUngrowing(TwoSided):
         self.margin = margin
         self.list = self.left = self.find_images(directory)
         n_list = []
+
         for i in self.list:
-            n_list.extend([pygame.transform.scale(i,(i.get_width()+(i.get_width()*(x/10)),i.get_height()-(i.get_height()*(x/10)))) for x in range(frames) ])
+            n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()+(2*x))) for x in range(frames)])
+
         self.list.extend(n_list)
-        self.left.extend(n_list)
+
+        self.list.extend(reversed(n_list))
+
         self.number = 0
         self.size = self.list[self.number].get_size()

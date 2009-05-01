@@ -19,12 +19,16 @@ class Scenario():
     def update_all(self,level):
         self.update_pos()
     def update_pos(self):
+        self.image          = self.images.list[self.images.number]
+        self.pos            = (self.level.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
+        self.size = self.image.get_size()
+        self.rect           = Rect(self.pos, self.size)
+
         self.images.number += 1
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
-        self.image          = self.images.list[self.images.number]
-        self.pos            = (self.level.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
-        self.rect           = Rect(self.pos, self.size)
+
+
 
 class Flower(Scenario):
     def __init__(self,center_distance,dir,level,frames,index = 1):

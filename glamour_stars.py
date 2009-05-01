@@ -20,6 +20,7 @@ class Glamour_Stars():
         self.rect = Rect(self.pos, self.size)
         self.dir = 'up'
         self.count ={'image':0}
+
     def move(self,level,princess):
         if self.dir == 'up':
             self.center_distance[1] -= 10
@@ -39,11 +40,8 @@ class Glamour_Stars():
         self.rect = Rect(self.pos, (200,200))
         self.update_images()
 
-
-
     def update_images(self):
         number_of_files = len(self.rotating.list)-2
-                
         if self.count['image'] <= number_of_files:
             self.count['image']+=1
         else:                
