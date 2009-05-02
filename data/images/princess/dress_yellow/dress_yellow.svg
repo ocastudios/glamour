@@ -2104,16 +2104,6 @@
        r="14.82747" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3876"
-       id="linearGradient4369"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-51.0625,-4.6875)"
-       x1="351.625"
-       y1="143.375"
-       x2="353.125"
-       y2="178.5" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient3838"
        id="linearGradient4458"
        gradientUnits="userSpaceOnUse"
@@ -3935,6 +3925,106 @@
        fx="348.31049"
        fy="136.05594"
        r="14.82747" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3876"
+       id="linearGradient3845"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-51.0625,-4.6875)"
+       x1="351.625"
+       y1="143.375"
+       x2="353.125"
+       y2="178.5" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3869"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3872"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3894"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3896"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3917"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3920"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3942"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3944"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3965"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3585"
+       id="linearGradient3967"
+       gradientUnits="userSpaceOnUse"
+       x1="276.6875"
+       y1="169.5625"
+       x2="289.375"
+       y2="157.3125" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -3943,9 +4033,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.1767767"
-     inkscape:cx="1126.4312"
-     inkscape:cy="-881.57961"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="1529.104"
+     inkscape:cy="49.735324"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -6500,93 +6590,102 @@
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <path
+       style="fill:#96e660;fill-opacity:1"
+       d="M 289.52524,140.02516 C 299.9763,140.24511 305.42682,146.38403 310.5687,150.84831 C 312.52348,146.86958 315.2748,142.57378 318.61456,141.63054 C 327.34983,145.36525 337.02242,161.84723 337.54037,169.74114 C 326.54399,185.54356 283.55383,184.8259 271.98568,171.03014 C 272.80558,156.78519 283.18423,143.66905 289.52524,140.02516 z"
+       id="path3625"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:url(#linearGradient3845);fill-opacity:1"
+       d="M 289.44971,139.95708 C 299.90077,140.17703 305.35129,146.31595 310.49317,150.78023 C 312.44795,146.8015 315.19927,142.5057 318.53903,141.56246 C 327.2743,145.29717 336.94689,161.77915 337.46484,169.67306 C 326.46846,185.47548 283.4783,184.75782 271.91015,170.96206 C 272.73005,156.71711 283.1087,143.60097 289.44971,139.95708 z"
+       id="path3873"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ccffaa;fill-opacity:1"
+       d="M 288.96875,136.59375 C 283.54073,139.71299 275.16057,149.76362 272.34375,161.53125 C 280.80537,162.17316 287.08998,159.2725 290.71875,156.875 C 300.65535,168.20476 316.41535,166.79609 322.4375,156.5 C 326.08536,159.42621 331.16275,160.65245 335.4375,160.15625 C 332.29505,151.8423 324.9047,141.11283 318.0625,138.1875 C 314.72274,139.13074 311.95477,143.42753 310,147.40625 C 304.85812,142.94197 299.4198,136.81371 288.96875,136.59375 z"
+       id="rect2802"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
-       id="g4877"
+       id="g3597"
+       transform="translate(6.0987961,-1.5909904)"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
-         sodipodi:nodetypes="cccccc"
-         id="path3625"
-         d="M 289.52524,140.02516 C 299.9763,140.24511 305.42682,146.38403 310.5687,150.84831 C 312.52348,146.86958 315.2748,142.57378 318.61456,141.63054 C 327.34983,145.36525 337.02242,161.84723 337.54037,169.74114 C 326.54399,185.54356 283.55383,184.8259 271.98568,171.03014 C 272.80558,156.78519 283.18423,143.66905 289.52524,140.02516 z"
-         style="fill:#96e660;fill-opacity:1" />
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3581"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
       <path
-         sodipodi:nodetypes="cccccc"
-         id="path3873"
-         d="M 289.44971,139.95708 C 299.90077,140.17703 305.35129,146.31595 310.49317,150.78023 C 312.44795,146.8015 315.19927,142.5057 318.53903,141.56246 C 327.2743,145.29717 336.94689,161.77915 337.46484,169.67306 C 326.46846,185.47548 283.4783,184.75782 271.91015,170.96206 C 272.73005,156.71711 283.1087,143.60097 289.44971,139.95708 z"
-         style="fill:url(#linearGradient4369);fill-opacity:1" />
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3595"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
       <path
-         id="rect2802"
-         d="M 288.96875,136.59375 C 283.54073,139.71299 275.16057,149.76362 272.34375,161.53125 C 280.80537,162.17316 287.08998,159.2725 290.71875,156.875 C 300.65535,168.20476 316.41535,166.79609 322.4375,156.5 C 326.08536,159.42621 331.16275,160.65245 335.4375,160.15625 C 332.29505,151.8423 324.9047,141.11283 318.0625,138.1875 C 314.72274,139.13074 311.95477,143.42753 310,147.40625 C 304.85812,142.94197 299.4198,136.81371 288.96875,136.59375 z"
-         style="fill:#ccffaa;fill-opacity:1" />
-      <g
-         transform="translate(6.0987961,-1.5909904)"
-         id="g3597">
-        <path
-           sodipodi:type="arc"
-           style="opacity:1;fill:#ebdc42;fill-opacity:1"
-           id="path3581"
-           sodipodi:cx="287.625"
-           sodipodi:cy="158.9375"
-           sodipodi:rx="2.875"
-           sodipodi:ry="2.875"
-           d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
-           transform="translate(-3.0749751,-2.1837958)" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
-           id="path3595"
-           sodipodi:cx="284.42188"
-           sodipodi:cy="156.85938"
-           sodipodi:rx="1.390625"
-           sodipodi:ry="1.390625"
-           d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
-           transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:1;fill:url(#linearGradient3602);fill-opacity:1"
-           id="path3583"
-           sodipodi:cx="287.625"
-           sodipodi:cy="158.9375"
-           sodipodi:rx="2.875"
-           sodipodi:ry="2.875"
-           d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
-           transform="translate(-3.0593501,-2.1994208)" />
-      </g>
-      <g
-         transform="translate(37.5293,-2.2658906)"
-         id="g3604">
-        <path
-           sodipodi:type="arc"
-           style="opacity:1;fill:#ebdc42;fill-opacity:1"
-           id="path3606"
-           sodipodi:cx="287.625"
-           sodipodi:cy="158.9375"
-           sodipodi:rx="2.875"
-           sodipodi:ry="2.875"
-           d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
-           transform="translate(-3.0749751,-2.1837958)" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
-           id="path3608"
-           sodipodi:cx="284.42188"
-           sodipodi:cy="156.85938"
-           sodipodi:rx="1.390625"
-           sodipodi:ry="1.390625"
-           d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
-           transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:1;fill:url(#linearGradient3612);fill-opacity:1"
-           id="path3610"
-           sodipodi:cx="287.625"
-           sodipodi:cy="158.9375"
-           sodipodi:rx="2.875"
-           sodipodi:ry="2.875"
-           d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
-           transform="translate(-3.0593501,-2.1994208)" />
-      </g>
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3583"
+         style="opacity:1;fill:url(#linearGradient3602);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3604"
+       transform="translate(37.5293,-2.2658906)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3606"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3608"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3610"
+         style="opacity:1;fill:url(#linearGradient3612);fill-opacity:1"
+         sodipodi:type="arc" />
     </g>
     <path
        style="opacity:1;fill:#96e660;fill-opacity:1"
@@ -11104,5 +11203,375 @@
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/stay/8.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <g
+       id="g3850"
+       transform="translate(206.26077,1.4247388)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3852"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3854"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3856"
+         style="opacity:1;fill:url(#linearGradient3869);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3858"
+       transform="translate(237.6543,1.9841093)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3861"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3863"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3865"
+         style="opacity:1;fill:url(#linearGradient3872);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3874"
+       transform="translate(406.22379,-3.0597408)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3876"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3878"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3880"
+         style="opacity:1;fill:url(#linearGradient3894);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3882"
+       transform="translate(436.7793,-1.9533908)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3884"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3886"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3889"
+         style="opacity:1;fill:url(#linearGradient3896);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3898"
+       transform="translate(606.09879,-1.5909908)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-2.4499751,-3.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3900"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-192.6164,-107.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3902"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-2.4343501,-3.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3905"
+         style="opacity:1;fill:url(#linearGradient3917);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3907"
+       transform="translate(637.52929,-2.2658908)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3909"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3911"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3913"
+         style="opacity:1;fill:url(#linearGradient3920);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3922"
+       transform="translate(806.62911,2.1213197)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3924"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3926"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3928"
+         style="opacity:1;fill:url(#linearGradient3942);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3930"
+       transform="translate(837.70607,1.0928663)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3934"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3936"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3938"
+         style="opacity:1;fill:url(#linearGradient3944);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3946"
+       transform="translate(1006.5407,-2.4748733)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3948"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3950"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3952"
+         style="opacity:1;fill:url(#linearGradient3965);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3954"
+       transform="translate(1037.6177,-2.7078325)"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/dress_yellow/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-3.0749751,-2.1837958)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3956"
+         style="opacity:1;fill:#ebdc42;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.6797753,0,0,1.6797753,-193.2414,-106.76193)"
+         d="M 285.8125,156.85938 A 1.390625,1.390625 0 1 1 283.03125,156.85938 A 1.390625,1.390625 0 1 1 285.8125,156.85938 z"
+         sodipodi:ry="1.390625"
+         sodipodi:rx="1.390625"
+         sodipodi:cy="156.85938"
+         sodipodi:cx="284.42188"
+         id="path3958"
+         style="opacity:0.18811885;fill:#ffffff;fill-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-3.0593501,-2.1994208)"
+         d="M 290.5,158.9375 A 2.875,2.875 0 1 1 284.75,158.9375 A 2.875,2.875 0 1 1 290.5,158.9375 z"
+         sodipodi:ry="2.875"
+         sodipodi:rx="2.875"
+         sodipodi:cy="158.9375"
+         sodipodi:cx="287.625"
+         id="path3960"
+         style="opacity:1;fill:url(#linearGradient3967);fill-opacity:1"
+         sodipodi:type="arc" />
+    </g>
   </g>
 </svg>
