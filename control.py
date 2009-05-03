@@ -9,11 +9,11 @@ def main_menu(universe):
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                universe.level = 'choose'
+                universe.level = 'close'
             elif event.key == K_e:
-                universe.level = 'choose'
+                universe.level = 'close'
             elif event.key == K_a:
-                universe.level = 'choose'
+                universe.level = 'close'
 
 def choose_menu(universe):
     for event in pygame.event.get():

@@ -57,7 +57,7 @@ class GrowingUngrowing(TwoSided):
         n_list = []
 
         for i in self.list:
-            n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()+(2*x))) for x in range(frames)])
+            n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()-(2*x))) for x in range(frames)])
 
         self.list.extend(n_list)
 
