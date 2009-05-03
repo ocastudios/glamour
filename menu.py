@@ -21,12 +21,9 @@ class MenuScreen():
         self.left_bar       = MenuBackground('data/images/interface/omni/left_bar/',[-800.,0],self,1)
         self.right_bar      = MenuBackground('data/images/interface/omni/left_bar/',[2000.,0],self,1,invert = True)
         self.bar            = self.left_bar
-
         self.menu = Menu(self,'menu')
         self.menu.main()
-
         self.backgrounds    = [self.left_bar]
-
         self.speed          = 5.
         self.drapes         = []
         self.upper_drapes   = []
@@ -163,7 +160,8 @@ class Menu():
                          VerticalGameText('select one',(120,200),self,5,font_size = 40)
                         ]
         self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0,self.NOTSETYET),
-                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,self.NOTSETYET, invert = True)]
+                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,self.NOTSETYET, invert = True)
+                        ]
 
     def select_princess(self):
         self.princess = MenuPrincess(self)
@@ -175,11 +173,15 @@ class Menu():
 
         self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
                          GameText('appearence...',(-200,250),self,2,font_size = 40),
-                         GameText('skin tone',(250,420),self,3,font_size = 40)]
+                         GameText('skin tone',(250,420),self,3,font_size = 40),
+                         GameText('previous',(250,-40),self,4,font_size = 40),
+                         GameText('next',(250,540),self,5,font_size = 40)]
 
-        self.buttons    = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(360,400), self, 0, self.change_princess,parameter = (1,'skin')),
-                            MenuArrow('data/images/interface/title_screen/arrow_right/',(100,400), self, 0, self.change_princess,parameter = (-1,'skin'), invert = True)
-]
+        D_TITLE_SCREEN = 'data/images/interface/title_screen/'
+        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, 0, self.change_princess,parameter = (1,'skin')),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, 0, self.change_princess,parameter = (-1,'skin'), invert = True),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_up/',(200,-130),self,0,self.NOTSETYET),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(200,570),self,0,self.NOTSETYET)]
 
     def update_all(self):
         self.actual_position[1] += self.speed

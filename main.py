@@ -47,6 +47,16 @@ while True:
         gamemenu.update_all(screen_surface)
         pygame.display.flip()
 
+    while universe.level == 'close':
+        gamemenu.action = 'close'
+        control.main_menu(universe)
+        gamemenu.update_all(screen_surface)
+        pygame.display.flip()
+
+    while universe.level == 'choose_princess':
+        control.name_menu(universe)
+        gamemenu.update_all(screen_surface)
+        pygame.display.flip()
 
     universe.define_level()
 
@@ -64,7 +74,7 @@ while True:
         for i in universe.actual_level.gates:
             if i.change_level:
                 universe.level = i.level
-                gamemenu.mainmenu.level = i.level
+                gamemenu.menu.level = i.level
                 run_level = False
                 i.change_level = False
                 break
