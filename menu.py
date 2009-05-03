@@ -50,7 +50,6 @@ class MenuScreen():
                 drape.action = self.action
             drape.update_all()
             surface.blit(drape.image,drape.position)
-
             ####### STEP #########
             if drape.position[1] < -drape.size[1]+100:
                 self.STEP = self.update_left_bar
@@ -60,7 +59,7 @@ class MenuScreen():
         if self.left_bar.position[0] < 0:
             self.left_bar.position[0] += self.speed
             if self.left_bar.position[0] > -280:    self.speed -= .5
-            else:                           self.speed += .5
+            else:                                   self.speed += .5
         else:
             self.left_bar.position[0] = 0
             ####### STEP #########
@@ -125,6 +124,8 @@ class MenuScreen():
             self.menu.princess.update_all()
             for i in self.menu.princess.images:
                 surface.blit(i,self.menu.princess.pos)
+        for i in self.menu.options:
+            i.click_detection()
 
 
 
@@ -158,9 +159,11 @@ class Menu():
         self.texts =    [GameText('Welcome to Glamour Game',(400,550),self,1),
                          GameText('This is the very first of some pretty cool games of OCA STUDIOS',(400,600),self,2),
                          GameText('Press i button in order to play Stage I',(400,650),self,3),
-                         GameText('Or e button to play Stage "E"',(400,700),self,4)]
-        self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0),
-                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)]
+                         GameText('Or e button to play Stage "E"',(400,700),self,4),
+                         VerticalGameText('select one',(120,200),self,5,font_size = 40)
+                        ]
+        self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0,self.NOTSETYET),
+                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,self.NOTSETYET, invert = True)]
 
     def select_princess(self):
         self.princess = MenuPrincess(self)
@@ -168,16 +171,15 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [500,-600]
-        self.options    = [Options('skintone',        (300,100), self, 0, font_size=40, color=(255,84,84))]
+        self.options    = []
 
-        self.texts =    [GameText(' A ',(400,550),self,1),
-                         GameText('to Glamour Game',(400,550),self,2),
-                         GameText('This is the very first of some pretty cool games of OCA STUDIOS',(400,600),self,3),
-                         GameText('Press i  in order to play Stage I',(400,650),self,4),
-                         GameText('Or e button to play Stage "E"',(400,700),self,5)]
+        self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
+                         GameText('appearence...',(-200,250),self,2,font_size = 40),
+                         GameText('skin tone',(250,420),self,3,font_size = 40)]
 
-        self.buttons    = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(360,400),self,0),
-                            MenuArrow('data/images/interface/title_screen/arrow_right/',(100,400),self,0,invert = True)]
+        self.buttons    = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(360,400), self, 0, self.change_princess,parameter = (1,'skin')),
+                            MenuArrow('data/images/interface/title_screen/arrow_right/',(100,400), self, 0, self.change_princess,parameter = (-1,'skin'), invert = True)
+]
 
     def update_all(self):
         self.actual_position[1] += self.speed
@@ -194,14 +196,23 @@ class Menu():
                     if self.actual_position[1] < self.position[1] - 50: self.speed += 2
                 else:
                     if self.actual_position[1] > self.position[1] + 50: self.speed -= 3
-
-
         elif self.action == 'close':
             if self.speed <85:
                 self.speed += 2
 
         self.rect           = Rect(self.position,self.size)
 
+
+    ### Buttons functions ###
+    def change_princess(self,list):#list of: int,part
+        self.princess.numbers[list[1]] += list[0]
+        if self.princess.numbers[list[1]] < 0:
+            self.princess.numbers[list[1]] = 2
+        elif self.princess.numbers[list[1]] > 2:
+            self.princess.numbers[list[1]] = 0
+        print self.princess.numbers[list[1]]
+    def NOTSETYET():
+        pass
 
 class MenuBackground():
 
@@ -238,7 +249,7 @@ class MenuBackground():
         self.images.update_number()
 
 class MenuArrow():
-    def __init__(self,directory,position,menu,index,invert = False):
+    def __init__(self,directory,position,menu,index,function,parameter = None,invert = False,):
         self.position   = position
         self.menu = menu
         self.images     = obj_images.OneSided(directory)
@@ -248,26 +259,24 @@ class MenuArrow():
         self.index = index
         self.pos        = [self.menu.actual_position[0]+self.position[0],
                            self.menu.actual_position[1]+self.position[1]]
-
+        self.size = self.image.get_size()
+        self.rect = Rect(self.pos,self.size)
+        self.function = function
+        self.parameter = parameter
 
     def update_all(self):
         self.set_image()
         self.update_pos()
-
-
+        self.click_detection()
     def update_pos(self):
         self.pos  = [self.menu.actual_position[0]+self.position[0],
                      self.menu.actual_position[1]+self.position[1]]
-
-
     def invert_images(self,list):
         inv_list=[]
         for img in list:
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
-
-
     def set_image(self):
         #choose list
         number_of_files = len(self.images.list)-2
@@ -276,6 +285,12 @@ class MenuArrow():
             self.images.number +=1
         else:
             self.images.number = 0
+    def click_detection(self):
+        self.rect = Rect(self.pos,self.size)
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            if self.menu.screen.universe.click:
+                self.function(self.parameter)
 
 
 class GameText():
@@ -293,12 +308,16 @@ class GameText():
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
         self.rect       = Rect(self.pos,self.size)
-
     def update_all(self):
-#        self.image  = self.font.render(self.text,1,self.color)
+        self.image      = self.fontA
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 
+class VerticalGameText(GameText):
+    def __init__(self,text,pos,menu,index,fonte='Domestic_Manners.ttf',font_size = 20, color = (0,0,0)):
+        GameText.__init__(self,text,pos,menu,index,fonte,font_size,color)
+        self.fontA = pygame.transform.rotate(self.fontA,90)
+        self.fontB = pygame.transform.rotate(self.fontB,90)
 
 
 class Options(GameText):
@@ -319,9 +338,9 @@ class Options(GameText):
 ####################################### BUTTON ACTION ########################################
                 if pygame.mouse.get_pressed() == (1,0,0):
                     self.menu.level = 'dress_st'
-
             else:
                 self.image = self.fontA
+
 class MenuPrincess():
     def __init__(self,menu):
         dir = 'data/images/princess/'
@@ -343,7 +362,9 @@ class MenuPrincess():
         self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
     def update_all(self):
-#        self.image  = self.font.render(self.text,1,self.color)
+        self.images[0]  = self.skin[self.numbers['skin']]
+        self.images[2]  = self.hair[self.numbers['hair']]
+        self.images[5]  = self.arm[self.numbers['skin']]
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 

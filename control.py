@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 
 def main_menu(universe):
+    universe.click = False
     for event in pygame.event.get():
         if event.type == QUIT:
             exit()
@@ -14,8 +15,10 @@ def main_menu(universe):
                 universe.level = 'close'
             elif event.key == K_a:
                 universe.level = 'close'
-
+        elif event.type == MOUSEBUTTONUP:
+            universe.click = True
 def choose_menu(universe):
+    universe.click = False
     for event in pygame.event.get():
         if event.type == QUIT:
             exit()
@@ -28,7 +31,8 @@ def choose_menu(universe):
                 universe.level = 'dress_st'
             elif event.key == K_a:
                 universe.level = 'accessory_st'
-
+        elif event.type == MOUSEBUTTONUP:
+            universe.click = True
 def stage(universe):
     for event in pygame.event.get():
         if event.type == QUIT:
