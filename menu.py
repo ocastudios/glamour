@@ -77,6 +77,9 @@ class MenuScreen():
             self.right_bar.position[0] = (1440-516)
             ####### STEP #######
             self.STEP = self.update_menus
+
+        if self.menu.background:
+            surface.blit(self.menu.background,(0,0))
         surface.blit(self.right_bar.image,(self.right_bar.position[0],0))
 
     def close_left_bar(self,surface):
@@ -88,25 +91,29 @@ class MenuScreen():
             self.STEP = self.update_right_bar
             self.universe.level = 'choose_princess'
             self.action = 'open'
+            self.menu.select_princess()
         surface.blit(self.left_bar.image,(self.left_bar.position[0],0))
 
 
     def update_menus(self,surface):
+        self.menu.update_all()
         if self.action == 'open':
             self.menu.action = self.action
         else:
             if self.menu.actual_position[1]<1200:
                 self.menu.action = 'close'
             else:
-                self.menu.select_princess()
                 self.action = 'open'
                 ####### STEP #######
                 self.STEP = self.close_left_bar
-        self.menu.update_all()
+        if self.menu.background:
+            surface.blit(self.menu.background,(0,0))
+
 
         for back in self.menu.backgrounds:
             back.update_all()
             surface.blit(back.image,self.menu.actual_position)
+
         surface.blit(self.bar.image,(self.bar.position[0],0))
 
 
@@ -114,6 +121,11 @@ class MenuScreen():
             for i in item:
                 i.update_all()
                 surface.blit(i.image,i.pos)
+        if self.menu.princess:
+            self.menu.princess.update_all()
+            for i in self.menu.princess.images:
+                surface.blit(i,self.menu.princess.pos)
+
 
 
 
@@ -134,6 +146,8 @@ class Menu():
 
 
     def main(self):
+        self.princess = None
+        self.background = None
         self.action = 'open'
         self.actual_position = [self.position[0],-600]
         self.options = [ Options('New Game',        (300,100), self, 0, font_size=40, color=(255,84,84)),
@@ -149,6 +163,8 @@ class Menu():
                          MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)]
 
     def select_princess(self):
+        self.princess = MenuPrincess(self)
+        self.background = pygame.image.load('data/images/story/svg_bedroom.png').convert()
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [500,-600]
@@ -160,9 +176,8 @@ class Menu():
                          GameText('Press i  in order to play Stage I',(400,650),self,4),
                          GameText('Or e button to play Stage "E"',(400,700),self,5)]
 
-        self.buttons    = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0),
-                            MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,invert = True)
-                         ]
+        self.buttons    = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(360,400),self,0),
+                            MenuArrow('data/images/interface/title_screen/arrow_right/',(100,400),self,0,invert = True)]
 
     def update_all(self):
         self.actual_position[1] += self.speed
@@ -308,16 +323,28 @@ class Options(GameText):
             else:
                 self.image = self.fontA
 class MenuPrincess():
-    def __init__():
-        self.hair = [pygame.image.load('data/images/princess/'+s+'/stay/0.png').convert_alpha() for s in ['skin_pink','skin_black','skin_tan']
-                    ]
-        self.skin = [
-                    ]
-        self.arm  = [
-                    ]
-        self.name = []
-    
-    
-
+    def __init__(self,menu):
+        dir = 'data/images/princess/'
+        self.menu = menu
+        self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('skin_pink','skin_tan','skin_black')]
+        self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('arm_pink','arm_tan','arm_black')]
+        self.hair = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('hair_rapunzel','hair_yellow','hair_cinderella')]
+        self.numbers = {'skin':1,'hair':1}
+        self.images = [ self.skin[self.numbers['skin']],
+                        pygame.image.load(dir+'face_simple/stay/0.png').convert_alpha(),
+                        self.hair[self.numbers['hair']],
+                        pygame.image.load(dir+'shoes_slipper/stay/0.png').convert_alpha(),
+                        pygame.image.load(dir+'dress_plain/stay/0.png').convert_alpha(),
+                        self.arm[self.numbers['skin']]
+                        ]
+        self.size = self.skin[0].get_size()
+        self.position = (250,250)
+        self.name = 'Nome'
+        self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+    def update_all(self):
+#        self.image  = self.font.render(self.text,1,self.color)
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 
 
