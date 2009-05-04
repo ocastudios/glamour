@@ -10,7 +10,6 @@ class Enemy():
         self.center_distance = pos
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
-
         self.image = self.walk.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True

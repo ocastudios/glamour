@@ -114,17 +114,13 @@ It is still in its early development"""
     def instantiate_stuff(self):
         self.background= [scenarios.Background(110,self,0,self.maindir+'ballroom/ballroom_day/')]
 
-
         self.clouds     = [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
 
-
-
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
-
-
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
                            scenarios.Scenario(2920, self.directory+'small_house/base/',      self,index=0),
                            scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
+
                            scenarios.Building(550,self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door/'},index =0),
                            scenarios.Building(3400,self.directory+'home/castelo/',self,
@@ -138,10 +134,8 @@ It is still in its early development"""
 
         self.scenarios.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
 
-
         self.gates.extend( [scenarios.Gate(300, self.maindir+'omni/gate/',self,index = 0),
                             scenarios.Gate(5510,self.maindir+'omni/gate/',self,index = 0)])
-
 
         self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
@@ -157,7 +151,6 @@ It is still in its early development"""
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
 
-
         self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True)]
@@ -169,43 +162,20 @@ It is still in its early development"""
         self.princess = self.princess or princess.Princess(self)
         panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
 
-
     def set_floor(self):
         self.floor_heights = {}
         count = 0
         n = 1120
         a = 15
+        FDICT= [(250,186), (290,196), (320,206), (350,216), (390,236), (430,246), (490,256),
+                (740,246), (800,236), (850,226), (890,216), (920,206), (950,196), (979,186-a)]
         while count < 1200:
             self.floor_heights[n+count] = 186
-            if count >= 250:
-                self.floor_heights[n+count] = 186 + a
-            if count >= 290:
-                self.floor_heights[n+count] = 196 + a
-            if count >= 320:
-                self.floor_heights[n+count] = 206 + a
-            if count >= 350:
-                self.floor_heights[n+count] = 216 + a
-            if count >= 390:
-                self.floor_heights[n+count] = 236 + a
-            if count >= 430:
-                self.floor_heights[n+count] = 246 + a
-            if count >= 490:
-                self.floor_heights[n+count] = 256 + a
-            if count >= 740:
-                self.floor_heights[n+count] = 246 + a
-            if count >= 800:
-                self.floor_heights[n+count] = 236 + a
-            if count >= 850:
-                self.floor_heights[n+count] = 226 + a
-            if count >= 890:
-                self.floor_heights[n+count] = 216 + a
-            if count >= 920:
-                self.floor_heights[n+count] = 206 + a
-            if count >= 950:
-                self.floor_heights[n+count] = 196 + a
-            if count >= 979:
-                self.floor_heights[n+count] = 186
+            for i in FDICT:
+                if count >= i[0]:
+                    self.floor_heights[n+count] = i[1] + a
             count += 1
+
 class DressSt(Stage):
     def instantiate_stuff(self):
         self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
@@ -257,19 +227,14 @@ class DressSt(Stage):
         count = 0
         n = 0
         a = 0
+        FDICT = [(60,255),(220,240),(250,215),(300,186-a)]
         while count < 1200:
-            self.floor_heights[n+count] = 186
-            if count >= 60:
-                self.floor_heights[n+count] = 255 + a
-            if count >= 220:
-                self.floor_heights[n+count] = 240 + a
-            if count >= 250:
-                self.floor_heights[n+count] = 215 + a
-            if count >= 300:
-                self.floor_heights[n+count] = 195
-            if count >= 300:
-                self.floor_heights[n+count] = 186
+            for i in FDICT:
+                if count >= i[0]:
+                    self.floor_heights[n+count] = i[1] + a
             count += 1
+
+
 class AccessorySt(Stage):
     def instantiate_stuff(self):
 
