@@ -61,7 +61,7 @@ class Stage():
 
         for part in self.princess.parts:
             if self.princess.got_hitten > 5:
-                if self.princess.got_hitten%2 == 0 and part != None:
+                if self.princess.got_hitten % 2 == 0 and part != None:
                     surface.blit(part.image,part.pos)
             else:
                 if part != None:
@@ -69,7 +69,8 @@ class Stage():
 
         for effect in self.princess.effects:
             surface.blit(effect[0],effect[1])
-        self.princess.control(dir,act)
+
+        self.princess.update_all(dir,act)
 
         for i in self.scenarios_front:
             if i.rect.colliderect(self.cameras[0].rect):
@@ -110,29 +111,30 @@ It is still in its early development"""
 
 
     def instantiate_stuff(self):
-        self.background= [scenarios.Background((110,0),self,0,self.maindir+'ballroom/ballroom_day/')]
+        self.background= [scenarios.Background(110,self,0,self.maindir+'ballroom/ballroom_day/')]
 
 
         self.clouds     = [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
 
 
 
-        self.scenarios  = [scenarios.Scenario((0,100),    self.directory+'left_corner_house/base/',self,index=0),
-                           scenarios.Scenario((2350,100), self.directory+'left_house/base/',       self,index=0),
-                           scenarios.Scenario((2920,100), self.directory+'small_house/base/',      self,index=0),
-                           scenarios.Scenario((4700,100), self.directory+'right_house/base/',      self,index=0),
-                           scenarios.Building((550,0),self.directory+'bathhouse/bathhouse/',self,
+        self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
+                           scenarios.Flower(0, 'data/images/scenario/omni/flower_0/',self,4),
+                           scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
+                           scenarios.Scenario(2920, self.directory+'small_house/base/',      self,index=0),
+                           scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
+                           scenarios.Building(550,self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door/'},index =0),
-                           scenarios.Building((3400,100),self.directory+'home/castelo/',self,
+                           scenarios.Building(3400,self.directory+'home/castelo/',self,
                                   {'pos':(537,490),'directory':self.directory+'home/door/'},index =0),
-                           scenarios.Building((5790,100),self.directory+'magic_beauty_salon/base/',self,
+                           scenarios.Building(5790,self.directory+'magic_beauty_salon/base/',self,
                                   {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)]
 
-        self.scenarios.extend([scenarios.Scenario((i,0),self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
+        self.scenarios.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
 
 
-        self.gates.extend( [scenarios.Gate((300,0), self.maindir+'omni/gate/',self,index = 0),
-                            scenarios.Gate((5510,0),self.maindir+'omni/gate/',self,index = 0)])
+        self.gates.extend( [scenarios.Gate(300, self.maindir+'omni/gate/',self,index = 0),
+                            scenarios.Gate(5510,self.maindir+'omni/gate/',self,index = 0)])
 
 
         self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
@@ -150,7 +152,7 @@ It is still in its early development"""
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
 
 
-        self.scenarios_front = [scenarios.FrontScenario((6440,100),self.directory+'magic_beauty_salon/portal/',self,index=0)]
+        self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True)]
 
@@ -200,23 +202,23 @@ It is still in its early development"""
             count += 1
 class DressSt(Stage):
     def instantiate_stuff(self):
-        self.background =  [scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')]
+        self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
 
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])]
 
-        self.scenarios  =  [scenarios.Building((0,100),self.directory+'Dress_Tower/',self,
+        self.scenarios  =  [scenarios.Building(0,self.directory+'Dress_Tower/',self,
                                 {'pos':(155,350),'directory':self.directory+'Dress_Tower/door/'},index =0),
-                            scenarios.Scenario((0,100),self.directory+'Dress_Tower/flag/',self,index=0),
-                            scenarios.Scenario((700,100),self.directory+'fachwerk_2/',self,index=0),
-                            scenarios.Scenario((1400,100),self.directory+'fachwerk_3/',self,index=0),
-                            scenarios.Scenario((2150,100),self.directory+'apple_pillar/',self,index=0),
-                            scenarios.Scenario((2050,100),self.directory+'fence/',self,index=0),
-                            scenarios.Scenario((2500,100),self.directory+'knight_statue/',self,index=0),
-                            scenarios.Scenario((2850,100),self.directory+'chair/',self,index=0),
-                            scenarios.Scenario((2250,100),self.directory+'flowers/',self,index=0),
+                            scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
+                            scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
+                            scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
+                            scenarios.Scenario(2150,self.directory+'apple_pillar/',self,index=0),
+                            scenarios.Scenario(2050,self.directory+'fence/',self,index=0),
+                            scenarios.Scenario(2500,self.directory+'knight_statue/',self,index=0),
+                            scenarios.Scenario(2850,self.directory+'chair/',self,index=0),
+                            scenarios.Scenario(2250,self.directory+'flowers/',self,index=0),
 
-                            scenarios.Scenario((3100,100),self.directory+'fachwerk_1/',self,index=0),
-                            scenarios.Scenario((4300,100),self.directory+'snow_white_castle/',self,
+                            scenarios.Scenario(3100,self.directory+'fachwerk_1/',self,index=0),
+                            scenarios.Scenario(4300,self.directory+'snow_white_castle/',self,
                                 {'pos':(155,350),'directory':self.directory+'snow_white_castle/door/'})]
 
 
@@ -225,8 +227,8 @@ class DressSt(Stage):
                             enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
-        self.gates.extend( [scenarios.Gate((1100,0),'data/images/scenario/omni/gate/',self,index = 0),
-                            scenarios.Gate((3840,0),'data/images/scenario/omni/gate/',self,index = 0)])
+        self.gates.extend( [scenarios.Gate(1100,'data/images/scenario/omni/gate/',self,index = 0),
+                            scenarios.Gate(3840,'data/images/scenario/omni/gate/',self,index = 0)])
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
 
@@ -265,18 +267,23 @@ class DressSt(Stage):
 class AccessorySt(Stage):
     def instantiate_stuff(self):
 
-        self.background =  [scenarios.Background((110,0),self,0,'data/images/scenario/ballroom/ballroom_day/')]
+        self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
-        self.scenarios  =  [scenarios.Scenario((-3,100),self.directory+'accessory_tower/',self,index=0),
-                            scenarios.Scenario((800,100),self.directory+'accessory_tower/banner/',self,index = 0)]
-
+        self.scenarios  =  [scenarios.Scenario(-3,self.directory+'accessory_tower/',self,index=0),
+                            scenarios.Scenario(800,self.directory+'accessory_tower/banner/',self,index = 0),
+                            scenarios.Scenario(1350,self.directory+'cathedral/base/',self),
+                            scenarios.Scenario(2500,self.directory+'hut/base/',self),
+                            scenarios.Scenario(3400,self.directory+'house/base/',self),
+                            scenarios.Scenario(4400,self.directory+'statue/base/',self),
+                            scenarios.Scenario(5700,self.directory+'viking_house/base/',self)
+]
         self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
                             enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
-        self.gates.extend([scenarios.Gate((1100,0),'data/images/scenario/omni/gate/',self,index = 0),
-                          scenarios.Gate((5510,0),'data/images/scenario/omni/gate/',self,index = 0)])
+        self.gates.extend([scenarios.Gate(1100,'data/images/scenario/omni/gate/',self,index = 0),
+                          scenarios.Gate(5510,'data/images/scenario/omni/gate/',self,index = 0)])
 
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
@@ -286,7 +293,10 @@ class AccessorySt(Stage):
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
-        self.scenarios_front = [scenarios.Scenario((178,100),self.directory+'accessory_tower/front/',self,index=0)]
+        self.scenarios_front = [scenarios.Scenario(178,self.directory+'accessory_tower/front/',self,index=0),
+                                scenarios.Scenario(3400,self.directory+'house/front/',self)
+
+]
         self.pointer = [glamour_stars.Glamour_Stars((0,0),self,True)]
 
 

@@ -30,6 +30,7 @@ Margin may be used to better program interaction during the game. Margin default
         else:                               self.number = 0
 
 
+
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
@@ -48,3 +49,19 @@ class There_and_back_again(TwoSided):
         self.left   = preleft + posleft
         self.right  = preright + posright
         self.size   = self.left[0].get_size()
+
+class GrowingUngrowing(TwoSided):
+    def __init__(self,directory,frames,margin=[0,0,0,0]):
+        self.margin = margin
+        self.list = self.left = self.find_images(directory)
+        n_list = []
+
+        for i in self.list:
+            n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()+(2*x))) for x in range(frames)])
+
+        self.list.extend(n_list)
+
+        self.list.extend(reversed(n_list))
+
+        self.number = 0
+        self.size = self.list[self.number].get_size()
