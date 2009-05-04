@@ -25,7 +25,7 @@ import control
 clock = pygame.time.Clock()
 universe = universe.Universe(os_screen.current_w,os_screen.current_h)
 
-gamemenu = menu.MenuScreen((360,200))
+gamemenu = menu.MenuScreen(universe)
 
 screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
 
@@ -34,11 +34,29 @@ while True:
         control.main_menu(universe)
         gamemenu.update_all(screen_surface)
         pygame.display.flip()
-    while universe.level == 'choose':
-        control.choose_menu(universe)
-        gamemenu.update_choose(screen_surface)
+    gamemenu.speed = 0
+
+    while universe.level == 'close':
+        gamemenu.action = 'close'
+        control.main_menu(universe)
+        gamemenu.update_all(screen_surface)
         pygame.display.flip()
 
+    while universe.level == 'choose_princess':
+        control.choose_menu(universe)
+        gamemenu.update_all(screen_surface)
+        pygame.display.flip()
+
+    while universe.level == 'close':
+        gamemenu.action = 'close'
+        control.main_menu(universe)
+        gamemenu.update_all(screen_surface)
+        pygame.display.flip()
+
+    while universe.level == 'choose_princess':
+        control.name_menu(universe)
+        gamemenu.update_all(screen_surface)
+        pygame.display.flip()
 
     universe.define_level()
 
@@ -56,7 +74,7 @@ while True:
         for i in universe.actual_level.gates:
             if i.change_level:
                 universe.level = i.level
-                gamemenu.mainmenu.level = i.level
+                gamemenu.menu.level = i.level
                 run_level = False
                 i.change_level = False
                 break
@@ -66,6 +84,7 @@ while True:
         screen_surface.fill([255,255,255])
         universe.actual_level.update_all(screen_surface,universe.action,universe.dir,universe)
         universe.clock_pointer.update_image()
+
         pygame.display.flip()
 
     screen_surface.fill([0,0,0])

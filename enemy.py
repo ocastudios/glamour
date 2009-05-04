@@ -10,7 +10,6 @@ class Enemy():
         self.center_distance = pos
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
-
         self.image = self.walk.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True
@@ -18,7 +17,7 @@ class Enemy():
         self.speed = speed
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
-        self.pos = (self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
         self.decide = False
         self.count = 0
         self.move = True
@@ -46,7 +45,7 @@ class Schnauzer(Enemy):
         self.set_image()
         self.got_kissed(level.princess)
 
-
+        self.level.rects.extend(pygame.mask.from_surface(self.image).get_bounding_rects())
     def look_around(self,princess):
         self.count +=1
         if self.count > 130:
@@ -76,8 +75,8 @@ class Schnauzer(Enemy):
 
     def set_pos(self):
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
-        self.pos = (self.level.universe.center_x + self.center_distance,
-                    self.floor+self.margin[2]-(self.size[1]))
+        self.pos = [self.level.universe.center_x + self.center_distance,
+                    self.floor+self.margin[2]-(self.size[1])]
 
         if self.move:
             if self.direction == 'right' :
@@ -112,7 +111,7 @@ class Carriage(Enemy):
         self.set_image()
     def set_pos(self):
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
+        self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
         self.direction = 'right'
         if self.move:
             if self.direction == 'right' :
@@ -184,7 +183,7 @@ class OldLady(Enemy):
         self.speed  = speed
         self.floor  = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
-        self.pos = (self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1]))
+        self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
         self.decide = False
         self.count = 0
         self.direction = 'left'
@@ -221,7 +220,7 @@ class OldLady(Enemy):
 
     def set_pos(self):
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
-        self.pos = (self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1]))
+        self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
         if self.action == 'walk':
             if self.direction == 'right' :
                 self.center_distance += self.speed

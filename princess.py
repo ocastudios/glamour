@@ -23,7 +23,7 @@ The code is not yet well commented
         self.level = level
         self.file = open(save or 'data/saves/default').readlines()
         self.parts = []
-        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dress_sleeve', 'dirty1',"dirty2","dirty3"]
+        self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = distance
         self.pos        = (self.level.universe.center_x+self.center_distance,
@@ -105,7 +105,9 @@ The code is not yet well commented
             self.change_clothes((self.dress),     'dress_pink')
             action[0] = None
         if action[0] == 'yellow_dress':
-            self.change_clothes((self.dress),   'dress_yellow')
+            self.change_clothes((self.dress),   'dress_red')
+            self.parts.pop(7)
+            self.arm_dress = PrincessPart(self,'data/images/princess/sleeve_red',7)
             action[0] = None
         if action[0] == 'changehair':
             self.change_clothes((self.hair),       'hair_cinderella')
@@ -264,19 +266,29 @@ The code is not yet well commented
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
 
+
+
     def save(self):
         self.save_number = 0
         save_file = open('data/saves/'+str(self.save_number),'w')
-        save_file.write('Position: '+str(self.pos)+'\n'
-                        'Glamour_Points: '+str(self.glamour_points)+'\n'
-                        'Self_parts: '
-                        )
+        quebra    = '\n'
+        save_file.write('center_distance    '+ str(self.center_distance))
+
+        for i in self.part_keys:
+            exec('if not self.'+ i +':\n    teste = 0\nelse:\n    teste = 1')
+            save_file.write(i+":    ")
+            if teste:
+                exec("save_file.write(self."+i+".directory + quebra )")
+            else:
+                save_file.write("None \n")
+
         for part in self.parts:
             try:            save_file.write(str(part.index or 0))
             except:         save_file.write(str(Exception))
 
 class PrincessPart():
     def __init__(self, princess, directory,index):
+        self.directory = directory
         self.index = index
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')

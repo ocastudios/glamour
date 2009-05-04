@@ -36,6 +36,7 @@ class Stage():
         self.scenarios_front= []
         self.set_floor()
         self.size = size
+        self.rects = []
 
 
     def what_is_my_height(self,object):
@@ -44,7 +45,7 @@ class Stage():
         return      y_height
 
     def update_all(self,surface,act,dir,universe):
-
+        self.rects = []
         self.act = act
         self.direction = self.dir = dir
 
@@ -113,29 +114,28 @@ It is still in its early development"""
     def instantiate_stuff(self):
         self.background= [scenarios.Background(110,self,0,self.maindir+'ballroom/ballroom_day/')]
 
-
         self.clouds     = [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
 
-
-
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
-                           scenarios.Flower(0, 'data/images/scenario/omni/flower_0/',self,4),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
                            scenarios.Scenario(2920, self.directory+'small_house/base/',      self,index=0),
                            scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
+
                            scenarios.Building(550,self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door/'},index =0),
                            scenarios.Building(3400,self.directory+'home/castelo/',self,
                                   {'pos':(537,490),'directory':self.directory+'home/door/'},index =0),
                            scenarios.Building(5790,self.directory+'magic_beauty_salon/base/',self,
-                                  {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0)]
+                                  {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0),
+                           scenarios.Flower(0, 'data/images/scenario/omni/flower_0/',self,8),
+                           scenarios.Flower(350, 'data/images/scenario/omni/flower_1/',self,12),
+                           scenarios.Flower(3135, 'data/images/scenario/omni/flower_3/',self,10),
+                           scenarios.Flower(3126, 'data/images/scenario/omni/colorful_tree_1/',self,8),]
 
         self.scenarios.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
 
-
         self.gates.extend( [scenarios.Gate(300, self.maindir+'omni/gate/',self,index = 0),
                             scenarios.Gate(5510,self.maindir+'omni/gate/',self,index = 0)])
-
 
         self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
@@ -151,7 +151,6 @@ It is still in its early development"""
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
 
-
         self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True)]
@@ -163,43 +162,20 @@ It is still in its early development"""
         self.princess = self.princess or princess.Princess(self)
         panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
 
-
     def set_floor(self):
         self.floor_heights = {}
         count = 0
         n = 1120
         a = 15
+        FDICT= [(250,186), (290,196), (320,206), (350,216), (390,236), (430,246), (490,256),
+                (740,246), (800,236), (850,226), (890,216), (920,206), (950,196), (979,186-a)]
         while count < 1200:
             self.floor_heights[n+count] = 186
-            if count >= 250:
-                self.floor_heights[n+count] = 186 + a
-            if count >= 290:
-                self.floor_heights[n+count] = 196 + a
-            if count >= 320:
-                self.floor_heights[n+count] = 206 + a
-            if count >= 350:
-                self.floor_heights[n+count] = 216 + a
-            if count >= 390:
-                self.floor_heights[n+count] = 236 + a
-            if count >= 430:
-                self.floor_heights[n+count] = 246 + a
-            if count >= 490:
-                self.floor_heights[n+count] = 256 + a
-            if count >= 740:
-                self.floor_heights[n+count] = 246 + a
-            if count >= 800:
-                self.floor_heights[n+count] = 236 + a
-            if count >= 850:
-                self.floor_heights[n+count] = 226 + a
-            if count >= 890:
-                self.floor_heights[n+count] = 216 + a
-            if count >= 920:
-                self.floor_heights[n+count] = 206 + a
-            if count >= 950:
-                self.floor_heights[n+count] = 196 + a
-            if count >= 979:
-                self.floor_heights[n+count] = 186
+            for i in FDICT:
+                if count >= i[0]:
+                    self.floor_heights[n+count] = i[1] + a
             count += 1
+
 class DressSt(Stage):
     def instantiate_stuff(self):
         self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
@@ -212,7 +188,7 @@ class DressSt(Stage):
                             scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
                             scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
                             scenarios.Scenario(2150,self.directory+'apple_pillar/',self,index=0),
-                            scenarios.Scenario(2050,self.directory+'fence/',self,index=0),
+
                             scenarios.Scenario(2500,self.directory+'knight_statue/',self,index=0),
                             scenarios.Scenario(2850,self.directory+'chair/',self,index=0),
                             scenarios.Scenario(2250,self.directory+'flowers/',self,index=0),
@@ -234,7 +210,7 @@ class DressSt(Stage):
 
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
-        self.scenarios_front = []
+        self.scenarios_front = [scenarios.Scenario(2050,self.directory+'fence/',self,index=0),]
 
         self.pointer = [glamour_stars.Glamour_Stars((0,0),self,True)]
 
@@ -251,19 +227,14 @@ class DressSt(Stage):
         count = 0
         n = 0
         a = 0
+        FDICT = [(60,255),(220,240),(250,215),(300,186-a)]
         while count < 1200:
-            self.floor_heights[n+count] = 186
-            if count >= 60:
-                self.floor_heights[n+count] = 255 + a
-            if count >= 220:
-                self.floor_heights[n+count] = 240 + a
-            if count >= 250:
-                self.floor_heights[n+count] = 215 + a
-            if count >= 300:
-                self.floor_heights[n+count] = 195
-            if count >= 300:
-                self.floor_heights[n+count] = 186
+            for i in FDICT:
+                if count >= i[0]:
+                    self.floor_heights[n+count] = i[1] + a
             count += 1
+
+
 class AccessorySt(Stage):
     def instantiate_stuff(self):
 
@@ -275,7 +246,8 @@ class AccessorySt(Stage):
                             scenarios.Scenario(2500,self.directory+'hut/base/',self),
                             scenarios.Scenario(3400,self.directory+'house/base/',self),
                             scenarios.Scenario(4400,self.directory+'statue/base/',self),
-                            scenarios.Scenario(5700,self.directory+'viking_house/base/',self)
+                            scenarios.Scenario(5700,self.directory+'viking_house/base/',self),
+                            scenarios.Scenario(7500,self.directory+'castle/base/',self)
 ]
         self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
@@ -294,9 +266,11 @@ class AccessorySt(Stage):
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
         self.scenarios_front = [scenarios.Scenario(178,self.directory+'accessory_tower/front/',self,index=0),
-                                scenarios.Scenario(3400,self.directory+'house/front/',self)
+                                scenarios.Scenario(3400,self.directory+'house/front/',self)]
+        self.scenarios_front.extend([scenarios.Scenario(3000+i,'data/images/scenario/omni/grass_'+str(random.randint(1,4))+'/',self) for i in (2,50,80,120,180,210,300)])
 
-]
+
+
         self.pointer = [glamour_stars.Glamour_Stars((0,0),self,True)]
 
 

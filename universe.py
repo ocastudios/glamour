@@ -13,6 +13,7 @@ class Universe():
         self.mouse_pos  = pygame.mouse.get_pos()
         self.action = [None,'stay']
         self.dir    = 0
+        self.click = False
 
     def define_level(self):
         if self.level == 'bathhouse_st':

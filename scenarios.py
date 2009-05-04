@@ -23,7 +23,6 @@ class Scenario():
         self.pos            = (self.level.universe.center_x+(self.center_distance),self.level.floor-(self.size[1]-10))
         self.size = self.image.get_size()
         self.rect           = Rect(self.pos, self.size)
-
         self.images.number += 1
         if self.images.number > len(self.images.list)-1:
             self.images.number = 0
