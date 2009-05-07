@@ -58,7 +58,7 @@ class Stage():
 
         for att in ('clouds','background','moving_scenario','scenarios','gates','enemies','menus'):
             exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.rect.colliderect(self.cameras[0].rect)]')
-            exec('for i in self.'+att+': i.update_all(self)')
+            exec('for i in self.'+att+': i.update_all()')
 
         for part in self.princess.parts:
             if self.princess.got_hitten > 5:
@@ -76,7 +76,7 @@ class Stage():
         for i in self.scenarios_front:
             if i.rect.colliderect(self.cameras[0].rect):
                 surface.blit(i.image,i.pos)
-            i.update_all(self)
+            i.update_all()
 
         for i in self.gates:
             if self.princess.rect.colliderect(i.rect)== True:
@@ -112,9 +112,9 @@ It is still in its early development"""
 
 
     def instantiate_stuff(self):
-        self.background= [scenarios.Background(110,self,0,self.maindir+'ballroom/ballroom_day/')]
+        self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
 
-        self.clouds     = [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
+        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(50)]
 
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
@@ -178,7 +178,7 @@ It is still in its early development"""
 
 class DressSt(Stage):
     def instantiate_stuff(self):
-        self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
+        self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
 
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self])]
 
@@ -238,7 +238,7 @@ class DressSt(Stage):
 class AccessorySt(Stage):
     def instantiate_stuff(self):
 
-        self.background =  [scenarios.Background(110,self,0,'data/images/scenario/ballroom/ballroom_day/')]
+        self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
         self.clouds     =  [clouds.Cloud((random.randint(100,25000),random.randint(0,300)),[self]) for cl in range(50)]
         self.scenarios  =  [scenarios.Scenario(-3,self.directory+'accessory_tower/',self,index=0),
                             scenarios.Scenario(800,self.directory+'accessory_tower/banner/',self,index = 0),

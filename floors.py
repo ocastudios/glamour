@@ -51,10 +51,10 @@ class Water(Floor):
         if self.height < self.min:          self.direction = 'up'
 
         self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
-        if self.pos[0] > 1440:
-            self.center_distance -= 1440+(self.size[0]*2)
+        if self.pos[0] > self.level.universe.width:
+            self.center_distance -= self.level.universe.width+(self.size[0]*2)
         if self.pos[0] < -self.size[0]:
-            self.center_distance += 1440+(self.size[0]*2)
+            self.center_distance += self.level.universe.width+(self.size[0]*2)
         self.rect = Rect(self.pos, self.size)
 
 class Water2(Water):

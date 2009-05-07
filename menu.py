@@ -65,9 +65,9 @@ class MenuScreen():
 
     def update_right_bar(self,surface):
         self.bar = self.right_bar
-        if self.right_bar.position[0]+516 > 1440:
+        if self.right_bar.position[0]+516 > self.universe.width:
             self.right_bar.position[0] -= self.speed
-            if self.right_bar.position[0] < 1160:   self.speed += .5
+            if self.right_bar.position[0] < ((self.universe.width-300)):   self.speed += .5
             else:                           self.speed -= .5
         else:
             self.right_bar.position[0] = (1440-516)
