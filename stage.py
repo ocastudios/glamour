@@ -2,6 +2,7 @@ import scenarios
 import obj_images
 import enemy
 import skies
+import fairy
 import floors
 import clouds
 import random
@@ -44,7 +45,9 @@ class Stage():
         except:     y_height = 186 
         return      y_height
 
-    def update_all(self,surface,act,dir,universe):
+    def update_all(self,act,dir,universe):
+        surface = self.universe.screen_surface
+
         self.rects = []
         self.act = act
         self.direction = self.dir = dir
@@ -60,17 +63,15 @@ class Stage():
             exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.rect.colliderect(self.cameras[0].rect)]')
             exec('for i in self.'+att+': i.update_all()')
 
-        for part in self.princess.parts:
-            if self.princess.got_hitten > 5:
-                if self.princess.got_hitten % 2 == 0 and part != None:
-                    surface.blit(part.image,part.pos)
-            else:
-                if part != None:
-                    surface.blit(part.image,part.pos)
+
+        if self.princess.got_hitten>5:
+            if self.princess.got_hitten%2 == 0:
+                surface.blit(self.princess.image, self.princess.pos)
+        else:
+            surface.blit(self.princess.image, self.princess.pos)
 
         for effect in self.princess.effects:
             surface.blit(effect[0],effect[1])
-
         self.princess.update_all(dir,act)
 
         for i in self.scenarios_front:
@@ -105,13 +106,14 @@ class Stage():
             i.update(self.princess.glamour_points)
         for i in self.pointer:
             surface.blit(i.image,i.pos)
-
+            i.update_all()
 class BathhouseSt(Stage):
     """This class is meant to create the levels of the game. One of its most importante features is to blit everything on the screen and define what should be in each of the stages.
 It is still in its early development"""
 
 
     def instantiate_stuff(self):
+
         self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
 
         self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(50)]
@@ -153,7 +155,8 @@ It is still in its early development"""
 
         self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
-        self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True)]
+        self.pointer         = [glamour_stars.Glamour_Stars((0,0),self,True),
+                                fairy.Fairy(20,self)]
 
 
         try:       pygame.mixer.music.play()

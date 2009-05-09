@@ -101,7 +101,7 @@ class Schnauzer(Enemy):
         else:
             self.image_number = 0
         
-        self.image = actual_list[self.images.number]
+        self.image = actual_list[self.image_number]
 class Carriage(Enemy):
     def update_all(self):
         self.move = True

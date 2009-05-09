@@ -1,6 +1,7 @@
 import pygame
 import game_clock
 import stage
+
 class Universe():
     def __init__(self,w,h):
         self.gravity = 3
@@ -14,6 +15,7 @@ class Universe():
         self.action = [None,'stay']
         self.dir    = 0
         self.click = False
+        self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
 
     def define_level(self):
         if self.level == 'bathhouse_st':

@@ -3,7 +3,7 @@ import obj_images
 import os
 import random
 import enemy
-
+import pygame
 from pygame.locals import *
 
 class Princess():
@@ -60,9 +60,13 @@ The code is not yet well commented
         self.kiss_rect = ((0,0),(0,0))
         self.floor = self.level.universe.floor - 186
         self.action = None
+        self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+
+        self.steps_regular = [pygame.mixer.Sound('datadata/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,4)]
+
 
     def update_all(self, dir, action):
-
+        self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
         self.action = action
         self.effects = []
         self.direction = dir
@@ -78,6 +82,7 @@ The code is not yet well commented
         self.choose_parts(action,dir)
         self.syncimages(action)
         [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
+        self.image = self.update_image(self.image)
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -115,9 +120,9 @@ The code is not yet well commented
             action[0] = None
 
         if action[0] == 'changehair2':
-            self.change_clothes((self.hair),       'hair_rapunzel')
+            self.change_clothes((self.hair),       'hair_black')
             self.parts.pop(0)
-            self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
+            self.hair_back = PrincessPart(self,'data/images/princess/hair_black_back',0)
             action[0] = None
 
     def change_clothes(self,part,dir):
@@ -251,9 +256,10 @@ The code is not yet well commented
                     part.image_number = self.skin.image_number
             if self.skin.image_number == 3:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
+#                self.steps_regular[random.randint(0,1)].play()
             if self.skin.image_number == 6:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
-
+#                self.steps_regular[random.randint(2,3)].play()
     def throwkiss(self,direction):
         if self.kiss == 1:
             self.kiss_direction = direction
@@ -285,6 +291,12 @@ The code is not yet well commented
         for part in self.parts:
             try:            save_file.write(str(part.index or 0))
             except:         save_file.write(str(Exception))
+
+    def update_image(self,surface):
+        for i in self.parts:
+            if i != None:
+                surface.blit(i.image,(0,0))
+        return surface
 
 class PrincessPart():
     def __init__(self, princess, directory,index):

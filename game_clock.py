@@ -8,6 +8,7 @@ class GameClock():
         self.pos   =((self.level.universe.width-self.image.get_width()),0)
         self.time  = 'day' 
         level.clock.append(self)
+    
 
 class ClockPointer():
     def __init__(self,level):

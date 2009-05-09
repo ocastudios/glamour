@@ -6572,7 +6572,7 @@
        height="200"
        x="0"
        y="600"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/stay/0.png"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/sleeve_yellow/stay/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7150,7 +7150,7 @@
        height="200"
        x="0"
        y="600"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/arm_pink/stay/0.png"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/sleeve_yellow/stay/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -14919,7 +14919,10 @@
        id="g11085"
        transform="matrix(0.7825645,0.6225695,-0.6225695,0.7825645,-116.19488,388.44455)"
        inkscape:transform-center-x="9.6976187"
-       inkscape:transform-center-y="13.168161">
+       inkscape:transform-center-y="13.168161"
+       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/sleeve_yellow/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccsccsccc"
          id="path11087"

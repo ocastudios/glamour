@@ -16,4 +16,5 @@ class MousePointer():
         number_of_files     = len(self.images.list)-2
         self.image          = self.images.list[self.images.number]
         self.images.update_number()
-
+    def update_all(self):
+        pass

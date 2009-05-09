@@ -20,7 +20,8 @@ class Glamour_Stars():
         self.rect = Rect(self.pos, self.size)
         self.dir = 'up'
         self.count ={'image':0}
-
+    def update_all(self):
+        pass
     def move(self,level,princess):
         if self.dir == 'up':
             self.center_distance[1] -= 10

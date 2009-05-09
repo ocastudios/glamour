@@ -36,9 +36,9 @@ class MenuScreen():
         for i in range(14):
             self.upper_drapes.append(drapes.UperDrape(i))
 
-    def update_all(self,surface):
-        surface.fill(self.color)
-        self.STEP(surface)
+    def update_all(self):
+        self.universe.screen_surface.fill(self.color)
+        self.STEP(self.universe.screen_surface)
         self.count += 1
 
     def update_drape(self,surface):

@@ -49,6 +49,8 @@ class There_and_back_again(TwoSided):
         self.left   = preleft + posleft
         self.right  = preright + posright
         self.size   = self.left[0].get_size()
+        
+        self.number = 0
 
 class GrowingUngrowing(TwoSided):
     def __init__(self,directory,frames,margin=[0,0,0,0]):
