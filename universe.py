@@ -10,22 +10,24 @@ class Universe():
         self.floor = self.height = h
         self.width = w
         self.speed = 0
-        self.level = 'menu'
+        self.LEVEL = 'menu'
         self.mouse_pos  = pygame.mouse.get_pos()
         self.action = [None,'stay']
         self.dir    = 0
         self.click = False
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
+        self.level = stage.Stage(6000,self)
 
     def define_level(self):
-        if self.level == 'bathhouse_st':
-            self.actual_level = stage.BathhouseSt(1,6000,self,'bathhouse_st/')
-        if self.level == 'dress_st':
-            self.actual_level = stage.DressSt(1,6000,self,'dress_st/')
-        if self.level == 'accessory_st':
-            self.actual_level = stage.AccessorySt(1,10000,self,'accessory_st/')
-        self.gclock =  game_clock.GameClock(self.actual_level)
-        self.clock_pointer = game_clock.ClockPointer(self.actual_level)
+        self.gclock =  game_clock.GameClock(self.level)
+        self.clock_pointer = game_clock.ClockPointer(self.level)
+        if self.LEVEL == 'bathhouse_st':
+            self.level.BathhouseSt()
+        if self.LEVEL == 'dress_st':
+            self.level.DressSt()
+        if self.LEVEL == 'accessory_st':
+            self.level.AccessorySt()
+
 
     def movement(self,dir):
 
@@ -38,7 +40,7 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -(self.actual_level.size-470):
+        if self.center_x < -(self.level.size-470):
             self.speed = 0
-            self.center_x = -(self.actual_level.size-470)
+            self.center_x = -(self.level.size-470)
 #        self.center_x += self.speed

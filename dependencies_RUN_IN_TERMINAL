@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt-get install python-pygame vorbis-tools ogg123
+sudo apt-get install python-pygame vorbis-tools

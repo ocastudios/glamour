@@ -1,4 +1,3 @@
-
 import obj_images
 import os
 import random
@@ -61,7 +60,6 @@ The code is not yet well commented
         self.floor = self.level.universe.floor - 186
         self.action = None
         self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
-
         self.steps_regular = [pygame.mixer.Sound('datadata/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,4)]
 
 
@@ -272,8 +270,6 @@ The code is not yet well commented
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
 
-
-
     def save(self):
         self.save_number = 0
         save_file = open('data/saves/'+str(self.save_number),'w')
@@ -314,14 +310,11 @@ class PrincessPart():
         princess.parts.insert(index,self)
         self.image = self.actual_list[self.image_number]
 
-
     def update_image(self,princess,direction,reset = False,invert = 0):
         if reset == True:
             if self.reset_count == 0:
                 self.image_number = 1
                 self.reset_count = 1
-
-
         if direction == 'left':
             self.pos = (princess.pos[0]-invert,princess.pos[1])
         else:

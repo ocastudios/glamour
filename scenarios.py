@@ -35,18 +35,19 @@ class FrontScenario(Scenario):
         pass
 
 class Gate(Scenario):
-    try:
-        if arrow_up:
-            pass
-    except:
-        arrow_up = obj_images.OneSided('data/images/interface/up-arrow/')
-    arrow_image_number = 0
-    arrow_image = arrow_up.list[0]
-    arrow_pos = (0,0)
-    arrow_size = arrow_image.get_size()
-    change_level = False
-    level = 'bathhouse_st'
-
+    def __init__(self,center_distance,dir,level,goal,index = 1):
+        Scenario.__init__(self,center_distance,dir,level,index)
+        try:
+            if self.arrow_up:
+                pass
+        except:
+            self.arrow_up = obj_images.OneSided('data/images/interface/up-arrow/')
+        self.arrow_image_number = 0
+        self.arrow_image = self.arrow_up.list[0]
+        self.arrow_pos = (0,0)
+        self.arrow_size = self.arrow_image.get_size()
+        self.change_level = False
+        self.goal = goal
     def update_all(self):
         self.indicate_exit(self.level.princess)
         self.set_level(self.level.princess)
@@ -65,6 +66,7 @@ class Gate(Scenario):
         if self.rect.colliderect(princess.rect):
             if princess.action[0] == 'open_door':
                 self.change_level = True
+                self.goal()
 
 class Building(Scenario):
     def __init__(self,center_distance,dir,level,door,index = 1):
