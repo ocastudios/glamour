@@ -25,8 +25,8 @@ The code is not yet well commented
         self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = distance
-        self.pos        = (self.level.universe.center_x+self.center_distance,
-                           self.level.universe.floor - 186 -self.size[1])
+        self.pos        = [self.level.universe.center_x+self.center_distance,
+                           self.level.universe.floor - 186 -self.size[1]]
         for part in self.part_keys:
             for line in self.file:
                 if part in line:
@@ -60,12 +60,12 @@ The code is not yet well commented
         self.floor = self.level.universe.floor - 186
         self.action = None
         self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
-        self.steps_regular = [pygame.mixer.Sound('datadata/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,4)]
+
 
 
     def update_all(self, dir, action):
         self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
-        self.action = action
+        self.action = action 
         self.effects = []
         self.direction = dir
         self.update_pos(action)
@@ -147,7 +147,7 @@ The code is not yet well commented
                     if part != None:
                         part.reset_count = 0
         if self.jump > 0 and self.jump <20:
-            self.pos = (self.pos[0],self.pos[1]-30)
+            self.pos[1] -= 30
             if self.jump > 5:
                 for part in self.parts:
                     if part != None:
@@ -218,18 +218,18 @@ The code is not yet well commented
 
         #fall
         if feet_position < self.floor:
-            self.pos = (self.pos[0], self.pos[1]+self.gforce)
+            self.pos[1] += self.gforce
             self.gforce += self.level.universe.gravity
 
         #do not fall beyond the floor
         if feet_position > self.floor:
-            self.pos= (self.pos[0],(self.floor-self.size[1]))
+            self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
             self.gforce = 0
 
         self.floor = self.level.universe.floor-  self.level.what_is_my_height(self)
 
-        self.pos = (self.level.universe.center_x+self.center_distance, self.pos[1])
+        self.pos[0] = self.level.universe.center_x+self.center_distance
 
         if action[1]=='walk':
            if self.direction == 'right':
@@ -316,7 +316,7 @@ class PrincessPart():
                 self.image_number = 1
                 self.reset_count = 1
         if direction == 'left':
-            self.pos = (princess.pos[0]-invert,princess.pos[1])
+            self.pos[0] = princess.pos[0]-invert
         else:
             self.pos = princess.pos
         self.update_number()

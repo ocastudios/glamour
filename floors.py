@@ -16,7 +16,7 @@ class Floor():
         self.rect = Rect(self.pos, self.size)
 
     def set_pos(self):
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+        self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
 
 
     def update_all(self):
@@ -25,7 +25,7 @@ class Floor():
     def update_pos(self):
         self.images.update_number()
         self.image = self.images.list[self.images.number]
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+        self.pos[0] = self.level.universe.center_x+(self.center_distance)
         self.rect = Rect(self.pos, self.size)
 
 
@@ -37,7 +37,7 @@ class Water(Floor):
     direction = 'up'
 
     def set_pos(self):
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.height)
+        self.pos[0] = self.level.universe.center_x+(self.center_distance)
 
     def update_pos(self):
         self.center_distance += self.speed[0]
@@ -81,7 +81,7 @@ class Bridge():
         if main:            self.center_distance = (400*(index))-400
         else:               self.center_distance = (400*(index))
 
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+        self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
         if main:
             del level.floor_image[index]
             level.floor_image.insert(0,self)
@@ -93,5 +93,5 @@ class Bridge():
     def update_pos(self):
         self.images.update_number()
         self.image = self.images.list[self.image_number]
-        self.pos = (self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1])
+        self.pos[0] = self.level.universe.center_x+self.center_distance
         self.rect = Rect(self.pos, self.size)

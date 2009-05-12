@@ -102,7 +102,7 @@ class Stage():
         self.directory = self.maindir+'bathhouse_st/'
         self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
 
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(50)]
+        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
 
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
@@ -131,7 +131,7 @@ class Stage():
                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
 
-        self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(30)]
+        self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(18)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
 
         self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
@@ -168,7 +168,7 @@ class Stage():
         self.gates = []
         self.directory = self.maindir+'dress_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(50)]
+        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
         self.scenarios  =  [scenarios.Building(0,self.directory+'Dress_Tower/',self,
                                 {'pos':(155,350),'directory':self.directory+'Dress_Tower/door/'},index =0),
                             scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
@@ -215,7 +215,7 @@ class Stage():
         self.directory = self.maindir+'accessory_st/'
         self.gates = []
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(50)]
+        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
         self.scenarios  =  [scenarios.Scenario(i[0],self.directory+i[1],self) for i in 
                                ((-3,'accessory_tower/'),
                                 (800,'accessory_tower/banner/'),

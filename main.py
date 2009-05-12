@@ -17,7 +17,9 @@ import menu
 import universe
 import control
 
-
+import psyco
+psyco.log()
+psyco.profile(1.0)
 
 #Create lists
 
@@ -78,7 +80,7 @@ while True:
                 break
         control.stage(universe)
         game_mouse.update()
-        time_passed = clock.tick(15)
+        clock.tick(15)
         universe.screen_surface.fill([255,255,255])
         universe.level.update_all(universe.action,universe.dir,universe)
         universe.clock_pointer.update_image()
