@@ -3537,8 +3537,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.75"
-     inkscape:cx="2120.3748"
-     inkscape:cy="-3009.181"
+     inkscape:cx="2773.3244"
+     inkscape:cy="-1166.4052"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -3625,24 +3625,6 @@
        sodipodi:nodetypes="ccccc"
        inkscape:transform-center-x="2.4730609"
        inkscape:transform-center-y="13.91098" />
-    <path
-       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 505.7037,116.14221 C 506.98074,111.2721 512.37501,112.06978 512.71776,116.77967 L 514.65026,148.15536 C 512.20264,161.29633 495.25552,156.49155 497.32137,146.58046 L 505.7037,116.14221 z"
-       id="path3224"
-       sodipodi:nodetypes="ccccc"
-       inkscape:transform-center-x="4.0603552"
-       inkscape:transform-center-y="17.817121"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/walk/1.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 498.74696,105.467 L 507.49118,105.15786 C 512.95943,130.16203 518.40599,135.73422 518.33154,151.42102 C 517.357,164.46219 490.51069,165.11383 488.56166,151.42102 C 485.77071,141.25523 494.37717,134.18076 498.74696,105.467 z"
-       id="path3226"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/walk/1.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <path
        style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 105.74591,358.40353 C 105.73891,352.52873 111.11598,352.12541 112.63643,357.42244 L 121.18547,376.71112 C 120.81205,389.01417 104.63018,387.47116 104.16184,379.13503 L 105.74591,358.40353 z"
@@ -4668,14 +4650,6 @@
        x="1000"
        y="1000"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/ouch/4.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 692.17409,1304.3123 L 694.32069,1305.95 C 690.72852,1311.4791 684.62063,1315.2289 686.98502,1324.9712 L 686.32211,1324.927 C 683.06797,1317.1091 689.06536,1310.9733 692.17409,1304.3123 z"
-       id="path6941"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6668,22 +6642,6 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 694.37703,1305.7659 C 695.29455,1310.8589 694.66476,1317.0679 702.8415,1327.8188 L 702.92989,1328.8352 C 692.47865,1316.7177 693.13803,1311.6784 692.40616,1303.8064 L 694.37703,1305.7659 z"
-       id="path6965"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/2.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 897.18279,1304.9605 L 898.50443,1307.6589 C 894.91226,1313.188 885.50454,1316.7021 887.98678,1323.9106 L 887.32387,1323.8664 C 883.71618,1314.87 894.07406,1311.6215 897.18279,1304.9605 z"
-       id="path7820"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/3.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
        style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 897.61187,1309.3015 L 899.6448,1309.0363 C 894.87826,1313.2079 892.63916,1315.7632 888.19851,1323.8856 L 887.5356,1323.8414 C 889.4678,1319.104 894.22778,1312.1569 897.61187,1309.3015 z"
        id="path7822"
@@ -6753,22 +6711,6 @@
        id="path7844"
        sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/3.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 898.56077,1307.298 C 899.47829,1312.391 895.66652,1316.0073 903.84326,1326.7582 L 903.93165,1327.7746 C 893.48041,1315.6571 897.73425,1312.9748 897.29701,1304.7493 L 898.56077,1307.298 z"
-       id="path7846"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/3.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1097.6828,1302.6272 L 1099.0044,1305.3256 C 1095.4123,1310.8547 1086.0046,1314.3688 1088.4868,1321.5773 L 1087.8239,1321.5331 C 1084.2162,1312.5367 1094.5741,1309.2882 1097.6828,1302.6272 z"
-       id="path7857"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
@@ -6844,22 +6786,6 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1101.1441,1308.0897 C 1099.3533,1311.391 1096.1665,1313.674 1104.3433,1324.4249 L 1104.4317,1325.4413 C 1093.9804,1313.3238 1096.9426,1310.3082 1101.3803,1305.6243 L 1101.1441,1308.0897 z"
-       id="path7883"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/4.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1297.6828,1302.6272 L 1299.0044,1305.3256 C 1295.4123,1310.8547 1286.0046,1314.3688 1288.4868,1321.5773 L 1287.8239,1321.5331 C 1284.2162,1312.5367 1294.5741,1309.2882 1297.6828,1302.6272 z"
-       id="path7894"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/5.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
        style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 1298.1119,1306.9682 L 1300.1448,1306.703 C 1295.3783,1310.8746 1293.1392,1313.4299 1288.6985,1321.5523 L 1288.0356,1321.5081 C 1289.9678,1316.7707 1294.7278,1309.8236 1298.1119,1306.9682 z"
        id="path7896"
@@ -6929,22 +6855,6 @@
        id="path7918"
        sodipodi:nodetypes="cccsc"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/5.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1301.1441,1308.0897 C 1299.3533,1311.391 1296.1665,1313.674 1304.3433,1324.4249 L 1304.4317,1325.4413 C 1293.9804,1313.3238 1296.9426,1310.3082 1301.3803,1305.6243 L 1301.1441,1308.0897 z"
-       id="path7920"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/5.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1497.6828,1302.6272 L 1499.0044,1305.3256 C 1495.4123,1310.8547 1486.0046,1314.3688 1488.4868,1321.5773 L 1487.8239,1321.5331 C 1484.2162,1312.5367 1494.5741,1309.2882 1497.6828,1302.6272 z"
-       id="path7931"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/6.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
@@ -7020,22 +6930,6 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1501.1441,1308.0897 C 1499.3533,1311.391 1496.1665,1313.674 1504.3433,1324.4249 L 1504.4317,1325.4413 C 1493.9804,1313.3238 1496.9426,1310.3082 1501.3803,1305.6243 L 1501.1441,1308.0897 z"
-       id="path7957"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/6.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1697.1828,1304.9604 L 1698.5045,1307.6588 C 1694.9123,1313.1879 1685.5046,1316.702 1687.9868,1323.9105 L 1687.3239,1323.8663 C 1683.7162,1314.8699 1694.0741,1311.6214 1697.1828,1304.9604 z"
-       id="path7961"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/7.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
        style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 1697.6119,1309.3014 L 1699.6449,1309.0362 C 1694.8783,1313.2078 1692.6392,1315.7631 1688.1986,1323.8855 L 1687.5357,1323.8413 C 1689.4679,1319.1039 1694.2278,1312.1568 1697.6119,1309.3014 z"
        id="path7963"
@@ -7105,22 +6999,6 @@
        id="path7985"
        sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/7.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1698.5608,1307.2979 C 1699.4783,1312.3909 1695.6666,1316.0072 1703.8433,1326.7581 L 1703.9317,1327.7745 C 1693.4805,1315.657 1697.7343,1312.9747 1697.2971,1304.7492 L 1698.5608,1307.2979 z"
-       id="path7987"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/7.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1892.1741,1304.3123 L 1894.3207,1305.95 C 1890.7285,1311.4791 1884.6206,1315.2289 1886.985,1324.9712 L 1886.3221,1324.927 C 1883.0679,1317.1091 1889.0653,1310.9733 1892.1741,1304.3123 z"
-       id="path7991"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/8.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
@@ -7224,14 +7102,6 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 1894.377,1305.7659 C 1895.2945,1310.8589 1894.6647,1317.0679 1902.8415,1327.8188 L 1902.9299,1328.8352 C 1892.4786,1316.7177 1893.138,1311.6784 1892.4061,1303.8064 L 1894.377,1305.7659 z"
-       id="path8017"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/8.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
        style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 2095.6084,1313.1906 L 2097.6413,1312.9254 C 2092.8747,1317.097 2090.6356,1319.6523 2086.195,1327.7747 L 2085.5321,1327.7305 C 2087.4643,1322.9931 2092.2243,1316.046 2095.6084,1313.1906 z"
        id="path8021"
@@ -7277,14 +7147,6 @@
          d="M 497.52404,1313.6832 C 502.45695,1314.691 501.95631,1320.1211 497.27231,1320.7217 L 466.04997,1324.3725 C 452.79448,1322.6495 456.66236,1305.4642 466.67179,1306.9833 L 497.52404,1313.6832 z"
          style="opacity:0.60839156000000005;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
-    <path
-       style="opacity:1;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 2081.98,1322.049 L 2083.5962,1321.7421 L 2085.9833,1327.7997 L 2085.3204,1327.7555 L 2081.98,1322.049 z"
-       id="path8023"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/9.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <g
        id="g8027"
        transform="translate(1800.4583,1203.4793)"
@@ -7335,14 +7197,6 @@
        style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 2095.3432,1313.2642 C 2096.0813,1313.0067 2096.8466,1312.7764 2097.9322,1312.8665 C 2102.5308,1313.7691 2101.8605,1325.1893 2102.197,1330.7688 L 2101.5967,1332.3598 C 2100.2417,1324.0241 2099.6735,1315.1931 2095.3432,1313.2642 z"
        id="path8045"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/9.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 2080.7035,1309.8809 C 2087.9033,1314.4195 2083.0668,1321.1893 2101.8397,1330.6473 L 2101.9281,1331.6637 C 2079.6896,1320.9703 2083.5559,1310.8595 2077.3497,1309.2279 L 2080.7035,1309.8809 z"
-       id="path8047"
        sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/9.png"
        inkscape:export-xdpi="90"
@@ -7415,14 +7269,6 @@
        style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
        d="M 2294.8849,1311.7849 C 2295.623,1311.5274 2296.3883,1311.2971 2297.4739,1311.3872 C 2302.0725,1312.2898 2301.4022,1323.71 2301.7387,1329.2895 L 2301.1384,1330.8805 C 2299.7834,1322.5448 2299.2152,1313.7138 2294.8849,1311.7849 z"
        id="path8073"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/a.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4"
-       d="M 2274.6125,1320.6674 C 2283.6978,1321.6704 2288.0252,1331.5433 2301.3814,1329.168 L 2301.4698,1330.1844 C 2287.8146,1333.741 2279.4582,1322.907 2273.252,1321.2754 L 2274.6125,1320.6674 z"
-       id="path8075"
        sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/accessory_purse/celebrate/a.png"
        inkscape:export-xdpi="90"
