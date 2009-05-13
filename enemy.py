@@ -25,6 +25,16 @@ class Enemy():
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
+    def set_pos(self):
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+        self.pos = [self.level.universe.center_x + self.center_distance,
+                    self.floor+self.margin[2]-(self.size[1])]
+        if self.move:
+            if self.direction == 'right' :
+                self.center_distance += self.speed
+            else:
+                self.center_distance -= self.speed
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
 
 class Schnauzer(Enemy):
     barfing = 0
@@ -39,11 +49,11 @@ class Schnauzer(Enemy):
         if self.barfing > 100:
             self.barfing = 0
 
-    def update_all(self,level):
-        self.look_around(level.princess)
+    def update_all(self):
+        self.look_around(self.level.princess)
         self.set_pos()
         self.set_image()
-        self.got_kissed(level.princess)
+        self.got_kissed(self.level.princess)
 
         self.level.rects.extend(pygame.mask.from_surface(self.image).get_bounding_rects())
     def look_around(self,princess):
@@ -72,18 +82,6 @@ class Schnauzer(Enemy):
             self.gotkissed = 0
             self.move = True
 
-
-    def set_pos(self):
-        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
-        self.pos = [self.level.universe.center_x + self.center_distance,
-                    self.floor+self.margin[2]-(self.size[1])]
-
-        if self.move:
-            if self.direction == 'right' :
-                self.center_distance += self.speed
-            else:
-                self.center_distance -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
     def set_image(self):
         #choose list
         if self.move:
@@ -105,51 +103,37 @@ class Schnauzer(Enemy):
         
         self.image = actual_list[self.image_number]
 class Carriage(Enemy):
-    def update_all(self,level):
+    def update_all(self):
         self.move = True
         self.set_pos()
         self.set_image()
-    def set_pos(self):
-        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
-        self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
-        self.direction = 'right'
-        if self.move:
-            if self.direction == 'right' :
-                self.center_distance += self.speed
-            else:
-                self.center_distance -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
+
     def set_image(self):
         if self.move:   exec('actual_list = self.walk.'+self.direction)
         else:           exec('actual_list = self.stay.'+self.direction)
-
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1
         else:
             self.image_number = 0
-
         self.image = actual_list[self.image_number]
 
 
 class Butterfly(Enemy):
     height = 100
     up_direction = 'going_down'
-    def update_all(self,level):
+    up = 5
+    def update_all(self):
         self.set_pos()
         self.set_image()
     def set_pos(self):
-        
         if self.pos[1] < 300:
-            self.up_direction = 'going_down'
+            self.up = +5
         elif self.pos[1] > 500:
-            self.up_direction = 'going_up'
-        if self.up_direction == 'going_down':
-            self.height += 5
-        if self.up_direction == 'going_up':
-            self.height -= 5 
+            self.up = -5
+        self.height += self.up
         self.pos = (self.level.universe.center_x + self.center_distance, self.height)
-        if self.move == True:
+        if self.move:
             if self.direction == 'right' :
                 self.center_distance += self.speed
             else:
@@ -157,7 +141,6 @@ class Butterfly(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
     def set_image(self):
 #choose list
-        self.count+=1
         if self.move:
             exec('actual_list = self.walk.'+self.direction)
         else:
@@ -192,8 +175,7 @@ class OldLady(Enemy):
         self.image_number = 0
 
 
-    def update_all(self,level):
-        self.count += 1
+    def update_all(self):
         self.wave_to_princess()
         self.brooming()
         self.set_pos()
@@ -201,13 +183,15 @@ class OldLady(Enemy):
 
     def wave_to_princess(self):
         mouse_pos = pygame.mouse.get_pos()
-        if self.action != 'wave' and self.rect.collidepoint(mouse_pos):
-            self.action = 'wave'
-            self.image_number = 0
-            self.count = 0
+        if self.action != 'wave':
+            if self.rect.collidepoint(mouse_pos):
+                self.action = 'wave'
+                self.image_number = 0
+                self.count = 0
         elif self.count > 33:
             self.action = 'walk'
             self.count = 0
+
 
     def brooming(self):
         if self.action != 'broom' and self.count == 60:
@@ -217,7 +201,7 @@ class OldLady(Enemy):
             self.direction = random.choice(['left','right'])
             self.action = 'walk'
             self.count = 0
-
+        self.count +=1
     def set_pos(self):
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
@@ -229,9 +213,7 @@ class OldLady(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):
-
         exec('actual_list = self.'+self.action+'.'+self.direction)
-
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1

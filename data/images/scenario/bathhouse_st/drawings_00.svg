@@ -4820,6 +4820,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3983"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -9540,11 +9547,11 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <image
-       y="2495.0955"
-       x="3717.8413"
+       y="1723.3104"
+       x="4224.5483"
        id="image5473"
-       height="640"
-       width="1080"
+       height="272.59259"
+       width="460"
        sodipodi:absref="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/magic_beauty_salon/portal/0.png"
        xlink:href="magic_beauty_salon/portal/0.png"
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
@@ -11234,5 +11241,13 @@
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/scenario/bathhouse_st/OVERVIEW.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <image
+       y="1621.3851"
+       x="3622.4109"
+       id="image3985"
+       height="390"
+       width="460"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/bathhouse_st/magic_beauty_salon/portal/0.png"
+       xlink:href="magic_beauty_salon/portal/0.png" />
   </g>
 </svg>

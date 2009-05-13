@@ -17,7 +17,9 @@ import menu
 import universe
 import control
 
-
+import psyco
+psyco.log()
+psyco.profile(1.0)
 
 #Create lists
 
@@ -27,43 +29,41 @@ universe = universe.Universe(os_screen.current_w,os_screen.current_h)
 
 gamemenu = menu.MenuScreen(universe)
 
-screen_surface = pygame.display.set_mode((os_screen.current_w,os_screen.current_h),FULLSCREEN,32)
+
 
 while True:
-    while universe.level == 'menu':
+    while universe.LEVEL == 'menu':
         control.main_menu(universe)
-        gamemenu.update_all(screen_surface)
+        gamemenu.update_all()
         pygame.display.flip()
     gamemenu.speed = 0
 
-    while universe.level == 'close':
+    while universe.LEVEL == 'close':
         gamemenu.action = 'close'
         control.main_menu(universe)
-        gamemenu.update_all(screen_surface)
+        gamemenu.update_all()
         pygame.display.flip()
 
-    while universe.level == 'choose_princess':
+    while universe.LEVEL == 'choose_princess':
         control.choose_menu(universe)
-        gamemenu.update_all(screen_surface)
+        gamemenu.update_all()
         pygame.display.flip()
 
-    while universe.level == 'close':
+    while universe.LEVEL == 'close':
         gamemenu.action = 'close'
         control.main_menu(universe)
-        gamemenu.update_all(screen_surface)
+        gamemenu.update_all()
         pygame.display.flip()
 
-    while universe.level == 'choose_princess':
+    while universe.LEVEL == 'choose_princess':
         control.name_menu(universe)
-        gamemenu.update_all(screen_surface)
+        gamemenu.update_all()
         pygame.display.flip()
 
     universe.define_level()
 
-
-    universe.actual_level.instantiate_stuff()
-    game_mouse = mousepointer.MousePointer(universe.mouse_pos,universe.actual_level)
-    gamecamera = camera.GameCamera(universe.actual_level)
+    game_mouse = mousepointer.MousePointer(universe.mouse_pos,universe.level)
+    gamecamera = camera.GameCamera(universe.level)
 
     run_level = True
 
@@ -71,29 +71,23 @@ while True:
     pygame.mouse.set_visible(0)
 
     while run_level:
-        for i in universe.actual_level.gates:
+        for i in universe.level.gates:
             if i.change_level:
-                universe.level = i.level
-                gamemenu.menu.level = i.level
+                universe.LEVEL = i.level
+                gamemenu.menu.LEVEL = i.level
                 run_level = False
                 i.change_level = False
                 break
         control.stage(universe)
         game_mouse.update()
-        time_passed = clock.tick(15)
-        screen_surface.fill([255,255,255])
-        universe.actual_level.update_all(screen_surface,universe.action,universe.dir,universe)
+        clock.tick(15)
+        universe.screen_surface.fill([255,255,255])
+        universe.level.update_all(universe.action,universe.dir,universe)
         universe.clock_pointer.update_image()
 
         pygame.display.flip()
 
-    screen_surface.fill([0,0,0])
+    universe.screen_surface.fill([0,0,0])
     pygame.display.flip()
 
     run_level = True
-
-    for attr,value in universe.level.__dict__.iteritems():
-        exec('universe.level.'+attr+'= None')
-
-    del universe.level
-    universe.level = 'menu'

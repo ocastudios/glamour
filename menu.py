@@ -14,12 +14,11 @@ import drapes
 from pygame.locals import *
 
 class MenuScreen():
-    def __init__(self,universe,music=None,color=[230,230,230]):
+    color = [230,230,230]
+    def __init__(self,universe,music=None):
         self.universe       = universe
-        self.color          = color
-        self.music          = music
-        self.left_bar       = MenuBackground('data/images/interface/omni/left_bar/',[-800.,0],self,1)
-        self.right_bar      = MenuBackground('data/images/interface/omni/left_bar/',[2000.,0],self,1,invert = True)
+        self.left_bar       = MenuBackground('data/images/interface/omni/left_bar/',[-800.,0],self)
+        self.right_bar      = MenuBackground('data/images/interface/omni/left_bar/',[2000.,0],self,invert = True)
         self.bar            = self.left_bar
         self.menu = Menu(self,'menu')
         self.menu.main()
@@ -30,15 +29,15 @@ class MenuScreen():
         self.STEP           = self.update_drape
         self.count          = 0
         self.action         = 'open'
-        for i in range(13):
+        for i in xrange(13):
             if i <= 5:      self.drapes.append(drapes.Drape(i,'right'))
             else:           self.drapes.append(drapes.Drape(i,'left'))
-        for i in range(14):
+        for i in xrange(14):
             self.upper_drapes.append(drapes.UperDrape(i))
 
-    def update_all(self,surface):
-        surface.fill(self.color)
-        self.STEP(surface)
+    def update_all(self):
+        self.universe.screen_surface.fill(self.color)
+        self.STEP(self.universe.screen_surface)
         self.count += 1
 
     def update_drape(self,surface):
@@ -49,9 +48,9 @@ class MenuScreen():
             surface.blit(drape.image,drape.position)
             ####### STEP #########
             if drape.position[1] < -drape.size[1]+100:
-                self.STEP = self.update_left_bar
+                self.STEP = self.left_bar_ARRIVE
 
-    def update_left_bar(self,surface):
+    def left_bar_ARRIVE(self,surface):
         self.bar = self.left_bar
         if self.left_bar.position[0] < 0:
             self.left_bar.position[0] += self.speed
@@ -65,9 +64,9 @@ class MenuScreen():
 
     def update_right_bar(self,surface):
         self.bar = self.right_bar
-        if self.right_bar.position[0]+516 > 1440:
+        if self.right_bar.position[0]+516 > self.universe.width:
             self.right_bar.position[0] -= self.speed
-            if self.right_bar.position[0] < 1160:   self.speed += .5
+            if self.right_bar.position[0] < ((self.universe.width-300)):   self.speed += .5
             else:                           self.speed -= .5
         else:
             self.right_bar.position[0] = (1440-516)
@@ -77,18 +76,6 @@ class MenuScreen():
         if self.menu.background:
             surface.blit(self.menu.background,(0,0))
         surface.blit(self.right_bar.image,(self.right_bar.position[0],0))
-
-    def close_left_bar(self,surface):
-        if self.left_bar.position[0] > -800:
-            self.left_bar.position[0] -= self.speed
-            self.speed += 1
-        else:
-            ####### STEP #######
-            self.STEP = self.update_right_bar
-            self.universe.level = 'choose_princess'
-            self.action = 'open'
-            self.menu.select_princess()
-        surface.blit(self.left_bar.image,(self.left_bar.position[0],0))
 
 
     def update_menus(self,surface):
@@ -101,28 +88,44 @@ class MenuScreen():
             else:
                 self.action = 'open'
                 ####### STEP #######
-                self.STEP = self.close_left_bar
+                self.STEP = self.close_bar
+
         if self.menu.background:
             surface.blit(self.menu.background,(0,0))
-
 
         for back in self.menu.backgrounds:
             back.update_all()
             surface.blit(back.image,self.menu.actual_position)
-
         surface.blit(self.bar.image,(self.bar.position[0],0))
-
 
         for item in [self.menu.texts, self.menu.options, self.menu.buttons]:
             for i in item:
                 i.update_all()
                 surface.blit(i.image,i.pos)
+
         if self.menu.princess:
             self.menu.princess.update_all()
-            for i in self.menu.princess.images:
-                surface.blit(i,self.menu.princess.pos)
-        for i in self.menu.options:
-            i.click_detection()
+            [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images]
+        [i.click_detection() for i in self.menu.options]
+
+
+
+
+
+    def close_bar(self,surface):
+        if (-800 < self.bar.position[0] <10) or (self.universe.width-self.bar.size[0] < self.bar.position[0] < self.universe.width +1):
+            self.bar.position[0] -= self.speed
+            self.speed += 1
+        else:
+            ####### STEP #######
+            self.STEP = self.update_right_bar
+            self.universe.LEVEL = 'choose_princess'
+            self.action = 'open'
+            self.menu.next_menu()
+
+        if self.menu.background:
+            surface.blit(self.menu.background,(0,0))
+        surface.blit(self.bar.image,(self.bar.position[0],0))
 
 
 
@@ -134,14 +137,13 @@ class Menu():
         self.position       = position
         self.level          = level
         self.actual_position= [position[0],-600]
-        self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self,0)
+        self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self)
         self.backgrounds    = [self.selection_canvas]
         self.itens          = []
         self.size           = self.selection_canvas.image.get_size()
         self.rect           = Rect(self.position,self.size)
         self.action         = None
-
-
+        self.next_menu      = self.select_princess
 
     def main(self):
         self.princess = None
@@ -159,8 +161,8 @@ class Menu():
                          GameText('Or e button to play Stage "E"',(400,700),self,4),
                          VerticalGameText('select one',(120,200),self,5,font_size = 40)
                         ]
-        self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,0,self.NOTSETYET),
-                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,0,self.NOTSETYET, invert = True)
+        self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(400,400),self,self.NOTSETYET),
+                         MenuArrow('data/images/interface/title_screen/arrow_right/',(160,400),self,self.NOTSETYET, invert = True)
                         ]
 
     def select_princess(self):
@@ -178,10 +180,38 @@ class Menu():
                          GameText('next',(250,540),self,5,font_size = 40)]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
-        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, 0, self.change_princess,parameter = (1,'skin')),
-                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, 0, self.change_princess,parameter = (-1,'skin'), invert = True),
-                       MenuArrow(D_TITLE_SCREEN+'arrow_up/',(200,-130),self,0,self.NOTSETYET),
-                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(200,570),self,0,self.NOTSETYET)]
+        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, self.change_princess,parameter = (1,'skin')),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, self.change_princess,parameter = (-1,'skin'), invert = True),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_up/',(200,-130),self,self.NOTSETYET),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(200,570),self,self.to_name_your_princess)]
+
+    def name_your_princess(self):
+        self.princess = None
+        self.background = self.background or pygame.image.load('data/images/story/svg_bedroom.png').convert()
+        self.action     = 'open'
+        self.speed      = 0
+        self.actual_position = [500,-600]
+        lowercase       = map(chr,xrange(97,123))
+        uppercase       = map(chr,xrange(65,91))
+        positions       = [(i,a) for (i,a) in zip([x for n in xrange(9) for x in xrange(100,415,35)],
+                                                  [n for n in xrange(200,360,40) for x in xrange(9)]   )]
+
+
+
+        self.options    = [Options(i[0],i[1],self, 0, fonte = 'FreeSerif.ttf',font_size=40) for i in zip(lowercase,positions)]
+        self.options.extend([Options('< back',  (75,350)    ,self,0,font_size=40),
+                             Options('space >', (350,350)   ,self,0,font_size=40),
+                             Options('done',    (245,545)   ,self,0,font_size=40)
+                            ])
+        self.texts =    [GameText('... and your name',(-200,200),self,1,font_size = 40)]
+
+        D_TITLE_SCREEN = 'data/images/interface/title_screen/'
+        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, self.change_princess,parameter = (1,'skin')),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, self.change_princess,parameter = (-1,'skin'), invert = True),
+                       
+                       MenuArrow(D_TITLE_SCREEN+'button_ok/',(200,570),self,0,self.NOTSETYET)]
+
+
 
     def update_all(self):
         self.actual_position[1] += self.speed
@@ -213,29 +243,26 @@ class Menu():
         elif self.princess.numbers[list[1]] > 2:
             self.princess.numbers[list[1]] = 0
         print self.princess.numbers[list[1]]
+
+    def to_name_your_princess(self,param):
+        self.next_menu = self.name_your_princess
+
     def NOTSETYET():
         pass
 
 class MenuBackground():
 
-    def __init__(self,directory,position,menu,index,invert = False):
+    def __init__(self,directory,position,menu,invert = False):
         self.position   = position
         self.images     = obj_images.OneSided(directory)
-        if invert == True:
+        if invert:
             self.images.list = self.invert_images(self.images.list)
         self.image = self.images.list[self.images.number]
-        self.index = index
         self.menu = menu
-
-
-
-    def insert_into_list(self):
-        self.menu.backgrounds.insert(self.index,self)
-
+        self.size = self.image.get_size()
 
     def update_all(self):
         self.set_image()
-
 
     def invert_images(self,list):
         inv_list=[]
@@ -245,20 +272,17 @@ class MenuBackground():
         return inv_list
 
     def set_image(self):
-        #choose list
-
         self.image = self.images.list[self.images.number]
         self.images.update_number()
 
 class MenuArrow():
-    def __init__(self,directory,position,menu,index,function,parameter = None,invert = False,):
+    def __init__(self,directory,position,menu,function,parameter = None,invert = False,):
         self.position   = position
         self.menu = menu
         self.images     = obj_images.OneSided(directory)
         if invert == True:
             self.images.list = self.invert_images(self.images.list)
         self.image = self.images.list[self.images.number]
-        self.index = index
         self.pos        = [self.menu.actual_position[0]+self.position[0],
                            self.menu.actual_position[1]+self.position[1]]
         self.size = self.image.get_size()
@@ -346,6 +370,7 @@ class Options(GameText):
 class MenuPrincess():
     def __init__(self,menu):
         dir = 'data/images/princess/'
+        self.name = ''
         self.menu = menu
         self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('skin_pink','skin_tan','skin_black')]
         self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('arm_pink','arm_tan','arm_black')]
@@ -369,5 +394,3 @@ class MenuPrincess():
         self.images[5]  = self.arm[self.numbers['skin']]
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
-
-

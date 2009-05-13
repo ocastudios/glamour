@@ -10,11 +10,11 @@ def main_menu(universe):
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
             elif event.key == K_e:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
             elif event.key == K_a:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
 def choose_menu(universe):
@@ -26,11 +26,11 @@ def choose_menu(universe):
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
             elif event.key == K_e:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
             elif event.key == K_a:
-                universe.level = 'close'
+                universe.LEVEL = 'close'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
 def name_menu(universe):
@@ -42,21 +42,22 @@ def name_menu(universe):
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                universe.level = 'bathhouse_st'
+                universe.LEVEL = 'bathhouse_st'
             elif event.key == K_e:
-                universe.level = 'dress_st'
+                universe.LEVEL = 'dress_st'
             elif event.key == K_a:
-                universe.level = 'accessory_st'
+                universe.LEVEL = 'accessory_st'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
+
 def stage(universe):
     for event in pygame.event.get():
         if event.type == QUIT:
-            universe.actual_level.princess.save()
+            universe.level.princess.save()
             exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                universe.actual_level.princess.save()
+                universe.level.princess.save()
                 exit()
             if event.key == K_LEFT:
                 universe.dir = 'left'
@@ -69,7 +70,7 @@ def stage(universe):
             if event.key == K_SPACE:
                 universe.action[0] = 'jump'
             if event.key == K_UP:
-                if universe.actual_level.princess.jump == 0:
+                if universe.level.princess.jump == 0:
                     universe.action[0] ='open_door'
             if event.key == K_y:
                 universe.action[0]='celebrate'
@@ -89,6 +90,7 @@ def stage(universe):
                 universe.action[0] = 'yellow_dress'
         elif event.type == KEYUP:
             universe.action[0]=None
-            universe.actual_level.princess.doonce = False
+            if universe.level.princess:
+                universe.level.princess.doonce = False
             if (universe.dir == 'left' and event.key == K_LEFT) or (universe.dir == 'right' and event.key == K_RIGHT):
                 universe.action[1] = 'stay'

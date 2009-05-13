@@ -14,8 +14,8 @@ class MovingScenario():
         self.speed = 4
         self.count = 0
         self.rect = Rect(self.pos, self.size)
-    def update_all(self,level):
-        self.set_pos(level.act,level.direction)
+    def update_all(self):
+        self.set_pos(self.level.act,self.level.direction)
     def set_pos(self,act,direction):
         self.center_distance = ((self.level.size - self.level.universe.width) - self.size[0])*self.level.universe.center_x/self.level.size
 #        self.center_distance = (self.level.universe.center_x*(self.level.size-self.level.universe.width))/(self.level.size-self.size[0])

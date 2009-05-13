@@ -1,9 +1,8 @@
-
 import obj_images
 import os
 import random
 import enemy
-
+import pygame
 from pygame.locals import *
 
 class Princess():
@@ -26,8 +25,8 @@ The code is not yet well commented
         self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
         self.center_distance = distance
-        self.pos        = (self.level.universe.center_x+self.center_distance,
-                           self.level.universe.floor - 186 -self.size[1])
+        self.pos        = [self.level.universe.center_x+self.center_distance,
+                           self.level.universe.floor - 186 -self.size[1]]
         for part in self.part_keys:
             for line in self.file:
                 if part in line:
@@ -60,10 +59,13 @@ The code is not yet well commented
         self.kiss_rect = ((0,0),(0,0))
         self.floor = self.level.universe.floor - 186
         self.action = None
+        self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+
+
 
     def update_all(self, dir, action):
-
-        self.action = action
+        self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+        self.action = action 
         self.effects = []
         self.direction = dir
         self.update_pos(action)
@@ -78,6 +80,7 @@ The code is not yet well commented
         self.choose_parts(action,dir)
         self.syncimages(action)
         [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
+        self.image = self.update_image(self.image)
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -115,9 +118,9 @@ The code is not yet well commented
             action[0] = None
 
         if action[0] == 'changehair2':
-            self.change_clothes((self.hair),       'hair_rapunzel')
+            self.change_clothes((self.hair),       'hair_black')
             self.parts.pop(0)
-            self.hair_back = PrincessPart(self,'data/images/princess/hair_rapunzel_back',0)
+            self.hair_back = PrincessPart(self,'data/images/princess/hair_black_back',0)
             action[0] = None
 
     def change_clothes(self,part,dir):
@@ -144,7 +147,7 @@ The code is not yet well commented
                     if part != None:
                         part.reset_count = 0
         if self.jump > 0 and self.jump <20:
-            self.pos = (self.pos[0],self.pos[1]-30)
+            self.pos[1] -= 30
             if self.jump > 5:
                 for part in self.parts:
                     if part != None:
@@ -215,18 +218,18 @@ The code is not yet well commented
 
         #fall
         if feet_position < self.floor:
-            self.pos = (self.pos[0], self.pos[1]+self.gforce)
+            self.pos[1] += self.gforce
             self.gforce += self.level.universe.gravity
 
         #do not fall beyond the floor
         if feet_position > self.floor:
-            self.pos= (self.pos[0],(self.floor-self.size[1]))
+            self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
             self.gforce = 0
 
         self.floor = self.level.universe.floor-  self.level.what_is_my_height(self)
 
-        self.pos = (self.level.universe.center_x+self.center_distance, self.pos[1])
+        self.pos[0] = self.level.universe.center_x+self.center_distance
 
         if action[1]=='walk':
            if self.direction == 'right':
@@ -251,9 +254,10 @@ The code is not yet well commented
                     part.image_number = self.skin.image_number
             if self.skin.image_number == 3:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
+#                self.steps_regular[random.randint(0,1)].play()
             if self.skin.image_number == 6:
                 os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
-
+#                self.steps_regular[random.randint(2,3)].play()
     def throwkiss(self,direction):
         if self.kiss == 1:
             self.kiss_direction = direction
@@ -265,8 +269,6 @@ The code is not yet well commented
             kissimage = self.lips.right[self.kiss-1]
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
-
-
 
     def save(self):
         self.save_number = 0
@@ -286,6 +288,12 @@ The code is not yet well commented
             try:            save_file.write(str(part.index or 0))
             except:         save_file.write(str(Exception))
 
+    def update_image(self,surface):
+        for i in self.parts:
+            if i != None:
+                surface.blit(i.image,(0,0))
+        return surface
+
 class PrincessPart():
     def __init__(self, princess, directory,index):
         self.directory = directory
@@ -302,16 +310,13 @@ class PrincessPart():
         princess.parts.insert(index,self)
         self.image = self.actual_list[self.image_number]
 
-
     def update_image(self,princess,direction,reset = False,invert = 0):
         if reset == True:
             if self.reset_count == 0:
                 self.image_number = 1
                 self.reset_count = 1
-
-
         if direction == 'left':
-            self.pos = (princess.pos[0]-invert,princess.pos[1])
+            self.pos[0] = princess.pos[0]-invert
         else:
             self.pos = princess.pos
         self.update_number()
