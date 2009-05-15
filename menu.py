@@ -47,8 +47,8 @@ class MenuScreen():
             drape.update_all()
             surface.blit(drape.image,drape.position)
             ####### STEP #########
-            if drape.position[1] < -drape.size[1]+100:
-                self.STEP = self.left_bar_ARRIVE
+        if self.upper_drapes[1].position[1] < -self.upper_drapes[1].size[1]+10:
+            self.STEP = self.left_bar_ARRIVE
 
     def left_bar_ARRIVE(self,surface):
         self.bar = self.left_bar
@@ -262,7 +262,8 @@ class MenuBackground():
         self.size = self.image.get_size()
 
     def update_all(self):
-        self.set_image()
+        pass
+#        self.set_image()
 
     def invert_images(self,list):
         inv_list=[]
@@ -280,7 +281,7 @@ class MenuArrow():
         self.position   = position
         self.menu = menu
         self.images     = obj_images.OneSided(directory)
-        if invert == True:
+        if invert:
             self.images.list = self.invert_images(self.images.list)
         self.image = self.images.list[self.images.number]
         self.pos        = [self.menu.actual_position[0]+self.position[0],

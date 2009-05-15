@@ -13,15 +13,19 @@ class Scenario():
         self.level          = level
         self.pos            = [self.level.universe.center_x+(self.center_distance),level.floor-(self.size[1]-15)]
         self.rect           = Rect(self.pos, self.size)
-
+        if self.images.lenght > 1:
+            self.update_pos = self.update_with_images
+        else:
+            self.update_pos = self.update_without_images
     def update_all(self):
         self.update_pos()
-    def update_pos(self):
-        self.image          = self.images.list[self.images.number]
+    def update_with_images(self):
+        self.image          = self.images.list[self.images.itnumber.next()]
         self.pos[0]         = self.level.universe.center_x+self.center_distance
         self.rect           = Rect(self.pos, self.size)
-        self.images.update_number()
-
+    def update_without_images(self):
+        self.pos[0]         = self.level.universe.center_x+self.center_distance
+        self.rect           = Rect(self.pos, self.size)
 
 class Flower(Scenario):
     def __init__(self,center_distance,dir,level,frames,index = 1):
@@ -56,10 +60,7 @@ class Gate(Scenario):
     def indicate_exit(self,princess):
         self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
         if self.rect.colliderect(princess.rect):
-            self.arrow_image_number += 1
-            if self.arrow_image_number > len(self.arrow_up.list)-1:
-                self.arrow_image_number = 0
-            self.arrow_image = self.arrow_up.list[self.arrow_image_number]
+            self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
 
 
     def set_level(self,princess):

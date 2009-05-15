@@ -8,7 +8,7 @@ class Floor():
         self.level = level
         self.images = self.images or obj_images.OneSided(dir)
 
-        self.image = self.images.list[self.images.number]
+        self.image = self.images.list[self.images.itnumber.next()]
         self.size = self.image.get_size()
         self.center_distance = (self.size[0]*(index))
 
@@ -20,11 +20,6 @@ class Floor():
 
 
     def update_all(self):
-        self.update_pos()
-
-    def update_pos(self):
-        self.images.update_number()
-        self.image = self.images.list[self.images.number]
         self.pos[0] = self.level.universe.center_x+(self.center_distance)
         self.rect = Rect(self.pos, self.size)
 
@@ -37,12 +32,9 @@ class Water(Floor):
     direction = 'up'
 
     def set_pos(self):
-        self.pos[0] = self.level.universe.center_x+(self.center_distance)
-
-    def update_pos(self):
+        self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
+    def update_all(self):
         self.center_distance += self.speed[0]
-        self.images.update_number()
-        self.image = self.images.list[self.images.number]
 
         if self.direction == 'up':          self.height += self.speed[1]
         else:                               self.height -= self.speed[1]

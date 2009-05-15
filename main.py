@@ -80,9 +80,9 @@ while True:
                 break
         control.stage(universe)
         game_mouse.update()
-        clock.tick(15)
+        clock.tick(25)
         universe.screen_surface.fill([255,255,255])
-        universe.level.update_all(universe.action,universe.dir,universe)
+        universe.level.update_all()
         universe.clock_pointer.update_image()
 
         pygame.display.flip()
