@@ -52803,6 +52803,13 @@
        fx="1157.1451"
        fy="721.42291"
        r="6.5563488" />
+    <inkscape:perspective
+       id="perspective10330"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -70191,5 +70198,13 @@
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/title_screen/selection_back_space/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <image
+       y="817.20355"
+       x="4959.7891"
+       id="image10332"
+       height="27"
+       width="28"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       xlink:href="button_ok/0.png" />
   </g>
 </svg>
