@@ -3909,9 +3909,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25"
-     inkscape:cx="1963.9027"
-     inkscape:cy="-2280.8437"
+     inkscape:zoom="1"
+     inkscape:cx="442.94782"
+     inkscape:cy="-1439.1317"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -3919,10 +3919,10 @@
      inkscape:snap-global="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1439"
+     inkscape:window-width="1436"
      inkscape:window-height="848"
      inkscape:window-x="0"
-     inkscape:window-y="24">
+     inkscape:window-y="26">
     <inkscape:grid
        type="xygrid"
        id="grid2453"
@@ -4489,7 +4489,7 @@
        y="1224.0792" />
     <image
        y="1373.1656"
-       x="305.47012"
+       x="113.47012"
        id="image3040"
        height="200"
        width="200"
@@ -4497,7 +4497,10 @@
        xlink:href="/media/sdb1/Glamour/2dgame/art/princess/template.png" />
     <g
        id="g3458"
-       transform="translate(214.04156,673.16566)">
+       transform="translate(214.04156,673.16566)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/hydrant/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(0.9513889,0,0,0.9513889,14.123264,36.841521)"
          d="M 341.96428,827.67859 A 25.714285,25.714285 0 1 1 290.53572,827.67859 A 25.714285,25.714285 0 1 1 341.96428,827.67859 z"
@@ -4830,7 +4833,10 @@
        sodipodi:nodetypes="cccccccccccccccccc" />
     <g
        id="g3797"
-       transform="translate(353.55339,899.43983)">
+       transform="translate(353.55339,899.43983)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/bush/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          y="633.17902"
          x="299.71298"
