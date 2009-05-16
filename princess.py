@@ -311,7 +311,7 @@ class PrincessPart():
         self.image = self.actual_list[self.image_number]
 
     def update_image(self,princess,direction,reset = False,invert = 0):
-        if reset == True:
+        if reset:
             if self.reset_count == 0:
                 self.image_number = 1
                 self.reset_count = 1

@@ -34,21 +34,25 @@ class Stage():
         self.scenarios_front= []
         self.size = size
         self.rects = []
+        self.blitlist = ('clouds','background','moving_scenario','scenarios','gates','enemies','menus')
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
         except:     y_height = 186 
         return      y_height
-    def update_all(self,act,dir,universe):
-        surface = self.universe.screen_surface
+    def update_all(self):
+        try:
+            surface
+        except:
+            surface = self.universe.screen_surface
         self.rects = []
-        self.act = act
-        self.direction = self.dir = dir
-        for i in self.cameras:
-            i.update_all(self.princess)
-        universe.movement(self.direction)
+        act = self.act = self.universe.action
+        dir = self.direction = self.universe.dir
+
+        [i.update_all(self.princess) for i in self.cameras]
+        self.universe.movement(self.direction)
         [surface.blit(i.background,(0,0)) for i in self.sky]
 
-        for att in ('clouds','background','moving_scenario','scenarios','gates','enemies','menus'):
+        for att in self.blitlist:
             exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.rect.colliderect(self.cameras[0].rect)]')
             exec('for i in self.'+att+': i.update_all()')
 
@@ -69,7 +73,7 @@ class Stage():
             i.update_all()
 
         for i in self.gates:
-            if self.princess.rect.colliderect(i.rect)== True:
+            if self.princess.rect.colliderect(i.rect):
                 surface.blit(i.arrow_image,i.arrow_pos)
 
         for i in self.floor_image:
@@ -77,6 +81,7 @@ class Stage():
                 if i.rect.colliderect(self.cameras[0].rect):
                     surface.blit(i.image,i.pos)
                 i.update_all()
+
         for i in self.floor_image:
             if i.__class__ == floors.Water:
                 if i.rect.colliderect(self.cameras[0].rect):

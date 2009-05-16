@@ -31,8 +31,8 @@ class Glamour_Stars():
             self.center_distance[1]+=10
             if self.center_distance[1]> 300:
                 self.dir = 'up'
-        if self.alive == True:
-            if self.rect.colliderect(princess.rect)==True:
+        if self.alive:
+            if self.rect.colliderect(princess.rect):
                 self.alive = False
                 princess.glamour_points += 1
                 princess.celebrate = 1
