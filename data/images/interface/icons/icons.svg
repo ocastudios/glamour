@@ -24,6 +24,90 @@
      id="defs4">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient5397">
+      <stop
+         style="stop-color:#76765a;stop-opacity:1;"
+         offset="0"
+         id="stop5399" />
+      <stop
+         style="stop-color:#76765a;stop-opacity:0;"
+         offset="1"
+         id="stop5401" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5317">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5319" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5321" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5306">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop5308" />
+      <stop
+         style="stop-color:#ffff00;stop-opacity:0;"
+         offset="1"
+         id="stop5310" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5241">
+      <stop
+         style="stop-color:#b3b3b3;stop-opacity:1;"
+         offset="0"
+         id="stop5243" />
+      <stop
+         style="stop-color:#b3b3b3;stop-opacity:0;"
+         offset="1"
+         id="stop5245" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5230">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5232" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5234" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5167">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5169" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5171" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5115">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5117" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5119" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient5800">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
@@ -4302,6 +4386,253 @@
        y1="1164.713"
        x2="-639.80688"
        y2="1157.3656" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5115"
+       id="radialGradient5121"
+       cx="-1345.9955"
+       cy="584.57373"
+       fx="-1345.9955"
+       fy="584.57373"
+       r="18.435284"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2687496,-0.872571,0.6577507,0.9563945,-21.582232,-1150.5978)" />
+    <filter
+       inkscape:collect="always"
+       id="filter5129">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.73741135"
+         id="feGaussianBlur5131" />
+    </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5115"
+       id="radialGradient5142"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2687496,-0.872571,0.6577507,0.9563945,-21.582232,-1150.5978)"
+       cx="-1345.9955"
+       cy="584.57373"
+       fx="-1345.9955"
+       fy="584.57373"
+       r="18.435284" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5167"
+       id="linearGradient5173"
+       x1="-1325.97"
+       y1="691.29272"
+       x2="-1290.432"
+       y2="739.53442"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5167"
+       id="linearGradient5192"
+       gradientUnits="userSpaceOnUse"
+       x1="-1325.97"
+       y1="691.29272"
+       x2="-1290.432"
+       y2="739.53442" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5230"
+       id="linearGradient5236"
+       x1="-1408.3334"
+       y1="734.75195"
+       x2="-1384.4166"
+       y2="718.25195"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5247"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5251"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5255"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5259"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5263"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5230"
+       id="linearGradient5287"
+       gradientUnits="userSpaceOnUse"
+       x1="-1408.3334"
+       y1="734.75195"
+       x2="-1384.4166"
+       y2="718.25195" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5289"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5291"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5293"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5296"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5298"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5306"
+       id="linearGradient5312"
+       x1="-1416.2108"
+       y1="785.30457"
+       x2="-1076.9867"
+       y2="625.35602"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-332.55962,-224.59437)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5317"
+       id="linearGradient5323"
+       x1="-926.87445"
+       y1="528.66919"
+       x2="-1240.2756"
+       y2="674.31628"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5167"
+       id="linearGradient5371"
+       gradientUnits="userSpaceOnUse"
+       x1="-1325.97"
+       y1="691.29272"
+       x2="-1290.432"
+       y2="739.53442" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5230"
+       id="linearGradient5373"
+       gradientUnits="userSpaceOnUse"
+       x1="-1408.3334"
+       y1="734.75195"
+       x2="-1384.4166"
+       y2="718.25195" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5375"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5377"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5379"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5381"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5241"
+       id="linearGradient5383"
+       gradientUnits="userSpaceOnUse"
+       x1="-1388.8334"
+       y1="739.58527"
+       x2="-1379.1667"
+       y2="743.16864" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5397"
+       id="linearGradient5404"
+       x1="-1085.2198"
+       y1="588.64105"
+       x2="-1252.046"
+       y2="669.58514"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -4310,29 +4641,30 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-792.21244"
-     inkscape:cy="486.08577"
+     inkscape:zoom="0.99"
+     inkscape:cx="-525.3772"
+     inkscape:cy="1956.5671"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="mm"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1432"
-     inkscape:window-height="830"
+     inkscape:window-width="1430"
+     inkscape:window-height="829"
      inkscape:window-x="0"
-     inkscape:window-y="24"
-     gridtolerance="25"
-     inkscape:snap-global="true">
+     inkscape:window-y="26"
+     gridtolerance="50"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true">
     <inkscape:grid
        type="xygrid"
        id="grid10583"
        visible="true"
-       enabled="false"
-       units="mm"
-       spacingx="80mm"
-       spacingy="80mm" />
+       enabled="true"
+       units="px"
+       spacingx="100px"
+       spacingy="80px" />
     <sodipodi:guide
        orientation="0,1"
        position="-390.79381,519.85671"
@@ -4349,9 +4681,26 @@
        type="xygrid"
        id="grid5851"
        visible="true"
-       enabled="true"
+       enabled="false"
        spacingx="80px"
        spacingy="80px" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid5387"
+       visible="true"
+       enabled="false" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="-914.02878,1967.0863"
+       id="guide5478" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-927.51799,1985.9712"
+       id="guide5480" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-146.73913,1983.4239"
+       id="guide5735" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -14602,5 +14951,855 @@
        inkscape:export-filename="/media/sdb1/Glamour/2dgame/art/interface/icons/bath/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#e2e2ad;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4328"
+       sodipodi:cx="-1220.7694"
+       sodipodi:cy="661.96228"
+       sodipodi:rx="86.368042"
+       sodipodi:ry="86.368042"
+       d="M -1134.4014,661.96228 A 86.368042,86.368042 0 1 1 -1307.1375,661.96228 A 86.368042,86.368042 0 1 1 -1134.4014,661.96228 z"
+       transform="matrix(1.0249797,0,0,1.0249797,93.002549,-16.792919)" />
+    <g
+       id="g5133"
+       transform="translate(-279.06283,-150.46082)">
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="path5109"
+         d="M -1350.4801,696.91324 L -1320.924,690.79686 L -1297.0302,671.82765 L -1287.2113,704.31676 L -1268.8832,729.80623 L -1301.6626,736.87445 L -1326.6254,760.18134 L -1334.5321,723.07177 L -1350.4801,696.91324 z"
+         style="opacity:0.8;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="path5111"
+         d="M -1328.125,677.19433 L -1303.0632,694.01328 L -1272.7897,697.79015 L -1289.1103,727.54908 L -1294.4753,758.48206 L -1322.4736,740.0283 L -1356.5924,738.52545 L -1335.6341,706.89651 L -1328.125,677.19433 z"
+         style="opacity:0.8;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="path4337"
+         d="M -1339.9066,683.98129 L -1310.2478,689.57835 L -1280.9314,681.13478 L -1284.2215,714.91537 L -1276.9782,745.46319 L -1309.98,739.51906 L -1341.9363,751.56666 L -1335.119,714.24161 L -1339.9066,683.98129 z"
+         style="opacity:0.8;fill:#ea6308;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="rect4334"
+         d="M -1310.8109,660.92195 L -1292.4608,696.98483 L -1254.4045,715.08419 L -1291.9734,733.3042 L -1310.4561,769.6012 L -1327.5849,732.48756 L -1365.603,714.17937 L -1327.4869,696.83785 L -1310.8109,660.92195 z"
+         style="opacity:0.8;fill:#e99a2d;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4" />
+      <path
+         transform="matrix(1.4056333,0,0,1.4056333,569.08206,-92.287908)"
+         d="M -1318.249,574.83661 A 18.435284,18.435284 0 1 1 -1355.1196,574.83661 A 18.435284,18.435284 0 1 1 -1318.249,574.83661 z"
+         sodipodi:ry="18.435284"
+         sodipodi:rx="18.435284"
+         sodipodi:cy="574.83661"
+         sodipodi:cx="-1336.6843"
+         id="path5123"
+         style="opacity:0.2;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter5129)"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.3131187,0,0,1.3131187,445.42926,-39.275131)"
+         d="M -1318.249,574.83661 A 18.435284,18.435284 0 1 1 -1355.1196,574.83661 A 18.435284,18.435284 0 1 1 -1318.249,574.83661 z"
+         sodipodi:ry="18.435284"
+         sodipodi:rx="18.435284"
+         sodipodi:cy="574.83661"
+         sodipodi:cx="-1336.6843"
+         id="path4330"
+         style="opacity:0.8;fill:#edeb81;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.1449103,0,0,1.1449103,220.73283,57.120041)"
+         d="M -1318.249,574.83661 A 18.435284,18.435284 0 1 1 -1355.1196,574.83661 A 18.435284,18.435284 0 1 1 -1318.249,574.83661 z"
+         sodipodi:ry="18.435284"
+         sodipodi:rx="18.435284"
+         sodipodi:cy="574.83661"
+         sodipodi:cx="-1336.6843"
+         id="path5113"
+         style="opacity:0.4;fill:url(#radialGradient5142);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g5265">
+      <rect
+         transform="matrix(0.8238714,0.5667768,-0.5667768,0.8238714,0,0)"
+         y="1298.1356"
+         x="-692.31403"
+         height="62.288929"
+         width="62.288929"
+         id="rect5178"
+         style="fill:#e4dd43;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="688.71283"
+         x="-1329.6434"
+         height="62.288929"
+         width="62.288929"
+         id="rect5175"
+         style="fill:#f4f46b;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         transform="matrix(0.4310898,0.902309,-0.902309,0.4310898,0,0)"
+         y="1453.2394"
+         x="59.75383"
+         height="62.288929"
+         width="62.288929"
+         id="rect5180"
+         style="fill:#eddd3e;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(0,-2.480957)"
+         d="M -1269.802,723.8559 A 30.198019,30.198019 0 1 1 -1330.198,723.8559 A 30.198019,30.198019 0 1 1 -1269.802,723.8559 z"
+         sodipodi:ry="30.198019"
+         sodipodi:rx="30.198019"
+         sodipodi:cy="723.8559"
+         sodipodi:cx="-1300"
+         id="path5145"
+         style="fill:#fbf495;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5159"
+         d="M -1312.3043,708.8607 C -1310.4791,702.66658 -1302.1056,705.52386 -1304.0424,711.16967"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5161"
+         d="M -1296.6268,711.81947 C -1298.6254,705.67914 -1290.1041,703.29879 -1288.5077,709.05012"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5163"
+         d="M -1291.4944,722.00441 C -1291.0757,736.80266 -1311.3574,736.51896 -1311.1435,722.83667"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.29258895px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         transform="matrix(0.884593,0,0,0.884593,-150.66926,79.219881)"
+         d="M -1269.802,723.8559 A 30.198019,30.198019 0 1 1 -1330.198,723.8559 A 30.198019,30.198019 0 1 1 -1269.802,723.8559 z"
+         sodipodi:ry="30.198019"
+         sodipodi:rx="30.198019"
+         sodipodi:cy="723.8559"
+         sodipodi:cx="-1300"
+         id="path5165"
+         style="fill:url(#linearGradient5192);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g5275"
+       transform="translate(247.1074,-325.43633)">
+      <path
+         id="path5194"
+         d="M -1386.3574,689.68828 C -1403.3391,689.68828 -1417.1074,703.45662 -1417.1074,720.43828 C -1417.1074,737.41994 -1403.3391,751.21954 -1386.3574,751.21953 C -1369.3758,751.21953 -1355.6075,737.41994 -1355.6074,720.43828 C -1355.6074,718.22493 -1355.8501,716.082 -1356.295,714.00078 C -1357.4966,721.8578 -1364.2599,727.90703 -1372.4512,727.90703 C -1381.4899,727.90702 -1388.8262,720.57065 -1388.8262,711.53203 C -1388.8262,702.49341 -1381.4898,695.15703 -1372.4512,695.15703 C -1370.9023,695.15703 -1369.4342,695.37953 -1368.0137,695.78203 C -1373.1374,691.96699 -1379.4831,689.68827 -1386.3574,689.68828 z"
+         style="opacity:1;fill:#e5e5e9;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5201"
+         d="M -1406.6218,724.45084 C -1407.4486,720.87809 -1403.6896,717.55225 -1400.9319,719.64118"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5205"
+         d="M -1390.1418,718.14606 C -1392.0616,715.86277 -1395.7551,715.50017 -1396.768,718.80811"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5215"
+         d="M -1387.8976,725.32075 C -1387.2771,727.43572 -1393.4203,735.64297 -1400.4328,731.21588"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.55064595px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path5225"
+         d="M -1386.6978,690 C -1389.9991,690 -1393.1545,690.53686 -1396.1354,691.5 C -1393.2468,690.60149 -1390.1632,690.125 -1386.9791,690.125 C -1386.1839,690.125 -1385.4153,690.19017 -1384.6354,690.25 C -1400.2372,690.24999 -1412.8853,702.89826 -1412.8854,718.5 C -1412.8854,734.10172 -1400.2371,746.78126 -1384.6354,746.78125 C -1369.0336,746.78124 -1356.3854,734.10174 -1356.3854,718.5 C -1356.3854,718.27768 -1356.38,718.06453 -1356.3854,717.84375 C -1356.2839,718.84584 -1356.2292,719.8432 -1356.2291,720.875 C -1356.2292,732.54989 -1362.7374,742.72084 -1372.3228,747.9375 C -1362.5888,742.76623 -1355.9479,732.5349 -1355.9478,720.75 C -1355.9478,718.53663 -1356.1904,716.39372 -1356.6354,714.3125 C -1357.8369,722.1695 -1364.6003,728.21875 -1372.7916,728.21875 C -1381.8303,728.21872 -1389.1666,720.88237 -1389.1666,711.84375 C -1389.1666,703.59779 -1383.0381,696.79065 -1375.1041,695.65625 C -1375.0527,695.6445 -1374.9994,695.63627 -1374.9478,695.625 C -1373.9464,695.40608 -1372.9207,695.28125 -1371.8541,695.28125 C -1371.1532,695.28125 -1370.4601,695.34299 -1369.7916,695.4375 C -1369.7814,695.43893 -1369.7704,695.43605 -1369.7604,695.4375 C -1369.5199,695.60068 -1369.2815,695.7703 -1369.0416,695.9375 C -1368.8096,695.99293 -1368.5835,696.02876 -1368.3541,696.09375 C -1373.4778,692.27869 -1379.8236,689.99999 -1386.6978,690 z M -1372.3228,747.9375 C -1372.7586,748.17462 -1373.2185,748.40867 -1373.6666,748.625 C -1373.2089,748.41015 -1372.7679,748.17393 -1372.3228,747.9375 z M -1396.1354,691.5 C -1396.606,691.65206 -1397.0812,691.82617 -1397.5416,692 C -1397.0706,691.82754 -1396.6168,691.64975 -1396.1354,691.5 z"
+         style="opacity:0.4;fill:url(#linearGradient5287);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="matrix(0.7659575,0,0,0.7659575,-311.78369,167.28237)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5239"
+         style="opacity:0.4;fill:url(#linearGradient5289);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.7115678,0.6720361,-0.6720361,0.7115678,97.921694,1142.964)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5249"
+         style="opacity:0.4;fill:url(#linearGradient5291);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.4525406,-0.5643813,0.5643813,0.4525406,-1173.6313,-385.36251)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5253"
+         style="opacity:0.4;fill:url(#linearGradient5293);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.8597747,-0.2434888,0.2434888,-0.8597747,-2771.8498,1005.7513)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5257"
+         style="opacity:0.4;fill:url(#linearGradient5296);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.1651399,-0.6165153,0.6165153,0.1651399,-1624.6563,-276.83514)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5261"
+         style="opacity:0.4;fill:url(#linearGradient5298);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <path
+       style="opacity:0.8;fill:url(#linearGradient5312);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -1490.8548,348.23384 C -1539.7209,348.23384 -1579.3861,387.89904 -1579.3861,436.76509 C -1579.3861,485.63116 -1539.7209,525.26509 -1490.8548,525.26509 C -1444.4064,525.26509 -1406.2642,489.43295 -1402.6048,443.92134 C -1409.5885,476.67971 -1438.6794,501.29634 -1473.5111,501.29634 C -1513.548,501.29635 -1546.0423,468.802 -1546.0423,428.76509 C -1546.0423,388.7282 -1513.548,356.23384 -1473.5111,356.23384 C -1461.1232,356.23384 -1449.4656,359.34504 -1439.2611,364.82759 C -1453.7882,354.38911 -1471.6138,348.23384 -1490.8548,348.23384 z"
+       id="path5300" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:url(#linearGradient5323);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5315"
+       sodipodi:cx="-1220.7694"
+       sodipodi:cy="661.96228"
+       sodipodi:rx="86.368042"
+       sodipodi:ry="86.368042"
+       d="M -1134.4014,661.96228 A 86.368042,86.368042 0 1 1 -1307.1375,661.96228 A 86.368042,86.368042 0 1 1 -1134.4014,661.96228 z"
+       transform="matrix(1.0249797,0,0,1.0249797,118.40116,-89.416262)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#e2e2ad;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5327"
+       sodipodi:cx="-1220.7694"
+       sodipodi:cy="661.96228"
+       sodipodi:rx="86.368042"
+       sodipodi:ry="86.368042"
+       d="M -1134.4014,661.96228 A 86.368042,86.368042 0 1 1 -1307.1375,661.96228 A 86.368042,86.368042 0 1 1 -1134.4014,661.96228 z"
+       transform="matrix(-0.4548278,0.9374022,-0.9374022,-0.4548278,-744.71494,2079.6827)" />
+    <g
+       id="g5329"
+       transform="matrix(0.9217721,-4.7453164e-2,4.7453164e-2,0.9217721,354.04657,-231.86853)">
+      <rect
+         transform="matrix(0.8238714,0.5667768,-0.5667768,0.8238714,0,0)"
+         y="1298.1356"
+         x="-692.31403"
+         height="62.288929"
+         width="62.288929"
+         id="rect5331"
+         style="fill:#e4dd43;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="688.71283"
+         x="-1329.6434"
+         height="62.288929"
+         width="62.288929"
+         id="rect5333"
+         style="fill:#f4f46b;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         transform="matrix(0.4310898,0.902309,-0.902309,0.4310898,0,0)"
+         y="1453.2394"
+         x="59.75383"
+         height="62.288929"
+         width="62.288929"
+         id="rect5335"
+         style="fill:#eddd3e;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(0,-2.480957)"
+         d="M -1269.802,723.8559 A 30.198019,30.198019 0 1 1 -1330.198,723.8559 A 30.198019,30.198019 0 1 1 -1269.802,723.8559 z"
+         sodipodi:ry="30.198019"
+         sodipodi:rx="30.198019"
+         sodipodi:cy="723.8559"
+         sodipodi:cx="-1300"
+         id="path5337"
+         style="fill:#fbf495;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5339"
+         d="M -1312.3043,708.8607 C -1310.4791,702.66658 -1302.1056,705.52386 -1304.0424,711.16967"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5341"
+         d="M -1296.6268,711.81947 C -1298.6254,705.67914 -1290.1041,703.29879 -1288.5077,709.05012"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5343"
+         d="M -1291.4944,722.00441 C -1291.0757,736.80266 -1311.3574,736.51896 -1311.1435,722.83667"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.29258895px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         transform="matrix(0.884593,0,0,0.884593,-150.66926,79.219881)"
+         d="M -1269.802,723.8559 A 30.198019,30.198019 0 1 1 -1330.198,723.8559 A 30.198019,30.198019 0 1 1 -1269.802,723.8559 z"
+         sodipodi:ry="30.198019"
+         sodipodi:rx="30.198019"
+         sodipodi:cy="723.8559"
+         sodipodi:cx="-1300"
+         id="path5345"
+         style="fill:url(#linearGradient5371);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g5347"
+       transform="matrix(-0.8996898,-0.4365298,0.4365298,-0.8996898,-2374.1009,826.47997)">
+      <path
+         id="path5349"
+         d="M -1386.3574,689.68828 C -1403.3391,689.68828 -1417.1074,703.45662 -1417.1074,720.43828 C -1417.1074,737.41994 -1403.3391,751.21954 -1386.3574,751.21953 C -1369.3758,751.21953 -1355.6075,737.41994 -1355.6074,720.43828 C -1355.6074,718.22493 -1355.8501,716.082 -1356.295,714.00078 C -1357.4966,721.8578 -1364.2599,727.90703 -1372.4512,727.90703 C -1381.4899,727.90702 -1388.8262,720.57065 -1388.8262,711.53203 C -1388.8262,702.49341 -1381.4898,695.15703 -1372.4512,695.15703 C -1370.9023,695.15703 -1369.4342,695.37953 -1368.0137,695.78203 C -1373.1374,691.96699 -1379.4831,689.68827 -1386.3574,689.68828 z"
+         style="opacity:1;fill:#e5e5e9;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5351"
+         d="M -1406.6218,724.45084 C -1407.4486,720.87809 -1403.6896,717.55225 -1400.9319,719.64118"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5353"
+         d="M -1390.1418,718.14606 C -1392.0616,715.86277 -1395.7551,715.50017 -1396.768,718.80811"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5355"
+         d="M -1387.8976,725.32075 C -1387.2771,727.43572 -1393.4203,735.64297 -1400.4328,731.21588"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.55064595px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path5357"
+         d="M -1386.6978,690 C -1389.9991,690 -1393.1545,690.53686 -1396.1354,691.5 C -1393.2468,690.60149 -1390.1632,690.125 -1386.9791,690.125 C -1386.1839,690.125 -1385.4153,690.19017 -1384.6354,690.25 C -1400.2372,690.24999 -1412.8853,702.89826 -1412.8854,718.5 C -1412.8854,734.10172 -1400.2371,746.78126 -1384.6354,746.78125 C -1369.0336,746.78124 -1356.3854,734.10174 -1356.3854,718.5 C -1356.3854,718.27768 -1356.38,718.06453 -1356.3854,717.84375 C -1356.2839,718.84584 -1356.2292,719.8432 -1356.2291,720.875 C -1356.2292,732.54989 -1362.7374,742.72084 -1372.3228,747.9375 C -1362.5888,742.76623 -1355.9479,732.5349 -1355.9478,720.75 C -1355.9478,718.53663 -1356.1904,716.39372 -1356.6354,714.3125 C -1357.8369,722.1695 -1364.6003,728.21875 -1372.7916,728.21875 C -1381.8303,728.21872 -1389.1666,720.88237 -1389.1666,711.84375 C -1389.1666,703.59779 -1383.0381,696.79065 -1375.1041,695.65625 C -1375.0527,695.6445 -1374.9994,695.63627 -1374.9478,695.625 C -1373.9464,695.40608 -1372.9207,695.28125 -1371.8541,695.28125 C -1371.1532,695.28125 -1370.4601,695.34299 -1369.7916,695.4375 C -1369.7814,695.43893 -1369.7704,695.43605 -1369.7604,695.4375 C -1369.5199,695.60068 -1369.2815,695.7703 -1369.0416,695.9375 C -1368.8096,695.99293 -1368.5835,696.02876 -1368.3541,696.09375 C -1373.4778,692.27869 -1379.8236,689.99999 -1386.6978,690 z M -1372.3228,747.9375 C -1372.7586,748.17462 -1373.2185,748.40867 -1373.6666,748.625 C -1373.2089,748.41015 -1372.7679,748.17393 -1372.3228,747.9375 z M -1396.1354,691.5 C -1396.606,691.65206 -1397.0812,691.82617 -1397.5416,692 C -1397.0706,691.82754 -1396.6168,691.64975 -1396.1354,691.5 z"
+         style="opacity:0.4;fill:url(#linearGradient5373);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="matrix(0.7659575,0,0,0.7659575,-311.78369,167.28237)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5359"
+         style="opacity:0.4;fill:url(#linearGradient5375);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.7115678,0.6720361,-0.6720361,0.7115678,97.921694,1142.964)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5361"
+         style="opacity:0.4;fill:url(#linearGradient5377);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.4525406,-0.5643813,0.5643813,0.4525406,-1173.6313,-385.36251)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5363"
+         style="opacity:0.4;fill:url(#linearGradient5379);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.8597747,-0.2434888,0.2434888,-0.8597747,-2771.8498,1005.7513)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5365"
+         style="opacity:0.4;fill:url(#linearGradient5381);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.1651399,-0.6165153,0.6165153,0.1651399,-1624.6563,-276.83514)"
+         d="M -1379.1667,742.16864 A 3.9166667,3.9166667 0 1 1 -1387,742.16864 A 3.9166667,3.9166667 0 1 1 -1379.1667,742.16864 z"
+         sodipodi:ry="3.9166667"
+         sodipodi:rx="3.9166667"
+         sodipodi:cy="742.16864"
+         sodipodi:cx="-1383.0834"
+         id="path5367"
+         style="opacity:0.4;fill:url(#linearGradient5383);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:url(#linearGradient5404);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5369"
+       sodipodi:cx="-1220.7694"
+       sodipodi:cy="661.96228"
+       sodipodi:rx="86.368042"
+       sodipodi:ry="86.368042"
+       d="M -1134.4014,661.96228 A 86.368042,86.368042 0 1 1 -1307.1375,661.96228 A 86.368042,86.368042 0 1 1 -1134.4014,661.96228 z"
+       transform="matrix(-0.4548278,0.9374022,-0.9374022,-0.4548278,-744.71494,2079.6827)" />
+    <rect
+       style="opacity:0.30215831;fill:#76765a;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect5406"
+       width="360"
+       height="360"
+       x="-990"
+       y="454.25195"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/sun_n_moon/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5469"
+       sodipodi:cx="-880.69568"
+       sodipodi:cy="64.099213"
+       sodipodi:rx="10.350835"
+       sodipodi:ry="10.350835"
+       d="M -870.34484,64.099213 A 10.350835,10.350835 0 1 1 -891.04651,64.099213 A 10.350835,10.350835 0 1 1 -870.34484,64.099213 z"
+       transform="matrix(1.3525479,0,0,1.3525479,254.71356,-45.55678)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5471"
+       sodipodi:cx="-880.69568"
+       sodipodi:cy="64.099213"
+       sodipodi:rx="10.350835"
+       sodipodi:ry="10.350835"
+       d="M -870.34484,64.099213 A 10.350835,10.350835 0 1 1 -891.04651,64.099213 A 10.350835,10.350835 0 1 1 -870.34484,64.099213 z"
+       transform="matrix(1.3525479,0,0,1.3525479,263.15431,-87.905734)" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -928.99753,-12.647932 C -932.50867,-12.385435 -935.58726,-10.567671 -937.52878,-7.8666817 L -929.62253,-2.2729317 C -929.36332,-2.6465987 -929.03059,-2.9721883 -928.59128,-3.1166817 L -928.99753,-12.647932 z M -927.24753,-12.647932 L -927.62253,-3.1791817 C -927.13002,-3.103249 -926.7229,-2.8479302 -926.40378,-2.4916817 L -918.74753,-7.8979317 C -920.69043,-10.579618 -923.75168,-12.386577 -927.24753,-12.647932 z M -917.59128,-5.8666817 L -925.93503,-1.7104317 C -925.87808,-1.5186572 -925.81049,-1.3267537 -925.81003,-1.1166817 C -925.80938,-0.80788155 -925.849,-0.47517775 -925.96628,-0.21043165 L -917.68503,3.8833183 C -916.95527,2.3672653 -916.56002,0.67746511 -916.56003,-1.1166817 C -916.56003,-2.8120505 -916.93532,-4.415292 -917.59128,-5.8666817 z M -938.65378,-5.8354317 C -939.30182,-4.391327 -939.68503,-2.8011737 -939.68503,-1.1166817 C -939.68503,0.71978562 -939.2287,2.4341488 -938.46628,3.9770683 L -929.90378,-0.24168165 C -930.01114,-0.49564735 -930.0594,-0.82356875 -930.06003,-1.1166817 C -930.06038,-1.2825907 -930.03299,-1.4305716 -929.99753,-1.5854317 L -938.65378,-5.8354317 z M -929.52878,0.22706835 L -937.46628,5.6958183 C -935.55092,8.3142396 -932.56631,10.082101 -929.15378,10.383318 L -928.62253,0.85206835 C -928.97803,0.72280803 -929.29102,0.51382126 -929.52878,0.22706835 z M -926.56003,0.44581835 C -926.86916,0.72489654 -927.25232,0.92056699 -927.68503,0.97706835 L -927.09128,10.383318 C -923.67876,10.082101 -920.69414,8.3142396 -918.77878,5.6958183 L -926.56003,0.44581835 z"
+       id="path5473" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4314"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,-427.76471,-771.96783)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4316"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-531.87666,-583.14323)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -851.04352,4.8873716 C -854.9314,5.3639387 -857.95002,9.3868439 -857.9467,14.259265 L -857.93881,25.811114 L -842.56389,25.819003 L -842.57178,14.267156 C -842.57533,9.0699058 -846.00424,4.8899576 -850.26563,4.8877707 C -850.53199,4.887634 -850.78434,4.8555808 -851.04352,4.8873716 z"
+       id="path4318"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -900,34.831604 C -894.35897,33.414848 -881.92075,32.784373 -876.71217,36.869611 L -877.68215,37.286476 C -882.09218,35.182247 -888.29069,34.082624 -894.8608,38.469285 L -900,34.831604 z"
+       id="path4322"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -800,34.919112 C -805.64296,33.496566 -818.08205,32.853324 -823.28506,36.933219 L -822.31451,37.35108 C -817.90734,35.251375 -811.71034,34.158114 -805.13423,38.551521 L -800,34.919112 z"
+       id="path4326"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -885.23876,36.11861 C -892.96676,36.11861 -899.23874,42.418369 -899.23876,50.180574 C -899.23876,57.942778 -892.96674,64.242538 -885.23876,64.242538 C -877.51076,64.242538 -871.23874,57.942778 -871.23876,50.180574 C -871.23876,42.418369 -877.51074,36.11861 -885.23876,36.11861 z M -886.20751,38.692451 L -885.80126,48.265887 C -886.24057,48.411019 -886.57328,48.738049 -886.83251,49.113371 L -894.73876,43.494863 C -892.79724,40.781919 -889.71863,38.956109 -886.20751,38.692451 z M -884.45751,38.692451 C -880.96166,38.954963 -877.90039,40.769919 -875.95751,43.463475 L -883.61376,48.893653 C -883.93288,48.535827 -884.33998,48.279377 -884.83251,48.20311 L -884.45751,38.692451 z M -874.80126,45.503715 C -874.1453,46.961528 -873.76999,48.571865 -873.77001,50.274739 C -873.77,52.076825 -874.16523,53.774105 -874.89501,55.296869 L -883.17626,51.185 C -883.05898,50.919082 -883.01934,50.584904 -883.02001,50.274739 C -883.02047,50.063737 -883.08804,49.870982 -883.14501,49.678361 L -874.80126,45.503715 z M -895.86376,45.535103 L -887.20751,49.803914 C -887.24297,49.959459 -887.27034,50.108094 -887.27001,50.274739 C -887.26938,50.569149 -887.2211,50.89852 -887.11376,51.153611 L -895.67626,55.391034 C -896.43868,53.841285 -896.89499,52.119333 -896.89501,50.274739 C -896.89501,48.582791 -896.51178,46.985598 -895.86376,45.535103 z M -886.73876,51.624436 C -886.501,51.912458 -886.18799,52.122368 -885.83251,52.252202 L -886.36376,61.825638 C -889.77629,61.523087 -892.76088,59.7474 -894.67626,57.117391 L -886.73876,51.624436 z M -883.77001,51.844154 L -875.98876,57.117391 C -877.90412,59.747401 -880.88872,61.523086 -884.30126,61.825638 L -884.89501,52.377756 C -884.4623,52.321003 -884.07912,52.124466 -883.77001,51.844154 z"
+       id="path5484"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -814.92805,36.128023 C -822.65605,36.128023 -828.92803,42.427783 -828.92805,50.189987 C -828.92805,57.952191 -822.65603,64.251951 -814.92805,64.251951 C -807.20005,64.251951 -800.92803,57.952191 -800.92805,50.189987 C -800.92805,42.427783 -807.20003,36.128023 -814.92805,36.128023 z M -815.8968,38.701865 L -815.49055,48.2753 C -815.92986,48.420433 -816.26257,48.747463 -816.5218,49.122784 L -824.42805,43.504277 C -822.48653,40.791333 -819.40792,38.965523 -815.8968,38.701865 z M -814.1468,38.701865 C -810.65095,38.964376 -807.58968,40.779332 -805.6468,43.472888 L -813.30305,48.903066 C -813.62217,48.545241 -814.02927,48.28879 -814.5218,48.212523 L -814.1468,38.701865 z M -804.49055,45.513129 C -803.83459,46.970941 -803.45928,48.581278 -803.4593,50.284152 C -803.45929,52.086239 -803.85452,53.783518 -804.5843,55.306282 L -812.86555,51.194413 C -812.74827,50.928495 -812.70863,50.594318 -812.7093,50.284152 C -812.70976,50.07315 -812.77733,49.880396 -812.8343,49.687774 L -804.49055,45.513129 z M -825.55305,45.544517 L -816.8968,49.813327 C -816.93226,49.968873 -816.95963,50.117508 -816.9593,50.284152 C -816.95867,50.578562 -816.91039,50.907934 -816.80305,51.163025 L -825.36555,55.400447 C -826.12797,53.850698 -826.58428,52.128746 -826.5843,50.284152 C -826.5843,48.592204 -826.20107,46.995011 -825.55305,45.544517 z M -816.42805,51.633849 C -816.19029,51.921872 -815.87728,52.131782 -815.5218,52.261616 L -816.05305,61.835051 C -819.46558,61.532501 -822.45017,59.756813 -824.36555,57.126804 L -816.42805,51.633849 z M -813.4593,51.853568 L -805.67805,57.126804 C -807.59341,59.756814 -810.57801,61.5325 -813.99055,61.835051 L -814.5843,52.387169 C -814.15159,52.330417 -813.76841,52.13388 -813.4593,51.853568 z"
+       id="path5489"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/0.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5516"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,-327.76471,-771.96783)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5518"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-431.87666,-583.14323)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -751.04352,4.8873711 C -754.9314,5.3639382 -757.95002,9.3868434 -757.9467,14.259265 L -757.93881,25.811113 L -742.56389,25.819003 L -742.57178,14.267156 C -742.57533,9.0699053 -746.00424,4.8899571 -750.26563,4.8877702 C -750.53199,4.8876335 -750.78434,4.8555803 -751.04352,4.8873711 z"
+       id="path5520"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -800,34.831604 C -794.35897,33.414847 -781.92075,32.784373 -776.71217,36.86961 L -777.68215,37.286475 C -782.09218,35.182246 -788.29069,34.082624 -794.8608,38.469284 L -800,34.831604 z"
+       id="path5522"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -700,34.919112 C -705.64296,33.496565 -718.08205,32.853324 -723.28506,36.933219 L -722.31451,37.351079 C -717.90734,35.251375 -711.71034,34.158113 -705.13423,38.551521 L -700,34.919112 z"
+       id="path5524"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -788.57937,36.521175 C -796.08613,38.357065 -800.68197,45.966469 -798.83797,53.506462 C -796.99395,61.04645 -789.40489,65.675857 -781.89815,63.839971 C -774.39139,62.004081 -769.79552,54.394667 -771.63955,46.854684 C -773.48357,39.314696 -781.07259,34.685279 -788.57937,36.521175 z M -788.90894,39.251472 L -786.24002,48.454329 C -786.63227,48.699671 -786.87777,49.096379 -787.04041,49.52254 L -796.05507,45.943115 C -794.81363,42.846602 -792.2569,40.341696 -788.90894,39.251472 z M -787.20903,38.835736 C -783.7509,38.260247 -780.3461,39.295997 -777.81895,41.450885 L -783.96601,48.544453 C -784.361,48.272683 -784.81737,48.120287 -785.31391,48.16321 L -787.20903,38.835736 z M -776.21112,43.158035 C -775.22761,44.418281 -774.48049,45.893357 -774.07597,47.547486 C -773.64785,49.29798 -773.62855,51.040562 -773.97569,52.693101 L -782.99669,50.66627 C -782.94594,50.380103 -782.98682,50.046076 -783.06116,49.744948 C -783.11173,49.540096 -783.22316,49.368912 -783.32426,49.195339 L -776.21112,43.158035 z M -796.66318,48.192206 L -787.24063,50.282399 C -787.23812,50.441916 -787.2294,50.592798 -787.18949,50.754593 C -787.11894,51.040425 -786.99379,51.348898 -786.82892,51.571186 L -794.13964,57.721437 C -795.2484,56.397177 -796.10072,54.832924 -796.53894,53.041142 C -796.94089,51.397632 -796.94807,49.755121 -796.66318,48.192206 z M -786.35281,51.939446 C -786.05343,52.16274 -785.69952,52.292281 -785.32337,52.333949 L -783.56511,61.759521 C -786.95182,62.276325 -790.27281,61.260501 -792.75815,59.160808 L -786.35281,51.939446 z M -783.41685,51.447608 L -774.60563,54.721341 C -775.84137,57.731078 -778.31869,60.164962 -781.56166,61.269546 L -784.38288,52.233192 C -783.97604,52.075268 -783.65052,51.793328 -783.41685,51.447608 z"
+       id="path5526"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -718.01467,36.470963 C -725.5542,38.167269 -730.29042,45.690099 -728.58662,53.263005 C -726.88281,60.835906 -719.38094,65.605312 -711.84143,63.909011 C -704.3019,62.212705 -699.56565,54.689866 -701.26948,47.116969 C -702.97329,39.544067 -710.47512,34.774653 -718.01467,36.470963 z M -718.39483,39.194676 L -715.89711,48.445464 C -716.29385,48.683486 -716.54666,49.075571 -716.71718,49.498641 L -725.66389,45.752588 C -724.36521,42.679641 -721.76245,40.222599 -718.39483,39.194676 z M -716.68751,38.810549 C -713.2193,38.299315 -709.8343,39.398055 -707.34756,41.599457 L -713.62516,48.577762 C -714.01504,48.298709 -714.4685,48.137873 -714.96576,48.171577 L -716.68751,38.810549 z M -705.77167,43.336142 C -704.81172,44.614418 -704.09209,46.103101 -703.71833,47.76445 C -703.32276,49.522585 -703.33579,51.265225 -703.71353,52.91104 L -712.69538,50.717196 C -712.63933,50.43202 -712.67401,50.097291 -712.74274,49.794837 C -712.78951,49.589082 -712.89774,49.415859 -712.9956,49.240441 L -705.77167,43.336142 z M -726.31362,47.99001 L -716.93146,50.254656 C -716.93192,50.414191 -716.92599,50.565209 -716.88909,50.727718 C -716.82385,51.014809 -716.70446,51.32555 -716.54374,51.550859 L -723.9673,57.564419 C -725.0513,56.219818 -725.87445,54.640021 -726.27936,52.840417 C -726.65075,51.189732 -726.62745,49.547372 -726.31362,47.99001 z M -716.07454,51.927888 C -715.77936,52.156697 -715.4279,52.292782 -715.05259,52.341421 L -713.46951,61.797993 C -716.86522,62.251875 -720.16679,61.174614 -722.61275,59.029174 L -716.07454,51.927888 z M -713.12996,51.490603 L -704.381,54.927243 C -705.67235,57.913537 -708.1944,60.301041 -711.45731,61.345271 L -714.1104,52.25813 C -713.7007,52.107782 -713.37,51.831929 -713.12996,51.490603 z"
+       id="path5528"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/1.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5537"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,-227.76471,-771.96787)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5539"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-331.87666,-583.14327)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -651.04352,4.8873349 C -654.9314,5.363902 -657.95002,9.3868072 -657.9467,14.259229 L -657.93881,25.811077 L -642.56389,25.818967 L -642.57178,14.26712 C -642.57533,9.0698692 -646.00424,4.8899209 -650.26563,4.887734 C -650.53199,4.8875973 -650.78434,4.8555441 -651.04352,4.8873349 z"
+       id="path5541"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -700,34.831568 C -694.35897,33.414811 -681.92075,32.784337 -676.71217,36.869574 L -677.68215,37.286439 C -682.09218,35.18221 -688.29069,34.082588 -694.8608,38.469248 L -700,34.831568 z"
+       id="path5543"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -600,34.919076 C -605.64296,33.496529 -618.08205,32.853288 -623.28506,36.933183 L -622.31451,37.351043 C -617.90734,35.251339 -611.71034,34.158077 -605.13423,38.551485 L -600,34.919076 z"
+       id="path5545"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -690.52788,37.151185 C -697.68839,40.057913 -701.13028,48.254141 -698.2107,55.446352 C -695.2911,62.638554 -687.11013,66.116612 -679.94964,63.20989 C -672.78913,60.303162 -669.34721,52.10692 -672.26682,44.914724 C -675.18642,37.722521 -683.36735,34.244448 -690.52788,37.151185 z M -690.4574,39.900398 L -686.48013,48.618025 C -686.83258,48.917737 -687.01786,49.345896 -687.11688,49.79116 L -696.55584,47.559009 C -695.77731,44.315021 -693.61151,41.465329 -690.4574,39.900398 z M -688.8359,39.24217 C -685.49802,38.170513 -681.97889,38.700756 -679.16556,40.465742 L -684.21714,48.376909 C -684.64742,48.16539 -685.12108,48.080895 -685.60612,48.195482 L -688.8359,39.24217 z M -677.32682,41.921263 C -676.1707,43.025298 -675.21726,44.376218 -674.57678,45.954053 C -673.89895,47.623803 -673.62676,49.345103 -673.7302,51.030538 L -682.94992,50.335439 C -682.94127,50.044935 -683.03023,49.720388 -683.14752,49.43325 C -683.22731,49.237916 -683.36242,49.084731 -683.48766,48.927683 L -677.32682,41.921263 z M -696.83083,49.872575 L -687.20461,50.572042 C -687.17896,50.729503 -687.14842,50.877518 -687.08543,51.031801 C -686.97411,51.304355 -686.80549,51.59138 -686.61008,51.787365 L -692.95,58.934231 C -694.23934,57.785053 -695.30982,56.361181 -696.00363,54.652048 C -696.64003,53.084346 -696.8857,51.460295 -696.83083,49.872575 z M -686.08553,52.082568 C -685.75689,52.260011 -685.38792,52.336775 -685.00971,52.323368 L -681.90109,61.393616 C -685.17683,62.396836 -688.61014,61.874135 -691.3741,60.157686 L -686.08553,52.082568 z M -683.25214,51.169517 L -674.05887,53.128765 C -674.84436,56.28607 -676.94191,59.053959 -679.99005,60.617849 L -684.09383,52.08708 C -683.71424,51.87174 -683.43312,51.54551 -683.25214,51.169517 z"
+       id="path5547"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -619.86398,37.022739 C -627.10025,39.735364 -630.76186,47.835818 -628.03724,55.104126 C -625.31261,62.372428 -617.22838,66.069781 -609.99212,63.357164 C -602.75585,60.64454 -599.09421,52.544072 -601.81886,45.275777 C -604.54349,38.007475 -612.62768,34.310108 -619.86398,37.022739 z M -619.86763,39.772852 L -616.12684,48.594539 C -616.48725,48.88464 -616.684,49.307647 -616.79499,49.75008 L -626.17034,47.264266 C -625.30463,44.042447 -623.0628,41.252181 -619.86763,39.772852 z M -618.22898,39.158581 C -614.86343,38.177303 -611.35987,38.80223 -608.59514,40.642422 L -613.85817,48.414521 C -614.28259,48.191478 -614.7538,48.094243 -615.24176,48.195713 L -618.22898,39.158581 z M -606.79631,42.146985 C -605.67038,43.281788 -604.7537,44.657922 -604.156,46.252451 C -603.52343,47.939868 -603.29774,49.667881 -603.44658,51.349915 L -612.64422,50.406504 C -612.62775,50.11634 -612.70793,49.789511 -612.81742,49.499316 C -612.89192,49.301902 -613.02285,49.145129 -613.14381,48.984762 L -606.79631,42.146985 z M -626.50761,49.569576 L -616.90374,50.528313 C -616.88235,50.686409 -616.8558,50.835193 -616.797,50.991119 C -616.69306,51.266574 -616.53225,51.558042 -616.3422,51.759224 L -622.87248,58.732566 C -624.13037,57.549046 -625.16207,56.096831 -625.80957,54.369614 C -626.40347,52.785324 -626.60526,51.155241 -626.50761,49.569576 z M -615.82579,52.06846 C -615.50207,52.254699 -615.13528,52.341382 -614.75685,52.338176 L -611.89391,61.488939 C -615.19549,62.403479 -618.61347,61.788405 -621.33014,59.998065 L -615.82579,52.06846 z M -612.96882,51.232129 L -603.83171,53.438519 C -604.70203,56.573498 -606.87343,59.28383 -609.96264,60.764975 L -613.83494,52.126667 C -613.44968,51.92164 -613.15986,51.603106 -612.96882,51.232129 z"
+       id="path5549"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5585"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,-127.76471,-771.96303)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5587"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-231.87666,-583.13843)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -551.04352,4.892181 C -554.9314,5.368748 -557.95002,9.391653 -557.9467,14.264075 L -557.93881,25.815923 L -542.56389,25.823813 L -542.57178,14.271966 C -542.57533,9.074715 -546.00424,4.894767 -550.26563,4.89258 C -550.53199,4.892443 -550.78434,4.86039 -551.04352,4.892181 z"
+       id="path5589"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -600,34.836414 C -594.35897,33.419657 -581.92075,32.789183 -576.71217,36.87442 L -577.68215,37.291285 C -582.09218,35.187056 -588.29069,34.087434 -594.8608,38.474094 L -600,34.836414 z"
+       id="path5591"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -500,34.923922 C -505.64296,33.501375 -518.08205,32.858134 -523.28506,36.938029 L -522.31451,37.355889 C -517.90734,35.256185 -511.71034,34.162923 -505.13423,38.556331 L -500,34.923922 z"
+       id="path5593"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -591.86583,37.782933 C -598.68181,41.424953 -601.24469,49.937087 -597.58656,56.78325 C -593.92841,63.629402 -585.42766,66.229848 -578.61169,62.587835 C -571.79571,58.945815 -569.2328,50.433664 -572.89096,43.587519 C -576.54911,36.741366 -585.04982,34.140901 -591.86583,37.782933 z M -591.50727,40.509574 L -586.63723,48.761751 C -586.95628,49.096791 -587.09562,49.542027 -587.14737,49.995223 L -596.76844,48.765806 C -596.33459,45.458036 -594.47976,42.396821 -591.50727,40.509574 z M -589.96378,39.684839 C -586.75678,38.268861 -583.20144,38.426921 -580.21844,39.886967 L -584.41203,48.284515 C -584.86213,48.119312 -585.34204,48.084984 -585.81238,48.249833 L -589.96378,39.684839 z M -578.23712,41.141518 C -576.97154,42.118149 -575.88162,43.361569 -575.07911,44.86349 C -574.22982,46.452899 -573.77852,48.136137 -573.70454,49.823122 L -582.9463,50.099267 C -582.96818,49.809459 -583.0907,49.496038 -583.23748,49.222792 C -583.33732,49.036909 -583.48776,48.898746 -583.62879,48.755706 L -578.23712,41.141518 z M -596.79915,51.095455 L -587.15268,50.781 C -587.11065,50.934901 -587.06475,51.078894 -586.98591,51.225716 C -586.84661,51.485085 -586.6488,51.752832 -586.43391,51.927232 L -591.98892,59.699881 C -593.39173,58.692334 -594.6057,57.388646 -595.47502,55.761748 C -596.2724,54.269476 -596.68712,52.680168 -596.79915,51.095455 z M -585.88128,52.165765 C -585.53583,52.307745 -585.16085,52.34537 -584.78613,52.292352 L -580.74295,60.986349 C -583.89534,62.327748 -587.36454,62.168183 -590.29335,60.751226 L -585.88128,52.165765 z M -583.15933,50.960452 L -573.81123,51.944253 C -574.2611,55.166549 -576.05664,58.139251 -578.92386,60.014343 L -583.9001,51.961267 C -583.5452,51.707286 -583.29986,51.35336 -583.15933,50.960452 z"
+       id="path5595"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -521.45532,37.739533 C -528.30033,41.326707 -530.93147,49.817986 -527.32843,56.693301 C -523.72538,63.568608 -515.24578,66.237228 -508.40078,62.650063 C -501.55577,59.062891 -498.9246,50.571594 -502.52767,43.696296 C -506.13072,36.820988 -514.61028,34.15235 -521.45532,37.739533 z M -521.11865,40.468963 L -516.31504,48.759981 C -516.63678,49.092449 -516.77968,49.53655 -516.83507,49.989317 L -526.44596,48.682685 C -525.98556,45.378505 -524.10622,42.332285 -521.11865,40.468963 z M -519.5686,39.656651 C -516.35034,38.266471 -512.79637,38.453075 -509.82519,39.937025 L -514.08608,48.300628 C -514.53484,48.131816 -515.01446,48.093634 -515.48611,48.254703 L -519.5686,39.656651 z M -507.85402,41.207444 C -506.59632,42.194206 -505.51641,43.446337 -504.726,44.954655 C -503.88949,46.550832 -503.45172,48.237639 -503.39128,49.925163 L -512.63498,50.127092 C -512.65454,49.83712 -512.77454,49.522724 -512.9191,49.248307 C -513.01745,49.061629 -513.16677,48.922261 -513.30665,48.778094 L -507.85402,41.207444 z M -526.49538,51.012012 L -516.84669,50.775026 C -516.8059,50.92926 -516.76114,51.073615 -516.6835,51.221067 C -516.54628,51.481544 -516.35064,51.750874 -516.13715,51.926994 L -521.75439,59.654784 C -523.14906,58.636007 -524.35252,57.322612 -525.20877,55.688788 C -525.99414,54.190161 -526.39608,52.597574 -526.49538,51.012012 z M -515.58645,52.169954 C -515.24217,52.314706 -514.86748,52.355337 -514.49235,52.30533 L -510.51912,61.031518 C -513.68217,62.347557 -517.14999,62.160141 -520.06731,60.719713 L -515.58645,52.169954 z M -512.85492,50.986537 L -503.51502,52.045372 C -503.99073,55.263949 -505.81008,58.222135 -508.69228,60.074148 L -513.6037,51.981372 C -513.24677,51.73025 -512.99859,51.378302 -512.85492,50.986537 z"
+       id="path5597"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/3.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5615"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,-27.764705,-771.9559)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5617"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-131.87666,-583.1313)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -451.04352,4.899315 C -454.9314,5.375882 -457.95002,9.398787 -457.9467,14.271209 L -457.93881,25.823057 L -442.56389,25.830947 L -442.57178,14.2791 C -442.57533,9.081849 -446.00424,4.901901 -450.26563,4.899714 C -450.53199,4.899577 -450.78434,4.867524 -451.04352,4.899315 z"
+       id="path5619"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -500,34.843548 C -494.35897,33.426791 -481.92075,32.796317 -476.71217,36.881554 L -477.68215,37.298419 C -482.09218,35.19419 -488.29069,34.094568 -494.8608,38.481228 L -500,34.843548 z"
+       id="path5621"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -400,34.931056 C -405.64296,33.508509 -418.08205,32.865268 -423.28506,36.945163 L -422.31451,37.363023 C -417.90734,35.263319 -411.71034,34.170057 -405.13423,38.563465 L -400,34.931056 z"
+       id="path5623"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -493.71025,38.968766 C -499.87846,43.624421 -501.08931,52.431159 -496.41306,58.626682 C -491.73678,64.822192 -482.93546,66.071919 -476.76726,61.416272 C -470.59906,56.760617 -469.38818,47.953858 -474.06446,41.758357 C -478.74074,35.562846 -487.54202,34.313094 -493.71025,38.968766 z M -492.9329,41.606729 L -486.84122,49.003159 C -487.10441,49.383653 -487.17296,49.845119 -487.15376,50.300855 L -496.84906,50.579407 C -496.93379,47.244383 -495.5765,43.932407 -492.9329,41.606729 z M -491.53609,40.552455 C -488.58769,38.655944 -485.05089,38.260343 -481.87745,39.239774 L -484.71704,48.186381 C -485.18732,48.093029 -485.66674,48.133593 -486.1058,48.369436 L -491.53609,40.552455 z M -479.72544,40.171649 C -478.32364,40.940045 -477.05396,41.999259 -476.02809,43.358444 C -474.94243,44.796798 -474.23538,46.389607 -473.9005,48.044673 L -482.98744,49.751683 C -483.05403,49.468782 -483.2237,49.178171 -483.41111,48.931014 C -483.53858,48.762877 -483.70864,48.649734 -483.87016,48.530314 L -479.72544,40.171649 z M -496.51786,52.885598 L -487.03706,51.077936 C -486.97166,51.22345 -486.90397,51.358576 -486.8033,51.491384 C -486.62543,51.725993 -486.38847,51.959799 -486.14912,52.098737 L -490.4306,60.639291 C -491.97278,59.86165 -493.37436,58.76215 -494.48562,57.28987 C -495.50492,55.939421 -496.16126,54.433727 -496.51786,52.885598 z M -485.56616,52.248619 C -485.20287,52.335269 -484.82659,52.314246 -484.46464,52.203718 L -479.12124,60.164934 C -482.02727,61.979295 -485.4792,62.360041 -488.59242,61.414767 L -485.56616,52.248619 z M -483.06424,50.635494 L -473.67672,50.156664 C -473.62108,53.409736 -474.93354,56.62507 -477.47503,58.922403 L -483.64072,51.739143 C -483.32954,51.433163 -483.14209,51.045451 -483.06424,50.635494 z"
+       id="path5625"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -423.30049,38.904094 C -429.50941,43.505313 -430.79768,52.301056 -426.1761,58.537474 C -421.55452,64.773882 -412.76453,66.10098 -406.55561,61.499772 C -400.34668,56.898555 -399.05839,48.102789 -403.67999,41.866393 C -408.30158,35.629984 -417.09153,34.302862 -423.30049,38.904094 z M -422.54635,41.548789 L -416.51998,48.998522 C -416.78652,49.376688 -416.85912,49.83753 -416.84392,50.293419 L -426.5413,50.486675 C -426.59669,47.151034 -425.21033,43.85113 -422.54635,41.548789 z M -421.14034,40.506847 C -418.17537,38.636347 -414.63522,38.271871 -411.47052,39.279179 L -414.3887,48.20046 C -414.85814,48.102976 -415.33791,48.13932 -415.77902,48.371293 L -421.14034,40.506847 z M -409.3268,40.229949 C -407.9318,41.010646 -406.67148,42.080985 -405.65762,43.449146 C -404.58465,44.896992 -403.89164,46.495958 -403.57132,48.153905 L -412.67294,49.780919 C -412.73705,49.497447 -412.90416,49.205354 -413.08937,48.956553 C -413.21537,48.787303 -413.38442,48.672667 -413.54488,48.551831 L -409.3268,40.229949 z M -426.23041,52.795691 L -416.73407,51.071497 C -416.66995,51.217581 -416.60343,51.353292 -416.50395,51.486985 C -416.32815,51.723147 -416.09327,51.959033 -415.85514,52.100071 L -420.21159,60.602628 C -421.74686,59.811452 -423.13871,58.699664 -424.237,57.217671 C -425.24438,55.858307 -425.88744,54.346897 -426.23041,52.795691 z M -415.27353,52.255071 C -414.91102,52.34492 -414.53455,52.3272 -414.17165,52.219861 L -408.89849,60.227779 C -411.82036,62.016502 -415.27552,62.366871 -418.38029,61.394246 L -415.27353,52.255071 z M -412.75752,50.66402 L -403.36615,50.267788 C -403.33911,53.521218 -404.6798,56.72488 -407.24141,58.999775 L -413.34369,51.762555 C -413.02982,51.459324 -412.83897,51.073272 -412.75752,50.66402 z"
+       id="path5627"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/4.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5645"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,72.235298,-771.94486)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5647"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,-31.876657,-583.12026)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -351.04352,4.910354 C -354.9314,5.386921 -357.95002,9.409826 -357.9467,14.282248 L -357.93881,25.834097 L -342.56389,25.841986 L -342.57178,14.29014 C -342.57533,9.092888 -346.00424,4.91294 -350.26563,4.910753 C -350.53199,4.910616 -350.78434,4.878563 -351.04352,4.910354 z"
+       id="path5649"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -400,34.854587 C -394.35897,33.43783 -381.92075,32.807356 -376.71217,36.892593 L -377.68215,37.309458 C -382.09218,35.205229 -388.29069,34.105607 -394.8608,38.492267 L -400,34.854587 z"
+       id="path5651"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -300,34.942095 C -305.64296,33.519548 -318.08205,32.876307 -323.28506,36.956202 L -322.31451,37.374062 C -317.90734,35.274358 -311.71034,34.181096 -305.13423,38.574504 L -300,34.942095 z"
+       id="path5653"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -395.19757,40.275782 C -400.65356,45.748822 -400.62005,54.638348 -395.12279,60.118494 C -389.62551,65.598623 -380.73591,65.604366 -375.27993,60.131335 C -369.82396,54.658295 -369.85744,45.768745 -375.35472,40.288624 C -380.85201,34.808494 -389.74157,34.802721 -395.19757,40.275782 z M -394.05871,42.779001 L -386.99189,49.250156 C -387.19925,49.663738 -387.20254,50.130256 -387.11975,50.57882 L -396.68067,52.211424 C -397.23128,48.921075 -396.35083,45.451747 -394.05871,42.779001 z M -392.82318,41.539627 C -390.1692,39.24917 -386.72257,38.36251 -383.44329,38.888201 L -385.00292,48.144151 C -385.48163,48.11753 -385.95066,48.224787 -386.3524,48.519752 L -392.82318,41.539627 z M -381.18205,39.509747 C -379.68651,40.074409 -378.28109,40.945516 -377.07511,42.147763 C -375.79885,43.420032 -374.87585,44.89822 -374.31265,46.490135 L -383.07129,49.452004 C -383.17681,49.181205 -383.38548,48.917198 -383.60563,48.6987 C -383.75538,48.550056 -383.9396,48.461826 -384.11624,48.366184 L -381.18205,39.509747 z M -396.02999,54.448571 L -386.89545,51.331923 C -386.81033,51.466853 -386.7244,51.591176 -386.60614,51.708589 C -386.39718,51.915998 -386.12984,52.114342 -385.8734,52.218418 L -388.91755,61.274093 C -390.55338,60.719922 -392.09504,59.827383 -393.4014,58.525105 C -394.59965,57.330589 -395.46025,55.931562 -396.02999,54.448571 z M -385.2752,52.285243 C -384.90336,52.320201 -384.53372,52.246727 -384.1908,52.086634 L -377.78587,59.221734 C -380.40939,61.424921 -383.77407,62.284995 -386.98894,61.784697 L -385.2752,52.285243 z M -383.02365,50.337865 L -373.79551,48.550026 C -373.28517,51.7633 -374.13475,55.130664 -376.32974,57.761054 L -383.44,51.511328 C -383.17471,51.164812 -383.04336,50.754683 -383.02365,50.337865 z"
+       id="path5655"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -324.99722,40.397132 C -330.39168,45.930818 -330.25881,54.819411 -324.70064,60.237767 C -319.14245,65.656113 -310.25335,65.56249 -304.85888,60.028815 C -299.46441,54.49513 -299.59726,45.606511 -305.15545,40.18818 C -310.71364,34.769834 -319.60272,34.863427 -324.99722,40.397132 z M -323.83042,42.887458 L -316.69172,49.279224 C -316.89445,49.695102 -316.89253,50.161623 -316.80473,50.609235 L -326.34679,52.348604 C -326.93415,49.064614 -326.09255,45.585668 -323.83042,42.887458 z M -322.60884,41.634358 C -319.98063,39.31438 -316.54411,38.389249 -313.25917,38.878252 L -314.71524,48.151056 C -315.19422,48.129788 -315.66203,48.242282 -316.06043,48.54172 L -322.60884,41.634358 z M -310.99113,39.474487 C -309.48935,40.022394 -308.07428,40.877735 -306.85495,42.066433 C -305.56455,43.324353 -304.62508,44.792132 -304.04411,46.37765 L -312.76912,49.43724 C -312.87767,49.167643 -313.08928,48.905985 -313.31185,48.689953 C -313.46325,48.542997 -313.64844,48.456827 -313.82613,48.363166 L -310.99113,39.474487 z M -325.67116,54.578342 L -316.57203,51.359785 C -316.48541,51.493755 -316.39807,51.617101 -316.27851,51.733193 C -316.06726,51.93825 -315.79772,52.133601 -315.54013,52.234801 L -318.48288,61.323934 C -320.12479,60.788082 -321.67632,59.912829 -322.99718,58.625243 C -324.20872,57.444193 -325.08488,56.054871 -325.67116,54.578342 z M -314.94123,52.294934 C -314.56902,52.32574 -314.20022,52.248127 -313.85911,52.084214 L -307.37482,59.147284 C -309.97354,61.379652 -313.32842,62.277286 -316.54867,61.812949 L -314.94123,52.294934 z M -312.71158,50.322515 L -303.50401,48.431641 C -302.95777,51.639001 -303.76965,55.015648 -305.93511,57.670417 L -313.1148,51.500558 C -312.85338,51.151097 -312.72663,50.739521 -312.71158,50.322515 z"
+       id="path5657"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/5.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5675"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.5410439,2.7765299e-4,3.8558792e-4,0.5649097,172.2353,-771.96787)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdabab;fill-opacity:1;stroke:none;stroke-width:3.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5677"
+       sodipodi:cx="-781.99963"
+       sodipodi:cy="1395.8982"
+       sodipodi:rx="56.857719"
+       sodipodi:ry="56.857719"
+       d="M -725.14191,1395.8982 A 56.857719,56.857719 0 1 1 -838.85735,1395.8982 A 56.857719,56.857719 0 1 1 -725.14191,1395.8982 z"
+       transform="matrix(0.407481,2.0911118e-4,2.9040114e-4,0.4254553,68.123343,-583.14327)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -251.04352,4.887347 C -254.9314,5.363914 -257.95002,9.386819 -257.9467,14.259241 L -257.93881,25.81109 L -242.56389,25.818979 L -242.57178,14.267133 C -242.57533,9.069881 -246.00424,4.889933 -250.26563,4.887746 C -250.53199,4.887609 -250.78434,4.855556 -251.04352,4.887347 z"
+       id="path5679"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -300,34.83158 C -294.35897,33.414823 -281.92075,32.784349 -276.71217,36.869586 L -277.68215,37.286451 C -282.09218,35.182222 -288.29069,34.0826 -294.8608,38.46926 L -300,34.83158 z"
+       id="path5681"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.59299999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -200,34.919088 C -205.64296,33.496541 -218.08205,32.8533 -223.28506,36.933195 L -222.31451,37.351055 C -217.90734,35.251351 -211.71034,34.158089 -205.13423,38.551497 L -200,34.919088 z"
+       id="path5683"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -297.10098,42.628961 C -301.25109,49.14805 -299.30502,57.82201 -292.75707,61.990503 C -286.20912,66.158976 -277.52664,64.25122 -273.37652,57.732141 C -269.22643,51.213056 -271.17247,42.539065 -277.72043,38.3706 C -284.2684,34.202131 -292.95085,36.109847 -297.10098,42.628961 z M -295.45002,44.828385 L -287.15601,49.626834 C -287.26949,50.075353 -287.17229,50.531645 -286.99489,50.951876 L -295.98033,54.604072 C -297.22623,51.509353 -297.11314,47.931834 -295.45002,44.828385 z M -294.51021,43.352128 C -292.41142,40.544123 -289.23641,38.936404 -285.92084,38.743955 L -285.45171,48.118653 C -285.92493,48.195691 -286.35988,48.401386 -286.68872,48.775908 L -294.51021,43.352128 z M -283.57882,38.864232 C -281.9968,39.093765 -280.43682,39.641957 -279.00035,40.556456 C -277.48017,41.524208 -276.26064,42.769087 -275.368,44.20247 L -283.28385,48.980095 C -283.44519,48.738356 -283.70579,48.525449 -283.9678,48.359457 C -284.14604,48.246528 -284.34494,48.200017 -284.53802,48.144636 L -283.57882,38.864232 z M -294.86338,56.648734 L -286.61376,51.63905 C -286.50159,51.752497 -286.39091,51.855411 -286.25015,51.944619 C -286.00145,52.10219 -285.69768,52.238344 -285.42485,52.284785 L -286.44855,61.783425 C -288.16532,61.594333 -289.86294,61.054534 -291.41898,60.063955 C -292.84625,59.155343 -293.9878,57.974338 -294.86338,56.648734 z M -284.82629,52.221291 C -284.45564,52.175395 -284.11048,52.024084 -283.81006,51.793934 L -276.01951,57.383228 C -278.10733,60.099454 -281.20804,61.663571 -284.45524,61.866955 L -284.82629,52.221291 z M -283.04666,49.834939 L -274.41962,46.102774 C -273.22962,49.130892 -273.33452,52.602192 -274.91191,55.643372 L -283.20068,51.070513 C -283.01619,50.675018 -282.97619,50.24623 -283.04666,49.834939 z"
+       id="path5685"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:#e38484;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -226.9477,42.891543 C -230.95867,49.497146 -228.82915,58.1279 -222.19432,62.156645 C -215.55946,66.185375 -206.91938,64.093988 -202.9084,57.488394 C -198.89742,50.882789 -201.02692,42.252005 -207.66177,38.22329 C -214.29662,34.194559 -222.93669,36.285912 -226.9477,42.891543 z M -225.25046,45.055461 L -216.8566,49.677013 C -216.96055,50.127843 -216.85371,50.581968 -216.66744,50.998346 L -225.57342,54.840199 C -226.88466,51.772588 -226.84745,48.193486 -225.25046,45.055461 z M -224.34217,43.559624 C -222.30339,40.707758 -219.16316,39.033089 -215.85243,38.770397 L -215.18465,48.133042 C -215.65614,48.220096 -216.08664,48.434969 -216.40744,48.816373 L -224.34217,43.559624 z M -213.50839,38.841004 C -211.92183,39.03694 -210.35059,39.551937 -208.89506,40.435786 C -207.3547,41.371091 -206.10905,42.589836 -205.18622,44.003969 L -212.99903,48.94834 C -213.16546,48.710082 -213.43052,48.502749 -213.69599,48.342338 C -213.87658,48.233218 -214.07641,48.190928 -214.27062,48.139651 L -213.50839,38.841004 z M -224.41339,56.860731 L -216.27182,51.677288 C -216.15728,51.788331 -216.04442,51.888862 -215.90181,51.975074 C -215.64983,52.127338 -215.34325,52.25703 -215.06949,52.297673 L -215.89161,61.81588 C -217.61198,61.663221 -219.32067,61.159528 -220.89738,60.202172 C -222.3436,59.324021 -223.50991,58.167475 -224.41339,56.860731 z M -214.47242,52.221504 C -214.10283,52.167768 -213.76095,52.00916 -213.46547,51.772696 L -205.55818,57.195588 C -207.58794,59.955455 -210.65481,61.584962 -213.89696,61.857132 L -214.47242,52.221504 z M -212.74377,49.797966 L -204.19779,45.883757 C -202.94386,48.885956 -202.97513,52.358695 -204.4877,55.432641 L -212.87157,51.036528 C -212.69549,50.637206 -212.6646,50.207664 -212.74377,49.797966 z"
+       id="path5687"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/loading/carriage/6.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
   </g>
 </svg>

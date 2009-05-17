@@ -1,6 +1,1 @@
 TODO
-
-1 - Make Objects that use only one sided images use class ObjectImages_OneSided
-2 - Establish and follow a pattern for the classes parameters
-3 - Extend classes instead of creating new ones
-

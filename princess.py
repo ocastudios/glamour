@@ -60,27 +60,38 @@ The code is not yet well commented
         self.floor = self.level.universe.floor - 186
         self.action = None
         self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+        self.inside = False
 
 
 
-    def update_all(self, dir, action):
-        self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
-        self.action = action 
-        self.effects = []
-        self.direction = dir
-        self.update_pos(action)
-        self.update_rect()
-        self.new_clothes(action)
-        self.ive_been_caught()
-        self.jumping(action)
-        self.falling(action)
-        self.hurting(action)
-        self.kissing(action,dir)
-        self.dirt_cloud_funciton()
-        self.choose_parts(action,dir)
-        self.syncimages(action)
-        [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
-        self.image = self.update_image(self.image)
+    def update_all(self):
+        if not self.inside:
+            dir = self.level.universe.dir
+            action = self.level.universe.action
+            self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+            self.action = action 
+            self.effects = []
+            self.direction = dir
+            self.update_pos(action)
+            self.update_rect()
+            self.new_clothes(action)
+            self.jumping(action)
+            self.falling(action)
+            self.hurting(action)
+            self.kissing(action,dir)
+            self.dirt_cloud_funciton()
+            self.choose_parts(action,dir)
+            self.syncimages(action)
+            [part.update_image(self,dir,reset=True) for part in self.parts if part != None]
+    
+            if self.got_hitten>5:
+                if self.got_hitten%2 == 0:
+                    self.image = self.update_image(self.image)
+                else:
+                    self.image = None
+            else:
+                self.image = self.update_image(self.image)
+#            self.image = self.update_image(self.image)
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -93,7 +104,8 @@ The code is not yet well commented
 
     def new_clothes(self,action):
         if action[0] == 'changeskin':
-            self.change_clothes((self.arm),         'arm_black')
+            self.change_clothes((self.arm),'arm_tan')
+            self.change_clothes((self.skin),'skin_tan')
             action[0] = None
         if action[0] == 'changeshoes':
             self.change_clothes((self.shoes),       'shoes_crystal')
@@ -106,11 +118,12 @@ The code is not yet well commented
             action[0] = None
         if action[0] == 'changedress':
             self.change_clothes((self.dress),     'dress_pink')
+            self.parts[7] = None
             action[0] = None
         if action[0] == 'yellow_dress':
-            self.change_clothes((self.dress),   'dress_red')
-            self.parts.pop(7)
-            self.arm_dress = PrincessPart(self,'data/images/princess/sleeve_red',7)
+            self.change_clothes((self.dress),'dress_red')
+
+            self.change_clothes((self.arm_dress),'sheeve_red')
             action[0] = None
         if action[0] == 'changehair':
             self.change_clothes((self.hair),       'hair_cinderella')
@@ -173,10 +186,25 @@ The code is not yet well commented
 
 
     def hurting(self,action):
-        if self.got_hitten > 0 and self.got_hitten <6:
-            action[0]='ouch'
-        elif self.got_hitten >=6:
-            action[0]= None
+        if not self.inside:
+            if self.got_hitten == 0:
+                for e in self.level.enemies:
+                    if e.__class__ == enemy.Schnauzer:
+                        if self.rect.colliderect(e.rect):
+                            if self.dirt <= 2:
+                                self.got_hitten += 1
+                                self.dirt += 1
+                                exec('self.parts[7] = self.dirty'+str(self.dirt))
+            else:
+                self.got_hitten +=1
+
+                if self.got_hitten == 30   :#75 at 25 frames per second
+                    self.got_hitten = 0
+
+            if self.got_hitten > 0 and self.got_hitten <6:
+                action[0]='ouch'
+            elif self.got_hitten >=6:
+                action[0]= None
 
 
     def kissing(self,action,dir):
@@ -198,20 +226,7 @@ The code is not yet well commented
                 self.kiss_rect = Rect ((0,0),(0,0))
 
 
-    def ive_been_caught(self):
-        if self.got_hitten == 0:
-            for e in self.level.enemies:
-                if e.__class__ == enemy.Schnauzer:
-                    if self.rect.colliderect(e.rect):
-                        if self.dirt <= 2:
-                            self.got_hitten += 1
-                            self.dirt += 1
-                            exec('self.parts[7] = self.dirty'+str(self.dirt))
-        else:
-            self.got_hitten +=1
 
-            if self.got_hitten == 30   :#75 at 25 frames per second
-                self.got_hitten = 0
 
     def update_pos(self,action):
         feet_position = self.pos[1]+self.size[1]

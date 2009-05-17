@@ -8,7 +8,7 @@ class Floor():
         self.level = level
         self.images = self.images or obj_images.OneSided(dir)
 
-        self.image = self.images.list[self.images.itnumber.next()]
+        self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.center_distance = (self.size[0]*(index))
 

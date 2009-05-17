@@ -20,6 +20,9 @@ class Stage():
     princess = None
     enemy_dir = 'data/images/enemies/'
     maindir        = 'data/images/scenario/'
+    down_bar = pygame.image.load('data/images/interface/omni/small_bar/0.png')
+    up_bar   = pygame.transform.flip(down_bar,0,1)
+
     def __init__(self,size,universe):
         self.universe       = universe
         self.cameras        = []
@@ -34,7 +37,15 @@ class Stage():
         self.scenarios_front= []
         self.size = size
         self.rects = []
-        self.blitlist = ('clouds','background','moving_scenario','scenarios','gates','enemies','menus')
+        self.blitlist = ('clouds','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+        self.foreground = []
+
+        self.bar_positions = range(0,self.universe.width+10,self.down_bar.get_width())
+        self.bar_height = self.up_bar.get_height()
+        self.down_bar_y = self.universe.height
+        self.up_bar_y   = - self.bar_height
+        self.bar_goal   = self.universe.height/3
+        self.bar_speed  = 1
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
         except:     y_height = 186 
@@ -45,43 +56,27 @@ class Stage():
         except:
             surface = self.universe.screen_surface
         self.rects = []
+        self.princesses = [self.princess]
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
-
         [i.update_all(self.princess) for i in self.cameras]
         self.universe.movement(self.direction)
         [surface.blit(i.background,(0,0)) for i in self.sky]
-
         for att in self.blitlist:
-            exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.rect.colliderect(self.cameras[0].rect)]')
+            exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.image and i.rect.colliderect(self.cameras[0].rect)]')
             exec('for i in self.'+att+': i.update_all()')
-
-
-        if self.princess.got_hitten>5:
-            if self.princess.got_hitten%2 == 0:
-                surface.blit(self.princess.image, self.princess.pos)
-        else:
-            surface.blit(self.princess.image, self.princess.pos)
-
         for effect in self.princess.effects:
             surface.blit(effect[0],effect[1])
-        self.princess.update_all(dir,act)
-
         for i in self.scenarios_front:
             if i.rect.colliderect(self.cameras[0].rect):
                 surface.blit(i.image,i.pos)
             i.update_all()
-
-        for i in self.gates:
-            if self.princess.rect.colliderect(i.rect):
-                surface.blit(i.arrow_image,i.arrow_pos)
-
+        [surface.blit(i.arrow_image,i.arrow_pos) for i in self.gates if self.princess.rect.colliderect(i.rect) and i.arrow_image]
         for i in self.floor_image:
             if i.__class__ == floors.Floor or floors.Bridge:
                 if i.rect.colliderect(self.cameras[0].rect):
                     surface.blit(i.image,i.pos)
                 i.update_all()
-
         for i in self.floor_image:
             if i.__class__ == floors.Water:
                 if i.rect.colliderect(self.cameras[0].rect):
@@ -92,7 +87,14 @@ class Stage():
                 if i.rect.colliderect(self.cameras[0].rect):
                     surface.blit(i.image,i.pos)
                 i.update_all()
-
+        for i in self.foreground:
+            surface.blit(i.image,i.pos)
+            i.update_all()
+        if self.princess.inside:
+            for p in self.bar_positions:
+                surface.blit(self.down_bar,(p,self.down_bar_y))
+                surface.blit(self.up_bar,(p,self.up_bar_y))
+            self.update_insidebar()
         for i in self.clock:
             surface.blit(i.image,i.pos)
         for i in self.panel:
@@ -102,12 +104,20 @@ class Stage():
             surface.blit(i.image,i.pos)
             i.update_all()
 
+    def update_insidebar(self):
+        if self.down_bar_y > 2*self.bar_goal:
+            self.down_bar_y -= self.bar_speed
+        if self.up_bar_y + self.bar_height< self.bar_goal:
+            self.up_bar_y += self.bar_speed
+        if self.bar_speed < 20:
+            self.bar_speed += self.bar_speed
+
     def BathhouseSt(self):
         self.gates = []
         self.directory = self.maindir+'bathhouse_st/'
         self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
 
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(10)]
 
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
@@ -117,7 +127,7 @@ class Stage():
                            scenarios.Building(550,self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door/'},index =0),
                            scenarios.Building(3400,self.directory+'home/castelo/',self,
-                                  {'pos':(537,490),'directory':self.directory+'home/door/'},index =0),
+                                  {'pos':(536,593),'directory':self.directory+'home/door/'},index =0),
                            scenarios.Building(5790,self.directory+'magic_beauty_salon/base/',self,
                                   {'pos':(787,513),'directory':self.directory+'magic_beauty_salon/door/'},index=0),
                            scenarios.Flower(0, 'data/images/scenario/omni/flower_0/',self,8),
@@ -170,12 +180,12 @@ class Stage():
             count += 1
 
     def DressSt(self):
-        self.gates = []
+        self.gates = []                       
         self.directory = self.maindir+'dress_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(10)]
         self.scenarios  =  [scenarios.Building(0,self.directory+'Dress_Tower/',self,
-                                {'pos':(155,350),'directory':self.directory+'Dress_Tower/door/'},index =0),
+                                {'pos':(155,390),'directory':self.directory+'Dress_Tower/door/'},index =0),
                             scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
                             scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
                             scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
@@ -184,8 +194,8 @@ class Stage():
                             scenarios.Scenario(2850,self.directory+'chair/',self,index=0),
                             scenarios.Scenario(2250,self.directory+'flowers/',self,index=0),
                             scenarios.Scenario(3100,self.directory+'fachwerk_1/',self,index=0),
-                            scenarios.Scenario(4300,self.directory+'snow_white_castle/',self,
-                                {'pos':(155,350),'directory':self.directory+'snow_white_castle/door/'})]
+                            scenarios.Building(4300,self.directory+'snow_white_castle/',self,
+                                {'pos':(277,500),'directory':self.directory+'snow_white_castle/door/'},index=0)]
         self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
                             enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
@@ -218,9 +228,8 @@ class Stage():
     def AccessorySt(self):
         self.gates = []
         self.directory = self.maindir+'accessory_st/'
-        self.gates = []
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(random.randint(100,25000),random.randint(0,300),self) for cl in range(10)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(10)]
         self.scenarios  =  [scenarios.Scenario(i[0],self.directory+i[1],self) for i in 
                                ((-3,'accessory_tower/'),
                                 (800,'accessory_tower/banner/'),

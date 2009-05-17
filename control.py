@@ -42,11 +42,11 @@ def name_menu(universe):
             if event.key == K_ESCAPE:
                 exit()
             if event.key == K_i:
-                universe.LEVEL = 'bathhouse_st'
+                universe.LEVEL = 'start'
             elif event.key == K_e:
-                universe.LEVEL = 'dress_st'
+                universe.LEVEL = 'start'
             elif event.key == K_a:
-                universe.LEVEL = 'accessory_st'
+                universe.LEVEL = 'start'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
 

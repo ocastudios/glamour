@@ -4,9 +4,9 @@ from pygame.locals import *
 
 class Cloud():
     nimbus= None
-    def __init__(self,x,y,level):
+    def __init__(self,level):
         self.level = level
-        self.pos = [x,y]
+        self.pos = (random.randint(0,level.universe.width),random.randint(0,250))
         self.nimbus = self.nimbus or [
                             obj_images.OneSided('data/images/scenario/skies/nimbus/1/'),
                             obj_images.OneSided('data/images/scenario/skies/nimbus/2/'),
@@ -23,9 +23,6 @@ class Cloud():
         self.size = self.image.get_size()
         
     def change_number(self):
-        self.pos[0] = self.pos[0]-10.*self.deep
-        self.rect = Rect(self.pos,self.size)
         self.image = self.images.list[self.images.itnumber.next()]
     def dont_change(self):
-        self.pos[0] = self.pos[0]-10.*self.deep
-        self.rect = Rect(self.pos,self.size)
+        pass

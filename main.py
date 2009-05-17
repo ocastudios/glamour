@@ -16,11 +16,12 @@ import mousepointer
 import menu
 import universe
 import control
-
-import psyco
-psyco.log()
-psyco.profile(1.0)
-
+try:
+    import psyco
+    psyco.log()
+    psyco.profile(1.0)
+except:
+    pass
 #Create lists
 
 
@@ -32,36 +33,18 @@ gamemenu = menu.MenuScreen(universe)
 
 
 while True:
-    while universe.LEVEL == 'menu':
-        control.main_menu(universe)
-        gamemenu.update_all()
-        pygame.display.flip()
-    gamemenu.speed = 0
-
-    while universe.LEVEL == 'close':
-        gamemenu.action = 'close'
-        control.main_menu(universe)
-        gamemenu.update_all()
-        pygame.display.flip()
-
-    while universe.LEVEL == 'choose_princess':
-        control.choose_menu(universe)
-        gamemenu.update_all()
-        pygame.display.flip()
-
-    while universe.LEVEL == 'close':
-        gamemenu.action = 'close'
-        control.main_menu(universe)
-        gamemenu.update_all()
-        pygame.display.flip()
-
-    while universe.LEVEL == 'choose_princess':
-        control.name_menu(universe)
-        gamemenu.update_all()
-        pygame.display.flip()
+    while universe.LEVEL != 'start':
+        while universe.LEVEL == 'menu':
+            control.main_menu(universe)
+            gamemenu.update_all()
+            pygame.display.flip()
+        while universe.LEVEL == 'close':
+            gamemenu.action = 'close'
+            control.main_menu(universe)
+            gamemenu.update_all()
+            pygame.display.flip()
 
     universe.define_level()
-
     game_mouse = mousepointer.MousePointer(universe.mouse_pos,universe.level)
     gamecamera = camera.GameCamera(universe.level)
 
