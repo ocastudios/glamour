@@ -62,12 +62,21 @@ class GrowingUngrowing(TwoSided):
         self.margin = margin
         self.list = self.left = self.find_images(directory)
         n_list = []
-
         for i in self.list:
             n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()-(2*x))) for x in xrange(frames)])
-
         self.list.extend(n_list)
-
+        self.list.extend(reversed(n_list))
+        self.lenght = len(self.list)
+        self.number = 0
+        self.size = self.list[self.number].get_size()
+        self.itnumber = cycle(range(self.lenght))
+class Buttons(TwoSided):
+    def __init__(self,directory,frames):
+        self.list = self.left = self.find_images(directory)
+        n_list = []
+        for i in self.list:
+            n_list.extend([pygame.transform.scale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in xrange(frames)])
+        self.list.extend(n_list)
         self.list.extend(reversed(n_list))
         self.lenght = len(self.list)
         self.number = 0

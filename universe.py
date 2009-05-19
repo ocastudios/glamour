@@ -18,19 +18,13 @@ class Universe():
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
         self.level = stage.Stage(6000,self)
 
+
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)
         self.clock_pointer = game_clock.ClockPointer(self.level)
-        if self.LEVEL == 'bathhouse_st':
-            self.level.BathhouseSt()
-        if self.LEVEL == 'dress_st':
-            self.level.DressSt()
-        if self.LEVEL == 'accessory_st':
-            self.level.AccessorySt()
-
+        self.level.BathhouseSt()
 
     def movement(self,dir):
-
         max_speed = 10
         if self.speed > max_speed:
             self.speed = max_speed
@@ -44,3 +38,4 @@ class Universe():
             self.speed = 0
             self.center_x = -(self.level.size-470)
 #        self.center_x += self.speed
+

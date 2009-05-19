@@ -40,19 +40,13 @@ class Fairy():
     def update_all(self):
         for key,value in self.lists_of_images.items():
             value.update_number()
-
-        self.parts = self.define_selfparts()
+        self.parts = [self.lists_of_images[i].left[self.lists_of_images[i].number] for i in self.images_strings]
         self.image = self.update_image()
-
-
-
-    def define_selfparts(self):
-        return [self.lists_of_images[i].left[self.lists_of_images[i].number] for i in self.images_strings]
 
     def update_image(self):
         image = pygame.Surface(self.size,SRCALPHA).convert_alpha()
         for i in self.parts:
-            if i != None:
+            if i:
                 image.blit(i,(0,0))
         return image
 

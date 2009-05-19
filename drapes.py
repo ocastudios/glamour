@@ -1,6 +1,5 @@
 import obj_images
 
-
 class Drape():
     images = None
     def __init__(self,index,side):
@@ -23,11 +22,11 @@ class Drape():
         else:
             order = ('close','open')
         if self.action == order[0]:
-            if self.speed < 21:
-                self.speed += .8
+            if self.speed < 30:
+                self.speed += 2
         elif self.action == order[1]:
-            if self.speed > -21:
-                self.speed -= .8
+            if self.speed > -30:
+                self.speed -= 2
         else:
             self.speed = 0
         self.position = (self.position[0]+self.speed,0)
@@ -35,9 +34,9 @@ class Drape():
             exec('self.image = self.images.'+self.side[0]+'[self.image_number]')
             if self.image_number < len(self.images.left)-1:
                 if self.speed >= 0:
-                    self.image_number = int(self.speed*.7)
+                    self.image_number = int(self.speed*.2)
                 else:
-                    self.image_number = -int(self.speed*.7)
+                    self.image_number = -int(self.speed*.2)
             else:
                 self.image_number = len(self.images.left)-1
 class UperDrape():

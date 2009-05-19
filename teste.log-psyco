@@ -1,0 +1,139 @@
+01:28:55.13  Logging started, 05/17/09                  %%%%%%%%%%%%%%%%%%%%
+01:28:55.13  ActivePassiveProfiler: starting                           %%%%%
+01:28:55.18   ______
+        #1   |99.9 %|  active_start              ...psyco/profiler.py:273
+01:28:55.39   ______
+        #1   |99.6 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 0.1 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:55.60   ______
+        #1   |99.3 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.3 %|  do_profile                ...psyco/profiler.py:314
+        #3   | 0.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:55.81   ______
+        #1   |98.7 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 0.5 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:56.02   ______
+        #1   |98.0 %|  active_start              ...psyco/profiler.py:273
+        #2   | 1.0 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 0.9 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:56.18   ______
+        #1   |97.2 %|  active_start              ...psyco/profiler.py:273
+        #2   | 1.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 1.1 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.4 %|  <module>                              teste.py:1
+        #5   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:56.39   ______
+        #1   |96.0 %|  active_start              ...psyco/profiler.py:273
+        #2   | 2.0 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 1.5 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.3 %|  <module>                              teste.py:1
+        #5   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:56.60   ______
+        #1   |94.1 %|  active_start              ...psyco/profiler.py:273
+        #2   | 3.0 %|  do_profile                ...psyco/profiler.py:314
+        #3   | 2.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 0.3 %|  <module>                              teste.py:1
+        #5   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:56.81   ______
+        #1   |92.4 %|  active_start              ...psyco/profiler.py:273
+        #2   | 4.0 %|  do_profile                ...psyco/profiler.py:314
+        #3   | 3.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 0.3 %|  <module>                              teste.py:1
+        #5   | 0.1 %|  write                     ...s/psyco/logger.py:22
+01:28:57.02   ______
+        #1   |89.8 %|  active_start              ...psyco/profiler.py:273
+        #2   | 5.0 %|  do_profile                ...psyco/profiler.py:314
+        #3   | 4.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 0.3 %|  <module>                              teste.py:1
+01:28:57.23   ______
+        #1   |87.7 %|  active_start              ...psyco/profiler.py:273
+        #2   | 5.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 4.9 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 1.6 %|  <module>                              teste.py:1
+01:28:57.39   ______
+        #1   |84.6 %|  active_start              ...psyco/profiler.py:273
+        #2   | 6.9 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 6.9 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 1.5 %|  <module>                              teste.py:1
+01:28:57.60   ______
+        #1   |80.1 %|  active_start              ...psyco/profiler.py:273
+        #2   | 9.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 6.5 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 3.5 %|  <module>                              teste.py:1
+01:28:57.81   ______
+        #1   |75.8 %|  active_start              ...psyco/profiler.py:273
+        #2   |11.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 9.5 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 3.3 %|  <module>                              teste.py:1
+01:28:58.02   ______
+        #1   |69.6 %|  active_start              ...psyco/profiler.py:273
+        #2   |14.4 %|  do_profile                ...psyco/profiler.py:314
+        #3   |12.9 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 3.0 %|  <module>                              teste.py:1
+01:28:58.18   ______
+        #1   |65.0 %|  active_start              ...psyco/profiler.py:273
+        #2   |15.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   |13.5 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 6.3 %|  <module>                              teste.py:1
+01:28:58.39   ______
+        #1   |56.6 %|  active_start              ...psyco/profiler.py:273
+        #2   |21.4 %|  do_profile                ...psyco/profiler.py:314
+        #3   |16.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 5.5 %|  <module>                              teste.py:1
+01:28:58.60   ______
+        #1   |50.6 %|  active_start              ...psyco/profiler.py:273
+        #2   |25.9 %|  do_profile                ...psyco/profiler.py:314
+        #3   |18.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 4.9 %|  <module>                              teste.py:1
+01:28:58.81   ______
+        #1   |44.6 %|  active_start              ...psyco/profiler.py:273
+        #2   |30.2 %|  do_profile                ...psyco/profiler.py:314
+        #3   |20.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 4.3 %|  <module>                              teste.py:1
+01:28:59.02   ______
+        #1   |35.7 %|  active_start              ...psyco/profiler.py:273
+        #2   |34.7 %|  do_profile                ...psyco/profiler.py:314
+        #3   |26.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 3.5 %|  <module>                              teste.py:1
+01:28:59.18   ______
+        #1   |32.4 %|  do_profile                ...psyco/profiler.py:314
+        #2   |30.6 %|  active_start              ...psyco/profiler.py:273
+        #3   |27.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 9.1 %|  <module>                              teste.py:1
+01:28:59.39   ______
+        #1   |35.1 %|  do_profile                ...psyco/profiler.py:314
+        #2   |30.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   |26.8 %|  active_start              ...psyco/profiler.py:273
+        #4   | 8.0 %|  <module>                              teste.py:1
+01:28:59.60   ______
+        #1   |34.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #2   |32.3 %|  do_profile                ...psyco/profiler.py:314
+        #3   |20.3 %|  active_start              ...psyco/profiler.py:273
+        #4   |13.1 %|  <module>                              teste.py:1
+01:28:59.81   ______
+        #1   |36.0 %|  dumpcharges               ...s/psyco/logger.py:62
+        #2   |35.2 %|  do_profile                ...psyco/profiler.py:314
+        #3   |17.4 %|  active_start              ...psyco/profiler.py:273
+        #4   |11.3 %|  <module>                              teste.py:1
+01:29:00.02   ______
+        #1   |42.9 %|  do_profile                ...psyco/profiler.py:314
+        #2   |34.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   |13.6 %|  active_start              ...psyco/profiler.py:273
+        #4   | 8.8 %|  <module>                              teste.py:1
+01:29:00.18   ______
+        #1   |38.3 %|  do_profile                ...psyco/profiler.py:314
+        #2   |35.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   |15.4 %|  <module>                              teste.py:1
+01:29:00.39   ______
+        #1   |29.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #2   |25.9 %|  do_profile                ...psyco/profiler.py:314
+        #3   |17.2 %|  <module>                              teste.py:1
+        #4   | 7.9 %|  notify                    ...n2.6/threading.py:270
+01:29:00.39  memory usage: 0+ kb                                           %
+01:29:00.39  program exit, 05/17/09                     %%%%%%%%%%%%%%%%%%%%
