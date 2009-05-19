@@ -29,6 +29,10 @@ class MenuScreen():
         self.STEP           = self.update_drape
         self.count          = 0
         self.action         = 'open'
+        self.hoover_letter = pygame.image.load('data/images/interface/title_screen/selection_letter/0.png').convert_alpha()
+        self.hoover_letter_size = self.hoover_letter.get_size()
+        self.hoover_large  = pygame.image.load('data/images/interface/title_screen/selection_back_space/0.png').convert_alpha()
+        self.hoover_large_size = self.hoover_large.get_size()
         for i in xrange(13):
             if i <= 5:      self.drapes.append(drapes.Drape(i,'right'))
             else:           self.drapes.append(drapes.Drape(i,'left'))
@@ -102,6 +106,10 @@ class MenuScreen():
             for i in item:
                 i.update_all()
                 surface.blit(i.image,i.pos)
+        for i in self.menu.options:
+            if i.__class__ == Letter and i.hoover:
+                surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
+                                                i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
 
         if self.menu.princess:
             self.menu.princess.update_all()
@@ -192,7 +200,7 @@ class Menu():
 
 
 
-        self.options    = [Options(i[0],i[1],self, 0,self.NOTSETYET, fonte = 'FreeSerif.ttf',font_size=40) for i in zip(lowercase,positions)]
+        self.options    = [Letter(i[0],i[1],self, 0,self.NOTSETYET, self.screen.hoover_letter_size, fonte = 'FreeSerif.ttf',font_size=40) for i in zip(lowercase,positions)]
         self.options.extend([Options('< back',  (75,350)    ,self,0,self.NOTSETYET,font_size=40),
                              Options('space >', (350,350)   ,self,0,self.NOTSETYET,font_size=40),
                              Options('done',    (245,545)   ,self,0,'start_game',font_size=40)
@@ -301,7 +309,7 @@ class MenuArrow():
         self.parameter = parameter
 
     def update_all(self):
-        self.set_image()
+
         self.update_pos()
         self.click_detection()
     def update_pos(self):
@@ -314,15 +322,6 @@ class MenuArrow():
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
-    def set_image(self):
-        #choose list
-#        number_of_files = len(self.images.list)-2
-#        self.image      = self.images.list[self.images.number]
-#        if self.images.number <= number_of_files:
-#            self.images.number +=1
-#        else:
-#            self.images.number = 0
-        pass
     def click_detection(self):
         self.rect = Rect(self.pos,self.size)
         mouse_pos = pygame.mouse.get_pos()
@@ -363,7 +362,7 @@ class VerticalGameText(GameText):
 
 
 class Options(GameText):
-    hover = False
+    hoover = False
     def __init__(self,text,pos,menu,index,function,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
         GameText.__init__(self,text,pos,menu,index,fonte,font_size,color)
         self.function = function
@@ -386,8 +385,24 @@ class Options(GameText):
                     exec('self.menu.'+function+'()')
             else:
                 self.image = self.fontA
+class Letter(Options):
+    def __init__(self,text,pos,menu,index,function,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
+        GameText.__init__(self,text,pos,menu,index,fonte,font_size,color)
+        self.function = function
+        self.hoover_size = hoover_size
 
 
+    def click_detection(self):
+        function = self.function
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if pygame.mouse.get_pressed() == (1,0,0):
+                    exec('self.menu.'+function+'()')
+            else:
+                self.hoover = False
 class MenuPrincess():
     def __init__(self,menu):
         dir = 'data/images/princess/'

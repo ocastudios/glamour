@@ -1,0 +1,1529 @@
+22:06:47.75  Logging started, 05/18/09                  %%%%%%%%%%%%%%%%%%%%
+22:06:47.75  ActivePassiveProfiler: starting                           %%%%%
+22:06:47.80   ______
+        #1   |100.0 %|  active_start              ...psyco/profiler.py:273
+22:06:48.00   ______
+        #1   |99.9 %|  active_start              ...psyco/profiler.py:273
+22:06:48.24   ______
+        #1   |99.2 %|  active_start              ...psyco/profiler.py:273
+22:06:48.45   ______
+        #1   |96.7 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #3   | 0.5 %|  __init__                  .../glamour/stage.py:314
+        #4   | 0.4 %|  __init__                  ...our/obj_images.py:74
+        #5   | 0.3 %|  __init__                  ...r/glamour/menu.py:295
+22:06:48.61   ______
+        #1   |96.2 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #3   | 0.5 %|  __init__                  .../glamour/stage.py:314
+        #4   | 0.4 %|  find_images               ...our/obj_images.py:26
+        #5   | 0.4 %|  __init__                  ...our/obj_images.py:74
+        #6   | 0.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 0.3 %|  __init__                  ...r/glamour/menu.py:295
+22:06:48.81   ______
+        #1   |95.1 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.6 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #4   | 0.5 %|  find_images               ...our/obj_images.py:26
+        #5   | 0.4 %|  __init__                  .../glamour/stage.py:314
+        #6   | 0.4 %|  __init__                  ...our/obj_images.py:74
+        #7   | 0.3 %|  do_profile                ...psyco/profiler.py:314
+        #8   | 0.3 %|  __init__                  ...our/obj_images.py:16
+        #9   | 0.3 %|  __init__                  ...r/glamour/menu.py:295
+22:06:49.01   ______
+        #1   |93.5 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.9 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 0.7 %|  find_images               ...our/obj_images.py:26
+        #4   | 0.6 %|  do_profile                ...psyco/profiler.py:314
+        #5   | 0.6 %|  invert_images             ...our/obj_images.py:29
+        #6   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #7   | 0.4 %|  __init__                  ...our/obj_images.py:16
+        #8   | 0.4 %|  __init__                  .../glamour/stage.py:314
+        #9   | 0.4 %|  __init__                  ...glamour/drapes.py:5
+        #10  | 0.4 %|  __init__                  ...our/obj_images.py:74
+22:06:49.22   ______
+        #1   |91.7 %|  active_start              ...psyco/profiler.py:273
+        #2   | 1.2 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 1.1 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 0.9 %|  find_images               ...our/obj_images.py:26
+        #5   | 0.8 %|  invert_images             ...our/obj_images.py:29
+        #6   | 0.7 %|  __init__                  ...glamour/drapes.py:5
+        #7   | 0.5 %|  __init__                  ...our/obj_images.py:16
+        #8   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #9   | 0.4 %|  __init__                  .../glamour/stage.py:314
+        #10  | 0.4 %|  __init__                  ...r/glamour/menu.py:18
+22:06:49.43   ______
+        #1   |90.2 %|  active_start              ...psyco/profiler.py:273
+        #2   | 1.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 1.7 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 1.2 %|  find_images               ...our/obj_images.py:26
+        #5   | 0.8 %|  invert_images             ...our/obj_images.py:29
+        #6   | 0.7 %|  __init__                  ...glamour/drapes.py:5
+        #7   | 0.7 %|  __init__                  ...our/obj_images.py:16
+        #8   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #9   | 0.4 %|  __init__                  .../glamour/stage.py:314
+        #10  | 0.4 %|  __init__                  ...r/glamour/menu.py:18
+22:06:49.63   ______
+        #1   |87.6 %|  active_start              ...psyco/profiler.py:273
+        #2   | 2.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 2.0 %|  find_images               ...our/obj_images.py:26
+        #4   | 2.0 %|  do_profile                ...psyco/profiler.py:314
+        #5   | 1.3 %|  __init__                  ...our/obj_images.py:16
+        #6   | 1.1 %|  __init__                  ...glamour/drapes.py:5
+        #7   | 0.8 %|  invert_images             ...our/obj_images.py:29
+        #8   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #9   | 0.4 %|  __init__                  .../glamour/stage.py:314
+        #10  | 0.4 %|  __init__                  ...r/glamour/menu.py:18
+22:06:49.84   ______
+        #1   |84.2 %|  active_start              ...psyco/profiler.py:273
+        #2   | 3.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #3   | 2.4 %|  find_images               ...our/obj_images.py:26
+        #4   | 2.4 %|  do_profile                ...psyco/profiler.py:314
+        #5   | 2.3 %|  __init__                  ...our/obj_images.py:16
+        #6   | 1.4 %|  __init__                  ...glamour/drapes.py:5
+        #7   | 1.2 %|  invert_images             ...our/obj_images.py:29
+        #8   | 0.6 %|  __init__                  ...r/glamour/menu.py:18
+        #9   | 0.5 %|  __init__                  ...r/glamour/menu.py:338
+        #10  | 0.4 %|  __init__                  .../glamour/stage.py:314
+22:06:50.04   ______
+        #1   |64.1 %|  active_start              ...psyco/profiler.py:273
+        #2   | 4.6 %|  main_menu                 ...lamour/control.py:4
+        #3   | 3.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 3.6 %|  update_drape              ...r/glamour/menu.py:47
+22:06:50.24   ______
+        #1   |47.1 %|  active_start              ...psyco/profiler.py:273
+        #2   |11.5 %|  update_drape              ...r/glamour/menu.py:47
+22:06:50.45   ______
+        #1   |34.4 %|  active_start              ...psyco/profiler.py:273
+        #2   |14.6 %|  update_drape              ...r/glamour/menu.py:47
+22:06:50.61   ______
+        #1   |27.3 %|  active_start              ...psyco/profiler.py:273
+        #2   |17.5 %|  update_drape              ...r/glamour/menu.py:47
+22:06:50.82   ______
+        #1   |20.8 %|  update_drape              ...r/glamour/menu.py:47
+22:06:51.02   ______
+        #1   |23.0 %|  update_drape              ...r/glamour/menu.py:47
+22:06:51.22   ______
+        #1   |24.8 %|  update_drape              ...r/glamour/menu.py:47
+22:06:51.42   ______
+        #1   |28.5 %|  update_drape              ...r/glamour/menu.py:47
+22:06:51.63   ______
+        #1   |28.1 %|  update_drape              ...r/glamour/menu.py:47
+22:06:51.84   ______
+        #1   |28.4 %|  update_drape              ...r/glamour/menu.py:47
+22:06:52.04   ______
+        #1   |29.7 %|  update_drape              ...r/glamour/menu.py:47
+22:06:52.24   ______
+        #1   |29.6 %|  update_drape              ...r/glamour/menu.py:47
+22:06:52.45   ______
+        #1   |30.6 %|  update_drape              ...r/glamour/menu.py:47
+22:06:52.66   ______
+        #1   |30.8 %|  update_drape              ...r/glamour/menu.py:47
+22:06:52.81   ______
+        #1   |29.0 %|  update_drape              ...r/glamour/menu.py:47
+        #2   |24.6 %|  update_pos                ...glamour/drapes.py:19
+        #3   |18.0 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.4 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.8 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.8 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  main_menu                 ...lamour/control.py:4
+        #8   | 1.0 %|  active_start              ...psyco/profiler.py:273
+        #9   | 1.0 %|  dumpcharges               ...s/psyco/logger.py:62
+        #10  | 0.7 %|  do_profile                ...psyco/profiler.py:314
+22:06:53.02   ______
+        #1   |27.9 %|  update_drape              ...r/glamour/menu.py:47
+        #2   |25.5 %|  update_pos                ...glamour/drapes.py:19
+        #3   |17.7 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.1 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 3.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.2 %|  main_menu                 ...lamour/control.py:4
+        #9   | 0.8 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 0.7 %|  active_start              ...psyco/profiler.py:273
+22:06:53.22   ______
+        #1   |27.7 %|  update_drape              ...r/glamour/menu.py:47
+        #2   |27.2 %|  update_pos                ...glamour/drapes.py:19
+        #3   |16.9 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.3 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.6 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.9 %|  main_menu                 ...lamour/control.py:4
+        #9   | 0.6 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 0.5 %|  active_start              ...psyco/profiler.py:273
+22:06:53.42   ______
+        #1   |27.8 %|  update_pos                ...glamour/drapes.py:19
+        #2   |27.0 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.5 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.7 %|  update_all                ...glamour/drapes.py:17
+        #5   | 6.9 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.8 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.6 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.6 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.4 %|  active_start              ...psyco/profiler.py:273
+22:06:53.63   ______
+        #1   |28.3 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.4 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |18.1 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.6 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.0 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.2 %|  main_menu                 ...lamour/control.py:4
+        #9   | 0.7 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 0.3 %|  <module>                              <string>:1
+22:06:53.84   ______
+        #1   |28.9 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.6 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.6 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.6 %|  update_all                ...glamour/drapes.py:17
+        #5   | 6.5 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.8 %|  main_menu                 ...lamour/control.py:4
+        #9   | 0.7 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 0.3 %|  <module>                              <string>:1
+22:06:54.05   ______
+        #1   |28.5 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.5 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.1 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.6 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.0 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.6 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:54.20   ______
+        #1   |28.2 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.3 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.2 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.2 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.2 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.5 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:54.41   ______
+        #1   |28.3 %|  update_pos                ...glamour/drapes.py:19
+        #2   |24.6 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |18.2 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.2 %|  update_all                ...glamour/drapes.py:17
+        #5   | 6.9 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.5 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.3 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.8 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:54.61   ______
+        #1   |28.5 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.1 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.5 %|  update_all                ...glamour/drapes.py:49
+        #4   | 8.9 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.2 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.8 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:54.82   ______
+        #1   |28.1 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.7 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.3 %|  update_all                ...glamour/drapes.py:49
+        #4   | 8.8 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.6 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.2 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.3 %|  do_profile                ...psyco/profiler.py:314
+        #8   | 1.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #9   | 0.6 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:55.02   ______
+        #1   |28.4 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.0 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |18.1 %|  update_all                ...glamour/drapes.py:49
+        #4   | 8.4 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 3.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.0 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.5 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:55.22   ______
+        #1   |27.9 %|  update_pos                ...glamour/drapes.py:19
+        #2   |24.8 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.7 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.6 %|  update_all                ...glamour/drapes.py:17
+        #5   | 7.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.7 %|  main_menu                 ...lamour/control.py:4
+        #9   | 0.7 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:55.43   ______
+        #1   |27.0 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.7 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |16.5 %|  update_all                ...glamour/drapes.py:49
+        #4   |10.2 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.1 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.9 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.5 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:55.63   ______
+        #1   |26.8 %|  update_pos                ...glamour/drapes.py:19
+        #2   |25.3 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |16.7 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.9 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.5 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.7 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 0.9 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.4 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.2 %|  <module>                              <string>:1
+22:06:55.83   ______
+        #1   |26.2 %|  update_pos                ...glamour/drapes.py:19
+        #2   |24.8 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |17.0 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.4 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 2.8 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.6 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.2 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 0.6 %|  main_menu                 ...lamour/control.py:4
+        #10  | 0.5 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+22:06:56.03   ______
+        #1   |25.4 %|  update_pos                ...glamour/drapes.py:19
+        #2   |24.1 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |16.5 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.2 %|  update_all                ...glamour/drapes.py:17
+        #5   | 8.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 3.2 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.0 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 1.8 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 1.3 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #10  | 0.6 %|  main_menu                 ...lamour/control.py:4
+22:06:56.23   ______
+        #1   |24.7 %|  update_pos                ...glamour/drapes.py:19
+        #2   |23.4 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |16.0 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.9 %|  update_all                ...glamour/drapes.py:17
+        #6   | 3.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.6 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 2.0 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 1.7 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #10  | 0.6 %|  main_menu                 ...lamour/control.py:4
+22:06:56.44   ______
+        #1   |23.6 %|  update_pos                ...glamour/drapes.py:19
+        #2   |22.3 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |15.3 %|  update_all                ...glamour/drapes.py:49
+        #4   | 9.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.5 %|  update_all                ...glamour/drapes.py:17
+        #6   | 5.4 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 3.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 2.6 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #9   | 1.9 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 1.0 %|  main_menu                 ...lamour/control.py:4
+22:06:56.64   ______
+        #1   |22.3 %|  update_pos                ...glamour/drapes.py:19
+        #2   |21.1 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |14.5 %|  update_all                ...glamour/drapes.py:49
+        #4   |10.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.0 %|  update_all                ...glamour/drapes.py:17
+        #6   | 6.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 4.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 3.6 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #9   | 3.0 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 1.0 %|  main_menu                 ...lamour/control.py:4
+22:06:56.84   ______
+        #1   |20.9 %|  update_pos                ...glamour/drapes.py:19
+        #2   |19.8 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |13.5 %|  update_all                ...glamour/drapes.py:49
+        #4   |10.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.5 %|  update_all                ...glamour/drapes.py:17
+        #6   | 5.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 5.6 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 4.7 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #9   | 4.1 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 1.7 %|  main_menu                 ...lamour/control.py:4
+22:06:57.00   ______
+        #1   |16.6 %|  update_pos                ...glamour/drapes.py:19
+        #2   |15.7 %|  update_drape              ...r/glamour/menu.py:47
+        #3   |11.4 %|  update_all                ...r/glamour/menu.py:42
+        #4   |10.8 %|  update_all                ...glamour/drapes.py:49
+        #5   | 6.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #6   | 6.0 %|  update_all                ...glamour/drapes.py:17
+        #7   | 5.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 4.4 %|  left_bar_ARRIVE           ...r/glamour/menu.py:57
+        #9   | 4.3 %|  update_menus              ...r/glamour/menu.py:85
+        #10  | 3.8 %|  update_all                ...r/glamour/menu.py:352
+22:06:57.20   ______
+        #1   |16.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |10.3 %|  update_all                ...r/glamour/menu.py:42
+        #3   |10.0 %|  update_pos                ...glamour/drapes.py:19
+        #4   | 9.4 %|  update_drape              ...r/glamour/menu.py:47
+        #5   | 8.2 %|  update_all                ...r/glamour/menu.py:370
+        #6   | 6.7 %|  update_all                ...r/glamour/menu.py:352
+        #7   | 6.5 %|  update_all                ...glamour/drapes.py:49
+        #8   | 5.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #9   | 4.2 %|  <module>                  ...r/glamour/main.py:3
+        #10  | 4.2 %|  update_pos                ...r/glamour/menu.py:315
+22:06:57.41   ______
+        #1   |21.8 %|  update_menus              ...r/glamour/menu.py:85
+        #2   | 9.2 %|  update_all                ...r/glamour/menu.py:370
+        #3   | 9.0 %|  update_all                ...r/glamour/menu.py:42
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:352
+        #5   | 6.8 %|  update_pos                ...glamour/drapes.py:19
+        #6   | 6.5 %|  update_drape              ...r/glamour/menu.py:47
+        #7   | 4.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 4.4 %|  update_all                ...glamour/drapes.py:49
+        #9   | 4.4 %|  update_pos                ...r/glamour/menu.py:315
+        #10  | 3.8 %|  <module>                  ...r/glamour/main.py:3
+22:06:57.61   ______
+        #1   |24.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |11.3 %|  update_all                ...r/glamour/menu.py:370
+        #3   |10.1 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 5.6 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.0 %|  update_pos                ...glamour/drapes.py:19
+        #7   | 4.7 %|  update_drape              ...r/glamour/menu.py:47
+        #8   | 4.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #9   | 3.7 %|  <module>                  ...r/glamour/main.py:3
+        #10  | 3.5 %|  click_detection           ...r/glamour/menu.py:377
+22:06:57.82   ______
+        #1   |26.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |12.9 %|  update_all                ...r/glamour/menu.py:370
+        #3   |10.9 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.6 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 4.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 3.6 %|  dumpcharges               ...s/psyco/logger.py:62
+        #8   | 3.4 %|  update_pos                ...glamour/drapes.py:19
+        #9   | 3.2 %|  update_drape              ...r/glamour/menu.py:47
+        #10  | 3.2 %|  click_detection           ...r/glamour/menu.py:377
+22:06:58.03   ______
+        #1   |27.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   |12.0 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.8 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.6 %|  click_detection           ...r/glamour/menu.py:325
+22:06:58.24   ______
+        #1   |27.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.5 %|  update_all                ...r/glamour/menu.py:370
+        #3   |12.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.8 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 4.7 %|  click_detection           ...r/glamour/menu.py:325
+22:06:58.44   ______
+        #1   |27.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.6 %|  update_all                ...r/glamour/menu.py:370
+        #3   |12.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 6.0 %|  click_detection           ...r/glamour/menu.py:325
+22:06:58.60   ______
+        #1   |25.5 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_all                ...r/glamour/menu.py:352
+        #3   |12.9 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.9 %|  click_detection           ...r/glamour/menu.py:325
+22:06:58.81   ______
+        #1   |26.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.9 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.0 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.9 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 6.1 %|  click_detection           ...r/glamour/menu.py:325
+22:06:59.01   ______
+        #1   |27.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.6 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.0 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.5 %|  click_detection           ...r/glamour/menu.py:325
+22:06:59.22   ______
+        #1   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.1 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 7.9 %|  update_pos                ...r/glamour/menu.py:315
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 5.0 %|  click_detection           ...r/glamour/menu.py:325
+22:06:59.42   ______
+        #1   |28.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.2 %|  update_all                ...r/glamour/menu.py:352
+        #3   |12.8 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.6 %|  click_detection           ...r/glamour/menu.py:325
+22:06:59.62   ______
+        #1   |27.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.0 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.0 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.5 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.8 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 4.7 %|  click_detection           ...r/glamour/menu.py:325
+22:06:59.84   ______
+        #1   |27.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.3 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 7.9 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 6.5 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 5.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:00.05   ______
+        #1   |28.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   |13.0 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.2 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 6.0 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 5.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:00.20   ______
+        #1   |28.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.5 %|  update_all                ...r/glamour/menu.py:370
+        #3   |12.8 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.6 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 6.3 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 5.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:00.41   ______
+        #1   |26.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.1 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.4 %|  update_all                ...r/glamour/menu.py:370
+        #4   |10.1 %|  click_detection           ...r/glamour/menu.py:377
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 6.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 4.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:00.61   ______
+        #1   |25.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.6 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.4 %|  update_all                ...r/glamour/menu.py:370
+        #4   |10.9 %|  click_detection           ...r/glamour/menu.py:377
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 7.0 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 4.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:00.82   ______
+        #1   |25.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.1 %|  update_all                ...r/glamour/menu.py:370
+        #3   |14.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.2 %|  click_detection           ...r/glamour/menu.py:377
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 7.5 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 3.7 %|  update_all                ...r/glamour/menu.py:311
+        #8   | 3.5 %|  <module>                  ...r/glamour/main.py:3
+        #9   | 3.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:01.02   ______
+        #1   |28.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.0 %|  update_all                ...r/glamour/menu.py:370
+        #3   |14.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.5 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 6.6 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 4.4 %|  update_all                ...r/glamour/menu.py:311
+        #8   | 3.5 %|  <module>                  ...r/glamour/main.py:3
+        #9   | 3.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:01.22   ______
+        #1   |29.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   |14.2 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.6 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.8 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 4.5 %|  update_all                ...r/glamour/menu.py:311
+        #8   | 4.2 %|  <module>                  ...r/glamour/main.py:3
+        #9   | 2.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:01.44   ______
+        #1   |28.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |17.3 %|  update_all                ...r/glamour/menu.py:370
+        #3   |15.8 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 7.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.8 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 4.3 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 4.3 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 2.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:01.65   ______
+        #1   |27.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.6 %|  update_all                ...r/glamour/menu.py:370
+        #3   |15.3 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.9 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.6 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 5.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 4.1 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 2.4 %|  dumpcharges               ...s/psyco/logger.py:62
+        #10  | 2.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:01.80   ______
+        #1   |25.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   |14.5 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.5 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.5 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 5.3 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 3.9 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 3.3 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 3.2 %|  dumpcharges               ...s/psyco/logger.py:62
+22:07:02.00   ______
+        #1   |24.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   |13.5 %|  update_all                ...r/glamour/menu.py:352
+        #4   |10.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.1 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 6.1 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 4.9 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 4.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #9   | 3.6 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 3.6 %|  do_profile                ...psyco/profiler.py:314
+22:07:02.21   ______
+        #1   |22.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.6 %|  update_all                ...r/glamour/menu.py:370
+        #3   |12.4 %|  update_all                ...r/glamour/menu.py:352
+        #4   |10.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.1 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 5.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 5.6 %|  update_pos                ...r/glamour/menu.py:315
+        #8   | 4.5 %|  click_detection           ...r/glamour/menu.py:377
+        #9   | 4.1 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 3.8 %|  close_bar                 ...r/glamour/menu.py:119
+22:07:02.41   ______
+        #1   |17.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |10.6 %|  update_all                ...r/glamour/menu.py:370
+        #3   | 9.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.0 %|  __init__                  ...our/obj_images.py:74
+        #6   | 6.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 6.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 4.8 %|  do_profile                ...psyco/profiler.py:314
+        #9   | 4.4 %|  update_pos                ...r/glamour/menu.py:315
+        #10  | 4.2 %|  __init__                  ...r/glamour/menu.py:295
+22:07:02.61   ______
+        #1   |15.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |10.0 %|  update_all                ...r/glamour/menu.py:42
+        #3   | 9.4 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:352
+        #5   | 7.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #6   | 7.1 %|  do_profile                ...psyco/profiler.py:314
+        #7   | 6.6 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 6.2 %|  __init__                  ...our/obj_images.py:74
+        #9   | 3.9 %|  update_pos                ...r/glamour/menu.py:315
+        #10  | 3.7 %|  __init__                  ...r/glamour/menu.py:295
+22:07:02.81   ______
+        #1   |13.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |10.8 %|  update_all                ...r/glamour/menu.py:42
+        #3   | 9.7 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:370
+        #5   | 7.7 %|  do_profile                ...psyco/profiler.py:314
+        #6   | 7.5 %|  update_all                ...r/glamour/menu.py:352
+        #7   | 7.4 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 5.6 %|  update_right_bar          ...r/glamour/menu.py:69
+        #9   | 5.4 %|  __init__                  ...our/obj_images.py:74
+        #10  | 3.4 %|  update_pos                ...r/glamour/menu.py:315
+22:07:03.03   ______
+        #1   |11.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |11.1 %|  update_all                ...r/glamour/menu.py:42
+        #3   |10.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 9.8 %|  update_right_bar          ...r/glamour/menu.py:69
+        #5   | 9.5 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 9.0 %|  do_profile                ...psyco/profiler.py:314
+        #7   | 7.0 %|  update_all                ...r/glamour/menu.py:370
+        #8   | 6.4 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 4.6 %|  __init__                  ...our/obj_images.py:74
+        #10  | 2.9 %|  update_pos                ...r/glamour/menu.py:315
+22:07:03.24   ______
+        #1   |13.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |10.5 %|  <module>                  ...r/glamour/main.py:3
+        #3   |10.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 9.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.0 %|  update_all                ...r/glamour/menu.py:352
+        #6   | 6.7 %|  do_profile                ...psyco/profiler.py:314
+        #7   | 6.7 %|  update_right_bar          ...r/glamour/menu.py:69
+        #8   | 5.7 %|  update_pos                ...r/glamour/menu.py:315
+        #9   | 4.8 %|  update_all                ...r/glamour/menu.py:370
+        #10  | 4.3 %|  update_all                ...r/glamour/menu.py:311
+22:07:03.45   ______
+        #1   |22.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |11.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |10.9 %|  update_all                ...r/glamour/menu.py:42
+        #4   |10.5 %|  update_pos                ...r/glamour/menu.py:315
+        #5   | 7.7 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 6.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 5.5 %|  update_all                ...r/glamour/menu.py:311
+        #8   | 5.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:03.60   ______
+        #1   |25.8 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |11.7 %|  update_all                ...r/glamour/menu.py:42
+        #3   |11.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   |11.5 %|  update_pos                ...r/glamour/menu.py:315
+        #5   | 8.4 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 5.6 %|  update_all                ...r/glamour/menu.py:311
+        #7   | 5.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:03.82   ______
+        #1   |24.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.6 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.3 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:04.02   ______
+        #1   |24.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.3 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |11.9 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:04.23   ______
+        #1   |25.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.4 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |11.2 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.1 %|  update_all                ...r/glamour/menu.py:311
+        #6   | 5.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:04.44   ______
+        #1   |25.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.5 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.3 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 6.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:04.64   ______
+        #1   |25.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.2 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.1 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.6 %|  update_all                ...r/glamour/menu.py:311
+        #6   | 7.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:04.81   ______
+        #1   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.6 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.3 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:05.01   ______
+        #1   |25.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.0 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |14.2 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:05.21   ______
+        #1   |25.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.8 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |15.4 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:05.42   ______
+        #1   |26.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.1 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.5 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:05.62   ______
+        #1   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.8 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |14.5 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:05.83   ______
+        #1   |28.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 7.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:06.04   ______
+        #1   |26.8 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.0 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |14.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.1 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:06.20   ______
+        #1   |29.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.6 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.8 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.5 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:06.40   ______
+        #1   |29.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.1 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.1 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.5 %|  update_all                ...r/glamour/menu.py:311
+        #6   | 8.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:06.62   ______
+        #1   |28.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.1 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:06.83   ______
+        #1   |27.5 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.1 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |14.5 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:07.03   ______
+        #1   |27.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.4 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |14.2 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 9.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 9.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:07.23   ______
+        #1   |28.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.4 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:07.43   ______
+        #1   |29.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.5 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.4 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:07.64   ______
+        #1   |28.5 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.8 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.9 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.7 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:07.84   ______
+        #1   |28.5 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.3 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.8 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.9 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:08.01   ______
+        #1   |28.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.2 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.1 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:08.21   ______
+        #1   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.0 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.3 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.1 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:08.42   ______
+        #1   |29.8 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.4 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 7.9 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:08.62   ______
+        #1   |29.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.6 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.9 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:08.83   ______
+        #1   |31.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.5 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.5 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.1 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 7.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:09.04   ______
+        #1   |32.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.7 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 7.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 7.7 %|  update_all                ...r/glamour/menu.py:311
+        #6   | 7.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:09.25   ______
+        #1   |32.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.1 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |12.4 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:09.41   ______
+        #1   |31.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.5 %|  update_pos                ...r/glamour/menu.py:315
+        #3   |13.0 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 8.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:09.61   ______
+        #1   |29.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.6 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:09.82   ______
+        #1   |28.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.5 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.5 %|  update_all                ...r/glamour/menu.py:311
+        #6   | 7.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:10.03   ______
+        #1   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.3 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.1 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.3 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 7.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:10.24   ______
+        #1   |28.9 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.4 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.7 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.9 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 7.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:10.41   ______
+        #1   |27.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.9 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.5 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.0 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:10.62   ______
+        #1   |27.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_all                ...r/glamour/menu.py:352
+        #3   |14.0 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:10.82   ______
+        #1   |28.8 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.2 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.7 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:11.04   ______
+        #1   |28.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.6 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.4 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:11.20   ______
+        #1   |27.7 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.7 %|  update_all                ...r/glamour/menu.py:352
+        #3   |12.9 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:11.41   ______
+        #1   |27.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.2 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.8 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:11.62   ______
+        #1   |30.0 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |13.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.5 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.8 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:11.83   ______
+        #1   |30.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |14.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.8 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:12.03   ______
+        #1   |29.2 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.0 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.2 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.9 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.2 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:12.25   ______
+        #1   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |16.1 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.7 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:12.41   ______
+        #1   |30.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.0 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.9 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.2 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.9 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 8.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:12.61   ______
+        #1   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |15.8 %|  update_all                ...r/glamour/menu.py:352
+        #3   |12.1 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.1 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:12.84   ______
+        #1   |26.6 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |17.7 %|  update_all                ...r/glamour/menu.py:352
+        #3   |12.5 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 9.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:13.01   ______
+        #1   |25.4 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |19.0 %|  update_all                ...r/glamour/menu.py:352
+        #3   |13.2 %|  update_pos                ...r/glamour/menu.py:315
+        #4   | 8.3 %|  update_all                ...r/glamour/menu.py:311
+        #5   | 8.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:13.22   ______
+        #1   |22.1 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |11.9 %|  update_all                ...r/glamour/menu.py:352
+        #3   |11.0 %|  update_all                ...r/glamour/menu.py:370
+        #4   | 9.1 %|  update_pos                ...r/glamour/menu.py:315
+        #5   | 5.6 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 5.2 %|  update_all                ...r/glamour/menu.py:311
+        #7   | 5.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:13.44   ______
+        #1   |26.5 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |22.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   | 6.9 %|  update_all                ...r/glamour/menu.py:352
+        #4   | 6.5 %|  update_pos                ...r/glamour/menu.py:315
+        #5   | 6.4 %|  update_all                ...r/glamour/menu.py:42
+        #6   | 5.4 %|  click_detection           ...r/glamour/menu.py:395
+        #7   | 3.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:13.65   ______
+        #1   |28.3 %|  update_menus              ...r/glamour/menu.py:85
+        #2   |27.8 %|  update_all                ...r/glamour/menu.py:370
+        #3   | 7.1 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 5.2 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 5.1 %|  update_all                ...r/glamour/menu.py:352
+        #7   | 3.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 2.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:13.80   ______
+        #1   |31.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |28.5 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 7.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 4.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 4.1 %|  update_all                ...r/glamour/menu.py:352
+        #7   | 3.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 2.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 2.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:14.01   ______
+        #1   |32.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.0 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 7.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.7 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.9 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.3 %|  update_all                ...r/glamour/menu.py:352
+        #7   | 2.8 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 2.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:14.22   ______
+        #1   |34.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 8.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.8 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.6 %|  update_all                ...r/glamour/menu.py:352
+        #8   | 2.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:14.42   ______
+        #1   |34.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 9.3 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.5 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.6 %|  update_all                ...r/glamour/menu.py:352
+        #8   | 2.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:14.63   ______
+        #1   |35.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 9.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.3 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.0 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.3 %|  update_all                ...r/glamour/menu.py:352
+        #8   | 2.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:14.84   ______
+        #1   |36.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 8.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.3 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:15.05   ______
+        #1   |37.0 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 8.3 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.3 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.1 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.2 %|  update_all                ...r/glamour/menu.py:352
+        #8   | 2.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:15.20   ______
+        #1   |36.9 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 8.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:15.41   ______
+        #1   |35.9 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.5 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 9.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 8.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.4 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:15.62   ______
+        #1   |36.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   | 9.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 8.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.3 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.1 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:15.82   ______
+        #1   |35.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |29.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |10.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 8.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.2 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 3.2 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:16.03   ______
+        #1   |35.7 %|  update_all                ...r/glamour/menu.py:370
+        #2   |28.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |12.2 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.4 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:16.24   ______
+        #1   |34.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |27.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |15.2 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.9 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.1 %|  update_all                ...r/glamour/menu.py:352
+        #8   | 1.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:16.45   ______
+        #1   |33.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.8 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |16.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.9 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.8 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:16.65   ______
+        #1   |32.9 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.7 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |18.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.6 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.0 %|  click_detection           ...r/glamour/menu.py:325
+22:07:16.81   ______
+        #1   |32.1 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |19.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 1.9 %|  click_detection           ...r/glamour/menu.py:325
+22:07:17.01   ______
+        #1   |31.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.7 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.3 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:17.22   ______
+        #1   |31.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.4 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.5 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.5 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:17.42   ______
+        #1   |31.0 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.0 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.3 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.9 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:17.63   ______
+        #1   |30.7 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.8 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:17.84   ______
+        #1   |30.9 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.5 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.8 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:18.05   ______
+        #1   |30.8 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.2 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.7 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.3 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:18.21   ______
+        #1   |30.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.7 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.9 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:18.41   ______
+        #1   |30.0 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.9 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:18.62   ______
+        #1   |29.7 %|  update_all                ...r/glamour/menu.py:370
+        #2   |27.0 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.7 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.8 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.6 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.8 %|  click_detection           ...r/glamour/menu.py:325
+22:07:18.83   ______
+        #1   |30.1 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.9 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.5 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:19.04   ______
+        #1   |29.9 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.9 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.5 %|  update_pos                ...r/glamour/menu.py:315
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:19.25   ______
+        #1   |30.0 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.7 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.4 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.9 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.7 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:19.40   ______
+        #1   |30.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.1 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.4 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:19.61   ______
+        #1   |30.8 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.8 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.5 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.3 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:19.81   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.8 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.4 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.7 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.5 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.4 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.3 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.5 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:20.02   ______
+        #1   |30.7 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |20.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.5 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:20.22   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.1 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.2 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.4 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:20.43   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.1 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.2 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.4 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:20.65   ______
+        #1   |30.7 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.7 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.4 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.3 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.3 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:20.81   ______
+        #1   |31.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:21.01   ______
+        #1   |31.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |24.8 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |23.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.2 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.4 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 1.8 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:21.22   ______
+        #1   |31.0 %|  update_all                ...r/glamour/menu.py:370
+        #2   |24.7 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |23.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:21.43   ______
+        #1   |30.8 %|  update_all                ...r/glamour/menu.py:370
+        #2   |24.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |23.3 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.5 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.8 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.3 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:21.64   ______
+        #1   |30.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.1 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.5 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:21.80   ______
+        #1   |30.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.3 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.2 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:22.01   ______
+        #1   |30.6 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.8 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.1 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:22.22   ______
+        #1   |30.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.3 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.2 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:22.42   ______
+        #1   |30.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.7 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.0 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.2 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:22.63   ______
+        #1   |30.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.2 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.2 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.3 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #7   | 2.2 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.5 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:22.84   ______
+        #1   |30.1 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.5 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 1.9 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.7 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.3 %|  click_detection           ...r/glamour/menu.py:325
+22:07:23.04   ______
+        #1   |30.4 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.5 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.4 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.5 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.7 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:23.25   ______
+        #1   |30.1 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.5 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.4 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.0 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.7 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.6 %|  click_detection           ...r/glamour/menu.py:325
+22:07:23.41   ______
+        #1   |30.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.6 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.3 %|  <module>                  ...r/glamour/main.py:3
+        #6   | 2.3 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.0 %|  click_detection           ...r/glamour/menu.py:377
+        #8   | 1.8 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.7 %|  click_detection           ...r/glamour/menu.py:325
+22:07:23.62   ______
+        #1   |30.3 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.7 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.4 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.3 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.6 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:23.84   ______
+        #1   |30.2 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |21.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.6 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.5 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 2.1 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 2.0 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.7 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.3 %|  update_all                ...r/glamour/menu.py:220
+22:07:24.04   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.1 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.3 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.5 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 1.9 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:24.25   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.6 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.7 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.7 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 1.9 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:352
+        #9   | 1.4 %|  update_all                ...r/glamour/menu.py:311
+        #10  | 1.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:24.41   ______
+        #1   |30.6 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.1 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.9 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.1 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.7 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.5 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.1 %|  click_detection           ...r/glamour/menu.py:325
+22:07:24.61   ______
+        #1   |30.5 %|  update_all                ...r/glamour/menu.py:370
+        #2   |25.4 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.8 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.8 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 3.0 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.6 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 1.9 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.6 %|  update_all                ...r/glamour/menu.py:311
+        #9   | 1.4 %|  update_all                ...r/glamour/menu.py:352
+        #10  | 1.2 %|  click_detection           ...r/glamour/menu.py:325
+22:07:24.83   ______
+        #1   |30.8 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.4 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.1 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.2 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.3 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 1.9 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:25.04   ______
+        #1   |30.6 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.4 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.2 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 7.1 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.7 %|  update_pos                ...r/glamour/menu.py:315
+        #6   | 2.3 %|  click_detection           ...r/glamour/menu.py:377
+        #7   | 2.0 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.5 %|  click_detection           ...r/glamour/menu.py:325
+22:07:25.20   ______
+        #1   |30.6 %|  update_all                ...r/glamour/menu.py:370
+        #2   |26.9 %|  update_menus              ...r/glamour/menu.py:85
+        #3   |22.0 %|  click_detection           ...r/glamour/menu.py:395
+        #4   | 6.9 %|  update_all                ...r/glamour/menu.py:42
+        #5   | 2.6 %|  click_detection           ...r/glamour/menu.py:377
+        #6   | 2.6 %|  update_pos                ...r/glamour/menu.py:315
+        #7   | 1.9 %|  <module>                  ...r/glamour/main.py:3
+        #8   | 1.4 %|  click_detection           ...r/glamour/menu.py:325
+22:07:25.32  memory usage: 0+ kb                                           %
+22:07:25.32  program exit, 05/18/09                     %%%%%%%%%%%%%%%%%%%%

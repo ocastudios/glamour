@@ -17,7 +17,7 @@ class Universe():
         self.click = False
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
         self.level = stage.Stage(6000,self)
-        self.white = Foreground(self)
+
 
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)
@@ -38,20 +38,4 @@ class Universe():
             self.speed = 0
             self.center_x = -(self.level.size-470)
 #        self.center_x += self.speed
-class Foreground():
-    def __init__(self,universe):
-        self.pos = 0,0
-        self.image = pygame.Surface((universe.width,universe.height)).convert()
-        self.image.fill((255,255,255))
-        self.alpha_value = 0
-        self.inside = True
-        self.image.set_alpha(self.alpha_value)
-    def update_all(self):
-        if self.inside:
-            if self.alpha_value < 200:
-                self.alpha_value += 5
-        else:
-            if self.alpha_value > 50:
-                self.alpha_value -= 5
-        self.image.set_alpha(self.alpha_value)
 

@@ -55,7 +55,7 @@ class Schnauzer(Enemy):
         self.set_image()
         self.got_kissed(self.level.princess)
 
-        self.level.rects.extend(pygame.mask.from_surface(self.image).get_bounding_rects())
+#        self.level.rects.extend(pygame.mask.from_surface(self.image).get_bounding_rects())
     def look_around(self,princess):
         self.count +=1
         if self.count > 130:
