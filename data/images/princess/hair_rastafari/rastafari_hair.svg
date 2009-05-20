@@ -7769,6 +7769,55 @@
        fx="370.52396"
        fy="59.769661"
        r="13.701643" />
+    <inkscape:perspective
+       id="perspective5183"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5250"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5317"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5384"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5451"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5518"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5585"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -7777,9 +7826,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="2634.5358"
-     inkscape:cy="-3259.4675"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="820.47179"
+     inkscape:cy="-57.22043"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -7825,6 +7874,38 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <image
+       y="0"
+       x="200"
+       id="image5185"
+       height="200"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/0.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/0.png" />
+    <image
+       y="0"
+       x="400"
+       id="image5252"
+       height="200"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/1.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/1.png" />
+    <image
+       y="0"
+       x="1000"
+       id="image5520"
+       height="200"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/4.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/4.png" />
+    <image
+       y="0"
+       x="1200"
+       id="image5587"
+       height="200"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/5.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/princess/skin_pink/walk/5.png" />
     <path
        style="fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
        d="M 105.74591,158.40353 C 105.73891,152.52873 111.11598,152.12541 112.63643,157.42244 L 121.18547,176.71112 C 120.81205,189.01417 104.63018,187.47116 104.16184,179.13503 L 105.74591,158.40353 z"
@@ -8018,7 +8099,7 @@
        height="200"
        x="600"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8028,7 +8109,7 @@
        height="200"
        x="800"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8078,7 +8159,7 @@
        height="200"
        x="600"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8088,7 +8169,7 @@
        height="200"
        x="800"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -9237,8 +9318,8 @@
     </g>
     <g
        id="g3599"
-       transform="translate(400.00001,4.000004)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
+       transform="translate(400.00001,4e-6)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -9454,8 +9535,8 @@
     </g>
     <g
        id="g3721"
-       transform="translate(600.00004,4.0000042)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
+       transform="translate(600.00004,4.2e-6)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_rastafari/walk/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
