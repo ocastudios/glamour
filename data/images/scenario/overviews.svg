@@ -515,6 +515,34 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2859"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2966"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3100"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3187"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -523,9 +551,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.0875"
-     inkscape:cx="2704.2069"
-     inkscape:cy="-1550.9817"
+     inkscape:zoom="0.061871843"
+     inkscape:cx="6225.5236"
+     inkscape:cy="-3685.3776"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -565,6 +593,36 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
+       y="4051.3623"
+       x="4579.5713"
+       id="image2861"
+       height="727"
+       width="729"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/dress_st/fachwerk_4/0.png"
+       xlink:href="dress_st/fachwerk_4/0.png" />
+    <image
+       y="1477.3622"
+       x="2718.7856"
+       id="image2789"
+       height="133"
+       width="271"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/fence_1/0.png"
+       xlink:href="omni/fence_1/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
+       xlink:href="omni/tree_2/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/tree_2/0.png"
+       width="378"
+       height="490"
+       id="image2756"
+       x="2345.2859"
+       y="1120.3622" />
+    <image
        y="4676.3623"
        x="305.04565"
        id="image4264"
@@ -584,7 +642,7 @@
        width="378"
        height="490"
        id="image3981"
-       x="4978.9404"
+       x="5710.3691"
        y="4286.3276" />
     <image
        inkscape:export-ydpi="90"
@@ -692,7 +750,7 @@
        width="265"
        height="343"
        id="image8419"
-       x="4281.6191"
+       x="2878.9048"
        y="1267.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -706,7 +764,7 @@
        width="378"
        height="490"
        id="image8328"
-       x="3842.8005"
+       x="4375.2998"
        y="1120.3622" />
     <image
        inkscape:export-ydpi="90"
@@ -717,7 +775,7 @@
        width="378"
        height="490"
        id="image8330"
-       x="4586.6802"
+       x="4983.9658"
        y="1120.3622" />
     <image
        y="2398.3623"
@@ -758,7 +816,7 @@
        width="265"
        height="343"
        id="image6004"
-       x="5816.0215"
+       x="6213.3071"
        y="1267.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -769,7 +827,7 @@
        width="265"
        height="343"
        id="image6006"
-       x="5017.1499"
+       x="5414.4355"
        y="1267.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -842,7 +900,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="787.36218"
-       x="2533.3401"
+       x="3065.8398"
        id="image2847"
        height="823"
        width="1300"
@@ -897,7 +955,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="870.36218"
-       x="6520"
+       x="6917.2856"
        id="image3195"
        height="740"
        width="1080"
@@ -1122,7 +1180,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="1140.3622"
-       x="5146.1729"
+       x="5543.4585"
        id="image3819"
        height="470"
        width="770"
@@ -1133,7 +1191,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="1270.3622"
-       x="6140"
+       x="6537.2856"
        id="image3823"
        height="340"
        width="260"
@@ -1144,7 +1202,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="1253.3622"
-       x="7170.7144"
+       x="7568"
        id="image3825"
        height="357"
        width="460"
@@ -1159,7 +1217,7 @@
        width="43"
        height="336"
        id="image3835"
-       x="2446.0566"
+       x="2603.1995"
        y="1274.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1170,7 +1228,7 @@
        width="43"
        height="336"
        id="image3837"
-       x="3894.6279"
+       x="4427.1279"
        y="1274.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1181,7 +1239,7 @@
        width="43"
        height="336"
        id="image3839"
-       x="6457.4854"
+       x="6854.771"
        y="1274.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1203,7 +1261,7 @@
        width="85"
        height="65"
        id="image6099"
-       x="6594.6431"
+       x="6991.9287"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1214,7 +1272,7 @@
        width="85"
        height="65"
        id="image6101"
-       x="5831.1729"
+       x="6228.4585"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1225,7 +1283,7 @@
        width="85"
        height="65"
        id="image6103"
-       x="3467.5002"
+       x="4000"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1236,7 +1294,7 @@
        width="85"
        height="65"
        id="image6105"
-       x="2890.3574"
+       x="3422.8572"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1247,7 +1305,7 @@
        width="85"
        height="65"
        id="image6107"
-       x="2824.2437"
+       x="3356.7434"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1280,7 +1338,7 @@
        width="101"
        height="65"
        id="image6200"
-       x="6699"
+       x="7096.2856"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1291,7 +1349,7 @@
        width="101"
        height="65"
        id="image6202"
-       x="5555.1729"
+       x="5952.4585"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1302,7 +1360,7 @@
        width="101"
        height="65"
        id="image6204"
-       x="2493.2856"
+       x="3025.7854"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1313,7 +1371,7 @@
        width="101"
        height="65"
        id="image6206"
-       x="3787.5715"
+       x="4320.0713"
        y="1545.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1346,7 +1404,7 @@
        width="77"
        height="96"
        id="image6410"
-       x="2559.6123"
+       x="3092.1121"
        y="1514.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1357,7 +1415,7 @@
        width="77"
        height="96"
        id="image6412"
-       x="2800"
+       x="3332.4998"
        y="1514.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1379,7 +1437,7 @@
        width="74"
        height="75"
        id="image6592"
-       x="5200"
+       x="5597.2856"
        y="1535.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
@@ -1390,14 +1448,14 @@
        width="74"
        height="75"
        id="image6594"
-       x="3926"
+       x="4458.5"
        y="1535.3622"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <image
        y="1532.3622"
-       x="5123.6431"
+       x="5520.9287"
        id="image6588"
        height="78"
        width="45"
@@ -1717,7 +1775,7 @@
     </g>
     <image
        y="1484.3622"
-       x="4025.7144"
+       x="4754.4287"
        id="image7834"
        height="126"
        width="217"
@@ -1726,71 +1784,49 @@
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <g
-       id="g8918"
-       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <image
-         y="1512.5856"
-         x="4529.2993"
-         id="image8914"
-         height="120"
-         width="120"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_4/0.png"
-         xlink:href="omni/flower_4/0.png" />
-      <image
-         y="1512.5856"
-         x="4670.7202"
-         id="image8916"
-         height="120"
-         width="120"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_4/0.png"
-         xlink:href="omni/flower_4/0.png" />
-      <image
-         xlink:href="omni/flower_9/0.png"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_9/0.png"
-         width="120"
-         height="120"
-         id="image8508"
-         x="4300.708"
-         y="1512.5856" />
-      <image
-         xlink:href="omni/flower_6/0.png"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_6/0.png"
-         width="120"
-         height="120"
-         id="image8817"
-         x="4381.8174"
-         y="1512.5856" />
-      <image
-         y="1512.5856"
-         x="4461.6514"
-         id="image8910"
-         height="120"
-         width="120"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_7/0.png"
-         xlink:href="omni/flower_7/0.png" />
-      <image
-         y="1512.5856"
-         x="4611.1538"
-         id="image8912"
-         height="120"
-         width="120"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_7/0.png"
-         xlink:href="omni/flower_7/0.png" />
-      <image
-         xlink:href="omni/flower_6/0.png"
-         sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_6/0.png"
-         width="120"
-         height="120"
-         id="image8908"
-         x="4214.9658"
-         y="1512.5856" />
-    </g>
+    <image
+       xlink:href="omni/flower_4/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_4/0.png"
+       width="120"
+       height="120"
+       id="image8914"
+       x="4926.585"
+       y="1512.5856" />
+    <image
+       xlink:href="omni/flower_4/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_4/0.png"
+       width="120"
+       height="120"
+       id="image8916"
+       x="5068.0059"
+       y="1512.5856" />
+    <image
+       y="1512.5856"
+       x="4697.9937"
+       id="image8508"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_9/0.png"
+       xlink:href="omni/flower_9/0.png" />
+    <image
+       xlink:href="omni/flower_7/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_7/0.png"
+       width="120"
+       height="120"
+       id="image8912"
+       x="5008.4395"
+       y="1512.5856" />
+    <image
+       y="1512.5856"
+       x="4612.2515"
+       id="image8908"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_6/0.png"
+       xlink:href="omni/flower_6/0.png" />
     <image
        y="1484.3622"
-       x="4920"
+       x="5317.2856"
        id="image7838"
        height="126"
        width="217"
@@ -1834,7 +1870,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="1477.3622"
-       x="4756.6431"
+       x="5153.9287"
        id="image8927"
        height="133"
        width="271"
@@ -2825,7 +2861,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4072.3623"
-       x="5200"
+       x="5931.4287"
        id="image3073"
        height="700"
        width="750"
@@ -2836,7 +2872,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4222.3623"
-       x="4750"
+       x="5481.4287"
        id="image3123"
        height="550"
        width="450"
@@ -2901,8 +2937,8 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <image
-       y="3972.3623"
-       x="6500"
+       y="3972.3621"
+       x="7300"
        id="image3537"
        height="800"
        width="700"
@@ -3078,17 +3114,6 @@
        inkscape:export-ydpi="90" />
     <image
        y="4772.3623"
-       x="4800"
-       id="image3571"
-       height="186"
-       width="400"
-       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/dress_st/floor/0.png"
-       xlink:href="dress_st/floor/0.png"
-       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <image
-       y="4772.3623"
        x="5200"
        id="image3573"
        height="186"
@@ -3173,7 +3198,7 @@
        width="260"
        height="340"
        id="image3591"
-       x="6140"
+       x="6871.4287"
        y="4432.3623" />
     <image
        inkscape:export-ydpi="90"
@@ -3252,7 +3277,7 @@
        width="378"
        height="490"
        id="image3975"
-       x="4506.853"
+       x="5123.9961"
        y="4282.3623" />
     <image
        xlink:href="omni/tree_1/0.png"
@@ -3260,7 +3285,7 @@
        width="265"
        height="343"
        id="image3983"
-       x="5775.2783"
+       x="6506.707"
        y="4429.3623"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
        inkscape:export-xdpi="90"
@@ -3359,7 +3384,7 @@
        width="43"
        height="336"
        id="image4127"
-       x="4437.4404"
+       x="4494.5835"
        y="4436.3623"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
        inkscape:export-xdpi="90"
@@ -3370,7 +3395,7 @@
        width="43"
        height="336"
        id="image4129"
-       x="6067.0713"
+       x="6798.5"
        y="4436.3623"
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
        inkscape:export-xdpi="90"
@@ -3465,7 +3490,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4676.3623"
-       x="5244.5981"
+       x="5976.0269"
        id="image4367"
        height="96"
        width="77"
@@ -3476,7 +3501,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4676.3623"
-       x="4638.5063"
+       x="5404.2207"
        id="image4369"
        height="96"
        width="77"
@@ -3487,7 +3512,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4676.3623"
-       x="6085.0449"
+       x="6816.4736"
        id="image4371"
        height="96"
        width="77"
@@ -3498,7 +3523,7 @@
        inkscape:export-ydpi="90" />
     <image
        y="4676.3623"
-       x="6490.5249"
+       x="7221.9536"
        id="image4373"
        height="96"
        width="58"
@@ -3507,5 +3532,419 @@
        inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <image
+       y="1610.3622"
+       x="7600"
+       id="image2754"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/bathhouse_st/floor/tile/regular.png"
+       xlink:href="bathhouse_st/floor/tile/regular.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       xlink:href="omni/flower_4/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_4/0.png"
+       width="120"
+       height="120"
+       id="image2761"
+       x="2784.7908"
+       y="1490.3622" />
+    <image
+       y="1490.3622"
+       x="2556.1995"
+       id="image2765"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_9/0.png"
+       xlink:href="omni/flower_9/0.png" />
+    <image
+       y="1490.3622"
+       x="2637.3088"
+       id="image2767"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_6/0.png"
+       xlink:href="omni/flower_6/0.png" />
+    <image
+       xlink:href="omni/flower_7/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_7/0.png"
+       width="120"
+       height="120"
+       id="image2769"
+       x="2717.1428"
+       y="1490.3622" />
+    <image
+       y="4772.3623"
+       x="7200"
+       id="image2791"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/dress_st/floor/0.png"
+       xlink:href="dress_st/floor/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="4772.3623"
+       x="7600"
+       id="image2793"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/dress_st/floor/0.png"
+       xlink:href="dress_st/floor/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="4648.1387"
+       x="4547.8638"
+       id="image2865"
+       height="126"
+       width="217"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/bush/0.png"
+       xlink:href="omni/bush/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       xlink:href="omni/flower_7/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_7/0.png"
+       width="120"
+       height="120"
+       id="image2873"
+       x="4841.5889"
+       y="4676.3623" />
+    <image
+       y="4668.0767"
+       x="4778.5718"
+       id="image2879"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_8/0.png"
+       xlink:href="omni/flower_8/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/accessory_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="4670.3623"
+       x="5014"
+       id="image2881"
+       height="120"
+       width="120"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/flower_8/0.png"
+       xlink:href="omni/flower_8/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/accessory_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="4646.3623"
+       x="5136.2119"
+       id="image2883"
+       height="126"
+       width="217"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/bush/0.png"
+       xlink:href="omni/bush/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/bathhouse_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="4772.3623"
+       x="4800"
+       id="image3571"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/dress_st/floor/0.png"
+       xlink:href="dress_st/floor/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="6260.3623"
+       x="-1600"
+       id="image2968"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="-1200"
+       id="image2972"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="-800"
+       id="image2974"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="-400"
+       id="image2976"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="0"
+       id="image2978"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="400"
+       id="image2980"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="800"
+       id="image2982"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="1200"
+       id="image2985"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="1600"
+       id="image2987"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="2000"
+       id="image2989"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="2400"
+       id="image2991"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="2800"
+       id="image2993"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="3200"
+       id="image2995"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="3600"
+       id="image2997"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="4000"
+       id="image2999"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="4400"
+       id="image3001"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="4800"
+       id="image3003"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="5200"
+       id="image3005"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="5600"
+       id="image3007"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="6000"
+       id="image3009"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="6400"
+       id="image3011"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="6800"
+       id="image3013"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="7200"
+       id="image3015"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="6260.3623"
+       x="7600"
+       id="image3017"
+       height="186"
+       width="400"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/floor/0.png"
+       xlink:href="makeup_st/floor/0.png" />
+    <image
+       y="5042.3623"
+       x="6993"
+       id="image3102"
+       height="1250"
+       width="1071"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/sleeping_castle/base/0.png"
+       xlink:href="makeup_st/sleeping_castle/base/0.png" />
+    <image
+       y="5516.3623"
+       x="-6497"
+       id="image3189"
+       height="756"
+       width="897"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/makeup_st/right/base/0.png"
+       xlink:href="makeup_st/right/base/0.png"
+       transform="scale(-1,1)" />
+    <image
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/referencias/overviews/dress_st.png"
+       xlink:href="omni/gate/0.png"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/scenario/omni/gate/0.png"
+       width="260"
+       height="340"
+       id="image3230"
+       x="6631.1484"
+       y="5920.3623" />
+    <text
+       xml:space="preserve"
+       style="font-size:350.3729248px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="8400"
+       y="1610.3622"
+       id="text3244"><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="1610.3622"
+         id="tspan3254">Bathhouse st. (Madeleine)</tspan><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="2048.3284"
+         id="tspan3248" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:180px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="11879.394"
+       y="7889.0747"
+       id="text3250"><tspan
+         sodipodi:role="line"
+         id="tspan3252"
+         x="11879.394"
+         y="7889.0747" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:350.3729248px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="8400"
+       y="3098.3623"
+       id="text3258"><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="3098.3623"
+         id="tspan3260">Accessory st. (?)</tspan><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="3536.3281"
+         id="tspan3262" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:350.3729248px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="8400"
+       y="4772.3623"
+       id="text3264"><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="4772.3623"
+         id="tspan3266">Dress st. (?)</tspan><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="5210.3286"
+         id="tspan3268" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:350.3729248px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="8400"
+       y="6074.3623"
+       id="text3270"><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="6074.3623"
+         id="tspan3272">Make-up st. (Sleeping Beauty)</tspan><tspan
+         sodipodi:role="line"
+         x="8400"
+         y="6512.3286"
+         id="tspan3274" /></text>
   </g>
 </svg>
