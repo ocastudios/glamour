@@ -12,6 +12,7 @@ import princess
 import os
 import panel
 import pygame
+import itertools
 
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
 #TODO substitute all these lists by a single list, blitting on the screen using the class to estipulate the order.
@@ -127,6 +128,7 @@ class Stage():
         elif self.white.alpha_value > 150:
             surface.blit(self.princess.image, ((self.universe.width/2)-(size[0]/2),
                                                (self.universe.height/2)-(size[1]/2)))
+            self.princess.update_all()
 
             [surface.blit(i.image,i.pos) for i in self.inside.items]
             [i.update_all() for i in self.inside.items]
@@ -307,17 +309,35 @@ class Inside():
     def __init__(self, level, item_type, item_list):
         self.level  = level
         self.type_of_items = item_type
-        self.items = [Item(self, i) for i in item_list]
+        counter = itertools.count()
+        self.items = [Item(self, i,counter.next()) for i in item_list]
         self.buttons    = ()
         self.texts      = ()
 class Item():
-    def __init__(self, room, directory):
+    def __init__(self, room, directory,queue_pos):
         self.level  = room.level
         self.type   = room.type_of_items
         self.image  = pygame.image.load('data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha()
         self.size   = self.image.get_size()
-        self.pos    = [1300,(self.level.universe.width/2)-self.size[1]]
+        self.queue_pos = queue_pos-1
+        self.available_pos = (self.level.universe.width/2-(self.size[0]),
+                              self.level.universe.width/2-(self.size[0]/2),
+                              self.level.universe.width/2)
+        if self.queue_pos <= len(self.available_pos):
+            self.pos    = [self.available_pos[self.queue_pos],(self.level.universe.height/2)-(self.size[1]/2)]
+        else:
+            self.pos = [0,0]
+        self.speed  = 10
+        self.positions= (
+                        (self.level.universe.width/2-(self.size[0])),
+                        (self.level.universe.width/2-(self.size[0]/2)),
+                        (self.level.universe.width/2)
+                        )
+        self.choose_position = 0
     def update_all(self):
-        if self.pos[0] > (3*(self.level.universe.width/4))-(self.size[0]/2):
-            self.pos[0] -= 5
-
+#        if self.pos[0] > self.positions[self.choose_position]:
+#            self.pos[0] -= self.speed
+#            self.speed = 10
+#        else:
+#            self.speed = 0
+        pass

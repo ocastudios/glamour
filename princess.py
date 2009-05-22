@@ -84,7 +84,9 @@ The code is not yet well commented
                     self.image = None
             else:
                 self.image = self.update_image(self.image)
-
+        else:
+            [part.update_image(self,self.direction,reset=True) for part in self.parts if part != None]
+            self.image = self.update_image(self.image)
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -254,35 +256,36 @@ The code is not yet well commented
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
 
     def save(self):
-        self.save_number = 0
-        save_file = open('data/saves/'+str(self.save_number),'w')
-        quebra    = '\n'
-        save_file.write('center_distance    '+ str(self.center_distance))
+        pass
+#        self.save_number = 0
+#        save_file = open('data/saves/'+str(self.save_number),'w')
+#        quebra    = '\n'
+#        save_file.write('center_distance    '+ str(self.center_distance))
 
-        for i in self.part_keys:
-            exec('if not self.'+ i +':\n    teste = 0\nelse:\n    teste = 1')
-            save_file.write(i+":    ")
-            if teste:
-                exec("save_file.write(self."+i+".directory + quebra )")
-            else:
-                save_file.write("None \n")
+#        for i in self.part_keys:
+#            exec('if not self.'+ i +':\n    teste = 0\nelse:\n    teste = 1')
+#            save_file.write(i+":    ")
+#            if teste:
+#                exec("save_file.write(self."+i+".directory + quebra )")
+#            else:
+#                save_file.write("None \n")
 
-        for part in self.parts:
-            try:            save_file.write(str(part.index or 0))
-            except:         save_file.write(str(Exception))
+#        for part in self.parts:
+#            try:            save_file.write(str(part.index or 0))
+#            except:         save_file.write(str(Exception))
 
     def update_image(self,surface):
         [surface.blit(i.image,(0,0)) for i in self.parts if i]
         return surface
 
 class PrincessPart():
+    image_number = 0
     def __init__(self, princess, directory,index):
         self.directory = directory
         self.index = index
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
         self.open_door = self.walk
-        self.image_number = 0
         self.list = self.stay
         self.actual_list = self.list.left
         self.reset_count = 0

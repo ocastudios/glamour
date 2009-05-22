@@ -106,15 +106,16 @@ class MenuScreen():
             for i in item:
                 i.update_all()
                 surface.blit(i.image,i.pos)
+
         for i in self.menu.options:
             if i.__class__ == Letter and i.hoover:
                 surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
                                                 i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
 
-        if self.menu.princess:
+        if self.menu.print_princess:
             self.menu.princess.update_all()
             [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images]
-        [i.click_detection() for i in self.menu.options]
+
 
     def close_bar(self,surface):
         if (-800 < self.bar.position[0] <10) or (self.universe.width-self.bar.size[0] < self.bar.position[0] < self.universe.width +1):
@@ -146,9 +147,9 @@ class Menu():
         self.rect           = Rect(self.position,self.size)
         self.action         = None
         self.next_menu      = self.select_princess
-
+        self.print_princess = False
+        self.princess       = None
     def main(self):
-        self.princess = None
         self.background = None
         self.action = 'open'
         self.actual_position = [self.position[0],-600]
@@ -168,13 +169,13 @@ class Menu():
                         ]
 
     def select_princess(self):
-        self.princess = MenuPrincess(self)
+        self.princess       = MenuPrincess(self)
+        self.print_princess = True
         self.background = pygame.image.load('data/images/story/svg_bedroom.png').convert()
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [500,-600]
         self.options    = []
-
         self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
                          GameText('appearence...',(-200,250),self,2,font_size = 40),
                          GameText('skin tone',(250,420),self,3,font_size = 40),
@@ -188,25 +189,25 @@ class Menu():
                        MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_name_your_princess)]
 
     def name_your_princess(self):
-        self.princess = None
+        self.print_princess = False
         self.background = self.background or pygame.image.load('data/images/story/svg_bedroom.png').convert()
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [500,-600]
         lowercase       = map(chr,xrange(97,123))
-        uppercase       = map(chr,xrange(65,91))
         positions       = [(i,a) for (i,a) in zip([x for n in xrange(9) for x in xrange(100,415,35)],
                                                   [n for n in xrange(200,360,40) for x in xrange(9)]   )]
 
-
-
-        self.options    = [Letter(i[0],i[1],self, 0,self.NOTSETYET, self.screen.hoover_letter_size, fonte = 'FreeSerif.ttf',font_size=40) for i in zip(lowercase,positions)]
+        self.options    =   [Letter(i[0],i[1],self, 0, self.screen.hoover_letter_size,
+                            fonte = 'FreeSerif.ttf', font_size=40)
+                            for i in zip(lowercase,positions)]
         self.options.extend([Options('< back',  (75,350)    ,self,0,self.NOTSETYET,font_size=40),
                              Options('space >', (350,350)   ,self,0,self.NOTSETYET,font_size=40),
                              Options('done',    (245,545)   ,self,0,'start_game',font_size=40)
                             ])
         self.texts =    [GameText('... and your name',(-200,200),self,1,font_size = 40),
-                        GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40)
+                        GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40),
+                        self.princess.name
                         ]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
@@ -335,31 +336,33 @@ class MenuArrow():
 
 
 class GameText():
-    def __init__(self,text,pos,menu,index,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf'):
+    def __init__(self,text,pos,menu,index,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf',var = False):
         self.font_size  = font_size
+        self.font       = fonte
         self.menu       = menu
         self.text       = text
         self.index      = index
         self.color      = color
-        self.fontA      = pygame.font.Font('data/fonts/'+fonte,font_size).render(self.text,1,self.color)
-        self.fontB      = pygame.font.Font('data/fonts/'+second_font,font_size+(font_size/2)).render(self.text,1,self.color)
-        self.image      = self.fontA
+        self.fontA      = pygame.font.Font('data/fonts/'+fonte,font_size)
+        self.fontB      = pygame.font.Font('data/fonts/'+second_font,font_size+(font_size/2))
+        self.image      = self.fontA.render(self.text,1,self.color)
         self.position   = pos
         self.size       = self.image.get_size()
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
         self.rect       = Rect(self.pos,self.size)
+        self.variable_text = var
     def update_all(self):
-        self.image      = self.fontA
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        if self.variable_text:
+            self.image = self.fontA.render(self.text,1,self.color)
+
 
 class VerticalGameText(GameText):
     def __init__(self,text,pos,menu,index,fonte='Domestic_Manners.ttf',font_size = 20, color = (0,0,0)):
         GameText.__init__(self,text,pos,menu,index,fonte,font_size,color)
-        self.fontA = pygame.transform.rotate(self.fontA,90)
-        self.fontB = pygame.transform.rotate(self.fontB,90)
-
+        self.image = pygame.transform.rotate(self.image,90)
 
 class Options(GameText):
     hoover = False
@@ -379,34 +382,34 @@ class Options(GameText):
         if -.5< self.menu.speed < .5:
             mouse_pos = pygame.mouse.get_pos()
             if self.rect.collidepoint(mouse_pos):
-                self.image = self.fontB
+                self.image = self.fontB.render(self.text,1,self.color)
 ####################################### BUTTON ACTION ########################################
                 if pygame.mouse.get_pressed() == (1,0,0):
                     exec('self.menu.'+function+'()')
             else:
-                self.image = self.fontA
+                self.image = self.fontA.render(self.text,1,self.color)
+
+
 class Letter(Options):
-    def __init__(self,text,pos,menu,index,function,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
+    def __init__(self,text,pos,menu,index,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
         GameText.__init__(self,text,pos,menu,index,fonte,font_size,color)
-        self.function = function
         self.hoover_size = hoover_size
-
-
     def click_detection(self):
-        function = self.function
         if -.5< self.menu.speed < .5:
             mouse_pos = pygame.mouse.get_pos()
             if self.rect.collidepoint(mouse_pos):
                 self.hoover = True
 ####################################### BUTTON ACTION ########################################
-                if pygame.mouse.get_pressed() == (1,0,0):
-                    exec('self.menu.'+function+'()')
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text += self.text
             else:
                 self.hoover = False
+
+
 class MenuPrincess():
     def __init__(self,menu):
         dir = 'data/images/princess/'
-        self.name = ''
+
         self.menu = menu
         self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('skin_pink','skin_tan','skin_black')]
         self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('arm_pink','arm_tan','arm_black')]
@@ -421,7 +424,7 @@ class MenuPrincess():
                         ]
         self.size = self.skin[0].get_size()
         self.position = (250,250)
-        self.name = 'Nome'
+        self.name = GameText('Nome',(0,0),self.menu,0,font_size = 40,var = True)
         self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 

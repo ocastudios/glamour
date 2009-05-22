@@ -47,7 +47,7 @@ while True:
     while run_level:
         control.stage(universe)
         game_mouse.update()
-        clock.tick(8)
+        clock.tick(15)
         universe.screen_surface.fill([255,255,255])
         universe.level.update_all()
         universe.clock_pointer.update_image()

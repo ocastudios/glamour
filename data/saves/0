@@ -1,6 +1,4 @@
-<<<<<<< TREE
-=======
-center_distance    2690hair_back:    None 
+center_distance    4200hair_back:    None 
 skin:    data/images/princess/skin_pink
 face:    data/images/princess/face_simple
 hair:    data/images/princess/hair_yellow
@@ -12,4 +10,4 @@ accessory:    data/images/princess/accessory_ribbon
 dirty1:    data/images/princess/dirt1
 dirty2:    data/images/princess/dirt2
 dirty3:    data/images/princess/dirt3
-<type 'exceptions.Exception'>123456<type 'exceptions.Exception'>8>>>>>>> MERGE-SOURCE
+<type 'exceptions.Exception'>123456<type 'exceptions.Exception'>8

@@ -17,6 +17,8 @@ def main_menu(universe):
                 universe.LEVEL = 'close'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
+        else:
+            universe.click = False
 def choose_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -33,6 +35,8 @@ def choose_menu(universe):
                 universe.LEVEL = 'close'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
+        else:
+            universe.click = False
 def name_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -49,6 +53,8 @@ def name_menu(universe):
                 universe.LEVEL = 'start'
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
+        else:
+            universe.click = False
 
 def stage(universe):
     for event in pygame.event.get():
