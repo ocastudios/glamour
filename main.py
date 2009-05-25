@@ -26,8 +26,6 @@ universe = universe.Universe(os_screen.current_w,os_screen.current_h)
 del splash_surface, splash, os_screen
 gamemenu = menu.MenuScreen(universe)
 
-
-
 while True:
     while universe.LEVEL != 'start':
         while universe.LEVEL == 'menu':
@@ -55,3 +53,4 @@ while True:
     universe.screen_surface.fill([0,0,0])
     pygame.display.flip()
     run_level = True
+

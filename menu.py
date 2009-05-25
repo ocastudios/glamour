@@ -11,6 +11,7 @@ import princess
 import panel
 import pygame
 import drapes
+import os
 from pygame.locals import *
 
 class MenuScreen():
@@ -111,10 +112,14 @@ class MenuScreen():
             if i.__class__ == Letter and i.hoover:
                 surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
                                                 i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
-
+            if (i.__class__ == Spacebar or i.__class__ == Backspace) and i.hoover:
+                surface.blit(self.hoover_large,(i.pos[0]-((self.hoover_large_size[0]-i.size[0])/2),
+                                                i.pos[1]-((self.hoover_large_size[1]-i.size[1])/2) ))
         if self.menu.print_princess:
             self.menu.princess.update_all()
-            [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images]
+            [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images if i]
+        if self.menu.princess:
+            self.menu.princess.name.text = self.menu.princess.name.text.title()
 
 
     def close_bar(self,surface):
@@ -186,11 +191,25 @@ class Menu():
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(380,430), self, self.change_princess,parameter = (1,'skin')),
                        MenuArrow(D_TITLE_SCREEN+'arrow_right/',(120,430), self, self.change_princess,parameter = (-1,'skin'), invert = True),
                        MenuArrow(D_TITLE_SCREEN+'arrow_up/',(250,-100),self,self.NOTSETYET),
-                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_name_your_princess)]
+                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_select_hair)]
+    def select_hair(self):
+        self.action = 'open'
+        self.speed = 0
+        self.actual_position = [500,-600]
+        self.options    = []
+        self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
+                         GameText('appearence...',(-200,250),self,2,font_size = 40),
+                         GameText('hair style',(250,420),self,3,font_size = 40),
+                         GameText('previous',(250,-40),self,4,font_size = 40),
+                         GameText('next',(250,540),self,5,font_size = 40)]
 
+        D_TITLE_SCREEN = 'data/images/interface/title_screen/'
+        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(380,430), self, self.change_princess,parameter = (1,'hair')),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(120,430), self, self.change_princess,parameter = (-1,'hair'), invert = True),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_up/',(250,-100),self,self.NOTSETYET),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_name_your_princess)]
     def name_your_princess(self):
         self.print_princess = False
-        self.background = self.background or pygame.image.load('data/images/story/svg_bedroom.png').convert()
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [500,-600]
@@ -201,9 +220,9 @@ class Menu():
         self.options    =   [Letter(i[0],i[1],self, 0, self.screen.hoover_letter_size,
                             fonte = 'FreeSerif.ttf', font_size=40)
                             for i in zip(lowercase,positions)]
-        self.options.extend([Options('< back',  (75,350)    ,self,0,self.NOTSETYET,font_size=40),
-                             Options('space >', (350,350)   ,self,0,self.NOTSETYET,font_size=40),
-                             Options('done',    (245,545)   ,self,0,'start_game',font_size=40)
+        self.options.extend([Backspace('< back',  (75,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
+                             Spacebar('space >', (350,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
+                             Options('done',    (245,545)   ,self,0,'start_game',font_size=30)
                             ])
         self.texts =    [GameText('... and your name',(-200,200),self,1,font_size = 40),
                         GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40),
@@ -250,17 +269,48 @@ class Menu():
     def choose_language(self):
         pass
     def start_game(self):
+        try:
+            os.mkdir(self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text)
+        except:
+            pass
+        new_file = open('data/saves/'+self.princess.name.text+'/0.glamour','w')
+        new_file.write(
+                    'center_distance 0'+'\n'
+                    'hair_back      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
+                    'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
+                    'face           face_simple 2'+'\n'
+                    'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
+                    'shoes          shoes_slipper 4'+'\n'
+                    'dress          dress_plain 5'+'\n'
+                    'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
+                    'arm_dress      None 7'+'\n'
+                    'accessory      accessory_ribbon 8'+'\n'
+                    'dirty1          dirt1 9'+'\n'
+                    'dirty2         dirt2 9'+'\n'
+                    'dirty3         dirt3 9'+'\n'
+                    '#Points'+'\n'
+                    'points 0'+'\n'
+                    '#Level'+'\n'
+                    'level level'+'\n'
+                    )
+        new_file.close()
         self.screen.universe.LEVEL= 'start'
+        self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/0.glamour')
+
     def change_princess(self,list):#list of: int,part
         self.princess.numbers[list[1]] += list[0]
         if self.princess.numbers[list[1]] < 0:
             self.princess.numbers[list[1]] = 2
         elif self.princess.numbers[list[1]] > 2:
             self.princess.numbers[list[1]] = 0
-        print self.princess.numbers[list[1]]
 
+####### To funcitons TODO: substitute this function ########
     def to_name_your_princess(self,param):
         self.next_menu = self.name_your_princess
+        self.screen.universe.LEVEL = 'close'
+
+    def to_select_hair(self,param):
+        self.next_menu = self.select_hair
         self.screen.universe.LEVEL = 'close'
 
     def NOTSETYET():
@@ -375,6 +425,7 @@ class Options(GameText):
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
         self.rect       = Rect(self.pos,self.size)
+        self.type       = type
         self.click_detection()
 
     def click_detection(self):
@@ -404,18 +455,45 @@ class Letter(Options):
                     self.menu.princess.name.text += self.text
             else:
                 self.hoover = False
-
+class Spacebar(Options):
+    def click_detection(self):
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text += ' '
+            else:
+                self.hoover = False
+class Backspace(Options):
+    def click_detection(self):
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text = self.menu.princess.name.text[:-1]
+            else:
+                self.hoover = False
 
 class MenuPrincess():
     def __init__(self,menu):
         dir = 'data/images/princess/'
-
+        self.skins = ('skin_pink','skin_tan','skin_black')
+        self.arms  = ('arm_pink','arm_tan','arm_black')
+        self.hairs = ('hair_rapunzel','hair_yellow','hair_cinderella')
+        self.hairs_back= ('hair_rapunzel_back',None,None)
         self.menu = menu
-        self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('skin_pink','skin_tan','skin_black')]
-        self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('arm_pink','arm_tan','arm_black')]
-        self.hair = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in ('hair_rapunzel','hair_yellow','hair_cinderella')]
+        self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.skins]
+        self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.arms]
+        self.hair = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.hairs]
+        self.hair_back = [pygame.image.load(dir+self.hairs_back[0]+'/stay/0.png').convert_alpha(),None,None]
+
         self.numbers = {'skin':1,'hair':1}
-        self.images = [ self.skin[self.numbers['skin']],
+        self.images = [ self.hair_back[self.numbers['hair']],
+                        self.skin[self.numbers['skin']],
                         pygame.image.load(dir+'face_simple/stay/0.png').convert_alpha(),
                         self.hair[self.numbers['hair']],
                         pygame.image.load(dir+'shoes_slipper/stay/0.png').convert_alpha(),
@@ -424,13 +502,15 @@ class MenuPrincess():
                         ]
         self.size = self.skin[0].get_size()
         self.position = (250,250)
-        self.name = GameText('Nome',(0,0),self.menu,0,font_size = 40,var = True)
+        self.name = GameText('maddeline',(170,120),self.menu,0,font_size = 40,var = True)
         self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 
     def update_all(self):
-        self.images[0]  = self.skin[self.numbers['skin']]
-        self.images[2]  = self.hair[self.numbers['hair']]
-        self.images[5]  = self.arm[self.numbers['skin']]
+        self.images[0]  = self.hair_back[self.numbers['hair']]
+        self.images[1]  = self.skin[self.numbers['skin']]
+        self.images[3]  = self.hair[self.numbers['hair']]
+        self.images[6]  = self.arm[self.numbers['skin']]
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+

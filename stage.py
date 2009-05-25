@@ -39,10 +39,7 @@ class Stage():
         self.size = size
         self.blitlist = ('clouds','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
         self.foreground = []
-
         self.white = Foreground(self.universe)
-
-
         self.bar_positions = range(0,self.universe.width+10,self.down_bar.get_width())
         self.bar_height = self.up_bar.get_height()
         self.down_bar_y = self.universe.height
@@ -186,7 +183,7 @@ class Stage():
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
 
-        self.princess = self.princess or princess.Princess(self)
+        self.princess = self.princess or princess.Princess(self,save=self.universe.file)
         self.princesses = (self.princess,)
         panel.Data('', self.princess.glamour_points, (300, 0), self,0,size=120)
 

@@ -20,7 +20,7 @@ The code is not yet well commented
     directory = 'data/images/princess/'
     def __init__(self,level,save = None, distance = 4200):
         self.level = level
-        self.file = open(save or 'data/saves/default').readlines()
+        self.file = save.readlines()# or open('data/saves/default').readlines()
         self.parts = []
         self.part_keys=["hair_back","skin","face","hair","shoes","dress","arm","arm_dress","accessory",'dirty1',"dirty2","dirty3"]
         self.size       = (80,180)
