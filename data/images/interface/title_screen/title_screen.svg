@@ -52810,6 +52810,45 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11522"
+       id="linearGradient10280"
+       gradientUnits="userSpaceOnUse"
+       x1="4994.8271"
+       y1="1001.1393"
+       x2="5055.7241"
+       y2="1062.0365" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11536"
+       id="linearGradient10282"
+       gradientUnits="userSpaceOnUse"
+       x1="5158.9121"
+       y1="1172.2333"
+       x2="5038.3281"
+       y2="1051.6493" />
+    <inkscape:perspective
+       id="perspective10348"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective10500"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective11322"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -52818,16 +52857,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="5649.6838"
-     inkscape:cy="341.68348"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="-1275.9956"
+     inkscape:cy="3720.5914"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1430"
      inkscape:window-height="845"
      inkscape:window-x="2"
-     inkscape:window-y="24"
+     inkscape:window-y="26"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-global="false"
@@ -52856,6 +52895,16 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:14;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect10506"
+       width="620"
+       height="620"
+       x="-1441.0836"
+       y="-3138.1541"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/selection_canvas/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:1;fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect12386"
@@ -70206,5 +70255,155 @@
        width="28"
        sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
        xlink:href="button_ok/0.png" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#d0d03c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path10268"
+       sodipodi:cx="5047.3281"
+       sodipodi:cy="1054.1493"
+       sodipodi:rx="43.133514"
+       sodipodi:ry="43.133514"
+       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+       transform="translate(-223.4691,-41.707169)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#bbbb27;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 4809.1561,971.88665 C 4806.6978,972.78085 4804.3518,973.89355 4802.1249,975.19905 L 4845.6561,975.19905 C 4843.4292,973.89355 4841.0832,972.78085 4838.6249,971.88665 L 4809.1561,971.88665 z M 4796.8749,978.82405 C 4795.4769,979.95045 4794.1528,981.15995 4792.9061,982.44905 L 4854.8749,982.44905 C 4853.6281,981.15995 4852.3041,979.95045 4850.9061,978.82405 L 4796.8749,978.82405 z M 4789.7499,986.07405 C 4788.8653,987.21935 4788.0177,988.43545 4787.2499,989.66785 L 4860.5311,989.66785 C 4859.7632,988.43545 4858.9157,987.21935 4858.0311,986.07405 L 4789.7499,986.07405 z M 4785.2186,993.29285 C 4784.6358,994.46775 4784.1319,995.68545 4783.6561,996.91785 L 4864.1249,996.91785 C 4863.649,995.68545 4863.1452,994.46775 4862.5623,993.29285 L 4785.2186,993.29285 z M 4782.4373,1000.5429 C 4782.0969,1001.7319 4781.8008,1002.9394 4781.5623,1004.1679 L 4866.2186,1004.1679 C 4865.9801,1002.9394 4865.6841,1001.7319 4865.3436,1000.5429 L 4782.4373,1000.5429 z M 4780.9999,1007.7617 C 4780.8713,1008.9562 4780.8099,1010.1651 4780.7811,1011.3867 L 4866.9999,1011.3867 C 4866.971,1010.1651 4866.9096,1008.9562 4866.7811,1007.7617 L 4780.9999,1007.7617 z M 4780.8436,1015.0117 C 4780.9164,1016.2359 4781.0456,1017.4419 4781.2186,1018.6367 L 4866.5623,1018.6367 C 4866.7353,1017.4419 4866.8646,1016.2359 4866.9373,1015.0117 L 4780.8436,1015.0117 z M 4781.9061,1022.2929 C 4782.1696,1023.4163 4782.4628,1024.5176 4782.8123,1025.6054 L 4864.9686,1025.6054 C 4865.3181,1024.5176 4865.6113,1023.4163 4865.8749,1022.2929 L 4781.9061,1022.2929 z M 4784.1561,1029.2304 C 4784.681,1030.4684 4785.272,1031.6797 4785.9061,1032.8554 L 4861.8749,1032.8554 C 4862.5089,1031.6797 4863.1,1030.4684 4863.6249,1029.2304 L 4784.1561,1029.2304 z M 4788.0936,1036.4804 C 4788.9342,1037.7286 4789.8493,1038.9232 4790.8123,1040.0741 L 4856.9686,1040.0741 C 4857.9316,1038.9232 4858.8468,1037.7286 4859.6873,1036.4804 L 4788.0936,1036.4804 z M 4794.2186,1043.6991 C 4795.5881,1044.9996 4797.0316,1046.2108 4798.5623,1047.3241 L 4849.2186,1047.3241 C 4850.7493,1046.2108 4852.1928,1044.9996 4853.5623,1043.6991 L 4794.2186,1043.6991 z M 4804.4999,1050.9491 C 4807.7193,1052.5736 4811.1626,1053.7957 4814.7811,1054.5741 L 4832.9999,1054.5741 C 4836.6184,1053.7958 4840.0617,1052.5736 4843.2811,1050.9491 L 4804.4999,1050.9491 z"
+       id="path10270"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:url(#linearGradient10280);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path10272"
+       sodipodi:cx="5047.3281"
+       sodipodi:cy="1054.1493"
+       sodipodi:rx="43.133514"
+       sodipodi:ry="43.133514"
+       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+       transform="matrix(0.9826121,0,0,0.9826121,-135.28493,-23.777049)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.88111889;fill:url(#linearGradient10282);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path10274"
+       sodipodi:cx="5047.3281"
+       sodipodi:cy="1054.1493"
+       sodipodi:rx="43.133514"
+       sodipodi:ry="43.133514"
+       d="M 5090.4616,1054.1493 A 43.133514,43.133514 0 1 1 5004.1946,1054.1493 A 43.133514,43.133514 0 1 1 5090.4616,1054.1493 z"
+       transform="translate(-223.42221,-41.731459)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:30.43157196px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffce;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol"
+       x="4791.2622"
+       y="1023.0294"
+       id="text10276"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan10278"
+         x="4791.2622"
+         y="1023.0294"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Venus Rising;-inkscape-font-specification:Venus Rising">OK</tspan></text>
+    <image
+       y="975.79395"
+       x="4906.0405"
+       id="image10350"
+       height="86"
+       width="86"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/button_ok/0.png"
+       xlink:href="button_ok/0.png" />
+    <g
+       id="g10278"
+       transform="matrix(1.0056432,0,0,1,-3113.5992,-3279.5879)">
+      <g
+         id="g10280">
+        <rect
+           style="opacity:0.8;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect10282"
+           width="514.28571"
+           height="517.14294"
+           x="1712.6747"
+           y="191.71431"
+           ry="65.353218" />
+        <path
+           style="opacity:0.1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter28669)"
+           d="M 1650.7812,193.14286 C 1614.5756,193.14286 1585.4375,222.28092 1585.4375,258.48661 L 1585.4375,644.92411 C 1585.4375,681.12979 1614.5755,710.29913 1650.7812,710.29911 L 2034.375,710.29911 C 2070.5807,710.29911 2099.7187,681.1298 2099.7188,644.92411 L 2099.7188,258.48661 C 2099.7187,222.28093 2070.5807,193.14286 2034.375,193.14286 L 1650.7812,193.14286 z M 1699.7812,258.86161 L 1985.3438,258.86161 C 2012.2969,258.86161 2034,280.56474 2034,307.51786 L 2034,595.17411 C 2034,622.12721 2012.2969,643.83036 1985.3438,643.83036 L 1699.7812,643.83036 C 1672.8281,643.83033 1651.1562,622.12723 1651.1562,595.17411 L 1651.1562,307.51786 C 1651.1562,280.56476 1672.8281,258.86161 1699.7812,258.86161 z"
+           id="path10284"
+           transform="matrix(1.0441978,0,0,1.0441978,44.27648,-19.965051)" />
+      </g>
+      <g
+         transform="translate(-856.58906,-74.751288)"
+         id="g10286">
+        <path
+           style="opacity:0.2;fill:#ff8080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 3024.8912,592.08263 C 2937.4553,592.08264 2866.2975,663.24055 2866.2975,750.67638 C 2866.2975,761.41915 2867.4075,771.90223 2869.4537,782.05138 L 2887.2975,782.05138 C 2885.0084,771.95857 2883.7975,761.46593 2883.7975,750.67638 C 2883.7975,672.69847 2946.9133,609.58263 3024.8912,609.58263 C 3045.53,609.58263 3065.1351,613.97765 3082.7975,621.92638 L 3082.7975,603.05138 C 3064.8511,595.98734 3045.3144,592.08263 3024.8912,592.08263 z"
+           id="path10288" />
+        <path
+           style="opacity:0.2;fill:#ff2a2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 2999.1725,546.36388 C 2886.5298,546.36389 2794.8913,638.03382 2794.8912,750.67638 C 2794.8912,761.69293 2795.7665,772.50247 2797.4537,783.05138 L 2820.2662,783.05138 C 2818.3801,772.54444 2817.3912,761.72957 2817.3912,750.67638 C 2817.3913,650.21837 2898.7144,568.89513 2999.1725,568.89513 C 3029.5374,568.89513 3058.147,576.34687 3083.2975,589.48888 L 3083.2975,564.52013 C 3057.6299,552.87473 3029.1426,546.36389 2999.1725,546.36388 z"
+           id="path10290" />
+        <path
+           style="opacity:0.2;fill:#ff2a2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 2676.9849,265.39513 C 2684.6021,282.74751 2688.8287,301.93549 2688.8287,322.11388 C 2688.8289,392.85749 2636.8821,451.36539 2569.0162,461.61388 L 2569.0162,479.23888 C 2643.5505,469.18267 2701.7062,407.07546 2705.8912,330.83263 L 2706.3287,330.83263 L 2706.3287,322.11388 C 2706.3287,302.14053 2702.5997,283.01429 2695.8287,265.39513 L 2676.9849,265.39513 z"
+           id="path10292" />
+        <path
+           style="opacity:0.2;fill:#aa0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 2911.2037,265.39513 C 2923.7908,345.18571 2993.058,406.39511 3076.3287,406.39513 C 3078.8375,406.39513 3081.3155,406.31768 3083.7975,406.20763 L 3083.7975,387.77013 C 3081.322,387.89238 3078.8347,387.95763 3076.3287,387.95763 C 3003.0603,387.95763 2942.2361,335.09732 2929.8912,265.39513 L 2911.2037,265.39513 z"
+           id="path10294" />
+        <path
+           style="opacity:0.2;fill:#d40000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="M 2584.8912,489.23888 C 2579.6399,489.23888 2574.4424,489.47507 2569.2975,489.89513 L 2569.2975,510.89513 C 2574.4279,510.42722 2579.6379,510.17638 2584.8912,510.17638 C 2678.3241,510.17638 2753.9537,585.80593 2753.9537,679.23888 C 2753.9538,717.99007 2740.9414,753.67527 2719.0475,782.17638 L 2744.3287,782.17638 C 2761.7219,755.24473 2772.4975,723.63843 2774.3599,689.70763 L 2774.8912,689.70763 L 2774.8912,679.23888 C 2774.8912,574.47342 2689.6566,489.2389 2584.8912,489.23888 z"
+           id="path10296" />
+      </g>
+    </g>
+    <g
+       id="g10298"
+       transform="matrix(0.7795533,0,0,0.7795533,-1690.8497,-3195.5358)">
+      <rect
+         transform="matrix(0,-0.6175169,1.4866511,0,-797.17516,972.76046)"
+         ry="52.037437"
+         y="793.64166"
+         x="283.17892"
+         height="442.31824"
+         width="1060.3091"
+         id="rect10300"
+         style="opacity:0.3;fill:none;fill-opacity:1;stroke:#000000;stroke-width:9.86773682;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5009)" />
+      <rect
+         transform="matrix(0,-1,1,0,0,0)"
+         ry="78.39843"
+         y="383.03568"
+         x="-800.76117"
+         height="666.38672"
+         width="663.53491"
+         id="rect10302"
+         style="fill:none;fill-opacity:1;stroke:#a4a400;stroke-width:9.58140087;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <image
+       y="-3092.2102"
+       x="-2070.2937"
+       id="image10502"
+       height="540"
+       width="540"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/selection_canvas/0.png"
+       xlink:href="selection_canvas/0.png" />
+    <image
+       y="-3723.3513"
+       x="-2082.0095"
+       id="image11324"
+       height="620"
+       width="620"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/interface/title_screen/selection_canvas/0.png"
+       xlink:href="selection_canvas/0.png" />
   </g>
 </svg>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 from getscreen import *
@@ -6,9 +7,9 @@ from pygame.locals import *
 pygame.mixer.init()
 from sys import exit
 import game_clock
+
 import obj_images
 import camera
-import mousepointer
 import menu
 import universe
 import control
@@ -19,6 +20,8 @@ try:
 except:
     pass
 #Create lists
+
+
 
 
 clock = pygame.time.Clock()
@@ -38,13 +41,11 @@ while True:
             gamemenu.update_all()
             pygame.display.flip()
     universe.define_level()
-    game_mouse = mousepointer.MousePointer(universe.mouse_pos,universe.level)
     gamecamera = camera.GameCamera(universe.level)
     run_level = True
     pygame.mouse.set_visible(0)
     while run_level:
         control.stage(universe)
-        game_mouse.update()
         clock.tick(15)
         universe.screen_surface.fill([255,255,255])
         universe.level.update_all()

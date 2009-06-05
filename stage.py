@@ -13,6 +13,8 @@ import os
 import panel
 import pygame
 import itertools
+import mousepointer
+import inside
 
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
 #TODO substitute all these lists by a single list, blitting on the screen using the class to estipulate the order.
@@ -21,8 +23,6 @@ class Stage():
     princess = None
     enemy_dir = 'data/images/enemies/'
     maindir        = 'data/images/scenario/'
-    down_bar = pygame.image.load('data/images/interface/omni/small_bar/0.png')
-    up_bar   = pygame.transform.flip(down_bar,0,1)
 
     def __init__(self,size,universe):
         self.universe       = universe
@@ -37,115 +37,112 @@ class Stage():
         self.princess       = None
         self.scenarios_front= []
         self.size = size
-        self.blitlist = ('clouds','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+        self.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
         self.foreground = []
         self.white = Foreground(self.universe)
-        self.bar_positions = range(0,self.universe.width+10,self.down_bar.get_width())
-        self.bar_height = self.up_bar.get_height()
+
+        self.down_bar = Bar(self,'down')
+        self.up_bar   = Bar(self,'up')
+        self.bar_height = self.up_bar.tile_size[1]
         self.down_bar_y = self.universe.height
         self.up_bar_y   = - self.bar_height
         self.bar_goal   = self.universe.height/3
         self.bar_speed  = 1
-        self.pointer = [glamour_stars.Glamour_Stars(self)]
 
-        self.dress_castle = Inside(self,'dress',('pink','plain','red','yellow'))
-        self.accessory_castle = Inside(self,'accessory',('crown','purse','ribbon','shades'))
-        self.makeup_castle = Inside(self,'face',('eyelids','eyeshades','lipstick','simple'))
-        self.hair_castle = Inside(self,'hair',('black','brown','cinderella','rapunzel'))
-        self.shoes_castle = Inside(self,'shoes',('crystal','red','slipper','white'))
-        
+        self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self)
+        self.pointer = [glamour_stars.Glamour_Stars(self),self.game_mouse]
+
+        self.dress_castle = inside.Inside(self,'dress',('pink','plain','red','yellow'))
+        self.accessory_castle = inside.Inside(self,'accessory',('crown','purse','ribbon','shades'))
+        self.makeup_castle = inside.Inside(self,'face',('eyelids','eyeshades','lipstick','simple'))
+        self.hair_castle = inside.Inside(self,'hair',('black','brown','cinderella','rapunzel'))
+        self.shoes_castle = inside.Inside(self,'shoes',('crystal','red','slipper','white'))
 
         self.princesses = None
         self.inside = self.dress_castle
+
+        self.fairy = False
+
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
         except:     y_height = 186 
         return      y_height
+
     def update_all(self):
-        try:
-            surface
-        except:
-            surface = self.universe.screen_surface
+        self.game_mouse.update()
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
         [i.update_all(self.princess) for i in self.cameras]
         self.universe.movement(self.direction)
-        [surface.blit(i.background,(0,0)) for i in self.sky]
         for att in self.blitlist:
-            exec('[surface.blit(i.image,i.pos) for i in self.'+att+' if i.image ]')
+            exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i.image ]')
             #and i.rect.colliderect(self.cameras[0].rect) DID NOT PROVIDE GREAT PERFORMANCE GAIN
             exec('[i.update_all() for i in self.'+att+']')
         for effect in self.princess.effects:
-            surface.blit(effect[0],effect[1])
+            self.universe.screen_surface.blit(effect[0],effect[1])
         for i in self.scenarios_front:
-            surface.blit(i.image,i.pos)
+            self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
-        [surface.blit(i.arrow_image,i.arrow_pos) for i in self.gates if self.princess.rect.colliderect(i.rect) and i.arrow_image]
+        [self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
+                        for i in self.gates if self.princess.rect.colliderect(i.rect) and i.arrow_image]
         for i in self.floor_image:
             if i.__class__ == floors.Floor or floors.Bridge:
-                surface.blit(i.image,i.pos)
+                self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         for i in self.floor_image:
             if i.__class__ == floors.Water:
-                surface.blit(i.image,i.pos)
+                self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         for i in self.floor_image:
             if i.__class__ == floors.Water2:
-                surface.blit(i.image,i.pos)
+                self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         for i in self.foreground:
-            surface.blit(i.image,i.pos)
+            self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
 
         if self.princess.inside:
             self.update_insidebar()
 
         for i in self.clock:
-            surface.blit(i.image,i.pos)
+            self.universe.screen_surface.blit(i.image,i.pos)
         for i in self.panel:
-            surface.blit(i.label,i.pos)
+            self.universe.screen_surface.blit(i.label,i.pos)
             i.update(self.princess.glamour_points)
         for i in self.pointer:
-            surface.blit(i.image,i.pos)
+            self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
+        if self.fairy:
+            for i in self.fae:
+                self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
 
     def update_insidebar(self):
-        try:
-            surface, size
-        except:
-            surface = self.universe.screen_surface
-            size = self.princess.image.get_size()
-        for p in self.bar_positions:
-            surface.blit(self.down_bar,(p,self.down_bar_y))
-            surface.blit(self.up_bar,(p,self.up_bar_y))
+        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
+        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
         if self.down_bar_y > 2*self.bar_goal:
             self.down_bar_y -= self.bar_speed
         if self.up_bar_y + self.bar_height< self.bar_goal:
             self.up_bar_y += self.bar_speed
-        elif self.white.alpha_value > 150:
-            surface.blit(self.princess.image, ((self.universe.width/2)-(size[0]/2),
-                                               (self.universe.height/2)-(size[1]/2)))
+        if self.white.alpha_value > 150:
+            self.universe.screen_surface.blit(self.princess.image, ((self.universe.width/2)-(self.princess.image_size[0]/2),
+                                               (self.universe.height/2)-(self.princess.image_size[1]/2)))
             self.princess.update_all()
-
-            [surface.blit(i.image,i.pos) for i in self.inside.items]
+            [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
+            [i.update_all() for i in self.inside.buttons]
+            [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
             [i.update_all() for i in self.inside.items]
-
         if self.bar_speed < 20:
             self.bar_speed += self.bar_speed
 
     def BathhouseSt(self):
         self.gates = []
-
         self.directory = self.maindir+'bathhouse_st/'
         self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
-
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
-
         self.scenarios  = [scenarios.Scenario(0,    self.directory+'left_corner_house/base/',self,index=0),
                            scenarios.Scenario(2350, self.directory+'left_house/base/',       self,index=0),
                            scenarios.Scenario(2920, self.directory+'small_house/base/',      self,index=0),
                            scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
-
                            scenarios.Building(550,self.directory+'bathhouse/bathhouse/',self,
                                   {'pos':(270,540),'directory':self.directory+'bathhouse/door/'},index =0),
                            scenarios.Building(3400,self.directory+'home/castelo/',self,
@@ -172,13 +169,14 @@ class Stage():
         floors.Bridge(self.directory+'floor/japanese_bridge/',4,self)
 
         self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-
+        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
 
         self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
-        self.pointer.extend([fairy.Fairy(20,self)])
+        self.fae = ([fairy.Fairy(20,self)])
 
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
@@ -205,7 +203,6 @@ class Stage():
         self.gates = []                       
         self.directory = self.maindir+'dress_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(self) for cl in range(10)]
         self.scenarios  =  [scenarios.Building(0,self.directory+'Dress_Tower/',self,
                                 {'pos':(155,390),'directory':self.directory+'Dress_Tower/door/'},index =0),
                             scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
@@ -226,6 +223,8 @@ class Stage():
                             scenarios.Gate(3840,'data/images/scenario/omni/gate/',self,self.AccessorySt,index = 0)])
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
         self.scenarios_front = [scenarios.Scenario(2050,self.directory+'fence/',self,index=0),]
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
@@ -250,7 +249,6 @@ class Stage():
         self.gates = []
         self.directory = self.maindir+'accessory_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
-        self.clouds     = [clouds.Cloud(self) for cl in range(10)]
         self.scenarios  =  [scenarios.Scenario(i[0],self.directory+i[1],self) for i in 
                                ((-3,'accessory_tower/'),
                                 (800,'accessory_tower/banner/'),
@@ -270,6 +268,8 @@ class Stage():
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,'data/images/scenario/bathhouse_st/billboard_city/billboard/')]
         self.scenarios_front = [scenarios.Scenario(178,self.directory+'accessory_tower/front/',self,index=0),
                                 scenarios.Scenario(3400,self.directory+'house/front/',self)]
@@ -284,6 +284,8 @@ class Stage():
 
         ### Set Floor ###
         self.floor_heights = {}
+
+
 class Foreground():
     def __init__(self,universe):
         self.pos = 0,0
@@ -292,49 +294,33 @@ class Foreground():
         self.alpha_value = 0
         self.inside = True
         self.image.set_alpha(self.alpha_value)
+
     def update_all(self):
         if self.inside:
             if self.alpha_value < 200:
-                self.alpha_value += 5
+                self.alpha_value += 10
         else:
-            if self.alpha_value > 50:
-                self.alpha_value -= 5
-        self.image.set_alpha(self.alpha_value)
+            if self.alpha_value > 0:
+                self.alpha_value -= 15
+            if self.alpha_value < 0:
+                self.image.set_alpha(self.alpha_value)
+                alpha_value = 0
+        if 180 > self.alpha_value > 40:
+            self.image.set_alpha(self.alpha_value)
 
 
-class Inside():
-    def __init__(self, level, item_type, item_list):
-        self.level  = level
-        self.type_of_items = item_type
-        counter = itertools.count()
-        self.items = [Item(self, i,counter.next()) for i in item_list]
-        self.buttons    = ()
-        self.texts      = ()
-class Item():
-    def __init__(self, room, directory,queue_pos):
-        self.level  = room.level
-        self.type   = room.type_of_items
-        self.image  = pygame.image.load('data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha()
-        self.size   = self.image.get_size()
-        self.queue_pos = queue_pos-1
-        self.available_pos = (self.level.universe.width/2-(self.size[0]),
-                              self.level.universe.width/2-(self.size[0]/2),
-                              self.level.universe.width/2)
-        if self.queue_pos <= len(self.available_pos):
-            self.pos    = [self.available_pos[self.queue_pos],(self.level.universe.height/2)-(self.size[1]/2)]
-        else:
-            self.pos = [0,0]
-        self.speed  = 10
-        self.positions= (
-                        (self.level.universe.width/2-(self.size[0])),
-                        (self.level.universe.width/2-(self.size[0]/2)),
-                        (self.level.universe.width/2)
-                        )
-        self.choose_position = 0
-    def update_all(self):
-#        if self.pos[0] > self.positions[self.choose_position]:
-#            self.pos[0] -= self.speed
-#            self.speed = 10
-#        else:
-#            self.speed = 0
-        pass
+
+class Bar():
+    def __init__(self,level, up_or_down):
+        self.tile = down_bar = pygame.image.load('data/images/interface/omni/small_bar/0.png').convert_alpha()
+        if up_or_down == 'up':
+            self.tile = pygame.transform.flip(self.tile,0,1)
+        screen_size = level.universe.width, level.universe.height
+        self.tile_size   = self.tile.get_size()
+        self.image  = pygame.Surface((screen_size[0],self.tile_size[1]),pygame.SRCALPHA).convert_alpha()
+        bar_positions = range(0,(screen_size[0]/self.tile_size[0]+1))
+        [self.image.blit(self.tile,(i*self.tile_size[0],0)) for i in bar_positions]
+
+
+
+

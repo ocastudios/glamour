@@ -13,7 +13,6 @@ class Universe():
         self.width = w
         self.speed = 0
         self.LEVEL = 'menu'
-        self.mouse_pos  = pygame.mouse.get_pos()
         self.action = [None,'stay']
         self.dir    = 0
         self.click = False

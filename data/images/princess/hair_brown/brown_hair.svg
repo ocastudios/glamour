@@ -5595,9 +5595,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7071068"
-     inkscape:cx="1547.9364"
-     inkscape:cy="-3058.9905"
+     inkscape:zoom="0.3535534"
+     inkscape:cx="987.94458"
+     inkscape:cy="-743.4533"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -5820,7 +5820,7 @@
        height="200"
        x="200"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5830,7 +5830,7 @@
        height="200"
        x="400"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/1.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5840,7 +5840,7 @@
        height="200"
        x="600"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5850,7 +5850,7 @@
        height="200"
        x="800"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5860,7 +5860,7 @@
        height="200"
        x="1000"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/4.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5870,7 +5870,7 @@
        height="200"
        x="1200"
        y="0"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/walk/5.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/5.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5880,7 +5880,7 @@
        height="200"
        x="200"
        y="0"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5889,35 +5889,50 @@
        width="200"
        height="200"
        x="400"
-       y="0" />
+       y="0"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3871"
        width="200"
        height="200"
        x="600"
-       y="0" />
+       y="0"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3873"
        width="200"
        height="200"
        x="800"
-       y="0" />
+       y="0"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3875"
        width="200"
        height="200"
        x="1000"
-       y="0" />
+       y="0"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3877"
        width="200"
        height="200"
        x="1200"
-       y="0" />
+       y="0"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:0;fill:#eed1bf;fill-opacity:1;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3879"
@@ -5925,7 +5940,7 @@
        height="200"
        x="200"
        y="200"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/jump/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5935,7 +5950,7 @@
        height="200"
        x="400"
        y="200"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/jump/1.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5945,7 +5960,7 @@
        height="200"
        x="600"
        y="200"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/jump/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5955,7 +5970,7 @@
        height="200"
        x="800"
        y="200"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/jump/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5965,7 +5980,7 @@
        height="200"
        x="1000"
        y="200"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/jump/4.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5975,7 +5990,7 @@
        height="200"
        x="200"
        y="400"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/fall/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/fall/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5985,7 +6000,7 @@
        height="200"
        x="0"
        y="600"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/stay/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/stay/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5995,7 +6010,7 @@
        height="200"
        x="200"
        y="800"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/kiss/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6005,7 +6020,7 @@
        height="200"
        x="400"
        y="800"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/kiss/1.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6015,7 +6030,7 @@
        height="200"
        x="600"
        y="800"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/kiss/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6025,7 +6040,7 @@
        height="200"
        x="800"
        y="800"
-       inkscape:export-filename="/media/sdb1/Glamour/2dgame/images/skin_pink/kiss/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6035,7 +6050,7 @@
        height="200"
        x="200"
        y="1000"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6045,7 +6060,7 @@
        height="200"
        x="400"
        y="1000"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/1.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6055,7 +6070,7 @@
        height="200"
        x="600"
        y="1000"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6065,7 +6080,7 @@
        height="200"
        x="800"
        y="1000"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6075,7 +6090,7 @@
        height="200"
        x="1000"
        y="1000"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/4.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6205,7 +6220,7 @@
        sodipodi:nodetypes="cccccccccc" />
     <g
        id="g8651"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6231,7 +6246,10 @@
     </g>
     <g
        id="g8678"
-       transform="translate(199.99998,4.0000008)">
+       transform="translate(199.99998,4.0000008)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8680"
@@ -6255,7 +6273,10 @@
     </g>
     <g
        id="g8696"
-       transform="translate(399.99997,5.9999999e-7)">
+       transform="translate(399.99997,5.9999999e-7)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8698"
@@ -6279,7 +6300,10 @@
     </g>
     <g
        id="g8714"
-       transform="translate(599.99996,6.2207033e-7)">
+       transform="translate(599.99996,6.2207033e-7)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8716"
@@ -6303,7 +6327,10 @@
     </g>
     <g
        id="g8732"
-       transform="translate(799.99995,3.9999988)">
+       transform="translate(799.99995,3.9999988)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8734"
@@ -6327,7 +6354,10 @@
     </g>
     <g
        id="g8750"
-       transform="translate(999.99995,-2.8e-6)">
+       transform="translate(999.99995,-2.8e-6)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/walk/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8752"
@@ -6351,7 +6381,10 @@
     </g>
     <g
        id="g8776"
-       transform="translate(-7.3e-6,199.99999)">
+       transform="translate(-7.3e-6,199.99999)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8778"
@@ -6375,7 +6408,10 @@
     </g>
     <g
        id="g8802"
-       transform="matrix(0.9997554,-2.2116247e-2,2.2116247e-2,0.9997554,198.79805,206.63307)">
+       transform="matrix(0.9997554,-2.2116247e-2,2.2116247e-2,0.9997554,198.79805,206.63307)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8804"
@@ -6399,7 +6435,10 @@
     </g>
     <g
        id="g8820"
-       transform="matrix(0.9972656,-7.3900744e-2,7.3900744e-2,0.9972656,396.18252,222.33725)">
+       transform="matrix(0.9972656,-7.3900744e-2,7.3900744e-2,0.9972656,396.18252,222.33725)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8822"
@@ -6423,7 +6462,10 @@
     </g>
     <g
        id="g8838"
-       transform="matrix(0.9902854,-0.13905,0.13905,0.9902854,594.36,242.17516)">
+       transform="matrix(0.9902854,-0.13905,0.13905,0.9902854,594.36,242.17516)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8840"
@@ -6447,7 +6489,10 @@
     </g>
     <g
        id="g8856"
-       transform="matrix(0.9686369,-0.2484804,0.2484804,0.9686369,793.99936,276.35056)">
+       transform="matrix(0.9686369,-0.2484804,0.2484804,0.9686369,793.99936,276.35056)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/jump/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8858"
@@ -6471,7 +6516,10 @@
     </g>
     <g
        id="g8874"
-       transform="translate(3.8330078e-6,400)">
+       transform="translate(3.8330078e-6,400)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/fall/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8876"
@@ -6495,7 +6543,10 @@
     </g>
     <g
        id="g8892"
-       transform="translate(-200,600.00001)">
+       transform="translate(-200,600.00001)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/stay/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8894"
@@ -6519,7 +6570,10 @@
     </g>
     <g
        id="g8910"
-       transform="translate(16.263462,805.30331)">
+       transform="translate(16.263462,805.30331)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8912"
@@ -6543,7 +6597,10 @@
     </g>
     <g
        id="g8964"
-       transform="translate(231.01346,811.0533)">
+       transform="translate(231.01346,811.0533)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8966"
@@ -6567,7 +6624,10 @@
     </g>
     <g
        id="g8982"
-       transform="translate(431.01349,811.05332)">
+       transform="translate(431.01349,811.05332)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path8984"
@@ -6591,7 +6651,10 @@
     </g>
     <g
        id="g9000"
-       transform="translate(598.5135,803.80332)">
+       transform="translate(598.5135,803.80332)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/kiss/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:nodetypes="cccccccccccccccccscccccccccc"
          id="path9002"
@@ -6616,7 +6679,7 @@
     <g
        id="g9018"
        transform="matrix(0.9932519,0.1159767,-0.1159767,0.9932519,18.605792,967.2704)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/0.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6643,7 +6706,7 @@
     <g
        id="g9036"
        transform="matrix(0.9932519,0.1159767,-0.1159767,0.9932519,205.96625,967.09362)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/1.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6670,7 +6733,7 @@
     <g
        id="g9060"
        transform="matrix(0.9622656,0.2721118,-0.2721118,0.9622656,420.98427,922.97494)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/2.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6697,7 +6760,7 @@
     <g
        id="g9078"
        transform="matrix(0.9622656,0.2721118,-0.2721118,0.9622656,626.2876,920.32328)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/3.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6724,7 +6787,7 @@
     <g
        id="g9096"
        transform="matrix(0.9772109,0.2122703,-0.2122703,0.9772109,829.82151,938.56612)"
-       inkscape:export-filename="/home/isac/bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/4.png"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/princess/hair_brown/ouch/4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path

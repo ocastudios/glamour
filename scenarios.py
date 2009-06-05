@@ -133,7 +133,7 @@ class BuildingDoor():
 
     def inside(self):
         self.level.foreground.insert(0,self.level.white)
-        self.level.blitlist = ('clouds','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
+        self.level.blitlist = ('sky','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
         self.level.princess.inside = True
 
 

@@ -15,10 +15,11 @@ def main_menu(universe):
                 universe.LEVEL = 'close'
             elif event.key == K_a:
                 universe.LEVEL = 'close'
-        elif event.type == MOUSEBUTTONUP:
+        if event.type == MOUSEBUTTONUP:
             universe.click = True
         else:
             universe.click = False
+    pygame.event.clear()
 def choose_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -33,10 +34,11 @@ def choose_menu(universe):
                 universe.LEVEL = 'close'
             elif event.key == K_a:
                 universe.LEVEL = 'close'
-        elif event.type == MOUSEBUTTONUP:
+        if event.type == MOUSEBUTTONUP:
             universe.click = True
         else:
             universe.click = False
+    pygame.event.clear()
 def name_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -51,11 +53,11 @@ def name_menu(universe):
                 universe.LEVEL = 'start'
             elif event.key == K_a:
                 universe.LEVEL = 'start'
-        elif event.type == MOUSEBUTTONUP:
+        if event.type == MOUSEBUTTONUP:
             universe.click = True
         else:
             universe.click = False
-
+    pygame.event.clear()
 def stage(universe):
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -100,3 +102,9 @@ def stage(universe):
                 universe.level.princess.doonce = False
             if (universe.dir == 'left' and event.key == K_LEFT) or (universe.dir == 'right' and event.key == K_RIGHT):
                 universe.action[1] = 'stay'
+
+        if event.type == MOUSEBUTTONUP:
+            universe.click = True
+        else:
+            universe.click = False
+    pygame.event.clear()

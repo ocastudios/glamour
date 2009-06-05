@@ -59,6 +59,7 @@ The code is not yet well commented
         self.floor = self.level.universe.floor - 186
         self.action = None
         self.image = pygame.Surface(self.parts[1].image.get_size(),SRCALPHA).convert_alpha()
+        self.image_size = self.image.get_size()
         self.inside = False
 
     def update_all(self):

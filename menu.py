@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import scenarios
 import obj_images
 import enemy
@@ -13,6 +14,15 @@ import pygame
 import drapes
 import os
 from pygame.locals import *
+
+
+
+
+import gettext
+t = gettext.translation('glamour', 'locale')
+_ = t.ugettext
+
+
 
 class MenuScreen():
     color = [230,230,230]
@@ -158,16 +168,13 @@ class Menu():
         self.background = None
         self.action = 'open'
         self.actual_position = [self.position[0],-600]
-        self.options = [ Options('New Game',        (300,100), self, 0, 'new_game', font_size=40, color=(255,84,84)),
-                         Options('Load Game',       (300,180), self, 0, 'load_game', font_size=40, color=(255,84,84)),
-                         Options('Play Story',      (300,260), self, 0, 'play_story', font_size=40, color=(255,84,84)),
-                         Options('Choose Language', (300,340), self, 0, 'choose_language', font_size=40, color=(255,84,84))]
+        self.options = [ Options(_('New Game')  ,        (300,100), self, 0, 'new_game', font_size=40, color=(255,84,84)),
+                         Options(_('Load Game') ,       (300,180), self, 0, 'load_game', font_size=40, color=(255,84,84)),
+                         Options(_('Play Story'),      (300,260), self, 0, 'play_story', font_size=40, color=(255,84,84)),
+                         Options(_('Options')   , (300,340), self, 0, 'choose_language', font_size=40, color=(255,84,84))]
 
-        self.texts =    [GameText('Welcome to Glamour Game',(400,550),self,1),
-                         GameText('This is the very first of some pretty cool games of OCA STUDIOS',(400,600),self,2),
-                         GameText('Press i button in order to play Stage I',(400,650),self,3),
-                         GameText('Or e button to play Stage "E"',(400,700),self,4),
-                         VerticalGameText('select one',(120,200),self,5,font_size = 40)
+        self.texts =    [
+                         VerticalGameText(_('select one'),(120,200),self,5,font_size = 40)
                         ]
         self.buttons = [ MenuArrow('data/images/interface/title_screen/arrow_right/',(410,450),self,self.NOTSETYET),
                          MenuArrow('data/images/interface/title_screen/arrow_right/',(200,450),self,self.NOTSETYET, invert = True)
@@ -181,11 +188,11 @@ class Menu():
         self.speed      = 0
         self.actual_position = [500,-600]
         self.options    = []
-        self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
-                         GameText('appearence...',(-200,250),self,2,font_size = 40),
-                         GameText('skin tone',(250,420),self,3,font_size = 40),
-                         GameText('previous',(250,-40),self,4,font_size = 40),
-                         GameText('next',(250,540),self,5,font_size = 40)]
+        self.texts =    [GameText(_('Choose your'),(-200,200),self,1,font_size = 40),
+                         GameText(_('appearence...'),(-200,250),self,2,font_size = 40),
+                         GameText(_('skin tone'),(250,420),self,3,font_size = 40),
+                         GameText(_('previous'),(250,-40),self,4,font_size = 40),
+                         GameText(_('next'),(250,540),self,5,font_size = 40)]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(380,430), self, self.change_princess,parameter = (1,'skin')),
@@ -197,11 +204,11 @@ class Menu():
         self.speed = 0
         self.actual_position = [500,-600]
         self.options    = []
-        self.texts =    [GameText('Choose your',(-200,200),self,1,font_size = 40),
-                         GameText('appearence...',(-200,250),self,2,font_size = 40),
-                         GameText('hair style',(250,420),self,3,font_size = 40),
-                         GameText('previous',(250,-40),self,4,font_size = 40),
-                         GameText('next',(250,540),self,5,font_size = 40)]
+        self.texts =    [GameText(_('Choose your'),(-200,200),self,1,font_size = 40),
+                         GameText(_('appearence...'),(-200,250),self,2,font_size = 40),
+                         GameText(_('hair style'),(250,420),self,3,font_size = 40),
+                         GameText(_('previous'),(250,-40),self,4,font_size = 40),
+                         GameText(_('next'),(250,540),self,5,font_size = 40)]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(380,430), self, self.change_princess,parameter = (1,'hair')),
@@ -220,11 +227,11 @@ class Menu():
         self.options    =   [Letter(i[0],i[1],self, 0, self.screen.hoover_letter_size,
                             fonte = 'FreeSerif.ttf', font_size=40)
                             for i in zip(lowercase,positions)]
-        self.options.extend([Backspace('< back',  (75,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-                             Spacebar('space >', (350,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-                             Options('done',    (245,545)   ,self,0,'start_game',font_size=30)
+        self.options.extend([Backspace(_('< back'),  (75,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
+                             Spacebar(_('space >'), (350,350)  ,self,0,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
+                             Options(_('done'),    (245,545)   ,self,0,'start_game',font_size=30)
                             ])
-        self.texts =    [GameText('... and your name',(-200,200),self,1,font_size = 40),
+        self.texts =    [GameText(_('... and your name'),(-200,200),self,1,font_size = 40),
                         GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40),
                         self.princess.name
                         ]
@@ -233,7 +240,7 @@ class Menu():
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, self.change_princess,parameter = (1,'skin')),
                        MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, self.change_princess,parameter = (-1,'skin'), invert = True),
                        
-                       MenuArrow(D_TITLE_SCREEN+'button_ok/',(200,570),self,0,self.NOTSETYET)]
+                       MenuArrow(D_TITLE_SCREEN+'button_ok/',(200,570),self,0,self.start_game)]
 
 
 
@@ -262,12 +269,16 @@ class Menu():
     ### Buttons functions ###
     def new_game(self):
         self.screen.universe.LEVEL = 'close'
+
     def load_game(self):
         pass
+
     def play_story(self):
         pass
+
     def choose_language(self):
         pass
+
     def start_game(self):
         try:
             os.mkdir(self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text)
@@ -344,7 +355,6 @@ class MenuBackground():
 
 class MenuArrow():
     def __init__(self,directory,position,menu,function,parameter = None,invert = False,):
-
         self.menu = menu
         self.images     = obj_images.Buttons(directory,10)
         if invert:
@@ -360,19 +370,21 @@ class MenuArrow():
         self.parameter = parameter
 
     def update_all(self):
-
         self.update_pos()
         self.click_detection()
+
     def update_pos(self):
         self.pos  = [self.menu.actual_position[0]+(self.position[0]-(self.image.get_size()[0]/2)),
                      self.menu.actual_position[1]+(self.position[1]-(self.image.get_size()[1]/2))]
         self.rect = Rect(self.pos,self.size)
+
     def invert_images(self,list):
         inv_list=[]
         for img in list:
             inv = pygame.transform.flip(img,1,0)
             inv_list.append(inv)
         return inv_list
+
     def click_detection(self):
         self.rect = Rect(self.pos,self.size)
         mouse_pos = pygame.mouse.get_pos()
