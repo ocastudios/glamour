@@ -1,0 +1,18 @@
+#This is a saved file of the glamour game.
+#It was recorded on 6 12 at 0:2
+name           Teste
+center_distance 3830
+hairback      hair_cinderella 0
+skin           skin_pink 1
+face           face_simple 2
+hair           hair_cinderella 3
+shoes          shoes_slipper 4
+dress          dress_yellow 5
+arm            arm_pink 6
+armdress       sleeve_yellow 7
+accessory      accessory_ribbon 8
+dirt           0
+#Points
+points 0
+#Level
+level level

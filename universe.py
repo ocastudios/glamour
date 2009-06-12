@@ -6,7 +6,6 @@ import os
 class Universe():
     def __init__(self,w,h):
         self.main_dir = os.getcwd()
-        self.gravity = 3
         self.center_x = -3400
         self.center_y = 0
         self.floor = self.height = h
@@ -19,7 +18,6 @@ class Universe():
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
         self.level = stage.Stage(6000,self)
         self.file = None
-
 
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)

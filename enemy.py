@@ -50,10 +50,10 @@ class Schnauzer(Enemy):
             self.barfing = 0
 
     def update_all(self):
-        self.look_around(self.level.princess)
+        self.look_around(self.level.princesses[0])
         self.set_pos()
         self.set_image()
-        self.got_kissed(self.level.princess)
+        self.got_kissed(self.level.princesses[0])
 
 #        self.level.rects.extend(pygame.mask.from_surface(self.image).get_bounding_rects())
     def look_around(self,princess):

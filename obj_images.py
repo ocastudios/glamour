@@ -34,7 +34,6 @@ Margin may be used to better program interaction during the game. Margin default
         else:                               self.number = 0
 
 
-
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin = margin
@@ -43,6 +42,8 @@ class OneSided(TwoSided):
         self.size = self.list[self.number].get_size()
         self.lenght = len(self.list)
         self.itnumber = cycle(range(self.lenght))
+
+
 class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0]):
         self.margin = margin
@@ -57,6 +58,8 @@ class There_and_back_again(TwoSided):
         self.lenght = len(self.left)
         self.number = 0
         self.itnumber = cycle(range(self.lenght))
+
+
 class GrowingUngrowing(TwoSided):
     def __init__(self,directory,frames,margin=[0,0,0,0]):
         self.margin = margin
@@ -70,6 +73,8 @@ class GrowingUngrowing(TwoSided):
         self.number = 0
         self.size = self.list[self.number].get_size()
         self.itnumber = cycle(range(self.lenght))
+
+
 class Buttons(TwoSided):
     def __init__(self,directory,frames):
         self.list = self.left = self.find_images(directory)
@@ -82,3 +87,44 @@ class Buttons(TwoSided):
         self.number = 0
         self.size = self.list[self.number].get_size()
         self.itnumber = cycle(range(self.lenght))
+
+
+class MultiPart():
+    def __init__(self,ordered_directory_list,margin = [0,0,0,0]):
+        def gcd(a, b):
+          if b: return gcd(b, a % b)
+          return a
+        def least_common_multiple(nums): return reduce(lambda a, b: a * b / gcd(a, b), nums)
+
+        def find_images(dir):
+            return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if item[-4:]=='.png']
+        def invert_images(list):
+            return [pygame.transform.flip(img,1,0) for img in list]
+
+
+        ######### Building images ##########
+        all_images = [find_images(dir) for dir in ordered_directory_list]
+        image_size = all_images[0][0].get_size()
+        lists_lenghts = [len(i) for i in all_images]
+        lcm = least_common_multiple(lists_lenghts)
+        all_images = [i*(lcm/len(i)) for i in all_images]
+        self.images = [pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha() for i in range(lcm)]
+        for i in range(lcm):
+            [self.images[i].blit(img_list[i],(0,0)) for img_list in all_images]
+
+
+        self.margin = margin
+        self.left   = self.images
+        self.right  = invert_images(self.left)
+        self.number = 0
+        self.lenght = len(self.left)
+        if self.lenght>0:
+            self.size   = self.left[0].get_size()
+        self.itnumber = cycle(range(self.lenght))
+
+
+    def update_number(self):
+        if self.number < self.lenght -1:
+            self.number += 1
+        else:
+            self.number = 0

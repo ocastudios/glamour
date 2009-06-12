@@ -15,9 +15,6 @@ import drapes
 import os
 from pygame.locals import *
 
-
-
-
 import gettext
 t = gettext.translation('glamour', 'locale')
 _ = t.ugettext
@@ -233,8 +230,7 @@ class Menu():
                             ])
         self.texts =    [GameText(_('... and your name'),(-200,200),self,1,font_size = 40),
                         GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40),
-                        self.princess.name
-                        ]
+                        self.princess.name]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, self.change_princess,parameter = (1,'skin')),
@@ -286,19 +282,18 @@ class Menu():
             pass
         new_file = open('data/saves/'+self.princess.name.text+'/0.glamour','w')
         new_file.write(
-                    'center_distance 0'+'\n'
-                    'hair_back      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
+                    'name '+ str(self.princess.name.text) + '\n'
+                    'center_distance 4200'+'\n'
+                    'hairback      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
                     'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
                     'face           face_simple 2'+'\n'
                     'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
                     'shoes          shoes_slipper 4'+'\n'
                     'dress          dress_plain 5'+'\n'
                     'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
-                    'arm_dress      None 7'+'\n'
+                    'armdress      None 7'+'\n'
                     'accessory      accessory_ribbon 8'+'\n'
-                    'dirty1          dirt1 9'+'\n'
-                    'dirty2         dirt2 9'+'\n'
-                    'dirty3         dirt3 9'+'\n'
+                    'dirt           0'+'\n'
                     '#Points'+'\n'
                     'points 0'+'\n'
                     '#Level'+'\n'
@@ -495,16 +490,18 @@ class MenuPrincess():
         dir = 'data/images/princess/'
         self.skins = ('skin_pink','skin_tan','skin_black')
         self.arms  = ('arm_pink','arm_tan','arm_black')
-        self.hairs = ('hair_rapunzel','hair_yellow','hair_cinderella')
-        self.hairs_back= ('hair_rapunzel_back',None,None)
+        self.hairs = (  'hair_rapunzel', 'hair_yellow', 'hair_cinderella', 'hair_brown',
+                        'hair_rastafari', 'hair_red', 'hair_short', 'hair_sleeping')
+        self.hairs_back= ('hair_rapunzel_back',None,None,'hair_brown_back',
+                          'hair_rastafari_back','hair_red_back',None, None)
         self.menu = menu
         self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.skins]
         self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.arms]
         self.hair = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.hairs]
-        self.hair_back = [pygame.image.load(dir+self.hairs_back[0]+'/stay/0.png').convert_alpha(),None,None]
+        self.hairback = [pygame.image.load(dir+self.hairs_back[0]+'/stay/0.png').convert_alpha(),None,None]
 
         self.numbers = {'skin':1,'hair':1}
-        self.images = [ self.hair_back[self.numbers['hair']],
+        self.images = [ self.hairback[self.numbers['hair']],
                         self.skin[self.numbers['skin']],
                         pygame.image.load(dir+'face_simple/stay/0.png').convert_alpha(),
                         self.hair[self.numbers['hair']],
@@ -519,7 +516,7 @@ class MenuPrincess():
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 
     def update_all(self):
-        self.images[0]  = self.hair_back[self.numbers['hair']]
+        self.images[0]  = self.hairback[self.numbers['hair']]
         self.images[1]  = self.skin[self.numbers['skin']]
         self.images[3]  = self.hair[self.numbers['hair']]
         self.images[6]  = self.arm[self.numbers['skin']]

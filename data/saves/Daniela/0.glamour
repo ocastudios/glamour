@@ -1,0 +1,18 @@
+name Daniela
+center_distance 0
+hair_back      hair_rapunzel_back 0
+skin           skin_pink 1
+face           face_simple 2
+hair           hair_rapunzel 3
+shoes          shoes_slipper 4
+dress          dress_plain 5
+arm            arm_pink 6
+arm_dress      None 7
+accessory      accessory_ribbon 8
+dirty1          dirt1 9
+dirty2         dirt2 9
+dirty3         dirt3 9
+#Points
+points 0
+#Level
+level level

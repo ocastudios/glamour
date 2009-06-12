@@ -13,16 +13,13 @@ import camera
 import menu
 import universe
 import control
+
 try:
     import psyco
     psyco.log()
     psyco.profile(1.0)
 except:
     pass
-#Create lists
-
-
-
 
 clock = pygame.time.Clock()
 universe = universe.Universe(os_screen.current_w,os_screen.current_h)
@@ -46,7 +43,7 @@ while True:
     pygame.mouse.set_visible(0)
     while run_level:
         control.stage(universe)
-        clock.tick(15)
+        clock.tick(20)
         universe.screen_surface.fill([255,255,255])
         universe.level.update_all()
         universe.clock_pointer.update_image()
