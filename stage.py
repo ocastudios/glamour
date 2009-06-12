@@ -34,8 +34,9 @@ class Stage():
         self.panel          = []
         self.pointer        = []
         self.scenarios_front= []
+        self.animated_scenarios =[]
         self.size = size
-        self.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'enemies', 'menus', 'princesses')
         self.foreground = []
         self.white = Foreground(self.universe)
 
@@ -101,10 +102,8 @@ class Stage():
             i.update_all()
 
         if self.princesses[0].inside:
-            if self.white.inside:
-                self.update_insidebar()
-            else:
-                self.update_outsidebar()
+            self.update_insidebar()
+
 
         for i in self.clock:
             self.universe.screen_surface.blit(i.image,i.pos)
@@ -120,37 +119,68 @@ class Stage():
                 i.update_all()
 
     def update_insidebar(self):
+        self.universe.screen_surface.blit(self.white.image,(0,0))
         self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
         self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
 
-        if self.down_bar_y > 2*self.bar_goal:
-            self.down_bar_y -= self.bar_speed
-        if self.up_bar_y + self.bar_height< self.bar_goal:
-            self.up_bar_y += self.bar_speed
-        if self.white.alpha_value > 150:
-            self.universe.screen_surface.blit(self.princesses[0].image, ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-                                               (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
-            self.princesses[0].update_all()
+        if self.inside.status == 'inside':
+            self.up_bar_y = -self.bar_height
+            self.down_bar_y = self.universe.height
+            self.white.alpha_value = 0
+            self.inside.status = 'loading'
+
+        elif self.inside.status == 'loading':
+            self.white.image.set_alpha(self.white.alpha_value)
+            if self.white.alpha_value < 200:
+                self.white.alpha_value += 10
+            if self.down_bar_y > 2*self.bar_goal:
+                self.down_bar_y -= self.bar_speed
+            if self.up_bar_y + self.bar_height< self.bar_goal:
+                self.up_bar_y += self.bar_speed
+            if self.bar_speed < 20:
+                self.bar_speed += self.bar_speed
+            if self.white.alpha_value > 150:
+                self.inside.status = 'choosing'
+
+        elif self.inside.status == 'choosing':
+            self.universe.screen_surface.blit(self.princesses[0].image,
+                                    ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
+                                    (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
             [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
             [i.update_all() for i in self.inside.buttons]
             [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
             [i.update_all() for i in self.inside.items]
-        if self.bar_speed < 20:
-            self.bar_speed += self.bar_speed
 
-    def update_outsidebar(self):
-        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
-        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
-
-        if self.down_bar_y < self.universe.height:
+        elif self.inside.status == 'done':
             self.down_bar_y += self.bar_speed
-        if self.up_bar_y > -self.bar_height:
             self.up_bar_y -= self.bar_speed
-        if self.white.alpha_value > 0:
-            self.universe.screen_surface.blit(self.princesses[0].image, ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-                                             (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
-        if self.bar_speed < 20:
-            self.bar_speed += self.bar_speed
+            if self.bar_speed < 20:
+                self.bar_speed += self.bar_speed
+            if self.white.alpha_value > 0:
+                self.white.alpha_value -= 10
+                self.white.image.set_alpha(self.white.alpha_value)
+            else:
+                self.white.image.alpha_value = 0
+            self.white.image.set_alpha(self.white.alpha_value)
+
+            if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                self.inside.status = 'openning'
+
+        elif self.inside.status == 'openning':
+#            self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+            for i in self.gates:
+                if i.rect.colliderect(self.princesses[0].rect):
+                    i.open = True
+                    if i.images.number >= i.images.lenght -1:
+                        self.inside.status = 'closing'
+
+        elif self.inside.status == 'closing':
+            for i in self.gates:
+                if i.rect.colliderect(self.princesses[0].rect):
+                    i.outside()
+            self.princesses[0].inside = False
+
+
 
     def BathhouseSt(self):
         self.gates = []
@@ -225,7 +255,6 @@ class Stage():
         self.directory = self.maindir+'dress_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
         self.scenarios_prep  =  [scenarios.Scenario(0,self.directory+'Dress_Tower/',self,index =0),
-                                scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
                                 scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
                                 scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
                                 scenarios.Scenario(2150,self.directory+'apple_pillar/',self,index=0),
@@ -238,6 +267,8 @@ class Stage():
         self.scenarios = BigScenario(self),
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
+
+        self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0)]
 
         self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                             enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
@@ -326,7 +357,6 @@ class Foreground():
         self.image = pygame.Surface((universe.width,universe.height)).convert()
         self.image.fill((255,255,255))
         self.alpha_value = 0
-        self.inside = False
         self.image.set_alpha(self.alpha_value)
 
     def update_all(self):

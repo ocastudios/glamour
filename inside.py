@@ -35,8 +35,7 @@ class Inside():
                 chosen_item = i.name
         exec('file = save.save_file(self.level.universe, self.level.princesses[0],'+
                      self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level,save=file)
-        self.level.princesses[0].inside = False
+        self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
 
     def NOTSETYET(self,param):
         pass

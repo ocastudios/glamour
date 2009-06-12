@@ -99,14 +99,16 @@ class BuildingDoor():
         self.update_pos()
 
     def indicate_exit(self,princess):
-        if self.rect.colliderect(princess.rect) and not self.level.princesses[0].inside:
-            self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
-            self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
-            if princess.action[0] == 'open_door':
-                    self.open = True
+        if self.rect.colliderect(princess.rect):
+            if not princess.inside:
+                self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
+                self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
+                if princess.action[0] == 'open_door':
+                        self.open = True
+            else:
+                self.arrow_image = None
         else:
             self.open = False
-            self.arrow_image = None
             self.once = True
 
         if self.open:
@@ -124,10 +126,6 @@ class BuildingDoor():
                 self.images.number -= 1
                 self.image = self.images.list[self.images.number]
 
-
-        if self.level.white.inside and not princess.inside:
-            self.outside()
-
     def update_pos(self):
         self.pos[0] = self.level.universe.center_x+self.position[0]
         self.rect = Rect(self.pos, self.size)
@@ -136,19 +134,12 @@ class BuildingDoor():
         pass
 
     def inside(self):
-        self.level.white.alpha_value = 0
-        self.level.white.inside = True
-        self.level.foreground.insert(0,self.level.white)
+        self.level.inside.status = 'inside'
         self.level.blitlist = ('sky','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
         self.level.princesses[0].inside = True
 
     def outside(self):
-        self.level.white.inside = False
-        self.level.foreground.remove(self.level.white)
         self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
-        print "rodei"
-
-
 
 
 class Background():

@@ -18,7 +18,7 @@ Princess shoes are moving weirdly while she jumps.
 The code is not yet well commented
 """
     directory = 'data/images/princess/'
-    def __init__(self,level,save = None):
+    def __init__(self,level,save = None, INSIDE = False):
         self.level = level
         try:
             self.file = save.readlines()
@@ -58,10 +58,10 @@ The code is not yet well commented
         self.kiss_direction = 'left'
         self.kiss_rect = ((0,0),(0,0))
         self.floor = self.level.universe.floor - 186
-        self.action = [None,None]
+        self.action = [None,'stay']
         self.image = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size = self.image.get_size()
-        self.inside = False
+        self.inside = INSIDE
 
     def ordered_directory_list(self, action):
         odl = []
@@ -174,7 +174,7 @@ The code is not yet well commented
         self.floor = self.level.universe.floor- self.level.what_is_my_height(self)
         self.pos[0] = self.level.universe.center_x+self.center_distance
 
-        if action[1]=='walk':
+        if action[1]=='walk' and action[0] != 'celebrate':
            if self.direction == 'right':
                self.center_distance += self.speed
            else:
