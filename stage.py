@@ -162,16 +162,17 @@ class Stage():
                                 scenarios.Scenario(4700, self.directory+'right_house/base/',      self,index=0),
                                 scenarios.Scenario(550,  self.directory+'bathhouse/bathhouse/',self,index =0),
                                 scenarios.Scenario(3400,self.directory+'home/castelo/',self,index =0),
-                                scenarios.Scenario(5850,self.directory+'magic_beauty_salon/base/',self,index=0),
+                                scenarios.Scenario(5950,self.directory+'magic_beauty_salon/base/',self,index=0),
                                 scenarios.Flower(0,     'data/images/scenario/omni/flower_0/',self,8),
                                 scenarios.Flower(350,   'data/images/scenario/omni/flower_1/',self,12),
                                 scenarios.Flower(3135,  'data/images/scenario/omni/flower_3/',self,10),
                                 scenarios.Flower(3126,  'data/images/scenario/omni/colorful_tree_1/',self,8),]
-        self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self) for i in [2300,3350,4700,5470,5770]])
+        self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self)
+                                for i in [2300,3350,4700,5470,5770]])
 
-        self.gates =   [scenarios.BuildingDoor((620,490),self.directory+'bathhouse/door/',self),
-                        scenarios.BuildingDoor((3820,490),self.directory+'home/door/',self),
-                        scenarios.BuildingDoor((6000,465),self.directory+'magic_beauty_salon/door/',self),
+        self.gates =   [scenarios.BuildingDoor((821,453),self.directory+'bathhouse/door/',self),
+                        scenarios.BuildingDoor((3936,500),self.directory+'home/door/',self),
+                        scenarios.BuildingDoor((6737,503),self.directory+'magic_beauty_salon/door/',self),
                         scenarios.Gate(300, self.maindir+'omni/gate/',self,self.DressSt,index = 0),
                         scenarios.Gate(5510,self.maindir+'omni/gate/',self,self.AccessorySt,index = 0)]
 
@@ -194,7 +195,7 @@ class Stage():
 
         self.moving_scenario = [moving_scenario.MovingScenario(1,self,self.directory+'billboard_city/billboard/')]
 
-        self.scenarios_front = [scenarios.FrontScenario(6440,self.directory+'magic_beauty_salon/portal/',self,index=0)]
+        self.scenarios_front = [scenarios.FrontScenario(6600,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.fae = ([fairy.Fairy(20,self)])
 
@@ -220,19 +221,19 @@ class Stage():
             count += 1
 
     def DressSt(self):
-        self.gates = []                       
+        self.gates = []
         self.directory = self.maindir+'dress_st/'
         self.background =  [scenarios.Background(110,self,'data/images/scenario/ballroom/ballroom_day/')]
         self.scenarios_prep  =  [scenarios.Scenario(0,self.directory+'Dress_Tower/',self,index =0),
-                            scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
-                            scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
-                            scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
-                            scenarios.Scenario(2150,self.directory+'apple_pillar/',self,index=0),
-                            scenarios.Scenario(2500,self.directory+'knight_statue/',self,index=0),
-                            scenarios.Scenario(2850,self.directory+'chair/',self,index=0),
-                            scenarios.Scenario(2250,self.directory+'flowers/',self,index=0),
-                            scenarios.Scenario(3100,self.directory+'fachwerk_1/',self,index=0),
-                            scenarios.Scenario(4300,self.directory+'snow_white_castle/',self,index=0)]
+                                scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0),
+                                scenarios.Scenario(700,self.directory+'fachwerk_2/',self,index=0),
+                                scenarios.Scenario(1400,self.directory+'fachwerk_3/',self,index=0),
+                                scenarios.Scenario(2150,self.directory+'apple_pillar/',self,index=0),
+                                scenarios.Scenario(2500,self.directory+'knight_statue/',self,index=0),
+                                scenarios.Scenario(2850,self.directory+'chair/',self,index=0),
+                                scenarios.Scenario(2250,self.directory+'flowers/',self,index=0),
+                                scenarios.Scenario(3100,self.directory+'fachwerk_1/',self,index=0),
+                                scenarios.Scenario(4300,self.directory+'snow_white_castle/',self,index=0)]
 
         self.scenarios = BigScenario(self),
         for i in self.scenarios_prep:
