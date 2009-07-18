@@ -7,7 +7,6 @@ from pygame.locals import *
 pygame.mixer.init()
 from sys import exit
 import game_clock
-
 import obj_images
 import camera
 import menu

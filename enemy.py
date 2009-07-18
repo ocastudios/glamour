@@ -109,8 +109,10 @@ class Carriage(Enemy):
         self.set_image()
 
     def set_image(self):
-        if self.move:   exec('actual_list = self.walk.'+self.direction)
-        else:           exec('actual_list = self.stay.'+self.direction)
+        if self.move:
+            exec('actual_list = self.walk.'+self.direction)
+        else:
+            exec('actual_list = self.stay.'+self.direction)
         number_of_files = len(actual_list)-2
         if self.image_number <= number_of_files:
             self.image_number +=1
@@ -152,6 +154,7 @@ class Butterfly(Enemy):
         else:
             self.image_number = 0
         self.image = actual_list[self.image_number]
+
 class OldLady(Enemy):
     def __init__(self,speed,directory, pos, level,margin=[10,10,10,10],dirty=False):
         self.center_distance = pos
@@ -174,7 +177,6 @@ class OldLady(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.image_number = 0
 
-
     def update_all(self):
         self.wave_to_princess()
         self.brooming()
@@ -192,7 +194,6 @@ class OldLady(Enemy):
             self.action = 'walk'
             self.count = 0
 
-
     def brooming(self):
         if self.action != 'broom' and self.count == 60:
             self.action = 'broom'
@@ -202,8 +203,9 @@ class OldLady(Enemy):
             self.action = 'walk'
             self.count = 0
         self.count +=1
+
     def set_pos(self):
-        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
         if self.action == 'walk':
             if self.direction == 'right' :
@@ -220,3 +222,38 @@ class OldLady(Enemy):
         else:
             self.image_number = 0
         self.image = actual_list[self.image_number]
+
+
+
+class Lion():
+    def __init__(self, directory, pos, level, dirty=False):
+        self.center_distance = pos
+        for i in ['base','growl','kissed']:
+            exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
+        self.image = self.base.left[0]
+        self.level = level
+        self.pos = [self.level.universe.center_x+self.center_distance, 380]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+        self.tail = Tail(directory,self)
+
+
+    def update_all(self):
+        self.image = self.base.left[self.base.itnumber.next()]
+        self.pos[0] = self.tail.pos[0]= self.level.universe.center_x + self.center_distance
+
+
+class Tail():
+    def __init__(self, directory, lion):
+        self.lion = lion
+        self.pos  = self.lion.pos
+        self.images = obj_images.There_and_back_again(directory+'tail/')
+        self.image = self.images.list[self.images.itnumber.next()]
+
+    def update_all(self):
+        self.pos  = self.lion.pos
+        self.image = self.images.list[self.images.itnumber.next()]
+
+
+

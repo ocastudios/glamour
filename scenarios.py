@@ -96,7 +96,8 @@ class BuildingDoor():
 
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
-        self.update_pos()
+        self.pos[0] = self.level.universe.center_x+self.position[0]
+        self.rect = Rect(self.pos, self.size)
 
     def indicate_exit(self,princess):
         if self.rect.colliderect(princess.rect):
@@ -127,13 +128,6 @@ class BuildingDoor():
                 self.images.number -= 1
                 self.image = self.images.list[self.images.number]
 
-    def update_pos(self):
-        self.pos[0] = self.level.universe.center_x+self.position[0]
-        self.rect = Rect(self.pos, self.size)
-
-    def set_level(self,princess):
-        pass
-
     def inside(self):
         self.level.inside.status = 'inside'
         self.level.blitlist = ('sky','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
@@ -151,12 +145,6 @@ class Background():
         self.image = self.images.list[self.images.number]
         self.size = self.images.size
         self.pos = (pos_x,self.level.universe.floor-self.size[1])
-    def update_image(self):
-        pass
-#        self.images.number += 1
-#        if self.images.number > len(self.images.list)-1:
-#            self.images.number = -1
-#        self.image = self.images.list[self.images.number]
 
     def update_all(self):
-        self.update_image()
+        pass

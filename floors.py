@@ -34,9 +34,10 @@ class Water(Floor):
         self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
     def update_all(self):
         self.center_distance += self.speed[0]
-
-        if self.direction == 'up':          self.height += self.speed[1]
-        else:                               self.height -= self.speed[1]
+        if self.direction == 'up':
+            self.height += self.speed[1]
+        else:
+            self.height -= self.speed[1]
 
         if self.height > self.max:          self.direction = 'down'
         if self.height < self.min:          self.direction = 'up'
