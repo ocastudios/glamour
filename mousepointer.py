@@ -2,8 +2,11 @@ import obj_images
 import pygame
 
 class MousePointer():
-    def __init__(self,mouse_pos,level):
-        self.images         = obj_images.OneSided('data/images/interface/mouse-icon/pointer/')
+    def __init__(self,mouse_pos,level, type = 1):
+        if type == 2:
+            self.images         = obj_images.OneSided('data/images/interface/mouse-icon/pointer/')
+        else:
+            self.images         = obj_images.OneSided('data/images/interface/mouse-icon/pointer/')
         self.image          = self.images.list[self.images.number]
         self.size           = self.image.get_size()
 

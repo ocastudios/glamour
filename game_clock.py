@@ -30,22 +30,30 @@ class ClockPointer():
         imagesize   = self.image.get_size()
         self.pos    = (self.level.universe.width-imagesize[0],0)
         self.level.universe.frames_per_second
+        self.pointerpos = 0
 
     def update_image(self):
         self.tick += 1
         if self.tick == self.level.universe.frames_per_second:
-            if self.count > (len(self.rotate_list)-2):
-                self.count  =0
+            if self.count < 180:
+                if self.pointerpos > (len(self.rotate_list)-2):
+                    self.pointerpos  =0
+                else:
+                    self.pointerpos  +=1
+                self.image  = self.clock_pointer[self.count]
+                imagesize   = self.image.get_size()
+                self.pos    = (self.level.universe.width-imagesize[0],0)
+
+            if self.count < 300:
+                self.count += 1
             else:
-                self.count  +=1
-            self.image  = self.clock_pointer[self.count]
-            imagesize   = self.image.get_size()
-            self.pos    = (self.level.universe.width-imagesize[0],0)
+                self.count = 0
+
         elif self.tick > self.level.universe.frames_per_second:
             self.tick = 0
+
         if self.count < 40:
-#            self.time = 'morning'
-            self.time = 'ball'
+            self.time = 'morning'
         elif self.count < 80:
             self.time = 'day'
         elif self.count < 120:

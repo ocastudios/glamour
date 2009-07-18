@@ -162,6 +162,9 @@ The code is not yet well commented
 
     def update_pos(self,action):
         feet_position   = self.pos[1]+self.size[1]
+        self.floor = self.level.universe.floor- self.level.what_is_my_height(self)
+        self.pos[0] = self.level.universe.center_x+self.center_distance
+
         #fall
         if feet_position < self.floor:
             self.pos[1] += self.gforce
@@ -171,8 +174,7 @@ The code is not yet well commented
             self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
             self.gforce = 0
-        self.floor = self.level.universe.floor- self.level.what_is_my_height(self)
-        self.pos[0] = self.level.universe.center_x+self.center_distance
+
 
         if action[1]=='walk' and action[0] != 'celebrate':
            if self.direction == 'right':

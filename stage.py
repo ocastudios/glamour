@@ -47,7 +47,7 @@ class Stage():
         self.up_bar_y   = - self.bar_height
         self.bar_goal   = self.universe.height/3
         self.bar_speed  = 1
-        self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self)
+        self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
         self.pointer = [glamour_stars.Glamour_Stars(self),self.game_mouse]
         self.dress_castle = inside.Inside(self,'dress',('pink','plain','red','yellow'))
         self.accessory_castle = inside.Inside(self,'accessory',('crown','purse','ribbon','shades'))

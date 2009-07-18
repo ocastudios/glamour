@@ -33,6 +33,8 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
         hairback = "hair_brown_back"
     elif hair == "hair_rastafari":
         hairback = "hair_rastafari_back"
+    elif hair == "hair_rapunzel":
+        hairback = "hair_rapunzel_back"
     else:
         hairback = "None"
 
