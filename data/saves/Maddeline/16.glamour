@@ -1,17 +1,17 @@
 #This is a saved file of the glamour game.
-#It was recorded on 6 12 at 10:39
+#It was recorded on 6 12 at 18:41
 name           Maddeline
-center_distance 3830
-hairback      hair_yellow 0
+center_distance 3790
+hairback      None 0
 skin           skin_tan 1
-face           face_simple 2
-hair           hair_yellow 3
-shoes          shoes_slipper 4
-dress          dress_red 5
+face           face_lipstick 2
+hair           hair_snowwhite 3
+shoes          shoes_white 4
+dress          dress_plain 5
 arm            arm_tan 6
-armdress       sleeve_red 7
-accessory      accessory_ribbon 8
-dirt           0
+armdress       None 7
+accessory      accessory_shades 8
+dirt           3
 #Points
 points 0
 #Level

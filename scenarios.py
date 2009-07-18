@@ -1,13 +1,15 @@
 
 import obj_images
-
+import pygame
 from pygame.locals import *
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
-    def __init__(self,center_distance,dir,level,index = 1):
+    def __init__(self,center_distance,dir,level,index = 1,invert = False):
         self.images         = obj_images.OneSided(dir)
         self.images.number  = -1
         self.image          = self.images.list[self.images.number]
+        if invert:
+            self.image = pygame.transform.flip(self.image, 1,0)
         self.size           = self.images.size
         self.center_distance= center_distance
         self.level          = level
@@ -36,10 +38,8 @@ class Flower(Scenario):
     def update_all(self):
         self.update_pos()
 
-
 class FrontScenario(Scenario):
         pass
-
 
 class Gate(Scenario):
     def __init__(self,center_distance,dir,level,goal,index = 1):
@@ -76,7 +76,7 @@ class Gate(Scenario):
 
 class BuildingDoor():
 #TODO: use the save class to change the values of the princess attributes. Then create a new princess.
-    def __init__(self,pos,directory,level):
+    def __init__(self,pos,directory,level,interior = None):
         self.open = False
         self.level = level
         self.position = pos
@@ -91,8 +91,8 @@ class BuildingDoor():
         self.arrow_pos = (0,0)
         self.arrow_size = self.arrow_image.get_size()
         self.rect = Rect(self.pos, self.size)
-        self.change_level = False
         self.once = True
+        self.interior = interior
 
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
@@ -104,7 +104,8 @@ class BuildingDoor():
                 self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
                 self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
                 if princess.action[0] == 'open_door':
-                        self.open = True
+                    self.level.inside = self.interior
+                    self.open = True
             else:
                 self.arrow_image = None
         else:

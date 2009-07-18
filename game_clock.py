@@ -8,7 +8,7 @@ class GameClock():
         self.pos   =((self.level.universe.width-self.image.get_width()),0)
         self.time  = 'day' 
         level.clock.append(self)
-    
+
 
 class ClockPointer():
     def __init__(self,level):
@@ -23,37 +23,36 @@ class ClockPointer():
         self.count              = 0
         self.tick               = 0
         self.time               = 'day' #morning,day,evening,night
-        for degree in self.rotate_list:
-            image = pygame.transform.rotate(self.clock_pointer_basic,degree)
-            self.clock_pointer.append(image)
-        
-        level.clock.append(self)
-            
+        self.clock_pointer = [pygame.transform.rotate(self.clock_pointer_basic,degree) for degree in self.rotate_list]
+        if self not in level.clock:
+            level.clock.append(self)
         self.image  = self.clock_pointer[self.count]
         imagesize   = self.image.get_size()
         self.pos    = (self.level.universe.width-imagesize[0],0)
-        
+        self.level.universe.frames_per_second
 
     def update_image(self):
         self.tick += 1
-        number = 20
-        if self.tick == number:
-            if self.count>(len(self.rotate_list)-2):
+        if self.tick == self.level.universe.frames_per_second:
+            if self.count > (len(self.rotate_list)-2):
                 self.count  =0
             else:
                 self.count  +=1
             self.image  = self.clock_pointer[self.count]
             imagesize   = self.image.get_size()
             self.pos    = (self.level.universe.width-imagesize[0],0)
-        elif self.tick >number:
+        elif self.tick > self.level.universe.frames_per_second:
             self.tick = 0
-    
         if self.count < 40:
-            self.time = 'morning'
+#            self.time = 'morning'
+            self.time = 'ball'
         elif self.count < 80:
             self.time = 'day'
         elif self.count < 120:
             self.time = 'evening'
-        else:
+        elif self.count < 179:
             self.time = 'night'
+        else:
+            self.time = 'ball'
+
 

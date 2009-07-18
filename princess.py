@@ -37,9 +37,9 @@ The code is not yet well commented
                            self.level.universe.floor - 186 -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
-        self.dirties = [Dirt(self,'data/images/princess/dirt1'),
-                        Dirt(self,'data/images/princess/dirt2'),
-                        Dirt(self,'data/images/princess/dirt3')]
+        self.dirties = [  Dirt(level,'data/images/princess/dirt1',self.pos),
+                          Dirt(level,'data/images/princess/dirt2',self.pos),
+                          Dirt(level,'data/images/princess/dirt3',self.pos)]
         self.images = None
         self.open_door_img = self.stay_img
         self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
@@ -228,22 +228,22 @@ The code is not yet well commented
 
 class Dirt():
     image_number = 0
-    def __init__(self, princess, directory):
-        self.princess = princess
+    def __init__(self, level, directory,pos):
+        self.level = level
         self.directory = directory
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
         self.open_door = self.walk
         self.list = self.stay
         self.actual_list = self.list.left
-        self.pos = princess.pos
+        self.pos = pos
         self.image = self.actual_list[self.image_number]
         self.past_choice = None
 
     def update_all(self):
-        self.pos = self.princess.pos
-        chosen = self.princess.action[0] or self.princess.action[1]
-        if self.princess.direction == 'left':
+        self.pos = self.level.princesses[0].pos
+        chosen = self.level.princesses[0].action[0] or self.level.princesses[0].action[1]
+        if self.level.princesses[0].direction == 'left':
             exec('self.images = self.'+chosen+' \n'+
                  'actual_images = self.'+chosen+'.right')
         else:
@@ -253,5 +253,5 @@ class Dirt():
             self.images.number = 0
         self.past_choice = chosen
         self.image = actual_images[self.images.number]
-        if not self.princess.jump:
+        if not self.level.princesses[0].jump:
             self.images.update_number()

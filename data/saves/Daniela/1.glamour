@@ -1,19 +1,17 @@
 #This is a saved file of the glamour game.
-#It was recorded on 6 11 at 16:21
+#It was recorded on 6 12 at 18:37
 name           Daniela
-center_distance3850
-hair_back      hair_rapunzel 0
+center_distance 3960
+hairback      None 0
 skin           skin_pink 1
 face           face_simple 2
 hair           hair_rapunzel 3
 shoes          shoes_slipper 4
-dress          red 5
-arm            None 6
-arm_dress      None 7
+dress          dress_plain 5
+arm            arm_pink 6
+armdress       None 7
 accessory      accessory_ribbon 8
-dirty1          dirt1 9
-dirty2         dirt2 9
-dirty3         dirt3 9
+dirt           0
 #Points
 points 0
 #Level

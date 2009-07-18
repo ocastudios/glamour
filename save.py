@@ -1,7 +1,7 @@
 import princess
 import os
 import datetime
-def save_file(universe, princess, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None):
+def save_file(universe, princess, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, position = None):
     #avoid errors in case there are no saved files
     try:
         os.mkdir(universe.main_dir+'/data/saves/'+str(princess.name))
@@ -26,6 +26,7 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
         armdress = "sleeve_red"
     else:
         armdress = "None"
+
     if hair == "hair_black":
         hairback = "hair_black_back"
     elif hair == "hair_brown":
@@ -34,12 +35,13 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
         hairback = "hair_rastafari_back"
     else:
         hairback = "None"
+
     new_file.write(
                 '#This is a saved file of the glamour game.\n'
                 '#It was recorded on '+str(day.month)+' ' +str(day.day)+' at '+str(day.hour)+':'+str(day.minute)+'\n'
                 'name           '+ str(princess.name) + '\n'
                 'center_distance '+ str(princess.center_distance)+'\n'
-                'hairback      '+ str(hair) + ' 0'+'\n'
+                'hairback      '+ str(hairback) + ' 0'+'\n'
                 'skin           '+ str(skin) + ' 1'+'\n'
                 'face           '+ str(face) + ' 2'+'\n'
                 'hair           '+ str(hair) + ' 3'+'\n'
@@ -53,6 +55,7 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
                 'points 0'+'\n'
                 '#Level'+'\n'
                 'level level'+'\n'
+                'position       '+ str(position) +'\n'
                 )
     new_file.close()
     return 'data/saves/'+princess.name+'/'+str(number)+'.glamour'

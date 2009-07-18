@@ -39,15 +39,15 @@ while True:
             pygame.display.flip()
     universe.define_level()
     gamecamera = camera.GameCamera(universe.level)
-    run_level = True
     pygame.mouse.set_visible(0)
-    while run_level:
+
+    while universe.run_level:
         control.stage(universe)
-        clock.tick(20)
-        universe.screen_surface.fill([255,255,255])
+        clock.tick(universe.frames_per_second)
         universe.level.update_all()
         universe.clock_pointer.update_image()
         pygame.display.flip()
+        
     universe.screen_surface.fill([0,0,0])
     pygame.display.flip()
     run_level = True

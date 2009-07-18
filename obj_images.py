@@ -3,7 +3,7 @@ import operator
 import pygame
 from itertools import *
 
-### TODO include a function update_image, so that it will no longer be necessary to repeat the code in every object.
+
 ### TODO include a function reset_image, so that it will be possible to restart the image number easily.
 
 
@@ -30,9 +30,16 @@ Margin may be used to better program interaction during the game. Margin default
         return [pygame.transform.flip(img,1,0) for img in list]
 
     def update_number(self):
-        if self.number < self.lenght -1:    self.number = operator.add(self.number,1)
-        else:                               self.number = 0
+        if self.number < self.lenght -1:
+            self.number = operator.add(self.number,1)
+        else:
+            self.number = 0
 
+    def til_the_end(self):
+        if self.number < self.lenght -1:
+            self.number = operator.add(self.number,1)
+        else:
+            self.number = self.lenght -1
 
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):

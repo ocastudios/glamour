@@ -16,9 +16,10 @@ class Universe():
         self.dir    = 0
         self.click = False
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
-        self.level = stage.Stage(6000,self)
+        self.level = stage.Stage(9600,self)
         self.file = None
-
+        self.frames_per_second = 20
+        self.run_level = True
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)
         self.clock_pointer = game_clock.ClockPointer(self.level)
@@ -34,8 +35,8 @@ class Universe():
         if self.center_x > 0:
             self.speed = 0
             self.center_x = 0
-        if self.center_x < -(self.level.size-470):
+        if self.center_x - self.width < -(self.level.size):
             self.speed = 0
-            self.center_x = -(self.level.size-470)
-#        self.center_x += self.speed
+            self.center_x = -(self.level.size) + self.width
+
 

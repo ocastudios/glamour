@@ -1,25 +1,18 @@
-import obj_images
+import pygame
 from pygame.locals import *
 
-class MovingScenario():
-    def __init__(self,index,level,dir):
+class Billboard():
+    def __init__(self,level):
         self.level = level
-        self.images = obj_images.OneSided(dir)
-        self.image = self.images.list[self.images.number]
-        self.size = self.image.get_size()
-        self.center_distance = ((self.level.size-self.level.universe.width) - self.size[0])*self.level.universe.center_x/self.level.size
-        self.pos = (self.center_distance, self.level.universe.floor - self.size[1])
-        self.move = False
-        self.dir = 'left'
-        self.speed = 4
-        self.count = 0
-        self.rect = Rect(self.pos, self.size)
+        self.image = pygame.image.load('data/images/scenario/bathhouse_st/billboard_city/billboard/billboard_city.png').convert_alpha()
+        self.size = self.image.get_size()[0]
+#        self.center_distance = ((self.level.universe.center_x-self.level.universe.width) * (self.level.size - self.size))/self.level.size
+
+        self.center_distance = ((self.size - self.level.universe.width)*self.level.universe.center_x)/(self.level.size -self.level.universe.width)
+
+        self.pos = [self.center_distance, self.level.universe.floor - self.image.get_size()[1]]
+
     def update_all(self):
-        self.set_pos(self.level.act,self.level.direction)
-    def set_pos(self,act,direction):
-        self.center_distance = ((self.level.size - self.level.universe.width) - self.size[0])*self.level.universe.center_x/self.level.size
-#        self.center_distance = (self.level.universe.center_x*(self.level.size-self.level.universe.width))/(self.level.size-self.size[0])
+        self.pos[0] = ((self.size - self.level.universe.width)*self.level.universe.center_x)/(self.level.size -self.level.universe.width)
+#((9600 - self.level.universe.width) - self.size[0])*self.level.universe.center_x/9600
 
-
-        self.pos = (self.center_distance,self.level.universe.floor - (self.size[1]))
-        self.rect = Rect(self.pos, self.size)
