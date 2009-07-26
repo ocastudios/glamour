@@ -2,6 +2,7 @@
 import pygame
 import obj_images
 from pygame.locals import *
+import itertools
 import random
 
 class Enemy():
@@ -226,7 +227,8 @@ class OldLady(Enemy):
 
 
 class Lion():
-    def __init__(self, directory, pos, level, dirty=False):
+    def __init__(self, pos, level):
+        directory = level.enemy_dir+'lion/'
         self.center_distance = pos
         for i in ['base','growl','kissed']:
             exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
@@ -237,7 +239,6 @@ class Lion():
         self.gotkissed = 0
         self.image_number = 0
         self.tail = Tail(directory,self)
-
 
     def update_all(self):
         self.image = self.base.left[self.base.itnumber.next()]
@@ -256,4 +257,101 @@ class Tail():
         self.image = self.images.list[self.images.itnumber.next()]
 
 
+class Elephant():
+    def __init__(self, pos, level, dirty=False):
+        directory = level.enemy_dir+'elephant/'
+        self.center_distance = pos
+        for i in ['base','hover']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
+        self.image = self.base.left[0]
+        self.level = level
+        self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height()) +15 ]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+
+    def update_all(self):
+        self.image = self.base.left[self.base.itnumber.next()]
+        self.pos[0] = self.level.universe.center_x + self.center_distance
+
+
+class Monkey():
+    def __init__(self, pos, level, dirty=False):
+        directory = level.enemy_dir+'monkey/'
+        self.center_distance = pos
+        for i in ['stay','hover','happy','throw','attack']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
+        self.image = self.stay.left[0]
+        self.level = level
+        self.pos = [self.level.universe.center_x+self.center_distance, 150 ]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+
+    def update_all(self):
+        self.image = self.stay.left[0]
+        self.pos[0] = self.level.universe.center_x + self.center_distance
+
+class VikingShip():
+    def __init__(self, pos, level, dirty=False):
+        directory = level.enemy_dir+'viking_ship/'
+        self.center_distance = pos
+        for i in ['base']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
+        self.image = self.base.left[0]
+        self.level = level
+        self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
+        self.image_height = self.image.get_height()
+        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor - self.image_height + 200 +self.height.next()]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+        self.speed = -3
+
+    def update_all(self):
+        self.image = self.base.left[0]
+        self.center_distance += self.speed
+        self.pos[0] = self.level.universe.center_x + self.center_distance
+        self.pos[1] = self.level.floor - self.image_height + 200 + self.height.next()
+
+
+class Splash():
+    def __init__(self, pos, level, ship, dirty=False):
+        directory = level.enemy_dir+'viking_ship/wave/'
+        self.distance = 20
+        self.ship = ship
+        self.level = level
+        self.images = obj_images.TwoSided(directory)
+        self.image = self.images.left[0]
+        self.height = 200
+        self.image_height = self.image.get_height()
+        self.pos = [self.ship.pos[0]+self.distance, self.ship.height + self.height]
+        self.direction = 'left'
+
+    def update_all(self):
+        self.image = self.images.left[self.images.itnumber.next()]
+        self.pos[0] = self.ship.pos[0]+self.distance
+        self.pos[1] = self.ship.height + self.height
+
+
+class FootBoy():
+    def __init__(self, pos, level, dirty=False):
+        directory = level.enemy_dir+'footboy/'
+        self.center_distance = pos
+        self.running = obj_images.There_and_back_again(directory+'walk_body/first_cycle/', second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'happy_face/')
+        self.standing_body = obj_images.TwoSided(directory+'walk_body/stand/')
+        self.body = self.running
+        self.image = self.body.left[0]
+        self.level = level
+        self.image_height = self.image.get_height()
+        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor-self.image_height+20]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+        self.speed = -12
+
+    def update_all(self):
+        self.image = self.body.left[self.body.itnumber.next()]
+        self.center_distance += self.speed
+        self.pos[0] = self.level.universe.center_x + self.center_distance
 

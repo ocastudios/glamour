@@ -223,7 +223,9 @@ class Stage():
         self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
-                           enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
+                           enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self),
+                           enemy.FootBoy(9000,self)
+                            ]
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
@@ -336,7 +338,7 @@ class Stage():
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.clouds     = [clouds.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
-        self.scenarios_front = [scenarios.Scenario(i[0],i[1],self) foi i in (
+        self.scenarios_front = [scenarios.Scenario(i[0],i[1],self) for i in (
                                 (557,self.directory+'fence/base/'),
                                 (719,self.omni_directory+'grass_4/'),
                                 (1200,self.omni_directory+'grass_3/'),
@@ -351,11 +353,14 @@ class Stage():
                                 (7004,self.omni_directory+'grass_3/'),
                                 (7576,self.omni_directory+'grass_3/'),
                                 (8416,self.omni_directory+'grass_3/'),
-                                (8822,self.omni_directory+'grass_3/'),]
+                                (8822,self.omni_directory+'grass_3/')
+                                )]
 
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
-        try:       pygame.mixer.music.play()
-        except:    print "Warning: no music loaded."
+        try:
+            pygame.mixer.music.play()
+        except:
+            print "Warning: no music loaded."
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
         panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
 
@@ -420,6 +425,7 @@ class Stage():
                             scenarios.Gate(7836,'data/images/scenario/omni/gate/',self,self.BathhouseSt ,index = 0)])
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
+        self.floor_image.extend([enemy.VikingShip(9000,self)])
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
 
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
@@ -491,7 +497,7 @@ class Stage():
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.clouds     = [clouds.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
-        self.scenarios_front = []
+        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',0)]
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
@@ -499,7 +505,8 @@ class Stage():
         panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
         ### Set Floor ###
         self.floor_heights = {}
-        self.animated_scenarios = [enemy.Lion(self.enemy_dir+'lion/', 3200,self), 
+        self.animated_scenarios = [ enemy.Lion(3200,self),
+                                    enemy.Monkey(3500,self),
                                     scenarios.Scenario(2923,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
 

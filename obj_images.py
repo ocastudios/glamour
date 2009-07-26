@@ -52,17 +52,32 @@ class OneSided(TwoSided):
 
 
 class There_and_back_again(TwoSided):
-    def __init__(self,dir,margin=[0,0,0,0], exclude_border = False):
+    def __init__(self,dir,margin=[0,0,0,0], exclude_border = False, second_dir = None, extra_part = None):
         self.margin = margin
         preleft     = self.find_images(dir)
         preright    = self.invert_images(preleft)
         posleft     = list(reversed(preleft))
         posright    = list(reversed(preright))
+#        if extra_part:
+#            extra = self.find_images(extra_part)
+#            for i,e in zip(preleft, extra):
+#                i.blit(e,(0,0))
         if exclude_border:
             posleft     = posleft[1:-1]
             posright    = posright[1:-1]
-        self.left   = self.list = preleft + posleft
-        self.right  = preright + posright
+        self.left   = self.list =   preleft + posleft 
+        self.right  =               preright + posright
+        if second_dir:
+            second_left = self.find_images(second_dir)
+            second_right = self.invert_images(second_left)
+            possecond_left = list(reversed(second_left))
+            possecond_right= list(reversed(second_right))
+            if exclude_border:
+                possecond_left = possecond_left[1:-1]
+                possecond_right = possecond_right[1:-1]
+            self.left = self.list = self.left+ second_left+possecond_left
+            self.right= self.right + second_right + possecond_right
+
         self.size   = self.left[0].get_size()
         self.lenght = len(self.left)
         self.number = 0
