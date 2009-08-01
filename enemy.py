@@ -338,20 +338,111 @@ class FootBoy():
     def __init__(self, pos, level, dirty=False):
         directory = level.enemy_dir+'footboy/'
         self.center_distance = pos
-        self.running = obj_images.There_and_back_again(directory+'walk_body/first_cycle/', second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'happy_face/')
+        self.running = obj_images.There_and_back_again(directory+'walk_body/first_cycle/', second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'happy_face/first_cycle/', second_extra_part = directory+'happy_face/second_cycle/')
+        self.running_mad = obj_images.There_and_back_again(directory+'walk_body/first_cycle/',second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'mad_face/first_cycle/', second_extra_part = directory+'mad_face/second_cycle/')
+        self.running_kissed = obj_images.There_and_back_again(directory+'kissed/')
         self.standing_body = obj_images.TwoSided(directory+'walk_body/stand/')
-        self.body = self.running
+        self.body = self.running_mad
         self.image = self.body.left[0]
         self.level = level
-        self.image_height = self.image.get_height()
-        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor-self.image_height+20]
+        self.size = [(self.image.get_width()/3),self.image.get_height()]
+        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor-self.size[1]+20]
         self.direction = 'left'
-        self.gotkissed = 0
+        self.got_kissed = 0
         self.image_number = 0
         self.speed = -12
+        self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
+
+        self.level.enemies.append(FootBall(random.randint(4000,6000), self))
 
     def update_all(self):
-        self.image = self.body.left[self.body.itnumber.next()]
+        if self.direction == 'left':
+            self.speed = -12
+            self.image = self.body.left[self.body.number]
+        else:
+            self.speed = 12
+            self.image = self.body.right[self.body.number]
+
+        if not self.got_kissed and self.rect.colliderect(self.level.princesses[0].kiss_rect):
+            self.got_kissed = 1
+
+        if self.got_kissed > 0:
+            if self.got_kissed == 1:
+                self.body = self.running_kissed
+            self.got_kissed += 1
+            if self.got_kissed < 8:
+                self.speed = 0
+                self.body.update_number()
+            elif self.got_kissed < 200:
+                self.body = self.running
+                self.body.update_number()
+            else:
+                self.body = self.running_mad
+                self.got_kissed = 0
+        else:
+            self.body.update_number()
+
         self.center_distance += self.speed
         self.pos[0] = self.level.universe.center_x + self.center_distance
+        self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
 
+class FootBall():
+    def __init__(self, center_distance, footboy):
+        self.footboy        = footboy
+        self.center_distance= center_distance
+        self.images         = obj_images.TwoSided('data/images/enemies/footboy/ball/')
+        self.image          = self.images.left[0]
+        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-7)
+        self.pos            = [self.footboy.level.universe.center_x + self.center_distance, self.footboy.level.floor - self.size[1]]
+        self.speed          = 0
+        self.rect           = pygame.Rect(self.pos, self.size)
+        self.lowlist        = (3,4,5,12,13,14)
+        self.movetype       = 'high'
+        self.ballheights    = [80,120,170,210,240,260,270,275]
+        self.ballheights    += list(reversed(self.ballheights))
+        self.ballheights     += [1,40,70,90,95,90,70,40,1]
+        self.ballheights    += [20,10,15,10,20,0]
+        self.ballheights = itertools.cycle(self.ballheights)
+        self.direction = self.footboy.direction
+
+#itertools.cycle([i*20 for i in range(7)+list(reversed(range(6)))])
+
+
+    def update_all(self):
+        self.rect           = pygame.Rect(self.pos, self.size)
+
+        if self.footboy.body != self.footboy.running:
+            if self.rect.colliderect(self.footboy.rect):
+                if self.footboy.body.number in self.lowlist:
+                    self.movetype = 'low'
+                else:
+                    self.movetype = 'high'
+                    self.pos[1] += 1
+                if self.footboy.direction == "left":
+                    self.speed = -50
+                else:
+                    self.speed = 50
+                self.pos[1] += 1
+
+            if self.footboy.direction == 'right' and self.pos[0] < self.footboy.pos[0]:
+                self.footboy.direction = 'left'
+            if self.footboy.direction == 'left' and self.pos[0]-400 > self.footboy.pos[0]:
+                self.footboy.direction = 'right'
+
+
+        if self.speed < 0:
+            self.speed += 1
+        elif self.speed > 0:
+            self.speed -= 1
+        self.direction = self.footboy.direction
+        if self.speed > 0:
+            if self.direction == 'left':
+                self.image = self.images.right[self.images.itnumber.next()]
+            else:
+                self.image = self.images.left[self.images.itnumber.next()]
+
+        self.center_distance += self.speed
+        self.pos[0]            =  self.footboy.level.universe.center_x + self.center_distance
+
+        if self.pos[1] != self.footboy.level.floor - self.size[1]:
+            self.pos[1] = self.footboy.level.floor - (self.size[1] + self.ballheights.next() )
