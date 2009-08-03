@@ -256,7 +256,7 @@ class Stage():
                                 scenarios.FrontScenario(8600,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.fae = ([fairy.Fairy(20,self)])
-
+        pygame.mixer.music.load("data/sounds/music/03 - Celtic Cappriccio.ogg")
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
 
