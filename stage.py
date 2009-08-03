@@ -282,8 +282,8 @@ class Stage():
         self.gates = []
         self.directory = self.maindir+'dress_st/'
         self.scenarios_prep  =  [
-                                scenarios.Scenario(1086,self.omni_directory+'tree_2/',self),
-                                scenarios.Scenario(0,self.directory+'Dress_Tower/',self),
+                                scenarios.Scenario(1086,self.omni_directory+'tree_2/',  self),
+                                scenarios.Scenario(0,self.directory+'Dress_Tower/',     self),
                                 scenarios.Scenario(1307,self.directory+'fachwerk_3/base/',self),
                                 scenarios.Scenario(1127,'data/images/scenario/bathhouse_st/light_post/post/',self),
                                 scenarios.Scenario(1992,self.omni_directory+'hydrant/',self),
@@ -497,7 +497,7 @@ class Stage():
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.clouds     = [clouds.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
-        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',0)]
+        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."

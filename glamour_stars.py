@@ -6,7 +6,7 @@ class Glamour_Stars():
     rotating = None
     def __init__(self,level):
         self.level = level
-        self.rotating = obj_images.OneSided('data/images/interface/star/')
+        self.rotating = obj_images.OneSided('data/images/interface/star/star0/')
         self.image = self.rotating.list[0]
         self.size = self.image.get_size()
         self.pos = (200,60)

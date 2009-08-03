@@ -24,7 +24,7 @@ The code is not yet well commented
             self.file = save.readlines()
         except:
             self.file = open(save).readlines()
-        self.size       = (80,180)
+        self.size       = (2,180)
         for line in self.file:
             linha = line.split()
             if linha[0] == 'name':
@@ -62,7 +62,17 @@ The code is not yet well commented
         self.image = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size = self.image.get_size()
         self.inside = INSIDE
-
+        self.steps = [
+                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/0.ogg'),
+                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/1.ogg'),
+                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/2.ogg'),
+                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/3.ogg'),
+                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/4.ogg'),
+                    ]
+        self.jumpsound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
+        self.channel1 = pygame.mixer.Channel(0)
+        self.channel2 = pygame.mixer.Channel(1)
+        self.channel3 = pygame.mixer.Channel(2)
     def ordered_directory_list(self, action):
         odl = []
         for part in ["hairback","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
@@ -75,9 +85,11 @@ The code is not yet well commented
 
     def update_all(self):
         if not self.inside:
+
             self.direction  = self.level.universe.dir
             self.action     = self.level.universe.action
             self.effects = []
+            self.soundeffects(self.action)
             self.update_pos(self.action)
             self.jumping(self.action)
             self.hurting(self.action)
@@ -107,7 +119,7 @@ The code is not yet well commented
         if feet_position == self.floor and not self.jump:
             if action[0]== 'jump':
                 self.jump = 1
-                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/pulo.ogg')
+                self.channel3.play(self.jumpsound)
                 self.images.number = 0
         if self.jump > 0 and self.jump <20:
             self.pos[1] -= 30
@@ -121,7 +133,7 @@ The code is not yet well commented
         if action[0]=='fall':
             if feet_position == self.floor:
                 action[0]=None
-                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/fall/spike_heel/street/'+str(random.randint(0,0))+'.ogg')
+                self.channel1.play(self.steps[random.randint(0,1)])
         if feet_position < self.floor and not self.jump:
             action[0]='fall'
 
@@ -183,11 +195,12 @@ The code is not yet well commented
                self.center_distance -= self.speed
 
     def soundeffects(self,action):
-        if action[1]=='walk' or action[0] == 'celebrate':
-            if self.images.number == 3:
-                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(0,1))+'.ogg')
-            if self.images.number == 6:
-                os.popen4('ogg123 ~/Bazaar/Glamour/glamour/data/sounds/princess/steps/spike_heel/street/'+str(random.randint(2,3))+'.ogg')
+        if not self.jump:
+            if action[1]=='walk' or action[0] == 'celebrate':
+                if self.images.number % 6 == 0:
+                    self.channel1.play(self.steps[random.randint(0,1)])
+                if (self.images.number + 3)% 6 == 0:
+                    self.channel2.play(self.steps[random.randint(2,3)])
 
     def throwkiss(self):
         if self.kiss == 1:
@@ -204,12 +217,10 @@ The code is not yet well commented
 
 
     def update_image(self,action,direction):
-        #Correct rect position when turned left
-        if self.direction == 'right':
-            self.rect   = Rect(self.pos,self.size)
-        else:
-            self.rect = Rect((self.pos[0]+100,self.pos[1]),self.size)
+        self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
+                                self.size)
         chosen = action[0] or action[1]
+
         if direction == 'left':
             exec('self.images = self.'+chosen+'_img \n'+
                 'actual_images = self.'+chosen+'_img.right')

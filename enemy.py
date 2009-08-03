@@ -292,6 +292,7 @@ class Monkey():
         self.image = self.stay.left[0]
         self.pos[0] = self.level.universe.center_x + self.center_distance
 
+
 class VikingShip():
     def __init__(self, pos, level, dirty=False):
         directory = level.enemy_dir+'viking_ship/'
@@ -307,12 +308,42 @@ class VikingShip():
         self.gotkissed = 0
         self.image_number = 0
         self.speed = -3
+        self.flag = VikingPart(self,'flag',pos_x = 400)
+        self.wave = VikingPart(self,'wave',pos_x = 200)
+
 
     def update_all(self):
+        try:
+            wavesize
+        except:
+            wavesize = self.wave.size[1] -20
         self.image = self.base.left[0]
         self.center_distance += self.speed
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.pos[1] = self.level.floor - self.image_height + 200 + self.height.next()
+        if self.wave not in self.level.floor_image:
+            self.level.floor_image.extend([self.flag,self.wave])
+        self.flag.pos = self.pos[0]+(self.flag.pos_x-self.flag.size[0]),self.pos[1]+self.flag.pos_y
+        self.wave.pos = self.pos[0]+(self.wave.pos_x-self.wave.size[0]),self.level.floor_image[-5].pos[1]-wavesize
+
+
+class VikingPart():
+    def __init__(self, ship, part, pos_x = 0, pos_y = 0):
+        directory = 'data/images/enemies/viking_ship/'+part+'/'
+        self.pos_x  = pos_x
+        self.pos_y  = pos_y
+        self.ship = ship
+        self.pos  = self.ship.pos[0]+pos_x,self.ship.pos[1]+pos_y
+        self.images = obj_images.TwoSided(directory)
+        if self.ship.direction == 'left':
+            self.actual_images = self.images.left
+        else:
+            self.actual_images = self.images.right
+        self.image = self.actual_images[self.images.itnumber.next()]
+        self.size = self.image.get_size()
+
+    def update_all(self):
+        self.image = self.actual_images[self.images.itnumber.next()]
 
 
 class Splash():

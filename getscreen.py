@@ -2,6 +2,9 @@ import pygame
 pygame.display.init()
 
 splash = pygame.image.load('data/splash.png').convert(32)
+pygame.mixer.pre_init(44100,16,2,512)
+pygame.mixer.init()
+pygame.mixer.set_reserved(3)
 pygame.init()
 import os
 os_screen = pygame.display.Info()
