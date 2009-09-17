@@ -37,7 +37,7 @@ class Stage():
         self.scenarios_front= []
         self.animated_scenarios =[]
         self.size = size
-        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'enemies', 'menus', 'princesses')
+        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'lights', 'enemies', 'menus', 'princesses')
         self.foreground = []
         self.white = Foreground(self.universe)
         self.down_bar = Bar(self,'down')
@@ -61,13 +61,20 @@ class Stage():
 
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[object.center_distance+(object.size[0]/2)]
-        except:     y_height = 186 
+        except:     y_height = self.floor
         return      y_height
 
     def update_all(self):
         self.game_mouse.update()
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
+        if self.universe.clock_pointer.count > 160:
+            if self.background[0] == self.ballroom['day']:
+                self.background = [self.ballroom['night']]
+        else:
+            if self.background[0] == self.ballroom['night']:
+                self.background = [self.ballroom['day']]
+
         if self.universe.clock_pointer.time == 'ball':
             self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
             self.ball.update_all    ()
@@ -75,8 +82,18 @@ class Stage():
             self.cameras[0].update_all()
             self.universe.movement(self.direction)
             for att in self.blitlist:
-                exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
-                exec('[i.update_all() for i in self.'+att+' if i]')
+                if att == 'lights':
+                    if self.universe.clock_pointer.time == 'night':
+                        for i in self.lights:
+                            if i['status'] == 'on':
+                                self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
+                                i['position'].update_pos()
+                            if i['status'] == 'off' and random.randint(0,600) == 0:
+                                i['status'] = 'on'
+                                i['position'].update_pos()
+                else:
+                    exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
+                    exec('[i.update_all() for i in self.'+att+' if i]')
 
             for effect in self.princesses[0].effects:
                 self.universe.screen_surface.blit(effect[0],effect[1])
@@ -99,11 +116,13 @@ class Stage():
             elif self.sky[0].night_image:
                 self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
 
+
+
             for i in self.clock:
                 self.universe.screen_surface.blit(i.image,i.pos)
             for i in self.panel:
                 self.universe.screen_surface.blit(i.label,i.pos)
-                i.update(self.princesses[0].glamour_points)
+                i.update((self.princesses[0].center_distance,self.princesses[0].pos[1]))
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
@@ -177,7 +196,10 @@ class Stage():
     def BathhouseSt(self):
         self.gates = []
         self.directory = self.maindir+'bathhouse_st/'
-        self.background= [scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/')]
+        self.ballroom = {   'day': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/'),
+                            'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
+        self.background = [self.ballroom['day']]
+
         self.scenarios_prep  = [scenarios.Scenario(i[0],i[1],self) for i in (
                                 (100, self.omni_directory+'tree_2/'),
                                 (200, self.omni_directory+'bush/'),
@@ -192,7 +214,7 @@ class Stage():
                                 (3677, self.directory+'small_house/base/'),
                                 (4060, self.omni_directory+'small_bush_2/'),
                                 (4479, self.omni_directory+'tree_1/'),
-                                (4671,self.directory+'home/castelo/'),
+                                (4671,self.directory+'home/base/'),
                                 (3948, self.omni_directory+'tree_2/'),
                                 (7014, self.omni_directory+'tree_1/'),
                                 (7826, self.omni_directory+'tree_1/'),
@@ -209,10 +231,10 @@ class Stage():
         self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self)
                                 for i in [405,2730,4217,6041,8469]])
 
-        self.gates =   [scenarios.BuildingDoor((1064,453),self.directory+'bathhouse/door/',self,self.dress_castle),
-                        scenarios.BuildingDoor((5226,500),self.directory+'home/door/',self,self.hair_castle),
-                        scenarios.BuildingDoor((8737,503),self.directory+'magic_beauty_salon/door/',self,self.shoes_castle),
-                        scenarios.Gate(480, self.maindir+'omni/gate/',self,self.DressSt,index = 0),
+        self.gates =   [scenarios.BuildingDoor((1063,453),self.directory+'bathhouse/door/',self,self.dress_castle),
+                        scenarios.BuildingDoor((5206,500),self.directory+'home/door/',self,self.hair_castle),
+                        scenarios.BuildingDoor((9305,503),self.directory+'magic_beauty_salon/door/',self,self.shoes_castle),
+                        scenarios.Gate(480, self.maindir+'omni/gate/',self,self.ShoesSt,index = 0),
                         scenarios.Gate(8138,self.maindir+'omni/gate/',self,self.AccessorySt,index = 0)]
 
         self.scenarios = BigScenario(self),
@@ -253,7 +275,7 @@ class Stage():
 
                                 scenarios.Scenario(6058,self.omni_directory+'grass_1/',self),
                                 scenarios.Scenario(6754,self.omni_directory+'fence_1/',self),
-                                scenarios.FrontScenario(8600,self.directory+'magic_beauty_salon/portal/',self,index=0)]
+                                scenarios.FrontScenario(9168,self.directory+'magic_beauty_salon/portal/',self,index=0)]
 
         self.fae = ([fairy.Fairy(20,self)])
         pygame.mixer.music.load("data/sounds/music/03 - Celtic Cappriccio.ogg")
@@ -262,22 +284,48 @@ class Stage():
 
 
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-        panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
+        panel.Data('', self.princesses[0].center_distance, (300, 0), self,0,size=120)
 
         ### set_floor ###
-        self.floor_heights = {}
-        count = 0
-        n = 1120
-        a = 15
-        FDICT= [(250,186), (290,196), (320,206), (350,216), (390,236), (430,246), (490,256),
-                (740,246), (800,236), (850,226), (890,216), (920,206), (950,196), (979,186-a)]
-        while count < 1200:
-            self.floor_heights[n+count] = 186
-            for i in FDICT:
-                if count >= i[0]:
-                    self.floor_heights[n+count] = i[1] + a
-            count += 1
+        self.floor_heights = [186]*9400
+        count   = 0
+        n       = 1120
+        a       = 15
+        FDICT   = [
+                (955,970,199),
+                (970,1200,212),
+                (1200,1220,199),
+                (1730,1875,196),
+                (1780,1905,206),
+                (1850,1945,216),
+                (1880,1985,236),
+                (1910,1995,246),
+                (1970,2245,256),
+                (2245,2305,246),
+                (2305,2365,236),
+                (2365,2415,226),
+                (2415,2445,216),
+                (2445,2475,206),
+                (2475,2500,196),
+                (9200,9360,198)
+]
+
+        for i in FDICT:
+            for r in range(i[0],i[1]):
+                self.floor_heights[r]=i[2]
+
         self.animated_scenarios =[]
+
+        self.lights = []
+
+        for i in self.scenarios_prep:
+            try:
+                if i.lights:
+                    self.lights.append(i.lights)
+            except:
+                pass
+
+
     def DressSt(self):
         self.gates = []
         self.directory = self.maindir+'dress_st/'
@@ -362,24 +410,16 @@ class Stage():
         except:
             print "Warning: no music loaded."
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-        panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
+
 
         ### set floor ###
-        self.floor_heights = {}
-        count = 0
-        n = 0
-        a = 0
-        FDICT = [(60,255),(220,240),(250,215),(300,186-a)]
-        while count < 1200:
-            for i in FDICT:
-                if count >= i[0]:
-                    self.floor_heights[n+count] = i[1] + a
-            count += 1
+        self.floor_heights = [186]*9001
+
 
     def AccessorySt(self):
         self.gates = []
         self.directory = self.maindir+'accessory_st/'
-        self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in 
+        self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
                                ((-3,self.directory+'accessory_tower/'),
                                 (800,self.directory+'accessory_tower/banner/'),
                                 (2575,self.omni_directory+'tree_2/'),
@@ -411,7 +451,12 @@ class Stage():
                                 (9374,self.omni_directory+'flower_8/'),
                                 (9476,self.omni_directory+'small_bush_1/'),
                             )]
+        self.scenarios_prep.extend([
+                                scenarios.Scenario(2*400,self.directory+'floor/left_bank_back/',self, height = self.floor+4),
+                                scenarios.Scenario(3*400,self.directory+'floor/right_bank_back/',self,height = self.floor+4)])
         self.scenarios = BigScenario(self),
+
+
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
 
@@ -428,6 +473,15 @@ class Stage():
         self.floor_image.extend([enemy.VikingShip(9000,self)])
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
 
+        floors.Drain(self.directory+'floor/left_bank_front/',2,self)
+        floors.Drain(self.directory+'floor/right_bank_front/',3,self)
+        floors.Drain(self.directory+'floor/left_bank_front/',20,self)
+        floors.Drain(self.directory+'floor/right_bank_front/',21,self)
+
+
+
+
+
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.clouds     = [clouds.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
@@ -435,20 +489,49 @@ class Stage():
         self.scenarios_front = [
                                 scenarios.Scenario(3903,self.omni_directory+'fence_1/',self),
                                 scenarios.Scenario(178,self.directory+'accessory_tower/front/',self),
-                                scenarios.Scenario(5470,self.directory+'house/front/',self)]
+                                scenarios.Scenario(5470,self.directory+'house/front/',self),
+                                scenarios.Scenario(1048,self.directory+'floor/main/',self, height = self.floor+10),
+                                scenarios.Scenario(1180,self.directory+'floor/main/',self, height = self.floor+10),
+                                scenarios.Scenario(1333,self.directory+'floor/main/',self, height = self.floor+10),
+                                scenarios.Scenario(8248,self.directory+'floor/main/',self, height = self.floor+10),
+                                scenarios.Scenario(8382,self.directory+'floor/main/',self, height = self.floor+10),
+                                scenarios.Scenario(8534,self.directory+'floor/main/',self, height = self.floor+10),
+]
         pygame.mixer.music.load("data/NeMedohounkou.ogg")
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-        panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
+
 
         ### Set Floor ###
-        self.floor_heights = {}
-        self.animated_scenarios =[]
+        self.floor_heights = [192]*9400
+        count   = 0
+        n       = 1120
+        a       = 15
+        FDICT   = [
+                (850,950,92),
+                (950,1010,180),
+                (1010,1080,92),
+                (1080,1150,180),
+                (1150,1230,92),
+                (1230,1300,180),
+                (1300,1360,92),
+                (5550,5610,202),
+                (5610,5700,199),
+                (5700,5810,197),
+                (6170,6280,197),
+                (6280,6350,199),
+                (6350,6410,202)
+]
+
+        for i in FDICT:
+            for r in range(i[0],i[1]):
+                self.floor_heights[r]=i[2]
+
     def MakeupSt(self):
         self.gates = []
         self.directory = self.maindir+'makeup_st/'
-        self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in 
+        self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
                                 (
                                 (0,self.directory+'make-up_castle/base/'),
                                 (0,self.directory+'make-up_castle/front_1/'),
@@ -502,13 +585,104 @@ class Stage():
         try:       pygame.mixer.music.play()
         except:    print "Warning: no music loaded."
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-        panel.Data('', self.princesses[0].glamour_points, (300, 0), self,0,size=120)
+
         ### Set Floor ###
         self.floor_heights = {}
         self.animated_scenarios = [ enemy.Lion(3200,self),
                                     enemy.Monkey(3500,self),
                                     scenarios.Scenario(2923,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
+
+    def ShoesSt(self):
+        self.gates = []
+        self.directory = self.maindir+'shoes_st/'
+        self.scenarios_prep =  [scenarios.Scenario(i[0],i[1],self) for i in (
+                                (0,  self.directory+'shoes_tower/base/'),
+                                (649,self.omni_directory+'colorful_tree_2/'),
+                                (649,self.omni_directory+'colorful_bush/'),
+                                (1035,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (1033,self.omni_directory+'flower_9/'),
+                                (1098,self.omni_directory+'flower_9/'),
+                                (1497,self.omni_directory+'colorful_tree_2/'),
+                                (2368,self.omni_directory+'colorful_tree_2/'),
+                                (2242,self.omni_directory+'colorful_tree_1/'),
+                                (1670,self.directory+'temple/base/'),
+                                (2548,self.omni_directory+'hydrant/'),
+                                (2676,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (3000,self.omni_directory+'colorful_bush/'),
+                                (2876,self.omni_directory+'colorful_bush/'),
+                                (3276,self.directory+'poor_house/base/'),
+                                (3172,self.omni_directory+'colorful_tree_2/'),
+                                (4086,self.omni_directory+'colorful_tree_2/'),
+                                (4516,self.omni_directory+'flower_9/'),
+                                (4594,self.omni_directory+'flower_9/'),
+                                (4506,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (5054,self.omni_directory+'flower_9/'),
+                                (4992,self.omni_directory+'flower_9/'),
+                                (4956,self.omni_directory+'hydrant/'),
+                                (5588,self.omni_directory+'colorful_tree_2/'),
+                                (5104,self.directory+'house_1/base/'),
+                                (5846,self.directory+'library/base/'),
+                                (5770,self.omni_directory+'colorful_bush/'),
+                                (6750,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (6918,self.omni_directory+'flower_9/'),
+                                (7026,self.omni_directory+'flower_9/'),
+                                (6918,self.omni_directory+'flower_9/'),
+                                (7758,self.omni_directory+'flower_9/'),
+                                (7666,self.omni_directory+'flower_9/'),
+                                (7602,self.omni_directory+'flower_9/'),
+                                (7778,self.omni_directory+'colorful_tree_1/'),
+                                (7940,'data/images/scenario/dress_st/fence/base/'),
+                                (8476,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (8574,self.omni_directory+'colorful_tree_2/'),
+                                (8570,self.omni_directory+'flower_9/'),
+                                (8762,self.omni_directory+'flower_9/'),
+                                (8682,self.omni_directory+'flower_9/'),
+                                (8860,self.directory+'rapunzel_castle/base/'))]
+
+        self.scenarios = BigScenario(self),
+        for i in self.scenarios_prep:
+            self.scenarios[0].image.blit(i.image,i.pos)
+
+        self.animated_scenarios = [scenarios.Scenario(7137,self.directory+'fountain/base/',self)]
+
+        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
+                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
+                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
+                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
+
+        self.gates = [scenarios.Gate(1198,'data/images/scenario/omni/gate/',self,self.BathhouseSt,index = 0),
+                      scenarios.Gate(4690,'data/images/scenario/omni/gate/',self,self.MakeupSt,index = 0),
+                      scenarios.Gate(8140,'data/images/scenario/omni/gate/',self,self.MakeupSt,index = 0),
+]
+
+        self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
+        self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
+        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
+        self.scenarios_front = [scenarios.Scenario(i[0],i[1],self) for i in (
+                                (2754,'data/images/scenario/dress_st/fence/base/'),
+                                (3936,'data/images/scenario/dress_st/fence/base/'),
+                                (4434,self.omni_directory+'flower_9/'),
+                                (4362,self.omni_directory+'flower_9/'),
+                                (6544,self.omni_directory+'colorful_tree_2/'),
+                                (6500,'data/images/scenario/dress_st/fence/base/'),
+                                (6800,self.omni_directory+'colorful_tree_1/'),
+                                (8860,self.directory+'rapunzel_castle/front/'),
+                                )]
+
+        pygame.mixer.music.load("data/NeMedohounkou.ogg")
+        try:
+            pygame.mixer.music.play()
+        except:
+            print "Warning: no music loaded."
+        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
+
+
+        ### set floor ###
+        self.floor_heights = [186]*9001
+
+
 
 
 class Foreground():
@@ -553,5 +727,3 @@ class BigScenario():
 
     def update_all(self):
         self.pos[0]         = self.level.universe.center_x
-
-

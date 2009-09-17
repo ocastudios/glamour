@@ -24,9 +24,9 @@ class Floor():
 
 
 class Water(Floor):
-    height = 90
-    max    = 100
-    min    = 90
+    height = 101
+    max    = 125
+    min    = 95
     speed = [2,1]
     direction = 'up'
 
@@ -50,15 +50,15 @@ class Water(Floor):
 
 
 class Water2(Water):
-    height = 75
-    max = 85
-    min = 75
+    height = 81
+    max = 90
+    min = 80
     direction = 'up'
     speed = [6,1]
 
 class Bridge():
     def __init__(self,directory,index,level,main=True):
-        if main:            self.images = obj_images.OneSided(directory+'bridge/')
+        if main:            self.images = obj_images.OneSided(directory+'main/')
         else:               self.images = obj_images.OneSided(directory) 
 
         if main:
@@ -85,3 +85,19 @@ class Bridge():
     def update_pos(self):
         self.pos[0] = self.level.universe.center_x+self.center_distance
 
+
+class Drain():
+    def __init__(self,directory,index,level):
+        self.images = obj_images.OneSided(directory) 
+        self.image_number = 0
+        self.image = self.images.list[0]
+        self.size = self.image.get_size()
+        self.level = level
+        self.center_distance = (400*(index))
+        self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
+        level.floor_image[index]= self
+
+    def update_all(self):
+        self.update_pos()
+    def update_pos(self):
+        self.pos[0] = self.level.universe.center_x+self.center_distance

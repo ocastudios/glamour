@@ -1,0 +1,2075 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="dirt.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2447"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3378"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3447"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3514"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3581"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3665"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3732"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3799"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3866"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3933"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="297.77474"
+     inkscape:cy="-923.33078"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     gridtolerance="29"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-global="true"
+     inkscape:window-width="1436"
+     inkscape:window-height="850"
+     inkscape:window-x="0"
+     inkscape:window-y="26">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3384"
+       visible="true"
+       enabled="true"
+       spacingx="200px"
+       spacingy="220px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4363"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="1968.0764"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/e.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="328.07645"
+       x="285.71426"
+       id="image2449"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/walk/0.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/walk/0.png" />
+    <g
+       id="g3293">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path2453"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053706;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3227"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083757;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <image
+       y="-1147.6378"
+       x="1600"
+       id="image3380"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/0.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/0.png" />
+    <image
+       y="-927.63782"
+       x="1600"
+       id="image3449"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/1.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/1.png" />
+    <image
+       y="-707.63782"
+       x="1600"
+       id="image3516"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/2.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/2.png" />
+    <image
+       y="-487.63782"
+       x="1600"
+       id="image3583"
+       height="221"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/3.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/3.png" />
+    <image
+       y="-267.63782"
+       x="1600"
+       id="image3667"
+       height="221"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/4.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/4.png" />
+    <image
+       y="-47.637817"
+       x="1600"
+       id="image3734"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/5.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/5.png" />
+    <image
+       y="172.36218"
+       x="1600"
+       id="image3801"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/6.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/6.png" />
+    <image
+       y="392.36218"
+       x="1600"
+       id="image3868"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/7.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/7.png" />
+    <image
+       y="612.36218"
+       x="1600"
+       id="image3935"
+       height="220"
+       width="200"
+       sodipodi:absref="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/8.png"
+       xlink:href="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/act/8.png" />
+    <g
+       id="g3947"
+       transform="matrix(0.2493674,-0.6560682,0.6560682,0.2493674,598.85017,-898.69197)"
+       style="opacity:0.1"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3949"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3951"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3939"
+       transform="matrix(0.7889253,0,0,0.7889253,781.67198,-1364.6795)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3941"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3943"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3953"
+       transform="matrix(-0.4866375,-0.6108555,0.6108555,-0.4866375,828.49673,-311.83141)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3955"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3957"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3959"
+       transform="matrix(0.8488421,-0.5326715,0.5326715,0.8488421,471.6484,-1028.707)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3961"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3963"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3979"
+       transform="matrix(-0.3041103,0.5634372,-0.5634372,-0.3041103,1405.0851,-724.61353)"
+       style="opacity:0.1"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3981"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3983"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3985"
+       transform="matrix(-1.0449074,-0.1430682,0.1430682,-1.0449074,1228.5186,59.165978)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3987"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3989"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3991"
+       transform="matrix(7.5575053e-2,-1.3165762,1.3165762,7.5575053e-2,262.7396,-175.13985)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path3993"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path3995"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g3999"
+       transform="matrix(0.1039331,0.9335297,-0.9335297,0.1039331,1475.1332,-832.57944)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4001"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4003"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4005"
+       transform="matrix(-0.952035,0.7656882,-0.7656882,-0.952035,1674.2841,-36.837793)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4007"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4009"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4011"
+       transform="matrix(-1.0660453,-1.1815333,1.1815333,-1.0660453,641.49986,609.09876)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4013"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4015"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4019"
+       transform="matrix(0.7490909,0.9539101,-0.9539101,0.7490909,1288.1857,-966.53317)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4021"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4023"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4025"
+       transform="matrix(0.1335534,1.4442662,-1.4442662,0.1335534,1702.7848,-603.63259)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4027"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4029"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4031"
+       transform="matrix(-1.6990458,0.4177412,-0.4177412,-1.6990458,1654.8379,708.65687)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4033"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4035"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4039"
+       transform="matrix(1.4373538,0.1101401,-0.1101401,1.4373538,632.14695,-881.1765)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4041"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4043"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4045"
+       transform="matrix(0.3939073,0.9517107,-0.9517107,0.3939073,1388.5591,-547.8504)"
+       style="opacity:0.1"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4047"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4049"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4051"
+       transform="matrix(1.2614336,0.7159097,-0.7159097,1.2614336,983.7155,-775.21722)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4053"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4055"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4057"
+       transform="matrix(-1.4449496,1.2320041,-1.2320041,-1.4449496,2006.027,554.29192)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4059"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4061"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4065"
+       transform="matrix(1.4635295,-0.5910615,0.5910615,1.4635295,244.63531,-485.73962)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4067"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4069"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4071"
+       transform="matrix(1.1170353,0.5416061,-0.5416061,1.1170353,948.11215,-599.1867)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4073"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4075"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4077"
+       transform="matrix(1.5993666,0.1732722,-0.1732722,1.5993666,589.41259,-582.8078)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4079"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4081"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4083"
+       transform="matrix(-0.5924339,1.9792291,-1.9792291,-0.5924339,2149.1774,107.21969)"
+       style="opacity:0.8"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4085"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4087"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4091"
+       transform="matrix(0.6881534,-1.4885605,1.4885605,0.6881534,-14.160437,399.42387)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4093"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4095"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4097"
+       transform="matrix(1.1170353,0.5416061,-0.5416061,1.1170353,948.6295,-379.1867)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4099"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4101"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4103"
+       transform="matrix(1.662959,-0.6714602,0.6714602,1.662959,114.59714,-161.33644)"
+       style="opacity:0.8"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4105"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4107"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4109"
+       transform="matrix(0.4225333,2.2062087,-2.2062087,0.4225333,1974.6843,-277.40179)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4111"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4113"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4117"
+       transform="matrix(-0.203517,-1.7601053,1.7601053,-0.203517,94.818994,1162.8072)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4119"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4121"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4123"
+       transform="matrix(1.4511566,-6.154815e-2,6.154815e-2,1.4511566,524.26289,-165.67224)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4125"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4127"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4129"
+       transform="matrix(0.7092792,-1.8218663,1.8218663,0.7092792,-228.96102,889.62168)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4131"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4133"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4135"
+       transform="matrix(1.8819345,1.5417683,-1.5417683,1.8819345,1201.5017,-644.65505)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4137"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4139"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4143"
+       transform="matrix(-1.5790876,-1.0271534,1.0271534,-1.5790876,873.99101,1901.28)"
+       style="opacity:0.8"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4145"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4147"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4149"
+       transform="matrix(0.8439192,-1.419551,1.419551,0.8439192,-27.44676,762.57601)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4151"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4153"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4155"
+       transform="matrix(-1.0258941,-2.0070371,2.0070371,-1.0258941,156.66854,2072.606)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4157"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4159"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4161"
+       transform="matrix(2.6734003,-0.2790064,0.2790064,2.6734003,-6.7957373,-329.20634)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4163"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4165"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4169"
+       transform="matrix(-1.9236964,0.8938596,-0.8938596,-1.9236964,1982.4573,1744.0876)"
+       style="opacity:0.7"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4171"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4173"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4175"
+       transform="matrix(-1.3949336,-1.1939811,1.1939811,-1.3949336,721.63033,2101.3415)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4177"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4179"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4181"
+       transform="matrix(-2.1879746,0.5416859,-0.5416859,-2.1879746,1833.118,2171.8004)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4183"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4185"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4187"
+       transform="matrix(1.294921,-2.3554391,2.3554391,1.294921,-727.76351,1217.1751)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4189"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4191"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4195"
+       transform="matrix(0.2289235,2.1088354,-2.1088354,0.2289235,2003.0683,460.72886)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4197"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4199"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4201"
+       transform="matrix(-1.824623,0.2053814,-0.2053814,-1.824623,1572.8683,2149.819)"
+       style="opacity:0.6"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4203"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4205"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4233"
+       transform="matrix(-1.2062407,1.9041113,-1.9041113,-1.2062407,2267.1874,1470.8204)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/b.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4235"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4237"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4239"
+       transform="matrix(-0.3173945,-2.6691149,2.6691149,-0.3173945,-442.10776,2379.2314)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/b.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4241"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4243"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4247"
+       transform="matrix(1.2667612,1.7014431,-1.7014431,1.2667612,1477.5859,243.73569)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/b.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4249"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4251"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4253"
+       transform="matrix(-1.2138244,1.3777013,-1.3777013,-1.2138244,2013.1219,1701.3687)"
+       style="opacity:0.5"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/b.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4255"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4257"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4285"
+       transform="matrix(-2.1358038,0.7204155,-0.7204155,-2.1358038,1899.9365,2514.739)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/c.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4287"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4289"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4291"
+       transform="matrix(1.4004126,-2.2942882,2.2942882,1.4004126,-745.45273,1575.4206)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/c.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4293"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4295"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4299"
+       transform="matrix(-0.9926452,1.8746328,-1.8746328,-0.9926452,2205.2373,1607.0928)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/c.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4301"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4303"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4305"
+       transform="matrix(-1.790021,-0.4089686,0.4089686,-1.790021,1217.2855,2732.8977)"
+       style="opacity:0.4"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/c.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4307"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4309"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4311"
+       transform="matrix(-2.0082401,-1.0235371,1.0235371,-2.0082401,934.37286,3157.7794)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4313"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4315"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4317"
+       transform="matrix(2.5601341,-0.8189183,0.8189183,2.5601341,-304.47721,752.15929)"
+       style="opacity:0.1"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4319"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4321"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4325"
+       transform="matrix(-2.0486005,-0.5502987,0.5502987,-2.0486005,1215.4367,3074.7446)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4327"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4329"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4331"
+       transform="matrix(-0.7936341,-1.6557703,1.6557703,-0.7936341,259.22682,2773.6349)"
+       style="opacity:0.3"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4333"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4335"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4337"
+       transform="matrix(0.3987852,-2.218474,2.218474,0.3987852,-396.21013,2427.9293)"
+       style="opacity:0.1"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/e.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4339"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4341"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4351"
+       transform="matrix(0.6641094,-2.0145847,2.0145847,0.6641094,-342.48232,2263.1116)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/e.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4353"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4355"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <g
+       id="g4357"
+       transform="matrix(0.6483984,-1.7178504,1.7178504,0.6483984,-194.49436,2237.7557)"
+       style="opacity:0.2"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/e.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(0.5075758,0,0,0.5075758,175.6737,284.09879)"
+         d="M 244.28572,487.00504 A 26.785715,26.785715 0 1 1 190.71428,487.00504 A 26.785715,26.785715 0 1 1 244.28572,487.00504 z"
+         sodipodi:ry="26.785715"
+         sodipodi:rx="26.785715"
+         sodipodi:cy="487.00504"
+         sodipodi:cx="217.5"
+         id="path4359"
+         style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#999999;stroke-width:3.00053715999999993;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(-0.2509173,-1.0028217,1.0028217,-0.2509173,-167.87363,916.30282)"
+         d="M 255.26785,517.36218 C 256.11324,517.5887 255.37959,518.61351 254.89136,518.76727 C 253.56828,519.18397 252.5125,517.79068 252.45767,516.6092 C 252.3596,514.4958 254.43491,513.04341 256.39733,513.14691 C 259.27726,513.29881 261.1735,516.13414 260.88822,518.86815 C 260.50798,522.51217 256.88825,524.86398 253.38539,524.38764 C 248.97739,523.78821 246.16525,519.37375 246.83731,515.10322 C 247.65126,509.93104 252.86575,506.65609 257.9033,507.52655 C 263.83989,508.55235 267.5791,514.56994 266.50858,520.37413 C 266.18002,522.15553 265.43079,523.85045 264.34674,525.30081"
+         sodipodi:t0="0"
+         sodipodi:argument="-12.304571"
+         sodipodi:radius="12.060184"
+         sodipodi:revolution="2.072685"
+         sodipodi:expansion="1"
+         sodipodi:cy="517.36218"
+         sodipodi:cx="255.26785"
+         id="path4361"
+         style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:1.16083753000000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4365"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="1748.0764"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/d.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4367"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="1528.0764"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/c.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4369"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="1308.0764"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/b.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4371"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="1088.0764"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4373"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-1052.3622"
+       transform="scale(1,-1)"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/9.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4375"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="648.07648"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4377"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="428.07648"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4379"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="208.07646"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4381"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-11.923538"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4383"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-231.92354"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4385"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-451.92352"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4387"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-671.92352"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4389"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-891.92352"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20000005000000010;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4391"
+       width="244.28571"
+       height="184.28572"
+       x="800"
+       y="-1111.9236"
+       inkscape:export-filename="/home/isac/Bazaar/Glamour/glamour/data/images/enemies/old_lady/dirt/0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

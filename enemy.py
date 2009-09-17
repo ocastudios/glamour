@@ -30,11 +30,20 @@ class Enemy():
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
                     self.floor+self.margin[2]-(self.size[1])]
+
+
         if self.move:
-            if self.direction == 'right' :
+            if self.direction == 'right':
                 self.center_distance += self.speed
+                next_height = self.level.what_is_my_height(self)
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-30:
+                    self.center_distance += self.speed
             else:
                 self.center_distance -= self.speed
+                next_height = self.level.what_is_my_height(self) 
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -30:
+                    self.center_distance -= self.speed
+
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
 
 class Schnauzer(Enemy):
@@ -103,6 +112,8 @@ class Schnauzer(Enemy):
             self.image_number = 0
         
         self.image = actual_list[self.image_number]
+
+
 class Carriage(Enemy):
     def update_all(self):
         self.move = True
@@ -208,11 +219,19 @@ class OldLady(Enemy):
     def set_pos(self):
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance, self.floor+self.margin[2]-(self.size[1])]
+
         if self.action == 'walk':
-            if self.direction == 'right' :
+            if self.direction == 'right':
                 self.center_distance += self.speed
+                next_height = self.level.what_is_my_height(self)
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-30:
+                    self.center_distance += self.speed
             else:
                 self.center_distance -= self.speed
+                next_height = self.level.what_is_my_height(self) 
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -30:
+                    self.center_distance -= self.speed
+
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(self.level.floor-self.size[1])),(self.size))
 
     def set_image(self):

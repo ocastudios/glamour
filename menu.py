@@ -20,6 +20,9 @@ t = gettext.translation('glamour', 'locale')
 _ = t.ugettext
 
 
+items          = ['texts', 'options', 'buttons']
+name_taken = False
+
 
 class MenuScreen():
     color = [230,230,230]
@@ -53,42 +56,28 @@ class MenuScreen():
         self.count += 1
 
     def update_drape(self,surface):
+#        if self.count > 80:
         for drape in self.drapes+self.upper_drapes:
-            if self.count > 80:
                 drape.action = self.action
-            drape.update_all()
-            surface.blit(drape.image,drape.position)
+                drape.update_all()
+                surface.blit(drape.image,drape.position)
             ####### STEP #########
         if self.upper_drapes[1].position[1] < -self.upper_drapes[1].size[1]+10:
             self.STEP = self.left_bar_ARRIVE
+            self.bar = self.left_bar
 
     def left_bar_ARRIVE(self,surface):
-        self.bar = self.left_bar
         if self.left_bar.position[0] < 0:
             self.left_bar.position[0] += self.speed
-            if self.left_bar.position[0] > -280:    self.speed -= .5
-            else:                                   self.speed += .5
+            if self.left_bar.position[0] > -280:
+                self.speed -= .5
+            else:
+                self.speed += .5
         else:
             self.left_bar.position[0] = 0
             ####### STEP #########
             self.STEP = self.update_menus
         surface.blit(self.left_bar.image,(self.left_bar.position[0],0))
-
-    def update_right_bar(self,surface):
-        self.bar = self.right_bar
-        if self.right_bar.position[0]+516 > self.universe.width:
-            self.right_bar.position[0] -= self.speed
-            if self.right_bar.position[0] < ((self.universe.width-300)):   self.speed += .5
-            else:                           self.speed -= .5
-        else:
-            self.right_bar.position[0] = (1440-516)
-            ####### STEP #######
-            self.STEP = self.update_menus
-
-        if self.menu.background:
-            surface.blit(self.menu.background,(0,0))
-        surface.blit(self.right_bar.image,(self.right_bar.position[0],0))
-
 
     def update_menus(self,surface):
         self.menu.update_all()
@@ -110,10 +99,8 @@ class MenuScreen():
             surface.blit(back.image,self.menu.actual_position)
         surface.blit(self.bar.image,(self.bar.position[0],0))
 
-        for item in [self.menu.texts, self.menu.options, self.menu.buttons]:
-            for i in item:
-                i.update_all()
-                surface.blit(i.image,i.pos)
+        for item in items:
+            exec("for i in self.menu."+item+":\n    i.update_all()\n    surface.blit(i.image,i.pos)")
 
         for i in self.menu.options:
             if i.__class__ == Letter and i.hoover:
@@ -128,6 +115,19 @@ class MenuScreen():
         if self.menu.princess:
             self.menu.princess.name.text = self.menu.princess.name.text.title()
 
+    def update_right_bar(self,surface):
+        if self.right_bar.position[0]+516 > self.universe.width:
+            self.right_bar.position[0] -= self.speed
+            if self.right_bar.position[0] < ((self.universe.width-300)):   self.speed += .5
+            else:                           self.speed -= .5
+        else:
+            self.right_bar.position[0] = (1440-516)
+            ####### STEP #######
+            self.STEP = self.update_menus
+
+        if self.menu.background:
+            surface.blit(self.menu.background,(0,0))
+        surface.blit(self.right_bar.image,(self.right_bar.position[0],0))
 
     def close_bar(self,surface):
         if (-800 < self.bar.position[0] <10) or (self.universe.width-self.bar.size[0] < self.bar.position[0] < self.universe.width +1):
@@ -136,6 +136,7 @@ class MenuScreen():
         else:
             ####### STEP #######
             self.STEP = self.update_right_bar
+            self.bar = self.right_bar
             self.universe.LEVEL = 'menu'
             self.action = 'open'
             self.menu.next_menu()
@@ -154,13 +155,12 @@ class Menu():
         self.actual_position= [position[0],-600]
         self.selection_canvas = MenuBackground('data/images/interface/title_screen/selection_canvas/',self.actual_position,self)
         self.backgrounds    = [self.selection_canvas]
-        self.itens          = []
         self.size           = self.selection_canvas.image.get_size()
-        self.rect           = Rect(self.position,self.size)
         self.action         = None
         self.next_menu      = self.select_princess
         self.print_princess = False
         self.princess       = None
+
     def main(self):
         self.background = None
         self.action = 'open'
@@ -196,6 +196,7 @@ class Menu():
                        MenuArrow(D_TITLE_SCREEN+'arrow_right/',(120,430), self, self.change_princess,parameter = (-1,'skin'), invert = True),
                        MenuArrow(D_TITLE_SCREEN+'arrow_up/',(250,-100),self,self.NOTSETYET),
                        MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_select_hair)]
+
     def select_hair(self):
         self.action = 'open'
         self.speed = 0
@@ -212,6 +213,7 @@ class Menu():
                        MenuArrow(D_TITLE_SCREEN+'arrow_right/',(120,430), self, self.change_princess,parameter = (-1,'hair'), invert = True),
                        MenuArrow(D_TITLE_SCREEN+'arrow_up/',(250,-100),self,self.NOTSETYET),
                        MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_name_your_princess)]
+
     def name_your_princess(self):
         self.print_princess = False
         self.action     = 'open'
@@ -220,7 +222,6 @@ class Menu():
         lowercase       = map(chr,xrange(97,123))
         positions       = [(i,a) for (i,a) in zip([x for n in xrange(9) for x in xrange(100,415,35)],
                                                   [n for n in xrange(200,360,40) for x in xrange(9)]   )]
-
         self.options    =   [Letter(i[0],i[1],self, 0, self.screen.hoover_letter_size,
                             fonte = 'FreeSerif.ttf', font_size=40)
                             for i in zip(lowercase,positions)]
@@ -231,12 +232,15 @@ class Menu():
         self.texts =    [GameText(_('... and your name'),(-200,200),self,1,font_size = 40),
                         GameText('_ _ _ _ _ _ _', (230,130),self,0,font_size = 40),
                         self.princess.name]
+#        if name_taken:
+#            self.texts.pop([0])
+#            self.texts = [  GameText(_('Sorry, This nam is taken.'),(-200,200),self,1,font_size = 40),
+#                                GameText(_('Please, choose another one'),(-200,250),self,1,font_size = 40)]
 
         D_TITLE_SCREEN = 'data/images/interface/title_screen/'
         self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(360,400), self, self.change_princess,parameter = (1,'skin')),
                        MenuArrow(D_TITLE_SCREEN+'arrow_right/',(100,400), self, self.change_princess,parameter = (-1,'skin'), invert = True),
-                       
-                       MenuArrow(D_TITLE_SCREEN+'button_ok/',(200,570),self,0,self.start_game)]
+                       MenuArrow(D_TITLE_SCREEN+'button_ok/',(200,570),self,self.start_game)]
 
 
 
@@ -259,9 +263,6 @@ class Menu():
             if self.speed <85:
                 self.speed += 2
 
-        self.rect           = Rect(self.position,self.size)
-
-
     ### Buttons functions ###
     def new_game(self):
         self.screen.universe.LEVEL = 'close'
@@ -278,30 +279,32 @@ class Menu():
     def start_game(self):
         try:
             os.mkdir(self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text)
+            new_file = open('data/saves/'+self.princess.name.text+'/0.glamour','w')
+            new_file.write(
+                        'name '+ str(self.princess.name.text) + '\n'
+                        'center_distance 4200'+'\n'
+                        'hairback      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
+                        'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
+                        'face           face_simple 2'+'\n'
+                        'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
+                        'shoes          shoes_slipper 4'+'\n'
+                        'dress          dress_plain 5'+'\n'
+                        'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
+                        'armdress      None 7'+'\n'
+                        'accessory      accessory_ribbon 8'+'\n'
+                        'dirt           0'+'\n'
+                        '#Points'+'\n'
+                        'points 0'+'\n'
+                        '#Level'+'\n'
+                        'level level'+'\n'
+                        )
+            new_file.close()
+            self.screen.universe.LEVEL= 'start'
+            self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/0.glamour')
         except:
-            pass
-        new_file = open('data/saves/'+self.princess.name.text+'/0.glamour','w')
-        new_file.write(
-                    'name '+ str(self.princess.name.text) + '\n'
-                    'center_distance 4200'+'\n'
-                    'hairback      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
-                    'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
-                    'face           face_simple 2'+'\n'
-                    'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
-                    'shoes          shoes_slipper 4'+'\n'
-                    'dress          dress_plain 5'+'\n'
-                    'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
-                    'armdress      None 7'+'\n'
-                    'accessory      accessory_ribbon 8'+'\n'
-                    'dirt           0'+'\n'
-                    '#Points'+'\n'
-                    'points 0'+'\n'
-                    '#Level'+'\n'
-                    'level level'+'\n'
-                    )
-        new_file.close()
-        self.screen.universe.LEVEL= 'start'
-        self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/0.glamour')
+            name_taken = True
+            self.to_name_your_princess()
+
 
     def change_princess(self,list):#list of: int,part
         self.princess.numbers[list[1]] += list[0]
@@ -311,13 +314,33 @@ class Menu():
             self.princess.numbers[list[1]] = 0
 
 ####### To funcitons TODO: substitute this function ########
-    def to_name_your_princess(self,param):
+    def to_name_your_princess(self,param = None):
         self.next_menu = self.name_your_princess
         self.screen.universe.LEVEL = 'close'
 
     def to_select_hair(self,param):
         self.next_menu = self.select_hair
         self.screen.universe.LEVEL = 'close'
+
+    def select_saved_game(self):
+        self.princess       = MenuPrincess(self)
+        self.print_princess = True
+        self.background = pygame.image.load('data/images/story/svg_bedroom.png').convert()
+        self.action     = 'open'
+        self.speed      = 0
+        self.actual_position = [500,-600]
+        self.options    = []
+        self.texts =    [GameText(_('Choose your'),(-200,200),self,1,font_size = 40),
+                         GameText(_('appearence...'),(-200,250),self,2,font_size = 40),
+                         GameText(_('skin tone'),(250,420),self,3,font_size = 40),
+                         GameText(_('previous'),(250,-40),self,4,font_size = 40),
+                         GameText(_('next'),(250,540),self,5,font_size = 40)]
+
+        D_TITLE_SCREEN = 'data/images/interface/title_screen/'
+        self.buttons= [MenuArrow(D_TITLE_SCREEN+'arrow_right/',(380,430), self, self.change_princess,parameter = (1,'skin')),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_right/',(120,430), self, self.change_princess,parameter = (-1,'skin'), invert = True),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_up/',(250,-100),self,self.NOTSETYET),
+                       MenuArrow(D_TITLE_SCREEN+'arrow_down/',(250,620),self,self.to_select_hair)]
 
     def NOTSETYET():
         pass
@@ -386,7 +409,10 @@ class MenuArrow():
         if self.rect.collidepoint(mouse_pos):
             self.image = self.images.list[self.images.itnumber.next()]
             if self.menu.screen.universe.click:
-                self.function(self.parameter)
+                try:
+                    self.function(self.parameter)
+                except:
+                    self.function()
         else:
             if self.image != self.images.list[0]:
                 self.image = self.images.list[self.images.itnumber.next()]
@@ -409,6 +435,7 @@ class GameText():
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
         self.rect       = Rect(self.pos,self.size)
         self.variable_text = var
+
     def update_all(self):
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
@@ -522,4 +549,3 @@ class MenuPrincess():
         self.images[6]  = self.arm[self.numbers['skin']]
         self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
-

@@ -38,5 +38,3 @@ class Universe():
         if self.center_x - self.width < -(self.level.size):
             self.speed = 0
             self.center_x = -(self.level.size) + self.width
-
-

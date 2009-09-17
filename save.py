@@ -1,19 +1,21 @@
 import princess
 import os
 import datetime
-def save_file(universe, princess, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, position = None):
+import pygame
+
+def save_file(universe, princess, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None):
+
     #avoid errors in case there are no saved files
     try:
         os.mkdir(universe.main_dir+'/data/saves/'+str(princess.name))
     except:
         pass
-    previous_saves = [int(i[:i.index(".")]) for i in os.listdir(universe.main_dir+'/data/saves/'+str(princess.name))]
+
+    previous_saves = [int(i[:i.index(".")]) for i in os.listdir(universe.main_dir+'/data/saves/'+str(princess.name)) if i[-3:] != 'PNG']
     number = sorted(previous_saves)[-1] +1
     old_file = open('data/saves/'+princess.name+'/'+str(number-1)+'.glamour','r').readlines()
     new_file = open('data/saves/'+princess.name+'/'+str(number)+'.glamour','w')
     day = datetime.datetime.today()
-
-
 
     for i in ['hairback', 'skin', "face", "hair", "shoes", "dress", "arm", "armdress", "accessory"]:
         exec('if not '+i+':\n'+
@@ -58,6 +60,10 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
                 '#Level'+'\n'
                 'level level'+'\n'
                 'position       '+ str(position) +'\n'
+                'past_ball          None \n'
+                'great_past_ball    None\n'
                 )
     new_file.close()
+
+
     return 'data/saves/'+princess.name+'/'+str(number)+'.glamour'

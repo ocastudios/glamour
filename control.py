@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import stage
 
 def main_menu(universe):
     universe.click = False
@@ -20,6 +21,7 @@ def main_menu(universe):
         else:
             universe.click = False
     pygame.event.clear()
+
 def choose_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -39,6 +41,7 @@ def choose_menu(universe):
         else:
             universe.click = False
     pygame.event.clear()
+
 def name_menu(universe):
     universe.click = False
     for event in pygame.event.get():
@@ -58,6 +61,7 @@ def name_menu(universe):
         else:
             universe.click = False
     pygame.event.clear()
+
 def stage(universe):
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -82,20 +86,7 @@ def stage(universe):
                     universe.action[0] ='open_door'
             if event.key == K_y:
                 universe.action[0]='celebrate'
-            if event.key == K_c:
-                universe.action[0] = 'change'
-            if event.key == K_i:
-                universe.action[0] = 'changedress'
-            if event.key == K_h:
-                universe.action[0] = 'changehair'
-            if event.key == K_x:
-                universe.action[0] = 'changehair2'
-            if event.key == K_s:
-                universe.action[0] = 'changeshoes'
-            if event.key == K_p:
-                universe.action[0] = 'changeskin'
-            if event.key == K_z:
-                universe.action[0] = 'yellow_dress'
+
         elif event.type == KEYUP:
             universe.action[0]=None
             if universe.level.princesses[0]:
@@ -107,4 +98,8 @@ def stage(universe):
             universe.click = True
         else:
             universe.click = False
+
+        if universe.action[1] == 'walk' and universe.action[0] == 'open_door':
+            universe.action[0] = None
+
     pygame.event.clear()

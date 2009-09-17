@@ -58,6 +58,7 @@ The code is not yet well commented
         self.kiss_direction = 'left'
         self.kiss_rect = ((0,0),(0,0))
         self.floor = self.level.universe.floor - 186
+        self.last_height = 186
         self.action = [None,'stay']
         self.image = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size = self.image.get_size()
@@ -73,6 +74,7 @@ The code is not yet well commented
         self.channel1 = pygame.mixer.Channel(0)
         self.channel2 = pygame.mixer.Channel(1)
         self.channel3 = pygame.mixer.Channel(2)
+
     def ordered_directory_list(self, action):
         odl = []
         for part in ["hairback","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
@@ -85,7 +87,7 @@ The code is not yet well commented
 
     def update_all(self):
         if not self.inside:
-
+            self.glamour_points += 1
             self.direction  = self.level.universe.dir
             self.action     = self.level.universe.action
             self.effects = []
@@ -141,7 +143,7 @@ The code is not yet well commented
         if not self.inside:
             if not self.got_hitten:
                 for e in self.level.enemies:
-                    if e.__class__ == enemy.Schnauzer:
+                    if e.__class__ == enemy.Schnauzer or e.__class__ == enemy.FootBall:
                         if self.rect.colliderect(e.rect):
                             if self.dirt <= 2:
                                 self.got_hitten += 1
@@ -149,7 +151,7 @@ The code is not yet well commented
                                 self.level.princesses[1] = self.dirties[self.dirt -1]
             else:
                 self.got_hitten +=1
-                if self.got_hitten == 30   :#75 at 25 frames per second
+                if self.got_hitten == 30   :#75 atpos[0] 25 frames per second
                     self.got_hitten = 0
             if self.got_hitten and self.got_hitten <6:
                 action[0]='ouch'
@@ -174,7 +176,8 @@ The code is not yet well commented
 
     def update_pos(self,action):
         feet_position   = self.pos[1]+self.size[1]
-        self.floor = self.level.universe.floor- self.level.what_is_my_height(self)
+        last_height = self.level.what_is_my_height(self)
+        self.floor = self.level.universe.floor - last_height
         self.pos[0] = self.level.universe.center_x+self.center_distance
 
         #fall
@@ -187,16 +190,21 @@ The code is not yet well commented
         if feet_position == self.floor:
             self.gforce = 0
 
-
         if action[1]=='walk' and action[0] != 'celebrate':
-           if self.direction == 'right':
-               self.center_distance += self.speed
-           else:
-               self.center_distance -= self.speed
+            if self.direction == 'right':
+                self.center_distance += self.speed
+                next_height = self.level.what_is_my_height(self)
+                if (self.level.universe.floor - next_height)  <= feet_position -30:
+                    self.center_distance -= self.speed
+            else:
+                self.center_distance -= self.speed
+                next_height = self.level.what_is_my_height(self)
+                if (self.level.universe.floor - next_height)  <= feet_position -30:
+                    self.center_distance += self.speed
 
     def soundeffects(self,action):
         if not self.jump:
-            if action[1]=='walk' or action[0] == 'celebrate':
+            if action[1]=='walk' or action[0] == 'pos[0]celebrate':
                 if self.images.number % 6 == 0:
                     self.channel1.play(self.steps[random.randint(0,1)])
                 if (self.images.number + 3)% 6 == 0:
@@ -213,8 +221,6 @@ The code is not yet well commented
             kissimage = self.lips.right[self.kiss-1]
             self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
-
-
 
     def update_image(self,action,direction):
         self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),

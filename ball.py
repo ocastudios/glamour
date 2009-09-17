@@ -5,7 +5,7 @@ import random
 class Ball():
     directory = 'data/images/interface/ball/'
     def __init__(self, level, universe, princess):
-        
+
         self.background      = pygame.Surface((9600,level.universe.height),pygame.SRCALPHA).convert_alpha()
         for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
             self.background.blit(pygame.image.load(file), (0,0))

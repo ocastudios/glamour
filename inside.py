@@ -29,6 +29,7 @@ class Inside():
         self.level.universe.click = False
 
     def all_set(self,param):
+
         self.status = 'done'
         for i in self.items:
             if i.queue_pos == 1:
@@ -36,6 +37,12 @@ class Inside():
         exec('file = save.save_file(self.level.universe, self.level.princesses[0],'+
                      self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
         self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
+
+        thumbnail = pygame.transform.scale(self.level.princesses[0].stay_img.left[0],(100,100))
+        pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+
+
+
 
     def NOTSETYET(self,param):
         pass
