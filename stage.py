@@ -105,7 +105,7 @@ class Stage():
                             if i['status'] == 'on':
                                 self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
                                 i['position'].update_pos()
-                            if i['status'] == 'off' random.randint(0,10) == 0:
+                            if i['status'] == 'off' and random.randint(0,10) == 0:
                                 i['status'] = 'on'
                                 i['position'].update_pos()
                 else:
