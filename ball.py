@@ -23,6 +23,10 @@ class Ball():
                             Dancer([300,600])
                             ]
 
+        pygame.mixer.music.load("data/sounds/music/strauss_waltz_wedley.ogg")
+        pygame.mixer.music.play()
+
+
     def update_all(self):
         self.left_bar.update_all()
         self.level.game_mouse.update()
@@ -114,6 +118,7 @@ class FairyTalePrincess():
         self.pos        = [self.frame.position[0]+self.position[0],
                            self.frame.position[1]+self.position[1]]
 
+
 class StarBall():
     def __init__(self):
         self.images = obj_images.OneSided('data/images/interface/ball/star-score/')
@@ -122,6 +127,7 @@ class StarBall():
 
     def update_all(self):
         self.image = self.images.list[self.images.itnumber()]
+
 
 class GameText():
     def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf'):

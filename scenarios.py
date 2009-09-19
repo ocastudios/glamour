@@ -62,9 +62,10 @@ class FrontScenario(Scenario):
 
 class Gate(Scenario):
     arrow_up = None
-    def __init__(self,center_distance,dir,level,goal,index = 1):
+    def __init__(self,center_distance,dir,level,goal,goalpos=None,index = 1):
         Scenario.__init__(self,center_distance,dir,level,index)
         icon_directory = 'data/images/interface/icons/'
+        self.goalpos = goalpos
         if goal == level.BathhouseSt:
             icon_directory += 'bath/0.png'
         elif goal == level.DressSt:
@@ -101,7 +102,7 @@ class Gate(Scenario):
     def set_level(self,princess):
         if self.rect.colliderect(princess.rect):
             if princess.action[0] == 'open_door':
-                self.goal()
+                self.goal(self.goalpos)
 
 
 class BuildingDoor():

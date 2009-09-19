@@ -24,7 +24,7 @@ Margin may be used to better program interaction during the game. Margin default
         self.itnumber = cycle(range(self.lenght))
 
     def find_images(self,dir):
-        return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if item[-4:]=='.png']
+        return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
 
     def invert_images(self,list):
         return [pygame.transform.flip(img,1,0) for img in list]
@@ -68,7 +68,7 @@ class There_and_back_again(TwoSided):
         if exclude_border:
             posleft     = posleft[1:-1]
             posright    = posright[1:-1]
-        self.left   = self.list =   preleft + posleft 
+        self.left   = self.list =   preleft + posleft
         self.right  =               preright + posright
         if second_dir:
             second_left = self.find_images(second_dir)
@@ -131,7 +131,7 @@ class MultiPart():
         def least_common_multiple(nums): return reduce(lambda a, b: a * b / gcd(a, b), nums)
 
         def find_images(dir):
-            return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if item[-4:]=='.png']
+            return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
         def invert_images(list):
             return [pygame.transform.flip(img,1,0) for img in list]
 
