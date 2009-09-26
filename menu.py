@@ -17,7 +17,8 @@ _ = t.ugettext
 
 items          = ['texts', 'options', 'buttons']
 name_taken = False
-
+pygame.mixer.music.load("data/sounds/music/menu.ogg")
+pygame.mixer.music.play()
 
 class MenuScreen():
     color = [230,230,230]
@@ -280,7 +281,7 @@ class Menu():
         if not using_saved_game:
             try:
                 os.mkdir(self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text)
-                new_file = open('data/saves/'+self.princess.name.text+'/0.glamour','w')
+                new_file = open('data/saves/' + self.princess.name.text + '/' + self.princess.name.text + '.glamour', 'w')
                 new_file.write(
                             'name '+ str(self.princess.name.text) + '\n'
                             'center_distance 4200'+'\n'
@@ -301,7 +302,7 @@ class Menu():
                             )
                 new_file.close()
                 self.screen.universe.LEVEL= 'start'
-                self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/0.glamour')
+                self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/'+self.princess.name.text+'.glamour')
                 name_taken = False
             except:
                 name_taken = True
@@ -328,22 +329,19 @@ class Menu():
 
     def select_saved_game(self):
         directory = "data/saves/"
-
         saved_games = []
-
         for i in os.listdir(directory):
             try:
                 files = os.listdir(directory+'/'+i)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{
                                     'name':i,
-                                    'file': directory+'/'+i+'/'+sorted(files)[-2]
+                                    'file': directory+'/'+i+'/saved.glamour'
                                         }])
                 else:
                     _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+'/'+i)
             except:
                 pass
-
         self.background = pygame.image.load('data/images/story/svg_bedroom.png').convert()
         self.action     = 'open'
         self.speed      = 0
@@ -354,7 +352,6 @@ class Menu():
         ypos = 150
         xpos = 150
         self.buttons = []
-
         for i in saved_games:
             self.buttons.extend([MenuArrow(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
             self.texts.extend([GameText(i['name'],(xpos+100,ypos),self,1, font_size = 30)])

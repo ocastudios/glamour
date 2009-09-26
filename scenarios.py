@@ -107,7 +107,7 @@ class Gate(Scenario):
 
 class BuildingDoor():
 #TODO: use the save class to change the values of the princess attributes. Then create a new princess.
-    def __init__(self,pos,directory,level,interior = None):
+    def __init__(self,pos,directory,level,interior = None, bath = False):
         self.open = False
         self.level = level
         self.position = pos
@@ -124,7 +124,7 @@ class BuildingDoor():
         self.rect = Rect(self.pos, self.size)
         self.once = True
         self.interior = interior
-
+        self.bath = bath
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
         self.pos[0] = self.level.universe.center_x+self.position[0]
@@ -160,7 +160,10 @@ class BuildingDoor():
                 self.image = self.images.list[self.images.number]
 
     def inside(self):
-        self.level.inside.status = 'inside'
+        if self.bath:
+            self.level.inside.status = 'bath'
+        else:
+            self.level.inside.status = 'inside'
         self.level.blitlist = ('sky','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
         self.level.princesses[0].inside = True
 

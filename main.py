@@ -11,13 +11,6 @@ import menu
 import universe
 import control
 
-try:
-    import psyco
-    psyco.log()
-    psyco.profile(1.0)
-except:
-    pass
-
 clock = pygame.time.Clock()
 universe = universe.Universe(os_screen.current_w,os_screen.current_h)
 del splash_surface, splash, os_screen
@@ -44,8 +37,7 @@ while True:
         universe.level.update_all()
         universe.clock_pointer.update_image()
         pygame.display.flip()
-        
+
     universe.screen_surface.fill([0,0,0])
     pygame.display.flip()
     run_level = True
-

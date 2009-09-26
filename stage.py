@@ -74,6 +74,8 @@ class Stage():
         return inside.Inside(self,'hair',('black','brown','cinderella','rapunzel','rastafari', 'red', 'short', 'sleeping', 'snowwhite', 'yellow'))
     def shoes_castle(self):
         return inside.Inside(self,'shoes',('crystal','red','slipper','white'))
+    def bathhouse_castle(self):
+        return inside.Inside(self,'shower', [])
 
 
 
@@ -147,65 +149,92 @@ class Stage():
 
     def update_insidebar(self):
         self.universe.screen_surface.blit(self.white.image,(0,0))
-        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
-        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
-
-        if self.inside.status == 'inside':
-            self.up_bar_y = -self.bar_height
-            self.down_bar_y = self.universe.height
-            self.white.alpha_value = 0
-            self.inside.status = 'loading'
-
-        elif self.inside.status == 'loading':
-            self.white.image.set_alpha(self.white.alpha_value)
-            if self.white.alpha_value < 200:
-                self.white.alpha_value += 10
-            if self.down_bar_y > 2*self.bar_goal:
-                self.down_bar_y -= self.bar_speed
-            if self.up_bar_y + self.bar_height< self.bar_goal:
-                self.up_bar_y += self.bar_speed
-            if self.bar_speed < 20:
-                self.bar_speed += self.bar_speed
-            if self.white.alpha_value > 150:
-                self.inside.status = 'choosing'
-
-        elif self.inside.status == 'choosing':
-            self.universe.screen_surface.blit(self.princesses[0].image,
-                                    ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-                                    (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
-            [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
-            [i.update_all() for i in self.inside.buttons]
-            [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
-            [i.update_all() for i in self.inside.items]
-
-        elif self.inside.status == 'done':
-            self.down_bar_y += self.bar_speed
-            self.up_bar_y -= self.bar_speed
-            if self.bar_speed < 20:
-                self.bar_speed += self.bar_speed
-            if self.white.alpha_value > 0:
-                self.white.alpha_value -= 10
+        if self.inside.status[:4] == 'bath': #Bath Castle
+            if self.inside.status == 'bath':
+                self.white.alpha_value = 0
+                self.inside.status = 'bath_loading'
+            elif self.inside.status == 'bath_loading':
                 self.white.image.set_alpha(self.white.alpha_value)
-            else:
-                self.white.image.alpha_value = 0
-            self.white.image.set_alpha(self.white.alpha_value)
+                if self.white.alpha_value < 200:
+                    self.white.alpha_value += 10
+                if self.white.alpha_value > 200:
+                    self.inside.status = 'bath_choosing'
+            elif self.inside.status == 'bath_choosing':
+                self.princesses[0].dirt = 0
+                self.inside.status = 'bath_done'
+            elif self.inside.status == 'bath_done':
+                if self.white.alpha_value > 0:
+                    self.white.alpha_value -= 10
+                    self.white.image.set_alpha(self.white.alpha_value)
+                else:
+                    self.white.image.alpha_value = 0
+                    self.inside.status = 'bath_openning'
+                self.white.image.set_alpha(self.white.alpha_value)
+            elif self.inside.status == 'bath_openning':
+                for i in self.gates:
+                    if i.rect.colliderect(self.princesses[0].rect):
+                        i.open = True
+                        if i.images.number >= i.images.lenght -1:
+                            self.inside.status = 'bath_closing'
+            elif self.inside.status == 'bath_closing':
+                for i in self.gates:
+                    if i.rect.colliderect(self.princesses[0].rect):
+                        i.outside()
+                self.princesses[0].inside = False
+        else: #Choosing Clothes Castles
+            self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
+            self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
+            if self.inside.status == 'inside':
+                self.up_bar_y = -self.bar_height
+                self.down_bar_y = self.universe.height
+                self.white.alpha_value = 0
+                self.inside.status = 'loading'
+            elif self.inside.status == 'loading':
+                self.white.image.set_alpha(self.white.alpha_value)
+                if self.white.alpha_value < 200:
+                    self.white.alpha_value += 10
+                if self.down_bar_y > 2*self.bar_goal:
+                    self.down_bar_y -= self.bar_speed
+                if self.up_bar_y + self.bar_height< self.bar_goal:
+                    self.up_bar_y += self.bar_speed
+                if self.bar_speed < 20:
+                    self.bar_speed += self.bar_speed
+                if self.white.alpha_value > 150:
+                    self.inside.status = 'choosing'
+            elif self.inside.status == 'choosing':
+                self.universe.screen_surface.blit(self.princesses[0].image,
+                                        ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
+                                        (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
+                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
+                [i.update_all() for i in self.inside.buttons]
+                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
+                [i.update_all() for i in self.inside.items]
+            elif self.inside.status == 'done':
+                self.down_bar_y += self.bar_speed
+                self.up_bar_y -= self.bar_speed
+                if self.bar_speed < 20:
+                    self.bar_speed += self.bar_speed
+                if self.white.alpha_value > 0:
+                    self.white.alpha_value -= 10
+                    self.white.image.set_alpha(self.white.alpha_value)
+                else:
+                    self.white.image.alpha_value = 0
+                self.white.image.set_alpha(self.white.alpha_value)
+                if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                    self.inside.status = 'openning'
+            elif self.inside.status == 'openning':
+    #            self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+                for i in self.gates:
+                    if i.rect.colliderect(self.princesses[0].rect):
+                        i.open = True
+                        if i.images.number >= i.images.lenght -1:
+                            self.inside.status = 'closing'
+            elif self.inside.status == 'closing':
+                for i in self.gates:
+                    if i.rect.colliderect(self.princesses[0].rect):
+                        i.outside()
+                self.princesses[0].inside = False
 
-            if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
-                self.inside.status = 'openning'
-
-        elif self.inside.status == 'openning':
-#            self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
-            for i in self.gates:
-                if i.rect.colliderect(self.princesses[0].rect):
-                    i.open = True
-                    if i.images.number >= i.images.lenght -1:
-                        self.inside.status = 'closing'
-
-        elif self.inside.status == 'closing':
-            for i in self.gates:
-                if i.rect.colliderect(self.princesses[0].rect):
-                    i.outside()
-            self.princesses[0].inside = False
 
     def BathhouseSt(self,goalpos = None):
 
@@ -246,7 +275,7 @@ class Stage():
         self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self)
                                 for i in [405,2730,4217,6041,8469]])
 
-        self.gates =   [scenarios.BuildingDoor((1063,453),self.directory+'bathhouse/door/',self,self.dress_castle()),
+        self.gates =   [scenarios.BuildingDoor((1063,453),self.directory+'bathhouse/door/',self,self.bathhouse_castle(),bath = True),
                         scenarios.BuildingDoor((5206,500),self.directory+'home/door/',self,self.hair_castle()),
                         scenarios.BuildingDoor((9305,503),self.directory+'magic_beauty_salon/door/',self,self.shoes_castle()),
                         scenarios.Gate(bathhousegate[0], self.maindir+'omni/gate/',self,self.ShoesSt, goalpos = shoegate[2],),
@@ -322,15 +351,12 @@ class Stage():
                 (2415,2445,216),
                 (2445,2475,206),
                 (2475,2500,196),
-                (9200,9360,198)
-]
+                (9200,9360,198)]
 
         for i in FDICT:
             for r in range(i[0],i[1]):
                 self.floor_heights[r]=i[2]
-
         self.animated_scenarios =[]
-
         self.lights = []
 
         for i in self.scenarios_prep:
@@ -343,12 +369,10 @@ class Stage():
             self.princesses[0].center_distance = goalpos
             self.universe.center_x = goalpos
 
-
     def DressSt(self,goalpos = None):
         self.gates = []
         self.directory = self.maindir+'dress_st/'
-        self.scenarios_prep  =  [
-                                scenarios.Scenario(1086,self.omni_directory+'tree_2/',  self),
+        self.scenarios_prep  =  [scenarios.Scenario(1086,self.omni_directory+'tree_2/',  self),
                                 scenarios.Scenario(0,self.directory+'Dress_Tower/',     self),
                                 scenarios.Scenario(1307,self.directory+'fachwerk_3/base/',self),
                                 scenarios.Scenario(1127,'data/images/scenario/bathhouse_st/light_post/post/',self),

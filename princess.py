@@ -10,21 +10,20 @@ class Princess():
 Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
 This class uses obj_images module for retrieving images from directories.
 It is one of the first classes written, which means that it is somewhat old and may contain som old and useless code that was not well cleaned. This will be corrected soon, I hope.
-You need only a 'self' as a parameter for this class. The other atributes are default.
 Problems to be fixed in this class are:
-Princess controls are not good enough, probably because of the clock tick;
-Princess movement determines the camera, and this may not continue for Princess needs to move in the camera more freely;
-Princess shoes are moving weirdly while she jumps.
-The code is not yet well commented
+Princess shoes are moving weirdly when she jumps.
 """
     directory = 'data/images/princess/'
     def __init__(self,level,save = None, INSIDE = False):
+        self.first_frame = True
         self.level = level
+        self.effects    = []
         try:
             self.file = save.readlines()
         except:
             self.file = open(save).readlines()
         self.size       = (2,180)
+        #Interpret the save file
         for line in self.file:
             linha = line.split()
             if linha[0] == 'name':
@@ -33,6 +32,8 @@ The code is not yet well commented
                 self.center_distance = int(linha[1])
             if linha[0] == 'dirt':
                 self.dirt = int(linha[1])
+            if linha[0] == 'points':
+                self.glamour_points = int(linha[1])
         self.pos        = [self.level.universe.center_x+self.center_distance,
                            self.level.universe.floor - 186 -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
@@ -44,11 +45,9 @@ The code is not yet well commented
         self.open_door_img = self.stay_img
         self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
         self.dirt_cloud = obj_images.TwoSided('data/images/effects/dirt/')
-        self.glamour_points = 0
         self.gforce     = 0
         self.g_acceleration = 3
         self.speed      = 10
-        self.effects    = []
         self.rect       = Rect(self.pos,self.size)
         self.move       = False
         self.direction  = 'left'
@@ -86,8 +85,11 @@ The code is not yet well commented
         return odl
 
     def update_all(self):
+        if self.first_frame:
+            if self.dirt > 0:
+                self.level.princesses[1] = self.dirties[self.dirt -1]
         if not self.inside:
-            self.glamour_points += 1
+#            self.glamour_points += 1
             self.direction  = self.level.universe.dir
             self.action     = self.level.universe.action
             self.effects = []
@@ -96,7 +98,7 @@ The code is not yet well commented
             self.jumping(self.action)
             self.hurting(self.action)
             self.kissing()
-            if self.got_hitten>5:
+            if self.got_hitten > 5:
                 if self.got_hitten%2 == 0:
                     self.update_image(self.action,self.direction)
                 else:
@@ -104,7 +106,7 @@ The code is not yet well commented
             else:
                 self.update_image(self.action,self.direction)
         else:
-            self.update_image(self.action,self.direction)
+            self.update_image(self.action,'right')
 
     def dirt_cloud_funciton(self):
         if 0 < self.got_hitten < 24:
@@ -252,7 +254,7 @@ class Dirt():
         self.directory = directory
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
-        self.open_door = self.walk
+        self.open_door = self.stay
         self.list = self.stay
         self.actual_list = self.list.left
         self.pos = pos
