@@ -14,11 +14,12 @@ class Inside():
         if item_type != 'shower':
             counter = itertools.count()
             self.items = [Item(self, i,counter.next()) for i in item_list]
-            self.buttons    = (Button('data/images/interface/title_screen/button_ok/',
+            self.buttons    = (
+                                Button('data/images/interface/title_screen/button_ok/',
                                         (410,450),self.level,self.all_set),
-                               Button('data/images/interface/title_screen/arrow_right/',
+                                Button('data/images/interface/title_screen/arrow_right/',
                                         (4*(self.level.universe.width/6),450),self.level,self.forward),
-                               Button('data/images/interface/title_screen/arrow_right/',
+                                Button('data/images/interface/title_screen/arrow_right/',
                                         (2*(self.level.universe.width/6),450),self.level,self.rewind,invert=True)
                                 )
 

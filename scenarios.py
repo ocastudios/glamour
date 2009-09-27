@@ -76,7 +76,6 @@ class Gate(Scenario):
             icon_directory += 'ribbon/0.png'
         elif goal == level.ShoesSt:
             icon_directory += 'shoes/0.png'
-
         if not self.arrow_up:
             self.arrow_up = obj_images.OneSided('data/images/interface/up-arrow/')
         self.arrow_image_number = 0

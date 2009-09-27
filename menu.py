@@ -312,10 +312,14 @@ class Menu():
             self.screen.universe.file = using_saved_game
 
     def change_princess(self,list):#list of: int,part
+        if list[1] == "hair":
+            number = 4
+        elif list[1] == 'skin':
+            number = 2
         self.princess.numbers[list[1]] += list[0]
         if self.princess.numbers[list[1]] < 0:
-            self.princess.numbers[list[1]] = 2
-        elif self.princess.numbers[list[1]] > 2:
+            self.princess.numbers[list[1]] = number
+        elif self.princess.numbers[list[1]] > number:
             self.princess.numbers[list[1]] = 0
 
 ####### To funcitons TODO: substitute this function ########
@@ -332,11 +336,11 @@ class Menu():
         saved_games = []
         for i in os.listdir(directory):
             try:
-                files = os.listdir(directory+'/'+i)
+                files = os.listdir(directory+i)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{
                                     'name':i,
-                                    'file': directory+'/'+i+'/saved.glamour'
+                                    'file': directory+i+'/'+i+'.glamour'
                                         }])
                 else:
                     _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+'/'+i)
@@ -537,16 +541,18 @@ class MenuPrincess():
         dir = 'data/images/princess/'
         self.menu = menu
         if not thumbnail:
-            self.skins = ('skin_pink','skin_tan','skin_black')
-            self.arms  = ('arm_pink','arm_tan','arm_black')
-            self.hairs = (  'hair_rapunzel', 'hair_yellow', 'hair_cinderella', 'hair_brown',
-                            'hair_rastafari', 'hair_red', 'hair_short', 'hair_sleeping')
-            self.hairs_back= ('hair_rapunzel_back',None,None,'hair_brown_back',
-                          'hair_rastafari_back','hair_red_back',None, None)
+            self.skins = ('skin_pink','skin_black','skin_tan')
+            self.arms  = ('arm_pink','arm_black','arm_tan')
+            self.hairs = ('hair_yellow', 'hair_short', 'hair_brown', 'hair_rastafari', 'hair_red')
+            self.hairs_back= (None, None, 'hair_brown_back', 'hair_rastafari_back','hair_red_back')
             self.skin = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.skins]
             self.arm  = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.arms]
             self.hair = [pygame.image.load(dir+i+'/stay/0.png').convert_alpha() for i in self.hairs]
-            self.hairback = [pygame.image.load(dir+self.hairs_back[0]+'/stay/0.png').convert_alpha(),None,None]
+            self.hairback = [None,
+                             None,
+                             pygame.image.load(dir+self.hairs_back[2]+'/stay/0.png').convert_alpha(),
+                             pygame.image.load(dir+self.hairs_back[3]+'/stay/0.png').convert_alpha(),
+                             pygame.image.load(dir+self.hairs_back[4]+'/stay/0.png').convert_alpha()]
             self.numbers = {'skin':1,'hair':1}
             self.images = [ self.hairback[self.numbers['hair']],
                             self.skin[self.numbers['skin']],

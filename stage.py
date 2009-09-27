@@ -157,17 +157,18 @@ class Stage():
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.white.alpha_value < 200:
                     self.white.alpha_value += 10
-                if self.white.alpha_value > 200:
+                if self.white.alpha_value >= 200:
                     self.inside.status = 'bath_choosing'
             elif self.inside.status == 'bath_choosing':
                 self.princesses[0].dirt = 0
+                self.princesses[1] = None
                 self.inside.status = 'bath_done'
             elif self.inside.status == 'bath_done':
                 if self.white.alpha_value > 0:
                     self.white.alpha_value -= 10
                     self.white.image.set_alpha(self.white.alpha_value)
                 else:
-                    self.white.image.alpha_value = 0
+                    self.white.alpha_value = 0
                     self.inside.status = 'bath_openning'
                 self.white.image.set_alpha(self.white.alpha_value)
             elif self.inside.status == 'bath_openning':
@@ -339,18 +340,19 @@ class Stage():
                 (955,970,199),
                 (970,1200,212),
                 (1200,1220,199),
-                (1730,1875,196),
-                (1780,1905,206),
-                (1850,1945,216),
-                (1880,1985,236),
-                (1910,1995,246),
-                (1970,2245,256),
-                (2245,2305,246),
-                (2305,2365,236),
-                (2365,2415,226),
-                (2415,2445,216),
-                (2445,2475,206),
-                (2475,2500,196),
+                (1730,1875,201),
+                (1780,1905,221),
+                (1850,1860,231),
+                (1860,1880,241),
+                (1880,1985,251),
+                (1910,1995,261),
+                (1970,2245,271),
+                (2245,2305,261),
+                (2305,2365,251),
+                (2365,2415,231),
+                (2415,2445,221),
+                (2445,2475,211),
+                (2475,2500,201),
                 (9200,9360,198)]
 
         for i in FDICT:
@@ -420,7 +422,7 @@ class Stage():
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
         self.gates = [scenarios.BuildingDoor((100,450),self.directory+'Dress_Tower/door/',self),
-                      scenarios.BuildingDoor((4577,300),self.directory+'snow_white_castle/door/',self),
+                      scenarios.BuildingDoor((9092,430),self.directory+'snow_white_castle/door/',self),
                       scenarios.Gate(dressgate[0], 'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
                       scenarios.Gate(dressgate[1], 'data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
                       scenarios.Gate(dressgate[2], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
@@ -462,8 +464,24 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-        ### set floor ###
-        self.floor_heights = [186]*9001
+
+        ### Set Floor ###
+        self.floor_heights = [185]*9400
+        count   = 0
+        n       = 1120
+        a       = 15
+        FDICT   = [
+                (50,189,252),
+                (190,219,232),
+                (220,260,210),
+                (261,260,194)
+                ]
+
+        for i in FDICT:
+            for r in range(i[0],i[1]):
+                self.floor_heights[r]=i[2]
+
+
         if goalpos:
             self.princesses[0].center_distance = goalpos
             self.universe.center_x = goalpos
@@ -652,48 +670,36 @@ class Stage():
         self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
 
+
+
         ### Set Floor ###
         self.animated_scenarios = [ enemy.Lion(3200,self),
                                     enemy.Monkey(3500,self),
                                     scenarios.Scenario(2923,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
-
         self.lights = []
-
         for i in self.scenarios_prep:
             try:
                 if i.lights:
                     self.lights.append(i.lights)
             except:
                 pass
+
         if goalpos:
             self.princesses[0].center_distance = goalpos
             self.universe.center_x = goalpos
 
-
-        self.floor_heights = [192]*9400
+        ### Set Floor ### (x1,x2,y)
+        self.floor_heights = [190]*9400
         count   = 0
         n       = 1120
         a       = 15
-
-        FDICT   = [
-                (955,970,199),
-                (970,1200,212),
-                (1200,1220,199),
-                (1730,1875,196),
-                (1780,1905,206),
-                (1850,1945,216),
-                (1880,1985,236),
-                (1910,1995,246),
-                (1970,2245,256),
-                (2245,2305,246),
-                (2305,2365,236),
-                (2365,2415,226),
-                (2415,2445,216),
-                (2445,2475,206),
-                (2475,2500,196),
-                (9200,9360,198)
-]
+        FDICT   = [ (0,90,3000),
+                (90,130,330), (130,140,325),(140,150,320),(150,160,315),(160,170,310), (170,180,305), (180,190,300),
+                (190,200,295), (200,210,290), (210,220,285), (220,230,280), (230,240,275), (240,250,270), (250,260,265),
+                (260,270,260), (270,280,255), (280,290,250), (290,300,245), (300,310,240), (310,320,235), (320,330,230),
+                (330,350,220), (350,360,210), (360,380,200)
+                ]
 
         for i in FDICT:
             for r in range(i[0],i[1]):

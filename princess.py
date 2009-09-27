@@ -94,8 +94,8 @@ Princess shoes are moving weirdly when she jumps.
             self.action     = self.level.universe.action
             self.effects = []
             self.soundeffects(self.action)
-            self.update_pos(self.action)
             self.jumping(self.action)
+            self.update_pos(self.action)
             self.hurting(self.action)
             self.kissing()
             if self.got_hitten > 5:
@@ -137,7 +137,6 @@ Princess shoes are moving weirdly when she jumps.
         if action[0]=='fall':
             if feet_position == self.floor:
                 action[0]=None
-                self.channel1.play(self.steps[random.randint(0,1)])
         if feet_position < self.floor and not self.jump:
             action[0]='fall'
 
@@ -151,6 +150,7 @@ Princess shoes are moving weirdly when she jumps.
                                 self.got_hitten += 1
                                 self.dirt += 1
                                 self.level.princesses[1] = self.dirties[self.dirt -1]
+
             else:
                 self.got_hitten +=1
                 if self.got_hitten == 30   :#75 atpos[0] 25 frames per second
@@ -181,17 +181,17 @@ Princess shoes are moving weirdly when she jumps.
         last_height = self.level.what_is_my_height(self)
         self.floor = self.level.universe.floor - last_height
         self.pos[0] = self.level.universe.center_x+self.center_distance
-
         #fall
         if feet_position < self.floor:
             self.pos[1] += self.gforce
+            if self.pos[1]+self.size[1] > self.floor:
+                self.pos[1] = self.floor-self.size[1]         #do not fall beyond the floor
             self.gforce += self.g_acceleration
-        #do not fall beyond the floor
+        #do not stay lower than floor
         if feet_position >= self.floor:
             self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
             self.gforce = 0
-
         if action[1]=='walk' and action[0] != 'celebrate':
             if self.direction == 'right':
                 self.center_distance += self.speed
@@ -205,7 +205,7 @@ Princess shoes are moving weirdly when she jumps.
                     self.center_distance += self.speed
 
     def soundeffects(self,action):
-        if not self.jump:
+        if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
             if action[1]=='walk' or action[0] == 'pos[0]celebrate':
                 if self.images.number % 6 == 0:
                     self.channel1.play(self.steps[random.randint(0,1)])

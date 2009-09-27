@@ -10,7 +10,7 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
         os.mkdir(universe.main_dir+'/data/saves/'+str(princess.name))
     except:
         pass
-    dir = universe.main_dir+'/data/saves'+str(princess.name)
+    dir = universe.main_dir+'/data/saves/'+str(princess.name)
 
     old_file = open('data/saves/'+princess.name+'/'+princess.name+'.glamour','r').readlines()
     day = datetime.datetime.today()
@@ -24,21 +24,16 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
         armdress = "sleeve_red"
     else:
         armdress = "None"
-    if hair == "hair_black":
-        hairback = "hair_black_back"
-    elif hair == "hair_brown":
-        hairback = "hair_brown_back"
-    elif hair == "hair_rastafari":
-        hairback = "hair_rastafari_back"
-    elif hair == "hair_rapunzel":
-        hairback = "hair_rapunzel_back"
+    hair_backs = ['hair_black','hair_brown','hair_rastafari','hair_rapunzel','hair_red']
+    if hair in hair_backs:
+        hairback = hair+'_back'
     else:
         hairback = "None"
     files = []
     new_file = open('data/saves/'+princess.name+'/'+princess.name+'.glamour','w')
     files.append(new_file)
     if Ball:
-        backupfile = open('data/saves'+princess.name+'/'+princess.name+'_backup.glamour','w')
+        backupfile = open('data/saves/'+princess.name+'/'+princess.name+'_backup.glamour','w')
         files.append(backupfile)
     for i in files:
         new_file.write(
