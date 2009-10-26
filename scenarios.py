@@ -101,6 +101,7 @@ class Gate(Scenario):
     def set_level(self,princess):
         if self.rect.colliderect(princess.rect):
             if princess.action[0] == 'open_door':
+                pygame.mixer.music.fadeout(4000)
                 self.goal(self.goalpos)
 
 

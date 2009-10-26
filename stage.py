@@ -1,5 +1,5 @@
 import scenarios
-import obj_images
+#import obj_images
 import enemy
 import skies
 import fairy
@@ -12,7 +12,8 @@ import princess
 import os
 import panel
 import pygame
-import itertools
+#import itertools
+import camera
 import mousepointer
 import inside
 import ball
@@ -35,7 +36,7 @@ class Stage():
     princesses = None
     def __init__(self,size,universe):
         self.universe       = universe
-        self.cameras        = []
+        self.cameras=[camera.GameCamera(self,-4220)]
         self.gates          = []
         self.clock          = []
         self.floor_heights  = {}
@@ -58,11 +59,11 @@ class Stage():
         self.bar_speed  = 1
         self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
         self.pointer = [glamour_stars.Glamour_Stars(self),self.game_mouse]
-
         self.inside = self.dress_castle()
-        self.fairy = False
+        self.fairy = True
         self.omni_directory = 'data/images/scenario/omni/'
         self.ball = None
+        self.endmusic = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -98,6 +99,8 @@ class Stage():
             self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
             self.ball.update_all    ()
         else:
+            if self.ball:
+                self.ball = None
             self.cameras[0].update_all()
             self.universe.movement(self.direction)
             for att in self.blitlist:
@@ -116,13 +119,11 @@ class Stage():
 
             for effect in self.princesses[0].effects:
                 self.universe.screen_surface.blit(effect[0],effect[1])
-
             for i in self.scenarios_front:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
             [self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
                             for i in self.gates if self.princesses[0].rect.colliderect(i.rect) and i.arrow_image]
-
             for i in self.floor_image:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
@@ -133,7 +134,6 @@ class Stage():
                 self.update_insidebar()
             elif self.sky[0].night_image:
                 self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
-
             for i in self.clock:
                 self.universe.screen_surface.blit(i.image,i.pos)
             for i in self.panel:
@@ -238,13 +238,14 @@ class Stage():
 
 
     def BathhouseSt(self,goalpos = None):
-
+        if goalpos:
+            self.princesses[0].center_distance = goalpos
+            self.universe.center_x = -goalpos+(self.universe.width/2)
         self.gates = []
         self.directory = self.maindir+'bathhouse_st/'
         self.ballroom = {   'day': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/'),
                             'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
         self.background = [self.ballroom['day']]
-
         self.scenarios_prep  = [scenarios.Scenario(i[0],i[1],self) for i in (
                                 (100, self.omni_directory+'tree_2/'),
                                 (200, self.omni_directory+'bush/'),
@@ -275,34 +276,26 @@ class Stage():
                                 (8696,self.omni_directory+'small_bush_1/'))]
         self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self)
                                 for i in [405,2730,4217,6041,8469]])
-
         self.gates =   [scenarios.BuildingDoor((1063,453),self.directory+'bathhouse/door/',self,self.bathhouse_castle(),bath = True),
                         scenarios.BuildingDoor((5206,500),self.directory+'home/door/',self,self.hair_castle()),
                         scenarios.BuildingDoor((9305,503),self.directory+'magic_beauty_salon/door/',self,self.shoes_castle()),
                         scenarios.Gate(bathhousegate[0], self.maindir+'omni/gate/',self,self.ShoesSt, goalpos = shoegate[2],),
                         scenarios.Gate(bathhousegate[1],self.maindir+'omni/gate/',self,self.AccessorySt,goalpos = accessorygate[0])]
-
         self.scenarios = BigScenario(self),
-
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
-
         self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self),
                             ]
         self.enemies.append(enemy.FootBoy(9000,self))
-
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
-
         self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
         self.clouds     = [clouds.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
-
         self.moving_scenario = [moving_scenario.Billboard(self)]
-
         self.scenarios_front = [
                                 scenarios.Scenario(3535,self.omni_directory+'fence_1/',self),
                                 scenarios.Scenario(4322,self.omni_directory+'fence_1/',self),
@@ -317,20 +310,20 @@ class Stage():
                                 scenarios.Flower(6620,     self.omni_directory+'flower_7/',self,8),
                                 scenarios.Flower(7123,     self.omni_directory+'grass_2/',self,8),
                                 scenarios.Flower(7197,     self.omni_directory+'grass_1/',self,8),
-
                                 scenarios.Scenario(6058,self.omni_directory+'grass_1/',self),
                                 scenarios.Scenario(6754,self.omni_directory+'fence_1/',self),
                                 scenarios.FrontScenario(9168,self.directory+'magic_beauty_salon/portal/',self,index=0)]
-
         self.fae = ([fairy.Fairy(20,self)])
-        pygame.mixer.music.load("data/sounds/music/bathhouse_day_intro.ogg")
-        pygame.mixer.music.queue("data/sounds/music/bathhouse_day.ogg")
-        pygame.mixer.music.play()
 
+        self.music = "data/sounds/music/bathhouse_day.ogg"
+        pygame.mixer.music.load("data/sounds/music/bathhouse_day_intro.ogg")
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.play()
+        pygame.mixer.music.set_endevent(pygame.USEREVENT)
 
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
         panel.Data('', self.princesses[0].center_distance, (300, 0), self,0,size=120)
-
         ### set_floor ###
         self.floor_heights = [186]*9400
         count   = 0
@@ -354,24 +347,21 @@ class Stage():
                 (2445,2475,211),
                 (2475,2500,201),
                 (9200,9360,198)]
-
         for i in FDICT:
             for r in range(i[0],i[1]):
                 self.floor_heights[r]=i[2]
         self.animated_scenarios =[]
         self.lights = []
-
         for i in self.scenarios_prep:
             try:
                 if i.lights:
                     self.lights.append(i.lights)
             except:
                 pass
-        if goalpos:
-            self.princesses[0].center_distance = goalpos
-            self.universe.center_x = goalpos
 
     def DressSt(self,goalpos = None):
+        self.universe.center_x = -goalpos+(self.universe.width/2)
+        self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'dress_st/'
         self.scenarios_prep  =  [scenarios.Scenario(1086,self.omni_directory+'tree_2/',  self),
@@ -421,7 +411,7 @@ class Stage():
                             enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
 
-        self.gates = [scenarios.BuildingDoor((100,450),self.directory+'Dress_Tower/door/',self),
+        self.gates = [scenarios.BuildingDoor((100,450),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor((9092,430),self.directory+'snow_white_castle/door/',self),
                       scenarios.Gate(dressgate[0], 'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
                       scenarios.Gate(dressgate[1], 'data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
@@ -448,46 +438,35 @@ class Stage():
                                 (8416,self.omni_directory+'grass_3/'),
                                 (8822,self.omni_directory+'grass_3/')
                                 )]
-
+        self.music = "data/sounds/music/dress_day_intro.ogg"
         pygame.mixer.music.load("data/sounds/music/dress_day_intro.ogg")
-        pygame.mixer.music.queue("data/sounds/music/dress_day.ogg")
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
 
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-
-
         self.lights = []
-
         for i in self.scenarios_prep:
             try:
                 if i.lights:
                     self.lights.append(i.lights)
             except:
                 pass
-
         ### Set Floor ###
         self.floor_heights = [185]*9400
         count   = 0
         n       = 1120
         a       = 15
-        FDICT   = [
-                (50,189,252),
-                (190,219,232),
-                (220,260,210),
-                (261,260,194)
-                ]
-
+        FDICT   = [(50,189,252),(190,219,232),(220,260,210),(261,260,194)]
         for i in FDICT:
             for r in range(i[0],i[1]):
                 self.floor_heights[r]=i[2]
 
 
-        if goalpos:
-            self.princesses[0].center_distance = goalpos
-            self.universe.center_x = goalpos
-
 
     def AccessorySt(self,goalpos = None):
+        self.universe.center_x = -goalpos+(self.universe.width/2)
+        self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'accessory_st/'
         self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
@@ -564,7 +543,10 @@ class Stage():
                                 scenarios.Scenario(8382,self.directory+'floor/main/',self, height = self.floor+10),
                                 scenarios.Scenario(8534,self.directory+'floor/main/',self, height = self.floor+10),
 ]
-        pygame.mixer.music.load("data/sounds/music/accessory_day.ogg")
+        self.music = "data/sounds/music/accessory_day.ogg"
+        pygame.mixer.music.load(self.music)
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
 
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
@@ -610,12 +592,10 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-        if goalpos:
-            self.princesses[0].center_distance = goalpos
-            self.universe.center_x = goalpos
-
 
     def MakeupSt(self,goalpos = None):
+        self.universe.center_x = -goalpos+(self.universe.width/2)
+        self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'makeup_st/'
         self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
@@ -659,9 +639,15 @@ class Stage():
                             enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
                             enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self),
                             ]
-        self.gates.extend([ scenarios.Gate(makeupgate[0],'data/images/scenario/omni/gate/',self,self.DressSt,goalpos = dressgate[2]),
-                            scenarios.Gate(makeupgate[1],'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[1]),
-                            scenarios.Gate(makeupgate[2],'data/images/scenario/omni/gate/',self,self.ShoesSt ,goalpos = shoegate[0])])
+        self.gates.extend([ scenarios.Gate(makeupgate[x],'data/images/scenario/omni/gate/',self,y,goalpos = z)
+                            for x,y,z in
+                            ((0, self.DressSt, dressgate[2]),
+                             (1, self.AccessorySt, accessorygate[1]),
+                             (2, self.ShoesSt ,shoegate[0]))
+                            ])
+        self.gates.extend([scenarios.BuildingDoor((100,450),self.directory+'make-up_castle/door/',self,self.makeup_castle())])
+
+
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
 
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
@@ -669,14 +655,11 @@ class Stage():
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-
-
-
-        ### Set Floor ###
         self.animated_scenarios = [ enemy.Lion(3200,self),
                                     enemy.Monkey(3500,self),
                                     scenarios.Scenario(2923,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
+
         self.lights = []
         for i in self.scenarios_prep:
             try:
@@ -684,10 +667,6 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-
-        if goalpos:
-            self.princesses[0].center_distance = goalpos
-            self.universe.center_x = goalpos
 
         ### Set Floor ### (x1,x2,y)
         self.floor_heights = [190]*9400
@@ -704,14 +683,15 @@ class Stage():
         for i in FDICT:
             for r in range(i[0],i[1]):
                 self.floor_heights[r]=i[2]
-
+        self.music = "data/sounds/music/makeup_day.ogg"
         pygame.mixer.music.load("data/sounds/music/makeup_day_intro.ogg")
-        pygame.mixer.music.queue("data/sounds/music/makeup_day.ogg")
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
 
-
-
     def ShoesSt(self,goalpos=None):
+        self.universe.center_x = -goalpos+(self.universe.width/2)
+        self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'shoes_st/'
         self.scenarios_prep =  [scenarios.Scenario(i[0],i[1],self) for i in (
@@ -789,28 +769,38 @@ class Stage():
                                 (8860,self.directory+'rapunzel_castle/front/'),
                                 )]
 
+        self.music = "data/sounds/music/shoes_day.ogg"
         pygame.mixer.music.load("data/sounds/music/shoes_day_intro.ogg")
-        pygame.mixer.music.queue("data/sounds/music/shoes_day.ogg")
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
-
         self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
 
 
-        ### set floor ###
-        self.floor_heights = [186]*9001
+        ### set floor ### (x1,x2,y)
+        self.floor_heights = [190]*9400
+        count   = 0
+        n       = 1120
+        a       = 15
+        FDICT   = [ (250,350,242), (350,390,217), (390,430,195),(430,450,190)]
+
+        for i in FDICT:
+            for r in range(i[0],i[1]):
+                self.floor_heights[r]=i[2]
 
         self.lights = []
-
         for i in self.scenarios_prep:
             try:
                 if i.lights:
                     self.lights.append(i.lights)
             except:
                 pass
-        if goalpos:
 
-            self.universe.center_x = goalpos-(self.universe.width/2)
-            self.princesses[0].center_distance = goalpos
+    def define_enemies(self):
+        stages = ['shoes','makeup','accessory','dress','bathhouse']
+        enemies = ['OldLady', 'Schnauzer','Butterfly', 'FootBoy','Bird']
+
+
 
 class Foreground():
     def __init__(self,universe):
@@ -836,7 +826,7 @@ class Foreground():
 
 class Bar():
     def __init__(self,level, up_or_down):
-        self.tile = down_bar = pygame.image.load('data/images/interface/omni/small_bar/0.png').convert_alpha()
+        self.tile = pygame.image.load('data/images/interface/omni/small_bar/0.png').convert_alpha()
         if up_or_down == 'up':
             self.tile = pygame.transform.flip(self.tile,0,1)
         screen_size = level.universe.width, level.universe.height

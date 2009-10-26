@@ -20,6 +20,7 @@ class Universe():
         self.file = None
         self.frames_per_second = 20
         self.run_level = True
+
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)
         self.clock_pointer = game_clock.ClockPointer(self.level)

@@ -34,7 +34,7 @@ Princess shoes are moving weirdly when she jumps.
                 self.dirt = int(linha[1])
             if linha[0] == 'points':
                 self.glamour_points = int(linha[1])
-        self.pos        = [self.level.universe.center_x+self.center_distance,
+        self.pos        = [self.level.universe.center_x + self.center_distance,
                            self.level.universe.floor - 186 -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
@@ -150,7 +150,11 @@ Princess shoes are moving weirdly when she jumps.
                                 self.got_hitten += 1
                                 self.dirt += 1
                                 self.level.princesses[1] = self.dirties[self.dirt -1]
-
+                    if e.__class__ == enemy.Carriage:
+                        if self.rect.colliderect(e.rect):
+                            self.speed = 0
+                        else:
+                            self.speed = 10
             else:
                 self.got_hitten +=1
                 if self.got_hitten == 30   :#75 atpos[0] 25 frames per second
