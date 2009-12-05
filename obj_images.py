@@ -2,10 +2,9 @@ import os
 import operator
 import pygame
 from itertools import *
-
+from settings import *
 
 ### TODO include a function reset_image, so that it will be possible to restart the image number easily.
-
 
 class TwoSided():
     jeringonca = False
@@ -24,10 +23,10 @@ Margin may be used to better program interaction during the game. Margin default
         self.itnumber = cycle(range(self.lenght))
 
     def find_images(self,dir):
-        return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
+        return [pygame.transform.smoothscale(i,(i.get_size()[0]*scale,i.get_size()[1]*scale)) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
 
-    def invert_images(self,list):
-        return [pygame.transform.flip(img,1,0) for img in list]
+    def invert_images(self,imglist):
+        return [pygame.transform.flip(img,1,0) for img in imglist]
 
     def update_number(self):
         if self.number < self.lenght -1:
@@ -100,7 +99,7 @@ class GrowingUngrowing(TwoSided):
         self.list = self.left = self.find_images(directory)
         n_list = []
         for i in self.list:
-            n_list.extend([pygame.transform.scale(i,(i.get_width(),i.get_height()-(2*x))) for x in xrange(frames)])
+            n_list.extend([pygame.transform.smoothscale(i,(i.get_width(),i.get_height()-(2*x))) for x in xrange(frames)])
         self.list.extend(n_list)
         self.list.extend(reversed(n_list))
         self.lenght = len(self.list)
@@ -114,7 +113,7 @@ class Buttons(TwoSided):
         self.list = self.left = self.find_images(directory)
         n_list = []
         for i in self.list:
-            n_list.extend([pygame.transform.scale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in xrange(frames)])
+            n_list.extend([pygame.transform.smoothscale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in xrange(frames)])
         self.list.extend(n_list)
         self.list.extend(reversed(n_list))
         self.lenght = len(self.list)
@@ -131,7 +130,7 @@ class MultiPart():
         def least_common_multiple(nums): return reduce(lambda a, b: a * b / gcd(a, b), nums)
 
         def find_images(dir):
-            return [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
+            return [pygame.transform.smoothscale(i,(i.get_size()[0]*scale,i.get_size()[1]*scale )) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
         def invert_images(list):
             return [pygame.transform.flip(img,1,0) for img in list]
 
@@ -162,3 +161,5 @@ class MultiPart():
             self.number += 1
         else:
             self.number = 0
+def scale_image(prep):
+        return pygame.transform.smoothscale(prep,(prep.get_width()*scale,prep.get_height()*scale))

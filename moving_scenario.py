@@ -1,10 +1,11 @@
 import pygame
+import obj_images
 from pygame.locals import *
 
 class Billboard():
     def __init__(self,level):
         self.level = level
-        self.image = pygame.image.load('data/images/scenario/bathhouse_st/billboard_city/billboard/billboard_city.png').convert_alpha()
+        self.image = obj_images.scale_image(pygame.image.load('data/images/scenario/bathhouse_st/billboard_city/billboard/billboard_city.png').convert_alpha())
         self.size = self.image.get_size()[0]
 #        self.center_distance = ((self.level.universe.center_x-self.level.universe.width) * (self.level.size - self.size))/self.level.size
 

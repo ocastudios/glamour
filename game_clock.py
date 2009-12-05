@@ -1,10 +1,10 @@
-
+import obj_images
 import pygame
 
 class GameClock():
     def __init__(self,level):
         self.level = level
-        self.image = pygame.image.load('data/images/interface/clock/page_border.png').convert_alpha()
+        self.image = obj_images.scale_image(pygame.image.load('data/images/interface/clock/page_border.png').convert_alpha())
         self.pos   =((self.level.universe.width-self.image.get_width()),0)
         self.time  = 'day' 
         level.clock.append(self)
@@ -18,7 +18,7 @@ class ClockPointer():
         while x != 0:
             self.rotate_list.append(x)
             x+= 0.5
-        self.clock_pointer_basic= pygame.image.load('data/images/interface/clock/clock_pointer.png').convert_alpha()
+        self.clock_pointer_basic= obj_images.scale_image(pygame.image.load('data/images/interface/clock/clock_pointer.png').convert_alpha())
         self.clock_pointer      = []
         self.count              = 0
         self.tick               = 0

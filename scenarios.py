@@ -2,6 +2,7 @@ import os
 import obj_images
 import pygame
 from pygame.locals import *
+from settings import *
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
     def __init__(self,center_distance,dir,level,index = 1,invert = False, height = False):
@@ -9,12 +10,12 @@ class Scenario():
         self.images         = obj_images.OneSided(dir)
         self.image          = self.images.list[0]
         if invert:
-            self.image = pygame.transform.flip(self.image, 1,0)
+            self.image      = pygame.transform.flip(self.image, 1,0)
         self.size           = self.images.size
         self.center_distance= center_distance
         self.level          = level
         if not height:
-            self.pos  = [(self.center_distance),level.floor-(self.size[1]-15)]
+            self.pos  = [(self.center_distance),level.floor-(self.size[1]-(15*scale))]
         else:
             self.pos = [(self.center_distance),height]
 
@@ -85,7 +86,7 @@ class Gate(Scenario):
         self.change_level = False
         self.goal = goal
         self.rect           = Rect(self.pos, self.size)
-        self.image.blit(pygame.image.load(icon_directory).convert_alpha(),(91,59))
+        self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(91,59))
 
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
@@ -133,7 +134,7 @@ class BuildingDoor():
     def indicate_exit(self,princess):
         if self.rect.colliderect(princess.rect):
             if not princess.inside:
-                self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-150)
+                self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-(150*scale))
                 self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
                 if princess.action[0] == 'open_door':
                     self.level.inside = self.interior

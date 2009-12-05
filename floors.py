@@ -1,15 +1,17 @@
-
 import obj_images
 from pygame.locals import *
+from settings import *
+
 class Floor():
     images = None
 
-    def __init__(self,index,dir,level,height={'all':186}):
+    def __init__(self,index,dir,level,height=0):
+        height = {'all':(186+height)*scale}
         self.level = level
         self.images = self.images or obj_images.OneSided(dir)
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
-        self.center_distance = (self.size[0]*(index))
+        self.center_distance = (self.size[0]*(index))*scale
 
         self.set_pos()
 
@@ -24,9 +26,9 @@ class Floor():
 
 
 class Water(Floor):
-    height = 101
-    max    = 125
-    min    = 95
+    height = 101*scale
+    max    = 125*scale
+    min    = 95*scale
     speed = [2,1]
     direction = 'up'
 
@@ -70,8 +72,8 @@ class Bridge():
         self.size = self.image.get_size()
         self.level = level
 
-        if main:            self.center_distance = (400*(index))-400
-        else:               self.center_distance = (400*(index))
+        if main:            self.center_distance = (int(400)*(index))-int(400)
+        else:               self.center_distance = (int(400)*(index))
 
         self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
         if main:

@@ -2,11 +2,17 @@ import pygame
 import game_clock
 import stage
 import os
+from settings import *
 
 class Universe():
-    def __init__(self,w,h):
+    def __init__(self):
+        default_resolution = (1440,900)
+        w = default_resolution[0]*scale
+        print w
+        h = default_resolution[1]*scale
+        print h
         self.main_dir = os.getcwd()
-        self.center_x = -3400
+        self.center_x = -3400*scale
         self.center_y = 0
         self.floor = self.height = h
         self.width = w
@@ -16,7 +22,8 @@ class Universe():
         self.dir    = 0
         self.click = False
         self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN,32)
-        self.level = stage.Stage(9600,self)
+        pygame.display.set_caption("Glamour - OcaStudios")
+        self.level = stage.Stage(9600*scale,self)
         self.file = None
         self.frames_per_second = 20
         self.run_level = True

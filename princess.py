@@ -4,6 +4,7 @@ import random
 import enemy
 import pygame
 from pygame.locals import *
+from settings import *
 
 class Princess():
     """Creates the princess. Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
@@ -22,7 +23,7 @@ Princess shoes are moving weirdly when she jumps.
             self.file = save.readlines()
         except:
             self.file = open(save).readlines()
-        self.size       = (2,180)
+        self.size       = (2,180*scale)
         #Interpret the save file
         for line in self.file:
             linha = line.split()
@@ -35,44 +36,44 @@ Princess shoes are moving weirdly when she jumps.
             if linha[0] == 'points':
                 self.glamour_points = int(linha[1])
         self.pos        = [self.level.universe.center_x + self.center_distance,
-                           self.level.universe.floor - 186 -self.size[1]]
+                           self.level.universe.floor - (186*scale) -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
         self.dirties = [  Dirt(level,'data/images/princess/dirt1',self.pos),
                           Dirt(level,'data/images/princess/dirt2',self.pos),
                           Dirt(level,'data/images/princess/dirt3',self.pos)]
         self.images = None
-        self.open_door_img = self.stay_img
-        self.lips       = obj_images.TwoSided('data/images/effects/kiss/')
-        self.dirt_cloud = obj_images.TwoSided('data/images/effects/dirt/')
-        self.gforce     = 0
-        self.g_acceleration = 3
-        self.speed      = 10
-        self.rect       = Rect(self.pos,self.size)
-        self.move       = False
-        self.direction  = 'left'
-        self.got_hitten = 0
-        self.jump       = 0
-        self.kiss       = 0
+        self.open_door_img  = self.stay_img
+        self.lips           = obj_images.TwoSided('data/images/effects/kiss/')
+        self.dirt_cloud     = obj_images.TwoSided('data/images/effects/dirt/')
+        self.gforce         = 0
+        self.g_acceleration = 3*scale
+        self.speed          = 10*scale
+        self.rect           = Rect(self.pos,self.size)
+        self.move           = False
+        self.direction      = 'left'
+        self.got_hitten     = 0
+        self.jump           = 0
+        self.kiss           = 0
         self.kiss_direction = 'left'
-        self.kiss_rect = ((0,0),(0,0))
-        self.floor = self.level.universe.floor - 186
-        self.last_height = 186
-        self.action = [None,'stay']
-        self.image = self.stay_img.left[self.stay_img.itnumber.next()]
-        self.image_size = self.image.get_size()
-        self.inside = INSIDE
-        self.steps = [
+        self.kiss_rect      = ((0,0),(0,0))
+        self.floor          = self.level.universe.floor - 186*scale
+        self.last_height    = 186*scale
+        self.action         = [None,'stay']
+        self.image          = self.stay_img.left[self.stay_img.itnumber.next()]
+        self.image_size     = self.image.get_size()
+        self.inside         = INSIDE
+        self.steps          = [
                     pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/0.ogg'),
                     pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/1.ogg'),
                     pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/2.ogg'),
                     pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/3.ogg'),
                     pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/4.ogg'),
                     ]
-        self.jumpsound = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
-        self.channel1 = pygame.mixer.Channel(0)
-        self.channel2 = pygame.mixer.Channel(1)
-        self.channel3 = pygame.mixer.Channel(2)
+        self.jumpsound      = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
+        self.channel1       = pygame.mixer.Channel(0)
+        self.channel2       = pygame.mixer.Channel(1)
+        self.channel3       = pygame.mixer.Channel(2)
 
     def ordered_directory_list(self, action):
         odl = []
@@ -126,7 +127,7 @@ Princess shoes are moving weirdly when she jumps.
                 self.channel3.play(self.jumpsound)
                 self.images.number = 0
         if self.jump > 0 and self.jump <20:
-            self.pos[1] -= 30
+            self.pos[1] -= 30*scale
             if self.jump > 5:
                 if self.images.lenght-1 > self.images.number:
                     self.images.number += 1
@@ -154,7 +155,7 @@ Princess shoes are moving weirdly when she jumps.
                         if self.rect.colliderect(e.rect):
                             self.speed = 0
                         else:
-                            self.speed = 10
+                            self.speed = 10*scale
             else:
                 self.got_hitten +=1
                 if self.got_hitten == 30   :#75 atpos[0] 25 frames per second

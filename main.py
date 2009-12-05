@@ -5,9 +5,10 @@ from pygame.locals import *
 import menu
 import universe
 import control
+import settings
 
 clock = pygame.time.Clock()
-universe = universe.Universe(os_screen.current_w,os_screen.current_h)
+universe = universe.Universe()
 del splash_surface, splash, os_screen
 gamemenu = menu.MenuScreen(universe)
 
