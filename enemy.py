@@ -17,7 +17,7 @@ class Enemy():
         self.size = (self.image.get_width()/2, self.image.get_height())
         self.alive = True
         self.level = level
-        self.speed = speed
+        self.speed = speed*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -119,7 +119,7 @@ class Carriage(Enemy):
         self.size = (self.image.get_width(), self.image.get_height())
         self.alive = True
         self.level = level
-        self.speed = speed
+        self.speed = speed*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -171,15 +171,15 @@ class Carriage(Enemy):
 class Butterfly(Enemy):
     height = 100*scale
     up_direction = 'going_down'
-    up = 5
+    up = 5*scale
     def update_all(self):
         self.set_pos()
         self.set_image()
     def set_pos(self):
         if self.pos[1] < 300*scale:
-            self.up = +5
+            self.up = +5*scale
         elif self.pos[1] > 500*scale:
-            self.up = -5
+            self.up = -5*scale
         self.height += self.up
         self.pos = (self.level.universe.center_x + self.center_distance, self.height)
         if self.move:
@@ -213,7 +213,7 @@ class OldLady(Enemy):
         self.size   = (self.image.get_width()/2, self.image.get_height())
         self.alive  = True
         self.level  = level
-        self.speed  = speed
+        self.speed  = speed*scale
         self.floor  = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -361,7 +361,7 @@ class VikingShip():
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
-        self.speed = -3
+        self.speed = -3*scale
         self.flag = VikingPart(self,'flag',pos_x = 400)
         self.wave = VikingPart(self,'wave',pos_x = 200)
 
@@ -435,17 +435,17 @@ class FootBoy():
         self.direction = 'left'
         self.got_kissed = 0
         self.image_number = 0
-        self.speed = -12
+        self.speed = -12*scale
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.level.enemies.append(FootBall(random.randint(int(4000*scale),int(6000*scale)), self))
 
 
     def update_all(self):
         if self.direction == 'left':
-            self.speed = -12
+            self.speed = -12*scale
             self.image = self.body.left[self.body.number]
         else:
-            self.speed = 12
+            self.speed = 12*scale
             self.image = self.body.right[self.body.number]
         if not self.got_kissed and self.rect.colliderect(self.level.princesses[0].kiss_rect):
             self.got_kissed = 1
@@ -512,9 +512,9 @@ class FootBall():
                     self.movetype = 'high'
                     self.pos[1] += 1
                 if self.footboy.direction == "left":
-                    self.speed = -50
+                    self.speed = -50*scale
                 else:
-                    self.speed = 50
+                    self.speed = 50*scale
                 self.pos[1] += 1
             if self.footboy.direction == 'right' and self.pos[0] < self.footboy.pos[0]:
                 self.footboy.direction = 'left'

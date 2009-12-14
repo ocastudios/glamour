@@ -3,6 +3,12 @@ import itertools
 import obj_images
 import save
 import princess
+from settings import *
+
+
+def p(positions):
+    return [int(i*scale) for i in positions ]
+
 
 class Inside():
     def __init__(self, level, item_type, item_list):
@@ -35,14 +41,12 @@ class Inside():
 
     def all_set(self,param):
         self.status = 'done'
-
         for i in self.items:
             if i.queue_pos == 1:
                 chosen_item = i.name
-        exec('file = save.save_file(self.level.universe, self.level.princesses[0],'+
-                     self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
+        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
         self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
-        thumbnail = pygame.transform.scale(self.level.princesses[0].stay_img.left[0],(100,100))
+        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
     def NOTSETYET(self,param):
@@ -58,7 +62,7 @@ class Button():
         self.image = self.images.list[self.images.number]
 
         self.size = self.image.get_size()
-        self.position = position
+        self.position = p(position)
         self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
                            (self.position[1]-(self.image.get_size()[1])/2)]
         self.rect = pygame.Rect(self.pos,self.size)
@@ -91,7 +95,7 @@ class Item():
         self.level  = room.level
         self.type   = room.type_of_items
         if self.type != 'shower':
-            self.image  = pygame.image.load('data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha()
+            self.image  = obj_images.scale_image(pygame.image.load('data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha())
             self.size   = self.image.get_size()
             self.queue_pos = queue_pos-1
             self.available_pos = (self.level.universe.width/2-(self.size[0]),
@@ -115,7 +119,7 @@ class Item():
 
     def update_all(self):
         if self.type != 'shower':
-            if 0<= self.queue_pos <= 2:
+            if 0 <= self.queue_pos <= 2:
                 self.queue = True
                 self.pos[0]= self.positions[self.queue_pos]
             else:

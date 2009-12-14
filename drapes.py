@@ -64,8 +64,8 @@ class Drape():
 
 class UperDrape():
     def __init__(self):
-        self.size = (1540*scale,356*scale)
-        prep = pygame.Surface(self.size, pygame.SRCALPHA).convert_alpha()
+        size = (1540,356)
+        prep = pygame.Surface(size, pygame.SRCALPHA)
         tile = pygame.image.load('data/images/interface/omni/drapes/upper_drapes/0.png').convert_alpha()
         x = 0
         for i in range(14):
@@ -74,9 +74,10 @@ class UperDrape():
         self.image = obj_images.scale_image(prep)
         self.action = 'stay'
         self.position = [0,0]
+        self.size = (1540*scale,356*scale)
 
     def update_all(self):
         if self.action == 'open':
-            self.position[1] -= 3
+            self.position[1] -= (3*scale)
         if self.position[1] < -self.size[1]:
             self.position[1] = -self.size[1]

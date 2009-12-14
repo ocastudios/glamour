@@ -7,9 +7,9 @@ from settings import *
 class Universe():
     def __init__(self):
         default_resolution = (1440,900)
-        w = default_resolution[0]*scale
+        w = int(default_resolution[0]*scale)
         print w
-        h = default_resolution[1]*scale
+        h = int(default_resolution[1]*scale)
         print h
         self.main_dir = os.getcwd()
         self.center_x = -3400*scale
@@ -34,7 +34,7 @@ class Universe():
         self.level.BathhouseSt()
 
     def movement(self,dir):
-        max_speed = 10
+        max_speed = 10*scale
         if self.speed > max_speed:
             self.speed = max_speed
         elif self.speed< -max_speed:

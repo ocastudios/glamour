@@ -20,7 +20,7 @@ pygame.mixer.music.play()
 from settings import *
 
 def p(positions):
-    return [i*scale for i in positions ]
+    return [int(i*scale) for i in positions ]
 
 
 class MenuScreen():
@@ -241,8 +241,10 @@ class Menu():
         else:
             self.actual_position[1] = [300*scale]
         lowercase       = map(chr,xrange(97,123))
-        positions       = [(i,a) for (i,a) in zip([x for n in xrange(9) for x in xrange(100,421,40)],
-                                                  [n for n in xrange(200,351,50) for x in xrange(9)]   )]
+        positions       = zip(
+                            [x for n in xrange(9) for x in xrange(int(100*scale),int(422*scale),int(40*scale))],
+                            [n for n in xrange(int(200*scale),int(352*scale),int(50*scale)) for x in xrange(9)]
+                            )
         self.options    =   [Letter(i[0],i[1],self, self.screen.hoover_letter_size,
                             fonte = 'FreeSerif.ttf', font_size=40)
                             for i in zip(lowercase,positions)]
@@ -533,6 +535,7 @@ class Letter(Options):
         GameText.__init__(self,text,pos,menu,fonte,font_size,color)
         self.hoover_size = hoover_size
         self.size = p((30,30))
+        
         self.rect = (self.pos,self.size)
 
     def click_detection(self):

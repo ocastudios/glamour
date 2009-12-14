@@ -23,7 +23,7 @@ Margin may be used to better program interaction during the game. Margin default
         self.itnumber = cycle(range(self.lenght))
 
     def find_images(self,dir):
-        return [pygame.transform.smoothscale(i,(i.get_size()[0]*scale,i.get_size()[1]*scale)) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
+        return [pygame.transform.smoothscale(i,(int(i.get_size()[0]*scale),int(i.get_size()[1]*scale))) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
 
     def invert_images(self,imglist):
         return [pygame.transform.flip(img,1,0) for img in imglist]
@@ -130,7 +130,7 @@ class MultiPart():
         def least_common_multiple(nums): return reduce(lambda a, b: a * b / gcd(a, b), nums)
 
         def find_images(dir):
-            return [pygame.transform.smoothscale(i,(i.get_size()[0]*scale,i.get_size()[1]*scale )) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
+            return [pygame.transform.smoothscale(i,(int(i.get_size()[0]*scale),int(i.get_size()[1]*scale) )) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
         def invert_images(list):
             return [pygame.transform.flip(img,1,0) for img in list]
 
@@ -161,5 +161,6 @@ class MultiPart():
             self.number += 1
         else:
             self.number = 0
+
 def scale_image(prep):
-        return pygame.transform.smoothscale(prep,(prep.get_width()*scale,prep.get_height()*scale))
+        return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))

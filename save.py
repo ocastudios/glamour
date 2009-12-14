@@ -3,8 +3,9 @@ import os
 import datetime
 import pygame
 
-def save_file(universe, princess, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
-
+def save_file(level, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
+    universe = level.universe
+    princess = level.princesses[0]
     #avoid errors in case there are no saved files
     try:
         os.mkdir(universe.main_dir+'/data/saves/'+str(princess.name))
@@ -40,8 +41,8 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
             '#This is a saved file of the glamour game.\n'
             '#It was recorded on '+str(day.month)+'/'+str(day.day)+'/'+str(day.year)+' at '+str(day.hour)+':'+str(day.minute)+'\n'
             'name           '+ str(princess.name) + '\n'
-            'center_distance '+ str(princess.center_distance)+'\n'
-            'hairback      '+ str(hairback) + ' 0'+'\n'
+            'center_distance '+ str(int(princess.center_distance))+'\n'
+            'hairback       '+ str(hairback) + ' 0'+'\n'
             'skin           '+ str(skin) + ' 1'+'\n'
             'face           '+ str(face) + ' 2'+'\n'
             'hair           '+ str(hair) + ' 3'+'\n'
@@ -58,6 +59,11 @@ def save_file(universe, princess, hairback = None, skin = None, face = None, hai
             'position       '+ str(position) +'\n'
             'past_ball          None \n'
             'great_past_ball    None\n'
+            'BathhouseSt    '+ 
+            'DressSt        '+ level.enemies_list['DressSt']+'\n'
+            'AccessorySt    '+ level.enemies_list['AccessorySt']+'\n'
+            'MakeupSt       '+ level.enemies_list['MakeupSt']+'\n'
+            'ShoesSt        '+ level.enemies_list['ShoesSt']
                     )
     new_file.close()
     if Ball:

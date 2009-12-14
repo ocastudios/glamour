@@ -30,7 +30,7 @@ Princess shoes are moving weirdly when she jumps.
             if linha[0] == 'name':
                 self.name = linha[1]
             if linha[0] == 'center_distance':
-                self.center_distance = int(linha[1])
+                self.center_distance = int(int(linha[1])*scale)
             if linha[0] == 'dirt':
                 self.dirt = int(linha[1])
             if linha[0] == 'points':
@@ -226,8 +226,8 @@ Princess shoes are moving weirdly when she jumps.
             self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.right[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0]-200,self.pos[1])))
-            self.kiss_rect = Rect((self.pos[0]-((self.kiss)*44),self.pos[1]),((self.kiss)*44,self.size[1]))
+            self.effects.append((kissimage,(self.pos[0]-(200*scale),self.pos[1])))
+            self.kiss_rect = Rect((self.pos[0]-((self.kiss)*(44*scale)),self.pos[1]),((self.kiss)*(44*scale),self.size[1]))
 
     def update_image(self,action,direction):
         self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
