@@ -2,6 +2,7 @@ import princess
 import os
 import datetime
 import pygame
+from settings import *
 
 def save_file(level, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
     universe = level.universe
@@ -30,6 +31,13 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         hairback = hair+'_back'
     else:
         hairback = "None"
+
+    for street in ['BathhouseSt','DressSt','AccessorySt','MakeupSt','ShoesSt']:
+        exec(street +" = ''")
+        for i in level.enemies_list[street]:
+            exec(street + "=" + street + "+ ' ' + i + ' ' ")
+
+
     files = []
     new_file = open('data/saves/'+princess.name+'/'+princess.name+'.glamour','w')
     files.append(new_file)
@@ -41,7 +49,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
             '#This is a saved file of the glamour game.\n'
             '#It was recorded on '+str(day.month)+'/'+str(day.day)+'/'+str(day.year)+' at '+str(day.hour)+':'+str(day.minute)+'\n'
             'name           '+ str(princess.name) + '\n'
-            'center_distance '+ str(int(princess.center_distance))+'\n'
+            'center_distance '+ str(int(princess.center_distance/scale))+'\n'
             'hairback       '+ str(hairback) + ' 0'+'\n'
             'skin           '+ str(skin) + ' 1'+'\n'
             'face           '+ str(face) + ' 2'+'\n'
@@ -59,13 +67,15 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
             'position       '+ str(position) +'\n'
             'past_ball          None \n'
             'great_past_ball    None\n'
-            'BathhouseSt    '+ 
-            'DressSt        '+ level.enemies_list['DressSt']+'\n'
-            'AccessorySt    '+ level.enemies_list['AccessorySt']+'\n'
-            'MakeupSt       '+ level.enemies_list['MakeupSt']+'\n'
-            'ShoesSt        '+ level.enemies_list['ShoesSt']
+            'BathhouseSt    '+ BathhouseSt +'\n'
+            'DressSt        '+ DressSt     +'\n'
+            'AccessorySt    '+ AccessorySt +'\n'
+            'MakeupSt       '+ MakeupSt    +'\n'
+            'ShoesSt        '+ ShoesSt     + '\n'+
+            level.princesses_garment
                     )
     new_file.close()
+    print "O arquivo save.py foi utilizado "
     if Ball:
         backupfile.close()
 

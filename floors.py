@@ -94,11 +94,9 @@ class Drain():
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-        self.center_distance = scale(400*index)
-        self.pos = [self.level.universe.center_x+(self.center_distance),int(self.level.universe.floor-self.size[1])]
+        self.center_distance = scale*(400*index)
+        self.pos = [self.level.universe.center_x+(self.center_distance),int(scale*900)-self.size[1]]
         level.floor_image[index]= self
 
     def update_all(self):
-        self.update_pos()
-    def update_pos(self):
-        self.pos[0] = self.level.universe.center_x+self.center_distance
+        self.pos[0] = self.level.universe.center_x+(self.center_distance)

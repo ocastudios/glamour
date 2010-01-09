@@ -1,6 +1,7 @@
 import obj_images
 import pygame
 import os
+import random
 from settings import *
 
 
@@ -33,8 +34,8 @@ class Drape():
         else:
             self.image = self.images_right[0]
         self.size = self.image.get_size()
-        self.position = (position_x,0)
-        self.counter = .2
+        self.x = position_x
+        self.counter = 0
 
     def update_all(self):
         if self.side[0]== 'left':
@@ -49,17 +50,11 @@ class Drape():
                 self.speed -= 2*scale
         else:
             self.speed = 0
-        self.position = (self.position[0]+self.speed,0)
+        self.x = self.x+self.speed
         if self.speed != 0:
             exec('self.image = self.images_'+self.side[0]+'[self.image_number]')
-            if self.image_number + self.counter < len(self.images_left)-1:
-                if self.speed >= 0:
-                    self.image_number = int(self.image_number + self.counter)
-                else:
-                    self.image_number = -int(self.image_number + self.counter)
-                self.counter += .1
-            else:
-                self.image_number = len(self.images_left)-1
+            if self.image_number+random.randint(0,5) < 7:
+                self.image_number += 1
 
 
 class UperDrape():
@@ -73,11 +68,11 @@ class UperDrape():
             x += 110
         self.image = obj_images.scale_image(prep)
         self.action = 'stay'
-        self.position = [0,0]
-        self.size = (1540*scale,356*scale)
+        self.y = 0
+        self.size_y = 356*scale
 
     def update_all(self):
         if self.action == 'open':
-            self.position[1] -= (3*scale)
-        if self.position[1] < -self.size[1]:
-            self.position[1] = -self.size[1]
+            self.y -= (3*scale)
+        if self.y < -self.size_y:
+            self.y = -self.size_y

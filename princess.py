@@ -15,33 +15,34 @@ Problems to be fixed in this class are:
 Princess shoes are moving weirdly when she jumps.
 """
     directory = 'data/images/princess/'
-    def __init__(self,level,save = None, INSIDE = False):
+    def __init__(self,level,save,INSIDE = False):
         self.first_frame = True
         self.level = level
         self.effects    = []
-        try:
-            self.file = save.readlines()
-        except:
-            self.file = open(save).readlines()
+        self.file = open(save).readlines()
+        print self.file
         self.size       = (2,180*scale)
         #Interpret the save file
         for line in self.file:
             linha = line.split()
+            print linha
             if linha[0] == 'name':
-                self.name = linha[1]
+                self.name = ''
+                for i in linha[1:]:
+                    self.name += str(i)
+                    self.name += ' '
+                self.name = self.name[:-1]
             if linha[0] == 'center_distance':
                 self.center_distance = int(int(linha[1])*scale)
             if linha[0] == 'dirt':
                 self.dirt = int(linha[1])
             if linha[0] == 'points':
                 self.glamour_points = int(linha[1])
-        self.pos        = [self.level.universe.center_x + self.center_distance,
+        self.pos = [int(self.level.universe.center_x) + self.center_distance,
                            self.level.universe.floor - (186*scale) -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
-        self.dirties = [  Dirt(level,'data/images/princess/dirt1',self.pos),
-                          Dirt(level,'data/images/princess/dirt2',self.pos),
-                          Dirt(level,'data/images/princess/dirt3',self.pos)]
+        self.dirties = [Dirt(level,'data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
         self.lips           = obj_images.TwoSided('data/images/effects/kiss/')
@@ -63,13 +64,7 @@ Princess shoes are moving weirdly when she jumps.
         self.image          = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size     = self.image.get_size()
         self.inside         = INSIDE
-        self.steps          = [
-                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/0.ogg'),
-                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/1.ogg'),
-                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/2.ogg'),
-                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/3.ogg'),
-                    pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/4.ogg'),
-                    ]
+        self.steps = [pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,5)]
         self.jumpsound      = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
         self.channel1       = pygame.mixer.Channel(0)
         self.channel2       = pygame.mixer.Channel(1)
@@ -201,12 +196,12 @@ Princess shoes are moving weirdly when she jumps.
             if self.direction == 'right':
                 self.center_distance += self.speed
                 next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= feet_position -30:
+                if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
                     self.center_distance -= self.speed
             else:
                 self.center_distance -= self.speed
                 next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= feet_position -30:
+                if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
                     self.center_distance += self.speed
 
     def soundeffects(self,action):
@@ -235,11 +230,9 @@ Princess shoes are moving weirdly when she jumps.
         chosen = action[0] or action[1]
 
         if direction == 'left':
-            exec('self.images = self.'+chosen+'_img \n'+
-                'actual_images = self.'+chosen+'_img.right')
+            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.right')
         else:
-            exec('self.images = self.'+chosen+'_img \n'+
-                'actual_images = self.'+chosen+'_img.left')
+            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.left')
         self.image = actual_images[self.images.number]
         if not self.jump:
             self.images.update_number()

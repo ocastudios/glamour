@@ -12,7 +12,6 @@ class MousePointer():
 
         self.pos            = (mouse_pos[0]+(self.size[0]/2), mouse_pos[1]+(self.size[1]/2))
 #TODO: substitute level.pointer.append by the direct instantiation of the instance into a list of the level
-        level.pointer.append(self)
         self.rect           = pygame.Rect(self.pos,self.size)
     def update(self):
         number_of_files     = len(self.images.list)-2

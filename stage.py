@@ -25,17 +25,18 @@ def p(positions):
     return [int(i*scale) for i in positions ]
 ###Gate Positions###
 bathhousegate = p([480, 8138])
-dressgate =     p([800,4142, 8471])
-accessorygate = p([1497, 4174, 7836])
-makeupgate =    p([1200, 4661, 8231])
-shoegate =      p([1198, 4690, 8140])
+dressgate =     p([800, 4142,8471])
+accessorygate = p([1497,4174,7836])
+makeupgate =    p([1200,4661,8231])
+shoegate =      p([1198,4690,8140])
 
 
 class Stage():
     enemy_dir = 'data/images/enemies/'
     maindir        = 'data/images/scenario/'
     princesses = None
-    def __init__(self,size,universe):
+    def __init__(self,universe):
+        self.size = int(9600*scale)
         self.universe       = universe
         self.cameras=[camera.GameCamera(self,-4220*scale)]
         self.gates          = []
@@ -47,12 +48,11 @@ class Stage():
         self.pointer        = []
         self.scenarios_front= []
         self.animated_scenarios =[]
-        self.size = size
-        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'lights', 'enemies', 'menus', 'princesses')
+        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'princesses', 'lights', 'enemies', 'menus')
         self.foreground = []
-        self.white = Foreground(self.universe)
-        self.down_bar = Bar(self,'down')
-        self.up_bar   = Bar(self,'up')
+        self.white      = Foreground(self.universe)
+        self.down_bar   = Bar(self,'down')
+        self.up_bar     = Bar(self,'up')
         self.bar_height = self.up_bar.tile_size[1]
         self.down_bar_y = self.universe.height
         self.up_bar_y   = - self.bar_height
@@ -61,32 +61,30 @@ class Stage():
         self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
         self.pointer = [glamour_stars.Glamour_Stars(self),self.game_mouse]
         self.inside = self.dress_castle()
+        self.princess_castle = None
         self.fairy = True
         self.omni_directory = 'data/images/scenario/omni/'
         self.ball = None
         self.endmusic = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
-        self.enemies_list = {
-                'BathhouseSt':'Schnauzer'   ,
-                'DressSt': 'Bird'           ,
-                'AccessorySt': 'Schnauzer'  ,
-                'MakeupSt': 'OldLady'       ,
-                'ShoesSt' : 'FootBoy'
-                }
+        self.enemies_list = {                            'BathhouseSt': ['Schnauzer', 'Butterfly'] ,                            'DressSt':['Bird'],                            'AccessorySt':['Schnauzer'],                            'MakeupSt':['OldLady'],                             'ShoesSt': ['FootBoy']}
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
+
     def accessory_castle(self):
         return inside.Inside(self,'accessory',('crown','purse','ribbon','shades'))
+
     def makeup_castle(self):
         return inside.Inside(self,'face',('eyelids','eyeshades','lipstick','simple'))
+
     def hair_castle(self):
         return inside.Inside(self,'hair',('black','brown','cinderella','rapunzel','rastafari', 'red', 'short', 'sleeping', 'snowwhite', 'yellow'))
+
     def shoes_castle(self):
         return inside.Inside(self,'shoes',('crystal','red','slipper','white'))
+
     def bathhouse_castle(self):
         return inside.Inside(self,'shower', [])
-
-
 
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[int(object.center_distance+(object.size[0]/2))]
@@ -106,6 +104,9 @@ class Stage():
         if self.universe.clock_pointer.time == 'ball':
             self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
             self.ball.update_all    ()
+            for i in self.pointer:
+                self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
         else:
             if self.ball:
                 self.ball = None
@@ -124,7 +125,6 @@ class Stage():
                 else:
                     exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
                     exec('[i.update_all() for i in self.'+att+' if i]')
-
             for effect in self.princesses[0].effects:
                 self.universe.screen_surface.blit(effect[0],effect[1])
             for i in self.scenarios_front:
@@ -243,9 +243,14 @@ class Stage():
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.outside()
                 self.princesses[0].inside = False
+        try:
+            self.universe.screen_surface.blit(self.inside.princess_image,(0,0))
+        except:
+            pass
 
 
     def BathhouseSt(self,goalpos = None):
+        self.animated_scenarios = []
         if goalpos:
             self.princesses[0].center_distance = goalpos
             self.universe.center_x = -goalpos+(self.universe.width/2)
@@ -255,9 +260,9 @@ class Stage():
                             'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
         self.background = [self.ballroom['day']]
         self.scenarios_prep  = [scenarios.Scenario(i[0],i[1],self) for i in (
-                                (100*scale, self.omni_directory+'tree_2/'),
-                                (200*scale, self.omni_directory+'bush/'),
-                                (0  *scale,    self.directory+'left_corner_house/base/'),
+                                (100*scale,  self.omni_directory+'tree_2/'),
+                                (200*scale,  self.omni_directory+'bush/'),
+                                (0  *scale,  self.directory+'left_corner_house/base/'),
                                 (793*scale,  self.directory+'bathhouse/bathhouse/'),
                                 (3280*scale, self.omni_directory+'tree_2/'),
                                 (2810*scale, self.directory+'left_house/base/'),
@@ -268,7 +273,7 @@ class Stage():
                                 (3677*scale, self.directory+'small_house/base/'),
                                 (4060*scale, self.omni_directory+'small_bush_2/'),
                                 (4479*scale, self.omni_directory+'tree_1/'),
-                                (4671*scale,self.directory+'home/base/'),
+                                (4671*scale, self.directory+'home/base/'),
                                 (3948*scale, self.omni_directory+'tree_2/'),
                                 (7014*scale, self.omni_directory+'tree_1/'),
                                 (7826*scale, self.omni_directory+'tree_1/'),
@@ -279,46 +284,66 @@ class Stage():
                                 (6917*scale, self.omni_directory+'bush/'),
                                 (7552*scale, self.omni_directory+'small_bush_1/'),
                                 (7828*scale, self.omni_directory+'small_bush_2/'),
-                                (8517*scale,self.directory+'magic_beauty_salon/base/'),
-                                (8562*scale,self.omni_directory+'small_bush_2/'),
-                                (8696*scale,self.omni_directory+'small_bush_1/'))]
+                                (8517*scale, self.directory+'magic_beauty_salon/base/'),
+                                (8562*scale, self.omni_directory+'small_bush_2/'),
+                                (8696*scale, self.omni_directory+'small_bush_1/'))]
         self.scenarios_prep.extend([scenarios.Scenario(i,self.directory+'light_post/post/',self)
                                 for i in p([405,2730,4217,6041,8469])])
         self.gates =   [scenarios.BuildingDoor(p((1063,453)),self.directory+'bathhouse/door/',self,self.bathhouse_castle(),bath = True),
-                        scenarios.BuildingDoor(p((5206,500)),self.directory+'home/door/',self,self.hair_castle()),
-                        scenarios.BuildingDoor(p((9305,503)),self.directory+'magic_beauty_salon/door/',self,self.shoes_castle()),
+                        scenarios.BuildingDoor(p((5206,500)),self.directory+'home/door/',self, inside.Home(self)    ),
+                        scenarios.BuildingDoor(p((9305,503)),self.directory+'magic_beauty_salon/door/',self,self.hair_castle()),
                         scenarios.Gate(bathhousegate[0], self.maindir+'omni/gate/',self,self.ShoesSt, goalpos = shoegate[2],),
-                        scenarios.Gate(bathhousegate[1],self.maindir+'omni/gate/',self,self.AccessorySt,goalpos = accessorygate[0])]
+                        scenarios.Gate(bathhousegate[1], self.maindir+'omni/gate/',self,self.AccessorySt,goalpos = accessorygate[0])]
         self.scenarios = BigScenario(self),
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
-        self.enemies    = [enemy.Carriage(3,self.enemy_dir+'carriage/',     3000*scale,self),
-                           enemy.OldLady(2,self.enemy_dir+'old_lady/',      4000*scale,self),
-                           enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',  2600*scale,self,p([22,22,22,22]),dirty=True),
-                           enemy.Butterfly(4,self.enemy_dir+'butterflies/', 6000*scale,self),
-                            ]
-        self.enemies.append(enemy.FootBoy(9000*scale,self))
+        self.enemies = []
+        try:
+            self.save_file = self.universe.file.readlines()
+        except:
+            self.save_file = open(self.universe.file).readlines()
+        #Interpret the save file
+        for line in self.save_file:
+            linha = line.split()
+            if linha[0] == 'BathhouseSt':
+                for en in linha[1:]:
+                    exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
+                    self.enemies.append(item)
+
+
+
+
+
+#        self.enemies    = [enemy.Carriage(3000*scale,self),
+#                           enemy.OldLady( 4000*scale,self),
+#                           enemy.Schnauzer(2600*scale,self,p([22,22,22,22]),dirty=True),
+#                           enemy.Butterfly(6000*scale,self),
+#                           ]
+#        self.enemies.append(enemy.FootBoy(9000*scale,self))
+
+
+
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
 
         self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        self.clouds          =   [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.moving_scenario = [moving_scenario.Billboard(self)]
         self.scenarios_front = [
                                 scenarios.Scenario(3535*scale,self.omni_directory+'fence_1/',self),
                                 scenarios.Scenario(4322*scale,self.omni_directory+'fence_1/',self),
-                                scenarios.Flower(  4161*scale,     self.omni_directory+'flower_9/',self,8),
-                                scenarios.Flower(  4243*scale,     self.omni_directory+'flower_6/',self,8),
-                                scenarios.Flower(  4389*scale,     self.omni_directory+'flower_4/',self,8),
-                                scenarios.Flower(  4332*scale,     self.omni_directory+'flower_7/',self,8),
-                                scenarios.Flower(  6303*scale,     self.omni_directory+'flower_9/',self,8),
-                                scenarios.Flower(  6218*scale,     self.omni_directory+'flower_6/',self,8),
-                                scenarios.Flower(  6528*scale,     self.omni_directory+'flower_4/',self,8),
-                                scenarios.Flower(  6665*scale,     self.omni_directory+'flower_4/',self,8),
-                                scenarios.Flower(  6620*scale,     self.omni_directory+'flower_7/',self,8),
-                                scenarios.Flower(  7123*scale,     self.omni_directory+'grass_2/',self,8),
-                                scenarios.Flower(  7197*scale,     self.omni_directory+'grass_1/',self,8),
+                                scenarios.Flower(  4161*scale,self.omni_directory+'flower_9/',self,8),
+                                scenarios.Flower(  4243*scale,self.omni_directory+'flower_6/',self,8),
+                                scenarios.Flower(  4389*scale,self.omni_directory+'flower_4/',self,8),
+                                scenarios.Flower(  4332*scale,self.omni_directory+'flower_7/',self,8),
+                                scenarios.Flower(  6303*scale,self.omni_directory+'flower_9/',self,8),
+                                scenarios.Flower(  6218*scale,self.omni_directory+'flower_6/',self,8),
+                                scenarios.Flower(  6528*scale,self.omni_directory+'flower_4/',self,8),
+                                scenarios.Flower(  6665*scale,self.omni_directory+'flower_4/',self,8),
+                                scenarios.Flower(  6620*scale,self.omni_directory+'flower_7/',self,8),
+                                scenarios.Flower(  7123*scale,self.omni_directory+'grass_2/',self,8),
+                                scenarios.Flower(  7197*scale,self.omni_directory+'grass_1/',self,8),
                                 scenarios.Scenario(6058*scale,self.omni_directory+'grass_1/',self),
                                 scenarios.Scenario(6754*scale,self.omni_directory+'fence_1/',self),
                                 scenarios.FrontScenario(9168*scale,self.directory+'magic_beauty_salon/portal/',self,index=0)]
@@ -331,7 +356,7 @@ class Stage():
         pygame.mixer.music.play()
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
 
-        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
         panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120)
         ### set_floor ###
         self.floor_heights = [186*scale]*int((9400*scale))
@@ -367,6 +392,7 @@ class Stage():
                 pass
 
     def DressSt(self,goalpos = None):
+        self.animated_scenarios = []
         self.universe.center_x = -goalpos+(self.universe.width/2)
         self.princesses[0].center_distance = goalpos
         self.gates = []
@@ -413,20 +439,38 @@ class Stage():
 
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0)]
 
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',    3000*scale,self),
-                            enemy.OldLady(2,self.enemy_dir+'old_lady/',     4000*scale,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/', 2600*scale,self,[22*scale,22*scale,22*scale,22*scale],dirty=True),
-                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000*scale,self)]
 
-        self.gates = [scenarios.BuildingDoor(p((100,450)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
-                      scenarios.BuildingDoor(p((9092,430)),self.directory+'snow_white_castle/door/',self),
+        self.enemies = []
+        try:
+            self.save_file = self.universe.file.readlines()
+        except:
+            self.save_file = open(self.universe.file).readlines()
+        #Interpret the save file
+        for line in self.save_file:
+            linha = line.split()
+            if linha[0] == 'DressSt':
+                for en in linha[1:]:
+                    exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
+                    self.enemies.append(item)
+
+
+
+
+
+#        self.enemies    = [ 
+#                            enemy.OldLady(2,self.enemy_dir+'old_lady/',     4000*scale,self),
+#                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/', 2600*scale,self,[22*scale,22*scale,22*scale,22*scale],dirty=True),
+#                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000*scale,self)]
+
+        self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
+                      scenarios.BuildingDoor(p((9092,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
                       scenarios.Gate(dressgate[0], 'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
                       scenarios.Gate(dressgate[1], 'data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
                       scenarios.Gate(dressgate[2], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        self.clouds     = [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.scenarios_front = [scenarios.Scenario(i[0],i[1],self) for i in (
                                 (557*scale,self.directory+'fence/base/'),
@@ -451,7 +495,7 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
 
-        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
         self.lights = []
         for i in self.scenarios_prep:
             try:
@@ -460,7 +504,7 @@ class Stage():
             except:
                 pass
         ### Set Floor ###
-        self.floor_heights = [185*scale]*(9400*scale)
+        self.floor_heights = [int(185*scale)]*int(9400*scale)
         count   = 0
         n       = 1120
         a       = 15
@@ -472,9 +516,10 @@ class Stage():
 
 
     def AccessorySt(self,goalpos = None):
-        self.universe.center_x = -goalpos+(self.universe.width/2)
-        self.princesses[0].center_distance = goalpos
-        self.gates = []
+        self.animated_scenarios             = []
+        self.universe.center_x              = -goalpos+(self.universe.width/2)
+        self.princesses[0].center_distance  = goalpos
+        self.gates                          = []
         self.directory = self.maindir+'accessory_st/'
         self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
                                ((scale*-3,self.directory+'accessory_tower/'),
@@ -509,22 +554,35 @@ class Stage():
                                 (scale*9476,self.omni_directory+'small_bush_1/'),
                             )]
         self.scenarios_prep.extend([
-                                scenarios.Scenario(scale*(2*400),self.directory+'floor/left_bank_back/',self, height = 4),
-                                scenarios.Scenario(scale*(3*400),self.directory+'floor/right_bank_back/',self,height = 4)])
+                scenarios.Scenario(scale*(2*400),self.directory+'floor/left_bank_back/' ,self, height  = int(-188*scale)),
+                scenarios.Scenario(scale*(3*400),self.directory+'floor/right_bank_back/',self, height  = int(-188*scale)),
+                scenarios.Scenario(scale*(20*400),self.directory+'floor/left_bank_back/' ,self, height = int(-188*scale)),
+                scenarios.Scenario(scale*(21*400),self.directory+'floor/right_bank_back/',self, height = int(-188*scale))])
         self.scenarios = BigScenario(self),
 
 
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
+        self.enemies = []
+        try:
+            self.save_file = self.universe.file.readlines()
+        except:
+            self.save_file = open(self.universe.file).readlines()
+        #Interpret the save file
+        for line in self.save_file:
+            linha = line.split()
+            if linha[0] == 'AccessorySt':
+                for en in linha[1:]:
+                    exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
+                    self.enemies.append(item)
 
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',    scale*3000,self),
-                            enemy.OldLady(2,self.enemy_dir+'old_lady/',     scale*4000,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/', scale*2600,self,p([22*scale,22*scale,22*scale,22*scale]),dirty=True),
-                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',scale*6000,self)]
         self.gates.extend([
-                            scenarios.Gate(accessorygate[0], 'data/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
-                            scenarios.Gate(accessorygate[1], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
-                            scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])])
+            scenarios.BuildingDoor(p((330,428)),self.directory+'accessory_tower/door/',self,self.accessory_castle()),
+            scenarios.BuildingDoor(p((8809,425)),self.directory+'castle/door/',self,inside.Princess_Home(self, Sleeping_Beauty)),
+            scenarios.Gate(accessorygate[0], 'data/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
+            scenarios.Gate(accessorygate[1], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
+            scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
+                        ])
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
         self.floor_image.extend([enemy.VikingShip(9000*scale,self)])
@@ -536,19 +594,19 @@ class Stage():
         floors.Drain(self.directory+'floor/right_bank_front/',21,self)
 
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        self.clouds     = [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 
         self.scenarios_front = [
                                 scenarios.Scenario(scale*3903,self.omni_directory+'fence_1/',self),
                                 scenarios.Scenario(scale*178,self.directory+'accessory_tower/front/',self),
                                 scenarios.Scenario(scale*5470,self.directory+'house/front/',self),
-                                scenarios.Scenario(scale*1048,self.directory+'floor/main/',self, height = 10*scale),
-                                scenarios.Scenario(scale*1180,self.directory+'floor/main/',self, height = 10*scale),
-                                scenarios.Scenario(scale*1333,self.directory+'floor/main/',self, height = 10*scale),
-                                scenarios.Scenario(scale*8248,self.directory+'floor/main/',self, height = 10*scale),
-                                scenarios.Scenario(scale*8382,self.directory+'floor/main/',self, height = 10*scale),
-                                scenarios.Scenario(scale*8534,self.directory+'floor/main/',self, height = 10*scale),
+                                scenarios.Scenario(scale*1048,self.directory+'floor/main/',self, height = -90*scale),
+                                scenarios.Scenario(scale*1180,self.directory+'floor/main/',self, height = -90*scale),
+                                scenarios.Scenario(scale*1333,self.directory+'floor/main/',self, height = -90*scale),
+                                scenarios.Scenario(scale*8248,self.directory+'floor/main/',self, height = -90*scale),
+                                scenarios.Scenario(scale*8382,self.directory+'floor/main/',self, height = -90*scale),
+                                scenarios.Scenario(scale*8534,self.directory+'floor/main/',self, height = -90*scale),
 ]
         self.music = "data/sounds/music/accessory_day.ogg"
         pygame.mixer.music.load(self.music)
@@ -572,12 +630,12 @@ class Stage():
                 p((1150,1230,92)),
                 p((1230,1300,180)),
                 p((1300,1360,92)),
-                p((5550,5610,202)),
-                p((5610,5700,199)),
-                p((5700,5810,197)),
-                p((6170,6280,197)),
-                p((6280,6350,199)),
-                p((6350,6410,202)),
+                p((5550,5610,205)),
+                p((5610,5700,202)),
+                p((5700,5810,200)),
+                p((6170,6280,200)),
+                p((6280,6350,202)),
+                p((6350,6410,205)),
                 p((8057,8146,92)),
                 p((8147,8196,180)),
                 p((8197,8286,92)),
@@ -601,70 +659,78 @@ class Stage():
                 pass
 
     def MakeupSt(self,goalpos = None):
+        self.animated_scenarios = []
         self.universe.center_x = -goalpos+(self.universe.width/2)
         self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'makeup_st/'
         self.scenarios_prep  =  [scenarios.Scenario(i[0],i[1],self) for i in
                                 (
-                                (0,self.directory+'make-up_castle/base/'),
-                                (0,self.directory+'make-up_castle/front_1/'),
-                                (1484,self.omni_directory+'bush/'),
-                                (1635,self.omni_directory+'hydrant/'),
-                                (1605,self.directory+'temple/base/'),
-                                (2576,self.omni_directory+'tree_2/'),
-                                (2576,self.omni_directory+'fence_1/'),
-                                (4160,self.omni_directory+'tree_2/'),
-                                (2923,self.directory+'zoo/background/'),
-                                (4800,self.omni_directory+'grass_3/'),
-                                (4952,self.omni_directory+'flower_7/'),
-                                (4891,self.omni_directory+'flower_8/'),
-                                (5126,self.omni_directory+'flower_7/'),
-                                (5252,self.omni_directory+'grass_3/'),
-                                (5239,self.omni_directory+'grass_3/'),
-                                (5481,self.omni_directory+'grass_3/'),
-                                (5335,self.omni_directory+'tree_1/'),
-                                (5571,self.omni_directory+'flower_8/'),
-                                (5632,self.omni_directory+'flower_7/'),
-                                (5607,self.omni_directory+'grass_3/'),
-                                (5600,self.omni_directory+'tree_1/'),
-                                (6700,self.omni_directory+'tree_2/'),
-                                (6021,self.directory+'little_house/base/'),
-                                (5693,self.omni_directory+'bush/'),
-                                (5844,self.omni_directory+'hydrant/'),
-                                (7900,self.omni_directory+'tree_1/'),
-                                (7217,self.directory+'right/base/'),
-                                (8426,self.directory+'sleeping_castle/base/')
+                                (scale*0,self.directory+'make-up_castle/base/'),
+                                (scale*0,self.directory+'make-up_castle/front_1/'),
+                                (scale*1484,self.omni_directory+'bush/'),
+                                (scale*1635,self.omni_directory+'hydrant/'),
+                                (scale*1605,self.directory+'temple/base/'),
+                                (scale*2576,self.omni_directory+'tree_2/'),
+                                (scale*2576,self.omni_directory+'fence_1/'),
+                                (scale*4160,self.omni_directory+'tree_2/'),
+                                (scale*2923,self.directory+'zoo/background/'),
+                                (scale*4800,self.omni_directory+'grass_3/'),
+                                (scale*4952,self.omni_directory+'flower_7/'),
+                                (scale*4891,self.omni_directory+'flower_8/'),
+                                (scale*5126,self.omni_directory+'flower_7/'),
+                                (scale*5252,self.omni_directory+'grass_3/'),
+                                (scale*5239,self.omni_directory+'grass_3/'),
+                                (scale*5481,self.omni_directory+'grass_3/'),
+                                (scale*5335,self.omni_directory+'tree_1/'),
+                                (scale*5571,self.omni_directory+'flower_8/'),
+                                (scale*5632,self.omni_directory+'flower_7/'),
+                                (scale*5607,self.omni_directory+'grass_3/'),
+                                (scale*5600,self.omni_directory+'tree_1/'),
+                                (scale*6700,self.omni_directory+'tree_2/'),
+                                (scale*6021,self.directory+'little_house/base/'),
+                                (scale*5693,self.omni_directory+'bush/'),
+                                (scale*5844,self.omni_directory+'hydrant/'),
+                                (scale*7900,self.omni_directory+'tree_1/'),
+                                (scale*7217,self.directory+'right/base/'),
+                                (scale*8426,self.directory+'sleeping_castle/base/')
                                 )
                                 ]
         self.scenarios = [BigScenario(self)]
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
-
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
-                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
-                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self),
-                            ]
+        self.enemies = []
+        try:
+            self.save_file = self.universe.file.readlines()
+        except:
+            self.save_file = open(self.universe.file).readlines()
+        #Interpret the save file
+        for line in self.save_file:
+            linha = line.split()
+            if linha[0] == 'MakeupSt':
+                for en in linha[1:]:
+                    exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
+                    self.enemies.append(item)
         self.gates.extend([ scenarios.Gate(makeupgate[x],'data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
                             ((0, self.DressSt, dressgate[2]),
                              (1, self.AccessorySt, accessorygate[1]),
                              (2, self.ShoesSt ,shoegate[0]))
                             ])
-        self.gates.extend([scenarios.BuildingDoor((100,450),self.directory+'make-up_castle/door/',self,self.makeup_castle())])
+        self.gates.extend([scenarios.BuildingDoor(p((130,225)),self.directory+'make-up_castle/door/',self,self.makeup_castle()),
+                     scenarios.BuildingDoor(p((8900,225)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
 
 
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
 
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        self.clouds     = [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
-        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
-        self.animated_scenarios = [ enemy.Lion(3200,self),
-                                    enemy.Monkey(3500,self),
-                                    scenarios.Scenario(2923,self.directory+'zoo/base/',self)]
+        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
+        self.animated_scenarios = [ enemy.Lion(3200*scale,self),
+                                    enemy.Monkey(3500*scale,self),
+                                    scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
 
         self.lights = []
@@ -676,15 +742,16 @@ class Stage():
                 pass
 
         ### Set Floor ### (x1,x2,y)
-        self.floor_heights = [190]*9400
+        self.floor_heights = [192*scale]*int((9400*scale))
         count   = 0
         n       = 1120
         a       = 15
-        FDICT   = [ (0,90,3000),
-                (90,130,330), (130,140,325),(140,150,320),(150,160,315),(160,170,310), (170,180,305), (180,190,300),
-                (190,200,295), (200,210,290), (210,220,285), (220,230,280), (230,240,275), (240,250,270), (250,260,265),
-                (260,270,260), (270,280,255), (280,290,250), (290,300,245), (300,310,240), (310,320,235), (320,330,230),
-                (330,350,220), (350,360,210), (360,380,200)
+        FDICT   = [ p((0,90,3000)),
+                    p((90,130,330)),                      p((130,140,325)),
+                    p((140,150,320)),                    p((150,160,315)),                    p((160,170,310)),                    p((170,180,305)),                    p((180,190,300)),
+                    p((190,200,295)),                     p((200,210,290)),                     p((210,220,285)),                     p((220,230,280)),                     p((230,240,275)),                     p((240,250,270)),                     p((250,260,265)),
+                    p((260,270,260)),                     p((270,280,255)),                     p((280,290,250)),                     p((290,300,245)),                     p((300,310,240)),                     p((310,320,235)),                     p((320,330,230)),
+                    p((330,350,220)),                     p((350,360,210)),                     p((360,380,200))
                 ]
 
         for i in FDICT:
@@ -697,83 +764,91 @@ class Stage():
         pygame.mixer.music.play()
 
     def ShoesSt(self,goalpos=None):
+        self.animated_scenarios = []
         self.universe.center_x = -goalpos+(self.universe.width/2)
         self.princesses[0].center_distance = goalpos
         self.gates = []
         self.directory = self.maindir+'shoes_st/'
         self.scenarios_prep =  [scenarios.Scenario(i[0],i[1],self) for i in (
-                                (0,  self.directory+'shoes_tower/base/'),
-                                (649,self.omni_directory+'colorful_tree_2/'),
-                                (649,self.omni_directory+'colorful_bush/'),
-                                (1035,'data/images/scenario/bathhouse_st/light_post/post/'),
-                                (1033,self.omni_directory+'flower_9/'),
-                                (1098,self.omni_directory+'flower_9/'),
-                                (1497,self.omni_directory+'colorful_tree_2/'),
-                                (2368,self.omni_directory+'colorful_tree_2/'),
-                                (2242,self.omni_directory+'colorful_tree_1/'),
-                                (1670,self.directory+'temple/base/'),
-                                (2548,self.omni_directory+'hydrant/'),
-                                (2676,'data/images/scenario/bathhouse_st/light_post/post/'),
-                                (3000,self.omni_directory+'colorful_bush/'),
-                                (2876,self.omni_directory+'colorful_bush/'),
-                                (3276,self.directory+'poor_house/base/'),
-                                (3172,self.omni_directory+'colorful_tree_2/'),
-                                (4086,self.omni_directory+'colorful_tree_2/'),
-                                (4516,self.omni_directory+'flower_9/'),
-                                (4594,self.omni_directory+'flower_9/'),
-                                (4506,'data/images/scenario/bathhouse_st/light_post/post/'),
-                                (5054,self.omni_directory+'flower_9/'),
-                                (4992,self.omni_directory+'flower_9/'),
-                                (4956,self.omni_directory+'hydrant/'),
-                                (5588,self.omni_directory+'colorful_tree_2/'),
-                                (5104,self.directory+'house_1/base/'),
-                                (5846,self.directory+'library/base/'),
-                                (5770,self.omni_directory+'colorful_bush/'),
-                                (6750,'data/images/scenario/bathhouse_st/light_post/post/'),
-                                (6918,self.omni_directory+'flower_9/'),
-                                (7026,self.omni_directory+'flower_9/'),
-                                (6918,self.omni_directory+'flower_9/'),
-                                (7758,self.omni_directory+'flower_9/'),
-                                (7666,self.omni_directory+'flower_9/'),
-                                (7602,self.omni_directory+'flower_9/'),
-                                (7778,self.omni_directory+'colorful_tree_1/'),
-                                (7940,'data/images/scenario/dress_st/fence/base/'),
-                                (8476,'data/images/scenario/bathhouse_st/light_post/post/'),
-                                (8574,self.omni_directory+'colorful_tree_2/'),
-                                (8570,self.omni_directory+'flower_9/'),
-                                (8762,self.omni_directory+'flower_9/'),
-                                (8682,self.omni_directory+'flower_9/'),
-                                (8860,self.directory+'rapunzel_castle/base/'))]
+                                (scale*0,  self.directory+'shoes_tower/base/'),
+                                (scale*649,self.omni_directory+'colorful_tree_2/'),
+                                (scale*649,self.omni_directory+'colorful_bush/'),
+                                (scale*1035,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (scale*1033,self.omni_directory+'flower_9/'),
+                                (scale*1098,self.omni_directory+'flower_9/'),
+                                (scale*1497,self.omni_directory+'colorful_tree_2/'),
+                                (scale*2368,self.omni_directory+'colorful_tree_2/'),
+                                (scale*2242,self.omni_directory+'colorful_tree_1/'),
+                                (scale*1670,self.directory+'temple/base/'),
+                                (scale*2548,self.omni_directory+'hydrant/'),
+                                (scale*2676,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (scale*3000,self.omni_directory+'colorful_bush/'),
+                                (scale*2876,self.omni_directory+'colorful_bush/'),
+                                (scale*3276,self.directory+'poor_house/base/'),
+                                (scale*3172,self.omni_directory+'colorful_tree_2/'),
+                                (scale*4086,self.omni_directory+'colorful_tree_2/'),
+                                (scale*4516,self.omni_directory+'flower_9/'),
+                                (scale*4594,self.omni_directory+'flower_9/'),
+                                (scale*4506,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (scale*5054,self.omni_directory+'flower_9/'),
+                                (scale*4992,self.omni_directory+'flower_9/'),
+                                (scale*4956,self.omni_directory+'hydrant/'),
+                                (scale*5588,self.omni_directory+'colorful_tree_2/'),
+                                (scale*5104,self.directory+'house_1/base/'),
+                                (scale*5846,self.directory+'library/base/'),
+                                (scale*5770,self.omni_directory+'colorful_bush/'),
+                                (scale*6750,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (scale*6918,self.omni_directory+'flower_9/'),
+                                (scale*7026,self.omni_directory+'flower_9/'),
+                                (scale*6918,self.omni_directory+'flower_9/'),
+                                (scale*7758,self.omni_directory+'flower_9/'),
+                                (scale*7666,self.omni_directory+'flower_9/'),
+                                (scale*7602,self.omni_directory+'flower_9/'),
+                                (scale*7778,self.omni_directory+'colorful_tree_1/'),
+                                (scale*7940,'data/images/scenario/dress_st/fence/base/'),
+                                (scale*8476,'data/images/scenario/bathhouse_st/light_post/post/'),
+                                (scale*8574,self.omni_directory+'colorful_tree_2/'),
+                                (scale*8570,self.omni_directory+'flower_9/'),
+                                (scale*8762,self.omni_directory+'flower_9/'),
+                                (scale*8682,self.omni_directory+'flower_9/'),
+                                (scale*8860,self.directory+'rapunzel_castle/base/'))]
 
         self.scenarios = BigScenario(self),
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
-
-        self.animated_scenarios = [scenarios.Scenario(7137,self.directory+'fountain/base/',self)]
-
-        self.enemies    = [ enemy.Carriage(3,self.enemy_dir+'carriage/',3000,self),
-                            enemy.OldLady(2,self.enemy_dir+'old_lady/',4000,self),
-                            enemy.Schnauzer(10,self.enemy_dir+'schnauzer/',2600,self,[22,22,22,22],dirty=True),
-                            enemy.Butterfly(4,self.enemy_dir+'butterflies/',6000,self)]
-
-        self.gates = [scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
-                      scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt, goalpos = dressgate[1]),
+        self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
+        self.enemies = []
+        try:
+            self.save_file = self.universe.file.readlines()
+        except:
+            self.save_file = open(self.universe.file).readlines()
+        #Interpret the save file
+        for line in self.save_file:
+            linha = line.split()
+            if linha[0] == 'ShoesSt':
+                for en in linha[1:]:
+                    exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
+                    self.enemies.append(item)
+        self.gates = [scenarios.BuildingDoor(p((50,503)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
+                      scenarios.BuildingDoor(p((8500,503)),self.directory+'rapunzel_castle/door/',self,self.Princess_Home(self, Rapunzel)),
+                      scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
+                      scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
                       scenarios.Gate(shoegate[2],'data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),
 ]
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.sky        = [skies.Sky('data/images/scenario/skies/daytime/daytime.png',self,self.universe.clock_pointer)]
-        self.clouds     = [clouds.Cloud(self) for cl in range(3)]
+        self.clouds     = [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.scenarios_front = [scenarios.Scenario(i[0],i[1],self) for i in (
-                                (2754,'data/images/scenario/dress_st/fence/base/'),
-                                (3936,'data/images/scenario/dress_st/fence/base/'),
-                                (4434,self.omni_directory+'flower_9/'),
-                                (4362,self.omni_directory+'flower_9/'),
-                                (6544,self.omni_directory+'colorful_tree_2/'),
-                                (6500,'data/images/scenario/dress_st/fence/base/'),
-                                (6800,self.omni_directory+'colorful_tree_1/'),
-                                (8860,self.directory+'rapunzel_castle/front/'),
+                                (scale*2754,'data/images/scenario/dress_st/fence/base/'),
+                                (scale*3936,'data/images/scenario/dress_st/fence/base/'),
+                                (scale*4434,self.omni_directory+'flower_9/'),
+                                (scale*4362,self.omni_directory+'flower_9/'),
+                                (scale*6544,self.omni_directory+'colorful_tree_2/'),
+                                (scale*6500,'data/images/scenario/dress_st/fence/base/'),
+                                (scale*6800,self.omni_directory+'colorful_tree_1/'),
+                                (scale*8860,self.directory+'rapunzel_castle/front/'),
                                 )]
 
         self.music = "data/sounds/music/shoes_day.ogg"
@@ -781,15 +856,15 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
-        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
 
 
         ### set floor ### (x1,x2,y)
-        self.floor_heights = [190]*9400
+        self.floor_heights = [192*scale]*int((9400*scale))
         count   = 0
         n       = 1120
         a       = 15
-        FDICT   = [ (250,350,242), (350,390,217), (390,430,195),(430,450,190)]
+        FDICT   = [ p((250,350,242)), p((350,390,217)), p((390,430,195)),p((430,450,190))]
 
         for i in FDICT:
             for r in range(i[0],i[1]):
@@ -802,25 +877,6 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-
-    def define_enemies(self):
-        stages = ['shoes','makeup','accessory','dress','bathhouse']
-        enemies = ['OldLady', 'Schnauzer','Butterfly', 'FootBoy','Bird']
-
-    def choose_enemies(self):
-        try:
-            self.file = save.readlines()
-        except:
-            self.file = open(save).readlines()
-        #Interpret the save file
-        for line in self.file:
-            linha = line.split()
-#            if linha[0] == self.name:
-#               for enemy in linha[1:]:
-#                    exec("self.enemies.append(enemy."+enemy+"(SPEED,self.enemy_dir+'"enemy.lower()+"/', int(randint(0,900)*scale),self))")
-
-    def set_enemies(self):
-        pass        
 
 
 class Foreground():
@@ -863,7 +919,7 @@ class Bar():
 class BigScenario():
     def __init__(self,level):
         self.level      = level
-        self.image      = pygame.Surface((9600*scale,level.universe.height),pygame.SRCALPHA).convert_alpha()
+        self.image      = pygame.Surface((9600*scale,level.universe.height), pygame.SRCALPHA).convert_alpha()
         self.pos        = [self.level.universe.center_x,0]
 
     def update_all(self):

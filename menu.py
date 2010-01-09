@@ -34,7 +34,7 @@ class MenuScreen():
         self.bar_position   = -self.bar_size[0]
         self.menu           = Menu(self,'menu')
         self.menu.main()
-        self.speed          = 5.
+        self.speed          = 5*scale
         self.drapes         = []
         self.upper_drapes   = []
         self.STEP           = self.update_drape
@@ -53,20 +53,25 @@ class MenuScreen():
         self.STEP(self.universe.screen_surface)
         self.count += 1
 
+
     def update_drape(self,surface):
         for drape in self.drapes:
             drape.action = self.action
             drape.update_all()
-            surface.blit(drape.image,drape.position)
-            ####### STEP #######
+            surface.blit(drape.image,(drape.x,0))
         self.upper_drapes.action = self.action
         self.upper_drapes.update_all()
-        surface.blit(self.upper_drapes.image,self.upper_drapes.position)        
-        if self.upper_drapes.position[1] < -self.upper_drapes.size[1]+10:
-            self.STEP = self.STEP_arrive_bar
+        surface.blit(self.upper_drapes.image,(0,self.upper_drapes.y))        
+        if self.upper_drapes.y < -self.upper_drapes.size_y+10:
+            self.STEP = self.STEP_arrive_bar ## Change the STEP
             self.bar_side = 'left'
 
     def STEP_arrive_bar(self,surface):
+        if self.menu.back_background:
+            surface.blit(self.menu.back_background,(0,0))
+        if self.bar_side:
+            surface.blit(self.bar,(self.bar_position,0))
+
         if self.bar_side == 'left':
             if self.bar_position < 0:
                 self.bar_position += self.speed
@@ -76,46 +81,29 @@ class MenuScreen():
                     self.speed += .5
             else:
                 self.bar_position = 0
-                ####### STEP #########
-                self.STEP = self.update_menus
+                self.STEP = self.update_menus ## Change the STEP
+
         elif self.bar_side == 'right':
-            if self.bar_position+516 > self.universe.width:
+            if self.bar_position+(516*scale) > self.universe.width:
                 self.bar_position -= self.speed
                 if self.bar_position < ((self.universe.width-(300*scale))):
-                    self.speed += .5
+                    self.speed += (.5*scale)
                 else:
-                    self.speed -= .5
+                    self.speed -= (.5*scale)
             else:
                 self.bar_position = (1440-516)*scale
-                ####### STEP #######
-                self.STEP = self.update_menus
-            if self.menu.background:
-                surface.blit(self.menu.background,(0,0))
-        if self.bar_side:
-            surface.blit(self.bar,(self.bar_position,0))
+                self.STEP = self.update_menus ## Change the STEP
 
     def update_menus(self,surface):
-        self.menu.update_all()
-        if self.action == 'open':
-            self.menu.action = self.action
-        else:
-            if self.menu.actual_position[1]<1200:
-                self.menu.action = 'close'
-            else:
-                self.action = 'open'
-                ####### STEP #######
-                self.STEP = self.close_bar
         if self.menu.back_background:
             surface.blit(self.menu.back_background,(0,0))
         if self.menu.background:
             surface.blit(self.menu.background,self.menu.actual_position)
-        if self.bar:
+        if self.bar_side:
             surface.blit(self.bar,(self.bar_position,0))
-
         if self.menu.story:
             self.menu.story.update_all()
             [surface.blit(i,(0,0)) for i in self.menu.story.images if i]
-
         for item in items:
             exec("for i in self.menu."+item+":\n    i.update_all()\n    surface.blit(i.image,i.pos)")
         for i in self.menu.options:
@@ -128,6 +116,15 @@ class MenuScreen():
         if self.menu.print_princess:
             self.menu.princess.update_all()
             [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images if i]
+        self.menu.update_all()
+        if self.action == 'open':
+            self.menu.action = self.action
+        else:
+            if self.menu.actual_position[1]<1200*scale:
+                self.menu.action = 'close'
+            else:
+                self.action = 'open'
+                self.STEP = self.close_bar ## Change the STEP
         if self.menu.princess:
             self.menu.princess.name.text = self.menu.princess.name.text.title()
 
@@ -144,11 +141,10 @@ class MenuScreen():
                     self.bar_side   = "right"
                 elif call_bar == 'left':
                     self.bar_side = "left"
-            self.universe.LEVEL = 'menu'
             self.action = 'open'
             self.menu.next_menu()
-        if self.menu.background:
-            surface.blit(self.menu.background,(0,0))
+        if self.menu.back_background:
+            surface.blit(self.menu.back_background,(0,0))
         surface.blit(self.bar,(self.bar_position,0))
 
 
@@ -250,7 +246,7 @@ class Menu():
                             for i in zip(lowercase,positions)]
         self.options.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
                              Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-                             Options(_('done'),      (245*scale,545*scale)  ,self,'start_game',font_size=30)
+                             Options(_('done'),      (245*scale,500*scale)  ,self,'start_game',font_size=30)
                             ])
         if name_taken:
             self.texts = [  GameText(_('Sorry, This name is taken.'),(-200*scale,200*scale),self),
@@ -264,7 +260,7 @@ class Menu():
         title_dir = 'data/images/interface/title_screen/'
         self.buttons= [MenuArrow(title_dir+'arrow_right/',(360*scale,400*scale), self, self.change_princess,parameter = (1,'skin')),
                        MenuArrow(title_dir+'arrow_right/',(100*scale,400*scale), self, self.change_princess,parameter = (-1,'skin'), invert = True),
-                       MenuArrow(title_dir+'button_ok/',(200*scale,570*scale),self,self.start_game)]
+                       MenuArrow(title_dir+'button_ok/',(200*scale,600*scale),self,self.start_game)]
 
     def update_all(self):
         self.actual_position[1] += self.speed
@@ -297,25 +293,25 @@ class Menu():
     def back_to_main(self):
         self.go_back = True
         self.next_menu = self.main
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def back_to_select_princess(self):
         self.go_back = True
         self.next_menu = self.select_princess
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def new_game(self):
         self.go_back = False
         self.next_menu = self.select_princess
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def load_game(self):
         self.go_back = False        self.next_menu = self.select_saved_game
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def play_story(self):
         self.go_back = False        self.next_menu = self.watching_story
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def choose_language(self):
         pass
@@ -325,6 +321,7 @@ class Menu():
         global name_taken
         if not using_saved_game:
             try:
+                print "criar diretorio"
                 os.mkdir(self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text)
                 new_file = open('data/saves/' + self.princess.name.text + '/' + self.princess.name.text + '.glamour', 'w')
                 new_file.write(
@@ -344,10 +341,33 @@ class Menu():
                             'points 0'+'\n'
                             '#Level'+'\n'
                             'level level'+'\n'
+                            'past_ball          None \n'
+                            'great_past_ball    None\n'
+                            'BathhouseSt    Schnauzer Butterfly\n'
+                            'DressSt        Bird\n'
+                            'AccessorySt    Schnauzer\n'
+                            'MakeupSt       OldLady\n'
+                            'ShoesSt        FootBoy\n'
+                            'Cinderella Accessory shades\n'
+                            'Cinderella Dress red\n'
+                            'Cinderella Shoes crystal\n'
+                            'Cinderella Makeup eyeshades\n'
+                            'Snow_White Accessory purse\n'
+                            'Snow_White Dress yellow\n'
+                            'Snow_White Shoes red\n'
+                            'Snow_White Makeup eyelids\n'
+                            'Sleeping_Beauty Accessory crown\n'
+                            'Sleeping_Beauty Dress plain\n'
+                            'Sleeping_Beauty Shoes slipper\n'
+                            'Sleeping_Beauty Makeup simple\n'
+                            'Rapunzel Accessory ribbon\n'
+                            'Rapunzel Dress yellow\n'
+                            'Rapunzel Shoes white\n'
+                            'Rapunzel Makeup eyelids'
                             )
                 new_file.close()
                 self.screen.universe.LEVEL= 'start'
-                self.screen.universe.file = open('data/saves/'+self.princess.name.text+'/'+self.princess.name.text+'.glamour')
+                self.screen.universe.file = 'data/saves/'+self.princess.name.text+'/'+self.princess.name.text+'.glamour'
                 name_taken = False
             except:
                 name_taken = True
@@ -369,11 +389,11 @@ class Menu():
 
     def to_name_your_princess(self,param = None):
         self.next_menu = self.name_your_princess
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def to_select_hair(self,param):
         self.next_menu = self.select_hair
-        self.screen.universe.LEVEL = 'close'
+        self.screen.action = 'close'
 
     def select_saved_game(self):
         self.screen.bar = pygame.transform.flip(self.screen.bar,1,0)
@@ -411,6 +431,8 @@ class Menu():
 
     def watching_story(self):
         title_dir = 'data/images/interface/title_screen/'
+        self.screen.bar = pygame.transform.flip(self.screen.bar,1,0)
+        self.screen.bar_position =  2000*scale
         self.story = Story_Frame(self)
         self.back_background = obj_images.scale_image(pygame.image.load('data/images/story/background/background.png').convert())
         self.action     = 'open'
@@ -640,14 +662,15 @@ class Story_Frame():
         self.channel.queue(self.available_sounds[self.frame_number])
         self.frame_number += 1
         if self.frame_number:
-            self.menu.screen.bar = None
+            self.menu.screen.bar_side = None
             self.menu.texts = []
             self.menu.backgrounds = []
+            self.menu.background = None
 
     def past_frame(self):
         self.channel.play(self.flip_sound)
         self.frame_number -= 1
         if self.frame_number == 0:
-            self.menu.screen.bar = self.menu.screen.right_bar
+            self.menu.screen.bar_side = 'right'
             self.menu.texts = self.texts
-#            self.menu.backgrounds    = [self.menu.selection_canvas]
+            self.menu.background = obj_images.scale_image(pygame.image.load('data/images/interface/title_screen/selection_canvas/0.png').convert_alpha())

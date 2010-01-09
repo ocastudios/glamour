@@ -9,7 +9,7 @@ class Billboard():
         self.size = self.image.get_size()[0]
 #        self.center_distance = ((self.level.universe.center_x-self.level.universe.width) * (self.level.size - self.size))/self.level.size
 
-        self.center_distance = ((self.size - self.level.universe.width)*self.level.universe.center_x)/(self.level.size -self.level.universe.width)
+        self.center_distance = ((self.size - self.level.universe.width)*self.level.universe.center_x)/(self.level.size-self.level.universe.width)
 
         self.pos = [self.center_distance, self.level.universe.floor - self.image.get_size()[1]]
 

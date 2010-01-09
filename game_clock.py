@@ -20,7 +20,7 @@ class ClockPointer():
             x+= 0.5
         self.clock_pointer_basic= obj_images.scale_image(pygame.image.load('data/images/interface/clock/clock_pointer.png').convert_alpha())
         self.clock_pointer      = []
-        self.count              = 0
+        self.count              = 160
         self.tick               = 0
         self.time               = 'day' #morning,day,evening,night
         self.clock_pointer = [pygame.transform.rotate(self.clock_pointer_basic,degree) for degree in self.rotate_list]

@@ -1,32 +1,56 @@
 import pygame
 import obj_images
 import random
+from settings import *
+
+
+def p(positions):
+    return [int(i*scale) for i in positions ]
 
 class Ball():
     directory = 'data/images/interface/ball/'
     def __init__(self, level, universe, princess):
+        self.universe   = universe
+        self.background      = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
 
-        self.background      = pygame.Surface((9600,level.universe.height),pygame.SRCALPHA).convert_alpha()
         for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
-            self.background.blit(pygame.image.load(file), (0,0))
+            self.background.blit(obj_images.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
+
+
         self.left_bar   = VerticalBar(self)
         self.princess   = princess
         self.Bar        = VerticalBar(self)
         self.Frame      = BallFrame(self)
         self.level      = level
-        self.universe   = universe
-        self.dancers    = [
-                            Dancer([1200,100]),
-                            Dancer([200,200]),
-                            Dancer([800,300]),
-                            Dancer([600,400]),
-                            Dancer([300,600])
-                            ]
 
+        self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
+        self.buttons = [BallButton('data/images/interface/title_screen/button_ok/',(300*scale,200*scale), self.level)]
         pygame.mixer.music.load("data/sounds/music/strauss_waltz_wedley.ogg")
         pygame.mixer.music.play()
+        general_enemies_list = ['Schnauzer', 'Bird', 'OldLady', 'FootBoy','Butterfly']
+        stage_list           = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
+        for stage in stage_list:
+            chosen_enemy = random.choice(general_enemies_list)
+            self.level.enemies_list[stage] = [chosen_enemy]
+            general_enemies_list.remove(chosen_enemy)
+        self.level.enemies_list[random.choice(['DressSt', 'MakeupSt','ShoesSt'])].append('Carriage')
 
-
+        princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
+        garment_list         = ['Accessory', 'Dress', 'Shoes','Makeup']
+        Accessory_list       = ['crown', 'purse','ribbon','shades']
+        Dress_list           = ['pink','plain','red','yellow']
+        Shoes_list           = ['crystal','red','slipper','white']
+        Makeup_list          = ['eyelids','eyeshades','lipstick','simple']
+        self.princesses_garment = ''
+        for princess in princesses_list:
+#            exec(princess+'_dict = {"Acessory":"","Dress":"","Shoes":"","Makeup":""}')
+            for garment in garment_list:
+#                exec(princess+'_dict['+garment+'] = '+exec('random.choice('+garment+'_list)'))
+                exec('item = random.choice('+garment+'_list)')
+                self.princesses_garment = self.princesses_garment+princess+' '+garment+' '+item+' \n'
+        print self.princesses_garment
+        self.level.princesses_garment = self.princesses_garment[:-3]
+        print self.level.princesses_garment
     def update_all(self):
         self.left_bar.update_all()
         self.level.game_mouse.update()
@@ -48,13 +72,16 @@ class Ball():
 
         for i in self.Frame.princesses:
             self.universe.screen_surface.blit(i.image,i.pos)
-            self.universe.screen_surface.blit(i.symbol,(i.symbolpos,i.pos[1]-100))
+            self.universe.screen_surface.blit(i.symbol,(i.symbolpos,i.pos[1]-100*scale))
+            i.update_all()
+        for i in self.buttons:
+            self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
 
 
 class VerticalBar():
     def __init__(self, ball, right_or_left = 'left'):
-        self.image = pygame.image.load('data/images/interface/ball/golden-bar.png').convert_alpha()
+        self.image = obj_images.scale_image(pygame.image.load('data/images/interface/ball/golden-bar.png').convert_alpha())
         if right_or_left == 'right':
             self.image = pygame.transform.flip(self.image, 1,0)
         self.size = self.image.get_size()
@@ -63,30 +90,30 @@ class VerticalBar():
         self.ready = False
 
     def update_all(self):
-        if self.position[0] < 90:
+        if self.position[0] < 90*scale:
             self.position[0] += self.speed
             self.speed += 5
         else:
-            self.position[0] = 90
+            self.position[0] = 90*scale
             self.ready = True
 
 
 class BallFrame():
     def __init__(self, ball):
-        self.image = pygame.image.load('data/images/interface/ball/back-frame.png').convert_alpha()
+        self.image = obj_images.scale_image(pygame.image.load('data/images/interface/ball/back-frame.png').convert_alpha())
         self.size = self.image.get_size()
-        self.position = [30, -self.size[1]]
+        self.position = [30*scale, -self.size[1]]
         self.speed = 5
         self.ball = ball
         self.princesses = [
-                FairyTalePrincess(self, 100,'hair_snowwhite','skin_pink', 'princess-icon-apple.png'),
-                FairyTalePrincess(self, 200,'hair_cinderella','skin_tan','princess-icon-shoe.png'),
-                FairyTalePrincess(self, 300,'hair_rapunzel','skin_pink', 'princess-icon-brush.png'),
-                FairyTalePrincess(self, 400,'hair_sleeping','skin_pink','princess-icon-spindle.png')
+                FairyTalePrincess(self, 100*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White'),
+                FairyTalePrincess(self, 200*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella'),
+                FairyTalePrincess(self, 300*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel'),
+                FairyTalePrincess(self, 400*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty')
                         ]
         self.texts = [
-                VerticalGameText("Yesterday's ball", (100,200), self),
-                VerticalGameText("Tonight's ball", (100,500), self),
+                VerticalGameText("Yesterday's ball", p((100,200)), self),
+                VerticalGameText("Tonight's ball", p((100,500)), self),
                     ]
 
     def update_all(self):
@@ -99,20 +126,37 @@ class BallFrame():
 
 
 class FairyTalePrincess():
-    def __init__(self, frame, position_x, hair, skin, icon):
+    def __init__(self, frame, position_x, hair, skin, icon, name = None):
+        skin_body       = 'skin_'+skin
+        skin_arm        = 'arm_'+skin
         princess_directory  = 'data/images/princess/'
         ball_directory      = 'data/images/interface/ball/'
         self.frame      = frame
-        self.image      = pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha()
-        images          = [ pygame.image.load(princess_directory+skin+'/stay/0.png').convert_alpha(),
-                            pygame.image.load(princess_directory+hair+'/stay/0.png').convert_alpha()]
-        self.position   = [position_x, 200]
+        self.file       = frame.ball.universe.file
+        self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
+        if name == 'Rapunzel':
+            self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/stay/0.png').convert_alpha()),(0,0))
+        images          = [obj_images.scale_image(pygame.image.load(princess_directory+item+'/stay/0.png').convert_alpha()) 
+                                for item in (skin_body,hair)]
+        self.position   = [position_x, 200*scale]
         for img in images:
             self.image.blit(img, (0,0))
-        self.symbol     =   pygame.image.load(ball_directory+icon).convert_alpha()
+        self.symbol     =  obj_images.scale_image( pygame.image.load(ball_directory+icon).convert_alpha())
         self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
         self.pos        = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
+
+        for item in ('Makeup','Dress','Accessory','Shoes'):
+            for line in open(self.file).readlines():
+                linha = line.split()
+                if len(linha)>= 1 and linha[0] == name and linha[1] == item:
+                    if linha[1] == 'Makeup':    dir = 'face'
+                    if linha[1] == 'Dress':     dir = 'dress'
+                    if linha[1] == 'Accessory':  dir = 'accessory'
+                    if linha[1] == 'Shoes':     dir = 'shoes'
+                    self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+dir+'_'+linha[2]+'/stay/0.png').convert_alpha()),(0,0))
+        self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+skin_arm+'/stay/0.png').convert_alpha()),(0,0))
+
 
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0],
@@ -132,12 +176,13 @@ class StarBall():
 class GameText():
     def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf'):
         self.frame      = frame
-        self.font      = pygame.font.Font('data/fonts/'+fonte,font_size)
+        self.font      = pygame.font.Font('data/fonts/'+fonte,font_size*scale)
         self.image      = self.font.render(text,1,color)
         self.position   = pos
         self.size       = self.image.get_size()
         self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
                            self.frame.position[1]+self.position[1]-(self.size[1]/2)]
+
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
                            self.frame.position[1]+self.position[1]-(self.size[1]/2)]
@@ -163,3 +208,43 @@ class Dancer():
     def update_all(self):
         self.image  = self.images.list[self.images.number]
         self.images.update_number()
+
+
+class BallButton():
+    def __init__(self,directory,position,level):
+        self.level      = level
+        self.images     = obj_images.Buttons(directory,5)
+        self.image      = self.images.list[self.images.number]
+        self.size       = self.image.get_size()
+        self.position   = position
+        self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
+                           (self.position[1]-(self.image.get_size()[1])/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+
+    def update_all(self):
+        self.update_pos()
+        self.click_detection()
+
+    def update_pos(self):
+        self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
+                           (self.position[1]-(self.image.get_size()[1])/2)]
+        self.rect = pygame.Rect(self.pos,self.size)
+
+    def invert_images(self,list):
+        inv_list=[]
+        for img in list:
+            inv = pygame.transform.flip(img,1,0)
+            inv_list.append(inv)
+        return inv_list
+
+    def click_detection(self):
+        self.rect = pygame.Rect(self.pos,self.size)
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            self.image = self.images.list[self.images.itnumber.next()]
+            if self.level.universe.click:
+                self.level.BathhouseSt(goalpos = 5520*scale)
+                self.level.universe.clock_pointer.count = 0
+        else:
+            if self.image != self.images.list[0]:
+                self.image = self.images.list[self.images.itnumber.next()]

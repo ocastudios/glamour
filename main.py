@@ -14,9 +14,6 @@ gamemenu = menu.MenuScreen(universe)
 
 while True:
     while universe.LEVEL != 'start':
-        if universe.LEVEL == 'close':
-            gamemenu.action = 'close'
-        if universe.LEVEL == 'close' or universe.LEVEL =='menu':
             control.main_menu(universe)
             gamemenu.update_all()
             pygame.display.flip()

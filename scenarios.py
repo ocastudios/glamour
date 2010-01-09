@@ -1,7 +1,9 @@
 import os
 import obj_images
 import pygame
+import random
 from pygame.locals import *
+from pygame.image import load
 from settings import *
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
@@ -17,7 +19,7 @@ class Scenario():
         if not height:
             self.pos  = [(self.center_distance),level.floor-(self.size[1]-(15*scale))]
         else:
-            self.pos = [(self.center_distance),height]
+            self.pos = [(self.center_distance), int(level.floor-self.size[1]-(height))]
 
         if self.images.lenght > 1:
             self.update_pos = self.update_with_images
@@ -86,7 +88,7 @@ class Gate(Scenario):
         self.change_level = False
         self.goal = goal
         self.rect           = Rect(self.pos, self.size)
-        self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(91,59))
+        self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(91*scale,59*scale))
 
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
@@ -169,7 +171,7 @@ class BuildingDoor():
         self.level.princesses[0].inside = True
 
     def outside(self):
-        self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','enemies','menus','princesses')
+        self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','princesses','enemies','menus')
 
 
 class Background():
@@ -190,3 +192,19 @@ class Background():
         pass
     def update_with_images(self):
         self.image          = self.images.list[self.images.itnumber.next()]
+
+class Cloud():
+    nimbus= None
+    def __init__(self,level):
+        dir = 'data/images/scenario/skies/nimbus/'
+        self.level = level
+        self.pos = (random.randint(0,int(level.universe.width)),random.randint(0,int(level.universe.height/4)))
+        self.nimbus = self.nimbus or [
+                            obj_images.scale_image(load(dir+'/0/0.png').convert_alpha()),
+                            obj_images.scale_image(load(dir+'/1/0.png').convert_alpha()),
+                            obj_images.scale_image(load(dir+'/2/0.png').convert_alpha()),
+                            obj_images.scale_image(load(dir+'/3/0.png').convert_alpha())
+                            ]
+        self.image = self.nimbus[random.randint(0,3)]
+    def update_all(self):
+        pass

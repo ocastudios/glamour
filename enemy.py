@@ -1,12 +1,15 @@
-
 import pygame
 import obj_images
 from pygame.locals import *
 import itertools
 import random
+import os
 from settings import *
 def p(positions):
     return [i*scale for i in positions ]
+
+enemy_dir = os.getcwd()+'/data/images/enemies/'
+
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
     def __init__(self,speed,directory, pos, level,margin=p([10,10,10,10]),dirty=False):
@@ -15,7 +18,6 @@ class Enemy():
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
         self.image = self.walk.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
-        self.alive = True
         self.level = level
         self.speed = speed*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
@@ -48,9 +50,29 @@ class Enemy():
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
 
 class Schnauzer(Enemy):
-    barfing = 0
-    bow = pygame.mixer.Sound('data/sounds/enemies/dog2.ogg')
-    lookside = 0
+    def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
+        directory  = enemy_dir+'Schnauzer/'
+        self.center_distance = pos
+        for i in ['kissed','walk','stay']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
+        self.image = self.walk.left[0]
+        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.level = level
+        self.speed = 12*scale
+        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.margin = margin
+        self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
+        self.decide = False
+        self.count = 0
+        self.move = True
+        self.direction = 'left'
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.gotkissed = 0
+        self.image_number = 0
+        self.barfing = 0
+        self.bow = pygame.mixer.Sound('data/sounds/enemies/dog2.ogg')
+        self.lookside = 0
+
     def barf(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.barfing == 1:
@@ -111,15 +133,15 @@ class Schnauzer(Enemy):
 
 
 class Carriage(Enemy):
-    def __init__(self,speed,directory, pos, level,margin=p([10,10,10,10]),dirty=False):
+    def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
+        directory = enemy_dir+'Carriage/'
         self.center_distance = pos
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
         self.image = self.walk.left[0]
         self.size = (self.image.get_width(), self.image.get_height())
-        self.alive = True
         self.level = level
-        self.speed = speed*scale
+        self.speed = 3 * scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -172,9 +194,30 @@ class Butterfly(Enemy):
     height = 100*scale
     up_direction = 'going_down'
     up = 5*scale
+    def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
+        directory = enemy_dir+'Butterfly/'
+        self.speed = 4*scale
+        self.center_distance = pos
+        for i in ['kissed','walk','stay']:
+            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
+        self.image = self.walk.left[0]
+        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.level = level
+        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.margin = margin
+        self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
+        self.decide = False
+        self.count = 0
+        self.move = True
+        self.direction = 'left'
+        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.gotkissed = 0
+        self.image_number = 0
+
     def update_all(self):
         self.set_pos()
         self.set_image()
+
     def set_pos(self):
         if self.pos[1] < 300*scale:
             self.up = +5*scale
@@ -203,7 +246,8 @@ class Butterfly(Enemy):
         self.image = actual_list[self.image_number]
 
 class OldLady(Enemy):
-    def __init__(self,speed,directory, pos, level,margin=p([10,10,10,10]),dirty=False):
+    def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
+        directory = enemy_dir+'OldLady/'
         self.center_distance = pos
         self.walk   = obj_images.TwoSided(directory+'/walk/',margin)
         self.wave   = obj_images.There_and_back_again(directory+'/hover/',margin)
@@ -211,9 +255,8 @@ class OldLady(Enemy):
         self.image  = self.walk.left[0]
         self.mouseovercount = 0
         self.size   = (self.image.get_width()/2, self.image.get_height())
-        self.alive  = True
         self.level  = level
-        self.speed  = speed*scale
+        self.speed  = 2*scale
         self.floor  = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -282,7 +325,7 @@ class OldLady(Enemy):
 
 class Lion():
     def __init__(self, pos, level):
-        directory = level.enemy_dir+'lion/'
+        directory = level.enemy_dir+'Lion/'
         self.center_distance = pos
         for i in ['base','growl','kissed']:
             exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
@@ -313,7 +356,7 @@ class Tail():
 
 class Elephant():
     def __init__(self, pos, level, dirty=False):
-        directory = level.enemy_dir+'elephant/'
+        directory = level.enemy_dir+'Elephant/'
         self.center_distance = pos
         for i in ['base','hover']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
@@ -331,7 +374,7 @@ class Elephant():
 
 class Monkey():
     def __init__(self, pos, level, dirty=False):
-        directory = level.enemy_dir+'monkey/'
+        directory = level.enemy_dir+'Monkey/'
         self.center_distance = pos
         for i in ['stay','hover','happy','throw','attack']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
@@ -349,7 +392,7 @@ class Monkey():
 
 class VikingShip():
     def __init__(self, pos, level, dirty=False):
-        directory = level.enemy_dir+'viking_ship/'
+        directory = level.enemy_dir+'VikingShip/'
         self.center_distance = pos
         for i in ['base']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
@@ -383,7 +426,7 @@ class VikingShip():
 
 class VikingPart():
     def __init__(self, ship, part, pos_x = 0, pos_y = 0):
-        directory = 'data/images/enemies/viking_ship/'+part+'/'
+        directory = 'data/images/enemies/VikingShip/'+part+'/'
         self.pos_x  = pos_x
         self.pos_y  = pos_y
         self.ship = ship
@@ -402,7 +445,7 @@ class VikingPart():
 
 class Splash():
     def __init__(self, pos, level, ship, dirty=False):
-        directory = level.enemy_dir+'viking_ship/wave/'
+        directory = level.enemy_dir+'VikingShip/wave/'
         self.distance = 20
         self.ship = ship
         self.level = level
@@ -421,7 +464,7 @@ class Splash():
 
 class FootBoy():
     def __init__(self, pos, level, dirty=False):
-        directory = level.enemy_dir+'footboy/'
+        directory = level.enemy_dir+'FootBoy/'
         self.center_distance = pos
         self.running = obj_images.There_and_back_again(directory+'walk_body/first_cycle/', second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'happy_face/first_cycle/', second_extra_part = directory+'happy_face/second_cycle/')
         self.running_mad = obj_images.There_and_back_again(directory+'walk_body/first_cycle/',second_dir = directory+'walk_body/second_cycle/', extra_part = directory+'mad_face/first_cycle/', second_extra_part = directory+'mad_face/second_cycle/')
@@ -483,7 +526,7 @@ class FootBall():
         self.footboy        = footboy
         self.level          = footboy.level
         self.center_distance= center_distance
-        self.images         = obj_images.TwoSided('data/images/enemies/footboy/ball/')
+        self.images         = obj_images.TwoSided('data/images/enemies/FootBoy/ball/')
         self.image          = self.images.left[0]
         self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-7)
         self.pos            = [self.footboy.level.universe.center_x + self.center_distance, self.footboy.level.floor - self.size[1]]
