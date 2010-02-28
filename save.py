@@ -71,8 +71,8 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
             'DressSt        '+ DressSt     +'\n'
             'AccessorySt    '+ AccessorySt +'\n'
             'MakeupSt       '+ MakeupSt    +'\n'
-            'ShoesSt        '+ ShoesSt     + '\n'+
-            level.princesses_garment
+            'ShoesSt        '+ ShoesSt     + '\n'
+            'level.princesses_garment'
                     )
     new_file.close()
     print "O arquivo save.py foi utilizado "

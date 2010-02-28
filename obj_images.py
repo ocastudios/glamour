@@ -42,12 +42,12 @@ Margin may be used to better program interaction during the game. Margin default
 
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
-        self.margin = margin
-        self.list = self.left = self.find_images(directory)
-        self.number = 0
-        self.size = self.list[self.number].get_size()
-        self.lenght = len(self.list)
-        self.itnumber = cycle(range(self.lenght))
+        self.margin     = margin
+        self.list       = self.left = self.find_images(directory)
+        self.number     = 0
+        self.size       = self.list[self.number].get_size()
+        self.lenght     = len(self.list)
+        self.itnumber   = cycle(range(self.lenght))
 
 
 class There_and_back_again(TwoSided):
@@ -162,5 +162,8 @@ class MultiPart():
         else:
             self.number = 0
 
+def image(directory):
+    prep = pygame.image.load(directory).convert_alpha()
+    return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
 def scale_image(prep):
-        return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
+    return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))

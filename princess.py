@@ -140,7 +140,7 @@ Princess shoes are moving weirdly when she jumps.
         if not self.inside:
             if not self.got_hitten:
                 for e in self.level.enemies:
-                    if e.__class__ == enemy.Schnauzer or e.__class__ == enemy.FootBall:
+                    if e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk):
                         if self.rect.colliderect(e.rect):
                             if self.dirt <= 2:
                                 self.got_hitten += 1

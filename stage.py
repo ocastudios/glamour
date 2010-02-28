@@ -48,25 +48,26 @@ class Stage():
         self.pointer        = []
         self.scenarios_front= []
         self.animated_scenarios =[]
-        self.blitlist = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates', 'princesses', 'lights', 'enemies', 'menus')
-        self.foreground = []
-        self.white      = Foreground(self.universe)
-        self.down_bar   = Bar(self,'down')
-        self.up_bar     = Bar(self,'up')
-        self.bar_height = self.up_bar.tile_size[1]
-        self.down_bar_y = self.universe.height
-        self.up_bar_y   = - self.bar_height
-        self.bar_goal   = self.universe.height/3
-        self.bar_speed  = 1
-        self.game_mouse = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
-        self.pointer = [glamour_stars.Glamour_Stars(self),self.game_mouse]
-        self.inside = self.dress_castle()
-        self.princess_castle = None
-        self.fairy = True
+        self.blitlist       = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
+        self.foreground     = []
+        self.white          = Foreground(self.universe)
+        self.down_bar       = Bar(self,'down')
+        self.up_bar         = Bar(self,'up')
+        self.bar_height     = self.up_bar.tile_size[1]
+        self.down_bar_y     = self.universe.height
+        self.up_bar_y       = - self.bar_height
+        self.bar_goal       = self.universe.height/3
+        self.bar_speed      = 1
+        self.game_mouse     = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
+        self.pointer        = [glamour_stars.Glamour_Stars(self),self.game_mouse]
+        self.inside         = self.dress_castle()
+        self.princess_castle= None
+        self.fairy          = True
         self.omni_directory = 'data/images/scenario/omni/'
-        self.ball = None
-        self.endmusic = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
-        self.enemies_list = {                            'BathhouseSt': ['Schnauzer', 'Butterfly'] ,                            'DressSt':['Bird'],                            'AccessorySt':['Schnauzer'],                            'MakeupSt':['OldLady'],                             'ShoesSt': ['FootBoy']}
+        self.ball           = None
+        self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
+        self.enemies_list   = {                            'BathhouseSt': ['Bird', 'Butterfly'] ,                            'DressSt':['Bird'],                            'AccessorySt':['Schnauzer'],                            'MakeupSt':['OldLady'],                             'ShoesSt': ['FootBoy']
+                            }
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -244,7 +245,9 @@ class Stage():
                         i.outside()
                 self.princesses[0].inside = False
         try:
-            self.universe.screen_surface.blit(self.inside.princess_image,(0,0))
+            x = self.universe.width/2 + self.princesses[0].image_size[0]
+            y = (self.universe.height/2)-(self.princesses[0].image_size[1]/2)
+            self.universe.screen_surface.blit(self.inside.princess_image, (x,y))
         except:
             pass
 
@@ -347,7 +350,7 @@ class Stage():
                                 scenarios.Scenario(6058*scale,self.omni_directory+'grass_1/',self),
                                 scenarios.Scenario(6754*scale,self.omni_directory+'fence_1/',self),
                                 scenarios.FrontScenario(9168*scale,self.directory+'magic_beauty_salon/portal/',self,index=0)]
-        self.fae = ([fairy.Fairy(20,self)])
+        self.fae = ([fairy.Message(self),fairy.Fairy(20,self)])
 
         self.music = "data/sounds/music/bathhouse_day.ogg"
         pygame.mixer.music.load("data/sounds/music/bathhouse_day_intro.ogg")
@@ -830,7 +833,7 @@ class Stage():
                     exec('item =  enemy.'+en+'(scale*(random.randint(0,9000)),self)')
                     self.enemies.append(item)
         self.gates = [scenarios.BuildingDoor(p((50,503)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
-                      scenarios.BuildingDoor(p((8500,503)),self.directory+'rapunzel_castle/door/',self,self.Princess_Home(self, Rapunzel)),
+                      scenarios.BuildingDoor(p((8500,503)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
                       scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
                       scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
                       scenarios.Gate(shoegate[2],'data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),

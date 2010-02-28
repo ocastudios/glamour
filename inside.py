@@ -59,8 +59,6 @@ class Button():
             type_of_button = 'image'
         except:
             type_of_button = 'text'
-        print type_of_button
-
         if type_of_button == 'image':
             self.images     = obj_images.Buttons(directory,5)
             if invert:
@@ -173,15 +171,18 @@ class Home():
 
 class Princess_Home():
     def __init__(self, level, princess=None):
-        self.princess_image = pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha()
+        print "Creating Princess Home: "+ princess['name'] 
         princess_directory  = 'data/images/princess/'
         ball_directory      = 'data/images/interface/ball/'
+        painting_screen = pygame.Surface((200,200), pygame.SRCALPHA).convert_alpha()
         if princess == Rapunzel:
-            self.princess_image.blit(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/stay/0.png').convert_alpha(),(0,0))
+            painting_screen.blit(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/stay/0.png').convert_alpha(),(0,0))
         images  = [pygame.image.load(princess_directory+item+'/stay/0.png').convert_alpha() for item in ('skin_'+princess['skin'],princess['hair'])]
         for img in images:
-            self.princess_image.blit(img, (0,0))
-        self.princess_image = obj_images.scale_image(self.princess_image)
+            painting_screen.blit(img, (0,0))
+        self.princess_image = obj_images.scale_image(painting_screen)
+
+
         self.princess_icon  =  obj_images.scale_image( pygame.image.load(ball_directory+princess['icon']).convert_alpha())
         self.status = 'outside'
         self.level  = level
@@ -197,8 +198,6 @@ class Princess_Home():
             linha = line.split()
             if princess:
                 for item in ('Makeup','Dress','Accessory','Shoes'):
-                    print princess['name']
-                    print linha[0]
                     if len(linha)>= 1 and linha[0] == princess['name'] and linha[1] == item:
                         if linha[1] == 'Makeup':        dir = 'face'
                         if linha[1] == 'Dress':         dir = 'dress'
@@ -207,14 +206,9 @@ class Princess_Home():
                         self.princess_image.blit(obj_images.scale_image(pygame.image.load(princess_directory+dir+'_'+linha[2]+'/stay/0.png').convert_alpha()),(0,0))
                 self.princess_image.blit(obj_images.scale_image(pygame.image.load(princess_directory+'arm_'+princess['skin']+'/stay/0.png').convert_alpha()),(0,0))
 #                self.princess_image = pygame.transform.flip(self.princess_image,1,0)
-
+        self.princess_image = pygame.transform.flip(self.princess_image,1,0)
     def all_set(self,param):
         self.status = 'done'
-        for i in self.items:
-            if i.queue_pos == 1:
-                chosen_item = i.name
-        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 

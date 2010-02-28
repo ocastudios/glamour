@@ -49,7 +49,7 @@ class Ball():
                 exec('item = random.choice('+garment+'_list)')
                 self.princesses_garment = self.princesses_garment+princess+' '+garment+' '+item+' \n'
         print self.princesses_garment
-        self.level.princesses_garment = self.princesses_garment[:-3]
+        self.level.princesses_garment = self.princesses_garment[:-2]
         print self.level.princesses_garment
     def update_all(self):
         self.left_bar.update_all()

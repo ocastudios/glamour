@@ -167,11 +167,11 @@ class BuildingDoor():
             self.level.inside.status = 'bath'
         else:
             self.level.inside.status = 'inside'
-        self.level.blitlist = ('sky','background','moving_scenario','scenarios','princesses','gates','enemies','menus')
+        self.level.blitlist = ('sky','background','moving_scenario','scenarios','animated_scenarios','princesses','gates','lights','enemies','menus')
         self.level.princesses[0].inside = True
 
     def outside(self):
-        self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','princesses','enemies','menus')
+        self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','animated_scenarios','lights','princesses','enemies','menus')
 
 
 class Background():
