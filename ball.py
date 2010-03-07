@@ -15,14 +15,11 @@ class Ball():
 
         for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
             self.background.blit(obj_images.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
-
-
         self.left_bar   = VerticalBar(self)
         self.princess   = princess
         self.Bar        = VerticalBar(self)
         self.Frame      = BallFrame(self)
         self.level      = level
-
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
         self.buttons = [BallButton('data/images/interface/title_screen/button_ok/',(300*scale,200*scale), self.level)]
         pygame.mixer.music.load("data/sounds/music/strauss_waltz_wedley.ogg")
@@ -54,18 +51,14 @@ class Ball():
     def update_all(self):
         self.left_bar.update_all()
         self.level.game_mouse.update()
-
         self.universe.screen_surface.blit(self.background,(0,0))
         for i in self.dancers:
             self.universe.screen_surface.blit(i.image,i.position)
             i.update_all()
-
         self.universe.screen_surface.blit(self.Frame.image,self.Frame.position)
         self.Frame.update_all()
-
         self.universe.screen_surface.blit(self.Bar.image,self.Bar.position)
         self.Bar.update_all()
-
         for i in self.Frame.texts:
             self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
@@ -135,28 +128,25 @@ class FairyTalePrincess():
         self.file       = frame.ball.universe.file
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
         if name == 'Rapunzel':
-            self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/stay/0.png').convert_alpha()),(0,0))
-        images          = [obj_images.scale_image(pygame.image.load(princess_directory+item+'/stay/0.png').convert_alpha()) 
+            self.image.blit(obj_images.image(princess_directory+'hair_rapunzel_back'+'/stay/0.png'),(0,0))
+        images          = [obj_images.image(princess_directory+item+'/stay/0.png')
                                 for item in (skin_body,hair)]
         self.position   = [position_x, 200*scale]
         for img in images:
             self.image.blit(img, (0,0))
-        self.symbol     =  obj_images.scale_image( pygame.image.load(ball_directory+icon).convert_alpha())
+        self.symbol     =  obj_images.image(ball_directory+icon)
         self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
         self.pos        = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
-
-        for item in ('Makeup','Dress','Accessory','Shoes'):
-            for line in open(self.file).readlines():
-                linha = line.split()
-                if len(linha)>= 1 and linha[0] == name and linha[1] == item:
-                    if linha[1] == 'Makeup':    dir = 'face'
-                    if linha[1] == 'Dress':     dir = 'dress'
-                    if linha[1] == 'Accessory':  dir = 'accessory'
-                    if linha[1] == 'Shoes':     dir = 'shoes'
-                    self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+dir+'_'+linha[2]+'/stay/0.png').convert_alpha()),(0,0))
-        self.image.blit(obj_images.scale_image(pygame.image.load(princess_directory+skin_arm+'/stay/0.png').convert_alpha()),(0,0))
-
+        name_lower = name.lower()
+        cursor = self.frame.ball.universe.db_cursor
+        row     = cursor.execute("SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")").fetchone()
+        self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
+        self.image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),     (0,0))
+        self.image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),    (0,0))
+        self.image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
+        self.image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),    (0,0))
+        self.image = pygame.transform.flip(self.image,1,0)
 
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0],

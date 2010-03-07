@@ -8,12 +8,16 @@ import db
 import sqlite3
 import messages
 from pygame.locals import *
+def connect_db(url, universe):
+        universe.db = db = sqlite3.connect(url)
+        universe.db.row_factory = sqlite3.Row
+        universe.db_cursor = db_cursor = universe.db.cursor()
 
-
-def create_save_db(url,name):
+def create_save_db(url,name = None, hairback = None, hair = None, skin= None, arm = None, universe = None):
         print "creating or connecting to the database"
-        db         = sqlite3.connect(url)
-        db_cursor  = db.cursor()
+        universe.db = db = sqlite3.connect(url)
+        universe.db.row_factory = sqlite3.Row
+        universe.db_cursor = db_cursor = universe.db.cursor()
         print "creating save table"
         db_cursor.execute("""
           CREATE TABLE save (
@@ -78,4 +82,19 @@ def create_save_db(url,name):
         [db_cursor.execute("INSERT INTO messages VALUES ("+ str(i[0])+",'"+ i[1]+"','"+ i[2]+"','"+ messages.intro[i[2]].replace("'","''")+"',0);") for i in (
             [46,"intro", "first day a"],[47,"intro", "first day b"],[48,"intro", "first day c"],[49,"intro", "first day d"],            [50,"intro", "first day e"],[51,"intro", "first day f"],[52,"intro", "first day g"],[53,"intro", "first day h"],
             [54,"intro", "first day i"])]
+        db_cursor.execute("INSERT INTO save VALUES('"+name+"', 0 , 0 ,'level','(0,0)',5220)")
+        db_cursor.execute("INSERT INTO princess_garment VALUES(1,'"+
+                        str(hairback)+"','"+skin+"','face_simple','"+hair+"','shoes_slipper','dress_plain','"+arm+"', 'None','accessory_ribbon')")
+        db_cursor.execute("INSERT INTO cinderella VALUES(1,0,'skin_tan','face_eyeshades','hair_cinderella','shoes_crystal', 'dress_red','arm_tan',0,'accessory_shades')")
+        db_cursor.execute("INSERT INTO snow_white VALUES(1,0,'skin_pink','face_eyelids','hair_snowwhite','shoes_red','dress_yellow','arm_pink',0,'accessory_purse')")
+        db_cursor.execute("INSERT INTO sleeping_beauty VALUES(1,0,'skin_pink','face_simple','hair_sleeping','shoes_slipper','dress_plain','arm_pink',0,'accessory_crown')")
+        db_cursor.execute("INSERT INTO rapunzel VALUES(1,1,'skin_pink','face_simple','hair_rapunzel','shoes_white','dress_yellow','arm_pink',0,'accessory_ribbon')")
+        db_cursor.execute("INSERT INTO stage_enemies VALUES(1,'BathhouseSt',0,0,1,0,0,0,0,0,0,1,0)")
+        db_cursor.execute("INSERT INTO stage_enemies VALUES(2,'AccessorySt',1,0,0,0,0,0,0,0,0,0,0)")
+        db_cursor.execute("INSERT INTO stage_enemies VALUES(3,'DressSt',    0,0,0,0,0,0,0,0,0,1,1)")
+        db_cursor.execute("INSERT INTO stage_enemies VALUES(4,'MakeupSt',   0,0,0,1,0,0,0,0,0,0,0)")
+        db_cursor.execute("INSERT INTO stage_enemies VALUES(5,'ShoesSt',    0,0,0,0,0,0,0,0,1,0,0)")
         db.commit()
+
+
+

@@ -54,16 +54,13 @@ class There_and_back_again(TwoSided):
     def __init__(self,dir,margin=[0,0,0,0], exclude_border = False, second_dir = False, extra_part = False, second_extra_part = False):
         self.margin = margin
         preleft     = self.find_images(dir)
-
         if extra_part:
             extra = self.find_images(extra_part)
             for i,e in zip(preleft,extra):
                 i.blit(e,(0,0))
-
         preright    = self.invert_images(preleft)
         posleft     = list(reversed(preleft))
         posright    = list(reversed(preright))
-
         if exclude_border:
             posleft     = posleft[1:-1]
             posright    = posright[1:-1]
@@ -75,18 +72,14 @@ class There_and_back_again(TwoSided):
                 second_extra = self.find_images(second_extra_part)
                 for i,e in zip(second_left,second_extra):
                     i.blit(e,(0,0))
-
             second_right = self.invert_images(second_left)
             possecond_left = list(reversed(second_left))
             possecond_right= list(reversed(second_right))
-
             if exclude_border:
                 possecond_left = possecond_left[1:-1]
                 possecond_right = possecond_right[1:-1]
-
             self.left = self.list = self.left+ second_left+possecond_left
             self.right= self.right + second_right + possecond_right
-
         self.size   = self.left[0].get_size()
         self.lenght = len(self.left)
         self.number = 0
@@ -133,8 +126,6 @@ class MultiPart():
             return [pygame.transform.smoothscale(i,(int(i.get_size()[0]*scale),int(i.get_size()[1]*scale) )) for i in [pygame.image.load(dir+item).convert_alpha() for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]]
         def invert_images(list):
             return [pygame.transform.flip(img,1,0) for img in list]
-
-
         ######### Building images ##########
         all_images = [find_images(dir) for dir in ordered_directory_list]
         image_size = all_images[0][0].get_size()
@@ -144,8 +135,6 @@ class MultiPart():
         self.images = [pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha() for i in range(lcm)]
         for i in range(lcm):
             [self.images[i].blit(img_list[i],(0,0)) for img_list in all_images]
-
-
         self.margin = margin
         self.left   = self.images
         self.right  = invert_images(self.left)
@@ -154,7 +143,6 @@ class MultiPart():
         if self.lenght>0:
             self.size   = self.left[0].get_size()
         self.itnumber = cycle(range(self.lenght))
-
 
     def update_number(self):
         if self.number < self.lenght -1:

@@ -330,51 +330,51 @@ class Menu():
                 print "criar diretorio"
                 new_dir = self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text
                 os.mkdir(new_dir)
-                db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', self.princess.name.text)
-                new_file = open(new_dir + '/' + self.princess.name.text + '.glamour', 'w')
-                new_file.write(
-                            'name '+ str(self.princess.name.text) + '\n'
-                            'center_distance 5220'+'\n'
-                            'hairback      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
-                            'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
-                            'face           face_simple 2'+'\n'
-                            'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
-                            'shoes          shoes_slipper 4'+'\n'
-                            'dress          dress_plain 5'+'\n'
-                            'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
-                            'armdress      None 7'+'\n'
-                            'accessory      accessory_ribbon 8'+'\n'
-                            'dirt           0'+'\n'
-                            '#Points'+'\n'
-                            'points 0'+'\n'
-                            '#Level'+'\n'
-                            'level level'+'\n'
-                            'past_ball          None \n'
-                            'great_past_ball    None\n'
-                            'BathhouseSt    Bird Butterfly\n'
-                            'DressSt        Bird\n'
-                            'AccessorySt    Schnauzer\n'
-                            'MakeupSt       OldLady\n'
-                            'ShoesSt        FootBoy\n'
-                            'Cinderella Accessory shades\n'
-                            'Cinderella Dress red\n'
-                            'Cinderella Shoes crystal\n'
-                            'Cinderella Makeup eyeshades\n'
-                            'Snow_White Accessory purse\n'
-                            'Snow_White Dress yellow\n'
-                            'Snow_White Shoes red\n'
-                            'Snow_White Makeup eyelids\n'
-                            'Sleeping_Beauty Accessory crown\n'
-                            'Sleeping_Beauty Dress plain\n'
-                            'Sleeping_Beauty Shoes slipper\n'
-                            'Sleeping_Beauty Makeup simple\n'
-                            'Rapunzel Accessory ribbon\n'
-                            'Rapunzel Dress yellow\n'
-                            'Rapunzel Shoes white\n'
-                            'Rapunzel Makeup eyelids\n'
-                            'Events '
-                            )
-                new_file.close()
+                db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.level.universe)
+#                new_file = open(new_dir + '/' + self.princess.name.text + '.glamour', 'w')
+#                new_file.write(
+#                            'name '+ str(self.princess.name.text) + '\n'
+#                            'center_distance 5220'+'\n'
+#                            'hairback      '+str(self.princess.hairs_back[self.princess.numbers['hair']])+' 0'+'\n'
+#                            'skin           '+self.princess.skins[self.princess.numbers['skin']]+' 1'+'\n'
+#                            'face           face_simple 2'+'\n'
+#                            'hair           '+self.princess.hairs[self.princess.numbers['hair']]+' 3'+'\n'
+#                            'shoes          shoes_slipper 4'+'\n'
+#                            'dress          dress_plain 5'+'\n'
+#                            'arm            '+self.princess.arms[self.princess.numbers['skin']]+' 6'+'\n'
+#                            'armdress      None 7'+'\n'
+#                            'accessory      accessory_ribbon 8'+'\n'
+#                            'dirt           0'+'\n'
+#                            '#Points'+'\n'
+#                            'points 0'+'\n'
+#                            '#Level'+'\n'
+#                            'level level'+'\n'
+#                            'past_ball          None \n'
+#                            'great_past_ball    None\n'
+#                            'BathhouseSt    Bird Butterfly\n'
+#                            'DressSt        Bird\n'
+#                            'AccessorySt    Schnauzer\n'
+#                            'MakeupSt       OldLady\n'
+#                            'ShoesSt        FootBoy\n'
+#                            'Cinderella Accessory shades\n'
+#                            'Cinderella Dress red\n'
+#                            'Cinderella Shoes crystal\n'
+#                            'Cinderella Makeup eyeshades\n'
+#                            'Snow_White Accessory purse\n'
+#                            'Snow_White Dress yellow\n'
+#                            'Snow_White Shoes red\n'
+#                            'Snow_White Makeup eyelids\n'
+#                            'Sleeping_Beauty Accessory crown\n'
+#                            'Sleeping_Beauty Dress plain\n'
+#                            'Sleeping_Beauty Shoes slipper\n'
+#                            'Sleeping_Beauty Makeup simple\n'
+#                            'Rapunzel Accessory ribbon\n'
+#                            'Rapunzel Dress yellow\n'
+#                            'Rapunzel Shoes white\n'
+#                            'Rapunzel Makeup eyelids\n'
+#                            'Events '
+#                            )
+#                new_file.close()
                 self.screen.universe.LEVEL= 'start'
                 self.screen.universe.file = 'data/saves/'+self.princess.name.text+'/'+self.princess.name.text+'.glamour'
                 name_taken = False
@@ -384,8 +384,12 @@ class Menu():
                 name_taken = True
                 self.to_name_your_princess()
         else:
+            print "Using saved game"
             self.screen.universe.LEVEL = 'start'
             self.screen.universe.file = using_saved_game
+            print "Connecting to Database"
+            db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', universe = self.level.universe)
+
 
     def change_princess(self,list):#list of: int,part
         if list[1] == "hair":

@@ -189,24 +189,20 @@ class Princess_Home():
         self.items = []
         self.buttons = []
         self.buttons    = (Button('data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),)
-        try:
-            self.save_file = self.level.universe.file.readlines()
-        except:
-            self.save_file = open(self.level.universe.file).readlines()
-        #Interpret the save file
-        for line in self.save_file:
-            linha = line.split()
-            if princess:
-                for item in ('Makeup','Dress','Accessory','Shoes'):
-                    if len(linha)>= 1 and linha[0] == princess['name'] and linha[1] == item:
-                        if linha[1] == 'Makeup':        dir = 'face'
-                        if linha[1] == 'Dress':         dir = 'dress'
-                        if linha[1] == 'Accessory':     dir = 'accessory'
-                        if linha[1] == 'Shoes':         dir = 'shoes'
-                        self.princess_image.blit(obj_images.scale_image(pygame.image.load(princess_directory+dir+'_'+linha[2]+'/stay/0.png').convert_alpha()),(0,0))
-                self.princess_image.blit(obj_images.scale_image(pygame.image.load(princess_directory+'arm_'+princess['skin']+'/stay/0.png').convert_alpha()),(0,0))
-#                self.princess_image = pygame.transform.flip(self.princess_image,1,0)
+
+        princess_name = princess["name"].lower()
+        cursor = self.level.universe.db_cursor
+        row     = cursor.execute("SELECT * FROM "+princess_name+" WHERE id = (SELECT MAX(id) FROM "+princess_name+")").fetchone()
+
+        self.princess_image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),(0,0))
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
+
+
+
     def all_set(self,param):
         self.status = 'done'
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))

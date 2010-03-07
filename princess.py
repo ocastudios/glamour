@@ -19,25 +19,17 @@ Princess shoes are moving weirdly when she jumps.
         self.first_frame = True
         self.level = level
         self.effects    = []
-        self.file = open(save).readlines()
-        print self.file
+#        self.file = open(save).readlines()
+#        print self.file
         self.size       = (2,180*scale)
-        #Interpret the save file
-        for line in self.file:
-            linha = line.split()
-            print linha
-            if linha[0] == 'name':
-                self.name = ''
-                for i in linha[1:]:
-                    self.name += str(i)
-                    self.name += ' '
-                self.name = self.name[:-1]
-            if linha[0] == 'center_distance':
-                self.center_distance = int(int(linha[1])*scale)
-            if linha[0] == 'dirt':
-                self.dirt = int(linha[1])
-            if linha[0] == 'points':
-                self.glamour_points = int(linha[1])
+        #Acess db save file
+        cursor = self.level.universe.db_cursor
+        row     = cursor.execute("SELECT * FROM save").fetchone()
+        print row
+        self.name = row['name']
+        self.center_distance = int(int(row['center_distance'])*scale)
+        self.dirt            = int(row['dirt'])
+        self.points          = int(row['points'])
         self.pos = [int(self.level.universe.center_x) + self.center_distance,
                            self.level.universe.floor - (186*scale) -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
@@ -72,12 +64,17 @@ Princess shoes are moving weirdly when she jumps.
 
     def ordered_directory_list(self, action):
         odl = []
-        for part in ["hairback","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
-            for line in self.file:
-                if part in line:
-                    l = line.split()
-                    if l[0] == part and l[1] != 'None':
-                        odl.extend([str(self.directory+l[1]+"/"+action+"/")])
+        cursor = self.level.universe.db_cursor
+        row     = cursor.execute("SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)").fetchone()
+        for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
+            if row[part] != 'None':
+                name = part.replace('_','')
+                odl.extend([str(self.directory+row[part]+"/"+action+"/")])
+#            for line in self.file:
+#                if part in line:
+#                    l = line.split()
+#                    if l[0] == part and l[1] != 'None':
+#                        odl.extend([str(self.directory+l[1]+"/"+action+"/")])
         return odl
 
     def update_all(self):

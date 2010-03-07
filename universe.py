@@ -27,6 +27,8 @@ class Universe():
         self.file = None
         self.frames_per_second = 20
         self.run_level = True
+        self.db = None
+        self.db_cursor = None
 
 
     def define_level(self):
