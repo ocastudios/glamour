@@ -732,6 +732,5 @@ class Hawk():
                 self.pos[1] -= int(self.speed*scale)
 
         self.pos[0] = self.level.universe.center_x + self.center_distance
-        print self.pos[1]
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.body.update_number()

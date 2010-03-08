@@ -3,6 +3,7 @@ import os
 import random
 import enemy
 import pygame
+import sqlite3
 from pygame.locals import *
 from settings import *
 
@@ -15,12 +16,10 @@ Problems to be fixed in this class are:
 Princess shoes are moving weirdly when she jumps.
 """
     directory = 'data/images/princess/'
-    def __init__(self,level,save,INSIDE = False):
+    def __init__(self,level,INSIDE = False):
         self.first_frame = True
         self.level = level
         self.effects    = []
-#        self.file = open(save).readlines()
-#        print self.file
         self.size       = (2,180*scale)
         #Acess db save file
         cursor = self.level.universe.db_cursor
@@ -65,16 +64,12 @@ Princess shoes are moving weirdly when she jumps.
     def ordered_directory_list(self, action):
         odl = []
         cursor = self.level.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)").fetchone()
+        row = cursor.execute("SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)").fetchone()
+        print row
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
             if row[part] != 'None':
                 name = part.replace('_','')
                 odl.extend([str(self.directory+row[part]+"/"+action+"/")])
-#            for line in self.file:
-#                if part in line:
-#                    l = line.split()
-#                    if l[0] == part and l[1] != 'None':
-#                        odl.extend([str(self.directory+l[1]+"/"+action+"/")])
         return odl
 
     def update_all(self):

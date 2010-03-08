@@ -303,6 +303,18 @@ class Stage():
                 self.scenarios_front.append(scenarios.FrontScenario(scale*i['xpos'],i['directory'],self,i['ind']))
         cursor.close()
 
+    def set_floor_heights(self,height,width,street):
+        ### set_floor ###
+        db = sqlite3.connect('data/'+street+'.db')
+        db.row_factory = sqlite3.Row
+        cursor = db.cursor()
+        self.floor_heights = [height*scale]*int((width*scale))
+        count   = 0
+        for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
+            for r in range(row['start']*scale,row['end']*scale):
+                self.floor_heights[r]=row['value']*scale
+        cursor.close()
+
     def BathhouseSt(self,goalpos = None):
         db = sqlite3.connect('data/bathhouse.db')
         db.row_factory = sqlite3.Row
@@ -337,14 +349,15 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
-        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self),None]
         panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120)
         ### set_floor ###
-        self.floor_heights = [186*scale]*int((9400*scale))
-        count   = 0
-        for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
-            for r in range(row['start']*scale,row['end']*scale):
-                self.floor_heights[r]=row['value']*scale
+        self.set_floor_heights(186,9400,'bathhouse')
+#        self.floor_heights = [186*scale]*int((9400*scale))
+#        count   = 0
+#        for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
+#            for r in range(row['start']*scale,row['end']*scale):
+#                self.floor_heights[r]=row['value']*scale
         self.animated_scenarios =[]
         self.lights = []
         for i in self.scenarios_prep:
@@ -381,7 +394,7 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
-        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self),None]
         self.lights = []
         for i in self.scenarios_prep:
             try:
@@ -436,7 +449,7 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
 
-        self.princesses = self.princesses or [princess.Princess(self,save=self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self),None]
 
 
         ### Set Floor ###
@@ -560,7 +573,7 @@ class Stage():
         self.clouds     = [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
         self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
-        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self),None]
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),
                                     enemy.Monkey(3500*scale,self),
                                     scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self)]
@@ -688,7 +701,7 @@ class Stage():
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
-        self.princesses = self.princesses or [princess.Princess(self,self.universe.file),None]
+        self.princesses = self.princesses or [princess.Princess(self),None]
 
 
         ### set floor ### (x1,x2,y)

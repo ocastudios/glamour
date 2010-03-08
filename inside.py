@@ -42,8 +42,8 @@ class Inside():
         for i in self.items:
             if i.queue_pos == 1:
                 chosen_item = i.name
-        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
+        exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
+        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
@@ -165,7 +165,7 @@ class Home():
             if i.queue_pos == 1:
                 chosen_item = i.name
         exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level,save=file, INSIDE = True)
+        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
