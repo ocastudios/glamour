@@ -5,6 +5,7 @@ import pygame
 from settings import *
 
 def save_file(level, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
+    print "Saving progress into Database"
     universe = level.universe
     princess = level.princesses[0]
     #avoid errors in case there are no saved files
@@ -33,7 +34,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     cursor = level.universe.db_cursor
     cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+str(princess.name)+"'")
     if hair:
-        cursor.execute("UPDATE princess_garment SET hair_back = '"+str(hairback)+"' WHERE id = (SELECT max(id) FROM princess_garment)")
+        cursor.execute("UPDATE princess_garment SET hair_back = "+str(hairback)+" WHERE id = (SELECT max(id) FROM princess_garment)")
     if skin:
         cursor.execute("UPDATE princess_garment SET skin     = '"+str(skin)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
         cursor.execute("UPDATE princess_garment SET arm      = '"+str(arm)+"'   WHERE id =  (SELECT max(id) FROM princess_garment)")
@@ -45,13 +46,13 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         cursor.execute("UPDATE princess_garment SET shoes    = '"+str(shoes)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     if dress:
         cursor.execute("UPDATE princess_garment SET dress    = '"+str(dress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-        cursor.execute("UPDATE princess_garment SET armdress = '"+str(armdress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
+        cursor.execute("UPDATE princess_garment SET armdress = "+str(armdress)+" WHERE id =  (SELECT max(id) FROM princess_garment)")
     if accessory:
         cursor.execute("UPDATE princess_garment SET accessory= '"+str(accessory)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     cursor.execute("UPDATE save SET dirt     = '"+str(princess.dirt)+"' WHERE name = '"+str(princess.name)+"'")
     cursor.execute("UPDATE save SET points   = '"+str(princess.points)+"' WHERE name = '"+str(princess.name)+"'")
     universe.db.commit()
-    print "O arquivo save.py foi utilizado "
+    print "Save Database saved "
     if Ball:
         backupfile.close()
     return 'data/saves/'+princess.name+'/'+princess.name+'.glamour'

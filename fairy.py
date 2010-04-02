@@ -42,17 +42,21 @@ class Fairy():
         self.goalpos    = p([1200,700])
         self.direction  = "left"
         self.action     = self.explain
-
+        self.count      = 0
 
     def update_all(self):
         for key,value in self.lists_of_images.items():
             value.update_number()
         self.action()
+        if self.count > 300:
+            self.level.fairy = False
+            self.count = 0
 
     def wait(self):
         pass
 
     def explain(self):
+        self.count += 1
         self.select_images()
         self.image = self.update_image()
         if self.pos != self.goalpos:
@@ -94,15 +98,15 @@ class Fairy():
 
 
 class Message():
-    def __init__(self, level):
-        self.message    = "teste de fala"
+    def __init__(self, level, message = "Oops! I just forgot what I had to say..."):
+        self.message    = message
         self.level      = level
         self.universe   = universe = self.level.universe
         self.image      = obj_images.image(directory+'/balloon/0.png')
         self.size       = self.image.get_size()
         self.pos        = ((universe.width - self.size[0])/2, universe.height - self.size[1])
         self.text_box   = self.size[0]*.8,self.size[1]*.8
-        self.font_size  = 40*scale
+        self.font_size  = 16*scale
         self.text_font       = pygame.font.Font('data/fonts/FreeSans.ttf',self.font_size+(self.font_size/2))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
@@ -111,32 +115,36 @@ class Message():
         pass
 
     def adjusting_fonts(self):
+        fix_x       = int(150*scale)
+        fix_y       = int(40*scale)
         font_object = self.text_font
         text_box    = self.text_box
         image = self.image
         text_list = self.message.split()
         number_of_words = len(text_list)
         count = 0
-        height = 0
+        height = fix_y
         first = True
         line = ""
         line_break  = False
-
 #        self.line_image      = font_object.render(self.message,1,self.color)
         while count < number_of_words:
             line        += text_list[count]
             line_size   = font_object.size(line)
-            line_pos = int((text_box[0]-line_size[0])/2)
+
+            line_pos = int((text_box[0]+fix_x-line_size[0])/2)
             if line_size[0] < text_box[0]:
                 if count+1 < number_of_words:
                     temporary_line = line + ' '+ text_list[count+1]
                     if font_object.size(temporary_line)[0] >= text_box[0]:
                         line_image = font_object.render(line,1, self.color)
                         height += int((line_size[1]*.8))
+                        image.blit(font_object.render(line, 1, self.color), (line_pos,height))
                         line = ""
                     else:
                         line += ' '
                 elif count+1 == number_of_words:
+                    height += int((line_size[1]*.8))
                     image.blit(font_object.render(line, 1, self.color), (line_pos,height))
             else:
                 line = text_list[count]

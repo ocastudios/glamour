@@ -21,15 +21,14 @@ class Universe():
         self.action = [None,'stay']
         self.dir    = 0
         self.click = False
-        self.screen_surface = pygame.display.set_mode((w,h),32)
-        pygame.display.set_caption("Glamour - OcaStudios")
-        self.level = stage.Stage(self)
         self.file = None
         self.frames_per_second = 20
         self.run_level = True
         self.db = None
         self.db_cursor = None
-
+        self.screen_surface = pygame.display.set_mode((w,h),32)
+        pygame.display.set_caption("Glamour - OcaStudios")
+        self.level = stage.Stage(self)
 
     def define_level(self):
         self.gclock =  game_clock.GameClock(self.level)

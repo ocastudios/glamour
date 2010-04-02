@@ -22,9 +22,10 @@ Princess shoes are moving weirdly when she jumps.
         self.effects    = []
         self.size       = (2,180*scale)
         #Acess db save file
-        cursor = self.level.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM save").fetchone()
-        print row
+        self.save_db     = level.universe.db
+        self.save_cursor = level.universe.db_cursor
+        row     = self.save_cursor.execute("SELECT * FROM save").fetchone()
+        print "Connected to the Save Database for princess data\nRetrieved data: "+str(row)
         self.name = row['name']
         self.center_distance = int(int(row['center_distance'])*scale)
         self.dirt            = int(row['dirt'])
@@ -137,6 +138,8 @@ Princess shoes are moving weirdly when she jumps.
                             if self.dirt <= 2:
                                 self.got_hitten += 1
                                 self.dirt += 1
+                                self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
+                                print "Oh Dear, you've got all dirty! I need to take a record on that..."
                                 self.level.princesses[1] = self.dirties[self.dirt -1]
                     if e.__class__ == enemy.Carriage:
                         if self.rect.colliderect(e.rect):

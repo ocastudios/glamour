@@ -22,7 +22,7 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
         db_cursor.execute("""
           CREATE TABLE save (
               name                VARCHAR(30)    PRIMARY KEY,
-              dirt                VARCHAR(30),
+              dirt                INTEGER,
               points              INTEGER,
               level               VARCHAR(30),
               position            REAL,
@@ -31,14 +31,14 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
             """)
         garment = """
               id INTEGER PRIMARY KEY,
-              hair_back           VARCHAR(30),
+              hair_back           REAL,
               skin                VARCHAR(30),
               face                VARCHAR(30),
               hair                VARCHAR(30),
               shoes               VARCHAR(30),
               dress               VARCHAR(30),
               arm                 VARCHAR(30),
-              armdress            VARCHAR(30),
+              armdress            REAL,
               accessory           VARCHAR(30)
                 """
         print "creating garment tables"

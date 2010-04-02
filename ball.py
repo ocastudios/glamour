@@ -10,9 +10,14 @@ def p(positions):
 class Ball():
     directory = 'data/images/interface/ball/'
     def __init__(self, level, universe, princess):
+        self.position = 0,0
         self.universe   = universe
+        self.boyfriend  = None
+        universe.db.commit()
+        self.texts      = []
+        self.texts+= [StarBall()]
+        self.compute_glamour_points(level)
         self.background      = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
-
         for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
             self.background.blit(obj_images.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
         self.left_bar   = VerticalBar(self)
@@ -31,24 +36,16 @@ class Ball():
             self.level.enemies_list[stage] = [chosen_enemy]
             general_enemies_list.remove(chosen_enemy)
         self.level.enemies_list[random.choice(['DressSt', 'MakeupSt','ShoesSt'])].append('Carriage')
-
         princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
         garment_list         = ['Accessory', 'Dress', 'Shoes','Makeup']
         Accessory_list       = ['crown', 'purse','ribbon','shades']
         Dress_list           = ['pink','plain','red','yellow']
         Shoes_list           = ['crystal','red','slipper','white']
         Makeup_list          = ['eyelids','eyeshades','lipstick','simple']
-        self.princesses_garment = ''
-        for princess in princesses_list:
-#            exec(princess+'_dict = {"Acessory":"","Dress":"","Shoes":"","Makeup":""}')
-            for garment in garment_list:
-#                exec(princess+'_dict['+garment+'] = '+exec('random.choice('+garment+'_list)'))
-                exec('item = random.choice('+garment+'_list)')
-                self.princesses_garment = self.princesses_garment+princess+' '+garment+' '+item+' \n'
-        print self.princesses_garment
-        self.level.princesses_garment = self.princesses_garment[:-2]
-        print self.level.princesses_garment
+        self.counter         = 0
+
     def update_all(self):
+
         self.left_bar.update_all()
         self.level.game_mouse.update()
         self.universe.screen_surface.blit(self.background,(0,0))
@@ -62,7 +59,6 @@ class Ball():
         for i in self.Frame.texts:
             self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
-
         for i in self.Frame.princesses:
             self.universe.screen_surface.blit(i.image,i.pos)
             self.universe.screen_surface.blit(i.symbol,(i.symbolpos,i.pos[1]-100*scale))
@@ -70,6 +66,76 @@ class Ball():
         for i in self.buttons:
             self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
+        if self.counter > 90:
+            for i in self.texts:
+                self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
+
+        if self.counter > 100:
+            if self.boyfriend:
+                self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
+                self.boyfriend.update_all()
+        if self.counter < 102:
+            self.counter += 1
+
+    def compute_glamour_points(self,level):
+        garments= ('face','shoes','dress','accessory')
+        cursor = level.universe.db_cursor
+        princess_rows = cursor.execute("SELECT * FROM princess_garment").fetchall()
+        fairy_tale_rows = [
+                cursor.execute("SELECT * FROM "+princess_name).fetchall() for princess_name in ("cinderella","rapunzel","sleeping_beauty","snow_white")
+                        ]
+        save_row     = cursor.execute("SELECT dirt FROM save").fetchone()
+
+        princess_garments   = {
+                    "this_ball":[princess_rows[len(princess_rows)-1][item] for item in garments],
+                    "last_ball":[princess_rows[len(princess_rows)-2][item] for item in garments]
+                            }
+        others_garments     = {
+                    "this_ball":[],
+                    "last_ball":[]
+                            }
+        for row in fairy_tale_rows:
+            for item in garments:
+                others_garments["this_ball"].append(row[len(row)-1][item])
+                others_garments["last_ball"].append(row[len(row)-2][item])
+
+
+        print "Others Garments "+str(others_garments["this_ball"])
+        print "Princess Garments"+str(princess_garments["this_ball"])
+
+        present_repetitions = sum([others_garments["this_ball"].count(i) for i in princess_garments["this_ball"]])
+        last_ball_garments = others_garments["last_ball"]+princess_garments["last_ball"]
+        past_repetitions = sum([last_ball_garments.count(i) for i in princess_garments["this_ball"]])
+        garments_history = princess_rows[:-1]+fairy_tale_rows
+        number_of_balls    = len(princess_rows)
+        history_repetitions = sum([garments_history.count(i) for i in princess_garments["this_ball"]])
+
+        print "The total repetition points for the garments in this ball is "+ str(present_repetitions)
+        print "Fashion points is equal to 34 - 3*repetition_points - past_repetition_points"
+        fashion = 34-(3*present_repetitions)-(past_repetitions)
+        print "Your total Fashion points is " + str(fashion)
+        dirty   = (fashion * save_row['dirt'])/3
+        print "Your total Dirt points is "+ str(dirty)
+        creativity = fashion*(.5-(history_repetitions/number_of_balls))
+        print "Youtr total creativity points is " + str(creativity)
+        glamour_points = fashion-dirty+creativity
+        print "YOUR TOTAL GLAMOUR POINTS THIS BALL IS "+ str(glamour_points)+" !!!!"
+        print "Now I am going to save your points"
+        save_table = cursor.execute("SELECT * FROM save").fetchone()
+        past_glamour_points = save_table['points']
+        new_glamour_points = past_glamour_points+glamour_points
+        cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
+        level.universe.db.commit()
+        self.texts += [
+                GameText("You've", p((1064,81)), self,font_size = 40),
+                GameText("got", p((1100,128)), self,font_size = 40),
+                GameText("glamour", p((1309,151)), self,font_size = 40),
+                GameText("points", p((1309,185)), self,font_size = 40),
+                GameText(str(int(glamour_points)), p((1200,120)),self,font_size=80)
+        ]
+        if glamour_points >= 3:
+            self.boyfriend = BoyFriend(glamour_points)
 
 
 class VerticalBar():
@@ -108,6 +174,8 @@ class BallFrame():
                 VerticalGameText("Yesterday's ball", p((100,200)), self),
                 VerticalGameText("Tonight's ball", p((100,500)), self),
                     ]
+        self.set_next_ball_clothes()
+
 
     def update_all(self):
         if self.ball:
@@ -116,6 +184,19 @@ class BallFrame():
             else:
                 self.speed = 0
             self.position[1] += self.speed
+
+    def set_next_ball_clothes(self):
+        cursor = self.ball.universe.db_cursor
+        faces   = ("face_eyelids", "face_eyeshades","face_lipstick","face_simple")
+        dresses = ("dress_pink","dress_plain", "dress_red", "dress_yellow")
+        arm_dresses = (0,0,1,1)
+        accessories = ("accessory_crown","accessory_purse","accessory_ribbon","accessory_shades")
+        shoes   = ("shoes_crystal","shoes_red","shoes_slipper","shoes_white")
+        for p in ("rapunzel","cinderella","sleeping_beauty","snow_white"):
+            dress_no = random.randint(0,len(dresses)-1)
+            row = cursor.execute("SELECT * FROM "+p+" WHERE id = (SELECT MAX(id) FROM "+p+")").fetchone()
+            cursor.execute("INSERT INTO "+p+" VALUES ("+str(row['id']+1)+" , "+str(row["hair_back"])+" , '"+row["skin"]+"', '"+random.choice(faces)+"' , '"+row['hair']+"' , '"+random.choice(shoes)+"' , '"+dresses[dress_no]+"', '"+row['arm']+"', "+str(arm_dresses[dress_no])+", '"+random.choice(accessories)+"')")
+        self.ball.universe.db.commit()
 
 
 class FairyTalePrincess():
@@ -127,13 +208,7 @@ class FairyTalePrincess():
         self.frame      = frame
         self.file       = frame.ball.universe.file
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
-        if name == 'Rapunzel':
-            self.image.blit(obj_images.image(princess_directory+'hair_rapunzel_back'+'/stay/0.png'),(0,0))
-        images          = [obj_images.image(princess_directory+item+'/stay/0.png')
-                                for item in (skin_body,hair)]
         self.position   = [position_x, 200*scale]
-        for img in images:
-            self.image.blit(img, (0,0))
         self.symbol     =  obj_images.image(ball_directory+icon)
         self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
         self.pos        = [ self.frame.position[0]+self.position[0],
@@ -141,10 +216,14 @@ class FairyTalePrincess():
         name_lower = name.lower()
         cursor = self.frame.ball.universe.db_cursor
         row     = cursor.execute("SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")").fetchone()
+        if row['hair_back'] > 0:
+            self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
         self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
+        self.image.blit(obj_images.image(princess_directory+row['hair']+'/stay/0.png'),     (0,0))
         self.image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),     (0,0))
         self.image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),    (0,0))
         self.image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
+        self.image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),      (0,0))
         self.image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),    (0,0))
         self.image = pygame.transform.flip(self.image,1,0)
 
@@ -156,12 +235,39 @@ class FairyTalePrincess():
 class StarBall():
     def __init__(self):
         self.images = obj_images.OneSided('data/images/interface/ball/star-score/')
-        self.image = self.images.list[self.images.itnumber()]
-        self.position = (10,1000)
+        self.image = self.images.list[0]
+        self.pos = p([1100,34])
 
     def update_all(self):
-        self.image = self.images.list[self.images.itnumber()]
+        self.image = self.images.list[self.images.itnumber.next()]
 
+
+class BoyFriend():
+    def __init__(self, points):
+        boyfriend = None
+        if points >= 3:
+            boyfriend = "gentleman_decent"
+        if points >= 65:
+            boyfriend = "knight_kindhearted"
+        if points >= 105:
+            boyfriend = "baron_serious"
+        if points >= 175:
+            boyfriend = "count_loving"
+        if points >= 255:
+            boyfriend = "marquess_attractive"
+        if points >= 345:
+            boyfriend = "duke_intelligent"
+        if points >= 465:
+            boyfriend = "prince_charming"
+        if points >= 685:
+            boyfriend = "king_kindhearted"
+        if points >= 1000:
+            boyfriend = "emperor_awesome"
+        self.image= obj_images.image('data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
+        self.pos = p([1156,298])
+
+    def update_all(self):
+        pass
 
 class GameText():
     def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf'):
@@ -170,8 +276,8 @@ class GameText():
         self.image      = self.font.render(text,1,color)
         self.position   = pos
         self.size       = self.image.get_size()
-        self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
-                           self.frame.position[1]+self.position[1]-(self.size[1]/2)]
+        self.pos        = [self.frame.position[0]+                            self.position[0]-(self.size[0]/2),
+                           self.frame.position[1]+                            self.position[1]-(self.size[1]/2)]
 
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),

@@ -19,6 +19,7 @@ while True:
     while universe.LEVEL != 'start':
         control.main_menu(universe)
         gamemenu.update_all()
+        clock.tick(40)
         pygame.display.flip()
     universe.define_level()
     pygame.mouse.set_visible(0)

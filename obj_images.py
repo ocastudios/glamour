@@ -40,6 +40,7 @@ Margin may be used to better program interaction during the game. Margin default
         else:
             self.number = self.lenght -1
 
+
 class OneSided(TwoSided):
     def __init__(self,directory,margin = [0,0,0,0]):
         self.margin     = margin
