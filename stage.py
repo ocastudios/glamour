@@ -10,7 +10,7 @@ import moving_scenario
 import glamour_stars
 import princess
 import os
-import panel
+#import panel
 import pygame
 #import itertools
 import camera
@@ -19,6 +19,7 @@ import inside
 import ball
 import sqlite3
 import events
+import gametext
 from settings import *
 #TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
 #TODO substitute all these lists by a single list, blitting on the screen using the class to estipulate the order.
@@ -47,7 +48,7 @@ class Stage():
         self.floor_heights  = {}
         self.floor          = universe.floor-186*scale
         self.menus          = []
-        self.panel          = []
+        self.panel          = [None,None]
         self.pointer        = []
         self.scenarios_front= []
         self.animated_scenarios =[]
@@ -154,8 +155,9 @@ class Stage():
             for i in self.clock:
                 self.universe.screen_surface.blit(i.image,i.pos)
             for i in self.panel:
-                self.universe.screen_surface.blit(i.label,i.pos)
-                i.update((self.princesses[0].center_distance,self.princesses[0].pos[1]))
+                if i:
+                    self.universe.screen_surface.blit(i.image,i.pos)
+                    i.update_all()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
@@ -368,10 +370,13 @@ class Stage():
             except:
                 pass
         self.princesses = self.princesses or [princess.Princess(self),None]
-        panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120)
+
+
+#        panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120*scale)
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False
+        self.panel[0] = gametext.Horizontal(self.princesses[0].name+"'s glamour ", p((550,40)), self,font_size = 40)
 
     def DressSt(self,goalpos = None):
         self.name = 'dress'

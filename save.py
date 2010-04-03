@@ -46,7 +46,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         cursor.execute("UPDATE princess_garment SET shoes    = '"+str(shoes)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     if dress:
         cursor.execute("UPDATE princess_garment SET dress    = '"+str(dress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-        cursor.execute("UPDATE princess_garment SET armdress = "+str(armdress)+" WHERE id =  (SELECT max(id) FROM princess_garment)")
+        cursor.execute("UPDATE princess_garment SET armdress = '"+str(armdress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     if accessory:
         cursor.execute("UPDATE princess_garment SET accessory= '"+str(accessory)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     cursor.execute("UPDATE save SET dirt     = '"+str(princess.dirt)+"' WHERE name = '"+str(princess.name)+"'")

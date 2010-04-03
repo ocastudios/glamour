@@ -1,6 +1,7 @@
 import pygame
 import obj_images
 import random
+import gametext
 from settings import *
 
 
@@ -70,12 +71,18 @@ class Ball():
             for i in self.texts:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
-
-        if self.counter > 100:
+        if self.counter == 100:
+            self.texts+= [gametext.Horizontal("and won the heart of", p((1090,237)), self,font_size = 40)]        if self.counter == 110:
+            self.texts+= [gametext.Horizontal(".", p((1300,237)), self,font_size = 40)]        if self.counter == 120:
+            self.texts+= [gametext.Horizontal(" .", p((1300,237)), self,font_size = 40)]        if self.counter == 130:
+            self.texts+= [gametext.Horizontal("  .", p((1300,237)), self,font_size = 40)]
+        if self.counter > 150:
             if self.boyfriend:
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
                 self.boyfriend.update_all()
-        if self.counter < 102:
+        if self.counter == 160:
+            self.texts += [gametext.Horizontal(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
+        if self.counter <= 160:
             self.counter += 1
 
     def compute_glamour_points(self,level):
@@ -85,8 +92,8 @@ class Ball():
         fairy_tale_rows = [
                 cursor.execute("SELECT * FROM "+princess_name).fetchall() for princess_name in ("cinderella","rapunzel","sleeping_beauty","snow_white")
                         ]
-        save_row     = cursor.execute("SELECT dirt FROM save").fetchone()
-
+        save_row     = cursor.execute("SELECT * FROM save").fetchone()
+        accumulated_points = int(save_row["points"])
         princess_garments   = {
                     "this_ball":[princess_rows[len(princess_rows)-1][item] for item in garments],
                     "last_ball":[princess_rows[len(princess_rows)-2][item] for item in garments]
@@ -122,20 +129,25 @@ class Ball():
         glamour_points = fashion-dirty+creativity
         print "YOUR TOTAL GLAMOUR POINTS THIS BALL IS "+ str(glamour_points)+" !!!!"
         print "Now I am going to save your points"
+        print "YOU HAVE ACCUMULATED A TOTAL OF " +str(accumulated_points+glamour_points)+" glamour points."
         save_table = cursor.execute("SELECT * FROM save").fetchone()
         past_glamour_points = save_table['points']
         new_glamour_points = past_glamour_points+glamour_points
         cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
         level.universe.db.commit()
         self.texts += [
-                GameText("You've", p((1064,81)), self,font_size = 40),
-                GameText("got", p((1100,128)), self,font_size = 40),
-                GameText("glamour", p((1309,151)), self,font_size = 40),
-                GameText("points", p((1309,185)), self,font_size = 40),
-                GameText(str(int(glamour_points)), p((1200,120)),self,font_size=80)
+                gametext.Horizontal("You've", p((1064,81)), self,font_size = 40),
+                gametext.Horizontal("got", p((1100,128)), self,font_size = 40),
+                gametext.Horizontal("glamour", p((1309,151)), self,font_size = 40),
+                gametext.Horizontal("points", p((1309,185)), self,font_size = 40),
+                gametext.Horizontal(str(int(glamour_points)), p((1200,120)),self,font_size=80)
         ]
-        if glamour_points >= 3:
-            self.boyfriend = BoyFriend(glamour_points)
+        total_points = int(glamour_points+accumulated_points)
+        if glamour_points >= 30:
+            self.boyfriend = BoyFriend(total_points)
+        print level.panel
+        level.panel[1]  = gametext.Horizontal(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
+        print "segunda vez" + str(level.panel)
 
 
 class VerticalBar():
@@ -171,8 +183,8 @@ class BallFrame():
                 FairyTalePrincess(self, 400*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty')
                         ]
         self.texts = [
-                VerticalGameText("Yesterday's ball", p((100,200)), self),
-                VerticalGameText("Tonight's ball", p((100,500)), self),
+                gametext.Vertical("Yesterday's ball", p((100,200)), self),
+                gametext.Vertical("Tonight's ball", p((100,500)), self),
                     ]
         self.set_next_ball_clothes()
 
@@ -248,7 +260,7 @@ class BoyFriend():
         if points >= 3:
             boyfriend = "gentleman_decent"
         if points >= 65:
-            boyfriend = "knight_kindhearted"
+            boyfriend = "knight_reliable"
         if points >= 105:
             boyfriend = "baron_serious"
         if points >= 175:
@@ -264,30 +276,11 @@ class BoyFriend():
         if points >= 1000:
             boyfriend = "emperor_awesome"
         self.image= obj_images.image('data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
+        self.name = boyfriend.replace("_"," ").title()
         self.pos = p([1156,298])
 
     def update_all(self):
         pass
-
-class GameText():
-    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=20, color=(0,0,0),second_font = 'Chopin_Script.ttf'):
-        self.frame      = frame
-        self.font      = pygame.font.Font('data/fonts/'+fonte,font_size*scale)
-        self.image      = self.font.render(text,1,color)
-        self.position   = pos
-        self.size       = self.image.get_size()
-        self.pos        = [self.frame.position[0]+                            self.position[0]-(self.size[0]/2),
-                           self.frame.position[1]+                            self.position[1]-(self.size[1]/2)]
-
-    def update_all(self):
-        self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
-                           self.frame.position[1]+self.position[1]-(self.size[1]/2)]
-
-
-class VerticalGameText(GameText):
-    def __init__(self,text,pos,menu, fonte='Domestic_Manners.ttf',font_size = 30, color = (0,0,0)):
-        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
-        self.image = pygame.transform.rotate(self.image,90)
 
 
 class Dancer():
