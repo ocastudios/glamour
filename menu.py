@@ -40,8 +40,6 @@ class MenuScreen():
         self.menu           = Menu(self,self)
         self.menu.main()
         self.speed          = 5*scale
-        self.drapes         = []
-        self.upper_drapes   = []
         self.STEP           = self.update_drape
         self.count          = 0
         self.action         = 'open'
@@ -78,6 +76,7 @@ class MenuScreen():
             self.STEP = self.STEP_arrive_bar ## Change the STEP
             self.bar_side = 'left'
             del self.drapes
+            del self.upper_drapes
 
     def STEP_arrive_bar(self,surface):
         if self.menu.back_background:
@@ -87,7 +86,7 @@ class MenuScreen():
             if self.bar_side == 'left':
                 if self.bar_position < 0:
                     self.bar_position += self.speed
-                    if self.bar_position > -200*scale:
+                    if self.bar_position > int(-200*scale):
                         self.speed -= .5
                     else:
                         self.speed += .5
@@ -95,14 +94,18 @@ class MenuScreen():
                     self.bar_position = 0
                     self.STEP = self.update_menus ## Change the STEP
             elif self.bar_side == 'right':
+                if self.bar_position <10:
+                    self.bar_position =  2000*scale
                 if self.bar_position+(516*scale) > self.universe.width:
+                    print "Right bar going to position. Present position = "+str(self.bar_position)
                     self.bar_position -= self.speed
-                    if self.bar_position < ((self.universe.width-(300*scale))):
+                    if self.bar_position < int((self.universe.width-(300*scale))):
                         self.speed += (.5*scale)
                     else:
                         self.speed -= (.5*scale)
                 else:
-                    self.bar_position = (1440-516)*scale
+                    print "Right reached it's goal. Present position = "+str(self.bar_position)
+                    self.bar_position = int((1440-516)*scale)
                     self.STEP = self.update_menus ## Change the STEP
 
     def update_menus(self,surface):
@@ -128,6 +131,7 @@ class MenuScreen():
             self.menu.princess.update_all()
             [surface.blit(i,self.menu.princess.pos) for i in self.menu.princess.images if i]
         self.menu.update_all()
+
         if self.action == 'open':
             self.menu.action = self.action
         else:
@@ -147,7 +151,7 @@ class MenuScreen():
             self.menu.princess.name.text = self.menu.princess.name.text.title()
 
     def close_bar(self,surface, call_bar = 'right'):
-        width = self.universe.width
+        width = 1440*scale
         if (-800*scale < self.bar_position <10*scale) or (width-self.bar_size[0] < self.bar_position < width +1):
             self.bar_position -= self.speed
             self.speed += 1*scale
@@ -183,6 +187,8 @@ class Menu():
         self.story          = None
         self.go_back        = False
         self.back_background= None
+        self.mouse_positions= []
+        self.selector = 0
 
     def main(self):
         self.back_background = None
@@ -208,7 +214,7 @@ class Menu():
             self.actual_position = [450*scale,-600*scale]
         else:
             print "Going Back"
-            self.actual_position = [450*scale,300*scale]
+            self.actual_position = [450*scale,1000*scale]
         self.options        = options
         self.texts          = texts
         self.buttons        = buttons
@@ -216,7 +222,6 @@ class Menu():
 
     def select_princess(self):
         self.screen.bar = self.screen.bar_right
-        self.screen.bar_position =  2000*scale
         self.princess       = MenuPrincess(self)
         self.print_princess = True
         txt=[('Choose your',[-200,200]),('appearence...',[-200,250]),('skin tone',[250,420]),('previous',[250,-40]),('next',[250,540])]
@@ -269,6 +274,20 @@ class Menu():
                         ('button_ok/',  (200,600), self.start_game,    None,False))])
 
     def update_all(self):
+        self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
+        keyboard = self.level.universe.action[0]
+        if keyboard:
+            if keyboard in ("up","left"):
+                self.selector -=1
+                if self.selector <0:
+                    self.selector = len(self.mouse_positions)-1
+            elif keyboard in ("down","right"):
+                self.selector +=1
+                if self.selector > len(self.mouse_positions)-1:
+                    self.selector = 0
+            pygame.mouse.set_pos(self.mouse_positions[self.selector])
+
+
         self.actual_position[1] += self.speed
         if self.action == 'open':
             if self.actual_position[1] != self.position[1]:
@@ -409,7 +428,7 @@ class Menu():
     def watching_story(self):
         title_dir = 'data/images/interface/title_screen/'
         self.screen.bar = self.screen.bar_right
-        self.screen.bar_position =  2000*scale
+#        self.screen.bar_position =  2000*scale
         self.story = Story_Frame(self)
         self.back_background = obj_images.scale_image(pygame.image.load('data/images/story/background/background.png').convert())
         self.action     = 'open'
@@ -518,7 +537,7 @@ class Options(GameText):
             if self.rect.collidepoint(mouse_pos):
                 self.image = self.fontB.render(self.text,1,self.color)
 ########################### BUTTON ACTION ############################
-                if pygame.mouse.get_pressed() == (1,0,0):
+                if self.menu.screen.universe.click:
                     exec('self.menu.'+function+'()')
             else:
                 self.image = self.fontA.render(self.text,1,self.color)

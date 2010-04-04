@@ -5,22 +5,34 @@ import stage
 
 def main_menu(universe):
     universe.click = False
+    universe.action[0] = None
     for event in pygame.event.get():
         if event.type == QUIT:
             exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
+                print "Escape pressed"
                 exit()
-            if event.key == K_i:
+            elif event.key == K_i:
                 universe.LEVEL = 'close'
             elif event.key == K_e:
                 universe.LEVEL = 'close'
             elif event.key == K_a:
                 universe.LEVEL = 'close'
-        if event.type == MOUSEBUTTONUP:
+            elif event.key == K_UP:
+                universe.action[0] = 'up'
+            elif event.key == K_DOWN:
+                universe.action[0] = 'down'
+            elif event.key == K_LEFT:
+                universe.action[0] = 'left'
+            elif event.key == K_RIGHT:
+                universe.action[0] = 'right'
+        elif event.type == KEYUP:
+            if event.key == K_RETURN:
+                print "Enter pressed"
+                universe.click = True
+        elif event.type == MOUSEBUTTONUP:
             universe.click = True
-        else:
-            universe.click = False
     pygame.event.clear()
 
 def choose_menu(universe):
@@ -64,6 +76,7 @@ def name_menu(universe):
     pygame.event.clear()
 
 def stage(universe):
+    pointersize = None
     for event in pygame.event.get():
         if event.type == QUIT:
             universe.level.princesses[0].save()
@@ -96,7 +109,7 @@ def stage(universe):
         elif event.type == USEREVENT:
             pygame.mixer.music.queue(universe.level.music)
         elif event.type == MOUSEMOTION:
-            pointersize = universe.level.game_mouse.size
+            pointersize = pointersize or universe.level.game_mouse.size
             mouse_pos           = pygame.mouse.get_pos()
             universe.level.game_mouse.pos = (mouse_pos[0]-(pointersize[0]/2),mouse_pos[1]-(pointersize[1]/2))
 

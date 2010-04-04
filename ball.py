@@ -81,7 +81,8 @@ class Ball():
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
                 self.boyfriend.update_all()
         if self.counter == 160:
-            self.texts += [gametext.Horizontal(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
+            if self.boyfriend:
+                self.texts += [gametext.Horizontal(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
         if self.counter <= 160:
             self.counter += 1
 
@@ -119,6 +120,7 @@ class Ball():
         history_repetitions = sum([garments_history.count(i) for i in princess_garments["this_ball"]])
 
         print "The total repetition points for the garments in this ball is "+ str(present_repetitions)
+        print "The total repetition points for the garments last ball is "+ str(past_repetitions)
         print "Fashion points is equal to 34 - 3*repetition_points - past_repetition_points"
         fashion = 34-(3*present_repetitions)-(past_repetitions)
         print "Your total Fashion points is " + str(fashion)
@@ -257,7 +259,7 @@ class StarBall():
 class BoyFriend():
     def __init__(self, points):
         boyfriend = None
-        if points >= 3:
+        if points >= 30:
             boyfriend = "gentleman_decent"
         if points >= 65:
             boyfriend = "knight_reliable"
