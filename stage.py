@@ -235,6 +235,7 @@ class Stage():
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
                 [i.update_all() for i in self.inside.items]
             elif self.inside.status == 'done':
+                self.princesses[0].update_all()
                 self.down_bar_y += self.bar_speed
                 self.up_bar_y -= self.bar_speed
                 if self.bar_speed < 20:

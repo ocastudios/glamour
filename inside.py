@@ -193,12 +193,11 @@ class Princess_Home():
         princess_name = princess["name"].lower()
         cursor = self.level.universe.db_cursor
         row     = cursor.execute("SELECT * FROM "+princess_name+" WHERE id = (SELECT MAX(id) FROM "+princess_name+")").fetchone()
-
         self.princess_image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),(0,0))
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
 
 
