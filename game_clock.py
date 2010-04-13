@@ -26,8 +26,9 @@ class ClockPointer():
         self.pointerpos = 0
 
     def update_all(self):
-        self.tick += 1
+        self.tick += 10
         if self.tick == self.level.universe.frames_per_second:
+            print "Updating the time "+ str(self.count)
             if self.count < 180:
                 if self.pointerpos > (len(self.rotate_list)-2):
                     self.pointerpos  =0
@@ -36,11 +37,7 @@ class ClockPointer():
                 self.image  = self.clock_pointer[self.count]
                 imagesize   = self.image.get_size()
                 self.pos    = (self.level.universe.width-imagesize[0],0)
-
-            if self.count < 300:
                 self.count += 1
-            else:
-                self.count = 0
 
         elif self.tick > self.level.universe.frames_per_second:
             self.tick = 0

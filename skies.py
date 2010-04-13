@@ -20,3 +20,4 @@ class Sky():
                 self.prev = self.level.clock[1].count
         else:
             self.night_image = None
+            self.night_images.number = 0

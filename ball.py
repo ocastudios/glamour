@@ -335,7 +335,8 @@ class BallButton():
             self.image = self.images.list[self.images.itnumber.next()]
             if self.level.universe.click:
                 self.level.BathhouseSt(goalpos = 5520*scale)
-                self.level.universe.clock_pointer.count = 0
+                self.level.clock[1].count = 0
+                self.level.clock[1].time = "morning"
         else:
             if self.image != self.images.list[0]:
                 self.image = self.images.list[self.images.itnumber.next()]
