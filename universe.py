@@ -31,8 +31,6 @@ class Universe():
         self.level = stage.Stage(self)
 
     def define_level(self):
-        self.gclock =  game_clock.GameClock(self.level)
-        self.clock_pointer = game_clock.ClockPointer(self.level)
         self.level.BathhouseSt()
 
     def movement(self,dir):

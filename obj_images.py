@@ -154,5 +154,6 @@ class MultiPart():
 def image(directory):
     prep = pygame.image.load(directory).convert_alpha()
     return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
+
 def scale_image(prep):
     return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))

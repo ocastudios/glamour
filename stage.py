@@ -10,6 +10,7 @@ import moving_scenario
 import glamour_stars
 import princess
 import os
+import game_clock
 #import panel
 import pygame
 #import itertools
@@ -44,7 +45,7 @@ class Stage():
         self.universe       = universe
         self.cameras=[camera.GameCamera(self,-4220*scale)]
         self.gates          = []
-        self.clock          = []
+        self.clock          = [game_clock.GameClock(self),game_clock.ClockPointer(self)]
         self.floor_heights  = {}
         self.floor          = universe.floor-186*scale
         self.menus          = []
@@ -77,6 +78,7 @@ class Stage():
         self.event_counter = 0
         self.starting_game = True
 
+
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
 
@@ -105,13 +107,13 @@ class Stage():
         events.choose_event(self)
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
-        if self.universe.clock_pointer.count > 160:
+        if self.clock[1].count > 160:
             if self.background[0] == self.ballroom['day']:
                 self.background = [self.ballroom['night']]
         else:
             if self.background[0] == self.ballroom['night']:
                 self.background = [self.ballroom['day']]
-        if self.universe.clock_pointer.time == 'ball':
+        if self.clock[1].time == 'ball':
             self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
             self.ball.update_all    ()
             for i in self.pointer:
@@ -124,7 +126,7 @@ class Stage():
             self.universe.movement(self.direction)
             for att in self.blitlist:
                 if att == 'lights':
-                    if self.universe.clock_pointer.time == 'night':
+                    if self.clock[1].time == 'night':
                         for i in self.lights:
                             if i['status'] == 'on':
                                 self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
@@ -154,6 +156,7 @@ class Stage():
                 self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
             for i in self.clock:
                 self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
             for i in self.panel:
                 if i:
                     self.universe.screen_surface.blit(i.image,i.pos)
@@ -295,7 +298,7 @@ class Stage():
         for i in self.scenarios_prep:
             self.scenarios[0].image.blit(i.image,i.pos)
         cursor.close()
-        self.sky             = [skies.Sky(self.maindir+'skies/daytime/daytime.png',self,self.universe.clock_pointer)]
+        self.sky             = [skies.Sky(self)]
         self.clouds          =   [scenarios.Cloud(self) for cl in range(3)]
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 

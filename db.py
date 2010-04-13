@@ -8,6 +8,7 @@ import db
 import sqlite3
 import messages
 from pygame.locals import *
+
 def connect_db(url, universe):
         universe.db = db = sqlite3.connect(url)
         universe.db.row_factory = sqlite3.Row

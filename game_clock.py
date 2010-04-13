@@ -3,36 +3,29 @@ import pygame
 
 class GameClock():
     def __init__(self,level):
-        self.level = level
-        self.image = obj_images.scale_image(pygame.image.load('data/images/interface/clock/page_border.png').convert_alpha())
-        self.pos   =((self.level.universe.width-self.image.get_width()),0)
-        self.time  = 'day' 
-        level.clock.append(self)
+        self.image = obj_images.image('data/images/interface/clock/page_border.png')
+        self.pos   =((level.universe.width-self.image.get_width()),0)
+    def update_all(self):
+        pass
 
 
 class ClockPointer():
     def __init__(self,level):
         self.level          = level
-        self.rotate_list    = []
-        x                   = -90
-        while x != 0:
-            self.rotate_list.append(x)
-            x+= 0.5
-        self.clock_pointer_basic= obj_images.scale_image(pygame.image.load('data/images/interface/clock/clock_pointer.png').convert_alpha())
+        self.rotate_list    = [float(i)/10 for i in range(-900,5,5)]
+        self.clock_pointer_basic= obj_images.image('data/images/interface/clock/clock_pointer.png')
         self.clock_pointer      = []
         self.count              = 0
         self.tick               = 0
         self.time               = 'day' #morning,day,evening,night
         self.clock_pointer = [pygame.transform.rotate(self.clock_pointer_basic,degree) for degree in self.rotate_list]
-        if self not in level.clock:
-            level.clock.append(self)
         self.image  = self.clock_pointer[self.count]
         imagesize   = self.image.get_size()
         self.pos    = (self.level.universe.width-imagesize[0],0)
         self.level.universe.frames_per_second
         self.pointerpos = 0
 
-    def update_image(self):
+    def update_all(self):
         self.tick += 5
         if self.tick == self.level.universe.frames_per_second:
             if self.count < 180:

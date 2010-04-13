@@ -343,12 +343,13 @@ class Menu():
         global name_taken
         if not using_saved_game:
             try:
-                print "criar diretorio"
+                print "Starting a New Save File"
+                print "Creating Directory"
                 new_dir = self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text
                 os.mkdir(new_dir)
+                print "Creating a New Database Save File"
                 db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.level.universe)
                 self.screen.universe.LEVEL= 'start'
-                self.screen.universe.file = 'data/saves/'+self.princess.name.text+'/'+self.princess.name.text+'.glamour'
                 name_taken = False
             except Exception, e:
                 print "Maybe this name already existed"
@@ -356,11 +357,12 @@ class Menu():
                 name_taken = True
                 self.to_name_your_princess()
         else:
-            print "Using saved game"
-            self.screen.universe.LEVEL = 'start'
-            self.screen.universe.file = using_saved_game
+            print "Using saved game "+ using_saved_game
             print "Connecting to Database"
-            db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', universe = self.level.universe)
+            db.connect_db(using_saved_game, self.level.universe)
+            self.screen.universe.LEVEL = 'start'
+
+
 
 
     def change_princess(self,list):#list of: int,part
@@ -392,7 +394,8 @@ class Menu():
             try:
                 files = os.listdir(directory+i)
                 if 'thumbnail.PNG' in files:
-                    saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.glamour'}])
+                    saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
+                    print ([{'name':i, 'file': directory+i+'/'+i+'.db'}])
                 else:
                     print _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
                     for f in files:
@@ -480,7 +483,9 @@ class MenuArrow():
             if self.menu.screen.universe.click:
                 try:
                     self.function(self.parameter)
-                except:
+                except Exception,e:
+                    print "Could not execute with parameter"
+                    print e
                     self.function()
         else:
             if self.image != self.images.list[0]:

@@ -18,8 +18,8 @@ gamemenu = menu.MenuScreen(universe)
 while True:
     while universe.LEVEL != 'start':
         control.main_menu(universe)
+        clock.tick(universe.frames_per_second)
         gamemenu.update_all()
-        clock.tick(40)
         pygame.display.flip()
     universe.define_level()
     pygame.mouse.set_visible(0)
@@ -27,7 +27,6 @@ while True:
         control.stage(universe)
         clock.tick(universe.frames_per_second)
         universe.level.update_all()
-        universe.clock_pointer.update_image()
         pygame.display.flip()
     universe.screen_surface.fill([0,0,0])
     pygame.display.flip()
