@@ -197,7 +197,7 @@ class Menu():
             self.actual_position = [self.position[0],-600*scale]
         else:
             self.actual_position = [self.position[0],1500*scale]
-        opt = (('New Game',100,'new_game'),('Load Game',180,'load_game'),('Play Story',260,'play_story'),('Options',340,'choose_language'))
+        opt = (('New Game',100,self.new_game),('Load Game',180,self.load_game),('Play Story',260,self.play_story),('Options',340,self.choose_language))
         self.options = [ Options(_(i[0]), p((300,i[1])), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
         self.level.menu_list={'New Game':p((310,105)),'Load Game':p((310,185)),'Play Story':p((310,265)),'Options':p((310,345))}
         self.texts =   [VerticalGameText(_('select one'),p((120,200)),self)]
@@ -218,7 +218,6 @@ class Menu():
         self.options        = options
         self.texts          = texts
         self.buttons        = buttons
-
 
     def select_princess(self):
         self.screen.bar = self.screen.bar_right
@@ -261,7 +260,7 @@ class Menu():
                     [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
         opt.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
             Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-            Options(_('done'),      (245*scale,500*scale)  ,self,'start_game',font_size=30)
+            Options(_('done'),      (245*scale,500*scale)  ,self,self.start_game,font_size=30)
            ])
         if name_taken:
             txts = [GameText(_(i[0]),p(i[1]),self) for i in (('Sorry, This name is taken.',(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
@@ -286,7 +285,6 @@ class Menu():
                 if self.selector > len(self.mouse_positions)-1:
                     self.selector = 0
             pygame.mouse.set_pos(self.mouse_positions[self.selector])
-
 
         self.actual_position[1] += self.speed
         if self.action == 'open':
@@ -362,9 +360,6 @@ class Menu():
             db.connect_db(using_saved_game, self.level.universe)
             self.screen.universe.LEVEL = 'start'
 
-
-
-
     def change_princess(self,list):#list of: int,part
         if list[1] == "hair":
             number = 4
@@ -395,13 +390,13 @@ class Menu():
                 files = os.listdir(directory+i)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
-                    print ([{'name':i, 'file': directory+i+'/'+i+'.db'}])
+                    print "Saved game found:\n"+str([{'name':i, 'file': directory+i+'/'+i+'.db'}])
                 else:
                     print _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
                     for f in files:
                         file_to_remove = os.getcwd()+'/'+directory+i+'/'+f
                         print "Removing "+file_to_remove
-                        os.rm(file_to_remove)
+                        os.remove(file_to_remove)
                     print "removing directory "+directory+i
                     os.rmdir(os.getcwd()+'/'+directory+i+'/')
             except:
@@ -414,7 +409,8 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [100*scale,-600*scale]
-        self.options    = []
+        self.options    = [
+                            ]
         self.texts =    [GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          GameText(_('Then choose your saved princess'),p((250,-100)),self)]
         ypos = 0
@@ -422,7 +418,8 @@ class Menu():
         self.buttons = []
         for i in saved_games:
             self.buttons.extend([MenuArrow(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
-            self.texts.extend([GameText(i['name'],(xpos+100,ypos),self, font_size = int(30))])
+            self.texts.extend([GameText(i['name'],(xpos+100*scale,ypos),self, font_size = int(30))])
+            self.options += [Options(_('erase'), (xpos+300*scale,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])]
             ypos+=self.buttons[0].size[1]
             if ypos > 250:
                 ypos = 0
@@ -444,12 +441,21 @@ class Menu():
         ypos = 150
         xpos = 150
 
+    def remove_save_directory(self, save_name):
+        for root, dirs, files in os.walk(self.screen.universe.main_dir+'/data/saves/'+save_name+'/', topdown=False):
+            for name in files:
+                os.remove(os.path.join(root, name))
+            for name in dirs:
+                os.rmdir(os.path.join(root, name))
+        os.rmdir(self.screen.universe.main_dir+'/data/saves/'+save_name+'/')
+        self.select_saved_game()
+
     def NOTSETYET(self):
         pass
 
 
 class MenuArrow():
-    def __init__(self,directory,position,menu,function,parameter = None,invert = False,):
+    def __init__(self,directory,position,menu,function,parameter = None,invert = False):
         self.menu = menu
         self.images     = obj_images.Buttons(directory,5)
         if invert:
@@ -523,9 +529,10 @@ class VerticalGameText(GameText):
 
 class Options(GameText):
     hoover = False
-    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
+    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0),parameter = None):
         GameText.__init__(self,text,pos,menu,fonte,font_size,color)
-        self.function = function
+        self.function  = function
+        self.parameter = parameter
 
     def update_all(self):
         self.size       = self.image.get_size()
@@ -543,7 +550,10 @@ class Options(GameText):
                 self.image = self.fontB.render(self.text,1,self.color)
 ########################### BUTTON ACTION ############################
                 if self.menu.screen.universe.click:
-                    exec('self.menu.'+function+'()')
+                    if self.parameter:
+                        self.function(self.parameter)
+                    else:
+                        self.function()
             else:
                 self.image = self.fontA.render(self.text,1,self.color)
 
