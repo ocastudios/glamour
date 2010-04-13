@@ -387,18 +387,19 @@ class Menu():
         saved_games = []
         for i in os.listdir(directory):
             try:
-                files = os.listdir(directory+i)
+                D = self.screen.universe.main_dir+'/'+directory+i+'/'
+                files = os.listdir(D)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
                     print "Saved game found:\n"+str([{'name':i, 'file': directory+i+'/'+i+'.db'}])
                 else:
                     print _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
                     for f in files:
-                        file_to_remove = os.getcwd()+'/'+directory+i+'/'+f
+                        file_to_remove = D+f
                         print "Removing "+file_to_remove
                         os.remove(file_to_remove)
-                    print "removing directory "+directory+i
-                    os.rmdir(os.getcwd()+'/'+directory+i+'/')
+                    print "removing directory "+D
+                    os.rmdir(D)
             except:
                 pass
         self.back_background = obj_images.image('data/images/story/svg_bedroom.png')

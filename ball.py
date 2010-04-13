@@ -145,11 +145,9 @@ class Ball():
                 gametext.Horizontal(str(int(glamour_points)), p((1200,120)),self,font_size=80)
         ]
         total_points = int(glamour_points+accumulated_points)
-        if glamour_points >= 30:
+        if total_points >= 30:
             self.boyfriend = BoyFriend(total_points)
-        print level.panel
         level.panel[1]  = gametext.Horizontal(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
-        print "segunda vez" + str(level.panel)
 
 
 class VerticalBar():
@@ -258,6 +256,7 @@ class StarBall():
 
 class BoyFriend():
     def __init__(self, points):
+        print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
         boyfriend = None
         if points >= 30:
             boyfriend = "gentleman_decent"
@@ -277,9 +276,10 @@ class BoyFriend():
             boyfriend = "king_kindhearted"
         if points >= 1000:
             boyfriend = "emperor_awesome"
+        print "The heart of "+boyfriend+" is yours!"
         self.image= obj_images.image('data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
         self.name = boyfriend.replace("_"," ").title()
-        self.pos = p([1156,298])
+        self.pos = p([1000,298])
 
     def update_all(self):
         pass

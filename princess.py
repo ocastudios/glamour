@@ -16,7 +16,7 @@ Problems to be fixed in this class are:
 Princess shoes are moving weirdly when she jumps.
 """
     directory = 'data/images/princess/'
-    def __init__(self,level,INSIDE = False):
+    def __init__(self,level,INSIDE = False,xpos=None):
         self.first_frame = True
         self.level = level
         self.effects    = []
@@ -27,7 +27,10 @@ Princess shoes are moving weirdly when she jumps.
         row     = self.save_cursor.execute("SELECT * FROM save").fetchone()
         print "Connected to the Save Database for princess data\nRetrieved data: "+str(row)
         self.name = row['name']
+
         self.center_distance = int(int(row['center_distance'])*scale)
+        if xpos:
+            self.center_distance = int(xpos*scale)
         self.dirt            = int(row['dirt'])
         self.points          = int(row['points'])
         self.pos = [int(self.level.universe.center_x) + self.center_distance,

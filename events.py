@@ -24,7 +24,7 @@ def choose_event(level,starting_game=False):
                 message_number = random.randint(0,len(intro)-1)
                 message_text = intro[message_number]
                 text = message_text['message']
-                level.fae[0] = fairy.Message(level, message = text)
+                level.fae = [fairy.Message(level, message = text),fairy.Fairy(20,level)]
                 level.universe.db_cursor.execute('UPDATE messages SET count = '+str(least_used+1)+' where message = "'+text+'";')
                 level.universe.db.commit()
         elif level.name == "bathhouse":

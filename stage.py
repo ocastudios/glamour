@@ -77,7 +77,7 @@ class Stage():
                           'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
         self.event_counter = 0
         self.starting_game = True
-
+        self.fae = [None]
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -373,7 +373,7 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-        self.princesses = self.princesses or [princess.Princess(self),None]
+        self.princesses = self.princesses or [princess.Princess(self,xpos=5220),None]
 
 
 #        panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120*scale)
