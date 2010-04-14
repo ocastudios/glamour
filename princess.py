@@ -201,6 +201,7 @@ Princess shoes are moving weirdly when she jumps.
                 next_height = self.level.what_is_my_height(self)
                 if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
                     self.center_distance += self.speed
+        print "x="+str(self.center_distance)
 
     def soundeffects(self,action):
         if not self.jump and (self.pos[1]+self.size[1]) == self.floor:

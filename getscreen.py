@@ -10,5 +10,6 @@ import os
 os_screen = pygame.display.Info()
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 splash_surface = pygame.display.set_mode(splash.get_size(), pygame.NOFRAME).blit(splash,(0,0))
+pygame.display.set_icon(pygame.image.load("data/images/interface/favicon.png").convert_alpha())
 pygame.display.flip()
 pygame.time.wait(5000)

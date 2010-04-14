@@ -46,6 +46,7 @@ class Enemy():
                 next_height = self.level.what_is_my_height(self)
                 if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -(30*scale):
                     self.center_distance -= self.speed
+
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
 
 class Schnauzer(Enemy):
@@ -123,6 +124,7 @@ class Schnauzer(Enemy):
             self.move =False
             exec('actual_list = self.kissed.'+self.direction)
         number_of_files = len(actual_list)-2
+
         if self.image_number <= number_of_files:
             self.image_number +=1
         else:
@@ -603,6 +605,8 @@ class Bird():
         self.image      = self.body.left[0]
         self.level      = level
         self.size       = [(self.image.get_width()/3),self.image.get_height()]
+        #adjusting self.size
+        self.size[1] -= 10*scale
         self.pos        = [self.level.universe.center_x+self.center_distance, self.level.floor-self.size[1]]
         self.direction  = 'left'
         self.disturbed  = {'ongoing':False, 'count':0,'spot':(0,0)}
@@ -611,10 +615,22 @@ class Bird():
         self.speed = 5*scale
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.level.enemies.append(Hawk((self.level.universe.width+int(600*scale), int(-300*scale)), self.level, self))
+        self.gforce         = 0
+        self.g_acceleration = 3*scale
+
 
     def update_all(self):
+        floor = self.level.universe.floor - self.level.what_is_my_height(self)
         if self.body    == self.walking:
             speed = 5*scale
+            if self.size[1] + self.pos[1] < floor:
+                self.pos[1] += self.gforce
+                if self.pos[1]+self.size[1] > self.floor:
+                    self.pos[1] = self.floor-self.size[1]         #do not fall beyond the floor
+                self.gforce += self.g_acceleration
+            else:
+                self.gforce = 0
+
         elif self.body  == self.flying:
             speed = 10*scale
         elif self.body  == self.standing:
@@ -626,6 +642,7 @@ class Bird():
             self.direction = direction
             print "Bird changes direction to " + direction
             self.counter =0
+
         if self.direction == 'left':
             self.speed = (speed*scale)*-1
             self.image = self.body.left[self.body.number]
@@ -635,6 +652,7 @@ class Bird():
         if self.disturbed['count'] < 3:
             self.body = self.walking
         if self.disturbed['count'] == 3:
+            self.counter = 0
             self.disturbed['spot'] = (self.pos[0],(self.level.universe.floor - (self.level.princesses[0].size[1]/2)))
             self.body = self.flying
 
@@ -650,10 +668,14 @@ class Bird():
         self.body.update_number()
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.center_distance += self.speed
+
         if self.body == self.flying:
-            height = random.randint(-2,4)
+            height = random.randint(-5,10)
             height = height*scale
             self.pos[1] -= height
+            
+
+
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
 
@@ -709,7 +731,7 @@ class Hawk():
                 self.mood = 'revanged'
                 self.bird.disturbed['count'] = 0
                 print "Hawk fells revanged now..."
-            if self.pos[1] > (600*scale)-self.size[1]:#self.level.universe.floor - int(350*scale):
+            if self.pos[1] > self.bird.pos[1] - (self.level.princesses[0].size[1]/2):#self.level.universe.floor - int(350*scale):
 #            elif self.rect.collidepoint(self.bird.disturbed['spot']):
                 self.mood = 'calm'
                 self.bird.disturbed['count'] = 0
@@ -723,14 +745,16 @@ class Hawk():
                 self.mood = 'calm'
 
         if self.mood == 'calm':
+            self.center_distance += (self.speed*.5)
             if self.center_distance > self.bird.center_distance + (1000*scale):
                 self.direction = 'left'
             elif self.center_distance < self.bird.center_distance -(1000*scale):
                 self.direction = 'right'
-            self.center_distance += (self.speed*.5)
             if self.pos[1]>0:
-                self.pos[1] -= int(self.speed*scale)
+                self.pos[1] -= int(30*scale)
 
         self.pos[0] = self.level.universe.center_x + self.center_distance
+        print self.pos[1]
+        print self.bird.pos[1]
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.body.update_number()
