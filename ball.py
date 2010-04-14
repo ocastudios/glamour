@@ -4,6 +4,9 @@ import random
 import gametext
 from settings import *
 
+import gettext
+t = gettext.translation('glamour', 'locale')
+_ = t.ugettext
 
 def p(positions):
     return [int(i*scale) for i in positions ]
@@ -52,6 +55,9 @@ class Ball():
         self.universe.screen_surface.blit(self.background,(0,0))
         for i in self.dancers:
             self.universe.screen_surface.blit(i.image,i.position)
+            i.update_all()
+        for i in self.Frame.past_princesses:
+            self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
         self.universe.screen_surface.blit(self.Frame.image,self.Frame.position)
         self.Frame.update_all()
@@ -177,14 +183,19 @@ class BallFrame():
         self.speed = 5
         self.ball = ball
         self.princesses = [
-                FairyTalePrincess(self, 100*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White'),
-                FairyTalePrincess(self, 200*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella'),
-                FairyTalePrincess(self, 300*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel'),
-                FairyTalePrincess(self, 400*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty')
+                FairyTalePrincess(self, 130*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White'),
+                FairyTalePrincess(self, 240*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella'),
+                FairyTalePrincess(self, 350*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel'),
+                FairyTalePrincess(self, 460*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty')]
+        self.past_princesses= [
+                FairyTalePrincess(self, 130*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White',ball="past"),
+                FairyTalePrincess(self, 240*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella',ball="past"),
+                FairyTalePrincess(self, 350*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel',ball="past"),
+                FairyTalePrincess(self, 460*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty',ball="past")
                         ]
         self.texts = [
-                gametext.Vertical("Yesterday's ball", p((100,200)), self),
-                gametext.Vertical("Tonight's ball", p((100,500)), self),
+                gametext.Vertical(_("Tonight's ball"),      p((100,200)), self),
+                gametext.Vertical(_("Yesterday's ball"),    p((115,450)), self),
                     ]
         self.set_next_ball_clothes()
 
@@ -212,7 +223,8 @@ class BallFrame():
 
 
 class FairyTalePrincess():
-    def __init__(self, frame, position_x, hair, skin, icon, name = None):
+    def __init__(self, frame, position_x, hair, skin, icon, name = None, ball = "this"):
+
         skin_body       = 'skin_'+skin
         skin_arm        = 'arm_'+skin
         princess_directory  = 'data/images/princess/'
@@ -220,14 +232,23 @@ class FairyTalePrincess():
         self.frame      = frame
         self.file       = frame.ball.universe.file
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
-        self.position   = [position_x, 200*scale]
-        self.symbol     =  obj_images.image(ball_directory+icon)
-        self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
+        name_lower = name.lower()
+        if ball == "this":
+            self.position   = [position_x, 200*scale]
+            self.symbol     =  obj_images.image(ball_directory+icon)
+            self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
+            sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")"
+        else:
+            self.position   = [position_x,450*scale]
+            self.symbol = None
+            self.symbolpos = [0,0]
+            sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-1 FROM "+name_lower+")"
+
         self.pos        = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
-        name_lower = name.lower()
+
         cursor = self.frame.ball.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")").fetchone()
+        row     = cursor.execute(sql).fetchone()
         if row['hair_back'] > 0:
             self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
         self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
