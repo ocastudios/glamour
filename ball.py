@@ -47,6 +47,7 @@ class Ball():
         Shoes_list           = ['crystal','red','slipper','white']
         Makeup_list          = ['eyelids','eyeshades','lipstick','simple']
         self.counter         = 0
+        self.bigprincess = BigPrincess(self)
 
     def update_all(self):
 
@@ -73,6 +74,9 @@ class Ball():
         for i in self.buttons:
             self.universe.screen_surface.blit(i.image,i.pos)
             i.update_all()
+        if self.counter > 60:
+            self.universe.screen_surface.blit(self.bigprincess.image,self.bigprincess.pos)
+            self.bigprincess.update_all()
         if self.counter > 90:
             for i in self.texts:
                 self.universe.screen_surface.blit(i.image,i.pos)
@@ -304,6 +308,27 @@ class BoyFriend():
 
     def update_all(self):
         pass
+
+
+class BigPrincess():
+    def __init__(self, ball):
+        princess_directory  = 'data/images/princess/'
+        ball_directory      = 'data/images/interface/ball/'
+        big_image      = obj_images.scale_image(pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha())
+        self.pos        = p([ 670,398])
+        cursor = ball.universe.db_cursor
+        sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
+        row = cursor.execute(sql).fetchone()
+        print row
+        for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
+            if row[part] and row[part]!="None":
+                img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()
+                big_image.blit(img, (0,0))
+        self.image = obj_images.scale_image(big_image)
+
+    def update_all(self):
+        pass
+
 
 
 class Dancer():
