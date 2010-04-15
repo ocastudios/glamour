@@ -83,9 +83,10 @@ def stage(universe):
             exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                universe.level.princesses[0].save()
-                universe.level.pause.status = "inside"
-                universe.level.paused = True
+                if not universe.level.paused:
+                    universe.level.princesses[0].save()
+                    universe.level.pause.status = "inside"
+                    universe.level.paused = True
             if event.key == K_LEFT:
                 universe.dir = 'left'
                 universe.action[1] = 'walk'

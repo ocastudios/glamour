@@ -113,6 +113,7 @@ class Stage():
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
         if self.paused:
+            self.blit_all()
             self.update_pause()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
@@ -180,6 +181,37 @@ class Stage():
                         self.universe.screen_surface.blit(i.image,i.pos)
                         i.update_all()
 
+    def blit_all(self):
+        for att in self.blitlist:
+            if att == 'lights':
+                if self.clock[1].time == 'night':
+                    for i in self.lights:
+                        if i['status'] == 'on':
+                            self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
+            else:
+                exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
+
+        for effect in self.princesses[0].effects:
+            self.universe.screen_surface.blit(effect[0],effect[1])
+        for i in self.scenarios_front:
+            self.universe.screen_surface.blit(i.image,i.pos)
+        for i in self.gates:
+            if self.princesses[0].rect.colliderect(i.rect) and i.arrow_image:
+                self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
+        for i in self.floor_image:
+            self.universe.screen_surface.blit(i.image,i.pos)
+        for i in self.foreground:
+            self.universe.screen_surface.blit(i.image,i.pos)
+        if self.sky[0].night_image:
+            self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
+        for i in self.clock:
+            self.universe.screen_surface.blit(i.image,i.pos)
+        for i in self.panel:
+            if i:
+                self.universe.screen_surface.blit(i.image,i.pos)
+        if self.fairy:
+            for i in self.fae:
+                self.universe.screen_surface.blit(i.image,i.pos)
 
     def update_insidebar(self):
         self.universe.screen_surface.blit(self.white.image,(0,0))
@@ -670,12 +702,14 @@ class Pause():
     def __init__(self, level):
         self.status = 'outside'
         self.level  = level
-        self.buttons    = (
-                inside.Button('data/images/interface/title_screen/button_ok/',(410,450),self.level,self.resume),
-                inside.Button('Game Paused',(500,100),self.level, self.do_nothing, font_size=80),
-                inside.Button('Resume',(400,400),self.level,self.resume, font_size=80),
-                inside.Button('Quit',(800,400),self.level,self.quit_game, font_size= 80)
-                            )
+        resume      = inside.Button('Resume',(360,400),self.level,self.resume, font_size=80)
+        ok_pos      = resume.pos[0]+(resume.size[0]/2),resume.pos[1]+(resume.size[1])+50
+        ok_button   = inside.Button('data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
+        quit        = inside.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
+        cancel_pos  = quit.pos[0]+(quit.size[0]/2),quit.pos[1]+(quit.size[1])+50
+        cancel_button = inside.Button('data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
+        title       = inside.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
+        self.buttons    = (resume, ok_button, quit, cancel_button, title)
 
     def resume(self,param):
         self.status = 'done'
