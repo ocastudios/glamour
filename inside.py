@@ -200,8 +200,6 @@ class Princess_Home():
         self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),(0,0))
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
 
-
-
     def all_set(self,param):
         self.status = 'done'
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
@@ -210,3 +208,23 @@ class Princess_Home():
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0],
                            self.frame.position[1]+self.position[1]]
+
+class Home():
+    def __init__(self, level):
+        self.status = 'outside'
+        self.level  = level
+        self.items = []
+        self.buttons = []
+        self.buttons    = (Button('data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
+                           Button('To the Ball',(500,100),self.level, self.all_set, font_size=80)
+                            )
+
+    def all_set(self,param):
+        self.status = 'done'
+        for i in self.items:
+            if i.queue_pos == 1:
+                chosen_item = i.name
+        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
+        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
+        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
+        pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')

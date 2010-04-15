@@ -34,7 +34,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     cursor = level.universe.db_cursor
     cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+str(princess.name)+"'")
     if hair:
-        cursor.execute("UPDATE princess_garment SET hair_back = "+str(hairback)+" WHERE id = (SELECT max(id) FROM princess_garment)")
+        cursor.execute("UPDATE princess_garment SET hair_back = '"+str(hairback)+"' WHERE id = (SELECT max(id) FROM princess_garment)")
     if skin:
         cursor.execute("UPDATE princess_garment SET skin     = '"+str(skin)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
         cursor.execute("UPDATE princess_garment SET arm      = '"+str(arm)+"'   WHERE id =  (SELECT max(id) FROM princess_garment)")

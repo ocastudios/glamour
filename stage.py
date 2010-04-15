@@ -78,6 +78,8 @@ class Stage():
         self.event_counter = 0
         self.starting_game = True
         self.fae = [None]
+        self.pause      = Pause(self)
+        self.paused     = False
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -97,6 +99,9 @@ class Stage():
     def bathhouse_castle(self):
         return inside.Inside(self,'shower', [])
 
+    def pause_game(self):
+        return inside.Pause(self)
+
     def what_is_my_height(self,object):
         try:        y_height = self.floor_heights[int(object.center_distance+(object.size[0]/2))]
         except:     y_height = self.floor
@@ -107,67 +112,74 @@ class Stage():
         events.choose_event(self)
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
-        if self.clock[1].count > 160:
-            if self.background[0] == self.ballroom['day']:
-                self.background = [self.ballroom['night']]
-        else:
-            if self.background[0] == self.ballroom['night']:
-                self.background = [self.ballroom['day']]
-        if self.clock[1].time == 'ball':
-            self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
-            self.ball.update_all    ()
+        if self.paused:
+            self.update_pause()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         else:
-            if self.ball:
-                self.ball = None
-            self.cameras[0].update_all()
-            self.universe.movement(self.direction)
-            for att in self.blitlist:
-                if att == 'lights':
-                    if self.clock[1].time == 'night':
-                        for i in self.lights:
-                            if i['status'] == 'on':
-                                self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
-                                i['position'].update_pos()
-                            if i['status'] == 'off' and random.randint(0,10) == 0:
-                                i['status'] = 'on'
-                                i['position'].update_pos()
-                else:
-                    exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
-                    exec('[i.update_all() for i in self.'+att+' if i]')
-            for effect in self.princesses[0].effects:
-                self.universe.screen_surface.blit(effect[0],effect[1])
-            for i in self.scenarios_front:
-                self.universe.screen_surface.blit(i.image,i.pos)
-                i.update_all()
-            [self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
-                            for i in self.gates if self.princesses[0].rect.colliderect(i.rect) and i.arrow_image]
-            for i in self.floor_image:
-                self.universe.screen_surface.blit(i.image,i.pos)
-                i.update_all()
-            for i in self.foreground:
-                self.universe.screen_surface.blit(i.image,i.pos)
-                i.update_all()
-            if self.princesses[0].inside:
-                self.update_insidebar()
-            elif self.sky[0].night_image:
-                self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
-            for i in self.clock:
-                self.universe.screen_surface.blit(i.image,i.pos)
-                i.update_all()
-            for i in self.panel:
-                if i:
+            if self.clock[1].count > 160:
+                if self.background[0] == self.ballroom['day']:
+                    self.background = [self.ballroom['night']]
+            else:
+                if self.background[0] == self.ballroom['night']:
+                    self.background = [self.ballroom['day']]
+            if self.clock[1].time == 'ball':
+                self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
+                self.ball.update_all    ()
+                for i in self.pointer:
                     self.universe.screen_surface.blit(i.image,i.pos)
                     i.update_all()
-            for i in self.pointer:
-                self.universe.screen_surface.blit(i.image,i.pos)
-                i.update_all()
-            if self.fairy:
-                for i in self.fae:
+            else:
+                if self.ball:
+                    self.ball = None
+                self.cameras[0].update_all()
+                self.universe.movement(self.direction)
+                for att in self.blitlist:
+                    if att == 'lights':
+                        if self.clock[1].time == 'night':
+                            for i in self.lights:
+                                if i['status'] == 'on':
+                                    self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
+                                    i['position'].update_pos()
+                                if i['status'] == 'off' and random.randint(0,10) == 0:
+                                    i['status'] = 'on'
+                                    i['position'].update_pos()
+                    else:
+                        exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
+                        exec('[i.update_all() for i in self.'+att+' if i]')
+                for effect in self.princesses[0].effects:
+                    self.universe.screen_surface.blit(effect[0],effect[1])
+                for i in self.scenarios_front:
                     self.universe.screen_surface.blit(i.image,i.pos)
                     i.update_all()
+                [self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
+                                for i in self.gates if self.princesses[0].rect.colliderect(i.rect) and i.arrow_image]
+                for i in self.floor_image:
+                    self.universe.screen_surface.blit(i.image,i.pos)
+                    i.update_all()
+                for i in self.foreground:
+                    self.universe.screen_surface.blit(i.image,i.pos)
+                    i.update_all()
+                if self.princesses[0].inside:
+                    self.update_insidebar()
+                elif self.sky[0].night_image:
+                    self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
+                for i in self.clock:
+                    self.universe.screen_surface.blit(i.image,i.pos)
+                    i.update_all()
+                for i in self.panel:
+                    if i:
+                        self.universe.screen_surface.blit(i.image,i.pos)
+                        i.update_all()
+                for i in self.pointer:
+                    self.universe.screen_surface.blit(i.image,i.pos)
+                    i.update_all()
+                if self.fairy:
+                    for i in self.fae:
+                        self.universe.screen_surface.blit(i.image,i.pos)
+                        i.update_all()
+
 
     def update_insidebar(self):
         self.universe.screen_surface.blit(self.white.image,(0,0))
@@ -265,6 +277,52 @@ class Stage():
             self.universe.screen_surface.blit(self.inside.princess_image, (x,y))
         except:
             pass
+
+    def update_pause(self):
+        self.universe.screen_surface.blit(self.white.image,(0,0))
+        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
+        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
+        if self.pause.status == 'inside':
+            self.up_bar_y = -self.bar_height
+            self.down_bar_y = self.universe.height
+            self.white.alpha_value = 0
+            self.pause.status = 'loading'
+        elif self.pause.status == 'loading':
+            self.white.image.set_alpha(self.white.alpha_value)
+            if self.white.alpha_value < 200:
+                self.white.alpha_value += 10
+            if self.down_bar_y > 2*self.bar_goal:
+                self.down_bar_y -= self.bar_speed
+            if self.up_bar_y + self.bar_height< self.bar_goal:
+                self.up_bar_y += self.bar_speed
+            if self.bar_speed < 20:
+                self.bar_speed += self.bar_speed
+            if self.white.alpha_value > 150:
+                self.pause.status = 'choosing'
+        elif self.pause.status == 'choosing':
+            for i in self.pause.buttons:
+                self.universe.screen_surface.blit(i.image, i.pos)
+                i.update_all()
+                self.universe.screen_surface.blit(self.princesses[0].image,
+                                    ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
+                                    (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
+
+        elif self.pause.status == 'done':
+            self.princesses[0].update_all()
+            self.down_bar_y += self.bar_speed
+            self.up_bar_y -= self.bar_speed
+            if self.bar_speed < 20:
+                self.bar_speed += self.bar_speed
+            if self.white.alpha_value > 0:
+                self.white.alpha_value -= 10
+                self.white.image.set_alpha(self.white.alpha_value)
+            else:
+                self.white.image.alpha_value = 0
+            self.white.image.set_alpha(self.white.alpha_value)
+            if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                self.paused = False
+
+
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
@@ -606,3 +664,27 @@ class BigScenario():
 
     def update_all(self):
         self.pos[0]         = self.level.universe.center_x
+
+
+class Pause():
+    def __init__(self, level):
+        self.status = 'outside'
+        self.level  = level
+        self.buttons    = (
+                inside.Button('data/images/interface/title_screen/button_ok/',(410,450),self.level,self.resume),
+                inside.Button('Game Paused',(500,100),self.level, self.do_nothing, font_size=80),
+                inside.Button('Resume',(400,400),self.level,self.resume, font_size=80),
+                inside.Button('Quit',(800,400),self.level,self.quit_game, font_size= 80)
+                            )
+
+    def resume(self,param):
+        self.status = 'done'
+
+    def do_nothing(self,param=None):
+        pass
+
+    def quit_game(self,param=None):
+        exit()
+
+    def update_all(self):
+        pass
