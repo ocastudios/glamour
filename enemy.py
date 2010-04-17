@@ -617,6 +617,7 @@ class Bird():
         self.level.enemies.append(Hawk((self.level.universe.width+int(600*scale), int(-300*scale)), self.level, self))
         self.gforce         = 0
         self.g_acceleration = 3*scale
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
 
 
     def update_all(self):

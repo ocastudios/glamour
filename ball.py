@@ -246,6 +246,7 @@ class FairyTalePrincess():
             self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
             sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")"
         else:
+            if cursor.execute
             self.position   = [position_x,450*scale]
             self.symbol = None
             self.symbolpos = [0,0]
@@ -253,19 +254,19 @@ class FairyTalePrincess():
 
         self.pos        = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
-
         cursor = self.frame.ball.universe.db_cursor
-        row     = cursor.execute(sql).fetchone()
-        if row['hair_back'] > 0:
-            self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
-        self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
-        self.image.blit(obj_images.image(princess_directory+row['hair']+'/stay/0.png'),     (0,0))
-        self.image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),     (0,0))
-        self.image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),    (0,0))
-        self.image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
-        self.image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),      (0,0))
-        self.image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),    (0,0))
-        self.image = pygame.transform.flip(self.image,1,0)
+        row    = cursor.execute(sql).fetchone()
+        if row:
+            if row['hair_back'] > 0:
+                self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
+            self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
+            self.image.blit(obj_images.image(princess_directory+row['hair']+'/stay/0.png'),     (0,0))
+            self.image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),     (0,0))
+            self.image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),    (0,0))
+            self.image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
+            self.image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),      (0,0))
+            self.image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),    (0,0))
+            self.image = pygame.transform.flip(self.image,1,0)
 
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0],
