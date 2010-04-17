@@ -26,7 +26,7 @@ class ClockPointer():
         self.pointerpos = 0
 
     def update_all(self):
-        if not self.level.pause:
+        if not self.level.paused:
             self.tick +=10
         if self.tick == self.level.universe.frames_per_second:
             if self.count %10 == 0:

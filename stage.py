@@ -628,7 +628,7 @@ class Stage():
                 name = e.replace('_',' ').title()
                 name = name.replace(' ','')
                 exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
-        self.gates = [scenarios.BuildingDoor(p((50,503)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
+        self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9490,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
         scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
         scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),

@@ -48,7 +48,7 @@ Princess shoes are moving weirdly when she jumps.
         self.rect           = Rect(self.pos,self.size)
         self.move           = False
         self.direction      = 'left'
-        self.got_hitten     = 0
+        self.situation      = {"hurt":0,"excited":0}
         self.jump           = 0
         self.kiss           = 0
         self.kiss_direction = 'left'
@@ -90,8 +90,8 @@ Princess shoes are moving weirdly when she jumps.
             self.update_pos(self.action)
             self.hurting(self.action)
             self.kissing()
-            if self.got_hitten > 5:
-                if self.got_hitten%2 == 0:
+            if self.situation['hurt'] > 5:
+                if self.situation['hurt']%2 == 0:
                     self.update_image(self.action,self.direction)
                 else:
                     self.image = None
@@ -101,11 +101,11 @@ Princess shoes are moving weirdly when she jumps.
             self.update_image(self.action,'right')
 
     def dirt_cloud_funciton(self):
-        if 0 < self.got_hitten < 24:
-            if self.got_hitten > len(self.dirt_cloud.left):
-                dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1-len(self.dirt_cloud.left)])
+        if 0 < self.situation['hurt'] < 24:
+            if self.situation['hurt'] > len(self.dirt_cloud.left):
+                dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1-len(self.dirt_cloud.left)])
             else:
-                dirt_cloud_image = (self.dirt_cloud.left[self.got_hitten-1])
+                dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1])
             self.effects.append((dirt_cloud_image,(self.pos)))
 
     def jumping(self,action):
@@ -134,12 +134,12 @@ Princess shoes are moving weirdly when she jumps.
 
     def hurting(self,action):
         if not self.inside:
-            if not self.got_hitten:
+            if not self.situation['hurt']:
                 for e in self.level.enemies:
                     if e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk):
                         if self.rect.colliderect(e.rect):
                             if self.dirt <= 2:
-                                self.got_hitten += 1
+                                self.situation['hurt'] += 1
                                 self.dirt += 1
                                 self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
                                 print "Oh Dear, you've got all dirty! I need to take a record on that..."
@@ -149,13 +149,22 @@ Princess shoes are moving weirdly when she jumps.
                             self.speed = 0
                         else:
                             self.speed = 10*scale
+                    if e.__class__ == enemy.Butterfly:
+                        if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
+                            self.situation['excited']+=1
             else:
-                self.got_hitten +=1
-                if self.got_hitten == 30   :#75 atpos[0] 25 frames per second
-                    self.got_hitten = 0
-            if self.got_hitten and self.got_hitten <6:
+                self.situation['hurt'] +=1
+                if self.situation['hurt'] == 30:
+                    self.situation['hurt'] = 0
+            if self.situation['excited']:
+                self.situation['excited'] +=1
+                action[0] = 'celebrate'
+                if self.situation['excited'] == 60:
+                    self.situation['excited'] = 0
+            if self.situation['hurt'] and self.situation['hurt'] <6:
                 action[0]='ouch'
-            if self.got_hitten >=6:
+                self.situation['excited'] =0
+            if self.situation['hurt'] >=6:
                 action[0]= None
 
     def kissing(self):
