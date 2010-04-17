@@ -246,7 +246,6 @@ class FairyTalePrincess():
             self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
             sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")"
         else:
-            if cursor.execute
             self.position   = [position_x,450*scale]
             self.symbol = None
             self.symbolpos = [0,0]
