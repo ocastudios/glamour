@@ -65,7 +65,7 @@ class Stage():
         self.bar_speed      = 1
         self.game_mouse     = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
         self.pointer        = [glamour_stars.Glamour_Stars(self),self.game_mouse]
-        self.inside         = self.dress_castle()
+        self.inside         = None
         self.princess_castle= None
         self.fairy          = True
         self.omni_directory = 'data/images/scenario/omni/'
@@ -112,8 +112,8 @@ class Stage():
         events.choose_event(self)
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
+        self.blit_all()
         if self.paused:
-            self.blit_all()
             self.update_pause()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
@@ -125,7 +125,7 @@ class Stage():
             else:
                 if self.background[0] == self.ballroom['night']:
                     self.background = [self.ballroom['day']]
-            if self.clock[1].time == 'ball':
+            if self.clock[1].time == 'ball' and (self.inside.status in ("outside","closing") or not self.inside):
                 self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
                 self.ball.update_all    ()
                 for i in self.pointer:
@@ -141,44 +141,25 @@ class Stage():
                         if self.clock[1].time == 'night':
                             for i in self.lights:
                                 if i['status'] == 'on':
-                                    self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
                                     i['position'].update_pos()
                                 if i['status'] == 'off' and random.randint(0,10) == 0:
                                     i['status'] = 'on'
                                     i['position'].update_pos()
                     else:
-                        exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
                         exec('[i.update_all() for i in self.'+att+' if i]')
-                for effect in self.princesses[0].effects:
-                    self.universe.screen_surface.blit(effect[0],effect[1])
-                for i in self.scenarios_front:
-                    self.universe.screen_surface.blit(i.image,i.pos)
-                    i.update_all()
-                [self.universe.screen_surface.blit(i.arrow_image,i.arrow_pos)
-                                for i in self.gates if self.princesses[0].rect.colliderect(i.rect) and i.arrow_image]
-                for i in self.floor_image:
-                    self.universe.screen_surface.blit(i.image,i.pos)
-                    i.update_all()
-                for i in self.foreground:
-                    self.universe.screen_surface.blit(i.image,i.pos)
+                for i in self.scenarios_front+self.floor_image+self.foreground:
                     i.update_all()
                 if self.princesses[0].inside:
                     self.update_insidebar()
-                elif self.sky[0].night_image:
-                    self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
                 for i in self.clock:
-                    self.universe.screen_surface.blit(i.image,i.pos)
                     i.update_all()
                 for i in self.panel:
                     if i:
-                        self.universe.screen_surface.blit(i.image,i.pos)
                         i.update_all()
                 for i in self.pointer:
-                    self.universe.screen_surface.blit(i.image,i.pos)
                     i.update_all()
                 if self.fairy:
                     for i in self.fae:
-                        self.universe.screen_surface.blit(i.image,i.pos)
                         i.update_all()
 
     def blit_all(self):
@@ -191,8 +172,8 @@ class Stage():
             else:
                 exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
 
-        for effect in self.princesses[0].effects:
-            self.universe.screen_surface.blit(effect[0],effect[1])
+        for i in self.princesses[0].effects :
+            self.universe.screen_surface.blit(i.image,i.pos)
         for i in self.scenarios_front:
             self.universe.screen_surface.blit(i.image,i.pos)
         for i in self.gates:
@@ -212,10 +193,12 @@ class Stage():
         if self.fairy:
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
+        for i in self.pointer:
+            self.universe.screen_surface.blit(i.image,i.pos)
 
     def update_insidebar(self):
-        self.universe.screen_surface.blit(self.white.image,(0,0))
         if self.inside.status[:4] == 'bath': #Bath Castle
+            self.universe.screen_surface.blit(self.white.image,(0,0))
             if self.inside.status == 'bath':
                 self.white.alpha_value = 0
                 self.inside.status = 'bath_loading'
@@ -251,6 +234,10 @@ class Stage():
                         i.outside()
                 self.princesses[0].inside = False
         else: #Choosing Clothes Castles
+            if self.inside.status == "choosing":
+                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
+                [i.update_all() for i in self.inside.items]
+            self.universe.screen_surface.blit(self.white.image,(0,0))
             self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
             self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
             if self.inside.status == 'inside':
@@ -271,13 +258,14 @@ class Stage():
                 if self.white.alpha_value > 150:
                     self.inside.status = 'choosing'
             elif self.inside.status == 'choosing':
-                self.universe.screen_surface.blit(self.princesses[0].image,
-                                        ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-                                        (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
+                self.princesses[0].update_all()
+                for i in self.inside.big_princess.images:
+                    if i:
+                        self.universe.screen_surface.blit(i,self.inside.big_princess.pos)
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
                 [i.update_all() for i in self.inside.buttons]
-                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items if i.queue]
-                [i.update_all() for i in self.inside.items]
+                if self.inside.chosen_item:
+                    self.universe.screen_surface.blit(self.inside.chosen_item.image,self.inside.chosen_item.pos)
             elif self.inside.status == 'done':
                 self.princesses[0].update_all()
                 self.down_bar_y += self.bar_speed
@@ -293,12 +281,14 @@ class Stage():
                 if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
                     self.inside.status = 'openning'
             elif self.inside.status == 'openning':
+                self.princesses[0].update_all()
                 for i in self.gates:
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.open = True
                         if i.images.number >= i.images.lenght -1:
                             self.inside.status = 'closing'
             elif self.inside.status == 'closing':
+                self.princesses[0].update_all()
                 for i in self.gates:
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.outside()
@@ -353,8 +343,6 @@ class Stage():
             self.white.image.set_alpha(self.white.alpha_value)
             if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
                 self.paused = False
-
-
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []

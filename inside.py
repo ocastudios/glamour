@@ -26,11 +26,14 @@ class Inside():
                  Button(dir+'arrow_right/',(4*(self.level.universe.width/6),450),self.level,self.forward),
                  Button(dir+'arrow_right/',(2*(self.level.universe.width/6),450),self.level,self.rewind,invert=True)
                                 )
+        self.chosen_item = None
+        self.big_princess = BigPrincess(self)
 
     def forward(self,param):
-        for i in self.items:
-            i.queue_pos -= 1
+#        for i in self.items:
+#            i.queue_pos -= 1
         self.level.universe.click = False
+        
 
     def rewind(self,param):
         for i in self.items:
@@ -39,10 +42,7 @@ class Inside():
 
     def all_set(self,param):
         self.status = 'done'
-        for i in self.items:
-            if i.queue_pos == 1:
-                chosen_item = i.name
-        exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
+        exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
@@ -113,40 +113,78 @@ class Button():
                 except: pass
 
 class Item():
-    def __init__(self, room, directory,queue_pos):
+    def __init__(self, room, directory,index):
         self.name   = directory
         self.level  = room.level
+        self.room   = room
         self.type   = room.type_of_items
         if self.type != 'shower':
             self.image  = obj_images.scale_image(pygame.image.load('data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha())
             self.size   = self.image.get_size()
-            self.queue_pos = queue_pos-1
-            self.available_pos = (self.level.universe.width/2-(self.size[0]),
-                                  self.level.universe.width/2-(self.size[0]/2),
-                                  self.level.universe.width/2)
-            if queue_pos <= len(self.available_pos):
-                self.pos    = [self.available_pos[self.queue_pos],(self.level.universe.height/2)-(self.size[1]/2)]
-            else:
-                self.pos = [0,0]
+            self.pos    = [400*scale+(index*(self.size[0]/2)),(self.level.universe.height/2)-(self.size[1]/2)]
             self.speed  = 1
-            self.positions= (
-                            (self.level.universe.width/2-(self.size[0])),
-                            (self.level.universe.width/2-(self.size[0]/2)),
-                            (self.level.universe.width/2)
-                            )
-            self.choose_position = 0
-            if 2 >= (self.queue_pos) >= 0:
-                self.queue = True
-            else:
-                self.queue = False
+        self.rect       = pygame.Rect((self.pos[0]+(self.size[0]/4),self.pos[1]),(self.size[0]-(self.size[0]/4),self.size[1]))
+        self.active     = False
 
     def update_all(self):
-        if self.type != 'shower':
-            if 0 <= self.queue_pos <= 2:
-                self.queue = True
-                self.pos[0]= self.positions[self.queue_pos]
+        self.click_detection()
+
+    def click_detection(self):
+        if self.rect.colliderect(self.level.game_mouse.rect):
+            self.active = True
+            if self.level.universe.click:
+                print "updating "+self.type+" "+self.name
+                self.room.chosen_item = self
+                self.room.big_princess.images[self.room.big_princess.image_dict[self.type]] = obj_images.image('data/images/princess/'+self.type+'_'+self.name+"/big.png")
+                if self.type == "hair":
+                    if self.name in ("black","brown","rapunzel", "rastafari","red"):
+                        self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = obj_images.image('data/images/princess/'+self.type+'_'+self.name+"_back/big.png")
+                    else:
+                        self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = None
+
+class BigPrincess():
+    def __init__(self, room):
+        self.room           = room
+        princess_directory  = 'data/images/princess/'
+        ball_directory      = 'data/images/interface/ball/'
+        self.pos        = p([ 20,270])
+        cursor = room.level.universe.db_cursor
+        sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
+        row = cursor.execute(sql).fetchone()
+        self.image_dict = {
+                        "hair_back" :0,
+                        "skin"      :1,
+                        "face"      :2,
+                        "hair"      :3,
+                        "shoes"     :4,
+                        "dress"     :5,
+                        "arm"       :6,
+                        "armdress"  :7,
+                        "accessory" :8
+                            } 
+        garments = ["hair_back", "skin" ,"face", "hair" , "shoes", "dress", "arm", "armdress", "accessory"]
+        self.images = []
+        for i in garments:
+            if row[i] and row[i]!= "None":
+                img = obj_images.image(princess_directory+row[i]+"/big.png")
             else:
-                self.queue = False
+                img = None
+            self.images += [img]
+
+    def update_all(self):
+        pass
+
+
+
+
+    def all_set(self,param):
+        self.status = 'done'
+        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
+        pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+
+    def update_all(self):
+        self.pos        = [self.frame.position[0]+self.position[0],
+                           self.frame.position[1]+self.position[1]]
 
 
 class Home():
@@ -174,15 +212,13 @@ class Princess_Home():
         print "Creating Princess Home: "+ princess['name'] 
         princess_directory  = 'data/images/princess/'
         ball_directory      = 'data/images/interface/ball/'
-        painting_screen = pygame.Surface((200,200), pygame.SRCALPHA).convert_alpha()
+        painting_screen = pygame.Surface((400,400), pygame.SRCALPHA).convert_alpha()
         if princess == Rapunzel:
-            painting_screen.blit(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/stay/0.png').convert_alpha(),(0,0))
-        images  = [pygame.image.load(princess_directory+item+'/stay/0.png').convert_alpha() for item in ('skin_'+princess['skin'],princess['hair'])]
+            painting_screen.blit(pygame.image.load(princess_directory+'hair_rapunzel_back'+'/big.png').convert_alpha(),(0,0))
+        images  = [pygame.image.load(princess_directory+item+'/big.png').convert_alpha() for item in ('skin_'+princess['skin'],princess['hair'])]
         for img in images:
             painting_screen.blit(img, (0,0))
         self.princess_image = obj_images.scale_image(painting_screen)
-
-
         self.princess_icon  =  obj_images.scale_image( pygame.image.load(ball_directory+princess['icon']).convert_alpha())
         self.status = 'outside'
         self.level  = level
@@ -193,11 +229,11 @@ class Princess_Home():
         princess_name = princess["name"].lower()
         cursor = self.level.universe.db_cursor
         row     = cursor.execute("SELECT * FROM "+princess_name+" WHERE id = (SELECT MAX(id) FROM "+princess_name+")").fetchone()
-        self.princess_image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['face']+'/big.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['dress']+'/big.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['arm']+'/big.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/big.png'),(0,0))
+        self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/big.png'),(0,0))
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
 
     def all_set(self,param):

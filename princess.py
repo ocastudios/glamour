@@ -27,7 +27,6 @@ Princess shoes are moving weirdly when she jumps.
         row     = self.save_cursor.execute("SELECT * FROM save").fetchone()
         print "Connected to the Save Database for princess data\nRetrieved data: "+str(row)
         self.name = row['name']
-
         self.center_distance = int(int(row['center_distance'])*scale)
         if xpos:
             self.center_distance = int(xpos*scale)
@@ -64,6 +63,7 @@ Princess shoes are moving weirdly when she jumps.
         self.channel1       = pygame.mixer.Channel(0)
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
+        self.past_choice    = None
 
     def ordered_directory_list(self, action):
         odl = []
@@ -106,7 +106,7 @@ Princess shoes are moving weirdly when she jumps.
                 dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1-len(self.dirt_cloud.left)])
             else:
                 dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1])
-            self.effects.append((dirt_cloud_image,(self.pos)))
+            self.effects.append(Effect(dirt_cloud_image,(self.pos)))
 
     def jumping(self,action):
         feet_position = self.pos[1]+self.size[1]
@@ -171,7 +171,7 @@ Princess shoes are moving weirdly when she jumps.
         if self.action[0] == 'kiss' or self.kiss > 0:
             self.kiss +=1
             if self.kiss == 1:
-                self.images.number = 0
+                self.kiss_img.number = 0
         if self.kiss > 0:
             if self.kiss< 4:
                 self.action[0] = 'kiss'
@@ -210,7 +210,6 @@ Princess shoes are moving weirdly when she jumps.
                 next_height = self.level.what_is_my_height(self)
                 if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
                     self.center_distance += self.speed
-        print "x="+str(self.center_distance)
 
     def soundeffects(self,action):
         if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
@@ -225,28 +224,27 @@ Princess shoes are moving weirdly when she jumps.
             self.kiss_direction = self.direction
         if self.kiss_direction == 'right':
             kissimage = self.lips.left[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0],self.pos[1])))
+            self.effects.append(Effect(kissimage,(self.pos[0],self.pos[1])))
             self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.right[self.kiss-1]
-            self.effects.append((kissimage,(self.pos[0]-(200*scale),self.pos[1])))
+            self.effects.append(Effect(kissimage,(self.pos[0]-(200*scale),self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]-((self.kiss)*(44*scale)),self.pos[1]),((self.kiss)*(44*scale),self.size[1]))
 
     def update_image(self,action,direction):
         self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
                                 self.size)
         chosen = action[0] or action[1]
-
         if direction == 'left':
             exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.right')
         else:
             exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.left')
         self.image = actual_images[self.images.number]
+        if chosen != self.past_choice:
+            exec('self.'+chosen+'_img.number = 0')
+        self.past_choice = chosen
         if not self.jump:
             self.images.update_number()
-
-    def save(self):
-        pass
 
     def change_clothes(self,part,dir):
         self.parts.pop(part.index)
@@ -277,8 +275,13 @@ class Dirt():
             exec('self.images = self.'+chosen+' \n'+
                 'actual_images = self.'+chosen+'.left')
         if chosen != self.past_choice:
-            self.images.number = 0
+            exec('self.'+chosen+'.number = 0')
         self.past_choice = chosen
         self.image = actual_images[self.images.number]
         if not self.level.princesses[0].jump:
             self.images.update_number()
+
+class Effect():
+    def __init__(self,image,position):
+        self.image      = image
+        self.position   = self.pos = position

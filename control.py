@@ -79,12 +79,10 @@ def stage(universe):
     pointersize = None
     for event in pygame.event.get():
         if event.type == QUIT:
-            universe.level.princesses[0].save()
             exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 if not universe.level.paused:
-                    universe.level.princesses[0].save()
                     universe.level.pause.status = "inside"
                     universe.level.paused = True
             if event.key == K_LEFT:
