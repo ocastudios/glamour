@@ -75,10 +75,9 @@ class Schnauzer(Enemy):
         self.lookside = 0
 
     def barf(self):
-        mouse_pos = pygame.mouse.get_pos()
         if self.barfing == 1:
             self.bow.play()
-        if self.rect.collidepoint(mouse_pos)and self.barfing == 0 or self.barfing:
+        if self.rect.collidepoint(self.level.mouse_pos)and self.barfing == 0 or self.barfing:
             self.barfing += 1
         if self.barfing > 100:
             self.barfing = 0
@@ -278,9 +277,8 @@ class OldLady(Enemy):
         self.set_image()
 
     def wave_to_princess(self):
-        mouse_pos = pygame.mouse.get_pos()
         if self.action != 'wave':
-            if self.rect.collidepoint(mouse_pos):
+            if self.rect.collidepoint(self.level.mouse_pos):
                 self.action = 'wave'
                 self.image_number = 0
                 self.count = 0
@@ -403,8 +401,10 @@ class VikingShip():
         print "Creating Viking Ship"
         directory = level.enemy_dir+'VikingShip/'
         self.center_distance = pos
-        for i in ['base']:
-            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
+        self.base = obj_images.TwoSided(directory+"base/")
+        sailor_body = obj_images.image(directory+'/viking_sailor/body/0.png')
+        for i in self.base.left+self.base.right:
+            i.blit(sailor_body, (253*scale,635*scale))
         self.image = self.base.left[0]
         self.level = level
         self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
@@ -416,29 +416,92 @@ class VikingShip():
         self.speed = -3*scale
         self.flag = VikingPart(self,'flag',pos_x = 400)
         self.wave = VikingPart(self,'wave',pos_x = 200)
+        self.head_list = {  "normal": VikingPart(self,"viking_sailor/head_normal",pos_x=262,pos_y=518),
+                            "hover" : VikingPart(self,"viking_sailor/head_hover",pos_x=262,pos_y=518),
+                            "angry" : VikingPart(self,"viking_sailor/head_angry",pos_x=262,pos_y=518),
+                            "talk"  : VikingPart(self,"viking_sailor/head_talk",pos_x=262,pos_y=518)}
+        self.mood  = "normal"
+        self.head  = self.head_list[self.mood]
+        self.count = 0
 
+        self.curses  = [Curse(self,i) for i in range(7)]
+        self.curse_number = [random.randint(0,6),random.randint(0,6),random.randint(0,6)]
+
+        self.talk_balloon    = VikingPart(self, 'talk_balloon',pos_x = -90, pos_y = 400)
+        self.shout_balloon   = VikingPart(self, 'shout_balloon',pos_x = -90, pos_y = 400)
+        self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
+        self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
 
     def update_all(self):
         try:
             wavesize
         except:
             wavesize = self.wave.size[1] -20*scale
+        self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
         self.image = self.base.left[0]
         self.center_distance += self.speed
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.pos[1] = self.level.floor - self.image_height + (200*scale) + self.height.next()
         if self.wave not in self.level.floor_image:
-            self.level.floor_image.extend([self.flag,self.wave])
+            self.level.floor_image.extend([self.flag,self.wave,self.head])
+        else:
+            self.head = self.head_list[self.mood]
+            self.level.floor_image[-1] = self.head
         self.flag.pos = self.pos[0]+(self.flag.pos_x-self.flag.size[0]),self.pos[1]+self.flag.pos_y
         self.wave.pos = self.pos[0]+(self.wave.pos_x-self.wave.size[0]),self.level.floor_image[-5].pos[1]-wavesize
+        self.head.pos = self.pos[0]+self.head.pos_x,self.pos[1]+self.head.pos_y
+        self.count += 1
+        if self.mood == "normal":
+            if self.count > 100:
+                if random.randint(0,20) == 0:
+                    self.mood = "talk"
+                    self.level.panel.extend([
+                                self.talk_balloon,
+                                self.curses[self.curse_number[0]],
+                                self.curses[self.curse_number[1]],
+                                self.curses[self.curse_number[2]]
+                                        ])
+                    self.curses[self.curse_number[0]].position[0] = -70*scale
+                    self.curses[self.curse_number[1]].position[0] = 10*scale
+                    self.curses[self.curse_number[2]].position[0] = 90*scale
+                    self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
+                    for i in self.level.panel:
+                        if i.__class__ == Curse:
+                            i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
+                    self.count = 0
+            self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
+            if self.sailor_rect.collidepoint(self.level.mouse_pos):
+                self.mood = "hover"
+                self.count = 0
+        elif self.mood == "hover":
+            if self.count > 40:
+                self.mood = "normal"
+                self.count = 0
+        elif self.mood == "talk":
+            self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
+            for i in self.level.panel:
+                if i.__class__ == Curse:
+                    i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
+            if self.count > 60:
+                print "Removing balloon from list"
+                self.level.panel.remove(self.talk_balloon)
+                self.level.panel.remove(self.curses[self.curse_number[0]])
+                self.level.panel.remove(self.curses[self.curse_number[1]])
+                self.level.panel.remove(self.curses[self.curse_number[2]])
+                for i in self.curses:
+                    i.position = [-70*scale,i.position[1]]
+                self.talk_balloon.pos = p([-400,-400])
+                self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
+                self.mood = "normal"
+                self.count = 0
 
 
 class VikingPart():
     def __init__(self, ship, part, pos_x = 0, pos_y = 0):
         print "Creating Viking part: "+part
         directory = 'data/images/enemies/VikingShip/'+part+'/'
-        self.pos_x  = pos_x
-        self.pos_y  = pos_y
+        self.pos_x  = pos_x*scale
+        self.pos_y  = pos_y*scale
         self.ship = ship
         self.pos  = self.ship.pos[0]+pos_x,self.ship.pos[1]+pos_y
         self.images = obj_images.TwoSided(directory)
@@ -451,6 +514,17 @@ class VikingPart():
 
     def update_all(self):
         self.image = self.actual_images[self.images.itnumber.next()]
+
+class Curse():
+    def __init__(self,ship,index):
+        print "Creating new curse"
+        directory   = "data/images/enemies/VikingShip/curses/"
+        self.image  = obj_images.image(directory+str(index)+'.png')
+        self.pos    = p([-70,440])
+        self.position = p([-70,440])
+        print "with position "+str(self.pos)
+    def update_all(self):
+        pass
 
 
 class Splash():
@@ -755,7 +829,5 @@ class Hawk():
                 self.pos[1] -= int(30*scale)
 
         self.pos[0] = self.level.universe.center_x + self.center_distance
-        print self.pos[1]
-        print self.bird.pos[1]
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.body.update_number()

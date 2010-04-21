@@ -176,7 +176,6 @@ class Menu():
         self.screen         = screen
         self.speed          = 2*scale
         self.position       = position
-        self.level          = level
         self.actual_position = [position[0],-600*scale]
         self.background     = obj_images.image(title_screen_D+'selection_canvas/0.png')
         self.size           = self.background.get_size()
@@ -199,7 +198,7 @@ class Menu():
             self.actual_position = [self.position[0],1500*scale]
         opt = (('New Game',100,self.new_game),('Load Game',180,self.load_game),('Play Story',260,self.play_story),('Options',340,self.choose_language))
         self.options = [ Options(_(i[0]), p((300,i[1])), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.level.menu_list={'New Game':p((310,105)),'Load Game':p((310,185)),'Play Story':p((310,265)),'Options':p((310,345))}
+        self.screen.menu_list={'New Game':p((310,105)),'Load Game':p((310,185)),'Play Story':p((310,265)),'Options':p((310,345))}
         self.texts =   [VerticalGameText(_('select one'),p((120,200)),self)]
         self.buttons = [ MenuArrow(title_screen_D+'arrow_right/',p((410,450)),self,self.NOTSETYET),
                          MenuArrow(title_screen_D+'arrow_right/',p((200,450)),self,self.NOTSETYET, invert = True)]
@@ -274,7 +273,7 @@ class Menu():
 
     def update_all(self):
         self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
-        keyboard = self.level.universe.action[0]
+        keyboard = self.screen.universe.action[0]
         if keyboard:
             if keyboard in ("up","left"):
                 self.selector -=1
@@ -346,7 +345,7 @@ class Menu():
                 new_dir = self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text
                 os.mkdir(new_dir)
                 print "Creating a New Database Save File"
-                db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.level.universe)
+                db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.screen.universe)
                 self.screen.universe.LEVEL= 'start'
                 name_taken = False
             except Exception, e:
@@ -357,7 +356,7 @@ class Menu():
         else:
             print "Using saved game "+ using_saved_game
             print "Connecting to Database"
-            db.connect_db(using_saved_game, self.level.universe)
+            db.connect_db(using_saved_game, self.screen.universe)
             self.screen.universe.LEVEL = 'start'
 
     def change_princess(self,list):#list of: int,part

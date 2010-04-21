@@ -9,8 +9,6 @@ class Universe():
         default_resolution = (1440,900)
         w = int(default_resolution[0]*scale)
         h = int(default_resolution[1]*scale)
-        print w
-        print h
         self.main_dir = os.getcwd()
         self.center_x = int(-3400*scale)
         self.center_y = 0
@@ -28,9 +26,10 @@ class Universe():
         self.db_cursor = None
         self.screen_surface = pygame.display.set_mode((w,h),32)
         pygame.display.set_caption("Glamour - OcaStudios")
-        self.level = stage.Stage(self)
+        self.level = None
 
     def define_level(self):
+        self.level = self.level or stage.Stage(self)
         self.level.BathhouseSt()
 
     def movement(self,dir):

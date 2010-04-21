@@ -49,7 +49,7 @@ class Stage():
         self.floor_heights  = {}
         self.floor          = universe.floor-186*scale
         self.menus          = []
-        self.panel          = [None,None]
+        self.panel          = [None,None,glamour_stars.Glamour_Stars(self)]
         self.pointer        = []
         self.scenarios_front= []
         self.animated_scenarios =[]
@@ -64,7 +64,7 @@ class Stage():
         self.bar_goal       = self.universe.height/3
         self.bar_speed      = 1
         self.game_mouse     = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
-        self.pointer        = [glamour_stars.Glamour_Stars(self),self.game_mouse]
+        self.pointer        = [self.game_mouse]
         self.inside         = None
         self.princess_castle= None
         self.fairy          = True
@@ -80,6 +80,7 @@ class Stage():
         self.fae = [None]
         self.pause      = Pause(self)
         self.paused     = False
+        self.mouse_pos  = pygame.mouse.get_pos()
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -108,6 +109,7 @@ class Stage():
         return      y_height
 
     def update_all(self):
+        self.mouse_pos  = pygame.mouse.get_pos()
         self.game_mouse.update()
         events.choose_event(self)
         act = self.act = self.universe.action
@@ -234,9 +236,6 @@ class Stage():
                         i.outside()
                 self.princesses[0].inside = False
         else: #Choosing Clothes Castles
-            if self.inside.status == "choosing":
-                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
-                [i.update_all() for i in self.inside.items]
             self.universe.screen_surface.blit(self.white.image,(0,0))
             self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
             self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
@@ -259,9 +258,12 @@ class Stage():
                     self.inside.status = 'choosing'
             elif self.inside.status == 'choosing':
                 self.princesses[0].update_all()
-                for i in self.inside.big_princess.images:
-                    if i:
-                        self.universe.screen_surface.blit(i,self.inside.big_princess.pos)
+                [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
+                [i.update_all() for i in self.inside.items]
+                if self.inside.big_princess:
+                    for i in self.inside.big_princess.images:
+                        if i:
+                            self.universe.screen_surface.blit(i,self.inside.big_princess.pos)
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.buttons]
                 [i.update_all() for i in self.inside.buttons]
                 if self.inside.chosen_item:
@@ -355,6 +357,7 @@ class Stage():
                 exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
 
     def create_scenario(self,street):
+        self.viking_ship = None
         db = sqlite3.connect('data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
@@ -503,7 +506,8 @@ class Stage():
         self.directory = self.maindir+'accessory_st/'
         self.create_scenario('accessory')
 
-        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk','viking_ship'),'AccessorySt')
+        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'AccessorySt')
+        self.viking_ship = enemy.VikingShip(5000*scale,self)
         self.gates.extend([
             scenarios.BuildingDoor(p((330,428)),self.directory+'accessory_tower/door/',self,self.accessory_castle()),
             scenarios.BuildingDoor(p((8809,425)),self.directory+'castle/door/',self,inside.Princess_Home(self, Sleeping_Beauty)),
@@ -512,9 +516,10 @@ class Stage():
             scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
                         ])
 
+
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
-        self.floor_image.extend([enemy.VikingShip(9000*scale,self)])
+        self.floor_image.extend([self.viking_ship])
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
 
         floors.Drain(self.directory+'floor/left_bank_front/',2,self)

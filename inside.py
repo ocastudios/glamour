@@ -21,10 +21,10 @@ class Inside():
         if item_type != 'shower':
             counter = itertools.count()
             self.items = [Item(self, i,counter.next()) for i in item_list]
+            self.arrow = Arrow(self, pos = [-200,500], degree = 90)
             self.buttons    = (
-                 Button(dir+'button_ok/',(410,450),self.level,self.all_set),
-                 Button(dir+'arrow_right/',(4*(self.level.universe.width/6),450),self.level,self.forward),
-                 Button(dir+'arrow_right/',(2*(self.level.universe.width/6),450),self.level,self.rewind,invert=True)
+                 Button(dir+'button_ok/',(410,530),self.level,self.all_set),
+                 self.arrow
                                 )
         self.chosen_item = None
         self.big_princess = BigPrincess(self)
@@ -33,7 +33,6 @@ class Inside():
 #        for i in self.items:
 #            i.queue_pos -= 1
         self.level.universe.click = False
-        
 
     def rewind(self,param):
         for i in self.items:
@@ -136,6 +135,7 @@ class Item():
                 print "updating "+self.type+" "+self.name
                 self.room.chosen_item = self
                 self.room.big_princess.images[self.room.big_princess.image_dict[self.type]] = obj_images.image('data/images/princess/'+self.type+'_'+self.name+"/big.png")
+                self.room.arrow.pos[0] = (self.pos[0]+(100*scale))-(self.room.arrow.image.get_width()/2)
                 if self.type == "hair":
                     if self.name in ("black","brown","rapunzel", "rastafari","red"):
                         self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = obj_images.image('data/images/princess/'+self.type+'_'+self.name+"_back/big.png")
@@ -173,9 +173,6 @@ class BigPrincess():
 
     def update_all(self):
         pass
-
-
-
 
     def all_set(self,param):
         self.status = 'done'
@@ -264,3 +261,13 @@ class Home():
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,'data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+
+class Arrow():
+    def __init__(self,room, pos = [0,0], degree = 0):
+        if not degree:
+            self.image = obj_images.image('data/images/interface/title_screen/arrow_right/0.png')
+        else:
+            self.image = pygame.transform.rotate(obj_images.image('data/images/interface/title_screen/arrow_right/0.png'),degree)
+        self.pos   = p(pos)
+    def update_all(self):
+        pass

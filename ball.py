@@ -30,7 +30,7 @@ class Ball():
         self.Frame      = BallFrame(self)
         self.level      = level
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
-        self.buttons = [BallButton('data/images/interface/title_screen/button_ok/',(300*scale,200*scale), self.level)]
+        self.buttons = [BallButton('data/images/interface/title_screen/button_ok/',p((1100,700)), self.level)]
         pygame.mixer.music.load("data/sounds/music/strauss_waltz_wedley.ogg")
         pygame.mixer.music.play()
         general_enemies_list = ['Schnauzer', 'Bird', 'OldLady', 'FootBoy','Butterfly']
@@ -322,7 +322,6 @@ class BigPrincess():
         cursor = ball.universe.db_cursor
         sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
         row = cursor.execute(sql).fetchone()
-        print row
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
             if row[part] and row[part]!="None":
                 img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()

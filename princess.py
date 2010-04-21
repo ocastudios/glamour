@@ -136,14 +136,13 @@ Princess shoes are moving weirdly when she jumps.
         if not self.inside:
             if not self.situation['hurt']:
                 for e in self.level.enemies:
-                    if e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk):
-                        if self.rect.colliderect(e.rect):
-                            if self.dirt <= 2:
-                                self.situation['hurt'] += 1
-                                self.dirt += 1
-                                self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
-                                print "Oh Dear, you've got all dirty! I need to take a record on that..."
-                                self.level.princesses[1] = self.dirties[self.dirt -1]
+                    if (e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk) and self.rect.colliderect(e.rect)):
+                        if self.dirt <= 2:
+                            self.situation['hurt'] += 1
+                            self.dirt += 1
+                            self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
+                            print "Oh Dear, you've got all dirty! I need to take a record on that..."
+                            self.level.princesses[1] = self.dirties[self.dirt -1]
                     if e.__class__ == enemy.Carriage:
                         if self.rect.colliderect(e.rect):
                             self.speed = 0
@@ -152,6 +151,15 @@ Princess shoes are moving weirdly when she jumps.
                     if e.__class__ == enemy.Butterfly:
                         if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
                             self.situation['excited']+=1
+                if self.level.viking_ship:
+                    if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
+                        if self.dirt <= 2:
+                            self.situation['hurt'] += 1
+                            self.dirt += 1
+                            self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
+                            print "Oh Dear, you've got all dirty! I need to take a record on that..."
+                            self.level.princesses[1] = self.dirties[self.dirt -1]
+
             else:
                 self.situation['hurt'] +=1
                 if self.situation['hurt'] == 30:
