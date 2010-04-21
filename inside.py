@@ -232,6 +232,7 @@ class Princess_Home():
         self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/big.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/big.png'),(0,0))
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
+        self.big_princess = BigPrincess(self)
 
     def all_set(self,param):
         self.status = 'done'

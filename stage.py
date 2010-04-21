@@ -4,7 +4,7 @@ import enemy
 import skies
 import fairy
 import floors
-import clouds
+#import clouds
 import random
 import moving_scenario
 import glamour_stars
@@ -80,6 +80,7 @@ class Stage():
         self.fae = [None]
         self.pause      = Pause(self)
         self.paused     = False
+        self.water_level= 1440*scale
         self.mouse_pos  = pygame.mouse.get_pos()
 
     def dress_castle(self):
@@ -127,7 +128,7 @@ class Stage():
             else:
                 if self.background[0] == self.ballroom['night']:
                     self.background = [self.ballroom['day']]
-            if self.clock[1].time == 'ball' and (self.inside.status in ("outside","closing") or not self.inside):
+            if self.clock[1].time == 'ball' and (not self.inside or self.inside.status in ("outside","closing") or not self.princesses[0].inside):
                 self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
                 self.ball.update_all    ()
                 for i in self.pointer:
@@ -354,7 +355,17 @@ class Stage():
             if int(row[e]):
                 name = e.replace('_',' ').title()
                 name = name.replace(' ','')
-                exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
+                if name == "Butterfly":
+                    for i in range(1,10):
+                        self.enemies.append(enemy.Butterfly(scale*(random.randint(0,9000)),self))
+                elif name == "Bird":
+                    pos_x = scale*(random.randint(0,9000))
+                    for i in range(1,10):
+                        self.enemies.append(enemy.Bird(pos_x,self))
+                elif name == 'Footboy':
+                    self.enemies.append(enemy.FootBoy(scale*(random.randint(0,9000)),self))
+                else:
+                    exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
 
     def create_scenario(self,street):
         self.viking_ship = None
@@ -515,8 +526,6 @@ class Stage():
             scenarios.Gate(accessorygate[1], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
             scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
                         ])
-
-
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
         self.floor_image.extend([self.viking_ship])
@@ -538,16 +547,6 @@ class Stage():
         self.set_floor_heights(194,9400,'accessory')
         self.lights = []
 
-        self.enemies = []
-        cursor = self.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM stage_enemies WHERE stage = 'BathhouseSt'").fetchone()
-        allowed_enemies = ('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk')
-        for e in allowed_enemies:
-            if int(row[e]):
-                name = e.replace('_',' ').title()
-                name = name.replace(' ','')
-                exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
-
         for i in self.scenarios_prep:
             try:
                 if i.lights:
@@ -563,15 +562,8 @@ class Stage():
         self.gates = []
         self.directory = self.maindir+'makeup_st/'
         self.create_scenario('makeup')
-        self.enemies = []
-        cursor = self.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM stage_enemies WHERE stage = 'BathhouseSt'").fetchone()
-        allowed_enemies = ('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk')
-        for e in allowed_enemies:
-            if int(row[e]):
-                name = e.replace('_',' ').title()
-                name = name.replace(' ','')
-                exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
+        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'MakeupSt')
+
 
         self.gates.extend([ scenarios.Gate(makeupgate[x],'data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
@@ -612,15 +604,7 @@ class Stage():
         self.directory = self.maindir+'shoes_st/'
         self.create_scenario('shoes')
         self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
-        self.enemies = []
-        cursor = self.universe.db_cursor
-        row     = cursor.execute("SELECT * FROM stage_enemies WHERE stage = 'BathhouseSt'").fetchone()
-        allowed_enemies = ('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk')
-        for e in allowed_enemies:
-            if int(row[e]):
-                name = e.replace('_',' ').title()
-                name = name.replace(' ','')
-                exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(0,9000)),self))')
+        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9490,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
         scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),

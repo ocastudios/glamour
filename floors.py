@@ -48,6 +48,8 @@ class Water(Floor):
             self.center_distance -= self.level.universe.width+(self.size[0]*2)
         if self.pos[0] < -self.size[0]:
             self.center_distance += self.level.universe.width+(self.size[0]*2)
+        if self.__class__ != Water2:
+            self.level.water_level = self.level.universe.floor-self.height
 
 
 class Water2(Water):
