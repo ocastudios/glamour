@@ -55,4 +55,4 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     print "Save Database saved "
     if Ball:
         backupfile.close()
-    return 'data/saves/'+princess.name+'/'+princess.name+'.glamour'
+    return main_dir+'/data/saves/'+princess.name+'/'+princess.name+'.glamour'

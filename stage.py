@@ -36,8 +36,8 @@ shoegate =      p([1198,4690,8140])
 
 
 class Stage():
-    enemy_dir = 'data/images/enemies/'
-    maindir        = 'data/images/scenario/'
+    enemy_dir = main_dir+'/data/images/enemies/'
+    maindir        = main_dir+'/data/images/scenario/'
     princesses = None
     def __init__(self,universe):
         self.name = None
@@ -68,7 +68,7 @@ class Stage():
         self.inside         = None
         self.princess_castle= None
         self.fairy          = True
-        self.omni_directory = 'data/images/scenario/omni/'
+        self.omni_directory = main_dir+'/data/images/scenario/omni/'
         self.ball           = None
         self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
         self.enemies_list   = {                            'BathhouseSt': ['Bird', 'Butterfly'] ,                            'DressSt':['Bird'],                            'AccessorySt':['Schnauzer'],                            'MakeupSt':['OldLady'],                             'ShoesSt': ['FootBoy']
@@ -369,7 +369,7 @@ class Stage():
 
     def create_scenario(self,street):
         self.viking_ship = None
-        db = sqlite3.connect('data/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.scenario_row = cursor.execute("SELECT * FROM scenario ORDER BY id ASC").fetchall()
@@ -395,7 +395,7 @@ class Stage():
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 
     def create_front_scenario(self,street):
-        db = sqlite3.connect('data/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         front_row = cursor.execute("SELECT * FROM front_scenario ORDER BY id ASC").fetchall()
@@ -414,7 +414,7 @@ class Stage():
 
     def set_floor_heights(self,height,width,street):
         ### set_floor ###
-        db = sqlite3.connect('data/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.floor_heights = [height*scale]*int((width*scale))
@@ -426,7 +426,7 @@ class Stage():
 
     def BathhouseSt(self,goalpos = None):
         self.name = 'bathhouse'
-        db = sqlite3.connect('data/bathhouse.db')
+        db = sqlite3.connect(main_dir+'/data/bathhouse.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.animated_scenarios = []
@@ -447,8 +447,8 @@ class Stage():
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
         self.moving_scenario = [moving_scenario.Billboard(self)]
         self.create_front_scenario('bathhouse')
-        self.music = "data/sounds/music/bathhouse_day.ogg"
-        pygame.mixer.music.load("data/sounds/music/bathhouse_day_intro.ogg")
+        self.music = main_dir+"/data/sounds/music/bathhouse_day.ogg"
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/bathhouse_day_intro.ogg")
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
@@ -487,14 +487,14 @@ class Stage():
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor(p((9092,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
-                      scenarios.Gate(dressgate[0], 'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
-                      scenarios.Gate(dressgate[1], 'data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
-                      scenarios.Gate(dressgate[2], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
+                      scenarios.Gate(dressgate[0], main_dir+'/data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
+                      scenarios.Gate(dressgate[1], main_dir+'/data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
+                      scenarios.Gate(dressgate[2], main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.create_front_scenario('dress')
-        self.music = "data/sounds/music/dress_day_intro.ogg"
-        pygame.mixer.music.load("data/sounds/music/dress_day_intro.ogg")
+        self.music = main_dir+"/data/sounds/music/dress_day_intro.ogg"
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/dress_day_intro.ogg")
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
@@ -522,9 +522,9 @@ class Stage():
         self.gates.extend([
             scenarios.BuildingDoor(p((330,428)),self.directory+'accessory_tower/door/',self,self.accessory_castle()),
             scenarios.BuildingDoor(p((8809,425)),self.directory+'castle/door/',self,inside.Princess_Home(self, Sleeping_Beauty)),
-            scenarios.Gate(accessorygate[0], 'data/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
-            scenarios.Gate(accessorygate[1], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
-            scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
+            scenarios.Gate(accessorygate[0], main_dir+'/data/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
+            scenarios.Gate(accessorygate[1], main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
+            scenarios.Gate(accessorygate[2], main_dir+'/data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
                         ])
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
@@ -537,7 +537,7 @@ class Stage():
         floors.Drain(self.directory+'floor/right_bank_front/',21,self)
 
         self.create_front_scenario('accessory')
-        self.music = "data/sounds/music/accessory_day.ogg"
+        self.music = main_dir+"/data/sounds/music/accessory_day.ogg"
         pygame.mixer.music.load(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
@@ -565,7 +565,7 @@ class Stage():
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'MakeupSt')
 
 
-        self.gates.extend([ scenarios.Gate(makeupgate[x],'data/images/scenario/omni/gate/',self,y,goalpos = z)
+        self.gates.extend([ scenarios.Gate(makeupgate[x],main_dir+'/data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
                             ((0, self.DressSt, dressgate[2]),
                              (1, self.AccessorySt, accessorygate[1]),
@@ -589,8 +589,8 @@ class Stage():
             except:
                 pass
         self.set_floor_heights(192,9400,'makeup')
-        self.music = "data/sounds/music/makeup_day.ogg"
-        pygame.mixer.music.load("data/sounds/music/makeup_day_intro.ogg")
+        self.music = main_dir+"/data/sounds/music/makeup_day.ogg"
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/makeup_day_intro.ogg")
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
@@ -607,13 +607,13 @@ class Stage():
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9490,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
-        scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
-        scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
-        scenarios.Gate(shoegate[2],'data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
+        scenarios.Gate(shoegate[0],main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
+        scenarios.Gate(shoegate[1],main_dir+'/data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
+        scenarios.Gate(shoegate[2],main_dir+'/data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.create_front_scenario('shoes')
-        self.music = "data/sounds/music/shoes_day.ogg"
-        pygame.mixer.music.load("data/sounds/music/shoes_day_intro.ogg")
+        self.music = main_dir+"/data/sounds/music/shoes_day.ogg"
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/shoes_day_intro.ogg")
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
@@ -652,7 +652,7 @@ class Foreground():
 
 class Bar():
     def __init__(self,level, up_or_down):
-        tile = pygame.image.load('data/images/interface/omni/small_bar/0.png').convert_alpha()
+        tile = pygame.image.load(main_dir+'/data/images/interface/omni/small_bar/0.png').convert_alpha()
         if up_or_down == 'up':
             tile = pygame.transform.flip(tile,0,1)
         screen_size = 1440,900 #level.universe.width, level.universe.height
@@ -681,10 +681,10 @@ class Pause():
         self.level  = level
         resume      = inside.Button('Resume',(360,400),self.level,self.resume, font_size=80)
         ok_pos      = resume.pos[0]+(resume.size[0]/2),resume.pos[1]+(resume.size[1])+50
-        ok_button   = inside.Button('data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
+        ok_button   = inside.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
         quit        = inside.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
         cancel_pos  = quit.pos[0]+(quit.size[0]/2),quit.pos[1]+(quit.size[1])+50
-        cancel_button = inside.Button('data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
+        cancel_button = inside.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
         title       = inside.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
 

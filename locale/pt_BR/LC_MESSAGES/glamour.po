@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glamour\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-21 13:15-0300\n"
+"POT-Creation-Date: 2010-04-21 17:25-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Nelson do Vale Oliveira <nelson@ocastudios.com>\n"
 "Language-Team: Oca Studios <ocastudios@ocastudios.com>\n"
@@ -16,11 +16,27 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: /home/nelson/glamour\n"
 
-#: /home/nelson/glamour/ball.py:201
+#: /home/nelson/glamour/ball.py:152
+msgid "You've"
+msgstr "Você"
+
+#: /home/nelson/glamour/ball.py:153
+msgid "got"
+msgstr "ganhou"
+
+#: /home/nelson/glamour/ball.py:154
+msgid "glamour"
+msgstr "pontos"
+
+#: /home/nelson/glamour/ball.py:155
+msgid "points"
+msgstr "de glamour"
+
+#: /home/nelson/glamour/ball.py:202
 msgid "Tonight's ball"
 msgstr "Este baile"
 
-#: /home/nelson/glamour/ball.py:202
+#: /home/nelson/glamour/ball.py:203
 msgid "Yesterday's ball"
 msgstr "Baile passado"
 
