@@ -15,7 +15,10 @@ import os
 os_screen = pygame.display.Info()
 print "Setting SDV_VIDEO_CENTERED to True"
 os.environ['SDL_VIDEO_CENTERED'] = '1'
+print "Creating Splash Screen"
 splash_surface = pygame.display.set_mode(splash.get_size(), pygame.NOFRAME).blit(splash,(0,0))
+print "Creating and Setting Favicon"
 pygame.display.set_icon(pygame.image.load("data/images/interface/favicon.png").convert_alpha())
+print "Showing Splash Screen"
 pygame.display.flip()
 pygame.time.wait(5000)

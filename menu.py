@@ -171,13 +171,14 @@ class MenuScreen():
 
 
 class Menu():
+    selection_canvas = obj_images.image(title_screen_D+'selection_canvas/0.png')
     def __init__(self,screen,level,position= [360,200]):
         position = [position[0]*scale,position[1]*scale]
         self.screen         = screen
         self.speed          = 2*scale
         self.position       = position
         self.actual_position = [position[0],-600*scale]
-        self.background     = obj_images.image(title_screen_D+'selection_canvas/0.png')
+        self.background     = self.selection_canvas
         self.size           = self.background.get_size()
         self.action         = None
         self.next_menu      = self.select_princess
@@ -190,6 +191,8 @@ class Menu():
         self.selector = 0
 
     def main(self):
+        self.print_princess = False
+        self.background     = self.selection_canvas
         self.back_background = None
         self.action = 'open'
         if not self.go_back:
@@ -204,6 +207,7 @@ class Menu():
                          MenuArrow(title_screen_D+'arrow_right/',p((200,450)),self,self.NOTSETYET, invert = True)]
 
     def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
+        self.background     = self.selection_canvas
         if background:
             self.back_background    = obj_images.image(background)
         self.action         = action
