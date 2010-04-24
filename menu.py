@@ -30,6 +30,7 @@ def p(positions):
 class MenuScreen():
     color = [230,230,230]
     def __init__(self,universe,music=None):
+        print "Creating MenuScreen"
         self.universe       = universe
         self.bar_side       = None
         self.bar_left       = obj_images.image(interface_D+'omni/left_bar/0.png')
@@ -37,7 +38,7 @@ class MenuScreen():
         self.bar            = self.bar_left
         self.bar_size       = self.bar.get_size()
         self.bar_position   = -self.bar_size[0]
-        self.menu           = Menu(self,self)
+        self.menu           = Menu(self)
         self.menu.main()
         self.speed          = 5*scale
         self.STEP           = self.update_drape
@@ -50,7 +51,6 @@ class MenuScreen():
         self.story_frames   = []
         self.drapes         = drapes.Drape()
         self.upper_drapes   = drapes.UperDrape()
-        self.menu_list      = {}
         self.screen         = self.universe.screen_surface
 
 
@@ -97,14 +97,12 @@ class MenuScreen():
                 if self.bar_position <10:
                     self.bar_position =  2000*scale
                 if self.bar_position+(516*scale) > self.universe.width:
-                    print "Right bar going to position. Present position = "+str(self.bar_position)
                     self.bar_position -= self.speed
                     if self.bar_position < int((self.universe.width-(300*scale))):
                         self.speed += (.5*scale)
                     else:
                         self.speed -= (.5*scale)
                 else:
-                    print "Right reached it's goal. Present position = "+str(self.bar_position)
                     self.bar_position = int((1440-516)*scale)
                     self.STEP = self.update_menus ## Change the STEP
 
@@ -172,7 +170,7 @@ class MenuScreen():
 
 class Menu():
     selection_canvas = obj_images.image(title_screen_D+'selection_canvas/0.png')
-    def __init__(self,screen,level,position= [360,200]):
+    def __init__(self,screen,position= [360,200]):
         position = [position[0]*scale,position[1]*scale]
         self.screen         = screen
         self.speed          = 2*scale
@@ -196,17 +194,18 @@ class Menu():
         self.back_background = None
         self.action = 'open'
         if not self.go_back:
-            self.actual_position = [self.position[0],-600*scale]
+            self.actual_position[1] = -600*scale
         else:
-            self.actual_position = [self.position[0],1500*scale]
-        opt = (('New Game',100,self.new_game),('Load Game',180,self.load_game),('Play Story',260,self.play_story),('Options',340,self.choose_language))
-        self.options = [ Options(_(i[0]), p((300,i[1])), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.screen.menu_list={'New Game':p((310,105)),'Load Game':p((310,185)),'Play Story':p((310,265)),'Options':p((310,345))}
-        self.texts =   [VerticalGameText(_('select one'),p((120,200)),self)]
+            self.actual_position    = [450*scale,1000*scale]
+        opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.choose_language))
+        self.options = [ Options(i[0], p((300,i[1])), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
+        self.texts =   [VerticalGameText(_('select one'),p((125,200)),self)]
         self.buttons = [ MenuArrow(title_screen_D+'arrow_right/',p((410,450)),self,self.NOTSETYET),
                          MenuArrow(title_screen_D+'arrow_right/',p((200,450)),self,self.NOTSETYET, invert = True)]
 
     def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
+        self.story          = None
+        self.screen.story_frames = []
         self.background     = self.selection_canvas
         if background:
             self.back_background    = obj_images.image(background)
@@ -226,7 +225,7 @@ class Menu():
         self.screen.bar = self.screen.bar_right
         self.princess       = MenuPrincess(self)
         self.print_princess = True
-        txt=[('Choose your',[-200,200]),('appearence...',[-200,250]),('skin tone',[250,420]),('previous',[250,-40]),('next',[250,540])]
+        txt=[('Choose your',[-200,200]),('appearence...',[-200,250]),('skin tone',[250,420]),('previous',[250,90]),('next',[250,520])]
         self.reset_menu(
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
@@ -234,23 +233,20 @@ class Menu():
             buttons     =  [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2], parameter = i[3], invert = i[4]) for i in
                     (["arrow_right/",(380,430),self.change_princess,(1,'skin'),False],
                      ["arrow_right/",(120,430),self.change_princess,(-1,'skin'),True],
-                     ["arrow_up/"   ,(250,-100),self.back_to_main,None,False],
+                     ["arrow_up/"   ,(250,-5),self.back_to_main,None,False],
                      ["arrow_down/"  ,(250,620),self.to_select_hair,None,False])]
                     )
 
     def select_hair(self):
+        txt = [('Choose your', (-200,200)), ('appearence...',(-200,250)), ('hair style',(250,420)), ('previous',(250,90)), ('next',(250,520))]
+        self.print_princess = True
         self.reset_menu(
                 action  = 'open',
-                texts   =  [GameText(_(i[0]),p(i[1]),self) for i in (
-                    ('Choose your', (-200,200)),
-                    ('appearence...',(-200,250)),
-                    ('hair style',(250,420)),
-                    ('previous',(250,-40)),
-                    ('next',(250,540)))],
+                texts   =  [GameText(_(i[0]),p(i[1]),self) for i in txt],
                 buttons = [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2], parameter = i[3], invert = i[4]) for i in
                         (['arrow_right/',(380,430),self.change_princess,(1,'hair'),False],
                          ['arrow_right/',(120,430),self.change_princess,(-1,'hair'),True],
-                         ['arrow_up/'   ,(250,-100),self.back_to_select_princess,None,False],
+                         ['arrow_up/'   ,(250,-5),self.back_to_select_princess,None,False],
                          ['arrow_down/' ,(250,620),self.to_name_your_princess,None,False])])
 
 
@@ -262,18 +258,17 @@ class Menu():
                 zip([x for n in xrange(9) for x in xrange(int(100*s),int(422*s),int(40*s))],
                     [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
         opt.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-            Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-            Options(_('done'),      (245*scale,500*scale)  ,self,self.start_game,font_size=30)
+            Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30)
            ])
         if name_taken:
             txts = [GameText(_(i[0]),p(i[1]),self) for i in (('Sorry, This name is taken.',(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
         else:
-            txts =[GameText(_('... and your name'),p((-200,200)),self), GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
+            txts =[GameText(_('... and your name.'),p((-200,200)),self), GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts,
                 buttons = [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2],parameter=i[3],invert=i[4]) for i in (
-                        ('arrow_right/',(360,400), self.change_princess,(1,'skin'),  False),
-                        ('arrow_right/',(100,400), self.change_princess,(-1,'skin'), True),
-                        ('button_ok/',  (200,600), self.start_game,    None,False))])
+                         ['button_ok/',   (250,620), self.start_game,    None,False],
+                         ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
+                        )])
 
     def update_all(self):
         self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
@@ -314,6 +309,8 @@ class Menu():
 
     ### Buttons functions ###
     def back_to_main(self):
+        self.story          = None
+        self.screen.story_frames = []
         self.go_back = True
         self.next_menu = self.main
         self.screen.action = 'close'
@@ -321,6 +318,11 @@ class Menu():
     def back_to_select_princess(self):
         self.go_back = True
         self.next_menu = self.select_princess
+        self.screen.action = 'close'
+
+    def back_to_select_hair(self):
+        self.go_back = True
+        self.next_menu = self.select_hair
         self.screen.action = 'close'
 
     def new_game(self):
@@ -387,12 +389,14 @@ class Menu():
         self.screen.action = 'close'
 
     def select_saved_game(self):
+        print "Let's select a saved princess"
         self.screen.bar = self.screen.bar_right
-        directory = "data/saves/"
+        directory = main_dir+"/data/saves/"
         saved_games = []
+        print "searching for saved games"
         for i in os.listdir(directory):
             try:
-                D = self.screen.universe.main_dir+'/'+directory+i+'/'
+                D = directory+i+'/'
                 files = os.listdir(D)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
@@ -415,7 +419,7 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [100*scale,-600*scale]
-        self.options    = [Options(_('Or Go Back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
+        self.options    = [Options(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
         self.texts =    [GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          GameText(_('Then choose your saved princess'),p((250,-100)),self)]
         ypos = 0
@@ -423,36 +427,37 @@ class Menu():
         self.buttons = []
         for i in saved_games:
             self.buttons.extend([MenuArrow(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
-            self.texts.extend([GameText(i['name'],(xpos+100*scale,ypos),self, font_size = int(30))])
-            self.options += [Options(_('erase'), (xpos+300*scale,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])]
+            self.options.extend([
+                                 Options(i['name'],  (xpos+100*scale,ypos), self,self.start_game, font_size=30, parameter=(i['file'])),
+                                 Options(_('erase'), (xpos+300*scale,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])
+                                ])
             ypos+=self.buttons[0].size[1]
             if ypos > 250:
                 ypos = 0
                 xpos += 400*scale
 
     def watching_story(self):
-        title_dir = 'data/images/interface/title_screen/'
+        print "Let's watch the story"
+        title_dir = main_dir+'/data/images/interface/title_screen/'
         self.screen.bar = self.screen.bar_right
-#        self.screen.bar_position =  2000*scale
         self.story = Story_Frame(self)
-        self.back_background = obj_images.scale_image(pygame.image.load('data/images/story/background/background.png').convert())
+        print "Loading story background"
+        self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
         self.action     = 'open'
         self.speed      = 0
-        self.actual_position = p([500,-600])
+        self.actual_position = [450*scale,-600*scale]
         self.options    = []
-        self.buttons= [MenuArrow(title_dir+'arrow_right/',p((360,400)), self, self.story.next_frame),
-                       MenuArrow(title_dir+'arrow_right/',p((100,400)), self, self.story.past_frame, invert = True)]
+        self.buttons= [MenuArrow(title_dir+'arrow_right/',p((340,510)), self, self.story.next_frame),
+                       MenuArrow(title_dir+'arrow_right/',p((250,510)), self, self.story.past_frame, invert = True)]
         self.texts =   self.story.texts
-        ypos = 150
-        xpos = 150
 
     def remove_save_directory(self, save_name):
-        for root, dirs, files in os.walk(self.screen.universe.main_dir+'/data/saves/'+save_name+'/', topdown=False):
+        for root, dirs, files in os.walk(main_dir+'/data/saves/'+save_name+'/', topdown=False):
             for name in files:
                 os.remove(os.path.join(root, name))
             for name in dirs:
                 os.rmdir(os.path.join(root, name))
-        os.rmdir(self.screen.universe.main_dir+'/data/saves/'+save_name+'/')
+        os.rmdir(main_dir+'/data/saves/'+save_name+'/')
         self.select_saved_game()
 
     def NOTSETYET(self):
@@ -504,7 +509,7 @@ class MenuArrow():
 
 
 class GameText():
-    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf', font_size=40, color=(0,0,0),second_font = 'Chopin_Script.ttf',var = False):
+    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False):
         self.font_size  = int(font_size*scale)
         self.font       = fonte
         self.menu       = menu
@@ -528,13 +533,13 @@ class GameText():
 
 
 class VerticalGameText(GameText):
-    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf',font_size = 40, color = (0,0,0)):
+    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf',font_size = 40, color = (83,0,0)):
         GameText.__init__(self,text,pos,menu,fonte,font_size,color)
         self.image = pygame.transform.rotate(self.image,90)
 
 class Options(GameText):
     hoover = False
-    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0),parameter = None):
+    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
         GameText.__init__(self,text,pos,menu,fonte,font_size,color)
         self.function  = function
         self.parameter = parameter
@@ -564,7 +569,7 @@ class Options(GameText):
 
 
 class Letter(Options):
-    def __init__(self,text,pos,menu,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(0,0,0)):
+    def __init__(self,text,pos,menu,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
         font_size = int(font_size*scale)
         GameText.__init__(self,text,pos,menu,fonte,font_size,color)
         self.hoover_size = hoover_size
@@ -663,21 +668,24 @@ class Story_Frame():
         self.available_sounds   = [pygame.mixer.Sound('data/sounds/story/frames/'+i) for i in sound_frames]
         self.flip_sound = pygame.mixer.Sound('data/sounds/story/sflip.ogg')
         self.frame_number   = 0
-        self.texts =    [GameText(_('Use the arrows to go'),(230,150),self.menu,font_size = 25),
-                         GameText(_('forward and backward'),(230,200),self.menu,font_size = 25),
-                         GameText(_('And "Ok" for the menu.'),(230,250),self.menu,font_size = 25)]
+        self.texts =    [GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25),
+                         GameText(_('forward and backward'),(220,200),self.menu,font_size = 25)]
     def update_all(self):
         self.images = [self.available_images[i] for i in range(0,self.frame_number)]
 
     def next_frame(self):
         self.channel.play(self.flip_sound)
-        self.channel.queue(self.available_sounds[self.frame_number])
-        self.frame_number += 1
-        if self.frame_number:
-            self.menu.screen.bar_side = None
-            self.menu.texts = []
-            self.menu.backgrounds = []
-            self.menu.background = None
+        if self.frame_number >= len(self.available_images):
+            self.menu.back_to_main()
+        else:
+            self.channel.queue(self.available_sounds[self.frame_number])
+            self.frame_number += 1
+            if self.frame_number:
+                self.menu.screen.bar_side = None
+                self.menu.texts = []
+                self.menu.backgrounds = []
+                self.menu.background = None
+
 
     def past_frame(self):
         self.channel.play(self.flip_sound)
@@ -686,3 +694,5 @@ class Story_Frame():
             self.menu.screen.bar_side = 'right'
             self.menu.texts = self.texts
             self.menu.background = obj_images.image(title_screen_D+'selection_canvas/0.png')
+        if self.frame_number == -1:
+            self.menu.back_to_main()
