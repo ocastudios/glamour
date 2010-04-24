@@ -242,7 +242,6 @@ class Butterfly(Enemy):
             self.direction = 'right'
 
 
-
 class OldLady(Enemy):
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         print "Creating Old Lady"
@@ -265,6 +264,7 @@ class OldLady(Enemy):
         self.action = 'walk'
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.image_number = 0
+        self.level.enemies.append(BroomingDust(self))
 
     def update_all(self):
         self.wave_to_princess()
@@ -319,6 +319,63 @@ class OldLady(Enemy):
             self.image_number = 0
         self.image = actual_list[self.image_number]
 
+
+class BroomingDust():
+    def __init__(self, lady):
+        print 'Creating the Booming Dust'
+        self.lady           = lady
+        self.level          = lady.level
+        self.center_distance= lady.center_distance
+        self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/OldLady/dirt/')
+        self.image          = self.images.left[0]
+        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height())
+        self.pos            = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
+        self.direction      = lady.direction
+        self.rect_list      = ( 
+                                {'pos':(0,0),'size':(0,0)},
+                                {'pos':(0,0),'size':(0,0)},
+                                {'pos':(0,0),'size':(0,0)},
+                                {'pos':(0,0),'size':(0,0)},
+                                {'pos':(121,87),'size':(92,94)},
+                                {'pos':(110,90),'size':(92,94)},
+                                {'pos':(97,85),'size':(103,97)},
+                                {'pos':(89,76),'size':(111,108)},
+                                {'pos':(85,70),'size':(113,111)},
+                                {'pos':(66,53),'size':(121,131)},
+                                {'pos':(53,45),'size':(130,140)},
+                                {'pos':(44,39),'size':(124,145)},
+                                {'pos':(50,30),'size':(108,151)},
+                                {'pos':(0,0),'size':(0,0)},
+                                {'pos':(0,0),'size':(0,0)}
+                                )
+        rect_pos            = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],
+                               self.pos[1]+self.rect_list[self.images.number]['pos'][1])
+        rect_rect           = self.rect_list[self.images.number]['size']
+        self.rect           = pygame.Rect(rect_pos, rect_rect)
+        self.active         = False
+
+    def update_all(self):
+        if (self.lady.action == 'broom' and self.lady.image_number ==1) or (self.images.number != 0):
+
+
+
+
+            if self.direction == 'left':
+                self.pos         = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
+                self.image = self.images.left[self.images.number]
+            else:
+                self.pos         = [self.lady.pos[0]+(144*scale), self.lady.pos[1]+(38*scale)]
+                self.image = self.images.right[self.images.number]
+
+            rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
+            rect_rect        = self.rect_list[self.images.number]['size']
+            self.rect           = pygame.Rect(rect_pos, rect_rect)
+            self.images.update_number()
+
+        else:
+            self.direction  = self.lady.direction
+            self.rect       = ((0,0),(0,0))
+            self.image      = None
 
 
 class Lion():
@@ -609,7 +666,7 @@ class FootBall():
         self.center_distance= center_distance
         self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/FootBoy/ball/')
         self.image          = self.images.left[0]
-        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-7)
+        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-(7*scale))
         self.pos            = [self.footboy.level.universe.center_x + self.center_distance, self.footboy.level.floor - self.size[1]]
         self.speed          = 0
         self.rect           = pygame.Rect(self.pos, self.size)

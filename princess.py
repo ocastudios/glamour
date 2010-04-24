@@ -133,7 +133,7 @@ Princess shoes are moving weirdly when she jumps.
         if not self.inside:
             if not self.situation['hurt']:
                 for e in self.level.enemies:
-                    if (e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk) and self.rect.colliderect(e.rect)):
+                    if (e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk, enemy.BroomingDust) and self.rect.colliderect(e.rect)):
                         print "Princess got hurt by an enemy of the "+ str(e.__class__)+"class"
                         self.get_dirty()
                     if e.__class__ == enemy.Carriage:
