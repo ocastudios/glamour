@@ -90,13 +90,10 @@ Princess shoes are moving weirdly when she jumps.
             self.update_pos(self.action)
             self.hurting(self.action)
             self.kissing()
+            self.update_image(self.action,self.direction)
             if self.situation['hurt'] > 5:
                 if self.situation['hurt']%2 == 0:
-                    self.update_image(self.action,self.direction)
-                else:
                     self.image = None
-            else:
-                self.update_image(self.action,self.direction)
         else:
             self.update_image(self.action,'right')
 
@@ -137,32 +134,29 @@ Princess shoes are moving weirdly when she jumps.
             if not self.situation['hurt']:
                 for e in self.level.enemies:
                     if (e.__class__ in (enemy.Schnauzer , enemy.FootBall, enemy.Hawk) and self.rect.colliderect(e.rect)):
-                        if self.dirt <= 2:
-                            self.situation['hurt'] += 1
-                            self.dirt += 1
-                            self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
-                            print "Oh Dear, you've got all dirty! I need to take a record on that..."
-                            self.level.princesses[1] = self.dirties[self.dirt -1]
+                        print "Princess got hurt by an enemy of the "+ str(e.__class__)+"class"
+                        self.get_dirty()
                     if e.__class__ == enemy.Carriage:
                         if self.rect.colliderect(e.rect):
+                            print "Princess got stuck at the Carriage"
                             self.speed = 0
                         else:
                             self.speed = 10*scale
                     if e.__class__ == enemy.Butterfly:
                         if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
+                            print "Princess got excited by the Butterflies"
                             self.situation['excited']+=1
                 if self.level.viking_ship:
                     if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
-                        if self.dirt <= 2:
-                            self.situation['hurt'] += 1
-                            self.dirt += 1
-                            self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
-                            print "Oh Dear, you've got all dirty! I need to take a record on that..."
-                            self.level.princesses[1] = self.dirties[self.dirt -1]
-
+                        self.get_dirty()
+                if self.level.name == "accessory":
+                    if self.pos[1]+self.size[1]-(20*scale) > self.level.water_level:
+                        print "Princess feet are at "+str(self.pos[1]+self.size[1])
+                        print "Water level is "+str(self.level.water_level)
+                        self.get_dirty()
             else:
                 self.situation['hurt'] +=1
-                if self.situation['hurt'] == 30:
+                if self.situation['hurt'] == 40:
                     self.situation['hurt'] = 0
             if self.situation['excited']:
                 self.situation['excited'] +=1
@@ -174,6 +168,14 @@ Princess shoes are moving weirdly when she jumps.
                 self.situation['excited'] =0
             if self.situation['hurt'] >=6:
                 action[0]= None
+
+    def get_dirty(self):
+        if self.dirt <= 2:
+            self.situation['hurt'] += 1
+            self.dirt += 1
+            self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
+            print "Oh Dear, you've got all dirty! I need to take a record on that..."
+            self.level.princesses[1] = self.dirties[self.dirt -1]
 
     def kissing(self):
         if self.action[0] == 'kiss' or self.kiss > 0:

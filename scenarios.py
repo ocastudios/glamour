@@ -67,7 +67,7 @@ class Gate(Scenario):
     arrow_up = None
     def __init__(self,center_distance,dir,level,goal,goalpos=None,index = 1):
         Scenario.__init__(self,center_distance,dir,level,index)
-        icon_directory = 'data/images/interface/icons/'
+        icon_directory = main_dir+'/data/images/interface/icons/'
         self.goalpos = goalpos
         if goal == level.BathhouseSt:
             icon_directory += 'bath/0.png'
@@ -80,7 +80,7 @@ class Gate(Scenario):
         elif goal == level.ShoesSt:
             icon_directory += 'shoes/0.png'
         if not self.arrow_up:
-            self.arrow_up = obj_images.OneSided('data/images/interface/up-arrow/')
+            self.arrow_up = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
         self.arrow_image_number = 0
         self.arrow_image = self.arrow_up.list[0]
         self.arrow_pos = [center_distance,self.pos[1]-150]
@@ -119,7 +119,7 @@ class BuildingDoor():
         self.images.number = 0
         self.image = self.images.list[self.images.number]
         self.size = self.images.size
-        self.arrow_up = obj_images.OneSided('data/images/interface/up-arrow/')
+        self.arrow_up = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
         self.arrow_image_number = 0
         self.arrow_image = self.arrow_up.list[0]
         self.arrow_pos = (0,0)
@@ -196,7 +196,7 @@ class Background():
 class Cloud():
     nimbus= None
     def __init__(self,level):
-        dir = 'data/images/scenario/skies/nimbus/'
+        dir = main_dir+'/data/images/scenario/skies/nimbus/'
         self.level = level
         self.pos = (random.randint(0,int(level.universe.width)),random.randint(0,int(level.universe.height/4)))
         self.nimbus = self.nimbus or [

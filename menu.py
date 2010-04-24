@@ -325,11 +325,13 @@ class Menu():
         self.screen.action = 'close'
 
     def load_game(self):
-        self.go_back = False        self.next_menu = self.select_saved_game
+        self.go_back = False
+        self.next_menu = self.select_saved_game
         self.screen.action = 'close'
 
     def play_story(self):
-        self.go_back = False        self.next_menu = self.watching_story
+        self.go_back = False
+        self.next_menu = self.watching_story
         self.screen.action = 'close'
 
     def choose_language(self):
@@ -409,8 +411,7 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [100*scale,-600*scale]
-        self.options    = [
-                            ]
+        self.options    = [Options(_('Or Go Back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
         self.texts =    [GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          GameText(_('Then choose your saved princess'),p((250,-100)),self)]
         ypos = 0
