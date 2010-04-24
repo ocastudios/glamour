@@ -356,11 +356,11 @@ class Stage():
                 name = e.replace('_',' ').title()
                 name = name.replace(' ','')
                 if name == "Butterfly":
-                    for i in range(1,10):
+                    for i in range(0,random.randint(1,3)):
                         self.enemies.append(enemy.Butterfly(scale*(random.randint(0,9000)),self))
                 elif name == "Bird":
                     pos_x = scale*(random.randint(0,9000))
-                    for i in range(1,10):
+                    for i in range(0,random.randint(1,4)):
                         self.enemies.append(enemy.Bird(pos_x,self))
                 elif name == 'Footboy':
                     self.enemies.append(enemy.FootBoy(scale*(random.randint(0,9000)),self))
@@ -420,7 +420,7 @@ class Stage():
         self.floor_heights = [height*scale]*int((width*scale))
         count   = 0
         for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
-            for r in range(row['start']*scale,row['end']*scale):
+            for r in range(int(row['start']*scale),int(row['end']*scale)):
                 self.floor_heights[r]=row['value']*scale
         cursor.close()
 
