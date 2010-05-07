@@ -17,6 +17,7 @@ class Ball():
         self.position = 0,0
         self.universe   = universe
         self.boyfriend  = None
+        cursor = level.universe.db_cursor
         universe.db.commit()
         self.texts      = []
         self.texts+= [StarBall()]
@@ -30,16 +31,9 @@ class Ball():
         self.Frame      = BallFrame(self)
         self.level      = level
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
-        self.buttons = [BallButton(main_dir+'/data/images/interface/title_screen/button_ok/',p((1100,700)), self.level)]
+        self.buttons = [BallButton(main_dir+'/data/images/interface/title_screen/button_ok/',p((1050,700)), self.level)]
         pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
         pygame.mixer.music.play()
-        general_enemies_list = ['Schnauzer', 'Bird', 'OldLady', 'FootBoy','Butterfly']
-        stage_list           = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
-        for stage in stage_list:
-            chosen_enemy = random.choice(general_enemies_list)
-            self.level.enemies_list[stage] = [chosen_enemy]
-            general_enemies_list.remove(chosen_enemy)
-        self.level.enemies_list[random.choice(['DressSt', 'MakeupSt','ShoesSt'])].append('Carriage')
         princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
         garment_list         = ['Accessory', 'Dress', 'Shoes','Makeup']
         Accessory_list       = ['crown', 'purse','ribbon','shades']
@@ -82,9 +76,12 @@ class Ball():
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         if self.counter == 100:
-            self.texts+= [gametext.Horizontal(_("and won the heart of"), p((1090,237)), self,font_size = 40)]        if self.counter == 110:
-            self.texts+= [gametext.Horizontal(".", p((1300,237)), self,font_size = 40)]        if self.counter == 120:
-            self.texts+= [gametext.Horizontal(" .", p((1300,237)), self,font_size = 40)]        if self.counter == 130:
+            self.texts+= [gametext.Horizontal(_("and won the heart of"), p((1090,237)), self,font_size = 40)]
+        if self.counter == 110:
+            self.texts+= [gametext.Horizontal(".", p((1300,237)), self,font_size = 40)]
+        if self.counter == 120:
+            self.texts+= [gametext.Horizontal(" .", p((1300,237)), self,font_size = 40)]
+        if self.counter == 130:
             self.texts+= [gametext.Horizontal("  .", p((1300,237)), self,font_size = 40)]
         if self.counter > 150:
             if self.boyfriend:
@@ -146,6 +143,26 @@ class Ball():
         past_glamour_points = save_table['points']
         new_glamour_points = past_glamour_points+glamour_points
         cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
+
+        stage_list           = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
+        print "Preparing the new set of enemies for each stage"
+        for stage in stage_list:
+            general_enemies_list = ['schnauzer', 'carriage','butterfly','old_lady','viking_ship','footboy','bird']
+            print "Removing enemies from "+stage
+            for i in general_enemies_list:
+                sql = 'update stage_enemies set '+i+'=0 where stage = "'+stage+'"'
+                cursor.execute(sql)
+            print "New Enemies List for "+stage
+            enemy_number = random.randint(1,3)
+            for i in range(enemy_number):
+                chosen_enemy = random.choice(general_enemies_list)
+                general_enemies_list.remove(chosen_enemy)
+                print chosen_enemy
+                sql = 'update stage_enemies set '+chosen_enemy+'=1 where stage = "'+stage+'"'
+                cursor.execute(sql)
+
+
+
         level.universe.db.commit()
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
@@ -318,7 +335,7 @@ class BigPrincess():
     def __init__(self, ball):
         princess_directory  = main_dir+'/data/images/princess/'
         ball_directory      = main_dir+'/data/images/interface/ball/'
-        big_image      = obj_images.scale_image(pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha())
+        big_image      = pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha()
         self.pos        = p([ 670,398])
         cursor = ball.universe.db_cursor
         sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
@@ -368,7 +385,7 @@ class BallButton():
     def update_pos(self):
         self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
                            (self.position[1]-(self.image.get_size()[1])/2)]
-        self.rect = pygame.Rect(self.pos,self.size)
+#        self.rect = pygame.Rect(self.pos,self.size)
 
     def invert_images(self,list):
         inv_list=[]

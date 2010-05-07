@@ -71,8 +71,6 @@ class Stage():
         self.omni_directory = main_dir+'/data/images/scenario/omni/'
         self.ball           = None
         self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
-        self.enemies_list   = {                            'BathhouseSt': ['Bird', 'Butterfly'] ,                            'DressSt':['Bird'],                            'AccessorySt':['Schnauzer'],                            'MakeupSt':['OldLady'],                             'ShoesSt': ['FootBoy']
-                            }
         self.ballroom = { 'day': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/'),
                           'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
         self.event_counter = 0
@@ -680,10 +678,10 @@ class Pause():
         self.status = 'outside'
         self.level  = level
         resume      = inside.Button('Resume',(360,400),self.level,self.resume, font_size=80)
-        ok_pos      = resume.pos[0]+(resume.size[0]/2),resume.pos[1]+(resume.size[1])+50
+        ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
         ok_button   = inside.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
         quit        = inside.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
-        cancel_pos  = quit.pos[0]+(quit.size[0]/2),quit.pos[1]+(quit.size[1])+50
+        cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
         cancel_button = inside.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
         title       = inside.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
