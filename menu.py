@@ -18,7 +18,7 @@ name_taken      = False
 interface_D     = 'data/images/interface/'
 title_screen_D  = interface_D+'title_screen/'
 
-
+print "Initiating menu music."
 pygame.mixer.music.load("data/sounds/music/menu.ogg")
 pygame.mixer.music.play()
 
@@ -171,6 +171,7 @@ class MenuScreen():
 class Menu():
     selection_canvas = obj_images.image(title_screen_D+'selection_canvas/0.png')
     def __init__(self,screen,position= [360,200]):
+        print "Creating main menu"
         position = [position[0]*scale,position[1]*scale]
         self.screen         = screen
         self.speed          = 2*scale
@@ -253,12 +254,12 @@ class Menu():
     def name_your_princess(self):
         s = scale
         self.print_princess = False
-        opt = [Letter(i[0],i[1],self, self.screen.hoover_letter_size, 'FreeSerif.ttf', 40) for i in zip(
+        opt = [Letter(i[0],i[1],self, self.screen.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
                 map(chr,xrange(97,123)),
                 zip([x for n in xrange(9) for x in xrange(int(100*s),int(422*s),int(40*s))],
                     [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
-        opt.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30),
-            Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'FreeSerif.ttf',font_size=30)
+        opt.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30),
+            Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
            ])
         if name_taken:
             txts = [GameText(_(i[0]),p(i[1]),self) for i in (('Sorry, This name is taken.',(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
@@ -419,7 +420,7 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [100*scale,-600*scale]
-        self.options    = [Options(_('Or Go Back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
+        self.options    = [Options(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
         self.texts =    [GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
         ypos = 0
@@ -695,3 +696,7 @@ class Story_Frame():
             self.menu.background = obj_images.image(title_screen_D+'selection_canvas/0.png')
         if self.frame_number == -1:
             self.menu.back_to_main()
+
+#class Credits():
+#    def __init__(self):
+#        

@@ -1,12 +1,12 @@
-
 import pygame
 import obj_images
 from pygame.locals import *
 import random
 from settings import *
 import messages
+import os
 
-directory = 'data/images/interface/fairy_tips'
+directory = os.getcwd()+'/data/images/interface/fairy_tips'
 
 def p(positions):
     return [int(i*scale) for i in positions ]
@@ -19,7 +19,7 @@ class Fairy():
         self.level              = level
         self.universe           = self.level.universe
         self.center_distance    = pos
-        self.pos                =  p([600,700])
+        self.pos                =  p([-200,600])
         self.lists_of_images = {
                         'mouth_speak':      obj_images.TwoSided(self.directory+'/fairy_speak/',margin),
                         'mouth_smile':      obj_images.There_and_back_again(self.directory+'/fairy_smile/',margin),
@@ -43,14 +43,19 @@ class Fairy():
         self.direction  = "left"
         self.action     = self.explain
         self.count      = 0
+        self.wand       = obj_images.TwoSided(self.directory+'/fairy_wand/',margin)
+        self.enchant    = obj_images.TwoSided(self.directory+'/fairy_enchant/',margin)
+        self.spark      = obj_images.OneSided(self.directory+'/spark/',margin)
+
 
     def update_all(self):
         for key,value in self.lists_of_images.items():
             value.update_number()
         self.action()
         if self.count > 300:
-            self.level.fairy = False
+            self.level.fairy = 'done'
             self.count = 0
+            self.pos = p([-100,600])
 
     def wait(self):
         pass
@@ -83,22 +88,22 @@ class Fairy():
         return image
 
     def fly_to_goal(self):
-        speed = 10
+        speed = int(15*scale)
         self.images_strings = ["wings_fly","body_fly"]
-        if self.pos[0]>self.goalpos[0]:
+        if self.pos[0] > self.goalpos[0]+5:
             self.direction = "left"
             self.pos[0] -= speed
-        elif self.pos[0]<self.goalpos[0]:
+        elif self.pos[0]<self.goalpos[0]-5:
             self.direction = "right"
             self.pos[0] += speed
-        if self.pos[1]>self.goalpos[1]:
-            self.pos[1] -= speed
-        elif self.pos[1]<self.goalpos[1]:
-            self.pos[1] += speed
+#        if self.pos[1]>self.goalpos[1]:
+#            self.pos[1] -= speed
+#        elif self.pos[1]<self.goalpos[1]:
+#            self.pos[1] += speed
 
 
 class Message():
-    def __init__(self, level, message = "Oops! I just forgot what I had to say..."):
+    def __init__(self, level, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
         self.message    = message
         self.level      = level
         self.universe   = universe = self.level.universe
@@ -110,6 +115,7 @@ class Message():
         self.text_font       = pygame.font.Font('data/fonts/FreeSans.ttf',self.font_size+(self.font_size/2))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
+
 
     def update_all(self):
         pass

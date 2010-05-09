@@ -27,10 +27,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         hairback = hair+'_back'
     else:
         hairback = "None"
-    for street in ['BathhouseSt','DressSt','AccessorySt','MakeupSt','ShoesSt']:
-        exec(street +" = ''")
-        for i in level.enemies_list[street]:
-            exec(street + "=" + street + "+ ' ' + i + ' ' ")
+#    for street in ['BathhouseSt','DressSt','AccessorySt','MakeupSt','ShoesSt']:
+#        exec(street +" = ''")
+#        for i in level.enemies_list[street]:
+#            exec(street + "=" + street + "+ ' ' + i + ' ' ")
     cursor = level.universe.db_cursor
     cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+str(princess.name)+"'")
     if hair:

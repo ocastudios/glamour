@@ -51,7 +51,7 @@ class Enemy():
 
 class Schnauzer(Enemy):
     def __init__(self, pos, level,margin=p([20,20,20,20]),dirty=False):
-        print "Creating Schnauzer"
+        print "Creating Schnauzer..."
         directory  = enemy_dir+'Schnauzer/'
         self.center_distance = pos
         for i in ['kissed','walk','stay']:
@@ -73,6 +73,7 @@ class Schnauzer(Enemy):
         self.barfing = 0
         self.bow = pygame.mixer.Sound(main_dir+'/data/sounds/enemies/dog2.ogg')
         self.lookside = 0
+        print "Done."
 
     def barf(self):
         if self.barfing == 1:
@@ -134,7 +135,7 @@ class Schnauzer(Enemy):
 
 class Carriage(Enemy):
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
-        print "Creating Carriage"
+        print "Creating Carriage..."
         directory = enemy_dir+'Carriage/'
         self.center_distance = pos
         for i in ['kissed','walk','stay']:
@@ -153,6 +154,7 @@ class Carriage(Enemy):
         self.rect = Rect((self.pos[0],(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
+        print "done."
 
     def update_all(self):
         self.move = True
@@ -210,6 +212,7 @@ class Butterfly(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
+        print "done."
 
     def update_all(self):
         self.set_pos()
@@ -265,6 +268,7 @@ class OldLady(Enemy):
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
         self.image_number = 0
         self.level.enemies.append(BroomingDust(self))
+        print "done."
 
     def update_all(self):
         self.wave_to_princess()
@@ -322,7 +326,7 @@ class OldLady(Enemy):
 
 class BroomingDust():
     def __init__(self, lady):
-        print 'Creating the Booming Dust'
+        print 'Creating the Brooming Dust'
         self.lady           = lady
         self.level          = lady.level
         self.center_distance= lady.center_distance
@@ -356,22 +360,16 @@ class BroomingDust():
 
     def update_all(self):
         if (self.lady.action == 'broom' and self.lady.image_number ==1) or (self.images.number != 0):
-
-
-
-
             if self.direction == 'left':
                 self.pos         = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
                 self.image = self.images.left[self.images.number]
             else:
                 self.pos         = [self.lady.pos[0]+(144*scale), self.lady.pos[1]+(38*scale)]
                 self.image = self.images.right[self.images.number]
-
             rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
             rect_rect        = self.rect_list[self.images.number]['size']
             self.rect           = pygame.Rect(rect_pos, rect_rect)
             self.images.update_number()
-
         else:
             self.direction  = self.lady.direction
             self.rect       = ((0,0),(0,0))
@@ -392,6 +390,7 @@ class Lion():
         self.gotkissed = 0
         self.image_number = 0
         self.tail = Tail(directory,self)
+        print "done."
 
     def update_all(self):
         self.image = self.base.left[self.base.itnumber.next()]
@@ -424,6 +423,7 @@ class Elephant():
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
+        print "done."
 
     def update_all(self):
         self.image = self.base.left[self.base.itnumber.next()]
@@ -443,6 +443,7 @@ class Monkey():
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
+        print "done."
 
     def update_all(self):
         self.image = self.stay.left[0]
@@ -484,6 +485,7 @@ class VikingShip():
         self.shout_balloon   = VikingPart(self, 'shout_balloon',pos_x = -90, pos_y = 400)
         self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
         self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
+        print "done."
 
     def update_all(self):
         try:
@@ -536,13 +538,12 @@ class VikingShip():
                 if i.__class__ == Curse:
                     i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
             if self.count > 60:
-                print "Removing balloon from list"
                 self.level.panel.remove(self.talk_balloon)
-                self.level.panel.remove(self.curses[self.curse_number[0]])
-                self.level.panel.remove(self.curses[self.curse_number[1]])
-                self.level.panel.remove(self.curses[self.curse_number[2]])
-                for i in self.curses:
-                    i.position = [-70*scale,i.position[1]]
+                for i in self.level.panel:
+                    if i.__class__ == Curse:
+                        print "removing "+str(i.__class__)+" from panel"
+                        i.position = [-70*scale,i.position[1]]
+                        self.level.panel.remove(i)
                 self.talk_balloon.pos = p([-400,-400])
                 self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
                 self.mood = "normal"
@@ -620,7 +621,7 @@ class FootBoy():
         self.speed = -12*scale
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.level.enemies.append(FootBall(random.randint(int(4000*scale),int(6000*scale)), self))
-
+        print "done."
 
     def update_all(self):
         if self.direction == 'left':
@@ -634,6 +635,7 @@ class FootBoy():
         if self.got_kissed > 0:
             if self.got_kissed == 1:
                 self.body = self.running_kissed
+                print "Ooops! He, he!"
             self.got_kissed += 1
             if self.got_kissed < 8:
                 self.speed = 0
@@ -651,12 +653,10 @@ class FootBoy():
         self.pos = [self.level.universe.center_x + self.center_distance,
                     self.floor-(self.size[1]-(20*scale))]
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
-
         if -200 < self.center_distance <-100 and self.direction =='left':
             self.got_kissed +=.01
         elif 10200 < self.center_distance < 10300 and self.direction =='right':
             self.got_kissed +=.01
-        print self.pos
 
 class FootBall():
     def __init__(self, center_distance, footboy):
@@ -726,7 +726,7 @@ class Bird():
     def __init__(self, pos, level, dirty=False):
         print 'Creating Bird'
         directory = level.enemy_dir+'Birdy/'
-        self.center_distance = pos
+        self.center_distance = pos+int(random.randint(3,50)*scale)
         self.body       = self.walking
         self.image      = self.body.left[0]
         self.level      = level

@@ -11,22 +11,12 @@ def choose_event(level,starting_game=False):
         princess_pos = level.princesses[0].center_distance
         if starting_game:
             level.event_counter += 1
-            intro_first_day = level.universe.db_cursor.execute("SELECT * FROM messages WHERE name = 'first day a'").fetchone()
-            if intro_first_day['count'] == 0:
-                level.Fairy = True
-                level.fae = [fairy.Message(level, message = intro_first_day['message']),fairy.Fairy(20,level)]
-                level.universe.db_cursor.execute("UPDATE messages SET count = 99999999 WHERE name = 'first day a'")
-                level.universe.db.commit()
-            else:
-                intro = level.universe.db_cursor.execute("SELECT * FROM messages WHERE type = 'intro' AND count = (SELECT MIN(count) FROM messages WHERE type = 'intro')").fetchall()
-                level.fairy = True
-                least_used = level.universe.db_cursor.execute("select min(count) as count from messages where type = 'intro'").fetchone()['count']
-                print intro
-                message_number = random.randint(0,len(intro)-1)
-                message_text = intro[message_number]
-                text = message_text['message']
-                level.fae = [fairy.Message(level, message = text),fairy.Fairy(20,level)]
-                level.universe.db_cursor.execute('UPDATE messages SET count = '+str(least_used+1)+' where message = "'+text+'";')
+            intro_first_day = level.universe.db_cursor.execute("SELECT * FROM messages WHERE name = 'first day a'").fetchall()
+            if intro_first_day[0]['count'] == 0:
+                level.Fairy = 'loading'
+                message_text = random.choice(intro_first_day)['message']
+                level.fae[0] = fairy.Message(level, message = message_text)
+                level.universe.db_cursor.execute('UPDATE messages SET count = 1 WHERE type = "intro";')
                 level.universe.db.commit()
         elif level.name == "bathhouse":
             if 4480*scale < princess_pos < 5560*scale:
@@ -62,7 +52,7 @@ def create_message(level, name, unique=True):
     row = level.universe.db_cursor.execute("SELECT * FROM messages WHERE name = '"+name+"'").fetchone()
     if row['count'] == 0 or unique==False:
         print "Here comes the Fairy "+name
-        level.fairy = True
+        level.fairy = 'loading'
         level.fae[0] = fairy.Message(level, message = row['message'])
         level.universe.db_cursor.execute("UPDATE messages SET count = 1 WHERE name = '"+name+"'")
         level.universe.db.commit()

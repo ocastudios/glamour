@@ -4,16 +4,14 @@ import enemy
 import skies
 import fairy
 import floors
-#import clouds
+import widget
 import random
 import moving_scenario
 import glamour_stars
 import princess
 import os
 import game_clock
-#import panel
 import pygame
-#import itertools
 import camera
 import mousepointer
 import inside
@@ -22,11 +20,14 @@ import sqlite3
 import events
 import gametext
 from settings import *
-#TODO Insert every rect that is moving in stage class self.all and use main display.update to update only the different rects.
-#TODO substitute all these lists by a single list, blitting on the screen using the class to estipulate the order.
 
-def p(positions):
-    return [int(i*scale) for i in positions ]
+
+import gettext
+t = gettext.translation('glamour', 'locale')
+_ = t.ugettext
+
+
+
 ###Gate Positions###
 bathhousegate = p([480, 8138])
 dressgate =     p([800, 4142,8471])
@@ -67,7 +68,7 @@ class Stage():
         self.pointer        = [self.game_mouse]
         self.inside         = None
         self.princess_castle= None
-        self.fairy          = True
+        self.fairy          = False
         self.omni_directory = main_dir+'/data/images/scenario/omni/'
         self.ball           = None
         self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
@@ -75,7 +76,7 @@ class Stage():
                           'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
         self.event_counter = 0
         self.starting_game = True
-        self.fae = [None]
+        self.fae = [None,fairy.Fairy(20,self)]
         self.pause      = Pause(self)
         self.paused     = False
         self.water_level= 1440*scale
@@ -119,6 +120,11 @@ class Stage():
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
+        elif self.fairy:
+            self.update_fairytip()
+            for i in self.pointer:
+                self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
         else:
             if self.clock[1].count > 160:
                 if self.background[0] == self.ballroom['day']:
@@ -159,9 +165,9 @@ class Stage():
                         i.update_all()
                 for i in self.pointer:
                     i.update_all()
-                if self.fairy:
-                    for i in self.fae:
-                        i.update_all()
+#                if self.fairy:
+#                    for i in self.fae:
+#                        i.update_all()
 
     def blit_all(self):
         for att in self.blitlist:
@@ -277,7 +283,7 @@ class Stage():
                     self.white.alpha_value -= 10
                     self.white.image.set_alpha(self.white.alpha_value)
                 else:
-                    self.white.image.alpha_value = 0
+                    self.white.alpha_value = 0
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
                     self.inside.status = 'openning'
@@ -329,7 +335,9 @@ class Stage():
                 self.universe.screen_surface.blit(self.princesses[0].image,
                                     ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
                                     (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
-
+            if self.fairy:
+                for i in self.fae:
+                    i.update_all()
         elif self.pause.status == 'done':
             self.princesses[0].update_all()
             self.down_bar_y += self.bar_speed
@@ -344,6 +352,33 @@ class Stage():
             self.white.image.set_alpha(self.white.alpha_value)
             if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
                 self.paused = False
+
+    def update_fairytip(self):
+        self.universe.screen_surface.blit(self.white.image,(0,0))
+        if self.fairy == 'loading':
+            self.white.image.set_alpha(self.white.alpha_value)
+            if not self.white.alpha_value:
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound(os.getcwd()+'/data/sounds/story/frames/s03.ogg'))
+            if self.white.alpha_value < 200:
+                self.white.alpha_value += 10
+            if self.white.alpha_value > 150:
+                self.fairy = 'speaking'
+        elif self.fairy == "speaking":
+            for i in self.fae:
+                self.universe.screen_surface.blit(i.image,i.pos)
+            for i in self.fae:
+                i.update_all()
+        elif self.fairy == 'done':
+            self.princesses[0].update_all()
+            if self.bar_speed < 20:
+                self.bar_speed += self.bar_speed
+            if self.white.alpha_value > 0:
+                self.white.alpha_value -= 10
+                self.white.image.set_alpha(self.white.alpha_value)
+            else:
+                self.white.alpha_value = 0
+                self.fairy = None
+            self.white.image.set_alpha(self.white.alpha_value)
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
@@ -469,7 +504,7 @@ class Stage():
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False
-        self.panel[0] = gametext.Horizontal(self.princesses[0].name+"'s glamour ", p((550,40)), self,font_size = 40)
+        self.panel[0] = gametext.Horizontal(_('%s St' % self.name.title()), p((550,40)), self,font_size = 40)
 
     def DressSt(self,goalpos = None):
         self.name = 'dress'
@@ -677,13 +712,13 @@ class Pause():
     def __init__(self, level):
         self.status = 'outside'
         self.level  = level
-        resume      = inside.Button('Resume',(360,400),self.level,self.resume, font_size=80)
+        resume      = widget.Button('Resume',(360,400),self.level,self.resume, font_size=80)
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
-        ok_button   = inside.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
-        quit        = inside.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
+        ok_button   = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
+        quit        = widget.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
-        cancel_button = inside.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
-        title       = inside.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
+        cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
+        title       = widget.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
 
     def resume(self,param):
