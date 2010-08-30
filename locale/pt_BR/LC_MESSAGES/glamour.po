@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glamour\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-09 19:32-0300\n"
+"POT-Creation-Date: 2010-05-09 19:39-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Nelson do Vale Oliveira <nelson@ocastudios.com>\n"
 "Language-Team: Oca Studios <ocastudios@ocastudios.com>\n"
@@ -64,6 +64,34 @@ msgstr "Créditos"
 msgid "select one"
 msgstr "escolha um"
 
+#: /home/nelson/glamour/menu.py:229
+#: /home/nelson/glamour/menu.py:242
+msgid "Choose your"
+msgstr "Escolha sua"
+
+#: /home/nelson/glamour/menu.py:229
+#: /home/nelson/glamour/menu.py:242
+msgid "appearence..."
+msgstr "aparência"
+
+#: /home/nelson/glamour/menu.py:229
+msgid "skin tone"
+msgstr "cor da pele"
+
+#: /home/nelson/glamour/menu.py:229
+#: /home/nelson/glamour/menu.py:242
+msgid "previous"
+msgstr "anterior"
+
+#: /home/nelson/glamour/menu.py:229
+#: /home/nelson/glamour/menu.py:242
+msgid "next"
+msgstr "próximo"
+
+#: /home/nelson/glamour/menu.py:242
+msgid "hair style"
+msgstr "cabelo"
+
 #: /home/nelson/glamour/menu.py:261
 msgid "< back"
 msgstr "< voltar"
@@ -71,6 +99,10 @@ msgstr "< voltar"
 #: /home/nelson/glamour/menu.py:262
 msgid "space >"
 msgstr "espaço >"
+
+#: /home/nelson/glamour/menu.py:265
+msgid "Sorry, This name is taken."
+msgstr "Desculpe, este nome está sendo usado."
 
 #: /home/nelson/glamour/menu.py:267
 msgid "... and your name."
@@ -81,7 +113,6 @@ msgid "The "
 msgstr "O"
 
 #: /home/nelson/glamour/menu.py:423
-#, fuzzy
 msgid "Or go back to Main Menu"
 msgstr "Ou volte para o Menu Principal"
 
@@ -90,7 +121,6 @@ msgid "Have you already saved a game?"
 msgstr "Você já salvou um jogo?"
 
 #: /home/nelson/glamour/menu.py:425
-#, fuzzy
 msgid "Then choose your saved princess:"
 msgstr "Então escolha sua princesa salva:"
 
@@ -329,22 +359,8 @@ msgstr "Rua %s"
 
 #~ msgid "Options"
 #~ msgstr "Opções"
-#~ msgid "Choose your"
-#~ msgstr "Escolha sua"
-#~ msgid "appearence..."
-#~ msgstr "aparência"
-#~ msgid "skin tone"
-#~ msgstr "cor da pele"
-#~ msgid "previous"
-#~ msgstr "anterior"
-#~ msgid "next"
-#~ msgstr "próximo"
-#~ msgid "hair style"
-#~ msgstr "cabelo"
 #~ msgid "done"
 #~ msgstr "pronto"
-#~ msgid "Sorry, This name is taken."
-#~ msgstr "Desculpe, este nome está sendo usado."
 #~ msgid "Please, choose another one"
 #~ msgstr "Por favor, escolha outro"
 #~ msgid "... and your name"

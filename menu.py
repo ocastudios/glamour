@@ -226,7 +226,7 @@ class Menu():
         self.screen.bar = self.screen.bar_right
         self.princess       = MenuPrincess(self)
         self.print_princess = True
-        txt=[('Choose your',[-200,200]),('appearence...',[-200,250]),('skin tone',[250,420]),('previous',[250,90]),('next',[250,520])]
+        txt=[(_('Choose your'),[-200,200]),(_('appearence...'),[-200,250]),(_('skin tone'),[250,420]),(_('previous'),[250,90]),(_('next'),[250,520])]
         self.reset_menu(
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
@@ -239,7 +239,7 @@ class Menu():
                     )
 
     def select_hair(self):
-        txt = [('Choose your', (-200,200)), ('appearence...',(-200,250)), ('hair style',(250,420)), ('previous',(250,90)), ('next',(250,520))]
+        txt = [(_('Choose your'), (-200,200)), (_('appearence...'),(-200,250)), (_('hair style'),(250,420)), (_('previous'),(250,90)), (_('next'),(250,520))]
         self.print_princess = True
         self.reset_menu(
                 action  = 'open',
@@ -262,7 +262,7 @@ class Menu():
             Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
            ])
         if name_taken:
-            txts = [GameText(_(i[0]),p(i[1]),self) for i in (('Sorry, This name is taken.',(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
+            txts = [GameText(_(i[0]),p(i[1]),self) for i in ((_('Sorry, This name is taken.'),(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
         else:
             txts =[GameText(_('... and your name.'),p((-200,200)),self), GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts,
