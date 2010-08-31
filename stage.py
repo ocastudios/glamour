@@ -44,7 +44,7 @@ class Stage():
         self.name = None
         self.size = int(9600*scale)
         self.universe       = universe
-        self.cameras=[camera.GameCamera(self,-4220*scale)]
+        self.cameras        =[camera.GameCamera(self,-4220*scale)]
         self.gates          = []
         self.clock          = [game_clock.GameClock(self),game_clock.ClockPointer(self)]
         self.floor_heights  = {}
@@ -64,7 +64,7 @@ class Stage():
         self.up_bar_y       = - self.bar_height
         self.bar_goal       = self.universe.height/3
         self.bar_speed      = 1
-        self.game_mouse     = mousepointer.MousePointer(pygame.mouse.get_pos(),self, type = 2)
+        self.game_mouse     = mousepointer.MousePointer(self)
         self.pointer        = [self.game_mouse]
         self.inside         = None
         self.princess_castle= None
@@ -74,13 +74,13 @@ class Stage():
         self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
         self.ballroom = { 'day': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/'),
                           'night': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_night/')}
-        self.event_counter = 0
-        self.starting_game = True
+        self.event_counter  = 0
+        self.starting_game  = True
         self.fae = [None,fairy.Fairy(20,self)]
-        self.pause      = Pause(self)
-        self.paused     = False
-        self.water_level= 1440*scale
-        self.mouse_pos  = pygame.mouse.get_pos()
+        self.pause          = Pause(self)
+        self.paused         = False
+        self.water_level    = 1440*scale
+        self.mouse_pos      = pygame.mouse.get_pos()
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -109,8 +109,8 @@ class Stage():
         return      y_height
 
     def update_all(self):
-        self.mouse_pos  = pygame.mouse.get_pos()
         self.game_mouse.update()
+        self.mouse_pos  = self.game_mouse.mouse_pos
         events.choose_event(self)
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
@@ -457,6 +457,14 @@ class Stage():
                 self.floor_heights[r]=row['value']*scale
         cursor.close()
 
+    def stage_music(self,intro, music):
+        self.music = main_dir+"/data/sounds/music/"+music
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/"+intro)
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.play()
+        pygame.mixer.music.set_endevent(pygame.USEREVENT)
+
     def BathhouseSt(self,goalpos = None):
         self.name = 'bathhouse'
         db = sqlite3.connect(main_dir+'/data/bathhouse.db')
@@ -480,13 +488,7 @@ class Stage():
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
         self.moving_scenario = [moving_scenario.Billboard(self)]
         self.create_front_scenario('bathhouse')
-        self.music = main_dir+"/data/sounds/music/bathhouse_day.ogg"
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/bathhouse_day_intro.ogg")
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.play()
-        pygame.mixer.music.set_endevent(pygame.USEREVENT)
-
+        self.stage_music("bathhouse_day_intro.ogg","bathhouse_day.ogg")
         ### set_floor ###
         self.set_floor_heights(186,9400,'bathhouse')
         self.animated_scenarios =[]
@@ -498,8 +500,6 @@ class Stage():
             except:
                 pass
         self.princesses = self.princesses or [princess.Princess(self,xpos=5220),None]
-
-
 #        panel.Data('', self.princesses[0].center_distance, p((300, 0)), self,0,size=120*scale)
         if self.starting_game:
             events.choose_event(self,starting_game=True)
@@ -514,9 +514,7 @@ class Stage():
         self.gates = []
         self.directory = self.maindir+'dress_st/'
         self.create_scenario('dress')
-
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self,index=0)]
-
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor(p((9092,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
@@ -526,11 +524,7 @@ class Stage():
 
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.create_front_scenario('dress')
-        self.music = main_dir+"/data/sounds/music/dress_day_intro.ogg"
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/dress_day_intro.ogg")
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.play()
+        self.stage_music("dress_day_intro.ogg","dress_day_intro.ogg")
         self.princesses = self.princesses or [princess.Princess(self),None]
         self.lights = []
         for i in self.scenarios_prep:
@@ -549,7 +543,6 @@ class Stage():
         self.gates                          = []
         self.directory = self.maindir+'accessory_st/'
         self.create_scenario('accessory')
-
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'AccessorySt')
         self.viking_ship = enemy.VikingShip(5000*scale,self)
         self.gates.extend([
@@ -563,19 +556,9 @@ class Stage():
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
         self.floor_image.extend([self.viking_ship])
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
-
-        floors.Drain(self.directory+'floor/left_bank_front/',2,self)
-        floors.Drain(self.directory+'floor/right_bank_front/',3,self)
-        floors.Drain(self.directory+'floor/left_bank_front/',20,self)
-        floors.Drain(self.directory+'floor/right_bank_front/',21,self)
-
+        [floors.Drain(self.directory+'floor/'+i[0]+'_bank_front/',i[1],self) for i in [('left',2),('right',3),('left',20),('right',21)]]
         self.create_front_scenario('accessory')
-        self.music = main_dir+"/data/sounds/music/accessory_day.ogg"
-        pygame.mixer.music.load(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.play()
-
+        self.stage_music("accessory_day.ogg","accessory_day.ogg")
         self.princesses = self.princesses or [princess.Princess(self),None]
         self.set_floor_heights(194,9400,'accessory')
         self.lights = []
@@ -596,8 +579,6 @@ class Stage():
         self.directory = self.maindir+'makeup_st/'
         self.create_scenario('makeup')
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','hawk'),'MakeupSt')
-
-
         self.gates.extend([ scenarios.Gate(makeupgate[x],main_dir+'/data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
                             ((0, self.DressSt, dressgate[2]),
@@ -622,11 +603,7 @@ class Stage():
             except:
                 pass
         self.set_floor_heights(192,9400,'makeup')
-        self.music = main_dir+"/data/sounds/music/makeup_day.ogg"
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/makeup_day_intro.ogg")
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.play()
+        self.stage_music("makeup_day_intro.ogg","makeup_day.ogg")
 
     def ShoesSt(self,goalpos=None):
         self.name = "shoes"
@@ -645,11 +622,7 @@ class Stage():
         scenarios.Gate(shoegate[2],main_dir+'/data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.create_front_scenario('shoes')
-        self.music = main_dir+"/data/sounds/music/shoes_day.ogg"
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/shoes_day_intro.ogg")
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.queue(self.music)
-        pygame.mixer.music.play()
+        self.stage_music("shoes_day_intro.ogg","shoes_day.ogg")
         self.princesses = self.princesses or [princess.Princess(self),None]
         self.set_floor_heights(192,9601,'shoes')
         self.lights = []
@@ -715,20 +688,17 @@ class Pause():
         resume      = widget.Button('Resume',(360,400),self.level,self.resume, font_size=80)
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
         ok_button   = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
-        quit        = widget.Button('Quit',(1080,400),self.level,self.quit_game, font_size= 80)
+        quit        = widget.Button('Quit',(1080,400),self.level,exit, font_size= 80)
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
-        cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,self.quit_game)
+        cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
         title       = widget.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
 
-    def resume(self,param):
+    def resume(self):
         self.status = 'done'
 
-    def do_nothing(self,param=None):
+    def do_nothing(self):
         pass
-
-    def quit_game(self,param=None):
-        exit()
 
     def update_all(self):
         pass

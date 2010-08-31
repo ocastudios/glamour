@@ -4,8 +4,10 @@ import princess
 import pygame
 import drapes
 import os
+import mousepointer
 import db
 import sqlite3
+from widget import Button
 from pygame.locals import *
 
 
@@ -52,7 +54,6 @@ class MenuScreen():
         self.drapes         = drapes.Drape()
         self.upper_drapes   = drapes.UperDrape()
         self.screen         = self.universe.screen_surface
-
 
 #STEP SEQUENCE
 ## 1- update_drape
@@ -173,6 +174,7 @@ class Menu():
     def __init__(self,screen,position= [360,200]):
         print "Creating main menu"
         position = [position[0]*scale,position[1]*scale]
+        self.universe       = screen.universe
         self.screen         = screen
         self.speed          = 2*scale
         self.position       = position
@@ -188,8 +190,13 @@ class Menu():
         self.back_background= None
         self.mouse_positions= []
         self.selector = 0
+        self.game_mouse     = mousepointer.MousePointer(self, type = 2)
+        self.mouse_pos      = pygame.mouse.get_pos()
+
+
 
     def main(self):
+
         self.print_princess = False
         self.background     = self.selection_canvas
         self.back_background = None
@@ -199,10 +206,10 @@ class Menu():
         else:
             self.actual_position    = [450*scale,1000*scale]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.choose_language))
-        self.options = [ Options(i[0], p((300,i[1])), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
+        self.options = [ Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
         self.texts =   [VerticalGameText(_('select one'),p((125,200)),self)]
-        self.buttons = [ MenuArrow(title_screen_D+'arrow_right/',p((410,450)),self,self.NOTSETYET),
-                         MenuArrow(title_screen_D+'arrow_right/',p((200,450)),self,self.NOTSETYET, invert = True)]
+        self.buttons = [ Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
+                         Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
     def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
         self.story          = None
@@ -231,9 +238,9 @@ class Menu():
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
             texts = [GameText(_(i[0]),p(i[1]),self) for i in txt],
-            buttons     =  [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2], parameter = i[3], invert = i[4]) for i in
-                    (["arrow_right/",(380,430),self.change_princess,(1,'skin'),False],
-                     ["arrow_right/",(120,430),self.change_princess,(-1,'skin'),True],
+            buttons     =  [Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+                    (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
+                     ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
                      ["arrow_up/"   ,(250,-5),self.back_to_main,None,False],
                      ["arrow_down/"  ,(250,620),self.to_select_hair,None,False])]
                     )
@@ -244,9 +251,9 @@ class Menu():
         self.reset_menu(
                 action  = 'open',
                 texts   =  [GameText(_(i[0]),p(i[1]),self) for i in txt],
-                buttons = [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2], parameter = i[3], invert = i[4]) for i in
-                        (['arrow_right/',(380,430),self.change_princess,(1,'hair'),False],
-                         ['arrow_right/',(120,430),self.change_princess,(-1,'hair'),True],
+                buttons = [Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+                        (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
+                         ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
                          ['arrow_up/'   ,(250,-5),self.back_to_select_princess,None,False],
                          ['arrow_down/' ,(250,620),self.to_name_your_princess,None,False])])
 
@@ -266,12 +273,15 @@ class Menu():
         else:
             txts =[GameText(_('... and your name.'),p((-200,200)),self), GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts,
-                buttons = [MenuArrow(title_screen_D+i[0],p(i[1]),self,i[2],parameter=i[3],invert=i[4]) for i in (
+                buttons = [Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
                          ['button_ok/',   (250,620), self.start_game,    None,False],
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
                         )])
 
     def update_all(self):
+        self.game_mouse.update()
+        self.mouse_pos  = self.game_mouse.mouse_pos
+
         self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
         keyboard = self.screen.universe.action[0]
         if keyboard:
@@ -379,12 +389,12 @@ class Menu():
         elif self.princess.numbers[list[1]] > number:
             self.princess.numbers[list[1]] = 0
 
-    def to_name_your_princess(self,param = None):
+    def to_name_your_princess(self):
         self.go_back = False
         self.next_menu = self.name_your_princess
         self.screen.action = 'close'
 
-    def to_select_hair(self,param):
+    def to_select_hair(self):
         self.go_back = False
         self.next_menu = self.select_hair
         self.screen.action = 'close'
@@ -427,10 +437,10 @@ class Menu():
         xpos = 0
         self.buttons = []
         for i in saved_games:
-            self.buttons.extend([MenuArrow(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
+            self.buttons.extend([Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
             self.options.extend([
-                                 Options(i['name'],  (xpos+100*scale,ypos), self,self.start_game, font_size=30, parameter=(i['file'])),
-                                 Options(_('erase'), (xpos+300*scale,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])
+                                 Options(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30, parameter=(i['file'])),
+                                 Options(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])
                                 ])
             ypos+=self.buttons[0].size[1]
             if ypos > 250:
@@ -448,8 +458,8 @@ class Menu():
         self.speed      = 0
         self.actual_position = [450*scale,-600*scale]
         self.options    = []
-        self.buttons= [MenuArrow(title_dir+'arrow_right/',p((340,510)), self, self.story.next_frame),
-                       MenuArrow(title_dir+'arrow_right/',p((250,510)), self, self.story.past_frame, invert = True)]
+        self.buttons= [Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame),
+                       Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True)]
         self.texts =   self.story.texts
 
     def remove_save_directory(self, save_name):
@@ -463,50 +473,6 @@ class Menu():
 
     def NOTSETYET(self):
         pass
-
-
-class MenuArrow():
-    def __init__(self,directory,position,menu,function,parameter = None,invert = False):
-        self.menu = menu
-        self.images     = obj_images.Buttons(directory,5)
-        if invert:
-            self.images.list = self.invert_images(self.images.list)
-        self.image = self.images.list[self.images.number]
-        self.size = self.image.get_size()
-        self.position = position
-        self.pos        = [self.menu.actual_position[0]+(self.position[0]-(self.image.get_size()[0]/2)),
-                           self.menu.actual_position[1]+(self.position[1]-(self.image.get_size()[1])/2)]
-        self.rect = Rect(self.pos,self.size)
-        self.function = function
-        self.parameter = parameter
-
-    def update_all(self):
-        self.update_pos()
-        self.click_detection()
-
-    def update_pos(self):
-        self.pos  = [self.menu.actual_position[0]+(self.position[0]-(self.image.get_size()[0]/2)),
-                     self.menu.actual_position[1]+(self.position[1]-(self.image.get_size()[1]/2))]
-        self.rect = Rect(self.pos,self.size)
-
-    def invert_images(self,list):
-        return [pygame.transform.flip(img,1,0) for img in list]
-
-    def click_detection(self):
-        self.rect = Rect(self.pos,self.size)
-        mouse_pos = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_pos):
-            self.image = self.images.list[self.images.itnumber.next()]
-            if self.menu.screen.universe.click:
-                try:
-                    self.function(self.parameter)
-                except Exception,e:
-                    print "Could not execute with parameter"
-                    print e
-                    self.function()
-        else:
-            if self.image != self.images.list[0]:
-                self.image = self.images.list[self.images.itnumber.next()]
 
 
 class GameText():

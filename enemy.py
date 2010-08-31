@@ -740,7 +740,6 @@ class Bird():
         self.speed = 5*scale
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         hawks = 0
-
         for i in self.level.enemies:
             if i.__class__ == Hawk:
                 hawks += 1

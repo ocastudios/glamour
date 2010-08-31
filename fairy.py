@@ -137,7 +137,6 @@ class Message():
         while count < number_of_words:
             line        += text_list[count]
             line_size   = font_object.size(line)
-
             line_pos = int((text_box[0]+fix_x-line_size[0])/2)
             if line_size[0] < text_box[0]:
                 if count+1 < number_of_words:

@@ -1,7 +1,9 @@
 import pygame
+import interface
 import obj_images
 import random
 import gametext
+import widget
 from settings import *
 
 import gettext
@@ -31,7 +33,7 @@ class Ball():
         self.Frame      = BallFrame(self)
         self.level      = level
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
-        self.buttons = [BallButton(main_dir+'/data/images/interface/title_screen/button_ok/',p((1050,700)), self.level)]
+        self.buttons = [widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
         pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
         pygame.mixer.music.play()
         princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
@@ -65,9 +67,6 @@ class Ball():
             self.universe.screen_surface.blit(i.image,i.pos)
             self.universe.screen_surface.blit(i.symbol,(i.symbolpos,i.pos[1]-100*scale))
             i.update_all()
-        for i in self.buttons:
-            self.universe.screen_surface.blit(i.image,i.pos)
-            i.update_all()
         if self.counter > 60:
             self.universe.screen_surface.blit(self.bigprincess.image,self.bigprincess.pos)
             self.bigprincess.update_all()
@@ -87,9 +86,15 @@ class Ball():
             if self.boyfriend:
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
                 self.boyfriend.update_all()
+        if self.counter > 160:
+            for i in self.buttons:
+                self.universe.screen_surface.blit(i.image,i.pos)
+                i.update_all()
+
         if self.counter == 160:
             if self.boyfriend:
                 self.texts += [gametext.Horizontal(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
+
         if self.counter <= 160:
             self.counter += 1
 
@@ -160,9 +165,6 @@ class Ball():
                 print chosen_enemy
                 sql = 'update stage_enemies set '+chosen_enemy+'=1 where stage = "'+stage+'"'
                 cursor.execute(sql)
-
-
-
         level.universe.db.commit()
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
@@ -176,6 +178,12 @@ class Ball():
         if total_points >= 30:
             self.boyfriend = BoyFriend(total_points)
         level.panel[1]  = gametext.Horizontal(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
+
+    def return_to_game(self):
+        self.level.BathhouseSt(goalpos = 5520*scale)
+        self.level.clock[1].count = 0
+        self.level.clock[1].time = "morning"
+
 
 
 class VerticalBar():
@@ -249,7 +257,6 @@ class BallFrame():
 
 class FairyTalePrincess():
     def __init__(self, frame, position_x, hair, skin, icon, name = None, ball = "this"):
-
         skin_body       = 'skin_'+skin
         skin_arm        = 'arm_'+skin
         princess_directory  = main_dir+'/data/images/princess/'
@@ -366,43 +373,3 @@ class Dancer():
         self.image  = self.images.list[self.images.number]
         self.images.update_number()
 
-
-class BallButton():
-    def __init__(self,directory,position,level):
-        self.level      = level
-        self.images     = obj_images.Buttons(directory,5)
-        self.image      = self.images.list[self.images.number]
-        self.size       = self.image.get_size()
-        self.position   = position
-        self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
-                           (self.position[1]-(self.image.get_size()[1])/2)]
-        self.rect       = pygame.Rect(self.pos,self.size)
-
-    def update_all(self):
-        self.update_pos()
-        self.click_detection()
-
-    def update_pos(self):
-        self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
-                           (self.position[1]-(self.image.get_size()[1])/2)]
-#        self.rect = pygame.Rect(self.pos,self.size)
-
-    def invert_images(self,list):
-        inv_list=[]
-        for img in list:
-            inv = pygame.transform.flip(img,1,0)
-            inv_list.append(inv)
-        return inv_list
-
-    def click_detection(self):
-        self.rect = pygame.Rect(self.pos,self.size)
-        mouse_pos = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_pos):
-            self.image = self.images.list[self.images.itnumber.next()]
-            if self.level.universe.click:
-                self.level.BathhouseSt(goalpos = 5520*scale)
-                self.level.clock[1].count = 0
-                self.level.clock[1].time = "morning"
-        else:
-            if self.image != self.images.list[0]:
-                self.image = self.images.list[self.images.itnumber.next()]
