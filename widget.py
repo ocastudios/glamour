@@ -92,3 +92,117 @@ class Button():
 
 
 
+class GameText():
+    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False):
+        self.font_size  = int(font_size*scale)
+        self.font       = fonte
+        self.menu       = menu
+        self.text       = text
+        self.color      = color
+        self.fontA      = pygame.font.Font('data/fonts/'+fonte,self.font_size)
+        self.fontB      = pygame.font.Font('data/fonts/'+second_font,self.font_size+(self.font_size/2))
+        self.image      = self.fontA.render(self.text,1,self.color)
+        self.position   = pos
+        self.size       = self.image.get_size()
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+        self.variable_text = var
+
+    def update_all(self):
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        if self.variable_text:
+            self.image = self.fontA.render(self.text,1,self.color)
+
+
+class VerticalGameText(GameText):
+    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf',font_size = 40, color = (83,0,0)):
+        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
+        self.image = pygame.transform.rotate(self.image,90)
+
+class Letter(GameText):
+    hoover = False
+    def __init__(self,text,pos,menu,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
+        font_size = int(font_size*scale)
+        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
+        self.hoover_size = hoover_size
+        self.size = p((30,30))
+        
+        self.rect = (self.pos,self.size)
+
+    def update_all(self):
+        self.size       = self.image.get_size()
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+        self.type       = type
+        self.click_detection()
+
+    def click_detection(self):
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text += self.text
+            else:
+                self.hoover = False
+
+
+class Spacebar(GameText):
+    hoover = False
+    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
+        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
+        self.function  = function
+        self.parameter = parameter
+
+    def update_all(self):
+        self.size       = self.image.get_size()
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+        self.type       = type
+        self.click_detection()
+
+    def click_detection(self):
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text += ' '
+            else:
+                self.hoover = False
+
+
+class Backspace(GameText):
+    hoover = False
+    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
+        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
+        self.function  = function
+        self.parameter = parameter
+
+    def update_all(self):
+        self.size       = self.image.get_size()
+        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
+                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+        self.type       = type
+        self.click_detection()
+
+    def click_detection(self):
+        if -.5< self.menu.speed < .5:
+            mouse_pos = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_pos):
+                self.hoover = True
+####################################### BUTTON ACTION ########################################
+                if self.menu.screen.universe.click:
+                    self.menu.princess.name.text = self.menu.princess.name.text[:-1]
+            else:
+                self.hoover = False
+
+
+

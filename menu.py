@@ -7,7 +7,7 @@ import os
 import mousepointer
 import db
 import sqlite3
-from widget import Button
+import widget
 from pygame.locals import *
 
 
@@ -120,10 +120,10 @@ class MenuScreen():
         for item in items:
             exec("for i in self.menu."+item+":\n    i.update_all()\n    surface.blit(i.image,i.pos)")
         for i in self.menu.options:
-            if i.__class__ == Letter and i.hoover:
+            if i.__class__ == widget.Letter and i.hoover:
                 surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
                                                  i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
-            if (i.__class__ == Spacebar or i.__class__ == Backspace) and i.hoover:
+            if (i.__class__ == widget.Spacebar or i.__class__ == widget.Backspace) and i.hoover:
                 surface.blit(self.hoover_large,(i.pos[0]-((self.hoover_large_size[0]-i.size[0])/2),
                                                 i.pos[1]-((self.hoover_large_size[1]-i.size[1])/2) ))
         if self.menu.print_princess:
@@ -206,10 +206,10 @@ class Menu():
         else:
             self.actual_position    = [450*scale,1000*scale]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.choose_language))
-        self.options = [ Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.texts =   [VerticalGameText(_('select one'),p((125,200)),self)]
-        self.buttons = [ Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
-                         Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
+        self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
+        self.texts =   [widget.VerticalGameText(_('select one'),p((125,200)),self)]
+        self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
+                         widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
     def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
         self.story          = None
@@ -237,8 +237,8 @@ class Menu():
         self.reset_menu(
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
-            texts = [GameText(_(i[0]),p(i[1]),self) for i in txt],
-            buttons     =  [Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+            texts = [widget.GameText(_(i[0]),p(i[1]),self) for i in txt],
+            buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                     (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
                      ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
                      ["arrow_up/"   ,(250,-5),self.back_to_main,None,False],
@@ -250,8 +250,8 @@ class Menu():
         self.print_princess = True
         self.reset_menu(
                 action  = 'open',
-                texts   =  [GameText(_(i[0]),p(i[1]),self) for i in txt],
-                buttons = [Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+                texts   =  [widget.GameText(_(i[0]),p(i[1]),self) for i in txt],
+                buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                         (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
                          ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
                          ['arrow_up/'   ,(250,-5),self.back_to_select_princess,None,False],
@@ -261,19 +261,19 @@ class Menu():
     def name_your_princess(self):
         s = scale
         self.print_princess = False
-        opt = [Letter(i[0],i[1],self, self.screen.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
+        opt = [widget.Letter(i[0],i[1],self, self.screen.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
                 map(chr,xrange(97,123)),
                 zip([x for n in xrange(9) for x in xrange(int(100*s),int(422*s),int(40*s))],
                     [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
-        opt.extend([Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30),
-            Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
+        opt.extend([widget.Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30),
+            widget.Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
            ])
         if name_taken:
-            txts = [GameText(_(i[0]),p(i[1]),self) for i in ((_('Sorry, This name is taken.'),(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
+            txts = [widget.GameText(_(i[0]),p(i[1]),self) for i in ((_('Sorry, This name is taken.'),(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
         else:
-            txts =[GameText(_('... and your name.'),p((-200,200)),self), GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
+            txts =[widget.GameText(_('... and your name.'),p((-200,200)),self), widget.GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts,
-                buttons = [Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
+                buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
                          ['button_ok/',   (250,620), self.start_game,    None,False],
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
                         )])
@@ -281,7 +281,6 @@ class Menu():
     def update_all(self):
         self.game_mouse.update()
         self.mouse_pos  = self.game_mouse.mouse_pos
-
         self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
         keyboard = self.screen.universe.action[0]
         if keyboard:
@@ -430,17 +429,17 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.actual_position = [100*scale,-600*scale]
-        self.options    = [Options(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
-        self.texts =    [GameText(_('Have you already saved a game?'),p((250,-150)),self),
-                         GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
+        self.options    = [widget.Button(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
+        self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self),
+                         widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
         ypos = 0
         xpos = 0
         self.buttons = []
         for i in saved_games:
-            self.buttons.extend([Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=(i['file']))])
+            self.buttons.extend([widget.Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=([i['file']]))])
             self.options.extend([
-                                 Options(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30, parameter=(i['file'])),
-                                 Options(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30, parameter=i['name'])
+                                 widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30, parameter=([i['file']])),
+                                 widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30, parameter=[i['name']])
                                 ])
             ypos+=self.buttons[0].size[1]
             if ypos > 250:
@@ -458,8 +457,8 @@ class Menu():
         self.speed      = 0
         self.actual_position = [450*scale,-600*scale]
         self.options    = []
-        self.buttons= [Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame),
-                       Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True)]
+        self.buttons= [widget.Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame),
+                       widget.Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True)]
         self.texts =   self.story.texts
 
     def remove_save_directory(self, save_name):
@@ -474,112 +473,6 @@ class Menu():
     def NOTSETYET(self):
         pass
 
-
-class GameText():
-    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False):
-        self.font_size  = int(font_size*scale)
-        self.font       = fonte
-        self.menu       = menu
-        self.text       = text
-        self.color      = color
-        self.fontA      = pygame.font.Font('data/fonts/'+fonte,self.font_size)
-        self.fontB      = pygame.font.Font('data/fonts/'+second_font,self.font_size+(self.font_size/2))
-        self.image      = self.fontA.render(self.text,1,self.color)
-        self.position   = pos
-        self.size       = self.image.get_size()
-        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
-                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
-        self.rect       = Rect(self.pos,self.size)
-        self.variable_text = var
-
-    def update_all(self):
-        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
-                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
-        if self.variable_text:
-            self.image = self.fontA.render(self.text,1,self.color)
-
-
-class VerticalGameText(GameText):
-    def __init__(self,text,pos,menu,fonte='Domestic_Manners.ttf',font_size = 40, color = (83,0,0)):
-        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
-        self.image = pygame.transform.rotate(self.image,90)
-
-class Options(GameText):
-    hoover = False
-    def __init__(self,text,pos,menu,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
-        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
-        self.function  = function
-        self.parameter = parameter
-
-    def update_all(self):
-        self.size       = self.image.get_size()
-        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
-                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
-        self.rect       = Rect(self.pos,self.size)
-        self.type       = type
-        self.click_detection()
-
-    def click_detection(self):
-        function = self.function
-        if -.5< self.menu.speed < .5:
-            mouse_pos = pygame.mouse.get_pos()
-            if self.rect.collidepoint(mouse_pos):
-                self.image = self.fontB.render(self.text,1,self.color)
-########################### BUTTON ACTION ############################
-                if self.menu.screen.universe.click:
-                    if self.parameter:
-                        self.function(self.parameter)
-                    else:
-                        self.function()
-            else:
-                self.image = self.fontA.render(self.text,1,self.color)
-
-
-class Letter(Options):
-    def __init__(self,text,pos,menu,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
-        font_size = int(font_size*scale)
-        GameText.__init__(self,text,pos,menu,fonte,font_size,color)
-        self.hoover_size = hoover_size
-        self.size = p((30,30))
-        
-        self.rect = (self.pos,self.size)
-
-    def click_detection(self):
-        if -.5< self.menu.speed < .5:
-            mouse_pos = pygame.mouse.get_pos()
-            if self.rect.collidepoint(mouse_pos):
-                self.hoover = True
-####################################### BUTTON ACTION ########################################
-                if self.menu.screen.universe.click:
-                    self.menu.princess.name.text += self.text
-            else:
-                self.hoover = False
-
-
-class Spacebar(Options):
-    def click_detection(self):
-        if -.5< self.menu.speed < .5:
-            mouse_pos = pygame.mouse.get_pos()
-            if self.rect.collidepoint(mouse_pos):
-                self.hoover = True
-####################################### BUTTON ACTION ########################################
-                if self.menu.screen.universe.click:
-                    self.menu.princess.name.text += ' '
-            else:
-                self.hoover = False
-
-
-class Backspace(Options):
-    def click_detection(self):
-        if -.5< self.menu.speed < .5:
-            mouse_pos = pygame.mouse.get_pos()
-            if self.rect.collidepoint(mouse_pos):
-                self.hoover = True
-####################################### BUTTON ACTION ########################################
-                if self.menu.screen.universe.click:
-                    self.menu.princess.name.text = self.menu.princess.name.text[:-1]
-            else:
-                self.hoover = False
 
 class MenuPrincess():
     def __init__(self,menu,thumbnail=None):
@@ -611,7 +504,7 @@ class MenuPrincess():
         else:
             self.images = obj_images.image(thumbnail)
         self.position = (250*scale,250*scale)
-        self.name = GameText('maddeline',(170*scale,120*scale),self.menu,var = True)
+        self.name = widget.GameText('maddeline',(170*scale,120*scale),self.menu,var = True)
         self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
                            self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
 
@@ -635,8 +528,8 @@ class Story_Frame():
         self.available_sounds   = [pygame.mixer.Sound('data/sounds/story/frames/'+i) for i in sound_frames]
         self.flip_sound = pygame.mixer.Sound('data/sounds/story/sflip.ogg')
         self.frame_number   = 0
-        self.texts =    [GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25),
-                         GameText(_('forward and backward'),(220,200),self.menu,font_size = 25)]
+        self.texts =    [widget.GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25),
+                         widget.GameText(_('forward and backward'),(220,200),self.menu,font_size = 25)]
     def update_all(self):
         self.images = [self.available_images[i] for i in range(0,self.frame_number)]
 
