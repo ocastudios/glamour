@@ -556,6 +556,3 @@ class Story_Frame():
         if self.frame_number == -1:
             self.menu.back_to_main()
 
-#class Credits():
-#    def __init__(self):
-#        
