@@ -30,24 +30,25 @@ class Inside():
         self.chosen_item = None
         self.big_princess = BigPrincess(self)
 
-    def forward(self,param):
+    def forward(self):
 #        for i in self.items:
 #            i.queue_pos -= 1
         self.level.universe.click = False
 
-    def rewind(self,param):
+    def rewind(self):
         for i in self.items:
             i.queue_pos += 1
         self.level.universe.click = False
 
-    def all_set(self,param):
+    def all_set(self):
         self.status = 'done'
-        exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
+        if self.chosen_item:
+            exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
-    def NOTSETYET(self,param):
+    def NOTSETYET(self):
         pass
 
 
@@ -114,7 +115,7 @@ class BigPrincess():
     def update_all(self):
         pass
 
-    def all_set(self,param):
+    def all_set(self):
         self.status = 'done'
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
@@ -123,26 +124,6 @@ class BigPrincess():
         self.pos        = [self.frame.position[0]+self.position[0],
                            self.frame.position[1]+self.position[1]]
 
-
-class Home():
-    def __init__(self, level):
-        self.status = 'outside'
-        self.level  = level
-        self.items = []
-        self.buttons = []
-        self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
-                           widget.Button('To the Ball',(500,100),self.level, self.all_set, font_size=80)
-                            )
-
-    def all_set(self,param):
-        self.status = 'done'
-        for i in self.items:
-            if i.queue_pos == 1:
-                chosen_item = i.name
-        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
-        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
-        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
 class Princess_Home():
     def __init__(self, level, princess=None):
@@ -174,7 +155,7 @@ class Princess_Home():
         self.princess_image = pygame.transform.flip(self.princess_image,1,0)
         self.big_princess = BigPrincess(self)
 
-    def all_set(self,param):
+    def all_set(self):
         self.status = 'done'
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
@@ -192,8 +173,9 @@ class Home():
         self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
                            widget.Button('To the Ball',(500,100),self.level, self.all_set, font_size=80)
                             )
+        self.big_princess = None
 
-    def all_set(self,param):
+    def all_set(self):
         self.status = 'done'
         for i in self.items:
             if i.queue_pos == 1:
@@ -202,6 +184,7 @@ class Home():
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
         pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+
 
 class Arrow():
     def __init__(self,room, pos = [0,0], degree = 0):

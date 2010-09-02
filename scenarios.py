@@ -5,9 +5,11 @@ import random
 from pygame.locals import *
 from pygame.image import load
 from settings import *
+
+
 class Scenario():
     """It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
-    def __init__(self,center_distance,dir,level,index = 1,invert = False, height = False):
+    def __init__(self,center_distance,dir,level,invert = False, height = False):
         self.lights = None
         self.images         = obj_images.OneSided(dir)
         self.image          = self.images.list[0]
@@ -53,20 +55,18 @@ class Scenario():
 
 
 class Flower(Scenario):
-    def __init__(self,center_distance,dir,level,frames,index = 1):
-        Scenario.__init__(self,center_distance,dir,level,index)
+    def __init__(self,center_distance,dir,level,frames,):
+        Scenario.__init__(self,center_distance,dir,level)
         self.images         = obj_images.GrowingUngrowing(dir,frames)
 
     def update_all(self):
         self.update_pos()
 
-class FrontScenario(Scenario):
-        pass
 
 class Gate(Scenario):
     arrow_up = None
-    def __init__(self,center_distance,dir,level,goal,goalpos=None,index = 1):
-        Scenario.__init__(self,center_distance,dir,level,index)
+    def __init__(self,center_distance,dir,level,goal,goalpos=None):
+        Scenario.__init__(self,center_distance,dir,level)
         icon_directory = main_dir+'/data/images/interface/icons/'
         self.goalpos = goalpos
         if goal == level.BathhouseSt:
@@ -79,27 +79,15 @@ class Gate(Scenario):
             icon_directory += 'ribbon/0.png'
         elif goal == level.ShoesSt:
             icon_directory += 'shoes/0.png'
-        if not self.arrow_up:
-            self.arrow_up = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
-        self.arrow_image_number = 0
-        self.arrow_image = self.arrow_up.list[0]
-        self.arrow_pos = [center_distance,self.pos[1]-150]
-        self.arrow_size = self.arrow_image.get_size()
         self.change_level = False
         self.goal = goal
         self.rect           = Rect(self.pos, self.size)
         self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(91*scale,59*scale))
 
     def update_all(self):
-        self.indicate_exit(self.level.princesses[0])
         self.set_level(self.level.princesses[0])
         self.update_pos()
         self.rect           = Rect(self.pos, self.size)
-
-    def indicate_exit(self,princess):
-        if self.rect.colliderect(princess.rect):
-            self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
-            self.arrow_pos[0] = self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2))
 
     def set_level(self,princess):
         if self.rect.colliderect(princess.rect):
@@ -109,7 +97,6 @@ class Gate(Scenario):
 
 
 class BuildingDoor():
-#TODO: use the save class to change the values of the princess attributes. Then create a new princess.
     def __init__(self,pos,directory,level,interior = None, bath = False):
         self.open = False
         self.level = level
@@ -119,15 +106,11 @@ class BuildingDoor():
         self.images.number = 0
         self.image = self.images.list[self.images.number]
         self.size = self.images.size
-        self.arrow_up = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
-        self.arrow_image_number = 0
-        self.arrow_image = self.arrow_up.list[0]
-        self.arrow_pos = (0,0)
-        self.arrow_size = self.arrow_image.get_size()
         self.rect = Rect(self.pos, self.size)
         self.once = True
         self.interior = interior
         self.bath = bath
+
     def update_all(self):
         self.indicate_exit(self.level.princesses[0])
         self.pos[0] = self.level.universe.center_x+self.position[0]
@@ -136,13 +119,9 @@ class BuildingDoor():
     def indicate_exit(self,princess):
         if self.rect.colliderect(princess.rect):
             if not princess.inside:
-                self.arrow_pos = (self.pos[0]+(self.size[0]/2-(self.arrow_size[0]/2)),self.pos[1]-(150*scale))
-                self.arrow_image = self.arrow_up.list[self.arrow_up.itnumber.next()]
                 if princess.action[0] == 'open_door':
                     self.level.inside = self.interior
                     self.open = True
-            else:
-                self.arrow_image = None
         else:
             self.open = False
             self.once = True
@@ -192,6 +171,33 @@ class Background():
         pass
     def update_with_images(self):
         self.image          = self.images.list[self.images.itnumber.next()]
+
+
+class ExitSign():
+    def __init__(self,level):
+        self.level = level
+        self.pos = [-1000,-1000]
+        self.images = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
+        self.image = self.images.list[0]
+        self.size = self.image.get_size()
+        self.rect = Rect(self.pos, self.size)
+        self.princess = self.level.princesses[0]
+
+    def update_all(self):
+        control = 0
+        for i in self.level.gates:
+            if not self.princess.inside and (i.__class__ == Gate or i.__class__ == BuildingDoor):
+                if i.rect.colliderect(self.princess.rect):
+                    control += 1
+                    self.pos = (i.pos[0]+(i.size[0]/2-(self.size[0]/2)),i.pos[1]-(150*scale))
+                    self.image = self.images.list[self.images.number]
+                    self.images.update_number()
+        if control ==0:
+            self.images.number =0
+            self.image = None
+        else:
+            control = 0
+
 
 class Cloud():
     nimbus= None

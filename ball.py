@@ -2,7 +2,6 @@ import pygame
 import interface
 import obj_images
 import random
-import gametext
 import widget
 from settings import *
 
@@ -75,13 +74,13 @@ class Ball():
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         if self.counter == 100:
-            self.texts+= [gametext.Horizontal(_("and won the heart of"), p((1090,237)), self,font_size = 40)]
+            self.texts+= [widget.GameText(_("and won the heart of"), p((1090,237)), self,font_size = 40)]
         if self.counter == 110:
-            self.texts+= [gametext.Horizontal(".", p((1300,237)), self,font_size = 40)]
+            self.texts+= [widget.GameText(".", p((1300,237)), self,font_size = 40)]
         if self.counter == 120:
-            self.texts+= [gametext.Horizontal(" .", p((1300,237)), self,font_size = 40)]
+            self.texts+= [widget.GameText(" .", p((1300,237)), self,font_size = 40)]
         if self.counter == 130:
-            self.texts+= [gametext.Horizontal("  .", p((1300,237)), self,font_size = 40)]
+            self.texts+= [widget.GameText("  .", p((1300,237)), self,font_size = 40)]
         if self.counter > 150:
             if self.boyfriend:
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
@@ -93,7 +92,7 @@ class Ball():
 
         if self.counter == 160:
             if self.boyfriend:
-                self.texts += [gametext.Horizontal(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
+                self.texts += [widget.GameText(self.boyfriend.name,p([1156,280]),self, font_size = 60,color=(58,56,0))]
 
         if self.counter <= 160:
             self.counter += 1
@@ -168,16 +167,16 @@ class Ball():
         level.universe.db.commit()
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
-                gametext.Horizontal(_("You've"), p((1064,81)), self,font_size = 40),
-                gametext.Horizontal(_("got"), p((1100,128)), self,font_size = 40),
-                gametext.Horizontal(_("glamour"), p((1309,151)), self,font_size = 40),
-                gametext.Horizontal(_("points"), p((1309,185)), self,font_size = 40),
-                gametext.Horizontal(str(int(glamour_points)), p((1200,120)),self,font_size=80)
+                widget.GameText(_("You've"), p((1064,81)), self,font_size = 40),
+                widget.GameText(_("got"), p((1100,128)), self,font_size = 40),
+                widget.GameText(_("glamour"), p((1309,151)), self,font_size = 40),
+                widget.GameText(_("points"), p((1309,185)), self,font_size = 40),
+                widget.GameText(str(int(glamour_points)), p((1200,120)),self,font_size=80)
         ]
         total_points = int(glamour_points+accumulated_points)
         if total_points >= 30:
             self.boyfriend = BoyFriend(total_points)
-        level.panel[1]  = gametext.Horizontal(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
+        level.panel[1]  = widget.GameText(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
 
     def return_to_game(self):
         self.level.BathhouseSt(goalpos = 5520*scale)
@@ -212,20 +211,19 @@ class BallFrame():
         self.position = [30*scale, -self.size[1]]
         self.speed = 5
         self.ball = ball
-        self.princesses = [
-                FairyTalePrincess(self, 130*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White'),
-                FairyTalePrincess(self, 240*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella'),
-                FairyTalePrincess(self, 350*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel'),
-                FairyTalePrincess(self, 460*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty')]
-        self.past_princesses= [
-                FairyTalePrincess(self, 130*scale, 'hair_snowwhite', 'pink', 'princess-icon-apple.png',  name = 'Snow_White',ball="past"),
-                FairyTalePrincess(self, 240*scale, 'hair_cinderella','tan','princess-icon-shoe.png',     name = 'Cinderella',ball="past"),
-                FairyTalePrincess(self, 350*scale, 'hair_rapunzel',  'pink', 'princess-icon-brush.png',  name = 'Rapunzel',ball="past"),
-                FairyTalePrincess(self, 460*scale, 'hair_sleeping',  'pink','princess-icon-spindle.png', name = 'Sleeping_Beauty',ball="past")
-                        ]
+        self.princesses = [FairyTalePrincess(self, i[0]*scale, i[1], i[2], i[3], name = i[4]) for i in (
+                [130, 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
+                [240, 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
+                [350, 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
+                [460, 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty'])]
+        self.past_princesses= [FairyTalePrincess(self,i[0]*scale,i[1],i[2],i[3],name=i[4],ball="past") for i in (
+                [130, 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
+                [240, 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
+                [350, 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
+                [460, 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty']) ]
         self.texts = [
-                gametext.Vertical(_("Tonight's ball"),      p((100,200)), self),
-                gametext.Vertical(_("Yesterday's ball"),    p((115,450)), self),
+                widget.GameText(_("Tonight's ball"),      p((30,250)), self, rotate = 90),
+                widget.GameText(_("Yesterday's ball"),    p((30,500)), self, rotate = 90),
                     ]
         self.set_next_ball_clothes()
 
@@ -266,12 +264,12 @@ class FairyTalePrincess():
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
         name_lower = name.lower()
         if ball == "this":
-            self.position   = [position_x, 200*scale]
+            self.position   = [position_x, 150*scale]
             self.symbol     =  obj_images.image(ball_directory+icon)
             self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
             sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")"
         else:
-            self.position   = [position_x,450*scale]
+            self.position   = [position_x,400*scale]
             self.symbol = None
             self.symbolpos = [0,0]
             sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-1 FROM "+name_lower+")"
@@ -283,13 +281,7 @@ class FairyTalePrincess():
         if row:
             if row['hair_back'] > 0:
                 self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
-            self.image.blit(obj_images.image(princess_directory+row['skin']+'/stay/0.png'),     (0,0))
-            self.image.blit(obj_images.image(princess_directory+row['hair']+'/stay/0.png'),     (0,0))
-            self.image.blit(obj_images.image(princess_directory+row['face']+'/stay/0.png'),     (0,0))
-            self.image.blit(obj_images.image(princess_directory+row['dress']+'/stay/0.png'),    (0,0))
-            self.image.blit(obj_images.image(princess_directory+row['accessory']+'/stay/0.png'),(0,0))
-            self.image.blit(obj_images.image(princess_directory+row['arm']+'/stay/0.png'),      (0,0))
-            self.image.blit(obj_images.image(princess_directory+row['shoes']+'/stay/0.png'),    (0,0))
+            [self.image.blit(obj_images.image(princess_directory+row[i]+'/stay/0.png'),(0,0)) for i in ('skin', 'hair', 'face', 'dress', 'accessory', 'arm', 'shoes')]
             self.image = pygame.transform.flip(self.image,1,0)
 
     def update_all(self):

@@ -111,7 +111,7 @@ class MenuScreen():
         if self.menu.back_background:
             surface.blit(self.menu.back_background,(0,0))
         if self.menu.background:
-            surface.blit(self.menu.background,self.menu.actual_position)
+            surface.blit(self.menu.background,self.menu.position)
         if self.bar_side:
             surface.blit(self.bar,(self.bar_position,0))
         if self.menu.story:
@@ -135,13 +135,13 @@ class MenuScreen():
             self.menu.action = self.action
         else:
             if not self.menu.go_back:
-                if self.menu.actual_position[1]<1200*scale:
+                if self.menu.position[1]<1200*scale:
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
                     self.STEP = self.close_bar ## Change the STEP
             else:
-                if self.menu.actual_position[1]>-600*scale:
+                if self.menu.position[1]>-600*scale:
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
@@ -177,8 +177,8 @@ class Menu():
         self.universe       = screen.universe
         self.screen         = screen
         self.speed          = 2*scale
-        self.position       = position
-        self.actual_position = [position[0],-600*scale]
+        self.goal_pos       = position
+        self.position= [position[0],-600*scale]
         self.background     = self.selection_canvas
         self.size           = self.background.get_size()
         self.action         = None
@@ -196,18 +196,17 @@ class Menu():
 
 
     def main(self):
-
         self.print_princess = False
         self.background     = self.selection_canvas
         self.back_background = None
         self.action = 'open'
         if not self.go_back:
-            self.actual_position[1] = -600*scale
+            self.position[1] = -600*scale
         else:
-            self.actual_position    = [450*scale,1000*scale]
+            self.position    = [450*scale,1000*scale]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.choose_language))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.texts =   [widget.VerticalGameText(_('select one'),p((125,200)),self)]
+        self.texts =   [ widget.GameText(_('select one'),p((65,250)),self, rotate=90)]
         self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
                          widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
@@ -221,10 +220,10 @@ class Menu():
         self.speed          = 0
         if not self.go_back:
             print "Going Forward"
-            self.actual_position = [450*scale,-600*scale]
+            self.position = [450*scale,-600*scale]
         else:
             print "Going Back"
-            self.actual_position = [450*scale,1000*scale]
+            self.position = [450*scale,1000*scale]
         self.options        = options
         self.texts          = texts
         self.buttons        = buttons
@@ -294,20 +293,20 @@ class Menu():
                     self.selector = 0
             pygame.mouse.set_pos(self.mouse_positions[self.selector])
 
-        self.actual_position[1] += self.speed
+        self.position[1] += self.speed
         if self.action == 'open':
-            if self.actual_position[1] != self.position[1]:
+            if self.position[1] != self.goal_pos[1]:
                 #Breaks
-                if self.position[1]+(70*scale) > self.actual_position[1] > self.position[1]-70*scale:
+                if self.goal_pos[1]+(70*scale) > self.position[1] > self.goal_pos[1]-70*scale:
                     if self.speed > 0:
                         self.speed -= self.speed*.25
                     elif self.speed < 0:
                         self.speed += -self.speed*.25
-                elif self.actual_position[1] < self.position[1]:
-                    if self.actual_position[1] < self.position[1] - 50*scale:
+                elif self.position[1] < self.goal_pos[1]:
+                    if self.position[1] < self.goal_pos[1] - 50*scale:
                         self.speed+=2*scale
                 else:
-                    if self.actual_position[1] > self.position[1] + 50*scale:
+                    if self.position[1] > self.goal_pos[1] + 50*scale:
                         self.speed-=2*scale
         elif self.action == 'close':
             if not self.go_back:
@@ -316,6 +315,7 @@ class Menu():
             else:
                 if self.speed > -85*scale:
                     self.speed -= 2*scale
+        self.universe.screen_surface.blit(self.game_mouse.image,self.game_mouse.pos)
 
     ### Buttons functions ###
     def back_to_main(self):
@@ -360,7 +360,7 @@ class Menu():
             try:
                 print "Starting a New Save File"
                 print "Creating Directory"
-                new_dir = self.screen.universe.main_dir+'/data/saves/'+self.princess.name.text
+                new_dir = main_dir+'/data/saves/'+self.princess.name.text
                 os.mkdir(new_dir)
                 print "Creating a New Database Save File"
                 db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.screen.universe)
@@ -428,7 +428,7 @@ class Menu():
         self.background = None
         self.action     = 'open'
         self.speed      = 0
-        self.actual_position = [100*scale,-600*scale]
+        self.position = [100*scale,-600*scale]
         self.options    = [widget.Button(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
         self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
@@ -455,7 +455,7 @@ class Menu():
         self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
         self.action     = 'open'
         self.speed      = 0
-        self.actual_position = [450*scale,-600*scale]
+        self.position = [450*scale,-600*scale]
         self.options    = []
         self.buttons= [widget.Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame),
                        widget.Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True)]
@@ -503,18 +503,18 @@ class MenuPrincess():
             self.size = self.skin[0].get_size()
         else:
             self.images = obj_images.image(thumbnail)
-        self.position = (250*scale,250*scale)
+        self.goal_pos = (250*scale,250*scale)
         self.name = widget.GameText('maddeline',(170*scale,120*scale),self.menu,var = True)
-        self.pos = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
-                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.pos = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
+                           self.menu.position[1]+self.goal_pos[1]-(self.size[1]/2)]
 
     def update_all(self):
         self.images[0]  = self.hairback[self.numbers['hair']]
         self.images[1]  = self.skin[self.numbers['skin']]
         self.images[3]  = self.hair[self.numbers['hair']]
         self.images[6]  = self.arm[self.numbers['skin']]
-        self.pos        = [self.menu.actual_position[0]+self.position[0]-(self.size[0]/2),
-                           self.menu.actual_position[1]+self.position[1]-(self.size[1]/2)]
+        self.pos        = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
+                           self.menu.position[1]+self.goal_pos[1]-(self.size[1]/2)]
 
 
 class Story_Frame():
@@ -530,6 +530,7 @@ class Story_Frame():
         self.frame_number   = 0
         self.texts =    [widget.GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25),
                          widget.GameText(_('forward and backward'),(220,200),self.menu,font_size = 25)]
+
     def update_all(self):
         self.images = [self.available_images[i] for i in range(0,self.frame_number)]
 
@@ -555,4 +556,10 @@ class Story_Frame():
             self.menu.background = obj_images.image(title_screen_D+'selection_canvas/0.png')
         if self.frame_number == -1:
             self.menu.back_to_main()
+
+
+class Credits():
+    def __init__(self,menu):
+        self.background = obj_images.image(main_dir+'/data/images/credits/fundo.png')
+        self.menu       = menu
 

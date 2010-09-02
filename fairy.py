@@ -4,6 +4,7 @@ from pygame.locals import *
 import random
 from settings import *
 import messages
+import widget
 import os
 
 directory = os.getcwd()+'/data/images/interface/fairy_tips'
@@ -96,6 +97,8 @@ class Fairy():
         elif self.pos[0]<self.goalpos[0]-5:
             self.direction = "right"
             self.pos[0] += speed
+
+
 #        if self.pos[1]>self.goalpos[1]:
 #            self.pos[1] -= speed
 #        elif self.pos[1]<self.goalpos[1]:
@@ -115,10 +118,17 @@ class Message():
         self.text_font       = pygame.font.Font('data/fonts/FreeSans.ttf',self.font_size+(self.font_size/2))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
+        self.button     = widget.Button('data/images/interface/title_screen/button_ok/',(1200,800),self.level,self.end_message)
+        self.level.fae.append(self.button)
 
 
     def update_all(self):
         pass
+
+
+    def end_message(self):
+        self.level.fairy = 'done'
+        self.level.fae.remove(self.button)
 
     def adjusting_fonts(self):
         fix_x       = int(150*scale)

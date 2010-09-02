@@ -14,16 +14,14 @@ universe = universe.Universe()
 del splash_surface, splash, os_screen
 gamemenu = menu.MenuScreen(universe)
 
-
-
 while True:
+    pygame.mouse.set_visible(0)
     while universe.LEVEL != 'start':
         control.main_menu(universe)
         clock.tick(40)
         gamemenu.update_all()
         pygame.display.flip()
     universe.define_level()
-    pygame.mouse.set_visible(0)
     while universe.run_level:
         control.stage(universe)
         clock.tick(universe.frames_per_second)

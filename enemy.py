@@ -5,9 +5,7 @@ import itertools
 import random
 import os
 from settings import *
-def p(positions):
-    return [i*scale for i in positions ]
-main_dir    = os.getcwd()
+
 enemy_dir   = main_dir+'/data/images/enemies/'
 
 class Enemy():
@@ -485,6 +483,7 @@ class VikingShip():
         self.shout_balloon   = VikingPart(self, 'shout_balloon',pos_x = -90, pos_y = 400)
         self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
         self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
+        self.balloon_curses = []
         print "done."
 
     def update_all(self):
@@ -510,15 +509,10 @@ class VikingShip():
             if self.count > 100:
                 if random.randint(0,20) == 0:
                     self.mood = "talk"
-                    self.level.panel.extend([
-                                self.talk_balloon,
-                                self.curses[self.curse_number[0]],
-                                self.curses[self.curse_number[1]],
-                                self.curses[self.curse_number[2]]
-                                        ])
-                    self.curses[self.curse_number[0]].position[0] = -70*scale
-                    self.curses[self.curse_number[1]].position[0] = 10*scale
-                    self.curses[self.curse_number[2]].position[0] = 90*scale
+                    self.balloon_curses = [self.talk_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
+                    self.level.panel.extend(self.balloon_curses)
+                    for i,pos in [(0,-70), (1,10), (2,90)]:
+                        self.curses[self.curse_number[i]].position[0] = pos*scale
                     self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
                     for i in self.level.panel:
                         if i.__class__ == Curse:
@@ -537,17 +531,19 @@ class VikingShip():
             for i in self.level.panel:
                 if i.__class__ == Curse:
                     i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-            if self.count > 60:
-                self.level.panel.remove(self.talk_balloon)
-                for i in self.level.panel:
-                    if i.__class__ == Curse:
-                        print "removing "+str(i.__class__)+" from panel"
-                        i.position = [-70*scale,i.position[1]]
+                    if i not in self.balloon_curses:
                         self.level.panel.remove(i)
-                self.talk_balloon.pos = p([-400,-400])
+                        i.pos = (-100*scale,i.position[1])
+            if self.count > 60:
+                for i in self.balloon_curses:
+                    self.level.panel.remove(i)
+                    i.pos = p([-400,-400])
+                self.balloon_curses = []
                 self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
                 self.mood = "normal"
                 self.count = 0
+        if self.count == 10:
+            print self.level.panel
 
 
 class VikingPart():
@@ -577,6 +573,7 @@ class Curse():
         self.pos    = p([-70,440])
         self.position = p([-70,440])
         print "with position "+str(self.pos)
+
     def update_all(self):
         pass
 
