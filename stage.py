@@ -174,9 +174,6 @@ class Stage():
                 self.exit_sign.update_all()
                 for i in self.pointer:
                     i.update_all()
-#                if self.fairy:
-#                    for i in self.fae:
-#                        i.update_all()
 
     def blit_all(self):
         for att in self.blitlist:

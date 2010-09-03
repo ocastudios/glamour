@@ -222,7 +222,7 @@ class Butterfly(Enemy):
     walk = obj_images.TwoSided(enemy_dir+'Butterfly/walk/')
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         print "Creating Butterfly"
-        self.height = int(scale*random.randint(400,900))
+        self.height = int(scale*random.randint(300,600))
         self.up_direction = 'going_down'
         self.up = 5*scale
         directory = enemy_dir+'Butterfly/'

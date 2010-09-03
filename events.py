@@ -10,6 +10,7 @@ def choose_event(level,starting_game=False):
     else:
         princess_pos = level.princesses[0].center_distance
         if starting_game:
+            level.princesses[0].center_distance = 5220*scale
             level.event_counter += 1
             intro_first_day = level.universe.db_cursor.execute("SELECT * FROM messages WHERE name = 'first day a'").fetchall()
             if intro_first_day[0]['count'] == 0:
