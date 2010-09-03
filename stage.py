@@ -262,6 +262,7 @@ class Stage():
                 self.white.alpha_value = 0
                 self.inside.status = 'loading'
             elif self.inside.status == 'loading':
+                pygame.mixer.music.fadeout(1500)
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.white.alpha_value < 200:
                     self.white.alpha_value += 10
@@ -273,6 +274,11 @@ class Stage():
                     self.bar_speed += self.bar_speed
                 if self.white.alpha_value > 150:
                     self.inside.status = 'choosing'
+                    pygame.mixer.music.load(self.inside.music)
+                    pygame.mixer.music.queue(self.inside.music)
+                    pygame.mixer.music.queue(self.inside.music)
+                    pygame.mixer.music.play()
+                    pygame.mixer.music.set_endevent(pygame.USEREVENT)
             elif self.inside.status == 'choosing':
                 self.princesses[0].update_all()
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
@@ -287,6 +293,7 @@ class Stage():
                     if self.inside.chosen_item:
                         self.universe.screen_surface.blit(self.inside.chosen_item.image,self.inside.chosen_item.pos)
             elif self.inside.status == 'done':
+                pygame.mixer.music.fadeout(1500)
                 self.princesses[0].update_all()
                 self.down_bar_y += self.bar_speed
                 self.up_bar_y -= self.bar_speed
@@ -299,6 +306,11 @@ class Stage():
                     self.white.alpha_value = 0
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                    pygame.mixer.music.load(self.music)
+                    pygame.mixer.music.queue(self.music)
+                    pygame.mixer.music.queue(self.music)
+                    pygame.mixer.music.play()
+                    pygame.mixer.music.set_endevent(pygame.USEREVENT)
                     self.inside.status = 'openning'
             elif self.inside.status == 'openning':
                 self.princesses[0].update_all()
@@ -330,6 +342,7 @@ class Stage():
             self.white.alpha_value = 0
             screen.status = 'loading'
         elif screen.status == 'loading':
+            pygame.mixer.music.fadeout(1500)
             self.white.image.set_alpha(self.white.alpha_value)
             if self.white.alpha_value < 200:
                 self.white.alpha_value += 10
@@ -341,9 +354,16 @@ class Stage():
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 150:
                 screen.status = 'choosing'
+                pygame.mixer.music.load(screen.music)
+                pygame.mixer.music.queue(screen.music)
+                pygame.mixer.music.queue(screen.music)
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_endevent(pygame.USEREVENT)
+
         elif screen.status == 'choosing':
             pass
         elif screen.status == 'done':
+            pygame.mixer.music.fadeout(1500)
             self.down_bar_y += self.bar_speed
             self.up_bar_y -= self.bar_speed
             if self.bar_speed < 20:
@@ -355,6 +375,11 @@ class Stage():
                 self.white.alpha_value = 0
             self.white.image.set_alpha(self.white.alpha_value)
             if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                pygame.mixer.music.load(self.music)
+                pygame.mixer.music.queue(self.music)
+                pygame.mixer.music.queue(self.music)
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_endevent(pygame.USEREVENT)
                 screen.status = 'finished'
 
     def update_pause(self):
@@ -667,6 +692,7 @@ class Pause():
         cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
         title       = widget.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
+        self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
 
     def resume(self):
         self.status = 'done'

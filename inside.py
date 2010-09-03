@@ -29,6 +29,7 @@ class Inside():
                                 )
         self.chosen_item = None
         self.big_princess = BigPrincess(self)
+        self.music = main_dir+"/data/sounds/music/menu.ogg"
 
     def forward(self):
 #        for i in self.items:
