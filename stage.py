@@ -104,9 +104,16 @@ class Stage():
     def pause_game(self):
         return inside.Pause(self)
 
-    def what_is_my_height(self,object):
+    def what_is_my_height(self,object, position = None):
         try:        y_height = self.floor_heights[int(object.center_distance+(object.size[0]/2))]
         except:     y_height = self.floor
+
+        if object.__class__ == (enemy.Schnauzer or princess.Princess):
+            print "debugging Schnauzer"
+            print object.__class__
+            print "center_distance: "+str(object.center_distance)
+            print object.center_distance+object.size[0]/2
+            print y_height
         return      y_height
 
     def update_all(self):
@@ -198,6 +205,12 @@ class Stage():
         for i in self.panel:
             if i:
                 self.universe.screen_surface.blit(i.image,i.pos)
+
+        for i in self.enemies:
+                self.universe.screen_surface.fill((0,0,0,50), i.rect)
+
+
+
         if self.fairy:
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
@@ -440,8 +453,6 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
-
-
         cursor.close()
         self.sky             = [skies.Sky(self)]
         self.clouds          =   [scenarios.Cloud(self) for cl in range(3)]
@@ -467,12 +478,10 @@ class Stage():
         cursor.close()
 
     def set_floor_heights(self,height,width,street):
-        ### set_floor ###
         db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.floor_heights = [height*scale]*int((width*scale))
-        count   = 0
         for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
             for r in range(int(row['start']*scale),int(row['end']*scale)):
                 self.floor_heights[r]=row['value']*scale

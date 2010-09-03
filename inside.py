@@ -45,7 +45,7 @@ class Inside():
         if self.chosen_item:
             exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
-        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
+        thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
         pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
     def NOTSETYET(self):
@@ -75,11 +75,11 @@ class Item():
             if self.level.universe.click:
                 print "updating "+self.type+" "+self.name
                 self.room.chosen_item = self
-                self.room.big_princess.images[self.room.big_princess.image_dict[self.type]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"/big.png")
+                self.room.big_princess.images[self.room.big_princess.image_dict[self.type]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"/big.png", invert = True)
                 self.room.arrow.pos[0] = (self.pos[0]+(100*scale))-(self.room.arrow.image.get_width()/2)
                 if self.type == "hair":
                     if self.name in ("black","brown","rapunzel", "rastafari","red"):
-                        self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"_back/big.png")
+                        self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"_back/big.png", invert = True)
                     else:
                         self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = None
 
@@ -107,7 +107,7 @@ class BigPrincess():
         self.images = []
         for i in garments:
             if row[i] and row[i]!= "None":
-                img = obj_images.image(princess_directory+row[i]+"/big.png")
+                img = obj_images.image(princess_directory+row[i]+"/big.png", invert = True)
             else:
                 img = None
             self.images += [img]
@@ -152,7 +152,6 @@ class Princess_Home():
         self.princess_image.blit(obj_images.image(princess_directory+row['arm']+'/big.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/big.png'),(0,0))
         self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/big.png'),(0,0))
-        self.princess_image = pygame.transform.flip(self.princess_image,1,0)
         self.big_princess = BigPrincess(self)
 
     def all_set(self):

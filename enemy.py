@@ -15,7 +15,7 @@ class Enemy():
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
         self.image = self.walk.left[0]
-        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.size = self.image.size#(self.image.get_width()/2, self.image.get_height())
         self.level = level
         self.speed = speed*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
@@ -25,27 +25,37 @@ class Enemy():
         self.count = 0
         self.move = True
         self.direction = 'left'
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+int(self.size[0]/2.5)),(level.floor-self.pos[1])),(self.size[0]-int(self.size[0]/2.5),self.size[1]))
         self.gotkissed = 0
         self.image_number = 0
 
-    def set_pos(self):
+
+    def set_pos(self,cross = 50):
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
                     self.floor+self.margin[2]-(self.size[1])]
+        self.rect = Rect(self.pos,(self.size[0]-self.size[0]/2,self.size[1]))
+#        self.rect = Rect(((self.pos[0]+int(self.size[0]/2.5)),self.pos[1]),(self.size[0]-int(self.size[0]/2.5),self.size[1]))
+        towards = {'right':1,'left':-1}
         if self.move:
-            if self.direction == 'right':
-                self.center_distance += self.speed
-                next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-(30*scale):
-                    self.center_distance += self.speed
-            else:
-                self.center_distance -= self.speed
-                next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -(30*scale):
-                    self.center_distance -= self.speed
+            self.center_distance += (self.speed*towards[self.direction])
+            obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
+            if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
+                self.center_distance -= (self.speed*towards[self.direction])
 
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.pos[1]),(self.size))
+
+#        if self.move:
+#            if self.direction == 'right':
+#                self.center_distance += self.speed
+#                next_height = self.level.what_is_my_height(self)
+#                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-(30*scale):
+#                    self.center_distance += self.speed
+#            else:
+#                self.center_distance -= self.speed
+#                next_height = self.level.what_is_my_height(self)
+#                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -(30*scale):
+#                    self.center_distance -= self.speed
+
 
 class Schnauzer(Enemy):
     def __init__(self, pos, level,margin=p([20,20,20,20]),dirty=False):
@@ -55,7 +65,7 @@ class Schnauzer(Enemy):
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
         self.image = self.walk.left[0]
-        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.size = self.image.get_size()#(self.image.get_width()/2, self.image.get_height())
         self.level = level
         self.speed = 12*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
@@ -65,12 +75,13 @@ class Schnauzer(Enemy):
         self.count = 0
         self.move = True
         self.direction = 'left'
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+int(self.size[0]/2.5)),self.pos[1]),(self.size[0]-int(self.size[0]/2.5),self.size[1]))
         self.gotkissed = 0
         self.image_number = 0
         self.barfing = 0
         self.bow = pygame.mixer.Sound(main_dir+'/data/sounds/enemies/dog2.ogg')
         self.lookside = 0
+        print "Schnauzer's size: "+str(self.size)
         print "Done."
 
     def barf(self):
@@ -80,6 +91,21 @@ class Schnauzer(Enemy):
             self.barfing += 1
         if self.barfing > 100:
             self.barfing = 0
+
+
+    def set_pos(self,cross = 50):
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+        self.pos = [self.level.universe.center_x + self.center_distance,
+                    self.floor+self.margin[2]-(self.size[1])]
+        self.rect = Rect((self.pos[0]+int(self.size[0]/2.5),self.pos[1]),(self.size[0]-int(self.size[0]/2.5),self.size[1]))
+        towards = {'right':1,'left':-1}
+        if self.move:
+            self.center_distance += (self.speed*towards[self.direction])
+            obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
+            if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
+                self.center_distance -= (self.speed*towards[self.direction])
+
+
 
     def update_all(self):
         princess = self.level.princesses[0]

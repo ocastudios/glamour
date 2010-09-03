@@ -209,17 +209,12 @@ Princess shoes are moving weirdly when she jumps.
             self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
             self.gforce = 0
+        towards = {'right':1,'left':-1}
         if action[1]=='walk' and action[0] != 'celebrate':
-            if self.direction == 'right':
-                self.center_distance += self.speed
-                next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
-                    self.center_distance -= self.speed
-            else:
-                self.center_distance -= self.speed
-                next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= int(feet_position -(30*scale)):
-                    self.center_distance += self.speed
+            self.center_distance += (self.speed*towards[self.direction])
+            obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
+            if obstacle <= int(feet_position -(30*scale)):
+                self.center_distance -= (self.speed*towards[self.direction])
 
     def soundeffects(self,action):
         if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
@@ -245,10 +240,15 @@ Princess shoes are moving weirdly when she jumps.
         self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
                                 self.size)
         chosen = action[0] or action[1]
-        if direction == 'left':
-            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.right')
-        else:
-            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.left')
+        if direction.__class__ != str:
+            direction = "right"
+
+        exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.'+direction)
+
+#        if direction == 'left':
+#            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.right')
+#        else:
+#            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.left')
         self.image = actual_images[self.images.number]
         if chosen != self.past_choice:
             exec('self.'+chosen+'_img.number = 0')
@@ -277,13 +277,19 @@ class Dirt():
 
     def update_all(self):
         self.pos = self.level.princesses[0].pos
+        direction = self.level.princesses[0].direction
         chosen = self.level.princesses[0].action[0] or self.level.princesses[0].action[1]
-        if self.level.princesses[0].direction == 'left':
-            exec('self.images = self.'+chosen+' \n'+
-                 'actual_images = self.'+chosen+'.right')
-        else:
-            exec('self.images = self.'+chosen+' \n'+
-                'actual_images = self.'+chosen+'.left')
+        if direction.__class__ != str:
+            direction = "right"
+        exec('self.images = self.'+chosen+' \n'+
+             'actual_images = self.'+chosen+'.'+direction)
+
+#        if self.level.princesses[0].direction == 'left':
+#            exec('self.images = self.'+chosen+' \n'+
+#                 'actual_images = self.'+chosen+'.right')
+#        else:
+#            exec('self.images = self.'+chosen+' \n'+
+#                'actual_images = self.'+chosen+'.left')
         if chosen != self.past_choice:
             exec('self.'+chosen+'.number = 0')
         self.past_choice = chosen

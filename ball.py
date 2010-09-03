@@ -343,7 +343,7 @@ class BigPrincess():
             if row[part] and row[part]!="None":
                 img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()
                 big_image.blit(img, (0,0))
-        self.image = obj_images.scale_image(big_image)
+        self.image = obj_images.scale_image(big_image,invert=True)
 
     def update_all(self):
         pass

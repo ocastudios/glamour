@@ -131,11 +131,15 @@ class MultiPart():
         else:
             self.number = 0
 
-def image(directory):
+def image(directory, invert = False):
     prep = pygame.image.load(directory).convert_alpha()
+    if invert==True:
+        prep = pygame.transform.flip(prep,1,0)
     return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
 
-def scale_image(prep):
+def scale_image(prep, invert = False):
+    if invert==True:
+        prep = pygame.transform.flip(prep,1,0)
     return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
 
 def find_images(dir):
