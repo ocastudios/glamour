@@ -535,10 +535,9 @@ class Stage():
         self.animated_scenarios =[]
         self.exit_sign  = self.exit_sign or scenarios.ExitSign(self)
         cursor.close()
-
         self.create_scenario(name)
         self.create_front_scenario(name)
-
+        self.panel[0] = widget.GameText(_('%s St' % self.name.title()), (550,40), self,font_size = 40)
 
     def BathhouseSt(self,goalpos = None):
         self.create_stage('bathhouse',goalpos)
@@ -561,7 +560,6 @@ class Stage():
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False
-        self.panel[0] = widget.GameText(_('%s St' % self.name.title()), (550,40), self,font_size = 40)
 
     def DressSt(self,goalpos = None):
         self.create_stage('dress', goalpos)
