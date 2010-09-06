@@ -34,16 +34,6 @@ Princess shoes are moving weirdly when she jumps.
         self.points          = int(row['points'])
         self.pos = [int(self.level.universe.center_x) + self.center_distance,
                            self.level.universe.floor -  self.level.what_is_my_height(self) -self.size[1]]
-
-
-
-
-#        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
-#        self.pos = [self.level.universe.center_x + self.center_distance,
-#                    self.floor+self.margin[2]-(self.size[1])]
-
-
-
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
         self.dirties = [Dirt(level,'data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]

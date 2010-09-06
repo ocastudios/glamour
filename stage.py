@@ -558,7 +558,7 @@ class Stage():
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self)]
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
-                      scenarios.BuildingDoor(p((9092,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
+                      scenarios.BuildingDoor(p((9194,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
                       scenarios.Gate(dressgate[0], main_dir+'/data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
                       scenarios.Gate(dressgate[1], main_dir+'/data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
                       scenarios.Gate(dressgate[2], main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
@@ -598,7 +598,7 @@ class Stage():
                              (2, self.ShoesSt ,shoegate[0]))
                             ])
         self.gates.extend([scenarios.BuildingDoor(p((130,225)),self.directory+'make-up_castle/door/',self,self.makeup_castle()),
-                     scenarios.BuildingDoor(p((8900,225)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
+                     scenarios.BuildingDoor(p((9060,225)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
 #        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),

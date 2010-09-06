@@ -179,7 +179,7 @@ class Ball():
         level.panel[1]  = widget.GameText(str(total_points), p((1000,30)), self,font_size = 80, color=(58,56,0))
 
     def return_to_game(self):
-        self.level.BathhouseSt(goalpos = 5520*scale)
+        self.level.BathhouseSt(goalpos = 5220*scale)
         self.level.clock[1].count = 0
         self.level.clock[1].time = "morning"
 

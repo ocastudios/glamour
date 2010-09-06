@@ -150,6 +150,7 @@ class Princess_Home():
         [self.princess_image.blit(obj_images.image(princess_directory+row[i]+ '/big.png'),(0,0)) for i in (
                     'face', 'dress', 'arm', 'accessory', 'shoes')]
         self.big_princess = BigPrincess(self)
+        self.music = main_dir+"/data/sounds/music/menu.ogg"
 
     def all_set(self):
         self.status = 'done'
