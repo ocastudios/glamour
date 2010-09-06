@@ -269,10 +269,7 @@ class Stage():
                 if self.white.alpha_value > 150:
                     self.inside.status = 'choosing'
                     pygame.mixer.music.load(self.inside.music)
-                    pygame.mixer.music.queue(self.inside.music)
-                    pygame.mixer.music.queue(self.inside.music)
                     pygame.mixer.music.play()
-                    pygame.mixer.music.set_endevent(pygame.USEREVENT)
             elif self.inside.status == 'choosing':
                 self.princesses[0].update_all()
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
@@ -304,7 +301,6 @@ class Stage():
                     pygame.mixer.music.queue(self.music)
                     pygame.mixer.music.queue(self.music)
                     pygame.mixer.music.play()
-                    pygame.mixer.music.set_endevent(pygame.USEREVENT)
                     self.inside.status = 'openning'
             elif self.inside.status == 'openning':
                 self.princesses[0].update_all()
@@ -349,11 +345,7 @@ class Stage():
             if self.white.alpha_value > 150:
                 screen.status = 'choosing'
                 pygame.mixer.music.load(screen.music)
-                pygame.mixer.music.queue(screen.music)
-                pygame.mixer.music.queue(screen.music)
                 pygame.mixer.music.play()
-                pygame.mixer.music.set_endevent(pygame.USEREVENT)
-
         elif screen.status == 'choosing':
             pass
         elif screen.status == 'done':
@@ -373,7 +365,6 @@ class Stage():
                 pygame.mixer.music.queue(self.music)
                 pygame.mixer.music.queue(self.music)
                 pygame.mixer.music.play()
-                pygame.mixer.music.set_endevent(pygame.USEREVENT)
                 screen.status = 'finished'
 
     def update_pause(self):
@@ -397,6 +388,8 @@ class Stage():
     def update_fairytip(self):
         self.universe.screen_surface.blit(self.white.image,(0,0))
         if self.fairy == 'loading':
+            pygame.mixer.music.fadeout(1500)
+            pygame.mixer.music.load(self.fae[1].music)
             self.white.image.set_alpha(self.white.alpha_value)
             if not self.white.alpha_value:
                 pygame.mixer.Channel(0).play(pygame.mixer.Sound(os.getcwd()+'/data/sounds/story/frames/s03.ogg'))
@@ -404,12 +397,14 @@ class Stage():
                 self.white.alpha_value += 10
             if self.white.alpha_value > 150:
                 self.fairy = 'speaking'
+                pygame.mixer.music.play()
         elif self.fairy == "speaking":
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
             for i in self.fae:
                 i.update_all()
         elif self.fairy == 'done':
+            pygame.mixer.music.fadeout(1500)
             self.princesses[0].update_all()
             if self.bar_speed < 20:
                 self.bar_speed += self.bar_speed
@@ -419,6 +414,10 @@ class Stage():
             else:
                 self.white.alpha_value = 0
                 self.fairy = None
+                pygame.mixer.music.load(self.music)
+                pygame.mixer.music.queue(self.music)
+                pygame.mixer.music.queue(self.music)
+                pygame.mixer.music.play()
             self.white.image.set_alpha(self.white.alpha_value)
 
     def select_enemies(self, allowed_enemies, street):
@@ -534,6 +533,7 @@ class Stage():
         self.panel[0] = widget.GameText(_('%s St' % self.name.title()), (550,40), self,font_size = 40)
 
     def BathhouseSt(self,goalpos = None):
+        self.set_floor_heights(186,9400,'bathhouse')
         self.create_stage('bathhouse',goalpos)
         gates = (   [(1063,453),'bathhouse/door/',self.bathhouse_castle(),True],
                     [(5206,500),'home/door/', inside.Home(self), False], 
@@ -547,8 +547,7 @@ class Stage():
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
         self.stage_music("bathhouse_day_intro.ogg","bathhouse_day.ogg")
-        ### set_floor ###
-        self.set_floor_heights(186,9400,'bathhouse')
+
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False

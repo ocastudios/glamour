@@ -47,7 +47,7 @@ class Fairy():
         self.wand       = obj_images.TwoSided(self.directory+'/fairy_wand/',margin)
         self.enchant    = obj_images.TwoSided(self.directory+'/fairy_enchant/',margin)
         self.spark      = obj_images.OneSided(self.directory+'/spark/',margin)
-
+        self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
 
     def update_all(self):
         for key,value in self.lists_of_images.items():
