@@ -31,7 +31,7 @@ def p(positions):
 
 class MenuScreen():
     color = [230,230,230]
-    def __init__(self,universe,music=None):
+    def __init__(self,universe):
         print "Creating MenuScreen"
         self.universe       = universe
         self.bar_side       = None
@@ -268,7 +268,7 @@ class Menu():
             widget.Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
            ])
         if name_taken:
-            txts = [widget.GameText(_(i[0]),p(i[1]),self) for i in ((_('Sorry, This name is taken.'),(-200,200)),('Please, choose another one',(-200,250)),('_ _ _ _ _ _ _', (230,130)))]
+            txts = [widget.GameText(_(i[0]),p(i[1]),self, font_size = 30) for i in ((_('Sorry, This name is taken.'),(-100,-150)),('Please, choose another one',(-100,-50)),('_ _ _ _ _ _ _', (230,130)))]
         else:
             txts =[widget.GameText(_('... and your name.'),p((-200,200)),self), widget.GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts,
@@ -429,7 +429,7 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.position = [100*scale,-600*scale]
-        self.options    = [widget.Button(_('Or go back to Main Menu'),      (245*scale,500*scale)  ,self,self.back_to_main,font_size=40)]
+        self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40)]
         self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self),
                          widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
         ypos = 0

@@ -21,18 +21,11 @@ class Button():
             self.type_of_button = 'image'
         except:
             self.type_of_button = 'text'
+
         if self.type_of_button == 'image':
             self.images     = obj_images.Buttons(dirtxt,5)
             if invert:
                 self.images.list = self.invert_images(self.images.list)
-            self.image = self.images.list[self.images.number]
-            self.size = self.image.get_size()
-            self.position = p(position)
-            self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
-                               (self.position[1]-(self.image.get_size()[1])/2)]
-            self.rect = pygame.Rect(self.pos,self.size)
-            self.function = function
-            self.parameter = parameter
             self.list_of_images = self.images.list
         if self.type_of_button == 'text':
             font_size  = int(font_size*scale)
@@ -40,16 +33,17 @@ class Button():
             self.text       = dirtxt
             self.color      = color
             self.fontA      = pygame.font.Font(main_dir+'/data/fonts/'+fonte,self.font_size)
-            self.fontB      = pygame.font.Font('data/fonts/'+second_font,self.font_size+(self.font_size/2))
+            self.fontB      = pygame.font.Font('data/fonts/'+second_font,self.font_size+(self.font_size/3))
             self.list_of_images= [self.fontA.render(self.text,1,self.color)]
-            self.image      = self.list_of_images[0]
-            self.size       = self.image.get_size()
-            self.position   = p(position)
-            self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
-                               (self.position[1]-(self.image.get_size()[1])/2)]
-            self.rect       = pygame.Rect(self.pos,self.size)
-            self.function   = function            
-            self.parameter  = parameter
+
+        self.image      = self.list_of_images[0]
+        self.size       = self.image.get_size()
+        self.position   = p(position)
+        self.pos        = [(self.position[0]-(self.image.get_size()[0]/2)),
+                           (self.position[1]-(self.image.get_size()[1])/2)]
+        self.rect       = pygame.Rect(self.pos,self.size)
+        self.function   = function            
+        self.parameter  = parameter
 
     def update_all(self):
         self.size       = self.image.get_size()
@@ -103,8 +97,8 @@ class GameText():
             self.frame_pos = 0,0
         self.text       = text
         self.color      = color
-        self.fontA      = pygame.font.Font('data/fonts/'+fonte,font_size)
-        self.fontB      = pygame.font.Font('data/fonts/'+second_font,font_size+(font_size/2))
+        self.fontA      = pygame.font.Font(main_dir+'/data/fonts/'+fonte,font_size)
+        self.fontB      = pygame.font.Font(main_dir+'/data/fonts/'+second_font,font_size+(font_size/3))
         self.image      = self.fontA.render(self.text,1,self.color)
         if rotate:
             try:

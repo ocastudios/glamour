@@ -44,19 +44,6 @@ class Enemy():
                 self.center_distance -= (self.speed*towards[self.direction])
 
 
-#        if self.move:
-#            if self.direction == 'right':
-#                self.center_distance += self.speed
-#                next_height = self.level.what_is_my_height(self)
-#                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-(30*scale):
-#                    self.center_distance += self.speed
-#            else:
-#                self.center_distance -= self.speed
-#                next_height = self.level.what_is_my_height(self)
-#                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -(30*scale):
-#                    self.center_distance -= self.speed
-
-
 class Schnauzer(Enemy):
     def __init__(self, pos, level,margin=p([20,20,20,20]),dirty=False):
         print "Creating Schnauzer..."
@@ -92,7 +79,6 @@ class Schnauzer(Enemy):
         if self.barfing > 100:
             self.barfing = 0
 
-
     def set_pos(self,cross = 50):
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
@@ -104,8 +90,6 @@ class Schnauzer(Enemy):
             obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
             if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
                 self.center_distance -= (self.speed*towards[self.direction])
-
-
 
     def update_all(self):
         princess = self.level.princesses[0]
@@ -387,10 +371,11 @@ class BroomingDust():
             if self.direction == 'left':
                 self.pos         = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
                 self.image = self.images.left[self.images.number]
+                rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
             else:
                 self.pos         = [self.lady.pos[0]+(144*scale), self.lady.pos[1]+(38*scale)]
                 self.image = self.images.right[self.images.number]
-            rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
+                rect_pos = (self.pos[0]+(144*scale)-self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
             rect_rect        = self.rect_list[self.images.number]['size']
             self.rect           = pygame.Rect(rect_pos, rect_rect)
             self.images.update_number()
@@ -440,7 +425,7 @@ class Elephant():
         directory = enemy_dir+'Elephant/'
         self.center_distance = pos
         for i in ['base','hover']:
-            exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
+            exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
         self.image = self.base.left[0]
         self.level = level
         self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height()) +15 ]
@@ -452,6 +437,100 @@ class Elephant():
     def update_all(self):
         self.image = self.base.left[self.base.itnumber.next()]
         self.pos[0] = self.level.universe.center_x + self.center_distance
+
+class Giraffe():
+    def __init__(self, pos, level):
+        print "Creating Giraffe"
+        self.center_distance = pos
+        ordered_directory_list = (enemy_dir+'giraffe/base/', enemy_dir+'giraffe/chew/')
+        self.chewing_images = obj_images.MultiPart(ordered_directory_list)
+        self.hover_images   = obj_images.TwoSided(enemy_dir+'giraffe/hover/')
+        self.image          = self.chewing_images.left[0]
+        self.level          = level
+        self.pos            = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height())]
+        self.direction      = 'left'
+        self.image_number = 0
+        self.count = 0
+        print "done."
+
+    def update_all(self):
+        if self.count   == 2:
+            self.image  = self.chewing_images.left[self.chewing_images.itnumber.next()]
+            self.count  = 0
+        self.count      += 1
+        self.pos[0]     = self.level.universe.center_x + self.center_distance
+
+
+
+class Penguin():
+    def __init__(self, pos, level, dirty=False):
+        print "Creating Penguin"
+        directory = enemy_dir+'penguin/jump/'
+        self.images = obj_images.There_and_back_again(directory,exclude_border=True)
+        self.center_distance = pos
+        self.image = self.images.left[self.images.number]
+        self.size = self.images.size
+        self.level = level
+        self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height())+15*scale]
+        self.direction = 'left'
+        self.gotkissed = 0
+        self.image_number = 0
+        self.gforce= {'accel':3,'max':10,'actual':0}
+        self.action = 'dance'
+        self.jumpsound = None
+        self.jump = 0
+        self.count = 0
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+        print "done."
+
+    def update_all(self):
+        self.update_image()
+        self.pos[0] = self.level.universe.center_x + self.center_distance
+        self.jumping()
+        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+        if self.action == 'dance':
+            self.dancing()
+            if self.count >= 150:
+                self.count = 0
+                self.action = 'jump'
+        self.count += 1
+
+    def dancing(self):
+        if self.count %5 ==0:
+            if self.image in self.images.left:
+                self.direction = 'right'
+            else:
+                self.direction = 'left'
+
+    def update_image(self):
+        exec('self.image = self.images.'+self.direction+'[self.images.number]')
+
+    def jumping(self):
+        feet_position = self.pos[1]+self.size[1]
+        if self.action != 'dance':
+            self.images.update_number()
+        if self.action != 'jump':
+            self.jump = 0
+            if self.action=='fall':
+                self.pos[1] += self.gforce['actual']
+                self.gforce['actual']+= self.gforce['accel']
+                if feet_position >= self.floor:
+                    self.action='dance'
+                    self.pos[1] = (self.level.floor - self.image.get_height())+15*scale
+            if feet_position < self.floor and not self.jump:
+                self.action='fall'
+        else:
+            self.jump +=1
+            if self.jump == 1:
+#                self.channel3.play(self.jumpsound)
+                self.images.number = 0
+                self.gforce['actual'] = 0
+            if self.action == 'jump':
+                if self.jump > 0 and self.jump <20:
+                    self.pos[1] -= 30*scale
+                    if self.jump > 10:
+                        self.images.number = 0
+                        self.action= 'fall'
 
 
 class Monkey():
@@ -707,7 +786,6 @@ class FootBall():
 
     def update_all(self):
         speed = self.speed
-        self.rect           = pygame.Rect(self.pos, self.size)
         if self.footboy.body != self.footboy.running:
             if self.rect.colliderect(self.footboy.rect):
                 if self.footboy.body.number in self.lowlist:
@@ -739,7 +817,7 @@ class FootBall():
         floor = (self.level.universe.floor - self.level.what_is_my_height(self)) - (self.size[1])
         if self.pos[1] != floor:
             self.pos[1] = floor - self.ballheights.next()
-
+        self.rect   = pygame.Rect(self.pos, self.size)
 
 class Bird():
     disturbed   = {'ongoing':False, 'count':0,'spot':(0,0)}

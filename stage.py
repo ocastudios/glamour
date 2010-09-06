@@ -614,6 +614,9 @@ class Stage():
 #        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),
                                     enemy.Monkey(3500*scale,self),
+                                    enemy.Elephant(3600*scale,self),
+                                    enemy.Penguin(3550*scale,self),
+                                    enemy.Giraffe(3800*scale,self),
                                     scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self)]
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
         self.set_floor_heights(192,9400,'makeup')
