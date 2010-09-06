@@ -13,12 +13,6 @@ def main_menu(universe):
             if event.key == K_ESCAPE:
                 print "Escape pressed"
                 exit()
-            elif event.key == K_i:
-                universe.LEVEL = 'close'
-            elif event.key == K_e:
-                universe.LEVEL = 'close'
-            elif event.key == K_a:
-                universe.LEVEL = 'close'
             elif event.key == K_UP:
                 universe.action[0] = 'up'
             elif event.key == K_DOWN:
@@ -28,51 +22,13 @@ def main_menu(universe):
             elif event.key == K_RIGHT:
                 universe.action[0] = 'right'
         elif event.type == KEYUP:
+            if event.key in (K_a,K_b,K_c,K_d,K_e,K_f,K_g,K_h,K_i,K_j,K_k,K_l,K_m,K_n,K_o,K_p,K_q,K_r,K_s,K_t,K_u,K_v,K_w,K_x,K_y,K_z, K_BACKSPACE, K_SPACE):
+                universe.action[0] = pygame.key.name(event.key)
             if event.key == K_RETURN:
                 print "Enter pressed"
                 universe.click = True
         elif event.type == MOUSEBUTTONUP:
             universe.click = True
-    pygame.event.clear()
-
-def choose_menu(universe):
-    universe.click = False
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            exit()
-        elif event.type == KEYDOWN:
-            if event.key == K_ESCAPE:
-                exit()
-            if event.key == K_i:
-                universe.LEVEL = 'close'
-            elif event.key == K_e:
-                universe.LEVEL = 'close'
-            elif event.key == K_a:
-                universe.LEVEL = 'close'
-        if event.type == MOUSEBUTTONUP:
-            universe.click = True
-        else:
-            universe.click = False
-    pygame.event.clear()
-
-def name_menu(universe):
-    universe.click = False
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            exit()
-        elif event.type == KEYDOWN:
-            if event.key == K_ESCAPE:
-                exit()
-            if event.key == K_i:
-                universe.LEVEL = 'start'
-            elif event.key == K_e:
-                universe.LEVEL = 'start'
-            elif event.key == K_a:
-                universe.LEVEL = 'start'
-        if event.type == MOUSEBUTTONUP:
-            universe.click = True
-        else:
-            universe.click = False
     pygame.event.clear()
 
 def stage(universe):

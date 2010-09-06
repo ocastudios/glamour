@@ -123,7 +123,7 @@ class MenuScreen():
             if i.__class__ == widget.Letter and i.hoover:
                 surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
                                                  i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
-            if (i.__class__ == widget.Spacebar or i.__class__ == widget.Backspace) and i.hoover:
+            if (i.__class__ == widget.Key) and i.hoover:
                 surface.blit(self.hoover_large,(i.pos[0]-((self.hoover_large_size[0]-i.size[0])/2),
                                                 i.pos[1]-((self.hoover_large_size[1]-i.size[1])/2) ))
         if self.menu.print_princess:
@@ -264,18 +264,28 @@ class Menu():
                 map(chr,xrange(97,123)),
                 zip([x for n in xrange(9) for x in xrange(int(100*s),int(422*s),int(40*s))],
                     [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
-        opt.extend([widget.Backspace(_('< back'),  (140*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30),
-            widget.Spacebar(_('space >'),  (360*scale,350*scale)  ,self,self.NOTSETYET,fonte = 'GentesqueRegular.otf',font_size=30)
+        opt.extend([widget.Key(_('< back'),       (140*scale,350*scale)  ,self, 'Backspace'),
+                    widget.Key(_('space >'),      (360*scale,350*scale)  ,self, 'Spacebar'),
+                    widget.Key(_('clean up [  ]'),(140*scale,400*scale)  ,self, 'Cleanup'),
+                    widget.Key(_('random   ???'), (360*scale,400*scale)  ,self, 'Random')
            ])
-        if name_taken:
-            txts = [widget.GameText(_(i[0]),p(i[1]),self, font_size = 30) for i in ((_('Sorry, This name is taken.'),(-100,-150)),('Please, choose another one',(-100,-50)),('_ _ _ _ _ _ _', (230,130)))]
-        else:
-            txts =[widget.GameText(_('... and your name.'),p((-200,200)),self), widget.GameText('_ _ _ _ _ _ _', p((230,130)),self), self.princess.name]
-        self.reset_menu(action  = 'open', options = opt, texts = txts,
-                buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
+
+        buttom_list = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
                          ['button_ok/',   (250,620), self.start_game,    None,False],
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
-                        )])
+                        )]
+        if name_taken:
+            txts = [    widget.GameText(_('Sorry, This name is taken.'),p((-100,-150)),self),
+                        widget.GameText(_('Please, choose another one'),p((-100,-50)),self),
+                        widget.GameText(_('_ _ _ _ _ _ _'),p((230,130)),self),
+                        self.princess.name
+                    ]
+            buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game, parameter=[False,True]) ])
+        else:
+            txts =[     widget.GameText(_('... and your name.'),p((-200,200)),self),
+                        widget.GameText('_ _ _ _ _ _ _', p((230,130)),self),
+                        self.princess.name]
+        self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
 
     def update_all(self):
         self.game_mouse.update()
@@ -292,8 +302,16 @@ class Menu():
                 if self.selector > len(self.mouse_positions)-1:
                     self.selector = 0
             pygame.mouse.set_pos(self.mouse_positions[self.selector])
-
         self.position[1] += self.speed
+
+        if '_ _ _ _ _ _ _' in [i.text for i in self.texts]:
+            if keyboard in ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"):
+                self.princess.name.text += keyboard
+            if keyboard == 'space':
+                self.princess.name.text += ' '
+            if keyboard == 'backspace':
+                self.princess.name.text = self.princess.name.text[:-1]
+
         if self.action == 'open':
             if self.position[1] != self.goal_pos[1]:
                 #Breaks
@@ -353,29 +371,46 @@ class Menu():
     def choose_language(self):
         pass
 
-    def start_game(self, using_saved_game=False):
+    def start_game(self, using_saved_game=False, start_anyway= False):
         pygame.mixer.music.fadeout(4000)
+        if self.princess and self.princess.name.text == "":
+            self.princess.name.text = "              "
         global name_taken
         if not using_saved_game:
             try:
-                print "Starting a New Save File"
-                print "Creating Directory"
-                new_dir = main_dir+'/data/saves/'+self.princess.name.text
-                os.mkdir(new_dir)
-                print "Creating a New Database Save File"
-                db.create_save_db(new_dir+'/'+self.princess.name.text+'.db', name = self.princess.name.text, hairback = self.princess.hairs_back[self.princess.numbers['hair']], skin = self.princess.skins[self.princess.numbers['skin']], hair = self.princess.hairs[self.princess.numbers['hair']], arm = self.princess.arms[self.princess.numbers['skin']], universe = self.screen.universe)
+                self.create_files()
                 self.screen.universe.LEVEL= 'start'
                 name_taken = False
-            except Exception, e:
+            except Exception as  (errno, strerror):
                 print "Maybe this name already existed"
-                print str(e)
-                name_taken = True
-                self.to_name_your_princess()
+                print strerror
+                if errno == 17 and start_anyway:
+                    self.remove_save_directory(self.princess.name.text)
+                    self.create_files()
+                    self.screen.universe.LEVEL= 'start'
+                else:
+                    name_taken = True
+                    self.to_name_your_princess()
         else:
             print "Using saved game "+ using_saved_game
             print "Connecting to Database"
             db.connect_db(using_saved_game, self.screen.universe)
             self.screen.universe.LEVEL = 'start'
+
+    def create_files(self,):
+        print "Starting a New Save"
+        new_dir = main_dir+'/data/saves/'+self.princess.name.text
+        os.mkdir(new_dir)
+        print "Directory Created"
+        db.create_save_db(
+                new_dir+'/'+self.princess.name.text+'.db',
+                name = self.princess.name.text,
+                hairback = self.princess.hairs_back[self.princess.numbers['hair']],
+                skin = self.princess.skins[self.princess.numbers['skin']],
+                hair = self.princess.hairs[self.princess.numbers['hair']],
+                arm = self.princess.arms[self.princess.numbers['skin']],
+                universe = self.screen.universe)
+        print "Database Created"
 
     def change_princess(self,list):#list of: int,part
         if list[1] == "hair":
@@ -383,10 +418,10 @@ class Menu():
         elif list[1] == 'skin':
             number = 2
         self.princess.numbers[list[1]] += list[0]
-        if self.princess.numbers[list[1]] < 0:
-            self.princess.numbers[list[1]] = number
+        if   self.princess.numbers[list[1]] < 0:
+             self.princess.numbers[list[1]] = number
         elif self.princess.numbers[list[1]] > number:
-            self.princess.numbers[list[1]] = 0
+             self.princess.numbers[list[1]] = 0
 
     def to_name_your_princess(self):
         self.go_back = False

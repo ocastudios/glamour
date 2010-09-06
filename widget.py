@@ -1,5 +1,6 @@
 import pygame
 import random
+import random_names
 import os
 import obj_images
 from settings import *
@@ -154,19 +155,18 @@ class Letter(GameText):
                 self.hoover = False
 
 
-class Spacebar(GameText):
+class Key(GameText):
     hoover = False
-    def __init__(self,text,pos,frame,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
-        GameText.__init__(self,text,pos,frame,fonte,font_size,color)
-        self.function  = function
-        self.parameter = parameter
+    def __init__(self,text,pos,frame,key_type):
+        GameText.__init__(self,text,pos,frame,fonte='GentesqueRegular.otf',font_size=30, color=(83,0,0))
+        self.key = key_type
+
 
     def update_all(self):
         self.size       = self.image.get_size()
         self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
                            self.frame.position[1]+self.position[1]-(self.size[1]/2)]
         self.rect       = pygame.Rect(self.pos,self.size)
-        self.type       = type
         self.click_detection()
 
     def click_detection(self):
@@ -174,36 +174,15 @@ class Spacebar(GameText):
             mouse_pos = pygame.mouse.get_pos()
             if self.rect.collidepoint(mouse_pos):
                 self.hoover = True
-####################################### BUTTON ACTION ########################################
                 if self.frame.screen.universe.click:
-                    self.frame.princess.name.text += ' '
-            else:
-                self.hoover = False
-
-
-class Backspace(GameText):
-    hoover = False
-    def __init__(self,text,pos,frame,function,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0),parameter = None):
-        GameText.__init__(self,text,pos,frame,fonte,font_size,color)
-        self.function  = function
-        self.parameter = parameter
-
-    def update_all(self):
-        self.size       = self.image.get_size()
-        self.pos        = [self.frame.position[0]+self.position[0]-(self.size[0]/2),
-                           self.frame.position[1]+self.position[1]-(self.size[1]/2)]
-        self.rect       = pygame.Rect(self.pos,self.size)
-        self.type       = type
-        self.click_detection()
-
-    def click_detection(self):
-        if -.5< self.frame.speed < .5:
-            mouse_pos = pygame.mouse.get_pos()
-            if self.rect.collidepoint(mouse_pos):
-                self.hoover = True
-####################################### BUTTON ACTION ########################################
-                if self.frame.screen.universe.click:
-                    self.frame.princess.name.text = self.frame.princess.name.text[:-1]
+                    if   self.key == 'Spacebar':
+                        self.frame.princess.name.text += ' '
+                    elif self.key == 'Backspace':
+                        self.frame.princess.name.text = self.frame.princess.name.text[:-1]
+                    elif self.key == 'Cleanup':
+                        self.frame.princess.name.text = ""
+                    elif self.key == 'Random':
+                        self.frame.princess.name.text = random.choice(random_names.names)
             else:
                 self.hoover = False
 

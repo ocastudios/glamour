@@ -283,6 +283,15 @@ class Stage():
                 if self.inside.__class__== inside.Inside:
                     if self.inside.chosen_item:
                         self.universe.screen_surface.blit(self.inside.chosen_item.image,self.inside.chosen_item.pos)
+                try:
+                    x = 880*scale
+                    y = 270*scale
+                    self.universe.screen_surface.blit(self.inside.princess_image, (x,y))
+                except:
+                    pass
+
+
+
             elif self.inside.status == 'done':
                 pygame.mixer.music.fadeout(1500)
                 self.princesses[0].update_all()
@@ -315,24 +324,19 @@ class Stage():
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.outside()
                 self.princesses[0].inside = False
-        try:
-            x = self.universe.width/2 + self.princesses[0].image_size[0]
-            y = (self.universe.height/2)-(self.princesses[0].image_size[1]/2)
-            self.universe.screen_surface.blit(self.inside.princess_image, (x,y))
-        except:
-            pass
+
 
     def choice_screen(self, screen,condition):
         self.universe.screen_surface.blit(self.white.image,(0,0))
         self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
         self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
         if screen.status == 'inside':
+            pygame.mixer.music.fadeout(1500)
             self.up_bar_y = -self.bar_height
             self.down_bar_y = self.universe.height
             self.white.alpha_value = 0
             screen.status = 'loading'
         elif screen.status == 'loading':
-            pygame.mixer.music.fadeout(1500)
             self.white.image.set_alpha(self.white.alpha_value)
             if self.white.alpha_value < 200:
                 self.white.alpha_value += 10
@@ -598,7 +602,7 @@ class Stage():
                              (2, self.ShoesSt ,shoegate[0]))
                             ])
         self.gates.extend([scenarios.BuildingDoor(p((130,225)),self.directory+'make-up_castle/door/',self,self.makeup_castle()),
-                     scenarios.BuildingDoor(p((9060,225)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
+                     scenarios.BuildingDoor(p((9082,301)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
 #        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),
@@ -616,7 +620,7 @@ class Stage():
         self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
-        scenarios.BuildingDoor(p((9490,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
+        scenarios.BuildingDoor(p((9440,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
         scenarios.Gate(shoegate[0],main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[0]),
         scenarios.Gate(shoegate[1],main_dir+'/data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
         scenarios.Gate(shoegate[2],main_dir+'/data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
