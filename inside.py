@@ -138,21 +138,17 @@ class Princess_Home():
         for img in images:
             painting_screen.blit(img, (0,0))
         self.princess_image = obj_images.scale_image(painting_screen)
-        self.princess_icon  =  obj_images.scale_image( pygame.image.load(ball_directory+princess['icon']).convert_alpha())
+        self.princess_icon  = obj_images.scale_image( pygame.image.load(ball_directory+princess['icon']).convert_alpha())
         self.status = 'outside'
         self.level  = level
         self.items = []
         self.buttons = []
         self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),)
-
         princess_name = princess["name"].lower()
         cursor = self.level.universe.db_cursor
         row     = cursor.execute("SELECT * FROM "+princess_name+" WHERE id = (SELECT MAX(id) FROM "+princess_name+")").fetchone()
-        self.princess_image.blit(obj_images.image(princess_directory+row['face']+'/big.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['dress']+'/big.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['arm']+'/big.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['accessory']+'/big.png'),(0,0))
-        self.princess_image.blit(obj_images.image(princess_directory+row['shoes']+'/big.png'),(0,0))
+        [self.princess_image.blit(obj_images.image(princess_directory+row[i]+ '/big.png'),(0,0)) for i in (
+                    'face', 'dress', 'arm', 'accessory', 'shoes')]
         self.big_princess = BigPrincess(self)
 
     def all_set(self):

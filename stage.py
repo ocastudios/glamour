@@ -184,7 +184,6 @@ class Stage():
                             self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
             else:
                 exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
-
         for i in self.princesses[0].effects :
             self.universe.screen_surface.blit(i.image,i.pos)
         for i in self.scenarios_front:
@@ -202,16 +201,11 @@ class Stage():
         for i in self.panel:
             if i:
                 self.universe.screen_surface.blit(i.image,i.pos)
-
         for i in self.enemies:
                 self.universe.screen_surface.fill((0,0,0,50), i.rect)
-
-
-
         if self.fairy:
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
-
         for i in self.pointer:
             self.universe.screen_surface.blit(i.image,i.pos)
 
@@ -549,8 +543,6 @@ class Stage():
 
         self.gates = [  scenarios.BuildingDoor(p(i[0]),self.directory+i[1],self,i[2],bath=i[3]) for i in gates]
         self.gates.extend([scenarios.Gate(i[0], self.maindir+'omni/gate/',self,i[1], goalpos = i[2]) for i in doors])
-
-
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
@@ -685,13 +677,13 @@ class Pause():
     def __init__(self, level):
         self.status = 'outside'
         self.level  = level
-        resume      = widget.Button('Resume',(360,400),self.level,self.resume, font_size=80)
+        resume      = widget.GameText('Resume',p((360,400)),self.level,font_size=80, fonte='Chopin_Script.ttf')
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
         ok_button   = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
-        quit        = widget.Button('Quit',(1080,400),self.level,exit, font_size= 80)
+        quit        = widget.GameText('Quit',p((1080,400)),self.level,font_size= 80, fonte='Chopin_Script.ttf')
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
         cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
-        title       = widget.Button('Game Paused',(720,50),self.level, self.do_nothing, font_size=120, color = (58,56,0))
+        title       = widget.GameText('Game Paused',p((720,100)),self.level, fonte='Chopin_Script.ttf', font_size=120, color = (58,56,0))
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
         self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
 
