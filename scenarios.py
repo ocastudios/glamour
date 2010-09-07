@@ -125,7 +125,6 @@ class BuildingDoor():
         else:
             self.open = False
             self.once = True
-
         if self.open:
             if self.images.number < self.images.lenght -1:
                 self.images.number += 1
@@ -151,7 +150,7 @@ class BuildingDoor():
 
     def outside(self):
         self.level.blitlist = ('sky','background','moving_scenario','scenarios','gates','animated_scenarios','lights','princesses','enemies','menus')
-
+        self.level.princesses[0].inside = False
 
 class Background():
     def __init__(self,pos_x,level,dir):
@@ -181,17 +180,18 @@ class ExitSign():
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.rect = Rect(self.pos, self.size)
-        self.princess = self.level.princesses[0]
 
     def update_all(self):
+        princess = self.level.princesses[0]
         control = 0
-        for i in self.level.gates:
-            if not self.princess.inside and (i.__class__ == Gate or i.__class__ == BuildingDoor):
-                if i.rect.colliderect(self.princess.rect):
-                    control += 1
-                    self.pos = (i.pos[0]+(i.size[0]/2-(self.size[0]/2)),i.pos[1]-(150*scale))
-                    self.image = self.images.list[self.images.number]
-                    self.images.update_number()
+        if not princess.inside:
+            for i in self.level.gates:
+                if (i.__class__ == Gate or i.__class__ == BuildingDoor):
+                    if i.rect.colliderect(princess.rect):
+                        control += 1
+                        self.pos = (i.pos[0]+(i.size[0]/2-(self.size[0]/2)),i.pos[1]-(150*scale))
+                        self.image = self.images.list[self.images.number]
+                        self.images.update_number()
         if control ==0:
             self.images.number =0
             self.image = None

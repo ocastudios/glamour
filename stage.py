@@ -128,7 +128,7 @@ class Stage():
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
-        elif self.fairy:
+        elif self.fairy and not self.princesses[0].inside:
             self.update_fairytip()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
@@ -289,9 +289,6 @@ class Stage():
                     self.universe.screen_surface.blit(self.inside.princess_image, (x,y))
                 except:
                     pass
-
-
-
             elif self.inside.status == 'done':
                 pygame.mixer.music.fadeout(1500)
                 self.princesses[0].update_all()
@@ -319,11 +316,14 @@ class Stage():
                         if i.images.number >= i.images.lenght -1:
                             self.inside.status = 'closing'
             elif self.inside.status == 'closing':
-                self.princesses[0].update_all()
+                print 'Getting out of the door'
+#                self.princesses[0].update_all()
                 for i in self.gates:
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.outside()
+                print self.princesses[0].inside
                 self.princesses[0].inside = False
+                print self.princesses[0].inside
 
 
     def choice_screen(self, screen,condition):
@@ -372,22 +372,24 @@ class Stage():
                 screen.status = 'finished'
 
     def update_pause(self):
+        princess = self.princesses[0]
         self.choice_screen(self.pause,self.paused)
         if self.pause.status == 'choosing':
             for i in self.pause.buttons:
                 self.universe.screen_surface.blit(i.image, i.pos)
                 i.update_all()
-                self.universe.screen_surface.blit(self.princesses[0].image,
-                                    ((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-                                    (self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
+                if princess.image:
+                    self.universe.screen_surface.blit(princess.image,
+                                        ((self.universe.width/2)-(princess.image_size[0]/2),
+                                        (self.universe.height/2)-(princess.image_size[1]/2)))
             if self.fairy:
                 for i in self.fae:
                     i.update_all()
         elif self.pause.status == 'done':
-            self.princesses[0].update_all()
+            pass
+#            self.princesses[0].update_all()
         elif self.pause.status == 'finished':
             self.paused = False
-
 
     def update_fairytip(self):
         self.universe.screen_surface.blit(self.white.image,(0,0))
@@ -534,7 +536,8 @@ class Stage():
         cursor.close()
         self.create_scenario(name)
         self.create_front_scenario(name)
-        self.panel[0] = widget.GameText(_('%s St' % self.name.title()), (550,40), self,font_size = 40)
+        self.panel          = [widget.GameText(_('%s St' % self.name.title()), (550,40), self,font_size = 40),None,glamour_stars.Glamour_Stars(self)]
+
 
     def BathhouseSt(self,goalpos = None):
         self.set_floor_heights(186,9400,'bathhouse')

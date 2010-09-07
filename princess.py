@@ -64,6 +64,7 @@ Princess shoes are moving weirdly when she jumps.
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
         self.past_choice    = None
+        self.debuginside    =   0 
 
     def ordered_directory_list(self, action):
         odl = []
@@ -94,7 +95,11 @@ Princess shoes are moving weirdly when she jumps.
             if self.situation['hurt'] > 5:
                 if self.situation['hurt']%2 == 0:
                     self.image = None
+            self.debuginside = 0
         else:
+            if not self.debuginside:
+                print 'Now changed to inside'
+                self.debuginside += 1
             self.update_image(self.action,'right')
 
     def dirt_cloud_funciton(self):
