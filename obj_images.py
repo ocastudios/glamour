@@ -106,7 +106,8 @@ class MultiPart():
           if b: return gcd(b, a % b)
           return a
 
-        def least_common_multiple(nums): return reduce(lambda a, b: a * b / gcd(a, b), nums)
+        def least_common_multiple(nums):
+            return reduce(lambda a, b: a * b / gcd(a, b), nums)
 
         all_images = [find_images(dir) for dir in ordered_directory_list]
         image_size = all_images[0][0].get_size()

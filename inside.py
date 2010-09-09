@@ -171,6 +171,14 @@ class Home():
                            widget.Button('To the Ball',(500,100),self.level, self.all_set, font_size=80)
                             )
         self.big_princess = None
+#        self.past_ball      = ball.FairyTalePrincess(self.level, )
+#        self.great_past_ball=
+
+#FairyTalePrincess():
+#    def __init__(self, frame, position_x, hair, skin, icon, name = None, ball = "this"):
+
+
+
 
     def all_set(self):
         self.status = 'done'

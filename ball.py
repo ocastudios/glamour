@@ -184,7 +184,6 @@ class Ball():
         self.level.clock[1].time = "morning"
 
 
-
 class VerticalBar():
     def __init__(self, ball, right_or_left = 'left'):
         self.image = obj_images.scale_image(pygame.image.load(main_dir+'/data/images/interface/ball/golden-bar.png').convert_alpha())
@@ -212,15 +211,15 @@ class BallFrame():
         self.speed = 5
         self.ball = ball
         self.princesses = [FairyTalePrincess(self, i[0]*scale, i[1], i[2], i[3], name = i[4]) for i in (
-                [130, 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
-                [240, 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
-                [350, 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
-                [460, 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty'])]
-        self.past_princesses= [FairyTalePrincess(self,i[0]*scale,i[1],i[2],i[3],name=i[4],ball="past") for i in (
-                [130, 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
-                [240, 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
-                [350, 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
-                [460, 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty']) ]
+                [(130,150), 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
+                [(240,150), 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
+                [(350,150), 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
+                [(460,150), 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty'])]
+        self.past_princesses= [FairyTalePrincess(self,i[0]*scale,i[1],i[2],i[3],name=i[4],ball=1) for i in (
+                [(130,400), 'hair_snowwhite', 'pink', 'princess-icon-apple.png', 'Snow_White'],
+                [(240,400), 'hair_cinderella','tan','princess-icon-shoe.png',    'Cinderella'],
+                [(350,400), 'hair_rapunzel',  'pink', 'princess-icon-brush.png', 'Rapunzel'],
+                [(460,400), 'hair_sleeping',  'pink','princess-icon-spindle.png','Sleeping_Beauty']) ]
         self.texts = [
                 widget.GameText(_("Tonight's ball"),      p((30,250)), self, rotate = 90),
                 widget.GameText(_("Yesterday's ball"),    p((30,500)), self, rotate = 90),
@@ -254,7 +253,11 @@ class BallFrame():
 
 
 class FairyTalePrincess():
-    def __init__(self, frame, position_x, hair, skin, icon, name = None, ball = "this"):
+    def __init__(self, frame, position, hair, skin, icon, name = "princess_garment", ball = 0):
+        """Creates Thumbnail of Princesses to remember past balls
+
+            The parameters are self, frame (or level), position, hair, skin, icon, name (name of the princess in the database, if no name, than player), ball (number of the ball to show - counted backwards).
+"""
         skin_body       = 'skin_'+skin
         skin_arm        = 'arm_'+skin
         princess_directory  = main_dir+'/data/images/princess/'
@@ -263,17 +266,11 @@ class FairyTalePrincess():
         self.file       = frame.ball.universe.file
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
         name_lower = name.lower()
-        if ball == "this":
-            self.position   = [position_x, 150*scale]
+        self.position   = p(position)
+        if name != "princess_garments":
             self.symbol     =  obj_images.image(ball_directory+icon)
-            self.symbolpos  = position_x + (self.image.get_width()/2) - (self.symbol.get_width()/2)
-            sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id) FROM "+name_lower+")"
-        else:
-            self.position   = [position_x,400*scale]
-            self.symbol = None
-            self.symbolpos = [0,0]
-            sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-1 FROM "+name_lower+")"
-
+            self.symbolpos  = position[0] + (self.image.get_width()/2) - (self.symbol.get_width()/2)
+        sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-"+str(ball)+" FROM "+name_lower+")"
         self.pos        = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
         cursor = self.frame.ball.universe.db_cursor

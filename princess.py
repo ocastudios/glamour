@@ -64,7 +64,7 @@ Princess shoes are moving weirdly when she jumps.
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
         self.past_choice    = None
-        self.debuginside    =   0 
+        self.debuginside    =   0
 
     def ordered_directory_list(self, action):
         odl = []

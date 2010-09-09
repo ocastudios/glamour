@@ -125,7 +125,6 @@ class Message():
     def update_all(self):
         pass
 
-
     def end_message(self):
         self.level.fairy = 'done'
         self.level.fae.remove(self.button)

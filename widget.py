@@ -86,9 +86,8 @@ class Button():
                 self.image = self.fontA.render(self.text,1,self.color)
 
 
-
 class GameText():
-    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None):
+    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
         font_size  = int(font_size*scale)
         self.font       = fonte
         self.frame      = frame
@@ -100,19 +99,30 @@ class GameText():
         self.color      = color
         self.fontA      = pygame.font.Font(main_dir+'/data/fonts/'+fonte,font_size)
         self.fontB      = pygame.font.Font(main_dir+'/data/fonts/'+second_font,font_size+(font_size/3))
-        self.image      = self.fontA.render(self.text,1,self.color)
-        if rotate:
-            try:
-                self.image = pygame.transform.rotate(self.image,rotate)
-            except:
-                print "the rotate parameter must be a number"
         self.position   = pos
-        self.size       = self.image.get_size()
-        self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-                           self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+        if box:
+            self.box    = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
+            self.adjusting_fonts()
+            self.image  = self.box
+            self.size       = self.image.get_size()
+            self.pos        = [self.position[0]-(self.size[0]/2),
+                               self.position[1]-(self.size[1]/2)]
+
+
+        else:
+            self.image      = self.fontA.render(self.text,1,self.color)
+            if rotate:
+                try:
+                    self.image = pygame.transform.rotate(self.image,rotate)
+                except:
+                    print "the rotate parameter must be a number"
+            self.size       = self.image.get_size()
+            self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
+                               self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+
+
         self.variable_text = var
-
-
+        self.text_box   = self.size[0]*.8,self.size[1]*.8
 
     def update_all(self):
         try:
@@ -123,6 +133,43 @@ class GameText():
                            self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
         if self.variable_text:
             self.image = self.fontA.render(self.text,1,self.color)
+
+    def adjusting_fonts(self):
+        print "Adjusting text: "+str(self.text)
+        fix_x       = int(0*scale)
+        fix_y       = int(0*scale)
+        font_object = self.fontA
+        box = self.box
+        text_box    = self.box.get_size()
+        text_list = self.text.split()
+        number_of_words = len(text_list)
+        count = 0
+        height = fix_y
+        first = True
+        line = ""
+        line_break  = False
+        while count < number_of_words:
+            line        += text_list[count]
+            line_size   = font_object.size(line)
+            line_pos = int((text_box[0]+fix_x-line_size[0])/2)
+            if line_size[0] < text_box[0]:
+                if count+1 < number_of_words:
+                    temporary_line = line + ' '+ text_list[count+1]
+                    if font_object.size(temporary_line)[0] >= text_box[0]:
+                        line_image = font_object.render(line,1, self.color)
+                        height += int((line_size[1]*.8))
+                        box.blit(line_image, (line_pos,height))
+                        line = ""
+                    else:
+                        line += ' '
+                elif count+1 == number_of_words:
+                    height += int((line_size[1]*.8))
+                    box.blit(font_object.render(line, 1, self.color), (line_pos,height))
+            else:
+                line = text_list[count]
+                height += int(line_size[1]*.8) #If line height is perfect it does not seem that it is the same text
+            count += 1
+
 
 
 class Letter(GameText):
