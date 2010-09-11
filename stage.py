@@ -57,6 +57,7 @@ class Stage():
         self.blitlist       = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
         self.foreground     = []
         self.white          = Foreground(self.universe)
+        self.black          = Foreground(self.universe, color=(0,0,0))
         self.down_bar       = Bar(self,'down')
         self.up_bar         = Bar(self,'up')
         self.bar_height     = self.up_bar.tile_size[1]
@@ -82,6 +83,7 @@ class Stage():
         self.water_level    = 1440*scale
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
+        self.changing_stages= False
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -108,12 +110,12 @@ class Stage():
         try:        y_height = self.floor_heights[int(object.center_distance+(object.size[0]/2))]
         except:     y_height = self.floor
 
-        if object.__class__ == (enemy.Schnauzer or princess.Princess):
-            print "debugging Schnauzer"
-            print object.__class__
-            print "center_distance: "+str(object.center_distance)
-            print object.center_distance+object.size[0]/2
-            print y_height
+#        if object.__class__ == (enemy.Schnauzer or princess.Princess):
+#            print "debugging Schnauzer"
+#            print object.__class__
+#            print "center_distance: "+str(object.center_distance)
+#            print object.center_distance+object.size[0]/2
+#            print y_height
         return      y_height
 
     def update_all(self):
@@ -128,11 +130,30 @@ class Stage():
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
-        elif self.fairy and not self.princesses[0].inside:
+        elif self.fairy and not self.princesses[0].inside and not self.ball:
             self.update_fairytip()
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
+
+
+#        elif self.changing_stages:
+#            self.universe.screen_surface.blit(self.black.image,(0,0))
+#            self.black.image.set_alpha(self.black.alpha_value)
+#            if self.black.status == 'closing':
+#                if self.black.alpha_value <= 240:
+#                    self.black.alpha_value += 10
+#                    self.black.status = 'oppening'
+#            if self.black.status == 'oppening':
+#                if self.black.alpha_value >= 10:
+#                    self.black.alpha_value -= 10
+#                else:
+#                    self.black.alpha_value = 0
+#                    self.black.status = 'done'
+
+
+
+
         else:
             if self.clock[1].count > 160:
                 if self.background[0] == self.ballroom['day']:
@@ -283,6 +304,11 @@ class Stage():
                 if self.inside.__class__== inside.Inside:
                     if self.inside.chosen_item:
                         self.universe.screen_surface.blit(self.inside.chosen_item.image,self.inside.chosen_item.pos)
+                elif self.inside.__class__==inside.Home:
+                    pos  = 500
+                    for img in self.inside.past_balls:
+                        self.universe.screen_surface.blit(img, p([pos,400]))
+                        pos +=200
                 try:
                     x = 880*scale
                     y = 270*scale
@@ -633,26 +659,27 @@ class Stage():
 
 
 class Foreground():
-    def __init__(self,universe):
+    def __init__(self,universe, color=(255,255,255)):
         self.pos = 0,0
         self.image = pygame.Surface((universe.width,universe.height)).convert()
-        self.image.fill((255,255,255))
+        self.image.fill(color)
         self.alpha_value = 0
         self.image.set_alpha(self.alpha_value)
+        self.status = None
 
     def update_all(self):
-        if self.inside:
-            if self.alpha_value < 200:
-                self.alpha_value += 10
-        else:
-            if self.alpha_value > 0:
-                self.alpha_value -= 15
-            if self.alpha_value < 0:
-                self.image.set_alpha(self.alpha_value)
-                alpha_value = 0
-        if 180 > self.alpha_value > 40:
-            self.image.set_alpha(self.alpha_value)
-
+#        if self.inside:
+#            if self.alpha_value < 200:
+#                self.alpha_value += 10
+#        else:
+#            if self.alpha_value > 0:
+#                self.alpha_value -= 15
+#            if self.alpha_value < 0:
+#                self.image.set_alpha(self.alpha_value)
+#                alpha_value = 0
+#        if 180 > self.alpha_value > 40:
+#            self.image.set_alpha(self.alpha_value)
+        pass
 
 class Bar():
     def __init__(self,level, up_or_down):

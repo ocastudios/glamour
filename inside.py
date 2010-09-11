@@ -164,31 +164,54 @@ class Princess_Home():
 class Home():
     def __init__(self, level):
         self.status = 'outside'
+        self.music = main_dir+"/data/sounds/music/menu.ogg"
         self.level  = level
         self.items = []
         self.buttons = []
         self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
-                           widget.Button('To the Ball',(500,100),self.level, self.all_set, font_size=80)
+                           widget.Button('Go to the Ball',(1240,550),self.level, self.all_set),
+                           widget.GameText("It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different.", p([720,750]), level, box=p([600,300])),
+                           widget.GameText("Last Ball",         p([600,350]), level, font_size = 25),
+                           widget.GameText("Great Past Ball",   p([800,350]), level, font_size = 25),
+                           widget.GameText("3 Balls Ago",       p([1000,350]),level, font_size = 25)
                             )
-        self.big_princess = None
-#        self.past_ball      = ball.FairyTalePrincess(self.level, )
-#        self.great_past_ball=
-
-#FairyTalePrincess():
-#    def __init__(self, frame, position_x, hair, skin, icon, name = None, ball = "this"):
-
-
-
+        self.big_princess = BigPrincess(self)
+        self.past_balls = []
+        cursor = level.universe.db_cursor
+        for i in (1,2,3):
+            try:
+                sql             = "SELECT * FROM princess_garment WHERE id = (SELECT MAX(id)-"+str(i)+" FROM princess_garment)"
+                row = cursor.execute(sql).fetchone()
+                image_dict = {  "hair_back" :0,
+                                "skin"      :1,
+                                "face"      :2,
+                                "hair"      :3,
+                                "shoes"     :4,
+                                "dress"     :5,
+                                "arm"       :6,
+                                "armdress"  :7,
+                                "accessory" :8
+                                    } 
+                garments = ["hair_back", "skin" ,"face", "hair" , "shoes", "dress", "arm", "armdress", "accessory"]
+                image = pygame.Surface(p((200,200)), pygame.SRCALPHA).convert_alpha()
+                for i in garments:
+                    if row[i] and row[i]!= "None":
+                        image.blit(obj_images.image(main_dir+'/data/images/princess/'+row[i]+"/stay/0.png"),(0,0))
+#                image = pygame.transform.flip(self.image,1,0)
+                self.past_balls += [image]
+            except (TypeError,):
+                print "You haven't attended "+str(i)+" Balls yet"
+        cursor.close()
 
     def all_set(self):
         self.status = 'done'
-        for i in self.items:
-            if i.queue_pos == 1:
-                chosen_item = i.name
-        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
-        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
-        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+#        for i in self.items:
+#            if i.queue_pos == 1:
+#                chosen_item = i.name
+#        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
+#        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
+#        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
+#        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
 
 
 class Arrow():

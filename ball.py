@@ -270,8 +270,8 @@ class FairyTalePrincess():
         if name != "princess_garments":
             self.symbol     =  obj_images.image(ball_directory+icon)
             self.symbolpos  = position[0] + (self.image.get_width()/2) - (self.symbol.get_width()/2)
-        sql             = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-"+str(ball)+" FROM "+name_lower+")"
-        self.pos        = [ self.frame.position[0]+self.position[0],
+        sql                 = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-"+str(ball)+" FROM "+name_lower+")"
+        self.pos            = [ self.frame.position[0]+self.position[0],
                             self.frame.position[1]+self.position[1]]
         cursor = self.frame.ball.universe.db_cursor
         row    = cursor.execute(sql).fetchone()
