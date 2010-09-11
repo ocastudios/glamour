@@ -1,0 +1,15 @@
+Starting Game
+Initializing Pygame Display
+Setting Pygame Mixer Configuration
+Initializing Pygame Mixer
+Setting Reserved Channels
+Initializing Pygame
+Setting SDV_VIDEO_CENTERED to True
+Creating Splash Screen
+Creating and Setting Favicon
+Showing Splash Screen
+Preparing drapes
+Initiating menu music.
+Creating MenuScreen
+Creating main menu
+Escape pressed
