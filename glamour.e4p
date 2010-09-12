@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-4.6.dtd">
+<!-- eric4 project file for project glamour -->
+<!-- Saved: 2010-09-12, 11:03:36 -->
+<!-- Copyright (C) 2010 , ocastudios@ocastudios.com -->
+<Project version="4.6">
+  <Language>en_US</Language>
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <ProjectType>Qt4</ProjectType>
+  <Description></Description>
+  <Version>0.1</Version>
+  <Author></Author>
+  <Email>ocastudios@ocastudios.com</Email>
+  <Sources>
+    <Source>sql/__init__.py</Source>
+    <Source>sql/db.py</Source>
+    <Source>interface/glamour_stars.py</Source>
+    <Source>interface/__init__.py</Source>
+    <Source>interface/ball.py</Source>
+    <Source>interface/random_names.py</Source>
+    <Source>interface/game_clock.py</Source>
+    <Source>interface/menu.py</Source>
+    <Source>interface/buttons.py</Source>
+    <Source>interface/panel.py</Source>
+    <Source>interface/inside.py</Source>
+    <Source>interface/mousepointer.py</Source>
+    <Source>interface/widget.py</Source>
+    <Source>teste.py</Source>
+    <Source>utils/__init__.py</Source>
+    <Source>utils/save.py</Source>
+    <Source>utils/obj_images.py</Source>
+    <Source>interactive/enemy.py</Source>
+    <Source>interactive/__init__.py</Source>
+    <Source>interactive/messages.py</Source>
+    <Source>interactive/universe.py</Source>
+    <Source>interactive/fairy.py</Source>
+    <Source>interactive/camera.py</Source>
+    <Source>interactive/stage.py</Source>
+    <Source>interactive/events.py</Source>
+    <Source>interactive/princess.py</Source>
+    <Source>main.py</Source>
+    <Source>settings/__init__.py</Source>
+    <Source>settings/getscreen.py</Source>
+    <Source>settings/settings.py</Source>
+    <Source>control/__init__.py</Source>
+    <Source>control/control.py</Source>
+    <Source>scenario/floors.py</Source>
+    <Source>scenario/__init__.py</Source>
+    <Source>scenario/scenarios.py</Source>
+    <Source>scenario/drapes.py</Source>
+    <Source>scenario/definefloors.py</Source>
+    <Source>scenario/moving_scenario.py</Source>
+    <Source>scenario/skies.py</Source>
+    <Source>__init__.py</Source>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Resources>
+  </Resources>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+  </Others>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.ui" type="FORMS" />
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS" />
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES" />
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS" />
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS" />
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES" />
+  </FiletypeAssociations>
+</Project>

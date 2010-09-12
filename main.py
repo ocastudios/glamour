@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 print "Starting Game"
-from getscreen import *
+from settings.getscreen import *
 from pygame.locals import *
-import menu
-import universe
+import interface.menu
+import interactive.universe as universe
+import interface.menu as menu
 import control
 import settings
 import sqlite3
