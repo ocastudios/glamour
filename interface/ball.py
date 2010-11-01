@@ -2,6 +2,7 @@ import pygame
 import utils.obj_images as obj_images
 import random
 import interface.widget as widget
+import utils.save as save
 from settings import *
 
 import gettext
@@ -21,6 +22,7 @@ class Ball():
         universe.db.commit()
         self.texts      = []
         self.texts+= [StarBall()]
+        self.level      = level
         self.compute_glamour_points(level)
         self.background      = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
         for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
@@ -29,7 +31,7 @@ class Ball():
         self.princess   = princess
         self.Bar        = VerticalBar(self)
         self.Frame      = BallFrame(self)
-        self.level      = level
+
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
         self.buttons = [widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
         pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
@@ -123,10 +125,10 @@ class Ball():
         print "Princess Garments"+str(princess_garments["this_ball"])
 
         present_repetitions = sum([others_garments["this_ball"].count(i) for i in princess_garments["this_ball"]])
-        last_ball_garments = others_garments["last_ball"]+princess_garments["last_ball"]
-        past_repetitions = sum([last_ball_garments.count(i) for i in princess_garments["this_ball"]])
-        garments_history = princess_rows[:-1]+fairy_tale_rows
-        number_of_balls    = len(princess_rows)
+        last_ball_garments  = others_garments["last_ball"]+princess_garments["last_ball"]
+        past_repetitions    = sum([last_ball_garments.count(i) for i in princess_garments["this_ball"]])
+        garments_history    = princess_rows[:-1]+fairy_tale_rows
+        number_of_balls     = len(princess_rows)
         history_repetitions = sum([garments_history.count(i) for i in princess_garments["this_ball"]])
 
         print "The total repetition points for the garments in this ball is "+ str(present_repetitions)
@@ -164,6 +166,9 @@ class Ball():
                 sql = 'update stage_enemies set '+chosen_enemy+'=1 where stage = "'+stage+'"'
                 cursor.execute(sql)
         level.universe.db.commit()
+#        save.save_file(self.level)
+        thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
+        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
                 widget.GameText(_("You've"), p((1064,81)), self,font_size = 40),
@@ -339,6 +344,9 @@ class BigPrincess():
             if row[part] and row[part]!="None":
                 img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()
                 big_image.blit(img, (0,0))
+        dirt     = int(cursor.execute("SELECT * FROM save").fetchone()['dirt'])
+        if dirt >0:
+            big_image.blit(pygame.image.load(princess_directory+"dirt"+str(dirt)+"/big.png").convert_alpha(),(0,0))
         self.image = obj_images.scale_image(big_image,invert=True)
 
     def update_all(self):

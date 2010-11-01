@@ -57,12 +57,11 @@ class Stage():
         self.blitlist       = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
         self.foreground     = []
         self.white          = Foreground(self.universe)
-        self.black          = Foreground(self.universe, color=(0,0,0))
+        self.black          = Foreground(self.universe, color=(0,0,0), path= main_dir+'/data/images/interface/loading/back.png')
         self.down_bar       = Bar(self,'down')
         self.up_bar         = Bar(self,'up')
-        self.bar_height     = self.up_bar.tile_size[1]
-        self.down_bar_y     = self.universe.height
-        self.up_bar_y       = - self.bar_height
+        self.left_bar       = Bar(self,'left')
+        self.right_bar      = Bar(self,'right')
         self.bar_goal       = self.universe.height/3
         self.bar_speed      = 1
         self.game_mouse     = mousepointer.MousePointer(self)
@@ -84,6 +83,11 @@ class Stage():
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
         self.changing_stages= False
+        self.loading_icons  = (obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon_shadow/'),
+                               obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon/'),
+                               obj_images.OneSided(main_dir+'/data/images/interface/loading/carriage/')
+                               )
+        self.margin = obj_images.image(main_dir+'/data/images/shadow-B.png')
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -128,6 +132,10 @@ class Stage():
         act = self.act = self.universe.action
         dir = self.direction = self.universe.dir
         self.blit_all()
+        if self.black.alpha_value > 0:
+            self.changing_stages_darkenning(-1)
+        
+        
         if self.paused:
             self.update_pause()
             for i in self.pointer:
@@ -138,25 +146,6 @@ class Stage():
             for i in self.pointer:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
-
-
-#        elif self.changing_stages:
-#            self.universe.screen_surface.blit(self.black.image,(0,0))
-#            self.black.image.set_alpha(self.black.alpha_value)
-#            if self.black.status == 'closing':
-#                if self.black.alpha_value <= 240:
-#                    self.black.alpha_value += 10
-#                    self.black.status = 'oppening'
-#            if self.black.status == 'oppening':
-#                if self.black.alpha_value >= 10:
-#                    self.black.alpha_value -= 10
-#                else:
-#                    self.black.alpha_value = 0
-#                    self.black.status = 'done'
-
-
-
-
         else:
             if self.clock[1].count > 160:
                 if self.background[0] == self.ballroom['day']:
@@ -229,15 +218,15 @@ class Stage():
         for i in self.panel:
             if i:
                 self.universe.screen_surface.blit(i.image,i.pos)
-
-
         for i in self.enemies:
-            self.universe.screen_surface.fill((0,0,0,50), i.rect)
-            self.universe.screen_surface.blit(i.image,i.pos)
+            if i.image:
+                self.universe.screen_surface.fill((0,0,0,50), i.rect)
+                self.universe.screen_surface.blit(i.image,i.pos)
 
         if self.fairy:
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
+        self.universe.screen_surface.blit(self.margin,(0,0))
         for i in self.pointer:
             self.universe.screen_surface.blit(i.image,i.pos)
 
@@ -257,7 +246,7 @@ class Stage():
                 self.princesses[0].dirt = 0
                 self.universe.db_cursor.execute("UPDATE save SET dirt = "+str(self.princesses[0].dirt)+" WHERE name = '"+self.princesses[0].name+"'")
                 print "You look lovely all cleaned up!"
-#                self.princesses[1] = None
+                self.princesses[1] = None
                 self.inside.status = 'bath_done'
             elif self.inside.status == 'bath_done':
                 if self.white.alpha_value > 0:
@@ -280,11 +269,11 @@ class Stage():
                 self.princesses[0].inside = False
         else: #Choosing Clothes Castles
             self.universe.screen_surface.blit(self.white.image,(0,0))
-            self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
-            self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
+            self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar.pos))
+            self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar.pos))
             if self.inside.status == 'inside':
-                self.up_bar_y = -self.bar_height
-                self.down_bar_y = self.universe.height
+                self.up_bar.pos = -self.up_bar.size[1]
+                self.down_bar.pos = self.universe.height
                 self.white.alpha_value = 0
                 self.inside.status = 'loading'
             elif self.inside.status == 'loading':
@@ -292,10 +281,10 @@ class Stage():
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.white.alpha_value < 200:
                     self.white.alpha_value += 10
-                if self.down_bar_y > 2*self.bar_goal:
-                    self.down_bar_y -= self.bar_speed
-                if self.up_bar_y + self.bar_height< self.bar_goal:
-                    self.up_bar_y += self.bar_speed
+                if self.down_bar.pos > 2*self.bar_goal:
+                    self.down_bar.pos -= self.bar_speed
+                if self.up_bar.pos + self.up_bar.size[1]< self.bar_goal:
+                    self.up_bar.pos += self.bar_speed
                 if self.bar_speed < 20:
                     self.bar_speed += self.bar_speed
                 if self.white.alpha_value > 150:
@@ -329,8 +318,8 @@ class Stage():
             elif self.inside.status == 'done':
                 pygame.mixer.music.fadeout(1500)
                 self.princesses[0].update_all()
-                self.down_bar_y += self.bar_speed
-                self.up_bar_y -= self.bar_speed
+                self.down_bar.pos += self.bar_speed
+                self.up_bar.pos -= self.bar_speed
                 if self.bar_speed < 20:
                     self.bar_speed += self.bar_speed
                 if self.white.alpha_value > 0:
@@ -339,7 +328,7 @@ class Stage():
                 else:
                     self.white.alpha_value = 0
                 self.white.image.set_alpha(self.white.alpha_value)
-                if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+                if self.down_bar.pos > self.universe.height and self.up_bar.pos < -self.up_bar.size[1] and self.white.alpha_value == 0:
                     pygame.mixer.music.load(self.music)
                     pygame.mixer.music.queue(self.music)
                     pygame.mixer.music.queue(self.music)
@@ -365,22 +354,22 @@ class Stage():
 
     def choice_screen(self, screen,condition):
         self.universe.screen_surface.blit(self.white.image,(0,0))
-        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar_y))
-        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar_y))
+        self.universe.screen_surface.blit(self.down_bar.image,(0,self.down_bar.pos))
+        self.universe.screen_surface.blit(self.up_bar.image,(0,self.up_bar.pos))
         if screen.status == 'inside':
             pygame.mixer.music.fadeout(1500)
-            self.up_bar_y = -self.bar_height
-            self.down_bar_y = self.universe.height
+            self.up_bar.pos = -self.up_bar.size[1]
+            self.down_bar.pos = self.universe.height
             self.white.alpha_value = 0
             screen.status = 'loading'
         elif screen.status == 'loading':
             self.white.image.set_alpha(self.white.alpha_value)
             if self.white.alpha_value < 200:
                 self.white.alpha_value += 10
-            if self.down_bar_y > 2*self.bar_goal:
-                self.down_bar_y -= self.bar_speed
-            if self.up_bar_y + self.bar_height< self.bar_goal:
-                self.up_bar_y += self.bar_speed
+            if self.down_bar.pos > 2*self.bar_goal:
+                self.down_bar.pos -= self.bar_speed
+            if self.up_bar.pos + self.up_bar.size[1]< self.bar_goal:
+                self.up_bar.pos += self.bar_speed
             if self.bar_speed < 20:
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 150:
@@ -391,8 +380,8 @@ class Stage():
             pass
         elif screen.status == 'done':
             pygame.mixer.music.fadeout(1500)
-            self.down_bar_y += self.bar_speed
-            self.up_bar_y -= self.bar_speed
+            self.down_bar.pos += self.bar_speed
+            self.up_bar.pos -= self.bar_speed
             if self.bar_speed < 20:
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
@@ -401,7 +390,7 @@ class Stage():
             else:
                 self.white.alpha_value = 0
             self.white.image.set_alpha(self.white.alpha_value)
-            if self.down_bar_y > self.universe.height and self.up_bar_y < -self.bar_height and self.white.alpha_value == 0:
+            if self.down_bar.pos > self.universe.height and self.up_bar.pos < -self.up_bar.size[1] and self.white.alpha_value == 0:
                 pygame.mixer.music.load(self.music)
                 pygame.mixer.music.queue(self.music)
                 pygame.mixer.music.queue(self.music)
@@ -481,12 +470,67 @@ class Stage():
                     self.enemies.append(enemy.FootBoy(scale*(random.randint(0,9000)),self))
                 else:
                     exec('self.enemies.append(enemy.'+name+'(scale*(random.randint(1370,8190)),self))')
+            self.loading()
+
+    def loading(self):
+#        self.black.image.set_alpha(self.black.alpha_value)
+        if self.black.alpha_value > 100:
+            self.universe.screen_surface.blit(self.black.image,(0,0))
+            shadow = self.loading_icons[0]
+            world = self.loading_icons[1]
+            carriage = self.loading_icons[2]
+            world_pos =   ((self.universe.width/2)-(world.size[0]/2), (self.universe.height/2)-(world.size[1]/2))
+            carriage_pos = (world_pos[0]+(182*scale),world_pos[1]+(75*scale))
+            for i in self.loading_icons:
+                i.update_number()
+            self.universe.screen_surface.blit(shadow.list[world.number],(world_pos[0],(world_pos[1]+60*scale)) )
+            self.universe.screen_surface.blit(world.list[world.number],world_pos)
+            self.universe.screen_surface.blit(carriage.list[carriage.number],carriage_pos)
+            self.universe.screen_surface.blit(self.left_bar.image,(self.left_bar.pos,0))
+            self.universe.screen_surface.blit(self.right_bar.image,(self.right_bar.pos,0))
+            pygame.display.flip()
+
+    def bring_side_bars(self,darkenning):
+        self.universe.screen_surface.blit(self.black.image,(0,0))
+        self.universe.screen_surface.blit(self.left_bar.image,(self.left_bar.pos,0))
+        self.universe.screen_surface.blit(self.right_bar.image,(self.right_bar.pos,0))
+        if self.left_bar.pos < 0-(self.left_bar.size[0]/5):
+            self.left_bar.pos += self.bar_speed
+        else:
+            self.left_bar.pos = 0-(self.left_bar.size[0]/5)
+        if self.right_bar.pos > self.universe.width-(self.right_bar.size[0]-(self.right_bar.size[0]/5) ):
+            self.right_bar.pos -= self.bar_speed
+        else:
+            self.right_bar.pos = self.universe.width-(self.right_bar.size[0]-(self.right_bar.size[0]/5) )
+        if self.bar_speed < 20:
+            self.bar_speed += self.bar_speed
+        self.black.alpha_value += (5*darkenning)
+        self.black.image.set_alpha(self.black.alpha_value)
+        self.universe.clock.tick(self.universe.frames_per_second)
+        pygame.display.flip()
+
+    def changing_stages_darkenning(self,darkenning=1):
+        self.left_bar.pos = -self.left_bar.size[0]
+        self.right_bar.pos = self.universe.width
+        self.universe.screen_surface.blit(self.black.image,(0,0))
+        if darkenning > 0:
+            pygame.display.flip()
+            while self.black.alpha_value<255:
+                self.bring_side_bars(darkenning)
+        if self.black.alpha_value > 255:
+            self.black.alpha_value = 255
+        elif self.black.alpha_value < 0:
+            self.black.alpha_value = 0
+        self.black.image.set_alpha(self.black.alpha_value)
+        self.black.alpha_value += (10*darkenning)
 
     def create_scenario(self,street):
+        self.loading()
         self.viking_ship = None
         db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
+        self.loading()
         self.scenario_row = cursor.execute("SELECT * FROM scenario ORDER BY id ASC").fetchall()
         self.scenarios_prep  = []
         for i in self.scenario_row:
@@ -500,6 +544,7 @@ class Stage():
                     img = scenarios.Scenario(scale*i['xpos'],i['directory'],self, height= int(i['height']*scale))
                 else:
                     img = scenarios.Scenario(scale*i['xpos'],i['directory'],self)
+            self.loading()
             self.scenarios_prep.append(img)
         self.scenarios = BigScenario(self),
         self.lights = []
@@ -510,11 +555,13 @@ class Stage():
                     self.lights.append(i.lights)
             except:
                 pass
+            self.loading()
         cursor.close()
         self.sky             = [skies.Sky(self)]
         self.clouds          =   [scenarios.Cloud(self) for cl in range(3)]
+        self.loading()
         [self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
-
+        self.loading()
 
     def create_front_scenario(self,street):
         db = sqlite3.connect(main_dir+'/data/'+street+'.db')
@@ -532,6 +579,7 @@ class Stage():
                 self.scenarios_front.append(scenarios.Flower(scale*i['xpos'],i['directory'],self,i['frames']))
             elif i['type'] == 'frontscenario':
                 self.scenarios_front.append(scenarios.Scenario(scale*i['xpos'],i['directory'],self,i['ind']))
+            self.loading()
         cursor.close()
 
     def set_floor_heights(self,height,width,street):
@@ -543,11 +591,14 @@ class Stage():
             for r in range(int(row['start']*scale),int(row['end']*scale)):
                 self.floor_heights[r]=row['value']*scale
         cursor.close()
+        self.loading()
 
     def stage_music(self,intro, music):
         pygame.mixer.music.fadeout(4000)
+        self.loading()
         self.music = main_dir+"/data/sounds/music/"+music
         pygame.mixer.music.load(main_dir+"/data/sounds/music/"+intro)
+        self.loading()
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.queue(self.music)
         pygame.mixer.music.play()
@@ -555,21 +606,32 @@ class Stage():
 
 
     def create_stage(self,name,goalpos):
+        self.changing_stages_darkenning()
+        self.loading()
         self.name = name
         db = sqlite3.connect(main_dir+'/data/'+name+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
+        self.loading()
         self.princesses = self.princesses or [princess.Princess(self),None]
         self.animated_scenarios = []
+        self.loading()
         if goalpos:
             self.princesses[0].center_distance = goalpos
             self.universe.center_x = -goalpos+(self.universe.width/2)
         self.gates = []
         self.directory = self.maindir+name+'_st/'
         self.background = [self.ballroom['day']]
+        self.loading()
         self.moving_scenario = [moving_scenario.Billboard(self)]
+        self.loading()
         self.animated_scenarios =[]
         self.exit_sign  = self.exit_sign or scenarios.ExitSign(self)
+        self.loading()
+        cursor.close()
+        self.loading()
+        cursor.close()
+        self.loading()
         cursor.close()
         self.create_scenario(name)
         self.create_front_scenario(name)
@@ -582,32 +644,36 @@ class Stage():
         gates = (   [(1063,453),'bathhouse/door/',self.bathhouse_castle(),True],
                     [(5206,500),'home/door/', inside.Home(self), False], 
                     [(9305,503),'magic_beauty_salon/door/',self.hair_castle(),False])
+        self.loading()
         doors = (   [bathhousegate[0], self.ShoesSt,shoegate[2]],
                     [bathhousegate[1], self.AccessorySt, accessorygate[0]])
-
+        self.loading()
         self.gates = [  scenarios.BuildingDoor(p(i[0]),self.directory+i[1],self,i[2],bath=i[3]) for i in gates]
+        self.loading()
         self.gates.extend([scenarios.Gate(i[0], self.maindir+'omni/gate/',self,i[1], goalpos = i[2]) for i in doors])
+        self.loading()
         self.select_enemies(('schnauzer', 'schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
+        self.loading()
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
         self.stage_music("bathhouse_day_intro.ogg","bathhouse_day.ogg")
-
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False
 
     def DressSt(self,goalpos = None):
         self.create_stage('dress', goalpos)
-
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self)]
+        self.loading()
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor(p((9194,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
                       scenarios.Gate(dressgate[0], main_dir+'/data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
                       scenarios.Gate(dressgate[1], main_dir+'/data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
                       scenarios.Gate(dressgate[2], main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
-
+        self.loading()
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
+        self.loading()
         self.stage_music("dress_day_intro.ogg","dress_day_intro.ogg")
         self.set_floor_heights(185,9400,'dress')
 
@@ -616,6 +682,7 @@ class Stage():
 
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'bird'),'AccessorySt')
         self.viking_ship = enemy.VikingShip(5000*scale,self)
+        self.loading()
         self.gates.extend([
             scenarios.BuildingDoor(p((330,428)),self.directory+'accessory_tower/door/',self,self.accessory_castle()),
             scenarios.BuildingDoor(p((8809,425)),self.directory+'castle/door/',self,inside.Princess_Home(self, Sleeping_Beauty)),
@@ -623,11 +690,17 @@ class Stage():
             scenarios.Gate(accessorygate[1], main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
             scenarios.Gate(accessorygate[2], main_dir+'/data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
                         ])
+        self.loading()
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
+        self.loading()
         self.floor_image.extend([floors.Water(wat,self.directory+'water/tile/',self) for wat in range(11)])
+        self.loading()
         self.floor_image.extend([self.viking_ship])
+        self.loading()
         self.floor_image.extend([floors.Water2(wat,self.directory+'water/tile/',self) for wat in range(11)])
+        self.loading()
         [floors.Drain(self.directory+'floor/'+i[0]+'_bank_front/',i[1],self) for i in [('left',2),('right',3),('left',20),('right',21)]]
+        self.loading()
         self.stage_music("accessory_day.ogg","accessory_day.ogg")
         self.set_floor_heights(194,9400,'accessory')
 
@@ -641,23 +714,30 @@ class Stage():
                              (1, self.AccessorySt, accessorygate[1]),
                              (2, self.ShoesSt ,shoegate[0]))
                             ])
+        self.loading()
         self.gates.extend([scenarios.BuildingDoor(p((130,225)),self.directory+'make-up_castle/door/',self,self.makeup_castle()),
                      scenarios.BuildingDoor(p((9082,301)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
+        self.loading()
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
 #        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
+        self.loading()
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),
                                     enemy.Monkey(3500*scale,self),
                                     enemy.Elephant(3600*scale,self),
                                     enemy.Penguin(3550*scale,self),
                                     enemy.Giraffe(3800*scale,self),
                                     scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self)]
+        self.loading()
         self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
+        self.loading()
         self.set_floor_heights(192,9400,'makeup')
+        self.loading()
         self.stage_music("makeup_day_intro.ogg","makeup_day.ogg")
 
     def ShoesSt(self,goalpos=None):
         self.create_stage('shoes',goalpos)
         self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
+        self.loading()
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9440,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
@@ -665,15 +745,19 @@ class Stage():
         scenarios.Gate(shoegate[1],main_dir+'/data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
         scenarios.Gate(shoegate[2],main_dir+'/data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
+        self.loading()
         self.stage_music("shoes_day_intro.ogg","shoes_day.ogg")
         self.set_floor_heights(192,9601,'shoes')
-
+        self.loading()
 
 class Foreground():
-    def __init__(self,universe, color=(255,255,255)):
+    def __init__(self,universe, color=(255,255,255), path=None):
         self.pos = 0,0
-        self.image = pygame.Surface((universe.width,universe.height)).convert()
-        self.image.fill(color)
+        if path:
+            self.image = pygame.image.load(path).convert()
+        else:
+            self.image = pygame.Surface((universe.width,universe.height)).convert()
+            self.image.fill(color)
         self.alpha_value = 0
         self.image.set_alpha(self.alpha_value)
         self.status = None
@@ -694,17 +778,31 @@ class Foreground():
 
 class Bar():
     def __init__(self,level, up_or_down):
-        tile = pygame.image.load(main_dir+'/data/images/interface/omni/small_bar/0.png').convert_alpha()
-        if up_or_down == 'up':
-            tile = pygame.transform.flip(tile,0,1)
-        screen_size = 1440,900 #level.universe.width, level.universe.height
-        tile_size   = tile.get_size()
-        image_prep  = pygame.Surface((screen_size[0],tile_size[1]),pygame.SRCALPHA).convert_alpha()
-        bar_positions = range(0,(screen_size[0]/tile_size[0]+1))
-        [image_prep.blit(tile,(i*tile_size[0],0)) for i in bar_positions]
-        self.tile   = obj_images.scale_image(tile)
-        self.tile_size = self.tile.get_size()
-        self.image  = obj_images.scale_image(image_prep)
+        if up_or_down in ('left','right'):
+            if up_or_down == 'left':
+                self.image = obj_images.image(main_dir+'/data/images/interface/omni/left_bar/0.png')
+                self.size = self.image.get_size()
+                self.pos = -self.size[0]
+            else:
+                self.image = obj_images.image(main_dir+'/data/images/interface/omni/left_bar/0.png',invert=True)
+                self.size = self.image.get_size()
+                self.pos = level.universe.width
+        else:
+            tile = pygame.image.load(main_dir+'/data/images/interface/omni/small_bar/0.png').convert_alpha()
+            if up_or_down == 'up':
+                tile = pygame.transform.flip(tile,0,1)
+                self.pos = -tile.get_height()
+            else:
+                self.pos = level.universe.height
+            screen_size = 1440,900 #level.universe.width, level.universe.height
+            tile_size   = tile.get_size()
+            image_prep  = pygame.Surface((screen_size[0],tile_size[1]),pygame.SRCALPHA).convert_alpha()
+            bar_positions = range(0,(screen_size[0]/tile_size[0]+1))
+            [image_prep.blit(tile,(i*tile_size[0],0)) for i in bar_positions]
+            self.tile   = obj_images.scale_image(tile)
+            self.tile_size = self.tile.get_size()
+            self.image  = obj_images.scale_image(image_prep)
+            self.size = self.image.get_size()
 
 
 class BigScenario():

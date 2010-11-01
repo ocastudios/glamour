@@ -10,7 +10,7 @@ import control
 import settings
 import sqlite3
 
-clock = pygame.time.Clock()
+
 universe = universe.Universe()
 del splash_surface, splash, os_screen
 gamemenu = menu.MenuScreen(universe)
@@ -19,13 +19,13 @@ while True:
     pygame.mouse.set_visible(0)
     while universe.LEVEL != 'start':
         control.main_menu(universe)
-        clock.tick(40)
+        universe.clock.tick(40)
         gamemenu.update_all()
         pygame.display.flip()
     universe.define_level()
     while universe.run_level:
         control.stage(universe)
-        clock.tick(universe.frames_per_second)
+        universe.clock.tick(universe.frames_per_second)
         universe.level.update_all()
         pygame.display.flip()
     universe.screen_surface.fill([0,0,0])

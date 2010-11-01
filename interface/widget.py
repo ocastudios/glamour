@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame
 import random
 import interface.random_names as random_names
@@ -9,7 +10,7 @@ from settings import *
 class Button():
     def __init__(self,dirtxt,position, level,function,parameter = None,invert = False,fonte='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
         """Creates a clickable button
-        
+
         dirtxt: if image button than directory, if text button, than text.
         function: a button function is necessary.
         parameter: a string or tuple with the needed parameters for the button function.
@@ -135,7 +136,7 @@ class GameText():
             self.image = self.fontA.render(self.text,1,self.color)
 
     def adjusting_fonts(self):
-        print "Adjusting text: "+str(self.text)
+#        print "Adjusting text: "+u(str(self.text))
         fix_x       = int(0*scale)
         fix_y       = int(0*scale)
         font_object = self.fontA

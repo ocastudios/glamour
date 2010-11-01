@@ -53,6 +53,6 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     cursor.execute("UPDATE save SET points   = '"+str(princess.points)+"' WHERE name = '"+str(princess.name)+"'")
     universe.db.commit()
     print "Save Database saved "
-    if Ball:
-        backupfile.close()
+#    if Ball:
+#        backupfile.close()
     return main_dir+'/data/saves/'+princess.name+'/'+princess.name+'.glamour'
