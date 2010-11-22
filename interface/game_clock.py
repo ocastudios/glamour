@@ -24,6 +24,7 @@ class ClockPointer():
         self.pos    = (self.level.universe.width-imagesize[0],0)
         self.level.universe.frames_per_second
         self.pointerpos = 0
+        
 
     def update_all(self):
         if not self.level.paused:

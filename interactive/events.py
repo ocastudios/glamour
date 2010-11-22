@@ -20,31 +20,31 @@ def choose_event(level,starting_game=False):
                 level.universe.db_cursor.execute('UPDATE messages SET count = 1 WHERE type = "intro";')
                 level.universe.db.commit()
         elif level.name == "bathhouse":
-            if 4480*scale < princess_pos < 5560*scale:
+            if 4700*scale < princess_pos < 5000*scale:
                 create_message(level,'maddelines house')
-            elif princess_pos > 8840*scale:
+            elif 8700*scale < princess_pos < 9000*scale:
                 create_message(level,'magic beauty parlor')
-            elif princess_pos < 1590*scale:
+            elif 850*scale <princess_pos < 1050*scale:
                 create_message(level,"bathhouse")
         elif level.name == "accessory":
             if princess_pos < 360:
                 create_message(level,"accessory hall")
-            elif 4230 < princess_pos:
+            elif 8300 < princess_pos:
                 create_message(level,"sleeping beautys palace")
         elif level.name == "dress":
             if princess_pos < 300:
                 create_message(level,"dress tower")
-            elif 4440 < princess_pos:
+            elif 8900 < princess_pos:
                 create_message(level,"snow-whites castle")
         elif level.name == "makeup":
             if princess_pos <300:
                 create_message(level,"make-up tower")
-            elif 4430 < princess_pos:
+            elif 8900 < princess_pos:
                 create_message(level,"cinderellas castle")
         elif level.name == "shoes":
             if princess_pos < 300:
                 create_message(level,"shoes shop")
-            if princess_pos > 4500:
+            if princess_pos > 8900:
                 create_message(level,"rapunzels villa")
 
 

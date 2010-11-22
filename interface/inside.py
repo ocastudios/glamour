@@ -22,10 +22,10 @@ class Inside():
         if item_type != 'shower':
             counter = itertools.count()
             self.items = [Item(self, i,counter.next()) for i in item_list]
-            self.arrow = Arrow(self, pos = [-200,500], degree = 90)
+            self.chosen_glow = Chosen_Glow(self, pos = [-200,500], degree = 90)
             self.buttons    = (
                  widget.Button(dir+'button_ok/',(410,530),self.level,self.all_set),
-                 self.arrow
+                 self.chosen_glow
                                 )
         self.chosen_item = None
         self.big_princess = BigPrincess(self)
@@ -60,11 +60,11 @@ class Item():
         self.room   = room
         self.type   = room.type_of_items
         if self.type != 'shower':
-            self.image  = obj_images.scale_image(pygame.image.load(main_dir+'/data/images/princess/'+self.type+'_'+directory+'/stay/0.png').convert_alpha())
+            self.image  = obj_images.scale_image(pygame.image.load(main_dir+'/data/images/princess/'+self.type+'_'+directory+'/big_icons/0.png').convert_alpha())
             self.size   = self.image.get_size()
-            self.pos    = [400*scale+(index*(self.size[0]/2)),(self.level.universe.height/2)-(self.size[1]/2)]
+            self.pos    = [450*scale+(index*(self.size[0])),(self.level.universe.height/2)-(self.size[1]/2)]
             self.speed  = 1
-        self.rect       = pygame.Rect((self.pos[0]+(self.size[0]/4),self.pos[1]),(self.size[0]-(self.size[0]/4),self.size[1]))
+        self.rect       = pygame.Rect((self.pos),(self.size))
         self.active     = False
 
     def update_all(self):
@@ -74,15 +74,19 @@ class Item():
         if self.rect.colliderect(self.level.game_mouse.rect):
             self.active = True
             if self.level.universe.click:
-                print "updating "+self.type+" "+self.name
                 self.room.chosen_item = self
                 self.room.big_princess.images[self.room.big_princess.image_dict[self.type]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"/big.png", invert = True)
-                self.room.arrow.pos[0] = (self.pos[0]+(100*scale))-(self.room.arrow.image.get_width()/2)
+                self.room.chosen_glow.pos = self.pos[0]-(40*scale),self.pos[1]-(40*scale)
                 if self.type == "hair":
                     if self.name in ("black","brown","rapunzel", "rastafari","red"):
                         self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = obj_images.image(main_dir+'/data/images/princess/'+self.type+'_'+self.name+"_back/big.png", invert = True)
                     else:
                         self.room.big_princess.images[self.room.big_princess.image_dict["hair_back"]] = None
+                elif self.type == "dress":
+                    if self.name in ("yellow","red"):
+                        self.room.big_princess.images[self.room.big_princess.image_dict["armdress"]] = obj_images.image(main_dir+'/data/images/princess/sleeve_'+self.name+'/big.png',invert = True)
+                    else:
+                        self.room.big_princess.images[self.room.big_princess.image_dict["armdress"]] = None
 
 class BigPrincess():
     def __init__(self, room):
@@ -169,7 +173,7 @@ class Home():
         self.items = []
         self.buttons = []
         self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
-                           widget.Button('Go to the Ball',(1240,550),self.level, self.all_set),
+                           widget.Button('Go to the Ball',(1240,550),self.level, self.to_the_ball),
                            widget.GameText("It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different.", p([720,750]), level, box=p([600,300])),
                            widget.GameText("Last Ball",         p([600,350]), level, font_size = 25),
                            widget.GameText("Great Past Ball",   p([800,350]), level, font_size = 25),
@@ -205,21 +209,20 @@ class Home():
 
     def all_set(self):
         self.status = 'done'
-#        for i in self.items:
-#            if i.queue_pos == 1:
-#                chosen_item = i.name
-#        exec('file = save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+chosen_item+'")')
-#        self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
-#        thumbnail = pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100))
-#        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+
+    def to_the_ball(self):
+        self.level.clock[1].count = 175
+        self.level.clock[1].time = 'night'
+        self.status = 'done'
 
 
-class Arrow():
+class Chosen_Glow():
     def __init__(self,room, pos = [0,0], degree = 0):
-        if not degree:
-            self.image = obj_images.image(main_dir+'/data/images/interface/title_screen/arrow_right/0.png')
-        else:
-            self.image = pygame.transform.rotate(obj_images.image(main_dir+'/data/images/interface/title_screen/arrow_right/0.png'),degree)
+        self.room = room
+        self.images =  obj_images.OneSided(main_dir+'/data/images/interface/select/')
+        self.image = self.images.list[0]
         self.pos   = p(pos)
+
     def update_all(self):
+        self.image = self.images.list[self.images.itnumber.next()]
         pass

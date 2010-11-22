@@ -34,7 +34,7 @@ class Universe():
         self.level.BathhouseSt()
 
     def movement(self,dir):
-        max_speed = 10*scale
+        max_speed = 14*scale
         if self.speed > max_speed:
             self.speed = max_speed
         elif self.speed< -max_speed:

@@ -45,7 +45,7 @@ Princess shoes are moving weirdly when she jumps.
         self.dirt_cloud     = obj_images.TwoSided('data/images/effects/dirt/')
         self.gforce         = 0
         self.g_acceleration = 3*scale
-        self.speed          = 10*scale
+        self.speed          = 14*scale
         self.rect           = Rect(self.pos,self.size)
         self.move           = False
         self.direction      = 'left'

@@ -40,7 +40,7 @@ class Enemy():
         if self.move:
             self.center_distance += (self.speed*towards[self.direction])
             obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
-            if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
+            if obstacle  <= self.floor-(cross*scale) or obstacle >= self.floor+(cross*scale):
                 self.center_distance -= (self.speed*towards[self.direction])
 
 
@@ -54,7 +54,7 @@ class Schnauzer(Enemy):
         self.image = self.walk.left[0]
         self.size = self.image.get_size()#(self.image.get_width()/2, self.image.get_height())
         self.level = level
-        self.speed = 12*scale
+        self.speed = 16*scale
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -79,9 +79,6 @@ class Schnauzer(Enemy):
             self.barfing = 0
 
     def set_pos(self,cross = 30):
-
-#        self.rect = Rect((self.pos[0]+int(self.size[0]/2.8),self.pos[1]),(self.size[0]-int(self.size[0]/2.8),self.size[1]))
-
         towards = {'right':1,'left':-1}
         if self.move:
             self.center_distance += (self.speed*towards[self.direction])
@@ -862,7 +859,7 @@ class Bird():
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
 
 
-    def update_all(self):
+    def update_all(self, cross = 20):
         floor = self.level.universe.floor - self.level.what_is_my_height(self)
         if self.body    == self.walking:
             speed = 5*scale
@@ -884,6 +881,18 @@ class Bird():
             direction = random.choice(['left','right'])
             self.direction = direction
             self.counter =0
+
+        towards = {'right':1,'left':-1}
+        obstacle = self.level.universe.floor - self.level.what_is_my_height(self,self.center_distance+(self.size[0]*towards[self.direction]))
+        if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
+            self.center_distance -= (self.speed*towards[self.direction])
+            if self.direction == 'right':
+                self.direction = 'left'
+            elif self.direction == 'left':
+                self.direction = 'right'
+            
+
+
 
         if self.direction == 'left':
             self.speed = (speed*scale)*-1

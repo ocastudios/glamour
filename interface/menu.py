@@ -153,7 +153,6 @@ class MenuScreen():
 
         if self.menu.credits:
             surface.blit(self.menu.credits.background,self.menu.credits.pos)
-#            [surface.blit(i.image,i.pos) for i in self.menu.credits.images if i]
             self.menu.credits.update_all()
 
     def close_bar(self,surface, call_bar = 'right'):
@@ -214,7 +213,7 @@ class Menu():
             self.position    = [450*scale,1000*scale]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.play_credits))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.texts =   [ widget.GameText(_('select one'),p((65,250)),self, rotate=90)]
+        self.texts =   [ widget.GameText(_('select one'),p((65,250)),self, rotate=90,color = (58,56,0))]
         self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
                          widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
@@ -245,7 +244,7 @@ class Menu():
         self.reset_menu(
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
-            texts = [widget.GameText(_(i[0]),p(i[1]),self) for i in txt],
+            texts = [widget.GameText(_(i[0]),p(i[1]),self,color = (58,56,0)) for i in txt],
             buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                     (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
                      ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
@@ -258,7 +257,7 @@ class Menu():
         self.print_princess = True
         self.reset_menu(
                 action  = 'open',
-                texts   =  [widget.GameText(_(i[0]),p(i[1]),self) for i in txt],
+                texts   =  [widget.GameText(_(i[0]),p(i[1]),self,color = (58,56,0)) for i in txt],
                 buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                         (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
                          ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
@@ -284,15 +283,15 @@ class Menu():
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
                         )]
         if name_taken:
-            txts = [    widget.GameText(_('Sorry, This name is taken.'),p((-100,-150)),self),
-                        widget.GameText(_('Please, choose another one'),p((-100,-50)),self),
-                        widget.GameText(_('_ _ _ _ _ _ _'),p((230,130)),self),
+            txts = [    widget.GameText(_('Sorry, This name is taken.'),p((-100,-150)),self,color = (58,56,0)),
+                        widget.GameText(_('Please, choose another one'),p((-100,-50)),self,color = (58,56,0)),
+                        widget.GameText(_('_ _ _ _ _ _ _'),p((230,130)),self,color = (58,56,0)),
                         self.princess.name
                     ]
-            buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game, parameter=[False,True]) ])
+            buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game,color = (58,56,0), parameter=[False,True]) ])
         else:
-            txts =[     widget.GameText(_('... and your name.'),p((-200,200)),self),
-                        widget.GameText('_ _ _ _ _ _ _', p((230,130)),self),
+            txts =[     widget.GameText(_('... and your name.'),p((-200,200)),self,color = (58,56,0)),
+                        widget.GameText('_ _ _ _ _ _ _', p((230,130)),self,color = (58,56,0)),
                         self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
 
@@ -479,17 +478,17 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.position = [100*scale,-600*scale]
-        self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40)]
-        self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self),
-                         widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self)]
+        self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
+        self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self,color = (58,56,0)),
+                         widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self,color = (58,56,0))]
         ypos = 0
         xpos = 0
         self.buttons = []
         for i in saved_games:
-            self.buttons.extend([widget.Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game, parameter=([i['file']]))])
+            self.buttons.extend([widget.Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
             self.options.extend([
-                                 widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30, parameter=([i['file']])),
-                                 widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30, parameter=[i['name']])
+                                 widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
+                                 widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
             ypos+=self.buttons[0].size[1]
             if ypos > 250:
@@ -507,23 +506,9 @@ class Menu():
         self.speed      = 0
         self.position = [450*scale,-600*scale]
         self.options    = []
-        self.buttons= [widget.Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame),
-                       widget.Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True)]
+        self.buttons= [widget.Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame,color = (58,56,0)),
+                       widget.Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True,color = (58,56,0))]
         self.texts =   self.story.texts
-
-#    def watching_credits(self):
-#        print "Let's watch the credits"
-#        title_dir = main_dir+'/data/images/interface/title_screen/'
-#        self.screen.bar = None
-#        self.credits = Credits(self)
-#        print "Loading credits background"
-##        self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
-#        self.action     = 'open'
-#        self.speed      = 0
-#        self.position = [450*scale,-600*scale]
-#        self.options    = []
-#        self.buttons= []
-##        self.texts =   []
 
     def remove_save_directory(self, save_name):
         for root, dirs, files in os.walk(main_dir+'/data/saves/'+save_name+'/', topdown=False):
@@ -568,7 +553,7 @@ class MenuPrincess():
         else:
             self.images = obj_images.image(thumbnail)
         self.goal_pos = (250*scale,250*scale)
-        self.name = widget.GameText('maddeline',(170*scale,120*scale),self.menu,var = True)
+        self.name = widget.GameText('maddeline',(170*scale,120*scale),self.menu,var = True,color = (58,56,0))
         self.pos = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
                            self.menu.position[1]+self.goal_pos[1]-(self.size[1]/2)]
 
@@ -592,8 +577,8 @@ class Story_Frame():
         self.available_sounds   = [pygame.mixer.Sound('data/sounds/story/frames/'+i) for i in sound_frames]
         self.flip_sound = pygame.mixer.Sound('data/sounds/story/sflip.ogg')
         self.frame_number   = 0
-        self.texts =    [widget.GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25),
-                         widget.GameText(_('forward and backward'),(220,200),self.menu,font_size = 25)]
+        self.texts =    [widget.GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25,color = (58,56,0)),
+                         widget.GameText(_('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
 
     def update_all(self):
         self.images = [self.available_images[i] for i in range(0,self.frame_number)]

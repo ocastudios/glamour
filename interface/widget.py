@@ -229,8 +229,19 @@ class Key(GameText):
                         self.frame.princess.name.text = self.frame.princess.name.text[:-1]
                     elif self.key == 'Cleanup':
                         self.frame.princess.name.text = ""
+                        
+                        
+#Alteracao nao testada
                     elif self.key == 'Random':
                         self.frame.princess.name.text = random.choice(random_names.names)
+                        saved_games = os.listdir(main_dir+'/data/saves')
+                        counting = 0
+                        while self.frame.princess.name.text in saved_games:
+                            print "Oh, oh, this name is taken. I'd better choose another one for u"
+                            counting += 1
+                            self.frame.princess.name.text = random.choice(random_names.names)
+                            if counting >500:
+                                break
             else:
                 self.hoover = False
 

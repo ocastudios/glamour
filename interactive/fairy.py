@@ -99,12 +99,6 @@ class Fairy():
             self.pos[0] += speed
 
 
-#        if self.pos[1]>self.goalpos[1]:
-#            self.pos[1] -= speed
-#        elif self.pos[1]<self.goalpos[1]:
-#            self.pos[1] += speed
-
-
 class Message():
     def __init__(self, level, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
         self.message    = message
