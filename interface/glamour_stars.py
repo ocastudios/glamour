@@ -8,16 +8,16 @@ def p(positions):
     return [int(i*scale) for i in positions ]
     
 class Glamour_Stars():
-    rotating = None
     def __init__(self,level):
         self.level = level
-        self.rotating = obj_images.OneSided(main_dir+'/data/images/interface/star/star0/')
-        self.image = self.rotating.list[0]
+        self.image_lists = [obj_images.OneSided(main_dir+'/data/images/interface/star/star'+i+'/') for i in ('0','1','2','3')]
+        self.image = self.image_lists[0].list[0]
         self.size = self.image.get_size()
         self.pos = p((195,45))
 
     def update_all(self):
-        self.image = self.rotating.list[self.rotating.itnumber.next()]
+        actual_list = self.image_lists[self.level.princesses[0].dirt]
+        self.image = actual_list.list[actual_list.itnumber.next()]
         
 class Lil_Stars():
     def __init__(self,level, pos):

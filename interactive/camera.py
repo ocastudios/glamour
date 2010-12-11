@@ -15,16 +15,16 @@ class GameCamera():
 
     def update_all(self):
         princess_pos = self.level.princesses[0].pos[0]
-        if princess_pos+(100*scale) > (self.end_x - (self.end_x*self.limit)):
-            self.level.universe.speed -= self.count*scale
-            self.count += 5*scale
-        elif princess_pos+(100*scale) < (self.start_x + (self.end_x*self.limit)):
-            self.level.universe.speed += self.count*scale
-            self.count += 5*scale
+        if princess_pos+round(100*scale) > (self.end_x - round(self.end_x*self.limit)):
+            self.level.universe.speed -= round(self.count*scale)
+            self.count += round(5*scale)
+        elif princess_pos+round(100*scale) < (self.start_x + round(self.end_x*self.limit)):
+            self.level.universe.speed += round(self.count*scale)
+            self.count += round(5*scale)
         else:
             self.count = 0
             if self.level.universe.speed != 0:
-                if princess_pos+int((100*scale)) > (self.end_x - (self.end_x*(self.limit+0.1))):
+                if princess_pos+int(round(100*scale)) > (self.end_x - round(self.end_x*(self.limit+0.1))):
                     self.level.universe.speed += 1
-                if princess_pos+int((100*scale)) < (self.start_x + (self.end_x*(self.limit +0.1))):
+                if princess_pos+int(round(100*scale)) < (self.start_x + round(self.end_x*(self.limit +0.1))):
                     self.level.universe.speed -= 1

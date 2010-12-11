@@ -19,7 +19,7 @@ class Scenario():
         self.center_distance= center_distance
         self.level          = level
         if not height:
-            self.pos  = [(self.center_distance),level.floor-(self.size[1]-(15*scale))]
+            self.pos  = [(self.center_distance),level.floor-(self.size[1]-round(15*scale))]
         else:
             self.pos = [(self.center_distance), int(level.floor-self.size[1]-(height))]
 
@@ -82,7 +82,7 @@ class Gate(Scenario):
         self.change_level = False
         self.goal = goal
         self.rect           = Rect(self.pos, self.size)
-        self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(91*scale,59*scale))
+        self.image.blit(obj_images.scale_image(pygame.image.load(icon_directory).convert_alpha()),(round(91*scale),round(59*scale)))
 
     def update_all(self):
         self.set_level(self.level.princesses[0])
@@ -188,7 +188,7 @@ class ExitSign():
                 if (i.__class__ == Gate or i.__class__ == BuildingDoor):
                     if i.rect.colliderect(princess.rect):
                         control += 1
-                        self.pos = (i.pos[0]+(i.size[0]/2-(self.size[0]/2)),i.pos[1]-(150*scale))
+                        self.pos = (i.pos[0]+(i.size[0]/2-(self.size[0]/2)),i.pos[1]-round(150*scale))
                         self.image = self.images.list[self.images.number]
                         self.images.update_number()
         if control ==0:

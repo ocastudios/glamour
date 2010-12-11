@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame
 import interface.game_clock as game_clock
 import interactive.stage as stage
@@ -10,7 +11,7 @@ class Universe():
         w = int(default_resolution[0]*scale)
         h = int(default_resolution[1]*scale)
         self.clock = pygame.time.Clock()
-        self.main_dir = os.getcwd()
+        self.main_dir = unicode(os.getcwd())
         self.center_x = int(-3400*scale)
         self.center_y = 0
         self.floor = self.height = h
@@ -25,7 +26,7 @@ class Universe():
         self.run_level = True
         self.db = None
         self.db_cursor = None
-        self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
+        self.screen_surface = pygame.display.set_mode((w,h),32)#pygame.FULLSCREEN , 32)
         pygame.display.set_caption("Glamour - OcaStudios")
         self.level = None
 
@@ -34,7 +35,7 @@ class Universe():
         self.level.BathhouseSt()
 
     def movement(self,dir):
-        max_speed = 14*scale
+        max_speed = round(14*scale)
         if self.speed > max_speed:
             self.speed = max_speed
         elif self.speed< -max_speed:

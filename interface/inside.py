@@ -4,9 +4,14 @@ import utils.obj_images as obj_images
 import utils.save as save
 import interactive.princess as princess
 import os
+import random
 import interface.widget as widget
+import interactive.messages as messages
 from settings import *
 
+import gettext
+t = gettext.translation('glamour', 'locale')
+_ = t.ugettext
 
 def p(positions):
     return [int(i*scale) for i in positions ]
@@ -47,7 +52,7 @@ class Inside():
             exec('save.save_file(self.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
         self.level.princesses[0] = princess.Princess(self.level, INSIDE = True)
         thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name.encode('utf-8')+'/thumbnail.PNG')
 
     def NOTSETYET(self):
         pass
@@ -117,6 +122,7 @@ class BigPrincess():
                 img = None
             self.images += [img]
 
+
     def update_all(self):
         pass
 
@@ -145,15 +151,24 @@ class Princess_Home():
         self.princess_icon  = obj_images.scale_image( pygame.image.load(ball_directory+princess['icon']).convert_alpha())
         self.status = 'outside'
         self.level  = level
+        mymessage = messages.princesses_phrases[random.randint(0,(len(messages.princesses_phrases)-1))]
+        if '%s' in mymessage:
+            self.message = mymessage %self.level.princesses[0].name
+        else:
+            self.message = mymessage
         self.items = []
         self.buttons = []
-        self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),)
+        self.buttons    = (
+                    widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
+                    widget.GameText(self.message, (850,820), self.level, font_size = 40, box = (1100,400))
+        )
         princess_name = princess["name"].lower()
         cursor = self.level.universe.db_cursor
         row     = cursor.execute("SELECT * FROM "+princess_name+" WHERE id = (SELECT MAX(id) FROM "+princess_name+")").fetchone()
         [self.princess_image.blit(obj_images.image(princess_directory+row[i]+ '/big.png'),(0,0)) for i in (
                     'face', 'dress', 'arm', 'accessory', 'shoes')]
         self.big_princess = BigPrincess(self)
+
         self.music = main_dir+"/data/sounds/music/menu.ogg"
 
     def all_set(self):
@@ -173,11 +188,11 @@ class Home():
         self.items = []
         self.buttons = []
         self.buttons    = (widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(410,450),self.level,self.all_set),
-                           widget.Button('Go to the Ball',(1240,550),self.level, self.to_the_ball),
-                           widget.GameText("It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different.", p([720,750]), level, box=p([600,300])),
-                           widget.GameText("Last Ball",         p([600,350]), level, font_size = 25),
-                           widget.GameText("Great Past Ball",   p([800,350]), level, font_size = 25),
-                           widget.GameText("3 Balls Ago",       p([1000,350]),level, font_size = 25)
+                           widget.Button(_('Go to the Ball'),(1240,550),self.level, self.to_the_ball),
+                           widget.GameText(_("It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different."), (720,750), level, box=(600,300)),
+                           widget.GameText(_("Last Ball"),         (600,350), level, font_size = 25),
+                           widget.GameText(_("Great Past Ball"),   (800,350), level, font_size = 25),
+                           widget.GameText(_("3 Balls Ago"),       (1000,350),level, font_size = 25)
                             )
         self.big_princess = BigPrincess(self)
         self.past_balls = []

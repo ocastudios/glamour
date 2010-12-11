@@ -39,7 +39,7 @@ def stage(universe):
             exit()
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                if not universe.level.paused:
+                if not universe.level.paused and not universe.level.princesses[0].inside and not universe.level.ball:
                     universe.level.pause.status = "inside"
                     universe.level.paused = True
             if event.key == K_LEFT:

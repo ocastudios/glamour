@@ -17,7 +17,7 @@ class Enemy():
         self.image = self.walk.left[0]
         self.size = self.image.size#(self.image.get_width()/2, self.image.get_height())
         self.level = level
-        self.speed = speed*scale
+        self.speed = round(speed*scale)
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -38,10 +38,18 @@ class Enemy():
 #        self.rect = Rect(((self.pos[0]+int(self.size[0]/2.5)),self.pos[1]),(self.size[0]-int(self.size[0]/2.5),self.size[1]))
         towards = {'right':1,'left':-1}
         if self.move:
+            new_y = self.level.what_is_my_height(self,pos_x = int(self.center_distance + (self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
+            actual_y = self.level.what_is_my_height(self)
+            obstacle = max(new_y,actual_y)-min(new_y,actual_y)
+            if obstacle >= cross:
+                print "obstacle found"
+                print obstacle
+                print cross
+                if self.direction == 'right':
+                    self.direction = 'left'
+                elif self.direction == 'left':
+                    self.direction = 'right'
             self.center_distance += (self.speed*towards[self.direction])
-            obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
-            if obstacle  <= self.floor-(cross*scale) or obstacle >= self.floor+(cross*scale):
-                self.center_distance -= (self.speed*towards[self.direction])
 
 
 class Schnauzer(Enemy):
@@ -54,7 +62,7 @@ class Schnauzer(Enemy):
         self.image = self.walk.left[0]
         self.size = self.image.get_size()#(self.image.get_width()/2, self.image.get_height())
         self.level = level
-        self.speed = 16*scale
+        self.speed = round(16*scale)
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -81,14 +89,19 @@ class Schnauzer(Enemy):
     def set_pos(self,cross = 30):
         towards = {'right':1,'left':-1}
         if self.move:
-            self.center_distance += (self.speed*towards[self.direction])
-            obstacle = self.level.universe.floor - self.level.what_is_my_height(self,self.center_distance+(self.size[0]*towards[self.direction]))
-            if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
-                self.center_distance -= (self.speed*towards[self.direction])
+            new_y = self.level.what_is_my_height(self,pos_x = int(self.center_distance + (self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
+            actual_y = self.level.what_is_my_height(self)
+            obstacle = max(new_y,actual_y)-min(new_y,actual_y)
+            if obstacle >= cross:
+#                self.center_distance -= (self.speed*towards[self.direction])
+                print "obstacle found"
+                print obstacle
+                print cross
                 if self.direction == 'right':
                     self.direction = 'left'
                 elif self.direction == 'left':
                     self.direction = 'right'
+            self.center_distance += (self.speed*towards[self.direction])
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
                     self.floor+self.margin[2]-(self.size[1])]
@@ -99,7 +112,6 @@ class Schnauzer(Enemy):
         princess = self.level.princesses[0]
         self.set_pos()
         self.set_image()
-
         self.count +=1
         if self.count > 130:
             self.move = False
@@ -154,17 +166,19 @@ class Carriage(Enemy):
         for i in ['kissed','walk','stay']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/',margin)")
         self.image = self.walk.left[0]
-        self.size = (self.image.get_width(), self.image.get_height())
+        full_width = self.image.get_width()
+        self.correction = full_width/5
+        self.size = (full_width-self.correction, self.image.get_height())
         self.level = level
-        self.speed = 3 * scale
+        self.speed = round(3 * scale)
         self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
         self.decide = False
         self.count = 0
         self.move = True
-        self.direction = 'left'
-        self.rect = Rect((self.pos[0],(level.floor-self.pos[1])),(self.size))
+        self.direction = random.choice(['left','right'])
+        self.rect = Rect((self.pos[0]+self.correction,(level.floor-self.pos[1])),(self.size))
         self.gotkissed = 0
         self.image_number = 0
         print "done."
@@ -182,15 +196,15 @@ class Carriage(Enemy):
             if self.direction == 'right':
                 self.center_distance += self.speed
                 next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-30*scale:
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1])-round(30*scale):
                     self.center_distance += self.speed
+                self.rect = Rect(self.pos,(self.size))
             else:
                 self.center_distance -= self.speed
                 next_height = self.level.what_is_my_height(self)
-                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -30*scale:
+                if (self.level.universe.floor - next_height)  <= (self.floor-self.size[1]) -round(30*scale):
                     self.center_distance -= self.speed
-
-        self.rect = Rect((self.pos),(self.size))
+                self.rect = Rect((self.pos[0]+self.correction,self.pos[1]),(self.size))
 
 
     def set_image(self):
@@ -211,11 +225,11 @@ class Butterfly(Enemy):
     walk = obj_images.TwoSided(enemy_dir+'Butterfly/walk/')
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         print "Creating Butterfly"
-        self.height = int(scale*random.randint(300,600))
+        self.height = int(round(scale*random.randint(300,600)))
         self.up_direction = 'going_down'
-        self.up = 5*scale
+        self.up = round(5*scale)
         directory = enemy_dir+'Butterfly/'
-        self.speed = 4*scale
+        self.speed = round(4*scale)
         self.center_distance = pos
         self.image = self.walk.left[0]
         self.size = (self.image.get_width()/2, self.image.get_height())
@@ -232,10 +246,10 @@ class Butterfly(Enemy):
         self.set_image()
 
     def set_pos(self):
-        if self.pos[1] < 300*scale:
-            self.up = +5*scale
-        elif self.pos[1] > 500*scale:
-            self.up = -5*scale
+        if self.pos[1] < round(300*scale):
+            self.up = +round(5*scale)
+        elif self.pos[1] > round(500*scale):
+            self.up = -round(5*scale)
         self.height += self.up
         self.pos = (self.level.universe.center_x + self.center_distance, self.height)
         if self.direction == 'right' :
@@ -270,7 +284,7 @@ class OldLady(Enemy):
         self.mouseovercount = 0
         self.size   = (self.image.get_width()/2, self.image.get_height())
         self.level  = level
-        self.speed  = 2*scale
+        self.speed  = round(2*scale)
         self.floor  = self.level.universe.floor-self.level.what_is_my_height(self)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
@@ -346,7 +360,7 @@ class BroomingDust():
         self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/OldLady/dirt/')
         self.image          = self.images.left[0]
         self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height())
-        self.pos            = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
+        self.pos            = [self.lady.pos[0]-round(194*scale), self.lady.pos[1]+round(38*scale)]
         self.direction      = lady.direction
         self.rect_list      = ( 
                                 {'pos':(0,0),'size':(0,0)},
@@ -374,13 +388,13 @@ class BroomingDust():
     def update_all(self):
         if (self.lady.action == 'broom' and self.lady.image_number ==1) or (self.images.number != 0):
             if self.direction == 'left':
-                self.pos         = [self.lady.pos[0]-(194*scale), self.lady.pos[1]+(38*scale)]
+                self.pos         = [self.lady.pos[0]-round(194*scale), self.lady.pos[1]+round(38*scale)]
                 self.image = self.images.left[self.images.number]
                 rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
             else:
-                self.pos         = [self.lady.pos[0]+(144*scale), self.lady.pos[1]+(38*scale)]
+                self.pos         = [self.lady.pos[0]+round(144*scale), self.lady.pos[1]+round(38*scale)]
                 self.image = self.images.right[self.images.number]
-                rect_pos = (self.pos[0]+(144*scale)-self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
+                rect_pos = (self.pos[0]+round(144*scale)-self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
             rect_rect        = self.rect_list[self.images.number]['size']
             self.rect           = pygame.Rect(rect_pos, rect_rect)
             self.images.update_number()
@@ -395,20 +409,66 @@ class Lion():
         print "Creating Lion"
         directory = enemy_dir+'Lion/'
         self.center_distance = pos
-        for i in ['base','growl','kissed']:
-            exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
+        self.base  = obj_images.There_and_back_again(directory+"/base/",exclude_border = True)
+        self.growl = obj_images.There_and_back_again(directory+"/growl/",exclude_border = True)
+        self.kissed = obj_images.TwoSided(directory+"/kissed/")
         self.image = self.base.left[0]
         self.level = level
-        self.pos = [self.level.universe.center_x+self.center_distance, 380*scale]
+        self.pos = [self.level.universe.center_x+self.center_distance, round(380*scale)]
+        self.rect =  pygame.Rect(self.pos, self.base.size)
         self.direction = 'left'
-        self.gotkissed = 0
-        self.image_number = 0
+        self.got_kissed = 0
         self.tail = Tail(directory,self)
+        self.action = "dance"
+        self.growl_sound = pygame.mixer.Sound(main_dir+'/data/sounds/enemies/lion3.ogg')
+        self.channel4       = pygame.mixer.Channel(4)
         print "done."
 
     def update_all(self):
-        self.image = self.base.left[self.base.itnumber.next()]
+        if -round(400*scale) < self.pos[0] < round(1490*scale):
+            if self.action == "dance":
+                self.base.update_number()
+                self.image = self.base.left[self.base.number]
+                if self.base.number == 0:
+                    if random.randint(1,6) == 1:
+                        self.action = 'growl'
+            if self.action == 'growl':
+                if self.growl.number == 2:
+                    self.level.princesses[0].situation["scared"] = 1
+                    self.level.princesses[0].situation["danger"] = self.center_distance
+                if self.growl.number in (0,13):
+                    self.channel4.play(self.growl_sound)
+                self.image = self.growl.left[self.growl.number]
+                if self.growl.lenght-1 == self.growl.number:
+                    self.action = 'dance'
+                    self.base.number = 0
+                self.growl.update_number()
+                
+                
+            if self.action == 'kissed':
+                self.image = self.kissed.left[self.kissed.number]
+                self.got_kissed += 1
+                if self.got_kissed < 60:
+                    self.kissed.number += 1
+                    if self.kissed.number >= 3:
+                        self.kissed.number = 3
+                elif self.kissed.number > 0:
+                    self.kissed.number -= 1
+                else:
+                    self.action = "dance"
+                    self.base.number = 0
+                
+                
+                
+            if self.rect.colliderect(self.level.princesses[0].kiss_rect):
+                if self.action != "kissed":
+                    self.kissed.number = 0
+                self.action = "kissed"
+                self.got_kissed = 0
+
+            self.rect = pygame.Rect(self.pos, self.base.size) 
         self.pos[0] = self.tail.pos[0]= self.level.universe.center_x + self.center_distance
+
 
 
 class Tail():
@@ -420,9 +480,9 @@ class Tail():
         self.image = self.images.list[self.images.itnumber.next()]
 
     def update_all(self):
+        if 0 < self.pos[0] < round(700*scale):
+            self.image = self.images.list[self.images.itnumber.next()]
         self.pos  = self.lion.pos
-        self.image = self.images.list[self.images.itnumber.next()]
-
 
 class Elephant():
     def __init__(self, pos, level, dirty=False):
@@ -476,7 +536,7 @@ class Penguin():
         self.image = self.images.left[self.images.number]
         self.size = self.images.size
         self.level = level
-        self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height())+15*scale]
+        self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height())+round(15*scale)]
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
@@ -521,7 +581,7 @@ class Penguin():
                 self.gforce['actual']+= self.gforce['accel']
                 if feet_position >= self.floor:
                     self.action='dance'
-                    self.pos[1] = (self.level.floor - self.image.get_height())+15*scale
+                    self.pos[1] = (self.level.floor - self.image.get_height())+round(15*scale)
             if feet_position < self.floor and not self.jump:
                 self.action='fall'
         else:
@@ -532,7 +592,7 @@ class Penguin():
                 self.gforce['actual'] = 0
             if self.action == 'jump':
                 if self.jump > 0 and self.jump <20:
-                    self.pos[1] -= 30*scale
+                    self.pos[1] -= round(30*scale)
                     if self.jump > 10:
                         self.images.number = 0
                         self.action= 'fall'
@@ -547,7 +607,7 @@ class Monkey():
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
         self.image = self.stay.left[0]
         self.level = level
-        self.pos = [self.level.universe.center_x+self.center_distance, 150*scale ]
+        self.pos = [self.level.universe.center_x+self.center_distance, round(150*scale) ]
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
@@ -566,16 +626,16 @@ class VikingShip():
         self.base = obj_images.TwoSided(directory+"base/")
         sailor_body = obj_images.image(directory+'/viking_sailor/body/0.png')
         for i in self.base.left+self.base.right:
-            i.blit(sailor_body, (253*scale,635*scale))
+            i.blit(sailor_body, (round(253*scale),round(635*scale)))
         self.image = self.base.left[0]
         self.level = level
         self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
         self.image_height = self.image.get_height()
-        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor - self.image_height + (200*scale) +self.height.next()]
+        self.pos = [self.level.universe.center_x+self.center_distance, self.level.floor - self.image_height + round(200*scale) +self.height.next()]
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
-        self.speed = -3*scale
+        self.speed = -round(3*scale)
         self.flag = VikingPart(self,'flag',pos_x = 400)
         self.wave = VikingPart(self,'wave',pos_x = 200)
         self.head_list = {  "normal": VikingPart(self,"viking_sailor/head_normal",pos_x=262,pos_y=518),
@@ -600,12 +660,12 @@ class VikingShip():
         try:
             wavesize
         except:
-            wavesize = self.wave.size[1] -20*scale
+            wavesize = self.wave.size[1] -round(20*scale)
         self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
         self.image = self.base.left[0]
         self.center_distance += self.speed
         self.pos[0] = self.level.universe.center_x + self.center_distance
-        self.pos[1] = self.level.floor - self.image_height + (200*scale) + self.height.next()
+        self.pos[1] = self.level.floor - self.image_height + round(200*scale) + self.height.next()
         if self.wave not in self.level.floor_image:
             self.level.floor_image.extend([self.flag,self.wave,self.head])
         else:
@@ -622,7 +682,7 @@ class VikingShip():
                     self.balloon_curses = [self.talk_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
                     self.level.panel.extend(self.balloon_curses)
                     for i,pos in [(0,-70), (1,10), (2,90)]:
-                        self.curses[self.curse_number[i]].position[0] = pos*scale
+                        self.curses[self.curse_number[i]].position[0] = round(pos*scale)
                     self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
                     for i in self.level.panel:
                         if i.__class__ == Curse:
@@ -643,7 +703,7 @@ class VikingShip():
                     i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
                     if i not in self.balloon_curses:
                         self.level.panel.remove(i)
-                        i.pos = (-100*scale,i.position[1])
+                        i.pos = (-round(100*scale),i.position[1])
             if self.count > 60:
                 for i in self.balloon_curses:
                     self.level.panel.remove(i)
@@ -660,8 +720,8 @@ class VikingPart():
     def __init__(self, ship, part, pos_x = 0, pos_y = 0):
         print "Creating Viking part: "+part
         directory = main_dir+'/data/images/enemies/VikingShip/'+part+'/'
-        self.pos_x  = pos_x*scale
-        self.pos_y  = pos_y*scale
+        self.pos_x  = round(pos_x*scale)
+        self.pos_y  = round(pos_y*scale)
         self.ship = ship
         self.pos  = self.ship.pos[0]+pos_x,self.ship.pos[1]+pos_y
         self.images = obj_images.TwoSided(directory)
@@ -725,17 +785,17 @@ class FootBoy():
         self.direction = random.choice(['left','right'])
         self.got_kissed = 0
         self.image_number = 0
-        self.speed = -12*scale
+        self.speed = -round(14*scale)
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
-        self.level.enemies.append(FootBall(random.randint(int(4000*scale),int(6000*scale)), self))
+        self.level.enemies.append(FootBall(random.randint(int(round(4000*scale)),int(round(6000*scale))), self))
         print "done."
 
     def update_all(self):
         if self.direction == 'left':
-            self.speed = -12*scale
+            self.speed = -round(12*scale)
             self.image = self.body.left[self.body.number]
         else:
-            self.speed = 12*scale
+            self.speed = round(12*scale)
             self.image = self.body.right[self.body.number]
         if not self.got_kissed and self.rect.colliderect(self.level.princesses[0].kiss_rect):
             self.got_kissed = 1
@@ -758,7 +818,7 @@ class FootBoy():
         self.center_distance += self.speed
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
-                    self.floor-(self.size[1]-(20*scale))]
+                    self.floor-(self.size[1]-round(20*scale))]
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         if -200 < self.center_distance <-100 and self.direction =='left':
             self.got_kissed +=.01
@@ -773,7 +833,7 @@ class FootBall():
         self.center_distance= center_distance
         self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/FootBoy/ball/')
         self.image          = self.images.left[0]
-        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-(7*scale))
+        self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-round(7*scale))
         self.pos            = [self.footboy.level.universe.center_x + self.center_distance, self.footboy.level.floor - self.size[1]]
         self.speed          = 0
         self.rect           = pygame.Rect(self.pos, self.size)
@@ -799,13 +859,13 @@ class FootBall():
                     self.movetype = 'high'
                     self.pos[1] += 1
                 if self.footboy.direction == "left":
-                    self.speed = -50*scale
+                    self.speed = -round(50*scale)
                 else:
-                    self.speed = 50*scale
+                    self.speed = round(50*scale)
                 self.pos[1] += 1
             if self.footboy.direction == 'right' and self.pos[0] < self.footboy.pos[0]:
                 self.footboy.direction = 'left'
-            if self.footboy.direction == 'left' and self.pos[0]-(400*scale) > self.footboy.pos[0]:
+            if self.footboy.direction == 'left' and self.pos[0]-round(400*scale) > self.footboy.pos[0]:
                 self.footboy.direction = 'right'
         if speed < 0:
             self.speed += 1
@@ -832,37 +892,37 @@ class Bird():
     def __init__(self, pos, level, dirty=False):
         print 'Creating Bird'
         directory = level.enemy_dir+'Birdy/'
-        self.center_distance = pos+int(random.randint(3,50)*scale)
+        self.center_distance = int(pos+round(random.randint(3,50)*scale))
         self.body       = self.walking
         self.image      = self.body.left[0]
         self.level      = level
         self.size       = [(self.image.get_width()/3),self.image.get_height()]
         #adjusting self.size
-        self.size[1] -= 10*scale
+        self.size[1] -= round(8*scale)
         self.pos        = [self.level.universe.center_x+self.center_distance, self.level.floor-self.size[1]]
         self.direction  = 'left'
         self.counter    = 0
         self.image_number = 0
-        self.speed = 5*scale
+        self.speed = round(5*scale)
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         hawks = 0
         for i in self.level.enemies:
             if i.__class__ == Hawk:
                 hawks += 1
         if not hawks:
-            self.level.enemies.append(Hawk((self.level.universe.width+int(600*scale), int(-300*scale)), self.level, self))
+            self.level.enemies.append(Hawk((self.level.universe.width+int(round(600*scale)), int(-round(300*scale))), self.level, self))
             self.original = True
         else:
             self.original = False
         self.gforce         = 0
-        self.g_acceleration = 3*scale
+        self.g_acceleration = round(3*scale)
         self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
 
 
-    def update_all(self, cross = 20):
+    def update_all(self, cross = 30):
         floor = self.level.universe.floor - self.level.what_is_my_height(self)
         if self.body    == self.walking:
-            speed = 5*scale
+            speed = round(5*scale)
             if self.size[1] + self.pos[1] < floor:
                 self.pos[1] += self.gforce
                 if self.pos[1]+self.size[1] > self.floor:
@@ -872,7 +932,7 @@ class Bird():
                 self.gforce = 0
 
         elif self.body  == self.flying:
-            speed = 10*scale
+            speed = round(10*scale)
         elif self.body  == self.standing:
             speed = 0
 
@@ -883,22 +943,24 @@ class Bird():
             self.counter =0
 
         towards = {'right':1,'left':-1}
-        obstacle = self.level.universe.floor - self.level.what_is_my_height(self,self.center_distance+(self.size[0]*towards[self.direction]))
-        if obstacle  <= int(self.floor-(cross*scale)) or obstacle >= int(self.floor+(cross*scale)):
-            self.center_distance -= (self.speed*towards[self.direction])
+        obstacle = self.level.universe.floor - self.level.what_is_my_height(self,self.center_distance+(round(self.size[0])*towards[self.direction]))
+        new_y = self.level.what_is_my_height(self,pos_x = int(self.center_distance + (self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
+        actual_y = self.level.what_is_my_height(self)
+        obstacle = max(new_y,actual_y)-min(new_y,actual_y)
+        if obstacle >= cross:
+#                self.center_distance -= (self.speed*towards[self.direction])
+            print "obstacle found"
+            print obstacle
+            print cross
             if self.direction == 'right':
                 self.direction = 'left'
             elif self.direction == 'left':
                 self.direction = 'right'
-            
-
-
-
         if self.direction == 'left':
-            self.speed = (speed*scale)*-1
+            self.speed = round(speed*scale)*-1
             self.image = self.body.left[self.body.number]
         else:
-            self.speed = speed*scale
+            self.speed = round(speed*scale)
             self.image = self.body.right[self.body.number]
         if self.disturbed['count'] < 3:
             self.body = self.walking
@@ -919,7 +981,7 @@ class Bird():
         self.center_distance += self.speed
         if self.body == self.flying:
             height = random.randint(-5,10)
-            height = height*scale
+            height = round(height*scale)
             self.pos[1] -= height
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
@@ -937,21 +999,21 @@ class Hawk():
         self.image      = self.body.left[0]
         self.level      = level
         self.size       = [(self.image.get_width()/3),(self.image.get_height())]
-        self.pos        = [self.level.universe.center_x+ self.center_distance, int(20*scale)]
+        self.pos        = [self.level.universe.center_x+ self.center_distance, int(round(20*scale))]
         self.direction  = 'left'
         self.disturbed  = 0
         self.image_number = 0
-        self.speed = 15*scale
+        self.speed = round(15*scale)
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
         self.mood   = 'calm'
 
     def update_all(self):
         princess = self.level.princesses[0]
         if self.direction == 'left':
-            self.speed = -30*scale
+            self.speed = -round(30*scale)
             self.image = self.body.left[self.body.number]
         else:
-            self.speed = 30*scale
+            self.speed = round(30*scale)
             self.image = self.body.right[self.body.number]
 
         if self.bird.disturbed <= 3:
@@ -971,12 +1033,12 @@ class Hawk():
                 self.direction = 'left'
             if 0 < self.pos[0] < self.level.universe.width:
                 if self.pos[1] <  self.bird.disturbed['spot'][1]:
-                    self.pos[1] += 15*scale
+                    self.pos[1] += round(15*scale)
             if self.rect.colliderect(self.level.princesses[0].rect):
                 self.mood = 'revanged'
                 self.bird.disturbed['count'] = 0
                 print "Hawk fells revanged now..."
-            if self.pos[1] > self.bird.pos[1] - (self.level.princesses[0].size[1]/2):#self.level.universe.floor - int(350*scale):
+            if self.pos[1] > self.bird.pos[1] - (self.level.princesses[0].size[1]/2):#self.level.universe.floor - int(round(350*scale)):
 #            elif self.rect.collidepoint(self.bird.disturbed['spot']):
                 self.mood = 'calm'
                 self.bird.disturbed['count'] = 0
@@ -985,18 +1047,18 @@ class Hawk():
         elif self.mood == 'revanged':
             self.center_distance += int(self.speed*0.6)
             if -self.size[1] < self.pos[1]:
-                self.pos[1] -= 6*scale
+                self.pos[1] -= round(6*scale)
             else:
                 self.mood = 'calm'
 
         if self.mood == 'calm':
             self.center_distance += (self.speed*.5)
-            if self.center_distance > self.bird.center_distance + (1000*scale):
+            if self.center_distance > self.bird.center_distance + round(1000*scale):
                 self.direction = 'left'
-            elif self.center_distance < self.bird.center_distance -(1000*scale):
+            elif self.center_distance < self.bird.center_distance -round(1000*scale):
                 self.direction = 'right'
             if self.pos[1]>0:
-                self.pos[1] -= int(30*scale)
+                self.pos[1] -= int(round(30*scale))
 
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)

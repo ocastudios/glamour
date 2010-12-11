@@ -88,8 +88,9 @@ class Button():
 
 
 class GameText():
-    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=40, color=(83,0,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
-        font_size  = int(font_size*scale)
+    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=40, color=(58,56,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
+        font_size  = int(round(font_size*scale))
+        pos = p(pos)
         self.font       = fonte
         self.frame      = frame
         try:
@@ -176,6 +177,7 @@ class GameText():
 class Letter(GameText):
     hoover = False
     def __init__(self,text,pos,frame,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
+
         font_size = int(font_size*scale)
         GameText.__init__(self,text,pos,frame,fonte,font_size,color)
         self.hoover_size = hoover_size

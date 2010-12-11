@@ -6,7 +6,7 @@ class Floor():
     images = None
 
     def __init__(self,index,dir,level,height=0):
-        height = {'all':(186+height)*scale}
+        height = {'all':round((186+height)*scale)}
         self.level = level
         self.images = self.images or obj_images.OneSided(dir)
         self.image = self.images.list[self.images.number]
@@ -25,9 +25,9 @@ class Floor():
 
 
 class Water(Floor):
-    height = 101*scale
-    max    = 125*scale
-    min    = 95*scale
+    height = round(101*scale)
+    max    = round(125*scale)
+    min    = round(95*scale)
     speed = [2,1]
     direction = 'up'
 
@@ -53,9 +53,9 @@ class Water(Floor):
 
 
 class Water2(Water):
-    height = 81*scale
-    max = 90*scale
-    min = 80*scale
+    height = round(81*scale)
+    max =    round(90*scale)
+    min =    round(80*scale)
     direction = 'up'
     speed = [6,1]
 
@@ -73,8 +73,8 @@ class Bridge():
         self.size = self.image.get_size()
         self.level = level
 
-        if main:            self.center_distance = scale*((int(400)*(index))-int(400))
-        else:               self.center_distance = scale*(int(400)*(index))
+        if main:            self.center_distance = round(scale*((int(400)*(index))-int(400)))
+        else:               self.center_distance = round(scale*(int(400)*(index)))
 
         self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
         if main:
@@ -96,8 +96,8 @@ class Drain():
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-        self.center_distance = scale*(400*index)
-        self.pos = [self.level.universe.center_x+(self.center_distance),int(scale*900)-self.size[1]]
+        self.center_distance = round(scale*400)*index
+        self.pos = [self.level.universe.center_x+(self.center_distance),int(round(scale*900))-self.size[1]]
         level.floor_image[index]= self
 
     def update_all(self):

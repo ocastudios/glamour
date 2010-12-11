@@ -72,3 +72,29 @@ intro = {
         "first day i": _("So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go.")
         }
 
+princesses_phrases=[
+_("Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns, a tiny teeny dragon."),
+_("Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"),
+_("%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."),
+_("Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."),
+_("Have you noticed how many different architectural styles we have in this town, %s? Do you thing that maybe those are magic portals that take us to far away places?"),
+_("If we are all princesses, and we live in the same town, shouldn't we all be sisters? Gosh, I wish I was your sister, %s..."),
+_("My father says someday I'll marry a prince that defeated many perils to be with me... well, %s, I say let 'me' go on adventures and let him wait for me to marry him."),
+_("We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"),
+_("%s, did you know that no one dislike tenderness? From boys to lions, love seems to triumph all. I wonder how a thing that didn't like kisses would be like. I bet it'd be ugly, bearded and riding a boat."),
+_("Have you noticed how we all get princes by the end of our story, %s? But some others don't, like Little Red, Grettel and the Mermaid. They only get wolves and witches, poor folk..."),
+_("Well, %s, we've got some pretty nice stores in town, but they don't seem to carry much variety. I mean, I never use the same dress twice on a ball, so I have dozens of each available dress already."),
+_("Oh, dancing is so much fun! But I sure would like to fly in the air, or fight dragons, or cast spells. %s, why do you think they give us princesses the worst parts in our own stories?"),
+_("Dancing every single night... I, mean, we have fun and all, but aren't your feet killing you, %s?"),
+_("Who owns that little schnauzer that won't let me walk around in peace? It is not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... even small dogs..."),
+_("Have you visited the zoo, yet? I love the penguin and the giraffe, but that monkey just drives me crazy. Maybe we could go together someday, %s, and have a hard long talk with whoever runs that place."),
+_("Have you met Fabrizio, the little italian kid? He's always with that ball, but I think I've seen him somewhere before. Do you think he maybe might have a free tabletop game developed by Ocastudios?"),
+_("Many people think that the beatiful scenery of fairy tales are stuff of legend, by they exist, %s. Next vacations, try cruising around the Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters and see for yourself."),
+_("Do you know that many, many people have to worry about computer viruses, and software freezing. They don't even have access to their source-code... Thank goodness we use a Unix box."),
+_("Have you seen the ball palace shaking last night? With so much dancing, do you think the structure is still stable? I think I'll call the dwarves to make some repairs."),
+_("Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll tell on you to ma!"),
+_("No, I won't go out today! Yesterday there were so many chicks... and their mama didn't let me even play with them. She ruined may hair!!! I'm never coming out again."),
+_("%s, I won't rest until I get the heart of the prince. I mean, Gentleman Decent is kinda cute, but he falls for every girl in the kingdom!"),
+_("There is a lot of noblemen in the balls, %s, but... do you think someone would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget about the ball for a while, of course."),
+_("Some of the princesses never eat apples or work with spindles because they are afraid of fairy tales. As for me, I just keep my distance from evil witches and refrain from talking to big bad wolves."),
+_("Do you know that many countries today still have kings? Oh, I'd love to be the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an enchanted mythical kingdom of everlasting joy, but I 'really' wanted Sweeden...")]

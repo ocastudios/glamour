@@ -13,10 +13,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     princess = level.princesses[0]
     #avoid errors in case there are no saved files
     try:
-        os.mkdir(universe.main_dir+'/data/saves/'+str(princess.name))
+        os.mkdir(universe.main_dir+u'/data/saves/'+unicode(princess.name))
     except:
         pass
-    dir = universe.main_dir+'/data/saves/'+str(princess.name)
+    dir = universe.main_dir+u'/data/saves/'+unicode(princess.name)
     day = datetime.datetime.today()
 
     if dress == "dress_yellow":
@@ -35,7 +35,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
 #        for i in level.enemies_list[street]:
 #            exec(street + "=" + street + "+ ' ' + i + ' ' ")
     cursor = level.universe.db_cursor
-    cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+str(princess.name)+"'")
+    cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+princess.name+"'")
     if hair:
         cursor.execute("UPDATE princess_garment SET hair_back = '"+str(hairback)+"' WHERE id = (SELECT max(id) FROM princess_garment)")
     if skin:
@@ -52,10 +52,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         cursor.execute("UPDATE princess_garment SET armdress = '"+str(armdress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
     if accessory:
         cursor.execute("UPDATE princess_garment SET accessory= '"+str(accessory)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-    cursor.execute("UPDATE save SET dirt     = '"+str(princess.dirt)+"' WHERE name = '"+str(princess.name)+"'")
-    cursor.execute("UPDATE save SET points   = '"+str(princess.points)+"' WHERE name = '"+str(princess.name)+"'")
+    cursor.execute("UPDATE save SET dirt     = '"+str(princess.dirt)+"' WHERE name = '"+princess.name+"'")
+    cursor.execute("UPDATE save SET points   = '"+str(princess.points)+"' WHERE name = '"+princess.name+"'")
     universe.db.commit()
     print "Save Database saved "
 #    if Ball:
 #        backupfile.close()
-    return main_dir+'/data/saves/'+princess.name+'/'+princess.name+'.glamour'
+    return unicode(main_dir)+u'/data/saves/'+unicode(princess.name)+'/'+unicode(princess.name)+u'.glamour'

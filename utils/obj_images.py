@@ -24,13 +24,13 @@ Margin may be used to better program interaction during the game. Margin default
 
     def update_number(self):
         if self.number < self.lenght -1:
-            self.number = operator.add(self.number,1)
+            self.number +=1
         else:
             self.number = 0
 
     def til_the_end(self):
         if self.number < self.lenght -1:
-            self.number = operator.add(self.number,1)
+            self.number += 1
         else:
             self.number = self.lenght -1
 
@@ -132,16 +132,46 @@ class MultiPart():
         else:
             self.number = 0
 
+class Ad_hoc():
+    def __init__(self,left_images, right_images,margin=[0,0,0,0]):
+        self.margin = margin
+        self.left   = left_images
+        self.right  = right_images
+        self.number = 0
+        self.lenght = len(self.left)
+        if self.lenght>0:
+            self.size   = self.left[0].get_size()
+        self.itnumber = cycle(range(self.lenght))
+
+    def update_number(self):
+        if self.number < self.lenght -1:
+            self.number +=1
+        else:
+            self.number = 0
+
+    def til_the_end(self):
+        if self.number < self.lenght -1:
+            self.number += 1
+        else:
+            self.number = self.lenght -1
+
+
 def image(directory, invert = False):
     prep = pygame.image.load(directory).convert_alpha()
     if invert==True:
         prep = pygame.transform.flip(prep,1,0)
-    return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
+    prep_size = prep.get_size()
+    scaled_width = prep_size[0]*scale
+    size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
+    return pygame.transform.smoothscale(prep,size)
 
 def scale_image(prep, invert = False):
     if invert==True:
         prep = pygame.transform.flip(prep,1,0)
-    return pygame.transform.smoothscale(prep,(int(prep.get_width()*scale),int(prep.get_height()*scale)))
+    prep_size = prep.get_size()
+    scaled_width = prep_size[0]*scale
+    size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
+    return pygame.transform.smoothscale(prep,size)
 
 def find_images(dir):
     return [image(dir+item) for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]

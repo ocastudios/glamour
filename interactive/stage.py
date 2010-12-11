@@ -109,7 +109,7 @@ class Stage():
 
     def what_is_my_height(self,object,pos_x = None):
         try:
-            y_height = self.floor_heights[(pos_x or int(object.center_distance+(object.size[0]/2)) )]
+            y_height = self.floor_heights[(pos_x or int(object.center_distance+round(object.size[0]/2)) )]
         except:
             y_height = self.floor
         return      y_height
@@ -125,14 +125,8 @@ class Stage():
             self.changing_stages_darkenning(-1)
         if self.paused:
             self.update_pause()
-#            for i in self.pointer:
-#                self.universe.screen_surface.blit(i.image,i.pos)
-#                i.update_all()
         elif self.fairy and not self.princesses[0].inside and not self.ball:
             self.update_fairytip()
-#            for i in self.pointer:
-#                self.universe.screen_surface.blit(i.image,i.pos)
-#                i.update_all()
         else:
             if self.clock[1].count > 160:
                 if self.background[0] == self.ballroom['day']:
@@ -140,46 +134,43 @@ class Stage():
             else:
                 if self.background[0] == self.ballroom['night']:
                     self.background = [self.ballroom['day']]
-            if self.clock[1].time == 'ball' and (not self.inside or self.inside.status in ("outside","closing") or not self.princesses[0].inside):
+            if self.clock[1].time == 'ball' and (not self.inside or (not self.inside.status == "choosing") or not self.princesses[0].inside):
                 self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
                 self.ball.update_all    ()
-#                for i in self.pointer:
-#                    self.universe.screen_surface.blit(i.image,i.pos)
-#                    i.update_all()
             else:
                 if self.ball:
                     self.ball = None
                 self.cameras[0].update_all()
                 self.universe.movement(self.direction)
-                for att in self.blitlist:
-                    if att == 'lights':
-                        if self.clock[1].time == 'night':
-                            for i in self.lights:
-                                if i['status'] == 'on':
-                                    i['position'].update_pos()
-                                if i['status'] == 'off' and random.randint(0,10) == 0:
-                                    i['status'] = 'on'
-                                    i['position'].update_pos()
-                    else:
-                        exec('[i.update_all() for i in self.'+att+' if i]')
+                if not self.inside or (not self.inside.status == "choosing") or not self.princesses[0].inside:
+                    for att in self.blitlist:
+                        if att == 'lights':
+                            if self.clock[1].time == 'night':
+                                for i in self.lights:
+                                    if i['status'] == 'on':
+                                        i['position'].update_pos()
+                                    if i['status'] == 'off' and random.randint(0,10) == 0:
+                                        i['status'] = 'on'
+                                        i['position'].update_pos()
+                        else:
+                            exec('[i.update_all() for i in self.'+att+' if i]')
                 for i in self.scenarios_front+self.floor_image+self.foreground:
                     i.update_all()
                 if self.princesses[0].inside:
                     self.update_insidebar()
-                for i in self.clock:
-                    i.update_all()
+                if not self.inside or (not self.inside.status == "choosing") or not self.princesses[0].inside:
+                    for i in self.clock:
+                        i.update_all()
                 for i in self.panel:
                     if i:
                         i.update_all()
                 self.exit_sign.update_all()
-#                for i in self.pointer:
-#                    i.update_all()
-
         for i in self.pointer:
             i.update_all()
             self.universe.screen_surface.blit(i.image,i.pos)
 
     def blit_all(self):
+        screen = self.universe.screen_surface
         for att in self.blitlist:
             if att == 'lights':
                 if self.clock[1].time == 'night':
@@ -187,37 +178,37 @@ class Stage():
                         if i['status'] == 'on':
                             self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
             else:
-                exec('[self.universe.screen_surface.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
+                exec('[screen.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
 
-        if self.princesses[0].kiss:
-            self.universe.screen_surface.fill((0,0,0,50), self.princesses[0].kiss_rect)
+#        if self.princesses[0].kiss:
+#            screen.fill((0,0,0,50), self.princesses[0].kiss_rect)
         for i in self.princesses[0].effects :
-            self.universe.screen_surface.blit(i.image,i.pos)
+            screen.blit(i.image,i.pos)
 
         for i in self.scenarios_front:
-            self.universe.screen_surface.blit(i.image,i.pos)
+            screen.blit(i.image,i.pos)
         if self.exit_sign.image:
-            self.universe.screen_surface.blit(self.exit_sign.image, self.exit_sign.pos)
+            screen.blit(self.exit_sign.image, self.exit_sign.pos)
         for i in self.floor_image:
-            self.universe.screen_surface.blit(i.image,i.pos)
+            screen.blit(i.image,i.pos)
         for i in self.foreground:
-            self.universe.screen_surface.blit(i.image,i.pos)
+            screen.blit(i.image,i.pos)
         if self.sky[0].night_image:
-            self.universe.screen_surface.blit(self.sky[0].night_image,(0,0))
+            screen.blit(self.sky[0].night_image,(0,0))
         for i in self.clock:
-            self.universe.screen_surface.blit(i.image,i.pos)
+            screen.blit(i.image,i.pos)
         for i in self.panel:
             if i:
-                self.universe.screen_surface.blit(i.image,i.pos)
-        for i in self.enemies:
-            if i.image:
-                self.universe.screen_surface.fill((0,0,0,50), i.rect)
-                self.universe.screen_surface.blit(i.image,i.pos)
+                screen.blit(i.image,i.pos)
+#        for i in self.enemies:
+#            if i.image:
+##                screen.fill((0,0,0,50), i.rect)
+#                screen.blit(i.image,i.pos)
 
         if self.fairy:
             for i in self.fae:
-                self.universe.screen_surface.blit(i.image,i.pos)
-        self.universe.screen_surface.blit(self.margin,(0,0))
+                screen.blit(i.image,i.pos)
+        screen.blit(self.margin,(0,0))
 
     def update_insidebar(self):
         if self.inside.status[:4] == 'bath': #Bath Castle
@@ -274,7 +265,7 @@ class Stage():
                     self.bar['down'].pos -= self.bar_speed
                 if self.bar['up'].pos + self.bar['up'].size[1]< self.bar_goal:
                     self.bar['up'].pos += self.bar_speed
-                if self.bar_speed < 20:
+                if self.bar_speed < 20*scale:
                     self.bar_speed += self.bar_speed
                 if self.white.alpha_value > 150:
                     self.inside.status = 'choosing'
@@ -309,7 +300,7 @@ class Stage():
                 self.princesses[0].update_all()
                 self.bar['down'].pos += self.bar_speed
                 self.bar['up'].pos -= self.bar_speed
-                if self.bar_speed < 20:
+                if self.bar_speed < 20*scale:
                     self.bar_speed += self.bar_speed
                 if self.white.alpha_value > 0:
                     self.white.alpha_value -= 10
@@ -359,7 +350,7 @@ class Stage():
                 self.bar['down'].pos -= self.bar_speed
             if self.bar['up'].pos + self.bar['up'].size[1]< self.bar_goal:
                 self.bar['up'].pos += self.bar_speed
-            if self.bar_speed < 20:
+            if self.bar_speed < 20*scale:
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 150:
                 screen.status = 'choosing'
@@ -371,7 +362,7 @@ class Stage():
             pygame.mixer.music.fadeout(1500)
             self.bar['down'].pos += self.bar_speed
             self.bar['up'].pos -= self.bar_speed
-            if self.bar_speed < 20:
+            if self.bar_speed < 20*scale:
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
                 self.white.alpha_value -= 10
@@ -426,7 +417,7 @@ class Stage():
         elif self.fairy == 'done':
             pygame.mixer.music.fadeout(1500)
             self.princesses[0].update_all()
-            if self.bar_speed < 20:
+            if self.bar_speed < 20*scale:
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
                 self.white.alpha_value -= 10
@@ -453,8 +444,8 @@ class Stage():
                 maximum = 1
                 if name in ("Butterfly" , "Bird") :
                     maximum = 5
-                pos_x = scale*(random.randint(1400,7000))
                 for i in range(0,random.randint(1,maximum)):
+                    pos_x = scale*(random.randint(1400,7000))
                     exec("self.enemies.append(enemy."+name+"(pos_x,self))")
             self.loading()
 
@@ -487,7 +478,7 @@ class Stage():
             self.bar['right'].pos -= self.bar_speed
         else:
             self.bar['right'].pos = self.universe.width-(self.bar['right'].size[0]-(self.bar['right'].size[0]/5) )
-        if self.bar_speed < 20:
+        if self.bar_speed < 20*scale:
             self.bar_speed += self.bar_speed
         self.black.alpha_value += (5*darkenning)
         self.black.image.set_alpha(self.black.alpha_value)
@@ -571,9 +562,9 @@ class Stage():
         db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
-        self.floor_heights = [height*scale]*int((width*scale))
+        self.floor_heights = [round(height*scale)]*int(round(width*scale))
         for row in cursor.execute("SELECT * FROM floor ORDER BY id ASC").fetchall():
-            for r in range(int(row['start']*scale),int(row['end']*scale)):
+            for r in range(int(round(int(row['start'])*scale)),int(round(int(row['end'])*scale))):
                 self.floor_heights[r]=row['value']*scale
         cursor.close()
         self.loading()
@@ -619,17 +610,17 @@ class Stage():
         cursor.close()
         self.create_scenario(hardname)
         self.create_front_scenario(hardname)
-        self.panel          = [widget.GameText(_(translatable_name), p((300,20)), self,font_size = 30),
+        self.panel          = [widget.GameText(_(translatable_name), (300,20), self,font_size = 30),
                                None,
                                glamour_stars.Glamour_Stars(self),
-                               widget.GameText(self.princesses[0].name, p((660,47)), self, font_size = 70,fonte='Chopin_Script.ttf',color = (58,56,0)),
+                               widget.GameText(self.princesses[0].name, (660,47), self, font_size = 70,fonte='Chopin_Script.ttf'),
                                glamour_stars.Lil_Star_Back(self,(1020,0)),
                                glamour_stars.Lil_Stars(self, (1030,10)),
-                               widget.GameText(str(self.princesses[0].points), p((1000,20)),self,font_size = 30)
+                               widget.GameText(str(self.princesses[0].points), (1000,20),self,font_size = 30)
         ]
 
 
-    def BathhouseSt(self,goalpos = None):
+    def BathhouseSt(self,goalpos = None, clean_princess = False):
         self.set_floor_heights(186,9400,'bathhouse')
         self.create_stage(_('Bathhouse St'),goalpos,'bathhouse')
         gates = (   [(1063,453),'bathhouse/door/',self.bathhouse_castle(),True],
@@ -643,7 +634,7 @@ class Stage():
         self.loading()
         self.gates.extend([scenarios.Gate(i[0], self.maindir+'omni/gate/',self,i[1], goalpos = i[2]) for i in doors])
         self.loading()
-        self.select_enemies(('schnauzer', 'schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
+        self.select_enemies(('schnauzer', 'carriage', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         self.loading()
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
@@ -653,12 +644,16 @@ class Stage():
         if self.starting_game:
             events.choose_event(self,starting_game=True)
             self.starting_game = False
-
+        if clean_princess:
+            self.princesses[0].dirt = 0
+            self.universe.db_cursor.execute("UPDATE save SET dirt = "+str(self.princesses[0].dirt)+" WHERE name = '"+self.princesses[0].name+"'")
+            print "You look lovely all cleaned up!"
+            self.princesses[1] = None
     def DressSt(self,goalpos = None):
         self.create_stage(_('Dress St'), goalpos,'dress')
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self)]
         self.loading()
-        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'DressSt')
+        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','carriage'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor(p((9194,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
                       scenarios.Gate(dressgate[0], main_dir+'/data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
@@ -700,7 +695,7 @@ class Stage():
     def MakeupSt(self,goalpos = None):
         self.create_stage(_('Makeup St'),goalpos,'makeup')
 
-        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'MakeupSt')
+        self.select_enemies(('carriage','schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'MakeupSt')
         self.gates.extend([ scenarios.Gate(makeupgate[x],main_dir+'/data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
                             ((0, self.DressSt, dressgate[2]),
@@ -731,7 +726,7 @@ class Stage():
         self.create_stage(_('Shoes St'),goalpos,'shoes')
         self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
         self.loading()
-        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'ShoesSt')
+        self.select_enemies(('carriage','schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9440,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
         scenarios.Gate(shoegate[0],main_dir+'/data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[2]),
@@ -801,13 +796,13 @@ class Pause():
     def __init__(self, level):
         self.status = 'outside'
         self.level  = level
-        resume      = widget.GameText(_('Resume'),p((360,400)),self.level,font_size=80, fonte='Chopin_Script.ttf')
+        resume      = widget.GameText(_('Resume'),(360,400),self.level,font_size=80, fonte='Chopin_Script.ttf')
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
         ok_button   = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
-        quit        = widget.GameText(_('Quit'),p((1080,400)),self.level,font_size= 80, fonte='Chopin_Script.ttf')
+        quit        = widget.GameText(_('Quit'),(1080,400),self.level,font_size= 80, fonte='Chopin_Script.ttf')
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
         cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
-        title       = widget.GameText(_('Game Paused'),p((720,100)),self.level, fonte='Chopin_Script.ttf', font_size=120, color = (58,56,0))
+        title       = widget.GameText(_('Game Paused'),(720,100),self.level, fonte='Chopin_Script.ttf', font_size=120)
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
         self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
 

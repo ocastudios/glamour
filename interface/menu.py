@@ -213,7 +213,7 @@ class Menu():
             self.position    = [450*scale,1000*scale]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.play_credits))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.texts =   [ widget.GameText(_('select one'),p((65,250)),self, rotate=90,color = (58,56,0))]
+        self.texts =   [ widget.GameText(_('select one'),(65,250),self, rotate=90,color = (58,56,0))]
         self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
                          widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
@@ -244,7 +244,7 @@ class Menu():
         self.reset_menu(
             background  = 'data/images/story/svg_bedroom.png',
             action      = 'open',
-            texts = [widget.GameText(_(i[0]),p(i[1]),self,color = (58,56,0)) for i in txt],
+            texts = [widget.GameText(_(i[0]),i[1],self,color = (58,56,0)) for i in txt],
             buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                     (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
                      ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
@@ -257,7 +257,7 @@ class Menu():
         self.print_princess = True
         self.reset_menu(
                 action  = 'open',
-                texts   =  [widget.GameText(_(i[0]),p(i[1]),self,color = (58,56,0)) for i in txt],
+                texts   =  [widget.GameText(_(i[0]),i[1],self,color = (58,56,0)) for i in txt],
                 buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                         (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
                          ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
@@ -266,16 +266,16 @@ class Menu():
 
 
     def name_your_princess(self):
-        s = scale
+
         self.print_princess = False
         opt = [widget.Letter(i[0],i[1],self, self.screen.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
                 map(chr,xrange(97,123)),
-                zip([x for n in xrange(9) for x in xrange(int(100*s),int(422*s),int(40*s))],
-                    [n for n in xrange(int(200*s),int(352*s),int(50*s)) for x in xrange(9)]))] 
-        opt.extend([widget.Key(_('< back'),       (140*scale,350*scale)  ,self, 'Backspace'),
-                    widget.Key(_('space >'),      (360*scale,350*scale)  ,self, 'Spacebar'),
-                    widget.Key(_('clean up [  ]'),(140*scale,400*scale)  ,self, 'Cleanup'),
-                    widget.Key(_('random   ???'), (360*scale,400*scale)  ,self, 'Random')
+                zip([x for n in xrange(9) for x in xrange(int(100),int(422),int(40))],
+                    [n for n in xrange(int(200),int(352),int(50)) for x in xrange(9)]))] 
+        opt.extend([widget.Key(_('< back'),       (140,350)  ,self, 'Backspace'),
+                    widget.Key(_('space >'),      (360,350)  ,self, 'Spacebar'),
+                    widget.Key(_('clean up [  ]'),(140,400)  ,self, 'Cleanup'),
+                    widget.Key(_('random   ???'), (360,400)  ,self, 'Random')
            ])
 
         buttom_list = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
@@ -283,15 +283,15 @@ class Menu():
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
                         )]
         if name_taken:
-            txts = [    widget.GameText(_('Sorry, This name is taken.'),p((-100,-150)),self,color = (58,56,0)),
-                        widget.GameText(_('Please, choose another one'),p((-100,-50)),self,color = (58,56,0)),
+            txts = [    widget.GameText(_('Sorry, This name is taken.'),(-100,-150),self,color = (58,56,0)),
+                        widget.GameText(_('Please, choose another one'),(-100,-50),self,color = (58,56,0)),
                         widget.GameText(_('_ _ _ _ _ _ _'),p((230,130)),self,color = (58,56,0)),
                         self.princess.name
                     ]
             buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game,color = (58,56,0), parameter=[False,True]) ])
         else:
-            txts =[     widget.GameText(_('... and your name.'),p((-200,200)),self,color = (58,56,0)),
-                        widget.GameText('_ _ _ _ _ _ _', p((230,130)),self,color = (58,56,0)),
+            txts =[     widget.GameText(_('... and your name.'),(-200,200),self,color = (58,56,0)),
+                        widget.GameText('_ _ _ _ _ _ _', (230,130),self,color = (58,56,0)),
                         self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
 
@@ -479,8 +479,8 @@ class Menu():
         self.speed      = 0
         self.position = [100*scale,-600*scale]
         self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
-        self.texts =    [widget.GameText(_('Have you already saved a game?'),p((250,-150)),self,color = (58,56,0)),
-                         widget.GameText(_('Then choose your saved princess:'),p((250,-100)),self,color = (58,56,0))]
+        self.texts =    [widget.GameText(_('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
+                         widget.GameText(_('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
         ypos = 0
         xpos = 0
         self.buttons = []
@@ -490,10 +490,10 @@ class Menu():
                                  widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
                                  widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
-            ypos+=self.buttons[0].size[1]
-            if ypos > 250:
+            ypos+=(self.buttons[0].size[1]/scale)
+            if ypos > 250*scale:
                 ypos = 0
-                xpos += 400*scale
+                xpos += 400
 
     def watching_story(self):
         print "Let's watch the story"
@@ -553,7 +553,7 @@ class MenuPrincess():
         else:
             self.images = obj_images.image(thumbnail)
         self.goal_pos = (250*scale,250*scale)
-        self.name = widget.GameText('maddeline',(170*scale,120*scale),self.menu,var = True,color = (58,56,0))
+        self.name = widget.GameText('maddeline',(170,120),self.menu,var = True,color = (58,56,0))
         self.pos = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
                            self.menu.position[1]+self.goal_pos[1]-(self.size[1]/2)]
 
@@ -701,8 +701,8 @@ class Credits():
             (_("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2540),14,None)
            ]
         self.images = developers+rendered_texts
-        self.texts = [ widget.GameText(i[0],p(i[1]),self,fonte='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
-                       widget.GameText(i[0],p(i[1]),self,fonte='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
+        self.texts = [ widget.GameText(i[0],i[1],self,fonte='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
+                       widget.GameText(i[0],i[1],self,fonte='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
         for i in self.images:
             print i
             self.background.blit(obj_images.image(i[1]),p(i[2]))

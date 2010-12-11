@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glamour\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-20 14:37-0300\n"
+"POT-Creation-Date: 2010-12-04 16:00-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Nelson <nelson@ocastudios.com>\n"
 "Language-Team: Oca Studios <ocastudios@ocastudios.com>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: /home/nelson/glamour\n"
 
-#: /home/nelson/glamour/interactive/stage.py:633
+#: /home/nelson/glamour/interactive/stage.py:625
 msgid "Bathhouse St"
 msgstr "R. Casa de Banho"
 
-#: /home/nelson/glamour/interactive/stage.py:657
+#: /home/nelson/glamour/interactive/stage.py:653
 msgid "Dress St"
 msgstr "R. Vestidos"
 
-#: /home/nelson/glamour/interactive/stage.py:673
+#: /home/nelson/glamour/interactive/stage.py:669
 msgid "Accessory St"
 msgstr "R. Acessórios"
 
-#: /home/nelson/glamour/interactive/stage.py:700
+#: /home/nelson/glamour/interactive/stage.py:696
 msgid "Makeup St"
 msgstr "R. Maquiagem"
 
-#: /home/nelson/glamour/interactive/stage.py:730
+#: /home/nelson/glamour/interactive/stage.py:726
 msgid "Shoes St"
 msgstr "R. Sapatos"
 
-#: /home/nelson/glamour/interactive/stage.py:814
+#: /home/nelson/glamour/interactive/stage.py:799
 msgid "Resume"
 msgstr "Continuar"
 
-#: /home/nelson/glamour/interactive/stage.py:817
+#: /home/nelson/glamour/interactive/stage.py:802
 msgid "Quit"
 msgstr "Sair"
 
-#: /home/nelson/glamour/interactive/stage.py:820
+#: /home/nelson/glamour/interactive/stage.py:805
 msgid "Game Paused"
 msgstr "Jogo Pausado"
 
@@ -265,386 +265,560 @@ msgstr "Ora, princesa bobinha, Glamour é simplesmente... lindo e divino. Ah, si
 msgid "So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go."
 msgstr "Então vamos começar, transformando você de uma linda e amável princesinha em uma maravilhosa e glamorosa princesinha. Eu vou te ajudar no caminho, então lá vamos nós."
 
-#: /home/nelson/glamour/interface/ball.py:78
+#: /home/nelson/glamour/interactive/messages.py:76
+#, python-format
+msgid "Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns, a tiny teeny dragon."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:77
+#, python-format
+msgid "Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:78
+#, python-format
+msgid "%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:79
+#, python-format
+msgid "Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:80
+#, python-format
+msgid "Have you noticed how many different architectural styles we have in this town, %s? Do you thing that maybe those are magic portals that take us to far away places?"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:81
+#, python-format
+msgid "If we are all princesses, and we live in the same town, shouldn't we all be sisters? Gosh, I wish I was your sister, %s..."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:82
+#, python-format
+msgid "My father says someday I'll marry a prince that defeated many perils to be with me... well, %s, I say let 'me' go on adventures and let him wait for me to marry him."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:83
+msgid "We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:84
+#, python-format
+msgid "%s, did you know that no one dislike tenderness? From boys to lions, love seems to triumph all. I wonder how a thing that didn't like kisses would be like. I bet it'd be ugly, bearded and riding a boat."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:85
+#, python-format
+msgid "Have you noticed how we all get princes by the end of our story, %s? But some others don't, like Little Red, Grettel and the Mermaid. They only get wolves and witches, poor folk..."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:86
+#, python-format
+msgid "Well, %s, we've got some pretty nice stores in town, but they don't seem to carry much variety. I mean, I never use the same dress twice on a ball, so I have dozens of each available dress already."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:87
+#, python-format
+msgid "Oh, dancing is so much fun! But I sure would like to fly in the air, or fight dragons, or cast spells. %s, why do you think they give us princesses the worst parts in our own stories?"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:88
+#, python-format
+msgid "Dancing every single night... I, mean, we have fun and all, but aren't your feet killing you, %s?"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:89
+#, python-format
+msgid "Who owns that little schnauzer that won't let me walk around in peace? It is not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... even small dogs..."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:90
+#, python-format
+msgid "Have you visited the zoo, yet? I love the penguin and the giraffe, but that monkey just drives me crazy. Maybe we could go together someday, %s, and have a hard long talk with whoever runs that place."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:91
+msgid "Have you met Fabrizio, the little italian kid? He's always with that ball, but I think I've seen him somewhere before. Do you think he maybe might have a free tabletop game developed by Ocastudios?"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:92
+#, python-format
+msgid "Many people think that the beatiful scenery of fairy tales are stuff of legend, by they exist, %s. Next vacations, try cruising around the Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters and see for yourself."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:93
+msgid "Do you know that many, many people have to worry about computer viruses, and software freezing. They don't even have access to their source-code... Thank goodness we use a Unix box."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:94
+msgid "Have you seen the ball palace shaking last night? With so much dancing, do you think the structure is still stable? I think I'll call the dwarves to make some repairs."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:95
+#, python-format
+msgid "Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll tell on you to ma!"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:96
+msgid "No, I won't go out today! Yesterday there were so many chicks... and their mama didn't let me even play with them. She ruined may hair!!! I'm never coming out again."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:97
+#, python-format
+msgid "%s, I won't rest until I get the heart of the prince. I mean, Gentleman Decent is kinda cute, but he falls for every girl in the kingdom!"
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:98
+#, python-format
+msgid "There is a lot of noblemen in the balls, %s, but... do you think someone would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget about the ball for a while, of course."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:99
+msgid "Some of the princesses never eat apples or work with spindles because they are afraid of fairy tales. As for me, I just keep my distance from evil witches and refrain from talking to big bad wolves."
+msgstr ""
+
+#: /home/nelson/glamour/interactive/messages.py:100
+msgid "Do you know that many countries today still have kings? Oh, I'd love to be the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an enchanted mythical kingdom of everlasting joy, but I 'really' wanted Sweeden..."
+msgstr ""
+
+#: /home/nelson/glamour/interface/inside.py:191
+msgid "Go to the Ball"
+msgstr ""
+
+#: /home/nelson/glamour/interface/inside.py:192
+msgid "It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different."
+msgstr ""
+
+#: /home/nelson/glamour/interface/inside.py:193
+msgid "Last Ball"
+msgstr "Baile Passado"
+
+#: /home/nelson/glamour/interface/inside.py:194
+msgid "Great Past Ball"
+msgstr "Baile Retrasado"
+
+#: /home/nelson/glamour/interface/inside.py:195
+msgid "3 Balls Ago"
+msgstr "3 Bailes Atrás"
+
+#: /home/nelson/glamour/interface/ball.py:68
 msgid "and won the heart of"
 msgstr "e ganhou o coração do"
 
-#: /home/nelson/glamour/interface/ball.py:174
+#: /home/nelson/glamour/interface/ball.py:166
 msgid "You've"
 msgstr "Você"
 
-#: /home/nelson/glamour/interface/ball.py:175
+#: /home/nelson/glamour/interface/ball.py:167
 msgid "got"
 msgstr "ganhou"
 
-#: /home/nelson/glamour/interface/ball.py:176
+#: /home/nelson/glamour/interface/ball.py:168
 msgid "glamour"
 msgstr "pontos"
 
-#: /home/nelson/glamour/interface/ball.py:177
+#: /home/nelson/glamour/interface/ball.py:169
 msgid "points"
 msgstr "de glamour"
 
-#: /home/nelson/glamour/interface/ball.py:228
+#: /home/nelson/glamour/interface/ball.py:221
 msgid "Tonight's ball"
 msgstr "Este baile"
 
-#: /home/nelson/glamour/interface/ball.py:229
+#: /home/nelson/glamour/interface/ball.py:222
 msgid "Yesterday's ball"
 msgstr "Baile passado"
 
-#: /home/nelson/glamour/interface/menu.py:215
+#: /home/nelson/glamour/interface/ball.py:313
+msgid "Gentleman Decent"
+msgstr "Fidalgo Decente"
+
+#: /home/nelson/glamour/interface/ball.py:316
+msgid "Knight Reliable"
+msgstr "Cavaleiro Confiável"
+
+#: /home/nelson/glamour/interface/ball.py:319
+msgid "Baron Serious"
+msgstr "Barão Sério"
+
+#: /home/nelson/glamour/interface/ball.py:322
+msgid "Count Loving"
+msgstr "Conde Amoroso"
+
+#: /home/nelson/glamour/interface/ball.py:325
+msgid "Marquess Attractive"
+msgstr "Marquês Atraente"
+
+#: /home/nelson/glamour/interface/ball.py:328
+msgid "Duke Intelligent"
+msgstr "Duque Inteligente"
+
+#: /home/nelson/glamour/interface/ball.py:331
+msgid "Prince Charming"
+msgstr "Príncipe Encantado"
+
+#: /home/nelson/glamour/interface/ball.py:334
+msgid "King Kindhearted"
+msgstr "Rei Bondoso"
+
+#: /home/nelson/glamour/interface/ball.py:337
+msgid "Emperor Awesome"
+msgstr "Imperador Incrível"
+
+#: /home/nelson/glamour/interface/menu.py:214
 msgid "New Game"
 msgstr "Novo Jogo"
 
-#: /home/nelson/glamour/interface/menu.py:215
+#: /home/nelson/glamour/interface/menu.py:214
 msgid "Load Game"
 msgstr "Continuar jogo"
 
-#: /home/nelson/glamour/interface/menu.py:215
+#: /home/nelson/glamour/interface/menu.py:214
 msgid "Play Story"
 msgstr "Ver a história"
 
-#: /home/nelson/glamour/interface/menu.py:215
-#: /home/nelson/glamour/interface/menu.py:647
+#: /home/nelson/glamour/interface/menu.py:214
+#: /home/nelson/glamour/interface/menu.py:632
 msgid "Credits"
 msgstr "Créditos"
 
-#: /home/nelson/glamour/interface/menu.py:217
+#: /home/nelson/glamour/interface/menu.py:216
 msgid "select one"
 msgstr "escolha um"
 
-#: /home/nelson/glamour/interface/menu.py:244
-#: /home/nelson/glamour/interface/menu.py:257
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
 msgid "Choose your"
 msgstr "Escolha sua"
 
-#: /home/nelson/glamour/interface/menu.py:244
-#: /home/nelson/glamour/interface/menu.py:257
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
 msgid "appearence..."
 msgstr "aparência"
 
-#: /home/nelson/glamour/interface/menu.py:244
+#: /home/nelson/glamour/interface/menu.py:243
 msgid "skin tone"
 msgstr "cor da pele"
 
-#: /home/nelson/glamour/interface/menu.py:244
-#: /home/nelson/glamour/interface/menu.py:257
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
 msgid "previous"
 msgstr "anterior"
 
-#: /home/nelson/glamour/interface/menu.py:244
-#: /home/nelson/glamour/interface/menu.py:257
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
 msgid "next"
 msgstr "próximo"
 
-#: /home/nelson/glamour/interface/menu.py:257
+#: /home/nelson/glamour/interface/menu.py:256
 msgid "hair style"
 msgstr "cabelo"
 
-#: /home/nelson/glamour/interface/menu.py:276
+#: /home/nelson/glamour/interface/menu.py:275
 msgid "< back"
 msgstr "< voltar"
 
-#: /home/nelson/glamour/interface/menu.py:277
+#: /home/nelson/glamour/interface/menu.py:276
 msgid "space >"
 msgstr "espaço >"
 
-#: /home/nelson/glamour/interface/menu.py:278
+#: /home/nelson/glamour/interface/menu.py:277
 msgid "clean up [  ]"
 msgstr "limpar  [  ]"
 
-#: /home/nelson/glamour/interface/menu.py:279
+#: /home/nelson/glamour/interface/menu.py:278
 msgid "random   ???"
 msgstr "aleatório ???"
 
-#: /home/nelson/glamour/interface/menu.py:287
+#: /home/nelson/glamour/interface/menu.py:286
 msgid "Sorry, This name is taken."
 msgstr "Desculpe, este nome está sendo usado."
 
-#: /home/nelson/glamour/interface/menu.py:288
+#: /home/nelson/glamour/interface/menu.py:287
 msgid "Please, choose another one"
 msgstr "Por favor, escolha outro"
 
-#: /home/nelson/glamour/interface/menu.py:289
+#: /home/nelson/glamour/interface/menu.py:288
 msgid "_ _ _ _ _ _ _"
 msgstr "_ _ _ _ _ _ _"
 
-#: /home/nelson/glamour/interface/menu.py:294
+#: /home/nelson/glamour/interface/menu.py:293
 msgid "... and your name."
 msgstr "... e seu nome."
 
-#: /home/nelson/glamour/interface/menu.py:465
+#: /home/nelson/glamour/interface/menu.py:464
 msgid "The "
 msgstr "O"
 
-#: /home/nelson/glamour/interface/menu.py:482
+#: /home/nelson/glamour/interface/menu.py:481
 msgid "Or go back to Main Menu"
 msgstr "Ou volte para o Menu Principal"
 
-#: /home/nelson/glamour/interface/menu.py:483
+#: /home/nelson/glamour/interface/menu.py:482
 msgid "Have you already saved a game?"
 msgstr "Você já salvou um jogo?"
 
-#: /home/nelson/glamour/interface/menu.py:484
+#: /home/nelson/glamour/interface/menu.py:483
 msgid "Then choose your saved princess:"
 msgstr "Então escolha sua princesa salva:"
 
-#: /home/nelson/glamour/interface/menu.py:492
+#: /home/nelson/glamour/interface/menu.py:491
 msgid "erase"
 msgstr "apagar"
 
-#: /home/nelson/glamour/interface/menu.py:595
+#: /home/nelson/glamour/interface/menu.py:580
 msgid "Use the arrows to go"
 msgstr "Use as setas para ir"
 
-#: /home/nelson/glamour/interface/menu.py:596
+#: /home/nelson/glamour/interface/menu.py:581
 msgid "forward and backward"
 msgstr "para frente e para trás"
 
-#: /home/nelson/glamour/interface/menu.py:645
+#: /home/nelson/glamour/interface/menu.py:630
 msgid "in loving memory of"
 msgstr "em saudosa memória de"
 
-#: /home/nelson/glamour/interface/menu.py:646
+#: /home/nelson/glamour/interface/menu.py:631
 msgid "and"
 msgstr "e"
 
-#: /home/nelson/glamour/interface/menu.py:648
+#: /home/nelson/glamour/interface/menu.py:633
 msgid "Programming"
 msgstr "Programação"
 
-#: /home/nelson/glamour/interface/menu.py:649
+#: /home/nelson/glamour/interface/menu.py:634
 msgid "Support"
 msgstr "Suporte"
 
-#: /home/nelson/glamour/interface/menu.py:650
+#: /home/nelson/glamour/interface/menu.py:635
 msgid "Design"
 msgstr "Design"
 
-#: /home/nelson/glamour/interface/menu.py:651
+#: /home/nelson/glamour/interface/menu.py:636
 msgid "Music"
 msgstr "Música"
 
+#: /home/nelson/glamour/interface/menu.py:637
+#: /home/nelson/glamour/interface/menu.py:650
 #: /home/nelson/glamour/interface/menu.py:652
-#: /home/nelson/glamour/interface/menu.py:665
-#: /home/nelson/glamour/interface/menu.py:667
 msgid "first snowfall"
 msgstr "first snowfall"
 
-#: /home/nelson/glamour/interface/menu.py:653
+#: /home/nelson/glamour/interface/menu.py:638
 msgid "endless blue"
 msgstr "endless blue"
 
-#: /home/nelson/glamour/interface/menu.py:654
+#: /home/nelson/glamour/interface/menu.py:639
 msgid "celtic cappricio"
 msgstr "celtic cappricio"
 
-#: /home/nelson/glamour/interface/menu.py:655
+#: /home/nelson/glamour/interface/menu.py:640
 msgid "the bee"
 msgstr "the bee"
 
-#: /home/nelson/glamour/interface/menu.py:656
+#: /home/nelson/glamour/interface/menu.py:641
 msgid "lonesome man's dance"
 msgstr "lonesome man's dance"
 
-#: /home/nelson/glamour/interface/menu.py:657
+#: /home/nelson/glamour/interface/menu.py:642
 msgid "dragon dance"
 msgstr "dragon dance"
 
-#: /home/nelson/glamour/interface/menu.py:658
+#: /home/nelson/glamour/interface/menu.py:643
 msgid "ship of fools"
 msgstr "ship of fools"
 
-#: /home/nelson/glamour/interface/menu.py:659
+#: /home/nelson/glamour/interface/menu.py:644
 msgid "sword fight"
 msgstr "sword fight"
 
-#: /home/nelson/glamour/interface/menu.py:660
+#: /home/nelson/glamour/interface/menu.py:645
 msgid "the foggy dew"
 msgstr "the foggy dew"
 
-#: /home/nelson/glamour/interface/menu.py:661
+#: /home/nelson/glamour/interface/menu.py:646
 msgid "revolution on resoluti on"
 msgstr "revolution on resoluti on"
 
-#: /home/nelson/glamour/interface/menu.py:662
+#: /home/nelson/glamour/interface/menu.py:647
 msgid "twilight on mountain"
 msgstr "twilight on mountain"
 
-#: /home/nelson/glamour/interface/menu.py:663
+#: /home/nelson/glamour/interface/menu.py:648
 msgid "brian boru 2"
 msgstr "brian boru 2"
 
-#: /home/nelson/glamour/interface/menu.py:664
+#: /home/nelson/glamour/interface/menu.py:649
 msgid "ignition"
 msgstr "ignition"
 
-#: /home/nelson/glamour/interface/menu.py:666
+#: /home/nelson/glamour/interface/menu.py:651
 msgid "cocci ci tini cocci"
 msgstr "cocci ci tini cocci"
 
-#: /home/nelson/glamour/interface/menu.py:668
+#: /home/nelson/glamour/interface/menu.py:653
 msgid "waltz wedley"
 msgstr "waltz wedley"
 
-#: /home/nelson/glamour/interface/menu.py:671
+#: /home/nelson/glamour/interface/menu.py:656
 msgid "All python & pygame code, written in gedit (really!)."
 msgstr "Tudo em código python & pygame, escrito em gedit (sério!)."
 
-#: /home/nelson/glamour/interface/menu.py:672
+#: /home/nelson/glamour/interface/menu.py:657
 msgid "Bureaucracy and et ceteras"
 msgstr "Burocracia e etc."
 
-#: /home/nelson/glamour/interface/menu.py:673
+#: /home/nelson/glamour/interface/menu.py:658
 msgid "Almost all Inkscape, with a touch of Blender and Gimp."
 msgstr "Quase tudo em Inkscape, com um toque de Blender e Gimp."
 
-#: /home/nelson/glamour/interface/menu.py:674
+#: /home/nelson/glamour/interface/menu.py:659
 msgid "based on the homonimous board game by"
 msgstr "baseado no jogo de tabuleiro homônimo de"
 
-#: /home/nelson/glamour/interface/menu.py:675
+#: /home/nelson/glamour/interface/menu.py:660
 msgid "available at"
 msgstr "disponível em"
 
-#: /home/nelson/glamour/interface/menu.py:676
+#: /home/nelson/glamour/interface/menu.py:661
 msgid "introduction"
 msgstr "introdução"
 
-#: /home/nelson/glamour/interface/menu.py:677
-#: /home/nelson/glamour/interface/menu.py:703
-#: /home/nelson/glamour/interface/menu.py:707
+#: /home/nelson/glamour/interface/menu.py:662
+#: /home/nelson/glamour/interface/menu.py:688
+#: /home/nelson/glamour/interface/menu.py:692
 msgid "by Torley on Piano"
 msgstr "por Torley on Piano"
 
-#: /home/nelson/glamour/interface/menu.py:678
+#: /home/nelson/glamour/interface/menu.py:663
 msgid "menu"
 msgstr "menu"
 
-#: /home/nelson/glamour/interface/menu.py:679
-#: /home/nelson/glamour/interface/menu.py:691
-#: /home/nelson/glamour/interface/menu.py:697
-#: /home/nelson/glamour/interface/menu.py:701
+#: /home/nelson/glamour/interface/menu.py:664
+#: /home/nelson/glamour/interface/menu.py:676
+#: /home/nelson/glamour/interface/menu.py:682
+#: /home/nelson/glamour/interface/menu.py:686
 msgid "by Armolithae"
 msgstr "por Armolithae"
 
-#: /home/nelson/glamour/interface/menu.py:680
+#: /home/nelson/glamour/interface/menu.py:665
 msgid "bathhouse st"
 msgstr "r. casa de banho"
 
-#: /home/nelson/glamour/interface/menu.py:681
+#: /home/nelson/glamour/interface/menu.py:666
 msgid "by armolithae"
 msgstr "por armolithae"
 
-#: /home/nelson/glamour/interface/menu.py:682
+#: /home/nelson/glamour/interface/menu.py:667
 msgid "dress st"
 msgstr "r. vestidos"
 
-#: /home/nelson/glamour/interface/menu.py:683
-#: /home/nelson/glamour/interface/menu.py:685
-#: /home/nelson/glamour/interface/menu.py:689
-#: /home/nelson/glamour/interface/menu.py:693
+#: /home/nelson/glamour/interface/menu.py:668
+#: /home/nelson/glamour/interface/menu.py:670
+#: /home/nelson/glamour/interface/menu.py:674
+#: /home/nelson/glamour/interface/menu.py:678
 msgid "by Ceili Moss"
 msgstr "por Ceili Moss"
 
-#: /home/nelson/glamour/interface/menu.py:684
+#: /home/nelson/glamour/interface/menu.py:669
 msgid "shoe's st"
 msgstr "r. sapatos"
 
-#: /home/nelson/glamour/interface/menu.py:686
+#: /home/nelson/glamour/interface/menu.py:671
 msgid "accessory st."
 msgstr "r. acessórios"
 
-#: /home/nelson/glamour/interface/menu.py:687
+#: /home/nelson/glamour/interface/menu.py:672
 msgid "by Butterfly Tea"
 msgstr "por Butterfly Tea"
 
-#: /home/nelson/glamour/interface/menu.py:688
+#: /home/nelson/glamour/interface/menu.py:673
 msgid "make-up st."
 msgstr "r. maquiagem"
 
-#: /home/nelson/glamour/interface/menu.py:690
+#: /home/nelson/glamour/interface/menu.py:675
 msgid "schnauzer"
 msgstr "schnauzer"
 
-#: /home/nelson/glamour/interface/menu.py:692
+#: /home/nelson/glamour/interface/menu.py:677
 msgid "carriage"
 msgstr "carruagem"
 
-#: /home/nelson/glamour/interface/menu.py:694
+#: /home/nelson/glamour/interface/menu.py:679
 msgid "old lady"
 msgstr "velhinha"
 
-#: /home/nelson/glamour/interface/menu.py:695
+#: /home/nelson/glamour/interface/menu.py:680
 msgid "by Torly on Piano"
 msgstr "por Torly on Piano"
 
-#: /home/nelson/glamour/interface/menu.py:696
+#: /home/nelson/glamour/interface/menu.py:681
 msgid "viking"
 msgstr "viking"
 
-#: /home/nelson/glamour/interface/menu.py:698
+#: /home/nelson/glamour/interface/menu.py:683
 msgid "butterffly"
 msgstr "borboleta"
 
-#: /home/nelson/glamour/interface/menu.py:699
+#: /home/nelson/glamour/interface/menu.py:684
 msgid "by Adragante"
 msgstr "por Adragante"
 
-#: /home/nelson/glamour/interface/menu.py:700
+#: /home/nelson/glamour/interface/menu.py:685
 msgid "hawk"
 msgstr "falcão"
 
-#: /home/nelson/glamour/interface/menu.py:702
+#: /home/nelson/glamour/interface/menu.py:687
 msgid "birdie"
 msgstr "passarinho"
 
-#: /home/nelson/glamour/interface/menu.py:704
+#: /home/nelson/glamour/interface/menu.py:689
 msgid "fabrizio"
 msgstr "fabrizio"
 
-#: /home/nelson/glamour/interface/menu.py:705
+#: /home/nelson/glamour/interface/menu.py:690
 msgid "by Picari"
 msgstr "por Picari"
 
-#: /home/nelson/glamour/interface/menu.py:706
+#: /home/nelson/glamour/interface/menu.py:691
 msgid "zoo"
 msgstr "zoo"
 
-#: /home/nelson/glamour/interface/menu.py:708
+#: /home/nelson/glamour/interface/menu.py:693
 msgid "ball"
 msgstr "baile"
 
-#: /home/nelson/glamour/interface/menu.py:709
+#: /home/nelson/glamour/interface/menu.py:694
 msgid "by strauss"
 msgstr "por strauss"
 
-#: /home/nelson/glamour/interface/menu.py:710
+#: /home/nelson/glamour/interface/menu.py:695
 msgid "Sad and unfortunate legal mambo jambo"
 msgstr "Babozeiras jurídicas tristes e lamentáveis"
 
-#: /home/nelson/glamour/interface/menu.py:711
+#: /home/nelson/glamour/interface/menu.py:696
 msgid "All programming and art are public domain, released so by us, their authors."
 msgstr "Toda a programação e a arte são disponibilizadas como domínio público pelos autores."
 
-#: /home/nelson/glamour/interface/menu.py:712
+#: /home/nelson/glamour/interface/menu.py:697
 msgid "The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."
 msgstr "As músicas, entretanto, vêm em uma variedade de licenças. Elas podem ser usadas e alteradas, mesmo comercialmente, mas o crédito DEVE ser dado. Agradecimento especial ao jamendo.com, de onde a maior parte das músicas vieram."
 
-#: /home/nelson/glamour/interface/menu.py:713
+#: /home/nelson/glamour/interface/menu.py:698
 msgid "( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"
 msgstr "(Se você é um autor e quer tirar sua música deste jogo, contate-nos e removeremos de imediato.)"
 
-#: /home/nelson/glamour/interface/menu.py:714
+#: /home/nelson/glamour/interface/menu.py:699
 msgid "And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
 msgstr "E agora as fontes: Gestesque, por Paulo Silva, tem licença OpenFonce e a Chopin Script, por Diogene, é Domínio Público (Viva!!)."
 
-#: /home/nelson/glamour/interface/menu.py:715
+#: /home/nelson/glamour/interface/menu.py:700
 msgid "If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."
 msgstr "Se você é desenvolvedor de conteúdo livre, por favor, considere as limitações que as várias \"licenças livres\" impõe sobre obras derivadas. Toneladas (ou melhor, Teras) de conteúdo cultural como imagens, música e fontes que são \"livres\" não são aproveitáveis em razão de restrições legais ou práticas (é impossível dar crédito a cada bit de dado que usamos). Licenças como \"livre para uso pessoal, mas não comercial\", \"livre para uso, mas não para alterar\" e/ou \"livre para uso, mas não para distribuição\" prejudicam a liberdade e se equivalem a \"grátis, mas não livre\". Dar crédito a uma música é justo e praticável, mas não para os sons dos passos, ou outros arquivos minúsculos, mas necessários. Por favor, publique seu trabalho em domínio público ou GPL e ajude-nos a divulgar e usar seu trabalho. Evite licenças semi-livres, sem padrão ou variadas. Elas torturam desenvolvedores com páginas de lamentáveis considerações sobre licenças... como esta."
 
-#: /home/nelson/glamour/interface/menu.py:716
+#: /home/nelson/glamour/interface/menu.py:701
 msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
 msgstr "gostaria de parabenizar ou reclamar? glamour@ocastudios.com"
 
@@ -682,7 +856,7 @@ msgstr "Amanda"
 
 #: /home/nelson/glamour/interface/random_names.py:14
 msgid "Angel"
-msgstr "Angêla"
+msgstr "Ângela"
 
 #: /home/nelson/glamour/interface/random_names.py:15
 msgid "Annzella"

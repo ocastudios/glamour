@@ -38,24 +38,25 @@ Princess shoes are moving weirdly when she jumps.
                            self.level.universe.floor -  self.level.what_is_my_height(self) -self.size[1]]
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
+        self.run_away_img = obj_images.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
         self.dirties = [Dirt(level,'data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
         self.lips           = obj_images.TwoSided('data/images/effects/kiss/')
         self.dirt_cloud     = obj_images.TwoSided('data/images/effects/dirt/')
         self.gforce         = 0
-        self.g_acceleration = 3*scale
-        self.speed          = 14*scale
+        self.g_acceleration = round(3*scale)
+        self.speed          = round(14*scale)
         self.rect           = Rect(self.pos,self.size)
         self.move           = False
         self.direction      = 'left'
-        self.situation      = {"hurt":0,"excited":0}
+        self.situation      = {"hurt":0,"excited":0,"scared":0}
         self.jump           = 0
         self.kiss           = 0
-        self.kiss_direction = 'right'
+        self.kiss_direction = 'left'
         self.kiss_rect      = ((0,0),(0,0))
         self.floor          = self.level.universe.floor - self.level.what_is_my_height(self)
-        self.last_height    = 186*scale
+        self.last_height    = round(186*scale)
         self.action         = [None,'stay']
         self.image          = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size     = self.image.get_size()
@@ -147,17 +148,23 @@ Princess shoes are moving weirdly when she jumps.
                         if self.rect.colliderect(e.rect):
                             print "Princess got stuck at the Carriage"
                             self.speed = 0
+                            self.action[1]= "stay"
                         else:
-                            self.speed = 10*scale
+                            self.speed = round(14*scale)
                     if e.__class__ == enemy.Butterfly:
                         if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
                             print "Princess got excited by the Butterflies"
                             self.situation['excited']+=1
+#                    if e.__class__ == enemy.Lion:
+#                        if e.action == "growl":
+#                            self.action
+#                            
+                            
                 if self.level.viking_ship:
                     if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
                         self.get_dirty()
                 if self.level.name == "accessory":
-                    if self.pos[1]+self.size[1]-(20*scale) > self.level.water_level:
+                    if self.pos[1]+self.size[1]-round(20*scale) > self.level.water_level:
                         print "Princess feet are at "+str(self.pos[1]+self.size[1])
                         print "Water level is "+str(self.level.water_level)
                         self.get_dirty()
@@ -170,6 +177,11 @@ Princess shoes are moving weirdly when she jumps.
                 action[0] = 'celebrate'
                 if self.situation['excited'] == 60:
                     self.situation['excited'] = 0
+            if self.situation['scared']:
+                self.situation['scared'] +=1
+                action[1] = 'run_away'
+                if self.situation['scared'] == 60:
+                    self.situation['scared'] = 0
             if self.situation['hurt'] and self.situation['hurt'] <6:
                 action[0]='ouch'
                 self.situation['excited'] =0
@@ -220,9 +232,15 @@ Princess shoes are moving weirdly when she jumps.
         if action[1]=='walk' and action[0] != 'celebrate':
             self.center_distance += (self.speed*towards[self.direction])
             obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
-            if obstacle <= int(feet_position -(30*scale)):
+            if obstacle <= int(feet_position -round(30*scale)):
                 self.center_distance -= (self.speed*towards[self.direction])
-
+        if action[1] == 'run_away':
+            if self.center_distance < self.situation['danger']:
+                self.direction = 'left'
+            else:
+                self.direction = 'right'
+            self.center_distance += ((round(6*scale)+self.speed)*towards[self.direction])
+                
     def soundeffects(self,action):
         if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
             if action[1]=='walk' or action[0] == 'pos[0]celebrate':
@@ -240,8 +258,8 @@ Princess shoes are moving weirdly when she jumps.
             self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.right[self.kiss-1]
-            self.effects.append(Effect(kissimage,(self.pos[0]-(200*scale),self.pos[1])))
-            self.kiss_rect = Rect((self.pos[0]+(200*scale)-((self.kiss)*(44*scale)),self.pos[1]),((self.kiss)*(44*scale),self.size[1]))
+            self.effects.append(Effect(kissimage,(self.pos[0]-round(200*scale),self.pos[1])))
+            self.kiss_rect = Rect((self.pos[0]+round(200*scale)-((self.kiss)*round(44*scale)),self.pos[1]),((self.kiss)*round(44*scale),self.size[1]))
 
 #            self.kiss_rect = Rect((self.pos[0]-((self.kiss)*(44*scale)),self.pos[1]),((self.kiss)*(44*scale),self.size[1]))
 
@@ -251,13 +269,7 @@ Princess shoes are moving weirdly when she jumps.
         chosen = action[0] or action[1]
         if direction.__class__ != str:
             direction = "right"
-
         exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.'+direction)
-
-#        if direction == 'left':
-#            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.right')
-#        else:
-#            exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.left')
         self.image = actual_images[self.images.number]
         if chosen != self.past_choice:
             exec('self.'+chosen+'_img.number = 0')
@@ -277,6 +289,7 @@ class Dirt():
         self.directory = directory
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
+        self.run_away = obj_images.Ad_hoc(self.walk.left[::2],self.walk.right[::2])
         self.open_door = self.stay
         self.list = self.stay
         self.actual_list = self.list.left
