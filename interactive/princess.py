@@ -85,7 +85,6 @@ Princess shoes are moving weirdly when she jumps.
             if self.dirt > 0:
                 self.level.princesses[1] = self.dirties[self.dirt -1]
         if not self.inside:
-#            self.glamour_points += 1
             self.direction  = self.level.universe.dir
             self.action     = self.level.universe.action
             self.effects = []
@@ -155,11 +154,6 @@ Princess shoes are moving weirdly when she jumps.
                         if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
                             print "Princess got excited by the Butterflies"
                             self.situation['excited']+=1
-#                    if e.__class__ == enemy.Lion:
-#                        if e.action == "growl":
-#                            self.action
-#                            
-                            
                 if self.level.viking_ship:
                     if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
                         self.get_dirty()
@@ -185,7 +179,8 @@ Princess shoes are moving weirdly when she jumps.
             if self.situation['hurt'] and self.situation['hurt'] <6:
                 action[0]='ouch'
                 self.situation['excited'] =0
-            if self.situation['hurt'] >=6:
+                self.situation['scared'] = 0
+            if self.situation['hurt'] >=6 and action[0] == 'ouch':
                 action[0]= None
 
     def get_dirty(self):

@@ -649,6 +649,7 @@ class Stage():
             self.universe.db_cursor.execute("UPDATE save SET dirt = "+str(self.princesses[0].dirt)+" WHERE name = '"+self.princesses[0].name+"'")
             print "You look lovely all cleaned up!"
             self.princesses[1] = None
+            
     def DressSt(self,goalpos = None):
         self.create_stage(_('Dress St'), goalpos,'dress')
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self)]

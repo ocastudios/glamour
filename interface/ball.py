@@ -136,10 +136,12 @@ class Ball():
         print "YOU HAVE ACCUMULATED A TOTAL OF " +str(accumulated_points+glamour_points)+" glamour points."
         save_table = cursor.execute("SELECT * FROM save").fetchone()
         past_glamour_points = save_table['points']
-        new_glamour_points = past_glamour_points+glamour_points
+        new_glamour_points = int(past_glamour_points)+int(glamour_points)
+
+        self.level.princesses[0].points = new_glamour_points
         cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
-
+        
         stage_list           = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
         print "Preparing the new set of enemies for each stage"
         for stage in stage_list:
@@ -230,9 +232,7 @@ class BallFrame():
             self.image.blit(i.image,i.pos)
             if i.symbol:
                 self.image.blit(i.symbol,(i.symbolpos,round(i.pos[1]-round(100*scale) )))
-
         self.set_next_ball_clothes()
-
 
     def update_all(self):
         if self.ball:
@@ -256,7 +256,6 @@ class BallFrame():
         row = cursor.execute("SELECT * FROM princess_garment WHERE id = (SELECT MAX(id) FROM princess_garment)").fetchone()
         cursor.execute("INSERT INTO princess_garment VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+row['face']+"' , '"+row['hair']+"' , '"+row['shoes']+"' , '"+row['dress']+"', '"+row['arm']+"', '"+str(row['armdress'])+"', '"+row['accessory']+"')")
         self.ball.universe.db.commit()
-
 
 
 class FairyTalePrincess():
