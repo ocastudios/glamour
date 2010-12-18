@@ -29,6 +29,9 @@ from settings import *
 def p(positions):
     return [int(i*scale) for i in positions ]
 
+def pn(some_number):
+    return round(some_number*scale)
+
 class MenuScreen():
     color = [230,230,230]
     def __init__(self,universe):
@@ -42,7 +45,7 @@ class MenuScreen():
         self.bar_position   = -self.bar_size[0]
         self.menu           = Menu(self)
         self.menu.main()
-        self.speed          = 5*scale
+        self.speed          = pn(5)
         self.STEP           = self.update_drape
         self.count          = 0
         self.action         = 'open'
@@ -87,7 +90,7 @@ class MenuScreen():
             if self.bar_side == 'left':
                 if self.bar_position < 0:
                     self.bar_position += self.speed
-                    if self.bar_position > int(-200*scale):
+                    if self.bar_position > pn(-200):
                         self.speed -= .5
                     else:
                         self.speed += .5
@@ -96,15 +99,15 @@ class MenuScreen():
                     self.STEP = self.update_menus ## Change the STEP
             elif self.bar_side == 'right':
                 if self.bar_position <10:
-                    self.bar_position =  2000*scale
-                if self.bar_position+(516*scale) > self.universe.width:
+                    self.bar_position =  pn(2000)
+                if self.bar_position+pn(516) > self.universe.width:
                     self.bar_position -= self.speed
-                    if self.bar_position < int((self.universe.width-(300*scale))):
-                        self.speed += (.5*scale)
+                    if self.bar_position < int((self.universe.width-pn(300))):
+                        self.speed += .5*scale
                     else:
-                        self.speed -= (.5*scale)
+                        self.speed -= .5*scale
                 else:
-                    self.bar_position = int((1440-516)*scale)
+                    self.bar_position = pn(924)
                     self.STEP = self.update_menus ## Change the STEP
 
     def update_menus(self,surface):
@@ -117,8 +120,6 @@ class MenuScreen():
         if self.menu.story:
             self.menu.story.update_all()
             [surface.blit(i,(0,0)) for i in self.menu.story.images if i]
-
-
         for item in items:
             exec("for i in self.menu."+item+":\n    i.update_all()\n    surface.blit(i.image,i.pos)")
         for i in self.menu.options:
@@ -137,13 +138,13 @@ class MenuScreen():
             self.menu.action = self.action
         else:
             if not self.menu.go_back:
-                if self.menu.position[1]<1200*scale:
+                if self.menu.position[1]<pn(1200):
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
                     self.STEP = self.close_bar ## Change the STEP
             else:
-                if self.menu.position[1]>-600*scale:
+                if self.menu.position[1]>pn(-600):
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
@@ -156,9 +157,9 @@ class MenuScreen():
             self.menu.credits.update_all()
 
     def close_bar(self,surface, call_bar = 'right'):
-        width = 1440*scale
-        if (-800*scale < self.bar_position <10*scale) or (width-self.bar_size[0] < self.bar_position < width +1):
-            self.bar_position -= self.speed
+        width = pn(1440)
+        if (pn(-800) < self.bar_position <pn(10)) or (width-self.bar_size[0] < self.bar_position < width +1):
+            self.bar_position -= round(self.speed)
             self.speed += 1*scale
         else:
             ####### STEP #######
@@ -179,12 +180,12 @@ class Menu():
     selection_canvas = obj_images.image(title_screen_D+'selection_canvas/0.png')
     def __init__(self,screen,position= [360,200]):
         print "Creating main menu"
-        position = [position[0]*scale,position[1]*scale]
+        position = [round(position[0]*scale),round(position[1]*scale)]
         self.universe       = screen.universe
         self.screen         = screen
         self.speed          = 2*scale
         self.goal_pos       = position
-        self.position= [position[0],-600*scale]
+        self.position= [position[0],pn(-600)]
         self.background     = self.selection_canvas
         self.size           = self.background.get_size()
         self.action         = None
@@ -199,7 +200,7 @@ class Menu():
         self.selector = 0
         self.game_mouse     = mousepointer.MousePointer(self, type = 2)
         self.mouse_pos      = pygame.mouse.get_pos()
-
+        print "done."
 
 
     def main(self):
@@ -208,9 +209,9 @@ class Menu():
         self.back_background = None
         self.action = 'open'
         if not self.go_back:
-            self.position[1] = -600*scale
+            self.position[1] = pn(-600)
         else:
-            self.position    = [450*scale,1000*scale]
+            self.position    = [pn(450),pn(1000)]
         opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.play_credits))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
         self.texts =   [ widget.GameText(_('select one'),(65,250),self, rotate=90,color = (58,56,0))]
@@ -228,10 +229,10 @@ class Menu():
         self.speed          = 0
         if not self.go_back:
             print "Going Forward"
-            self.position = [450*scale,-600*scale]
+            self.position = [pn(450),pn(-600)]
         else:
             print "Going Back"
-            self.position = [450*scale,1000*scale]
+            self.position = [pn(450),pn(1000)]
         self.options        = options
         self.texts          = texts
         self.buttons        = buttons
@@ -310,7 +311,7 @@ class Menu():
                 if self.selector > len(self.mouse_positions)-1:
                     self.selector = 0
             pygame.mouse.set_pos(self.mouse_positions[self.selector])
-        self.position[1] += self.speed
+        self.position[1] += round(self.speed)
 
         if '_ _ _ _ _ _ _' in [i.text for i in self.texts]:
             if keyboard in ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"):
@@ -323,7 +324,7 @@ class Menu():
         if self.action == 'open':
             if self.position[1] != self.goal_pos[1]:
                 #Breaks
-                if self.goal_pos[1]+(70*scale) > self.position[1] > self.goal_pos[1]-70*scale:
+                if self.goal_pos[1]+(pn(70)) > self.position[1] > self.goal_pos[1]-pn(70):
                     if self.speed > 0:
                         self.speed -= self.speed*.25
                     elif self.speed < 0:
@@ -409,6 +410,7 @@ class Menu():
             print "Using saved game "+ using_saved_game
             print "Connecting to Database"
             db.connect_db(using_saved_game, self.screen.universe)
+            print "done."
             self.screen.universe.LEVEL = 'start'
 
     def create_files(self,):
@@ -459,7 +461,7 @@ class Menu():
                 files = os.listdir(D)
                 if 'thumbnail.PNG' in files:
                     saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
-                    print "Saved game found:\n"+str([{'name':i, 'file': directory+i+'/'+i+'.db'}])
+                    print "Saved game found: "+ i
                 else:
                     print _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
                     for f in files:
@@ -470,6 +472,7 @@ class Menu():
                     os.rmdir(D)
             except:
                 pass
+        print "done."
         self.back_background = obj_images.image('data/images/story/svg_bedroom.png')
         white_mask           = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
         white_mask.fill((255,255,255,150))
@@ -491,7 +494,7 @@ class Menu():
                                  widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
             ypos+=round(self.buttons[0].size[1]/scale)
-            if ypos > 250:
+            if ypos > 450:
                 ypos = 0
                 xpos += 400
 
@@ -504,7 +507,7 @@ class Menu():
         self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
         self.action     = 'open'
         self.speed      = 0
-        self.position = [450*scale,-600*scale]
+        self.position = p([450,-600])
         self.options    = []
         self.buttons= [widget.Button(title_dir+'arrow_right/',(340,510), self, self.story.next_frame,color = (58,56,0)),
                        widget.Button(title_dir+'arrow_right/',(250,510), self, self.story.past_frame, invert = True,color = (58,56,0))]
@@ -552,7 +555,7 @@ class MenuPrincess():
             self.size = self.skin[0].get_size()
         else:
             self.images = obj_images.image(thumbnail)
-        self.goal_pos = (250*scale,250*scale)
+        self.goal_pos = p((250,250))
         self.name = widget.GameText('maddeline',(170,120),self.menu,var = True,color = (58,56,0))
         self.pos = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
                            self.menu.position[1]+self.goal_pos[1]-(self.size[1]/2)]
@@ -711,8 +714,8 @@ class Credits():
 
 
     def update_all(self):
-        if self.pos[1] > -(3020*scale):
+        if self.pos[1] > -pn(3020):
             self.pos[1]-=(1*scale)
         else:
-            self.pos[1] = 1000*scale
+            self.pos[1] = pn(1000)
             self.menu.credits = None

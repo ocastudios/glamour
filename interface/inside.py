@@ -36,15 +36,15 @@ class Inside():
         self.big_princess = BigPrincess(self)
         self.music = main_dir+"/data/sounds/music/menu.ogg"
 
-    def forward(self):
-#        for i in self.items:
-#            i.queue_pos -= 1
-        self.level.universe.click = False
+#    def forward(self):
+##        for i in self.items:
+##            i.queue_pos -= 1
+#        self.level.universe.click = False
 
-    def rewind(self):
-        for i in self.items:
-            i.queue_pos += 1
-        self.level.universe.click = False
+#    def rewind(self):
+#        for i in self.items:
+#            i.queue_pos += 1
+#        self.level.universe.click = False
 
     def all_set(self):
         self.status = 'done'

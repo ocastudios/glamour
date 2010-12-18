@@ -64,16 +64,16 @@ class Ball():
             for i in self.texts:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
-        if self.counter == 100:
-            self.texts+= [widget.GameText(_("and won the heart of"), (1090,237), self,font_size = 40)]
-        if self.counter == 110:
-            self.texts+= [widget.GameText(".", (1300,237), self,font_size = 40)]
-        if self.counter == 120:
-            self.texts+= [widget.GameText(" .", (1300,237), self,font_size = 40)]
-        if self.counter == 130:
-            self.texts+= [widget.GameText("  .", (1300,237), self,font_size = 40)]
-        if self.counter > 150:
-            if self.boyfriend:
+        if self.boyfriend:
+            if self.counter == 100:
+                self.texts+= [widget.GameText(_("and won the heart of"), (1090,237), self,font_size = 40)]
+            if self.counter == 110:
+                self.texts+= [widget.GameText(".", (1300,237), self,font_size = 40)]
+            if self.counter == 120:
+                self.texts+= [widget.GameText(" .", (1300,237), self,font_size = 40)]
+            if self.counter == 130:
+                self.texts+= [widget.GameText("  .", (1300,237), self,font_size = 40)]
+            if self.counter > 150:
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
                 self.boyfriend.update_all()
         if self.counter > 160:
@@ -141,7 +141,6 @@ class Ball():
         self.level.princesses[0].points = new_glamour_points
         cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
-        
         stage_list           = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
         print "Preparing the new set of enemies for each stage"
         for stage in stage_list:

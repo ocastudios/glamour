@@ -32,6 +32,7 @@ class ClockPointer():
         if self.tick == self.level.universe.frames_per_second:
             if self.count %10 == 0:
                 print "Updating the time "+ str(self.count)
+                print "Music volume " +str(pygame.mixer.music.get_volume())
             if self.count < 180:
                 if self.pointerpos > (len(self.rotate_list)-2):
                     self.pointerpos  =0

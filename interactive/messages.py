@@ -73,7 +73,7 @@ intro = {
         }
 
 princesses_phrases=[
-_("Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns, a tiny teeny dragon."),
+_("Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns and a tiny teeny dragon."),
 _("Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"),
 _("%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."),
 _("Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."),

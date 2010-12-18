@@ -89,13 +89,24 @@ class Schnauzer(Enemy):
     def set_pos(self,cross = 30):
         towards = {'right':1,'left':-1}
         if self.move:
-            new_y = self.level.what_is_my_height(self,pos_x = int(self.center_distance + (self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
+            if self.direction == 'left':
+                new_y = self.level.what_is_my_height(self,pos_x=int(self.center_distance+(self.speed*towards[self.direction])))
+            else:
+                new_y = self.level.what_is_my_height(self,pos_x=int(self.center_distance+(self.speed*towards[self.direction])+self.size[0]))
+                
+#                
+#                new_y = self.level.what_is_my_height(self,pos_x=int(self.center_distance+(self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
+
+                
+                
+                
             actual_y = self.level.what_is_my_height(self)
             obstacle = max(new_y,actual_y)-min(new_y,actual_y)
             if obstacle >= cross:
 #                self.center_distance -= (self.speed*towards[self.direction])
                 print "obstacle found"
                 print obstacle
+                print new_y
                 print cross
                 if self.direction == 'right':
                     self.direction = 'left'
@@ -189,7 +200,7 @@ class Carriage(Enemy):
         self.set_image()
 
     def set_pos(self):
-        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
+#        self.floor = self.level.universe.floor - self.level.what_is_my_height(self)
         self.pos = [self.level.universe.center_x + self.center_distance,
                     self.floor+self.margin[2]-(self.size[1])]
         if self.move:
@@ -257,6 +268,7 @@ class Butterfly(Enemy):
         else:
             self.center_distance -= self.speed
         self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
+        
     def set_image(self):
 #choose list
         exec('actual_list = self.walk.'+self.direction)

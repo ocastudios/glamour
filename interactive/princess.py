@@ -19,15 +19,17 @@ Princess shoes are moving weirdly when she jumps.
 """
     directory = 'data/images/princess/'
     def __init__(self,level,INSIDE = False,xpos=None):
+        print "Creating Princess"
         self.first_frame = True
         self.level = level
         self.effects    = []
         self.size       = (2,180*scale)
         #Acess db save file
+        print "    connecting to princess database"
         self.save_db     = level.universe.db
         self.save_cursor = level.universe.db_cursor
+        print "    retrieving data"
         row     = self.save_cursor.execute("SELECT * FROM save").fetchone()
-        print "Connected to the Save Database for princess data\nRetrieved data: "+str(row)
         self.name = row['name']
         self.center_distance = int(int(row['center_distance'])*scale)
         if xpos:
@@ -36,12 +38,16 @@ Princess shoes are moving weirdly when she jumps.
         self.points          = int(row['points'])
         self.pos = [int(self.level.universe.center_x) + self.center_distance,
                            self.level.universe.floor -  self.level.what_is_my_height(self) -self.size[1]]
+        print "    creating images:"
+        print "        princess images"
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
             exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
         self.run_away_img = obj_images.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
+        print "        dirt images"
         self.dirties = [Dirt(level,'data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
+        print "        kisses and dust images"
         self.lips           = obj_images.TwoSided('data/images/effects/kiss/')
         self.dirt_cloud     = obj_images.TwoSided('data/images/effects/dirt/')
         self.gforce         = 0
@@ -61,19 +67,23 @@ Princess shoes are moving weirdly when she jumps.
         self.image          = self.stay_img.left[self.stay_img.itnumber.next()]
         self.image_size     = self.image.get_size()
         self.inside         = INSIDE
+        print "    creating sounds"
+        print "        steps sounds"
         self.steps = [pygame.mixer.Sound('data/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,5)]
+        print "        jump sounds"
         self.jumpsound      = pygame.mixer.Sound('data/sounds/princess/pulo.ogg')
         self.channel1       = pygame.mixer.Channel(0)
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
         self.past_choice    = None
         self.debuginside    =   0
+        print "princess created"
+        print "done."
 
     def ordered_directory_list(self, action):
         odl = []
         cursor = self.level.universe.db_cursor
         row = cursor.execute("SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)").fetchone()
-        print row
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
             if row[part] != 'None':
                 name = part.replace('_','')
@@ -99,6 +109,7 @@ Princess shoes are moving weirdly when she jumps.
                     self.image = None
             self.debuginside = 0
         else:
+            self.pos[0] = self.level.universe.center_x+self.center_distance
             if not self.debuginside:
                 print 'Now changed to inside'
                 self.debuginside += 1

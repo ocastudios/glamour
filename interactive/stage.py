@@ -179,12 +179,8 @@ class Stage():
                             self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
             else:
                 exec('[screen.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
-
-#        if self.princesses[0].kiss:
-#            screen.fill((0,0,0,50), self.princesses[0].kiss_rect)
         for i in self.princesses[0].effects :
             screen.blit(i.image,i.pos)
-
         for i in self.scenarios_front:
             screen.blit(i.image,i.pos)
         if self.exit_sign.image:
@@ -200,11 +196,6 @@ class Stage():
         for i in self.panel:
             if i:
                 screen.blit(i.image,i.pos)
-#        for i in self.enemies:
-#            if i.image:
-##                screen.fill((0,0,0,50), i.rect)
-#                screen.blit(i.image,i.pos)
-
         if self.fairy:
             for i in self.fae:
                 screen.blit(i.image,i.pos)
@@ -327,9 +318,9 @@ class Stage():
                 for i in self.gates:
                     if i.rect.colliderect(self.princesses[0].rect):
                         i.outside()
-                print self.princesses[0].inside
+#                print self.princesses[0].inside
                 self.princesses[0].inside = False
-                print self.princesses[0].inside
+#                print self.princesses[0].inside
 
 
     def choice_screen(self, screen,condition):
@@ -397,37 +388,36 @@ class Stage():
             self.paused = False
 
     def update_fairytip(self):
+        pymusic = pygame.mixer.music
         self.universe.screen_surface.blit(self.white.image,(0,0))
         if self.fairy == 'loading':
-            pygame.mixer.music.fadeout(1500)
-            pygame.mixer.music.load(self.fae[1].music)
             self.white.image.set_alpha(self.white.alpha_value)
-            if not self.white.alpha_value:
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound(os.getcwd()+'/data/sounds/story/frames/s03.ogg'))
             if self.white.alpha_value < 200:
-                self.white.alpha_value += 10
+                self.white.alpha_value += 50
+                volume = pymusic.get_volume()
+                if 1.0 >= volume > 0.2:
+                    volume -= .2
+                    pymusic.set_volume(volume)
             if self.white.alpha_value > 150:
                 self.fairy = 'speaking'
-                pygame.mixer.music.play()
         elif self.fairy == "speaking":
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         elif self.fairy == 'done':
-            pygame.mixer.music.fadeout(1500)
             self.princesses[0].update_all()
             if self.bar_speed < round(20*scale):
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
-                self.white.alpha_value -= 10
+                volume = pymusic.get_volume()
+                if 1.0 >= volume >= 0: 
+                    volume += .2
+                    pymusic.set_volume(volume)
+                self.white.alpha_value -= 50
                 self.white.image.set_alpha(self.white.alpha_value)
             else:
                 self.white.alpha_value = 0
                 self.fairy = None
-                pygame.mixer.music.load(self.music)
-                pygame.mixer.music.queue(self.music)
-                pygame.mixer.music.queue(self.music)
-                pygame.mixer.music.play()
             self.white.image.set_alpha(self.white.alpha_value)
 
     def select_enemies(self, allowed_enemies, street):
@@ -576,11 +566,10 @@ class Stage():
         self.loading()
         pygame.mixer.music.queue(self.music)
         self.loading()
-        pygame.mixer.music.queue(self.music)
-        self.loading()
         pygame.mixer.music.play()
         self.loading()
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
+        pygame.mixer.music.set_volume(1)
 
 
     def create_stage(self,translatable_name,goalpos,hardname):
