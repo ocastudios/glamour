@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Glamour\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-04 16:00-0300\n"
-"PO-Revision-Date: 2010-12-18 19:01-0200\n"
+"PO-Revision-Date: 2010-12-18 19:41-0200\n"
 "Last-Translator: nelson <nelson@ocastudios.com>\n"
 "Language-Team: pt-BR <nelson@ocastudios.com>\n"
 "Language: \n"
@@ -687,6 +687,9 @@ msgid ""
 "some others don't, like Little Red, Grettel and the Mermaid. They only get "
 "wolves and witches, poor folk..."
 msgstr ""
+"Já notou que todas conseguimos príncipes ao final de nossas histórias, %s? "
+"Mas algumas não, como Chapeuzinho, Maria e a Sereia. Elas só conseguem lobos "
+"e bruxas, pobrezinhas."
 
 #: /home/nelson/glamour/interactive/messages.py:86
 #, python-format
@@ -695,6 +698,9 @@ msgid ""
 "carry much variety. I mean, I never use the same dress twice on a ball, so I "
 "have dozens of each available dress already."
 msgstr ""
+"Bem, %s, nós temos boas lojas na cidade, mas elas não têm muita variedade. "
+"Quero dizer, eu nunca uso duas vezes o mesmo vestido em bailes, então eu já "
+"tenho dúzias de cada vestido disponível."
 
 #: /home/nelson/glamour/interactive/messages.py:87
 #, python-format
@@ -703,6 +709,9 @@ msgid ""
 "fight dragons, or cast spells. %s, why do you think they give us princesses "
 "the worst parts in our own stories?"
 msgstr ""
+"Oh, dançar é tão divertido! Mas eu bem que gostaria de voar no ar, ou "
+"enfrentar dragões, ou conjurar feitiços. %s, por que você acha que nós "
+"princesas ficamos sempre com os piores papeis em nossas próprias histórias?"
 
 #: /home/nelson/glamour/interactive/messages.py:88
 #, python-format
@@ -710,6 +719,8 @@ msgid ""
 "Dancing every single night... I, mean, we have fun and all, but aren't your "
 "feet killing you, %s?"
 msgstr ""
+"Dançar toda e cada noite... quero dizer, nós nos divertimos, mas seus pés "
+"não estão te matando, %s?"
 
 #: /home/nelson/glamour/interactive/messages.py:89
 #, python-format
@@ -718,6 +729,9 @@ msgid ""
 "not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... "
 "even small dogs..."
 msgstr ""
+"Quem é o dono daquele pequeno schnauzer que não me deixa caminhar pela "
+"cidade em paz? Não é você, né, %s? Argh, é tãããão mal educado deixar animais "
+"sem cuidados por aí – até mesmo pequenos cachorros..."
 
 #: /home/nelson/glamour/interactive/messages.py:90
 #, python-format
@@ -726,6 +740,9 @@ msgid ""
 "monkey just drives me crazy. Maybe we could go together someday, %s, and "
 "have a hard long talk with whoever runs that place."
 msgstr ""
+"Você já visitou o zoológico? Eu adoro o pinguim e a girafa, mas o macaco me "
+"deixa louca. Talvez um dia possamos ir juntas, %s - e ter uma longa e dura "
+"conversa com o responsável por aquele lugar."
 
 #: /home/nelson/glamour/interactive/messages.py:91
 msgid ""
@@ -733,6 +750,9 @@ msgid ""
 "but I think I've seen him somewhere before. Do you think he maybe might have "
 "a free tabletop game developed by Ocastudios?"
 msgstr ""
+"Você já conheceu o Fabrizio, o garotinho italiano? Ele está sempre com "
+"aquela bola, mas eu acho que já o vi antes. Você acha que talvez ele tenha "
+"um jogo de tabuleiro próprio desenvolvido pela Ocastudios?"
 
 #: /home/nelson/glamour/interactive/messages.py:92
 #, python-format
@@ -742,6 +762,9 @@ msgid ""
 "Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters "
 "and see for yourself."
 msgstr ""
+"Muita gente acha que os belos cenários dos contos de fada são apenas lendas, "
+"%s. Em suas próximas férias, visite as Gaeltacht, ou dê uma caminha em "
+"Veneza, ou um mergulho nas águas azuis do Caribe e veja por você mesma."
 
 #: /home/nelson/glamour/interactive/messages.py:93
 msgid ""
@@ -749,6 +772,9 @@ msgid ""
 "software freezing. They don't even have access to their source-code... Thank "
 "goodness we use a Unix box."
 msgstr ""
+"Você sabia que muitas, muitas pessoas têm que se preocupar com vírus de "
+"computador e programas travando? Eles nem tem acesso ao código-fonte. Ainda "
+"bem que eu uso um Unix."
 
 #: /home/nelson/glamour/interactive/messages.py:94
 msgid ""
@@ -756,6 +782,9 @@ msgid ""
 "you think the structure is still stable? I think I'll call the dwarves to "
 "make some repairs."
 msgstr ""
+"Você viu o palácio de baile balançando ontem à noite? Com tanta dança, você "
+"acha que a estrutura ainda é estável? Acho que vou chamar os anões para "
+"fazerem alguns reparos."
 
 #: /home/nelson/glamour/interactive/messages.py:95
 #, python-format
@@ -763,6 +792,8 @@ msgid ""
 "Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll "
 "tell on you to ma!"
 msgstr ""
+"Okay, %s, estão são as roupas que eu usarei mais tarde. Mas se me copiar eu "
+"conto tudo para mamãe!"
 
 #: /home/nelson/glamour/interactive/messages.py:96
 msgid ""
@@ -770,6 +801,9 @@ msgid ""
 "mama didn't let me even play with them. She ruined may hair!!! I'm never "
 "coming out again."
 msgstr ""
+"Não, eu não vou sair hoje! Ontem tinham tantos pintinhos – e a mãe deles nem "
+"me deixou brincar com eles. Ela arruinou meu cabelo!!! Eu nunca mais saio "
+"desse castelo de novo."
 
 #: /home/nelson/glamour/interactive/messages.py:97
 #, python-format
@@ -777,6 +811,9 @@ msgid ""
 "%s, I won't rest until I get the heart of the prince. I mean, Gentleman "
 "Decent is kinda cute, but he falls for every girl in the kingdom!"
 msgstr ""
+"%s, eu não vou descansar até que consiga o coração do Príncipe Encantado. "
+"Quero dizer, o Fidalgo Decente é até bonitinho, mas ele se apaixona por "
+"todas as garotas do reino."
 
 #: /home/nelson/glamour/interactive/messages.py:98
 #, python-format
@@ -785,6 +822,9 @@ msgid ""
 "would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget "
 "about the ball for a while, of course."
 msgstr ""
+"Têm muitos nobres nos bailes, %s, mas... você acha que alguém se importaria "
+"se eu chamasse o Fabrizio hoje à noite? Quero dizer, ele 'terá' que esquecer "
+"da bola um pouquinho, claro."
 
 #: /home/nelson/glamour/interactive/messages.py:99
 msgid ""
@@ -792,6 +832,9 @@ msgid ""
 "are afraid of fairy tales. As for me, I just keep my distance from evil "
 "witches and refrain from talking to big bad wolves."
 msgstr ""
+"Algumas das princesas nunca comem maçãs ou trabalham com rocas porque estão "
+"assustadas com os contos de fada. Quanto a mim, eu apenas mantenho distância "
+"de bruxas malignas e lobos maus falantes."
 
 #: /home/nelson/glamour/interactive/messages.py:100
 msgid ""
@@ -800,16 +843,22 @@ msgid ""
 "enchanted mythical kingdom of everlasting joy, but I 'really' wanted "
 "Sweeden..."
 msgstr ""
+"Você sabia que muitos países hoje ainda têm reis? Oh, eu adoraria ser a "
+"princesa da Suécia, Espanha ou Japão. Acho que tenho que me conformar com um "
+"reino mítico encantado de felicidade infinita, mas eu queria 'mesmo' é a "
+"Suécia..."
 
 #: /home/nelson/glamour/interface/inside.py:191
 msgid "Go to the Ball"
-msgstr ""
+msgstr "Ir para o Baile"
 
 #: /home/nelson/glamour/interface/inside.py:192
 msgid ""
 "It is not very cute to repeat your outfits. Check out what you wore at past "
 "Balls and try to find something different."
 msgstr ""
+"Não é muito bonito repetir o visual. Confira o que você usou nos bailes "
+"passados e tente encontrar algo diferente."
 
 #: /home/nelson/glamour/interface/inside.py:193
 msgid "Last Ball"
