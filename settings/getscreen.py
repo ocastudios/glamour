@@ -1,8 +1,5 @@
 import pygame
 
-
-
-
 splash = pygame.image.load('data/splash.png').convert(32)
 splash_size = splash.get_size()
 print "Setting Pygame Mixer Configuration"
@@ -30,9 +27,6 @@ pygame.display.flip()
 import utils.obj_images as obj_images
 
 import os
-
-
-
 
 size        = 1440,900
 right_x     = 0

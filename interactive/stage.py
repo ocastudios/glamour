@@ -412,12 +412,11 @@ class Stage():
         elif self.fairy == "speaking":
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
-            for i in self.fae:
                 i.update_all()
         elif self.fairy == 'done':
             pygame.mixer.music.fadeout(1500)
             self.princesses[0].update_all()
-            if self.bar_speed < 20*scale:
+            if self.bar_speed < round(20*scale):
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
                 self.white.alpha_value -= 10

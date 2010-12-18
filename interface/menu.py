@@ -285,7 +285,7 @@ class Menu():
         if name_taken:
             txts = [    widget.GameText(_('Sorry, This name is taken.'),(-100,-150),self,color = (58,56,0)),
                         widget.GameText(_('Please, choose another one'),(-100,-50),self,color = (58,56,0)),
-                        widget.GameText(_('_ _ _ _ _ _ _'),p((230,130)),self,color = (58,56,0)),
+                        widget.GameText(_('_ _ _ _ _ _ _'),(230,130),self,color = (58,56,0)),
                         self.princess.name
                     ]
             buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game,color = (58,56,0), parameter=[False,True]) ])
@@ -477,7 +477,7 @@ class Menu():
         self.background = None
         self.action     = 'open'
         self.speed      = 0
-        self.position = [100*scale,-600*scale]
+        self.position = p([100,-600])
         self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
         self.texts =    [widget.GameText(_('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
                          widget.GameText(_('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
@@ -490,8 +490,8 @@ class Menu():
                                  widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
                                  widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
-            ypos+=(self.buttons[0].size[1]/scale)
-            if ypos > 250*scale:
+            ypos+=round(self.buttons[0].size[1]/scale)
+            if ypos > 250:
                 ypos = 0
                 xpos += 400
 

@@ -300,13 +300,6 @@ class Dirt():
             direction = "right"
         exec('self.images = self.'+chosen+' \n'+
              'actual_images = self.'+chosen+'.'+direction)
-
-#        if self.level.princesses[0].direction == 'left':
-#            exec('self.images = self.'+chosen+' \n'+
-#                 'actual_images = self.'+chosen+'.right')
-#        else:
-#            exec('self.images = self.'+chosen+' \n'+
-#                'actual_images = self.'+chosen+'.left')
         if chosen != self.past_choice:
             exec('self.'+chosen+'.number = 0')
         self.past_choice = chosen

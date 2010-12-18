@@ -23,7 +23,6 @@ class Floor():
         self.pos[0] = self.level.universe.center_x+(self.center_distance)
 
 
-
 class Water(Floor):
     height = round(101*scale)
     max    = round(125*scale)
@@ -72,9 +71,9 @@ class Bridge():
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-
-        if main:            self.center_distance = round(scale*((int(400)*(index))-int(400)))
-        else:               self.center_distance = round(scale*(int(400)*(index)))
+        width = round(400*scale)
+        if main:            self.center_distance = round((width*index)-width)
+        else:               self.center_distance = round(width*index)
 
         self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
         if main:
