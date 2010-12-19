@@ -7,14 +7,13 @@ import interactive.messages as messages
 import interface.widget     as widget 
 import os
 
-directory = os.getcwd()+'/data/images/interface/fairy_tips'
+directory = data_dir + '/images/interface/fairy_tips'
 
 def p(positions):
     return [int(round(i*scale)) for i in positions ]
 
 class Fairy():
     """This class defines the tip fairy, who helps the princess during the game."""
-    directory = 'data/images/interface/fairy_tips'
     paths = (
             ((14, 22),
              (28, 44),
@@ -398,7 +397,7 @@ class Fairy():
             (1205, 690), 
             (1200, 700))
             )
-    whistle = pygame.mixer.Sound(os.getcwd()+'/data/sounds/story/frames/s03.ogg')
+    whistle = pygame.mixer.Sound(data_dir+'/sounds/story/frames/s03.ogg')
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         self.size               = p((10,10))
         self.level              = level
@@ -406,18 +405,18 @@ class Fairy():
         self.center_distance    = pos
         self.pos                =  p([-200,600])
         self.lists_of_images = {
-                        'mouth_speak':      obj_images.TwoSided(self.directory+'/fairy_speak/',margin),
-                        'mouth_smile':      obj_images.There_and_back_again(self.directory+'/fairy_smile/',margin),
+                        'mouth_speak':      obj_images.TwoSided(directory+'/fairy_speak/',margin),
+                        'mouth_smile':      obj_images.There_and_back_again(directory+'/fairy_smile/',margin),
 
-                        'eyes_eyes':        obj_images.There_and_back_again(self.directory+'/fairy_eyes/',margin),
-                        'eyes_blink':       obj_images.There_and_back_again(self.directory+'/fairy_blink/',margin),
+                        'eyes_eyes':        obj_images.There_and_back_again(directory+'/fairy_eyes/',margin),
+                        'eyes_blink':       obj_images.There_and_back_again(directory+'/fairy_blink/',margin),
 
-                        'wings_wings':      obj_images.TwoSided(self.directory+'/fairy_wings/',margin),
-                        'wings_fly':        obj_images.TwoSided(self.directory+'/fairy_fly_wings/',margin),
+                        'wings_wings':      obj_images.TwoSided(directory+'/fairy_wings/',margin),
+                        'wings_fly':        obj_images.TwoSided(directory+'/fairy_fly_wings/',margin),
 
-                        'body_fly':         obj_images.There_and_back_again(self.directory+'/fairy_fly/',margin),
-                        'body_stand_right': obj_images.There_and_back_again(self.directory+'/fairy_stand_right/',margin),
-                        'body_stand_left' : obj_images.There_and_back_again(self.directory+'/fairy_stand_left/',margin)
+                        'body_fly':         obj_images.There_and_back_again(directory+'/fairy_fly/',margin),
+                        'body_stand_right': obj_images.There_and_back_again(directory+'/fairy_stand_right/',margin),
+                        'body_stand_left' : obj_images.There_and_back_again(directory+'/fairy_stand_left/',margin)
                     }
         self.images_strings = ['wings_wings','body_stand_left','mouth_speak','eyes_eyes']
         self.parts      = [self.lists_of_images[i].left[self.lists_of_images[i].number] for i in self.images_strings]
@@ -427,10 +426,10 @@ class Fairy():
         self.direction  = "left"
         self.action     = self.explain
         self.count      = 0
-        self.wand       = obj_images.TwoSided(self.directory+'/fairy_wand/',margin)
-        self.enchant    = obj_images.TwoSided(self.directory+'/fairy_enchant/',margin)
-        self.spark      = obj_images.OneSided(self.directory+'/spark/',margin)
-        self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
+        self.wand       = obj_images.TwoSided(directory+'/fairy_wand/',margin)
+        self.enchant    = obj_images.TwoSided(directory+'/fairy_enchant/',margin)
+        self.spark      = obj_images.OneSided(directory+'/spark/',margin)
+        self.music  = data_dir+'/sounds/music/1stSnowfall.ogg'
         self.actual_path       = random.randint(0,2)
         self.path_number = 0
         self.max_path_number = len(self.paths[self.actual_path])-1
@@ -496,10 +495,10 @@ class Message():
         self.pos        = ((universe.width - self.size[0])/2, universe.height - self.size[1])
         self.text_box   = self.size[0]*.8,self.size[1]*.8
         self.font_size  = 16*scale
-        self.text_font       = pygame.font.Font('data/fonts/FreeSans.ttf',self.font_size+(self.font_size/2))
+        self.text_font       = pygame.font.Font(data_dir+'/fonts/FreeSans.ttf',int(round(self.font_size+(self.font_size/2))))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
-        self.button     = widget.Button('data/images/interface/title_screen/button_ok/',(1200,800),self.level,self.end_message)
+        self.button     = widget.Button(data_dir+'/images/interface/title_screen/button_ok/',(1200,800),self.level,self.end_message)
         self.level.fae.append(self.button)
 
 

@@ -13,10 +13,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     princess = level.princesses[0]
     #avoid errors in case there are no saved files
     try:
-        os.mkdir(universe.main_dir+u'/data/saves/'+unicode(princess.name))
+        os.mkdir(data_dir+u'/saves/'+unicode(princess.name))
     except:
         pass
-    dir = universe.main_dir+u'/data/saves/'+unicode(princess.name)
+    dir = data_dir+u'/saves/'+unicode(princess.name)
     day = datetime.datetime.today()
 
     if dress == "dress_yellow":
@@ -58,4 +58,4 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     print "Save Database saved "
 #    if Ball:
 #        backupfile.close()
-    return unicode(main_dir)+u'/data/saves/'+unicode(princess.name)+'/'+unicode(princess.name)+u'.glamour'
+    return unicode(data_dir)+u'/saves/'+unicode(princess.name)+'/'+unicode(princess.name)+u'.glamour'

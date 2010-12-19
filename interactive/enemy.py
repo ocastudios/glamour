@@ -6,7 +6,7 @@ import random
 import os
 from settings import *
 
-enemy_dir   = main_dir+'/data/images/enemies/'
+enemy_dir   = data_dir+'/images/enemies/'
 
 class Enemy():
     """This class defines an enemy with no movement and no update to position or image. It is used to be extended by other classes of enemies that should define the functions for movements"""
@@ -74,7 +74,7 @@ class Schnauzer(Enemy):
         self.gotkissed = 0
         self.image_number = 0
         self.barfing = 0
-        self.bow = pygame.mixer.Sound(main_dir+'/data/sounds/enemies/dog2.ogg')
+        self.bow = pygame.mixer.Sound(data_dir+'/sounds/enemies/dog2.ogg')
         self.lookside = 0
         print "Done."
 
@@ -369,7 +369,7 @@ class BroomingDust():
         self.lady           = lady
         self.level          = lady.level
         self.center_distance= lady.center_distance
-        self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/OldLady/dirt/')
+        self.images         = obj_images.TwoSided(data_dir+'/images/enemies/OldLady/dirt/')
         self.image          = self.images.left[0]
         self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height())
         self.pos            = [self.lady.pos[0]-round(194*scale), self.lady.pos[1]+round(38*scale)]
@@ -432,7 +432,7 @@ class Lion():
         self.got_kissed = 0
         self.tail = Tail(directory,self)
         self.action = "dance"
-        self.growl_sound = pygame.mixer.Sound(main_dir+'/data/sounds/enemies/lion3.ogg')
+        self.growl_sound = pygame.mixer.Sound(data_dir+'/sounds/enemies/lion3.ogg')
         self.channel4       = pygame.mixer.Channel(4)
         print "done."
 
@@ -731,7 +731,7 @@ class VikingShip():
 class VikingPart():
     def __init__(self, ship, part, pos_x = 0, pos_y = 0):
         print "Creating Viking part: "+part
-        directory = main_dir+'/data/images/enemies/VikingShip/'+part+'/'
+        directory = data_dir+'/images/enemies/VikingShip/'+part+'/'
         self.pos_x  = round(pos_x*scale)
         self.pos_y  = round(pos_y*scale)
         self.ship = ship
@@ -750,7 +750,7 @@ class VikingPart():
 class Curse():
     def __init__(self,ship,index):
         print "Creating new curse"
-        directory   = main_dir+"/data/images/enemies/VikingShip/curses/"
+        directory   = data_dir+"/images/enemies/VikingShip/curses/"
         self.image  = obj_images.image(directory+str(index)+'.png')
         self.pos    = p([-70,440])
         self.position = p([-70,440])
@@ -843,7 +843,7 @@ class FootBall():
         self.footboy        = footboy
         self.level          = footboy.level
         self.center_distance= center_distance
-        self.images         = obj_images.TwoSided(main_dir+'/data/images/enemies/FootBoy/ball/')
+        self.images         = obj_images.TwoSided(data_dir+'/images/enemies/FootBoy/ball/')
         self.image          = self.images.left[0]
         self.size           = (self.images.left[0].get_width(),self.images.left[0].get_height()-round(7*scale))
         self.pos            = [self.footboy.level.universe.center_x + self.center_distance, self.footboy.level.floor - self.size[1]]
@@ -898,9 +898,9 @@ class FootBall():
 
 class Bird():
     disturbed   = {'ongoing':False, 'count':0,'spot':(0,0)}
-    flying      = obj_images.There_and_back_again(main_dir+'/data/images/enemies/Birdy/fly/')
-    walking     = obj_images.There_and_back_again(main_dir+'/data/images/enemies/Birdy/walk/')
-    standing    = obj_images.TwoSided(main_dir+'/data/images/enemies/Birdy/stay/')
+    flying      = obj_images.There_and_back_again(data_dir+'/images/enemies/Birdy/fly/')
+    walking     = obj_images.There_and_back_again(data_dir+'/images/enemies/Birdy/walk/')
+    standing    = obj_images.TwoSided(data_dir+'/images/enemies/Birdy/stay/')
     def __init__(self, pos, level, dirty=False):
         print 'Creating Bird'
         directory = level.enemy_dir+'Birdy/'

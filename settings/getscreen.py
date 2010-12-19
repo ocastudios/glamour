@@ -1,6 +1,6 @@
 import pygame
-
-splash = pygame.image.load('data/splash.png').convert(32)
+from settings import *
+splash = pygame.image.load(data_dir+'/splash.png').convert(32)
 splash_size = splash.get_size()
 print "Setting Pygame Mixer Configuration"
 #pygame.mixer.pre_init(44100,16,256)
@@ -17,10 +17,10 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 print "Creating Splash Screen"
 
 
-from settings import *
+
 splash_surface = pygame.display.set_mode(splash_size, pygame.NOFRAME).blit(splash,(0,0))
 print "Creating and Setting Favicon"
-pygame.display.set_icon(pygame.image.load("data/images/interface/favicon.png").convert_alpha())
+pygame.display.set_icon(pygame.image.load(data_dir+"/images/interface/favicon.png").convert_alpha())
 print "Showing Splash Screen"
 pygame.display.flip()
 

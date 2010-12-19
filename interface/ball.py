@@ -13,7 +13,7 @@ def p(positions):
     return [int(round(i*scale)) for i in positions ]
 
 class Ball():
-    directory = main_dir+'/data/images/interface/ball/'
+    directory = data_dir+'/images/interface/ball/'
     def __init__(self, level, universe, princess):
         self.position = 0,0
         self.universe   = universe
@@ -33,8 +33,8 @@ class Ball():
         self.Frame      = BallFrame(self)
 
         self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
-        self.buttons = [widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
+        self.buttons = [widget.Button(data_dir+'/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
+        pygame.mixer.music.load(data_dir+"/sounds/music/strauss_waltz_wedley.ogg")
         pygame.mixer.music.play()
         princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
         garment_list         = ['Accessory', 'Dress', 'Shoes','Makeup']
@@ -161,7 +161,7 @@ class Ball():
         level.universe.db.commit()
 #        save.save_file(self.level)
         thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-        pygame.image.save(thumbnail,main_dir+'/data/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
+        pygame.image.save(thumbnail,data_dir+'/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
                 widget.GameText(_("You've"),  (1064,81),  self,font_size = 40),
@@ -183,7 +183,7 @@ class Ball():
 
 class VerticalBar():
     def __init__(self, ball, right_or_left = 'left'):
-        self.image = obj_images.scale_image(pygame.image.load(main_dir+'/data/images/interface/ball/golden-bar.png').convert_alpha())
+        self.image = obj_images.scale_image(pygame.image.load(data_dir+'/images/interface/ball/golden-bar.png').convert_alpha())
         if right_or_left == 'right':
             self.image = pygame.transform.flip(self.image, 1,0)
         self.size = self.image.get_size()
@@ -203,7 +203,7 @@ class VerticalBar():
 class BallFrame():
     def __init__(self, ball):
         self.image = pygame.Surface(p((677,673)),pygame.SRCALPHA).convert_alpha()
-        background = obj_images.image(main_dir+'/data/images/interface/ball/back-frame.png')
+        background = obj_images.image(data_dir+'/images/interface/ball/back-frame.png')
         self.size = self.image.get_size()
         self.position = [round(30*scale), -self.size[1]]
         self.speed = 5
@@ -265,8 +265,8 @@ class FairyTalePrincess():
            """
         skin_body       = 'skin_'+skin
         skin_arm        = 'arm_'+skin
-        princess_directory  = main_dir+'/data/images/princess/'
-        ball_directory      = main_dir+'/data/images/interface/ball/'
+        princess_directory  = data_dir+'/images/princess/'
+        ball_directory      = data_dir+'/images/interface/ball/'
         self.frame      = frame
         self.file       = frame.ball.universe.file
         self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
@@ -294,7 +294,7 @@ class FairyTalePrincess():
 
 class StarBall():
     def __init__(self):
-        self.images = obj_images.OneSided(main_dir+'/data/images/interface/ball/star-score/')
+        self.images = obj_images.OneSided(data_dir+'/images/interface/ball/star-score/')
         self.image = self.images.list[0]
         self.pos = p([1100,34])
 
@@ -334,8 +334,8 @@ class BoyFriend():
             boyfriend = "emperor_awesome"
             self.name = _('Emperor Awesome')
         print "The heart of "+boyfriend+" is yours!"
-        self.image= obj_images.image(main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
-        self.name = boyfriend.replace("_"," ").title()
+        self.image= obj_images.image(data_dir+'/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
+#        self.name = boyfriend.replace("_"," ").title()
         self.pos = p([1000,298])
 
     def update_all(self):
@@ -344,8 +344,8 @@ class BoyFriend():
 
 class BigPrincess():
     def __init__(self, ball):
-        princess_directory  = main_dir+'/data/images/princess/'
-        ball_directory      = main_dir+'/data/images/interface/ball/'
+        princess_directory  = data_dir+'/images/princess/'
+        ball_directory      = data_dir+'/images/interface/ball/'
         big_image      = pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha()
         self.pos        = p([ 670,398])
         cursor = ball.universe.db_cursor
@@ -367,7 +367,7 @@ class BigPrincess():
 
 class Dancer():
     def __init__(self, position):
-        self.images = obj_images.There_and_back_again(main_dir+'/data/images/interface/ball/dancers/', exclude_border = True)
+        self.images = obj_images.There_and_back_again(data_dir+'/images/interface/ball/dancers/', exclude_border = True)
         self.image  = self.images.list[self.images.itnumber.next()]
         self.position = position
         self.images.number = random.randint(0,20)

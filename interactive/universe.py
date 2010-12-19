@@ -11,7 +11,7 @@ class Universe():
         w = int(default_resolution[0]*scale)
         h = int(default_resolution[1]*scale)
         self.clock = pygame.time.Clock()
-        self.main_dir = unicode(os.getcwd())
+        self.main_dir = main_dir
         self.center_x = int(-3400*scale)
         self.center_y = 0
         self.floor = self.height = h

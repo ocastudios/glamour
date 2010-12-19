@@ -33,7 +33,6 @@ class Scenario():
         else:
             light_directory = dir
         files = os.listdir(light_directory)
-#        print files
         if 'light' in files:
             light = 'light/'
         elif 'lights' in files:
@@ -67,7 +66,7 @@ class Gate(Scenario):
     arrow_up = None
     def __init__(self,center_distance,dir,level,goal,goalpos=None):
         Scenario.__init__(self,center_distance,dir,level)
-        icon_directory = main_dir+'/data/images/interface/icons/'
+        icon_directory = data_dir+'/images/interface/icons/'
         self.goalpos = goalpos
         if goal == level.BathhouseSt:
             icon_directory += 'bath/0.png'
@@ -175,7 +174,7 @@ class ExitSign():
     def __init__(self,level):
         self.level = level
         self.pos = [-1000,-1000]
-        self.images = obj_images.OneSided(main_dir+'/data/images/interface/up-arrow/')
+        self.images = obj_images.OneSided(data_dir+'/images/interface/up-arrow/')
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.rect = Rect(self.pos, self.size)
@@ -201,7 +200,7 @@ class ExitSign():
 class Cloud():
     nimbus= None
     def __init__(self,level):
-        dir = main_dir+'/data/images/scenario/skies/nimbus/'
+        dir = data_dir+'/images/scenario/skies/nimbus/'
         self.level = level
         self.pos = (random.randint(0,int(level.universe.width)),random.randint(0,int(level.universe.height/4)))
         self.nimbus = self.nimbus or [
