@@ -3,6 +3,7 @@ import pygame
 import random
 import interface.random_names as random_names
 import os
+import re
 import utils.obj_images as obj_images
 from settings import *
 

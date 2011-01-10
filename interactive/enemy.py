@@ -74,7 +74,7 @@ class Schnauzer(Enemy):
         self.gotkissed = 0
         self.image_number = 0
         self.barfing = 0
-        self.bow = pygame.mixer.Sound(data_dir+'/sounds/enemies/dog2.ogg')
+        self.bow = pygame.mixer.Sound(data_dir+'/sounds/enemies/Schnauzer_bark.ogg')
         self.lookside = 0
         print "Done."
 
@@ -512,6 +512,7 @@ class Elephant():
         self.image_number = 0
         self.action = 'dance'
         self.count = 0
+        self.call = pygame.mixer.Sound(data_dir+'/sounds/enemies/elephant9.ogg')
         print "done."
 
     def update_all(self):
@@ -527,8 +528,9 @@ class Elephant():
                 self.image = self.hover.left[self.hover.number]
                 
                 if self.hover.number in (6,12):
+                    self.call.play()
                     self.count += 1
-                    if self.count > 10:
+                    if self.count > 60:
                         self.count = 0
                         self.hover.update_number()
                 else:

@@ -779,10 +779,10 @@ class Pause():
         self.level  = level
         resume      = widget.GameText(t('Resume'),(360,400),self.level,font_size=80, fonte='Chopin_Script.ttf')
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
-        ok_button   = widget.Button('data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
+        ok_button   = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
         quit        = widget.GameText(t('Quit'),(1080,400),self.level,font_size= 80, fonte='Chopin_Script.ttf')
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
-        cancel_button = widget.Button('data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
+        cancel_button = widget.Button(main_dir+'/data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
         title       = widget.GameText(t('Game Paused'),(720,100),self.level, fonte='Chopin_Script.ttf', font_size=120)
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
         self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'

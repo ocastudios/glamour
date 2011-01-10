@@ -15,11 +15,11 @@ from pygame.locals import *
 
 items          = ['texts', 'options', 'buttons']
 name_taken      = False
-interface_D     = data_dir+'/images/interface/'
+interface_D     = main_dir+'/data/images/interface/'
 title_screen_D  = interface_D+'title_screen/'
 
 print "Initiating menu music."
-pygame.mixer.music.load(data_dir+"/sounds/music/menu.ogg")
+pygame.mixer.music.load(main_dir+"/data/sounds/music/menu.ogg")
 pygame.mixer.music.play()
 
 from settings import *
@@ -450,18 +450,17 @@ class Menu():
     def select_saved_game(self):
         print "Let's select a saved princess"
         self.screen.bar = self.screen.bar_right
-        directory = data_dir+"/saves/"
         saved_games = []
         print "searching for saved games"
-        for i in os.listdir(directory):
+        for i in os.listdir(saves_dir):
             try:
-                D = directory+i+'/'
+                D = saves_dir+'/'+i+'/'
                 files = os.listdir(D)
                 if 'thumbnail.PNG' in files:
-                    saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
+                    saved_games.extend([{'name':i, 'file': saves_dir+'/'+i+'/'+i+'.db'}])
                     print "Saved game found: "+ i
                 else:
-                    print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
+                    print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ saves_dir+'/'+i)
                     for f in files:
                         file_to_remove = D+f
                         print "Removing "+file_to_remove
@@ -471,7 +470,7 @@ class Menu():
             except:
                 pass
         print "done."
-        self.back_background = obj_images.image(data_dir+'/images/story/svg_bedroom.png')
+        self.back_background = obj_images.image(main_dir+'/data/images/story/svg_bedroom.png')
         white_mask           = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
         white_mask.fill((255,255,255,150))
         self.back_background.blit(white_mask,(0,0))
@@ -486,7 +485,8 @@ class Menu():
         xpos = 0
         self.buttons = []
         for i in saved_games:
-            self.buttons.extend([widget.Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
+            print saves_dir+'/'+i['name']+'/'
+            self.buttons.extend([widget.Button(saves_dir+'/'+i['name']+'/',(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
             self.options.extend([
                                  widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
                                  widget.Button(t('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
@@ -498,7 +498,7 @@ class Menu():
 
     def watching_story(self):
         print "Let's watch the story"
-        title_dir = data_dir+'/images/interface/title_screen/'
+        title_dir = main_dir+'/data/images/interface/title_screen/'
         self.screen.bar = self.screen.bar_right
         self.story = Story_Frame(self)
         print "Loading story background"
