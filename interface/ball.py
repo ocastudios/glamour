@@ -5,9 +5,6 @@ import interface.widget as widget
 import utils.save as save
 from settings import *
 
-import gettext
-t = gettext.translation('glamour', 'locale')
-_ = t.ugettext
 
 def p(positions):
     return [int(round(i*scale)) for i in positions ]
@@ -66,7 +63,7 @@ class Ball():
                 i.update_all()
         if self.boyfriend:
             if self.counter == 100:
-                self.texts+= [widget.GameText(_("and won the heart of"), (1090,237), self,font_size = 40)]
+                self.texts+= [widget.GameText(t("and won the heart of"), (1090,237), self,font_size = 40)]
             if self.counter == 110:
                 self.texts+= [widget.GameText(".", (1300,237), self,font_size = 40)]
             if self.counter == 120:
@@ -164,10 +161,10 @@ class Ball():
         pygame.image.save(thumbnail,data_dir+'/saves/'+self.level.princesses[0].name+'/thumbnail.PNG')
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
-                widget.GameText(_("You've"),  (1064,81),  self,font_size = 40),
-                widget.GameText(_("got"),     (1100,128), self,font_size = 40),
-                widget.GameText(_("glamour"), (1309,151), self,font_size = 40),
-                widget.GameText(_("points"),  (1309,185), self,font_size = 40),
+                widget.GameText(t("You've"),  (1064,81),  self,font_size = 40),
+                widget.GameText(t("got"),     (1100,128), self,font_size = 40),
+                widget.GameText(t("glamour"), (1309,151), self,font_size = 40),
+                widget.GameText(t("points"),  (1309,185), self,font_size = 40),
                 widget.GameText(str(int(glamour_points)), (1200,120),self,font_size=80)
         ]
         total_points = int(glamour_points+accumulated_points)
@@ -219,8 +216,8 @@ class BallFrame():
                 [(350,400), 'hair_rapunzel',  'pink', 'Rapunzel'],
                 [(460,400), 'hair_sleeping',  'pink', 'Sleeping_Beauty']) ]
         frametexts = [
-                widget.GameText(_("Tonight's ball"),      (0,0), self, rotate = 90),
-                widget.GameText(_("Yesterday's ball"),    (0,0), self, rotate = 90)
+                widget.GameText(t("Tonight's ball"),      (0,0), self, rotate = 90),
+                widget.GameText(t("Yesterday's ball"),    (0,0), self, rotate = 90)
                     ]
         for i in past_princesses:
             self.image.blit(i.image,i.pos)
@@ -308,31 +305,31 @@ class BoyFriend():
         boyfriend = None
         if points >= 30:
             boyfriend = "gentleman_decent"
-            self.name = _('Gentleman Decent')
+            self.name = t('Gentleman Decent')
         if points >= 65:
             boyfriend = "knight_reliable"
-            self.name = _('Knight Reliable')
+            self.name = t('Knight Reliable')
         if points >= 105:
             boyfriend = "baron_serious"
-            self.name = _('Baron Serious')
+            self.name = t('Baron Serious')
         if points >= 175:
             boyfriend = "count_loving"
-            self.name = _('Count Loving')
+            self.name = t('Count Loving')
         if points >= 255:
             boyfriend = "marquess_attractive"
-            self.name = _('Marquess Attractive')
+            self.name = t('Marquess Attractive')
         if points >= 345:
             boyfriend = "duke_intelligent"
-            self.name = _('Duke Intelligent')
+            self.name = t('Duke Intelligent')
         if points >= 465:
             boyfriend = "prince_charming"
-            self.name = _('Prince Charming')
+            self.name = t('Prince Charming')
         if points >= 685:
             boyfriend = "king_kindhearted"
-            self.name = _('King Kindhearted')
+            self.name = t('King Kindhearted')
         if points >= 1000:
             boyfriend = "emperor_awesome"
-            self.name = _('Emperor Awesome')
+            self.name = t('Emperor Awesome')
         print "The heart of "+boyfriend+" is yours!"
         self.image= obj_images.image(data_dir+'/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
 #        self.name = boyfriend.replace("_"," ").title()

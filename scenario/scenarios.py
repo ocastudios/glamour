@@ -32,7 +32,7 @@ class Scenario():
             light_directory = dir[0:len(dir)-5]
         else:
             light_directory = dir
-        files = os.listdir(light_directory)
+        files = os.listdir(main_dir+'/'+light_directory)
         if 'light' in files:
             light = 'light/'
         elif 'lights' in files:

@@ -12,9 +12,6 @@ from settings import *
 from pygame.locals import *
 
 
-import gettext
-t = gettext.translation('glamour', 'locale')
-_ = t.ugettext
 
 items          = ['texts', 'options', 'buttons']
 name_taken      = False
@@ -213,9 +210,9 @@ class Menu():
             self.position[1] = pn(-600)
         else:
             self.position    = [pn(450),pn(1000)]
-        opt = ((_('New Game'),100,self.new_game),(_('Load Game'),180,self.load_game),(_('Play Story'),260,self.play_story),(_('Credits'),340,self.play_credits))
+        opt = ((t('New Game'),100,self.new_game),(t('Load Game'),180,self.load_game),(t('Play Story'),260,self.play_story),(t('Credits'),340,self.play_credits))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
-        self.texts =   [ widget.GameText(_('select one'),(65,250),self, rotate=90,color = (58,56,0))]
+        self.texts =   [ widget.GameText(t('select one'),(65,250),self, rotate=90,color = (58,56,0))]
         self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
                          widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
 
@@ -242,11 +239,11 @@ class Menu():
         self.screen.bar = self.screen.bar_right
         self.princess       = MenuPrincess(self)
         self.print_princess = True
-        txt=[(_('Choose your'),[-200,200]),(_('appearence...'),[-200,250]),(_('skin tone'),[250,420]),(_('previous'),[250,90]),(_('next'),[250,520])]
+        txt=[(t('Choose your'),[-200,200]),(t('appearence...'),[-200,250]),(t('skin tone'),[250,420]),(t('previous'),[250,90]),(t('next'),[250,520])]
         self.reset_menu(
             background  = data_dir+'/images/story/svg_bedroom.png',
             action      = 'open',
-            texts = [widget.GameText(_(i[0]),i[1],self,color = (58,56,0)) for i in txt],
+            texts = [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
             buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                     (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
                      ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
@@ -255,11 +252,11 @@ class Menu():
                     )
 
     def select_hair(self):
-        txt = [(_('Choose your'), (-200,200)), (_('appearence...'),(-200,250)), (_('hair style'),(250,420)), (_('previous'),(250,90)), (_('next'),(250,520))]
+        txt = [(t('Choose your'), (-200,200)), (t('appearence...'),(-200,250)), (t('hair style'),(250,420)), (t('previous'),(250,90)), (t('next'),(250,520))]
         self.print_princess = True
         self.reset_menu(
                 action  = 'open',
-                texts   =  [widget.GameText(_(i[0]),i[1],self,color = (58,56,0)) for i in txt],
+                texts   =  [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
                 buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
                         (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
                          ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
@@ -274,10 +271,10 @@ class Menu():
                 map(chr,xrange(97,123)),
                 zip([x for n in xrange(9) for x in xrange(int(100),int(422),int(40))],
                     [n for n in xrange(int(200),int(352),int(50)) for x in xrange(9)]))] 
-        opt.extend([widget.Key(_('< back'),       (140,350)  ,self, 'Backspace'),
-                    widget.Key(_('space >'),      (360,350)  ,self, 'Spacebar'),
-                    widget.Key(_('clean up [  ]'),(140,400)  ,self, 'Cleanup'),
-                    widget.Key(_('random   ???'), (360,400)  ,self, 'Random')
+        opt.extend([widget.Key(t('< back'),       (140,350)  ,self, 'Backspace'),
+                    widget.Key(t('space >'),      (360,350)  ,self, 'Spacebar'),
+                    widget.Key(t('clean up [  ]'),(140,400)  ,self, 'Cleanup'),
+                    widget.Key(t('random   ???'), (360,400)  ,self, 'Random')
            ])
 
         buttom_list = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
@@ -285,14 +282,14 @@ class Menu():
                          ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
                         )]
         if name_taken:
-            txts = [    widget.GameText(_('Sorry, This name is taken.'),(-100,-150),self,color = (58,56,0)),
-                        widget.GameText(_('Please, choose another one'),(-100,-50),self,color = (58,56,0)),
-                        widget.GameText(_('_ _ _ _ _ _ _'),(230,130),self,color = (58,56,0)),
+            txts = [    widget.GameText(t('Sorry, This name is taken.'),(-100,-150),self,color = (58,56,0)),
+                        widget.GameText(t('Please, choose another one'),(-100,-50),self,color = (58,56,0)),
+                        widget.GameText(t('_ _ _ _ _ _ _'),(230,130),self,color = (58,56,0)),
                         self.princess.name
                     ]
             buttom_list.extend([widget.Button('or Overwrite it.',(-100,620), self, self.start_game,color = (58,56,0), parameter=[False,True]) ])
         else:
-            txts =[     widget.GameText(_('... and your name.'),(-200,200),self,color = (58,56,0)),
+            txts =[     widget.GameText(t('... and your name.'),(-200,200),self,color = (58,56,0)),
                         widget.GameText('_ _ _ _ _ _ _', (230,130),self,color = (58,56,0)),
                         self.princess.name]
         self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
@@ -464,7 +461,7 @@ class Menu():
                     saved_games.extend([{'name':i, 'file': directory+i+'/'+i+'.db'}])
                     print "Saved game found: "+ i
                 else:
-                    print _('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
+                    print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory+i)
                     for f in files:
                         file_to_remove = D+f
                         print "Removing "+file_to_remove
@@ -482,9 +479,9 @@ class Menu():
         self.action     = 'open'
         self.speed      = 0
         self.position = p([100,-600])
-        self.options    = [widget.Button(_('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
-        self.texts =    [widget.GameText(_('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
-                         widget.GameText(_('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
+        self.options    = [widget.Button(t('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
+        self.texts =    [widget.GameText(t('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
+                         widget.GameText(t('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
         ypos = 0
         xpos = 0
         self.buttons = []
@@ -492,7 +489,7 @@ class Menu():
             self.buttons.extend([widget.Button(directory+i['name']+'/',(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
             self.options.extend([
                                  widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
-                                 widget.Button(_('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
+                                 widget.Button(t('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
             ypos+=round(self.buttons[0].size[1]/scale)
             if ypos > 450:
@@ -581,8 +578,8 @@ class Story_Frame():
         self.available_sounds   = [pygame.mixer.Sound(data_dir+'/sounds/story/frames/'+i) for i in sound_frames]
         self.flip_sound = pygame.mixer.Sound(data_dir+'/sounds/story/sflip.ogg')
         self.frame_number   = 0
-        self.texts =    [widget.GameText(_('Use the arrows to go'),(220,150),self.menu,font_size = 25,color = (58,56,0)),
-                         widget.GameText(_('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
+        self.texts =    [widget.GameText(t('Use the arrows to go'),(220,150),self.menu,font_size = 25,color = (58,56,0)),
+                         widget.GameText(t('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
 
     def update_all(self):
         self.images = [self.available_images[i] for i in range(0,self.frame_number)]
@@ -631,78 +628,78 @@ class Credits():
                 ('raquel',      data_dir+'/images/credits/text_raquel.png'         ,(841,790))
                             ]
         texts_chopin = [
-            (_('in loving memory of')  ,(713,436),44,(0,0,0,255)),
-            (_('and')                  ,(701,520),24,(0,0,0,255)),
-            (_('Credits')              ,(693,711),75,(0,0,0,255)),
-            (_('Programming')          ,(485,769),34,(0,0,0,255)),
-            (_('Support')              ,(934,769),34,(0,0,0,255)),
-            (_('Design')               ,(682,930),34,(0,0,0,255)),
-            (_('Music'),                (704,1400),54,(0,0,0,255)),
-            (_('first snowfall'),       (583,1448),44,(128,0,0,255)),
-            (_('endless blue'),         (650,1489),44,(128,0,0,255)),
-            (_('celtic cappricio'),     (762,1530),44,(128,0,0,255)),
-            (_('the bee'),              (488,1572),44,(128,0,0,255)),
-            (_("lonesome man's dance"), (684,1612),44,(128,0,0,255)),
-            (_('dragon dance'),         (754,1657),44,(128,0,0,255)),
-            (_('ship of fools'),        (829,1695),44,(128,0,0,255)),
-            (_('sword fight'),          (684,1733),44,(128,0,0,255)),
-            (_('the foggy dew'),        (615,1778),44,(128,0,0,255)),
-            (_('revolution on resoluti on'), (828,1820),44,(128,0,0,255)),
-            (_('twilight on mountain'), (907,1858),44,(128,0,0,255)),
-            (_('brian boru 2'),         (770,1899),44,(128,0,0,255)),
-            (_('ignition'),             (830,1934),44,(128,0,0,255)),
-            (_('first snowfall'),       (750,1975),44,(128,0,0,255)),
-            (_('cocci ci tini cocci'),  (780,2012),44,(128,0,0,255)),
-            (_('first snowfall'),       (826,2053),44,(128,0,0,255)),
-            (_('waltz wedley'),         (972,2100),44,(128,0,0,255))
+            (t('in loving memory of')  ,(713,436),44,(0,0,0,255)),
+            (t('and')                  ,(701,520),24,(0,0,0,255)),
+            (t('Credits')              ,(693,711),75,(0,0,0,255)),
+            (t('Programming')          ,(485,769),34,(0,0,0,255)),
+            (t('Support')              ,(934,769),34,(0,0,0,255)),
+            (t('Design')               ,(682,930),34,(0,0,0,255)),
+            (t('Music'),                (704,1400),54,(0,0,0,255)),
+            (t('first snowfall'),       (583,1448),44,(128,0,0,255)),
+            (t('endless blue'),         (650,1489),44,(128,0,0,255)),
+            (t('celtic cappricio'),     (762,1530),44,(128,0,0,255)),
+            (t('the bee'),              (488,1572),44,(128,0,0,255)),
+            (t("lonesome man's dance"), (684,1612),44,(128,0,0,255)),
+            (t('dragon dance'),         (754,1657),44,(128,0,0,255)),
+            (t('ship of fools'),        (829,1695),44,(128,0,0,255)),
+            (t('sword fight'),          (684,1733),44,(128,0,0,255)),
+            (t('the foggy dew'),        (615,1778),44,(128,0,0,255)),
+            (t('revolution on resoluti on'), (828,1820),44,(128,0,0,255)),
+            (t('twilight on mountain'), (907,1858),44,(128,0,0,255)),
+            (t('brian boru 2'),         (770,1899),44,(128,0,0,255)),
+            (t('ignition'),             (830,1934),44,(128,0,0,255)),
+            (t('first snowfall'),       (750,1975),44,(128,0,0,255)),
+            (t('cocci ci tini cocci'),  (780,2012),44,(128,0,0,255)),
+            (t('first snowfall'),       (826,2053),44,(128,0,0,255)),
+            (t('waltz wedley'),         (972,2100),44,(128,0,0,255))
            ]
         texts_gentesque = [
-            (_('All python & pygame code, written in gedit (really!).'),(501,841),16,(180,60)),
-            (_('Bureaucracy and et ceteras'),(909,837),16,(110,60)),
-            (_('Almost all Inkscape, with a touch of Blender and Gimp.'), (704,1027),16,(200,60)),
-            (_('based on the homonimous board game by'),(699,1179),22,None),
-            (_('available at'),        (703,1237),22,None),
-            (_('introduction'),        (427,1458),14,None),
-            (_('by Torley on Piano'),  (754,1458),14,None),
-            (_('menu'),                (540,1499),14,None),
-            (_('by Armolithae'),       (800,1499),14,None),
-            (_('bathhouse st'),        (588,1540),14,None),
-            (_('by armolithae'),       (938,1540),14,None),
-            (_('dress st'),            (400,1582),14,None),
-            (_('by Ceili Moss'),       (600,1582),14,None),
-            (_("shoe's st"),           (500,1622),14,None),
-            (_("by Ceili Moss"),       (900,1622),14,None),
-            (_('accessory st.'),       (600,1667),14,None),
-            (_('by Butterfly Tea'),    (920,1667),14,None),
-            (_('make-up st.'),         (700,1705),14,None),
-            (_('by Ceili Moss'),       (961,1705),14,None),
-            (_('schnauzer'),           (550,1743),14,None),
-            (_('by Armolithae'),       (821,1743),14,None),
-            (_('carriage'),            (470,1788),14,None),
-            (_('by Ceili Moss'),       (760,1788),14,None),
-            (_('old lady'),            (610,1830),14,None),
-            (_('by Torly on Piano'),   (1080,1830),14,None),
-            (_('viking'),              (720,1868),14,None),
-            (_('by Armolithae'),       (1100,1868),14,None),
-            (_('butterffly'),          (620,1909),14,None),
-            (_('by Adragante'),        (920,1899),14,None),
-            (_('hawk'),                (750,1944),14,None),
-            (_('by Armolithae'),       (950,1944),14,None),
-            (_('birdie'),              (600,1985),14,None),
-            (_('by Torley on Piano'),  (950,1985),14,None),
-            (_('fabrizio'),            (600,2022),14,None),
-            (_('by Picari'),           (960,2022),14,None),
-            (_('zoo'),                 (700,2063),14,None),
-            (_('by Torley on Piano'),  (980,2063),14,None),
-            (_('ball'),                (831,2110),14,None),
-            (_('by strauss'),          (1095,2110),14,None),
-            (_('Sad and unfortunate legal mambo jambo'),(830,2290),14,None),
-            (_("All programming and art are public domain, released so by us, their authors."),(800,2335),14,None),
-            (_("The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."),(850,2375),14,(720,90)),
-            (_("( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"),(800,2385),13,None),
-            (_("And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."),(830,2415),13,(720,60)),
-            (_("If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."),(900,2525),13,(720,220)),
-            (_("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2540),14,None)
+            (t('All python & pygame code, written in gedit (really!).'),(501,841),16,(180,60)),
+            (t('Bureaucracy and et ceteras'),(909,837),16,(110,60)),
+            (t('Almost all Inkscape, with a touch of Blender and Gimp.'), (704,1027),16,(200,60)),
+            (t('based on the homonimous board game by'),(699,1179),22,None),
+            (t('available at'),        (703,1237),22,None),
+            (t('introduction'),        (427,1458),14,None),
+            (t('by Torley on Piano'),  (754,1458),14,None),
+            (t('menu'),                (540,1499),14,None),
+            (t('by Armolithae'),       (800,1499),14,None),
+            (t('bathhouse st'),        (588,1540),14,None),
+            (t('by armolithae'),       (938,1540),14,None),
+            (t('dress st'),            (400,1582),14,None),
+            (t('by Ceili Moss'),       (600,1582),14,None),
+            (t("shoe's st"),           (500,1622),14,None),
+            (t("by Ceili Moss"),       (900,1622),14,None),
+            (t('accessory st.'),       (600,1667),14,None),
+            (t('by Butterfly Tea'),    (920,1667),14,None),
+            (t('make-up st.'),         (700,1705),14,None),
+            (t('by Ceili Moss'),       (961,1705),14,None),
+            (t('schnauzer'),           (550,1743),14,None),
+            (t('by Armolithae'),       (821,1743),14,None),
+            (t('carriage'),            (470,1788),14,None),
+            (t('by Ceili Moss'),       (760,1788),14,None),
+            (t('old lady'),            (610,1830),14,None),
+            (t('by Torly on Piano'),   (1080,1830),14,None),
+            (t('viking'),              (720,1868),14,None),
+            (t('by Armolithae'),       (1100,1868),14,None),
+            (t('butterffly'),          (620,1909),14,None),
+            (t('by Adragante'),        (920,1899),14,None),
+            (t('hawk'),                (750,1944),14,None),
+            (t('by Armolithae'),       (950,1944),14,None),
+            (t('birdie'),              (600,1985),14,None),
+            (t('by Torley on Piano'),  (950,1985),14,None),
+            (t('fabrizio'),            (600,2022),14,None),
+            (t('by Picari'),           (960,2022),14,None),
+            (t('zoo'),                 (700,2063),14,None),
+            (t('by Torley on Piano'),  (980,2063),14,None),
+            (t('ball'),                (831,2110),14,None),
+            (t('by strauss'),          (1095,2110),14,None),
+            (t('Sad and unfortunate legal mambo jambo'),(830,2290),14,None),
+            (t("All programming and art are public domain, released so by us, their authors."),(800,2335),14,None),
+            (t("The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."),(850,2375),14,(720,90)),
+            (t("( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"),(800,2385),13,None),
+            (t("And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."),(830,2415),13,(720,60)),
+            (t("If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."),(900,2525),13,(720,220)),
+            (t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2540),14,None)
            ]
         self.images = developers+rendered_texts
         self.texts = [ widget.GameText(i[0],i[1],self,fonte='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[

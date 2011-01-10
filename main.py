@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 print "Starting Game"
 from settings.getscreen import *
 from pygame.locals import *

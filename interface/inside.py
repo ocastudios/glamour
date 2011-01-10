@@ -10,7 +10,7 @@ import interactive.messages as messages
 from settings import *
 
 import gettext
-t = gettext.translation('glamour', 'locale')
+t = gettext.translation('glamour', main_dir+'/locale')
 _ = t.ugettext
 
 def p(positions):

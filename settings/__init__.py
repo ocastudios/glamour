@@ -22,9 +22,16 @@ print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(
 scale =0.666666667
 
 
-main_dir = os.getcwd()
+main_dir = "/home/nelson/glamour"
 data_dir = main_dir+"/data"
 saves_dir = main_dir+"/data/saves"
+
+import gettext
+localization_support = gettext.translation('glamour', main_dir+'/locale')
+t = localization_support.ugettext
+
+
+
 
 Snow_White      = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
 Cinderella      = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png'   , 'name' : 'Cinderella'}

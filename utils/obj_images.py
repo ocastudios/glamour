@@ -1,6 +1,7 @@
 import os
 import operator
 import pygame
+import re
 from itertools import *
 from settings import *
 
@@ -156,8 +157,14 @@ class Ad_hoc():
             self.number = self.lenght -1
 
 
-def image(directory, invert = False):
-    prep = pygame.image.load(directory).convert_alpha()
+def image(dir, invert = False, alpha = True):
+    complete_path = re.search(main_dir, dir)
+    if not complete_path:
+        dir = main_dir+'/'+dir
+    if alpha:
+        prep = pygame.image.load(dir).convert_alpha()
+    else:
+        prep = pygame.image.load(dir).convert()
     if invert==True:
         prep = pygame.transform.flip(prep,1,0)
     prep_size = prep.get_size()
@@ -174,6 +181,9 @@ def scale_image(prep, invert = False):
     return pygame.transform.smoothscale(prep,size)
 
 def find_images(dir):
+    complete_path = re.search(main_dir, dir)
+    if not complete_path:
+        dir = main_dir+'/'+dir
     return [image(dir+item) for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
 
 def invert_images(imglist):

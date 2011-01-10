@@ -504,16 +504,41 @@ class Elephant():
         for i in ['base','hover']:
             exec("self."+i+"= obj_images.There_and_back_again(directory+'"+i+"/',exclude_border = True)")
         self.image = self.base.left[0]
+        self.size = self.base.size
         self.level = level
         self.pos = [self.level.universe.center_x+self.center_distance, (self.level.floor - self.image.get_height()) +15 ]
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
+        self.action = 'dance'
+        self.count = 0
         print "done."
 
     def update_all(self):
-        self.image = self.base.left[self.base.itnumber.next()]
+        if -round(400*scale) < self.pos[0] < round(1490*scale):
+            self.rect = pygame.Rect(self.pos, self.base.size)
+            if self.action == "dance":
+                self.base.update_number()
+                self.image = self.base.left[self.base.number]
+                if self.base.number == 0:
+                    if self.rect.collidepoint(self.level.mouse_pos):
+                        self.action = 'call'
+            if self.action == 'call':
+                self.image = self.hover.left[self.hover.number]
+                
+                if self.hover.number in (6,12):
+                    self.count += 1
+                    if self.count > 10:
+                        self.count = 0
+                        self.hover.update_number()
+                else:
+                    self.hover.update_number()
+                    
+                if self.hover.number == 0:
+                    self.action = 'dance'
+        self.pos
         self.pos[0] = self.level.universe.center_x + self.center_distance
+
 
 class Giraffe():
     def __init__(self, pos, level):
@@ -618,17 +643,100 @@ class Monkey():
         for i in ['stay','hover','happy','throw','attack']:
             exec("self."+i+"= obj_images.TwoSided(directory+'"+i+"/')")
         self.image = self.stay.left[0]
+        self.size = self.stay.size
         self.level = level
         self.pos = [self.level.universe.center_x+self.center_distance, round(150*scale) ]
         self.direction = 'left'
         self.gotkissed = 0
         self.image_number = 0
+        self.action = 'stay'
+        self.banana = Banana(level,self)
+        self.level.enemies.append(self.banana)
         print "done."
 
     def update_all(self):
-        self.image = self.stay.left[0]
         self.pos[0] = self.level.universe.center_x + self.center_distance
+        if -round(400*scale) < self.pos[0] < round(1490*scale):
+            self.image = self.stay.left[0]
+            self.pos[0] = self.level.universe.center_x + self.center_distance
+            self.rect = pygame.Rect(self.pos,self.size)
+            if self.rect.collidepoint(self.level.mouse_pos):
+                self.image = self.hover.left[0]
+            elif self.action == 'attack':
+                self.image = self.throw.left[self.throw.number]
+                self.throw.update_number()
+                if self.throw.number == 0:
+                    self.action = 'stay'
+            elif self.action == 'stay' and self.banana.status == 'held':
+                if random.randint(0,50)== 0:
+                    self.action = 'attack'
 
+class Banana():
+    def __init__(self, level, monkey, dirty=True):
+        print "Creating banana"
+        directory = enemy_dir+'Monkey/banana/'
+        self.monkey = monkey
+        self.center_distance = self.monkey.center_distance
+        self.images = {
+                    'throwing': obj_images.TwoSided(directory+'throwing/'),
+                    'quiet': obj_images.TwoSided(directory+'quiet/'),
+                    'thrown': obj_images.TwoSided(directory+'thrown/'),
+                    }
+        self.image = self.images['quiet'].left[0]
+        self.size = self.images['quiet'].size
+        self.level = level
+        self.pos = [self.monkey.pos[0],self.monkey.pos[1]]
+        self.pos_correction = (72*scale,37*scale)
+        self.banana_size = (29*scale,51*scale)
+        self.direction = 'left'
+        self.image_number = 0
+        self.status = 'held'
+        self.speed = {
+                        'max': round(scale*40),
+                        'resistance': scale*2,
+                        'actual': round(scale*40),
+                        'gforce':round(scale*0),
+                        'gaccel':round(scale*3)
+                     }
+        self.rect = pygame.Rect(
+                        (self.pos[0]+self.pos_correction[0],self.pos[1]+self.pos_correction[1]),
+                        self.banana_size
+                        )
+                        
+    def update_all(self):
+        self.rect = pygame.Rect(
+                (self.pos[0]+self.pos_correction[0],self.pos[1]+self.pos_correction[1]),
+                self.banana_size
+                )
+        if self.status == 'held':
+            self.pos = [self.monkey.pos[0],self.monkey.pos[1]]
+            if self.monkey.action == 'stay':
+                self.image = None#self.images['quiet'].left[0]
+            if self.monkey.action == 'attack':
+                self.image = self.images['throwing'].left[self.images['throwing'].number]
+                self.images['throwing'].update_number()
+                if self.images['throwing'].number == 3 or self.monkey.throw.number == 10:
+                    self.status = 'thrown'
+                    self.images['throwing'].number = 0
+        if self.status == 'thrown':
+
+            self.image = self.images['thrown'].left[0]
+            self.pos[0] = self.level.universe.center_x + self.center_distance
+            self.center_distance += self.speed['actual']
+
+            if self.speed['actual'] > 0:
+                self.speed['actual'] = round(self.speed['actual']-self.speed['resistance'])
+            if self.speed['actual'] < 0:
+                self.speed['actual'] = 0
+
+            if self.pos[1] < self.level.floor:
+                self.pos[1] += self.speed['gforce']
+                self.speed['gforce']+=self.speed['gaccel']
+            if self.pos[1] > self.level.floor:
+                self.status = 'held'
+                self.speed['gforce'] = 0
+                self.speed['actual'] = self.speed['max']
+                self.center_distance = self.monkey.center_distance
 
 class VikingShip():
     def __init__(self, pos, level, dirty=False):

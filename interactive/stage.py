@@ -22,9 +22,6 @@ import interactive.events   as events
 from settings import *
 
 
-import gettext
-t = gettext.translation('glamour', 'locale')
-_ = t.ugettext
 
 
 
@@ -37,8 +34,8 @@ shoegate =      p([1198,4690,8140])
 
 
 class Stage():
-    enemy_dir = data_dir+'/images/enemies/'
-    maindir        = data_dir+'/images/scenario/'
+    enemy_dir =     'data/images/enemies/'
+    maindir   =     'data/images/scenario/'
     princesses = None
     def __init__(self,universe):
         self.name = None
@@ -57,7 +54,7 @@ class Stage():
         self.blitlist       = ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
         self.foreground     = []
         self.white          = Foreground(self.universe)
-        self.black          = Foreground(self.universe, color=(0,0,0), path= data_dir+'/images/interface/loading/back.png')
+        self.black          = Foreground(self.universe, color=(0,0,0), path= 'data/images/interface/loading/back.png')
         self.bar            = {'down': Bar(self,'down'), 'up': Bar(self,'up'), 'left': Bar(self,'left'), 'right': Bar(self,'right')}
         self.bar_goal       = self.universe.height/3
         self.bar_speed      = 1
@@ -66,7 +63,7 @@ class Stage():
         self.inside         = None
         self.princess_castle= None
         self.fairy          = False
-        self.omni_directory = data_dir+'/images/scenario/omni/'
+        self.omni_directory = 'data/images/scenario/omni/'
         self.ball           = None
         self.endmusic       = pygame.event.Event(pygame.USEREVENT,{'music':'finished'})
         self.ballroom = { 'day': scenarios.Background(110,self,self.maindir+'ballroom/ballroom_day/'),
@@ -80,11 +77,11 @@ class Stage():
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
         self.changing_stages= False
-        self.loading_icons  = (obj_images.OneSided(data_dir+'/images/interface/loading/sun_n_moon_shadow/'),
-                               obj_images.OneSided(data_dir+'/images/interface/loading/sun_n_moon/'),
-                               obj_images.OneSided(data_dir+'/images/interface/loading/carriage/')
+        self.loading_icons  = (obj_images.OneSided('data/images/interface/loading/sun_n_moon_shadow/'),
+                               obj_images.OneSided('data/images/interface/loading/sun_n_moon/'),
+                               obj_images.OneSided('data/images/interface/loading/carriage/')
                                )
-        self.margin = obj_images.image(data_dir+'/images/shadow-B.png')
+        self.margin = obj_images.image('data/images/shadow-B.png')
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -489,7 +486,7 @@ class Stage():
     def create_scenario(self,street):
         self.loading()
         self.viking_ship = None
-        db = sqlite3.connect(data_dir+'/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.loading()
@@ -526,7 +523,7 @@ class Stage():
         self.loading()
 
     def create_front_scenario(self,street):
-        db = sqlite3.connect(data_dir+'/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         front_row = cursor.execute("SELECT * FROM front_scenario ORDER BY id ASC").fetchall()
@@ -534,9 +531,9 @@ class Stage():
         for i in front_row:
             if i['type'] == 'scenario':
                 if i['height'] == 0:
-                    self.scenarios_front.append(scenarios.Scenario(scale*i['xpos'],main_dir+'/'+i['directory'],self))
+                    self.scenarios_front.append(scenarios.Scenario(scale*i['xpos'],i['directory'],self))
                 else:
-                    self.scenarios_front.append(scenarios.Scenario(scale*i['xpos'],main_dir+'/'+i['directory'],self,height = i['height']*scale))
+                    self.scenarios_front.append(scenarios.Scenario(scale*i['xpos'],i['directory'],self,height = i['height']*scale))
             elif i['type'] == 'flower':
                 self.scenarios_front.append(scenarios.Flower(scale*i['xpos'],i['directory'],self,i['frames']))
             elif i['type'] == 'frontscenario':
@@ -545,7 +542,7 @@ class Stage():
         cursor.close()
 
     def set_floor_heights(self,height,width,street):
-        db = sqlite3.connect(data_dir+'/'+street+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+street+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.floor_heights = [round(height*scale)]*int(round(width*scale))
@@ -558,8 +555,8 @@ class Stage():
     def stage_music(self,intro, music):
         pygame.mixer.music.fadeout(4000)
         self.loading()
-        self.music = data_dir+"/sounds/music/"+music
-        pygame.mixer.music.load(data_dir+"/sounds/music/"+intro)
+        self.music = main_dir+"/data/sounds/music/"+music
+        pygame.mixer.music.load(main_dir+"/data/sounds/music/"+intro)
         self.loading()
         pygame.mixer.music.queue(self.music)
         self.loading()
@@ -573,7 +570,7 @@ class Stage():
         self.changing_stages_darkenning()
         self.loading()
         self.name = hardname
-        db = sqlite3.connect(data_dir+'/'+hardname+'.db')
+        db = sqlite3.connect(main_dir+'/data/'+hardname+'.db')
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
         self.loading()
@@ -595,7 +592,7 @@ class Stage():
         cursor.close()
         self.create_scenario(hardname)
         self.create_front_scenario(hardname)
-        self.panel          = [widget.GameText(_(translatable_name), (300,20), self,font_size = 30),
+        self.panel          = [widget.GameText(t(translatable_name), (300,20), self,font_size = 30),
                                None,
                                glamour_stars.Glamour_Stars(self),
                                widget.GameText(self.princesses[0].name, (660,47), self, font_size = 70,fonte='Chopin_Script.ttf'),
@@ -607,7 +604,7 @@ class Stage():
 
     def BathhouseSt(self,goalpos = None, clean_princess = False):
         self.set_floor_heights(186,9400,'bathhouse')
-        self.create_stage(_('Bathhouse St'),goalpos,'bathhouse')
+        self.create_stage(t('Bathhouse St'),goalpos,'bathhouse')
         gates = (   [(1063,453),'bathhouse/door/',self.bathhouse_castle(),True],
                     [(5206,500),'home/door/', inside.Home(self), False], 
                     [(9305,503),'magic_beauty_salon/door/',self.hair_castle(),False])
@@ -636,15 +633,15 @@ class Stage():
             self.princesses[1] = None
             
     def DressSt(self,goalpos = None):
-        self.create_stage(_('Dress St'), goalpos,'dress')
+        self.create_stage(t('Dress St'), goalpos,'dress')
         self.animated_scenarios = [scenarios.Scenario(0,self.directory+'Dress_Tower/flag/',self)]
         self.loading()
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','carriage'),'DressSt')
         self.gates = [scenarios.BuildingDoor(p((155,318)),self.directory+'Dress_Tower/door/',self,self.dress_castle()),
                       scenarios.BuildingDoor(p((9194,430)),self.directory+'snow_white_castle/door/',self, inside.Princess_Home(self,Snow_White)),
-                      scenarios.Gate(dressgate[0], data_dir+'/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
-                      scenarios.Gate(dressgate[1], data_dir+'/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
-                      scenarios.Gate(dressgate[2], data_dir+'/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
+                      scenarios.Gate(dressgate[0], 'data/images/scenario/omni/gate/',self,self.AccessorySt,goalpos = accessorygate[2]),
+                      scenarios.Gate(dressgate[1], 'data/images/scenario/omni/gate/',self,self.ShoesSt,goalpos = shoegate[1]),
+                      scenarios.Gate(dressgate[2], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[0])]
         self.loading()
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.loading()
@@ -652,7 +649,7 @@ class Stage():
         self.set_floor_heights(185,9400,'dress')
 
     def AccessorySt(self,goalpos = None):
-        self.create_stage(_('Accessory St'), goalpos,'accessory')
+        self.create_stage(t('Accessory St'), goalpos,'accessory')
 
         self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'bird'),'AccessorySt')
         self.viking_ship = enemy.VikingShip(5000*scale,self)
@@ -660,9 +657,9 @@ class Stage():
         self.gates.extend([
             scenarios.BuildingDoor(p((330,428)),self.directory+'accessory_tower/door/',self,self.accessory_castle()),
             scenarios.BuildingDoor(p((8809,425)),self.directory+'castle/door/',self,inside.Princess_Home(self, Sleeping_Beauty)),
-            scenarios.Gate(accessorygate[0], data_dir+'/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
-            scenarios.Gate(accessorygate[1], data_dir+'/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
-            scenarios.Gate(accessorygate[2], data_dir+'/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
+            scenarios.Gate(accessorygate[0], 'data/images/scenario/omni/gate/',self,self.BathhouseSt,goalpos = bathhousegate[1]),
+            scenarios.Gate(accessorygate[1], 'data/images/scenario/omni/gate/',self,self.MakeupSt,goalpos = makeupgate[1]),
+            scenarios.Gate(accessorygate[2], 'data/images/scenario/omni/gate/',self,self.DressSt , goalpos = dressgate[0])
                         ])
         self.loading()
         self.floor_image= [floors.Floor(fl,self.directory+'floor/tile/',self) for fl in range(30)]
@@ -679,10 +676,9 @@ class Stage():
         self.set_floor_heights(194,9400,'accessory')
 
     def MakeupSt(self,goalpos = None):
-        self.create_stage(_('Makeup St'),goalpos,'makeup')
-
+        self.create_stage(t('Makeup St'),goalpos,'makeup')
         self.select_enemies(('carriage','schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'MakeupSt')
-        self.gates.extend([ scenarios.Gate(makeupgate[x],data_dir+'/images/scenario/omni/gate/',self,y,goalpos = z)
+        self.gates.extend([ scenarios.Gate(makeupgate[x],'data/images/scenario/omni/gate/',self,y,goalpos = z)
                             for x,y,z in
                             ((0, self.DressSt, dressgate[2]),
                              (1, self.AccessorySt, accessorygate[1]),
@@ -693,7 +689,6 @@ class Stage():
                      scenarios.BuildingDoor(p((9082,301)),self.directory+'sleeping_castle/door/',self,inside.Princess_Home(self,Sleeping_Beauty))])
         self.loading()
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
-#        self.scenarios_front = [scenarios.Scenario(0,self.directory+'make-up_castle/front/',self)]
         self.loading()
         self.animated_scenarios = [ enemy.Lion(3200*scale,self),
                                     enemy.Monkey(3500*scale,self),
@@ -709,15 +704,15 @@ class Stage():
         self.stage_music("makeup_day_intro.ogg","makeup_day.ogg")
 
     def ShoesSt(self,goalpos=None):
-        self.create_stage(_('Shoes St'),goalpos,'shoes')
+        self.create_stage(t('Shoes St'),goalpos,'shoes')
         self.animated_scenarios = [scenarios.Scenario(scale*7137,self.directory+'fountain/base/',self)]
         self.loading()
         self.select_enemies(('carriage','schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'ShoesSt')
         self.gates = [scenarios.BuildingDoor(p((372,273)),self.directory+'shoes_tower/door/',self,self.shoes_castle()),
         scenarios.BuildingDoor(p((9440,374)),self.directory+'rapunzel_castle/door/',self,inside.Princess_Home(self, Rapunzel)),
-        scenarios.Gate(shoegate[0],data_dir+'/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[2]),
-        scenarios.Gate(shoegate[1],data_dir+'/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
-        scenarios.Gate(shoegate[2],data_dir+'/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
+        scenarios.Gate(shoegate[0],'data/images/scenario/omni/gate/',self,self.MakeupSt, goalpos = makeupgate[2]),
+        scenarios.Gate(shoegate[1],'data/images/scenario/omni/gate/',self,self.DressSt,  goalpos = dressgate[1]),
+        scenarios.Gate(shoegate[2],'data/images/scenario/omni/gate/',self,self.BathhouseSt, goalpos = bathhousegate[0]),]
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.loading()
         self.stage_music("shoes_day_intro.ogg","shoes_day.ogg")
@@ -728,7 +723,7 @@ class Foreground():
     def __init__(self,universe, color=(255,255,255), path=None):
         self.pos = 0,0
         if path:
-            self.image = obj_images.scale_image(pygame.image.load(path).convert())
+            self.image = obj_images.image(path, alpha = False)
         else:
             self.image = pygame.Surface((universe.width,universe.height)).convert()
             self.image.fill(color)
@@ -743,15 +738,15 @@ class Bar():
     def __init__(self,level, up_or_down):
         if up_or_down in ('left','right'):
             if up_or_down == 'left':
-                self.image = obj_images.image(data_dir+'/images/interface/omni/left_bar/0.png')
+                self.image = obj_images.image('data/images/interface/omni/left_bar/0.png')
                 self.size = self.image.get_size()
                 self.pos = -self.size[0]
             else:
-                self.image = obj_images.image(data_dir+'/images/interface/omni/left_bar/0.png',invert=True)
+                self.image = obj_images.image('data/images/interface/omni/left_bar/0.png',invert=True)
                 self.size = self.image.get_size()
                 self.pos = level.universe.width
         else:
-            tile = pygame.image.load(data_dir+'/images/interface/omni/small_bar/0.png').convert_alpha()
+            tile = obj_images.image('data/images/interface/omni/small_bar/0.png')
             if up_or_down == 'up':
                 tile = pygame.transform.flip(tile,0,1)
                 self.pos = -tile.get_height()
@@ -782,15 +777,15 @@ class Pause():
     def __init__(self, level):
         self.status = 'outside'
         self.level  = level
-        resume      = widget.GameText(_('Resume'),(360,400),self.level,font_size=80, fonte='Chopin_Script.ttf')
+        resume      = widget.GameText(t('Resume'),(360,400),self.level,font_size=80, fonte='Chopin_Script.ttf')
         ok_pos      = (resume.pos[0]+(resume.size[0]/2))/scale,(resume.pos[1]+(resume.size[1]))/scale+50
-        ok_button   = widget.Button(data_dir+'/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
-        quit        = widget.GameText(_('Quit'),(1080,400),self.level,font_size= 80, fonte='Chopin_Script.ttf')
+        ok_button   = widget.Button('data/images/interface/title_screen/button_ok/',ok_pos,self.level,self.resume)
+        quit        = widget.GameText(t('Quit'),(1080,400),self.level,font_size= 80, fonte='Chopin_Script.ttf')
         cancel_pos  = (quit.pos[0]+(quit.size[0]/2))/scale,(quit.pos[1]+(quit.size[1]))/scale+50
-        cancel_button = widget.Button(data_dir+'/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
-        title       = widget.GameText(_('Game Paused'),(720,100),self.level, fonte='Chopin_Script.ttf', font_size=120)
+        cancel_button = widget.Button('data/images/interface/title_screen/button_cancel/',cancel_pos,self.level,exit)
+        title       = widget.GameText(t('Game Paused'),(720,100),self.level, fonte='Chopin_Script.ttf', font_size=120)
         self.buttons    = (resume, ok_button, quit, cancel_button, title)
-        self.music  = data_dir+'/sounds/music/1stSnowfall.ogg'
+        self.music  = main_dir+'/data/sounds/music/1stSnowfall.ogg'
 
     def resume(self):
         self.status = 'done'
