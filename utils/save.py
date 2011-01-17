@@ -13,10 +13,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     princess = level.princesses[0]
     #avoid errors in case there are no saved files
     try:
-        os.mkdir(data_dir+u'/saves/'+unicode(princess.name))
+        os.mkdir(saves_dir+'/'+princess.name)
     except:
         pass
-    dir = data_dir+u'/saves/'+unicode(princess.name)
+    dir = saves_dir+'/'+princess.name
     day = datetime.datetime.today()
 
     if dress == "dress_yellow":
@@ -30,10 +30,6 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
         hairback = hair+'_back'
     else:
         hairback = "None"
-#    for street in ['BathhouseSt','DressSt','AccessorySt','MakeupSt','ShoesSt']:
-#        exec(street +" = ''")
-#        for i in level.enemies_list[street]:
-#            exec(street + "=" + street + "+ ' ' + i + ' ' ")
     cursor = level.universe.db_cursor
     cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+princess.name+"'")
     if hair:
@@ -58,4 +54,4 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     print "Save Database saved "
 #    if Ball:
 #        backupfile.close()
-    return unicode(data_dir)+u'/saves/'+unicode(princess.name)+'/'+unicode(princess.name)+u'.glamour'
+    return saves_dir+'/'+princess.name+'/'+princess.name+'.glamour'

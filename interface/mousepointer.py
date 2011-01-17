@@ -7,13 +7,13 @@ class MousePointer():
         self.mouse_pos =  pygame.mouse.get_pos()
         if type == 2:
             self.type = 2
-            self.images         = obj_images.OneSided(data_dir+'/images/interface/mouse-icon/pointer2/')
+            self.images         = obj_images.OneSided(main_dir+'/data/images/interface/mouse-icon/pointer2/')
             self.image          = self.images.list[self.images.number]
             self.size           = self.image.get_size()
             self.pos            = self.mouse_pos
         else:
             self.type = 1
-            self.images         = obj_images.OneSided(data_dir+'/images/interface/mouse-icon/pointer/')
+            self.images         = obj_images.OneSided(main_dir+'/data/images/interface/mouse-icon/pointer/')
             self.image          = self.images.list[self.images.number]
             self.size           = self.image.get_size()
             self.pos            = (self.mouse_pos[0]+(self.size[0]/2), self.mouse_pos[1]+(self.size[1]/2))

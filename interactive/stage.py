@@ -77,11 +77,11 @@ class Stage():
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
         self.changing_stages= False
-        self.loading_icons  = (obj_images.OneSided('data/images/interface/loading/sun_n_moon_shadow/'),
-                               obj_images.OneSided('data/images/interface/loading/sun_n_moon/'),
-                               obj_images.OneSided('data/images/interface/loading/carriage/')
+        self.loading_icons  = (obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon_shadow/'),
+                               obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon/'),
+                               obj_images.OneSided(main_dir+'/data/images/interface/loading/carriage/')
                                )
-        self.margin = obj_images.image('data/images/shadow-B.png')
+        self.margin = obj_images.image(main_dir+'/data/images/shadow-B.png')
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -93,7 +93,8 @@ class Stage():
         return inside.Inside(self,'face',('eyelids','eyeshades','lipstick','simple'))
 
     def hair_castle(self):
-        return inside.Inside(self,'hair',('black','brown','cinderella','rapunzel','rastafari', 'red', 'short', 'sleeping', 'snowwhite', 'yellow'))
+        hair_list = random.sample(('black','brown','cinderella','rapunzel','rastafari', 'red', 'short', 'sleeping', 'snowwhite', 'yellow'), 5)
+        return inside.Inside(self,'hair',hair_list)
 
     def shoes_castle(self):
         return inside.Inside(self,'shoes',('crystal','red','slipper','white'))
@@ -115,8 +116,8 @@ class Stage():
         self.game_mouse.update()
         self.mouse_pos  = self.game_mouse.mouse_pos
         events.choose_event(self)
-        act = self.act = self.universe.action
-        dir = self.direction = self.universe.dir
+        self.act = self.universe.action
+        self.direction = self.universe.dir
         self.blit_all()
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
@@ -150,7 +151,9 @@ class Stage():
                                         i['status'] = 'on'
                                         i['position'].update_pos()
                         else:
-                            exec('[i.update_all() for i in self.'+att+' if i]')
+                            for i in self.__dict__[att]:
+                                if i:
+                                    i.update_all()
                 for i in self.scenarios_front+self.floor_image+self.foreground:
                     i.update_all()
                 if self.princesses[0].inside:
@@ -173,9 +176,11 @@ class Stage():
                 if self.clock[1].time == 'night':
                     for i in self.lights:
                         if i['status'] == 'on':
-                            self.universe.screen_surface.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
+                            screen.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
             else:
-                exec('[screen.blit(i.image,i.pos) for i in self.'+att+' if i and i.image ]')
+                for i in self.__dict__[att]:
+                    if i and i.image:
+                        screen.blit(i.image,i.pos)
         for i in self.princesses[0].effects :
             screen.blit(i.image,i.pos)
         for i in self.scenarios_front:
@@ -258,7 +263,7 @@ class Stage():
                 if self.white.alpha_value > 150:
                     self.inside.status = 'choosing'
                     pygame.mixer.music.load(self.inside.music)
-                    pygame.mixer.music.play()
+                    pygame.mixer.music.play(-1)
             elif self.inside.status == 'choosing':
                 self.princesses[0].update_all()
                 [self.universe.screen_surface.blit(i.image,i.pos) for i in self.inside.items]
@@ -298,9 +303,9 @@ class Stage():
                 self.white.image.set_alpha(self.white.alpha_value)
                 if self.bar['down'].pos > self.universe.height and self.bar['up'].pos < -self.bar['up'].size[1] and self.white.alpha_value == 0:
                     pygame.mixer.music.load(self.music)
-                    pygame.mixer.music.queue(self.music)
-                    pygame.mixer.music.queue(self.music)
-                    pygame.mixer.music.play()
+#                    pygame.mixer.music.queue(self.music)
+#                    pygame.mixer.music.queue(self.music)
+                    pygame.mixer.music.play(-1)
                     self.inside.status = 'openning'
             elif self.inside.status == 'openning':
                 self.princesses[0].update_all()
@@ -340,7 +345,7 @@ class Stage():
             if self.white.alpha_value > 150:
                 screen.status = 'choosing'
                 pygame.mixer.music.load(screen.music)
-                pygame.mixer.music.play()
+                pygame.mixer.music.play(-1)
         elif screen.status == 'choosing':
             pass
         elif screen.status == 'done':
@@ -357,9 +362,9 @@ class Stage():
             self.white.image.set_alpha(self.white.alpha_value)
             if self.bar['down'].pos > self.universe.height and self.bar['up'].pos < -self.bar['up'].size[1] and self.white.alpha_value == 0:
                 pygame.mixer.music.load(self.music)
-                pygame.mixer.music.queue(self.music)
-                pygame.mixer.music.queue(self.music)
-                pygame.mixer.music.play()
+#                pygame.mixer.music.queue(self.music)
+#                pygame.mixer.music.queue(self.music)
+                pygame.mixer.music.play(-1)
                 screen.status = 'finished'
 
     def update_pause(self):
@@ -395,6 +400,8 @@ class Stage():
             if self.white.alpha_value > 150:
                 self.fairy = 'speaking'
         elif self.fairy == "speaking":
+            if self.universe.action[0]in ('jump','kiss'):
+                self.fae[0].end_message()
             for i in self.fae:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
@@ -429,8 +436,9 @@ class Stage():
                     maximum = 5
                 for i in range(0,random.randint(1,maximum)):
                     pos_x = scale*(random.randint(1400,7000))
-                    exec("self.enemies.append(enemy."+name+"(pos_x,self))")
+                    self.enemies.append(enemy.__dict__[name](pos_x,self))
             self.loading()
+        self.enemies.append(enemy.Schnauzer(pos_x,self))
 
     def loading(self):
         if self.black.alpha_value > 100:

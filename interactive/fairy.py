@@ -7,7 +7,7 @@ import interactive.messages as messages
 import interface.widget     as widget 
 import os
 
-directory = data_dir + '/images/interface/fairy_tips'
+directory = main_dir + '/data/images/interface/fairy_tips'
 
 def p(positions):
     return [int(round(i*scale)) for i in positions ]
@@ -100,26 +100,19 @@ class Fairy():
              (878, 677), 
              (898, 675), 
              (918, 675), 
-             (938, 673), 
-             (964, 665), 
-             (984, 663), 
-             (1008, 657), 
-             (1030, 655), 
-             (1054, 643), 
-             (1077, 637), 
-             (1105, 633), 
-             (1133, 631), 
-             (1159, 625), 
-             (1191, 627), 
-             (1212, 631), 
-             (1202, 645), 
-             (1192, 655), 
-             (1200, 665), 
-             (1200, 675), 
-             (1200, 685), 
-             (1200, 695), 
+             (938, 685), 
+             (964, 695), 
+             (984, 703), 
+             (1008, 710), 
+             (1030, 714), 
+             (1054, 716), 
+             (1077, 716), 
+             (1105, 715), 
+             (1133, 714), 
+             (1159, 710), 
+             (1191, 703), 
              (1200, 700)
-            ),#, (1355, 743), (1359, 759), (1364, 775), (1372, 793)),
+            ),
             (
             (765, 0), 
             (762, 8), 
@@ -219,22 +212,22 @@ class Fairy():
             (730, 600), 
             (743, 622), 
             (771, 646), 
-            (804, 664), 
-            (834, 675), 
-            (881, 685), 
-            (913, 707), 
-            (956, 717), 
-            (992, 723), 
-            (1030, 729), 
-            (1064, 737), 
-            (1096, 735), 
-            (1129, 741), 
-            (1161, 747), 
-            (1195, 753), 
-            (1200, 740), 
-            (1200, 730), 
-            (1200, 720), 
-            (1200,  710)
+            (804, 656), 
+            (834, 666), 
+            (881, 676), 
+            (913, 686), 
+            (956, 696), 
+            (992, 700), 
+            (1030, 701), 
+            (1064, 702), 
+            (1096, 703), 
+            (1129, 704), 
+            (1161, 705), 
+            (1195, 706), 
+            (1200, 707), 
+            (1200, 708), 
+            (1200, 709), 
+            (1200, 710)
             ),
             (
             (1440,  42), 
@@ -397,7 +390,7 @@ class Fairy():
             (1205, 690), 
             (1200, 700))
             )
-    whistle = pygame.mixer.Sound(data_dir+'/sounds/story/frames/s03.ogg')
+    whistle = pygame.mixer.Sound(main_dir+'/data/sounds/story/frames/s03.ogg')
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         self.size               = p((10,10))
         self.level              = level
@@ -429,7 +422,7 @@ class Fairy():
         self.wand       = obj_images.TwoSided(directory+'/fairy_wand/',margin)
         self.enchant    = obj_images.TwoSided(directory+'/fairy_enchant/',margin)
         self.spark      = obj_images.OneSided(directory+'/spark/',margin)
-        self.music  = data_dir+'/sounds/music/1stSnowfall.ogg'
+        self.music      = main_dir+'/data/sounds/music/1stSnowfall.ogg'
         self.actual_path       = random.randint(0,2)
         self.path_number = 0
         self.max_path_number = len(self.paths[self.actual_path])-1
@@ -474,8 +467,8 @@ class Fairy():
         self.pos = p(self.paths[self.actual_path][self.path_number])
         if self.path_number < self.max_path_number:
             self.path_number +=1
-        else:
-            self.reached_goal = True
+#        else:
+#            self.reached_goal = True
 #        speed = int(15*scale)
         self.images_strings = ["wings_fly","body_fly"]
         if old_pos[0] > self.pos[0]:
@@ -495,19 +488,19 @@ class Message():
         self.pos        = ((universe.width - self.size[0])/2, universe.height - self.size[1])
         self.text_box   = self.size[0]*.8,self.size[1]*.8
         self.font_size  = 16*scale
-        self.text_font       = pygame.font.Font(data_dir+'/fonts/FreeSans.ttf',int(round(self.font_size+(self.font_size/2))))
+        self.text_font  = pygame.font.Font(main_dir+'/data/fonts/FreeSans.ttf',int(round(self.font_size+(self.font_size/2))))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
-        self.button     = widget.Button(data_dir+'/images/interface/title_screen/button_ok/',(1200,800),self.level,self.end_message)
+        self.button     = widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1200,800),self.level,self.end_message)
         self.level.fae.append(self.button)
-
-
 
     def update_all(self):
         pass
 
     def end_message(self):
         self.level.fairy = 'done'
+        self.level.fae[1].path_number = 0
+        self.level.fae[1].pos =  p([-200,600])
         self.level.fae.remove(self.button)
 
     def adjusting_fonts(self):

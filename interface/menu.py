@@ -119,7 +119,9 @@ class MenuScreen():
             self.menu.story.update_all()
             [surface.blit(i,(0,0)) for i in self.menu.story.images if i]
         for item in items:
-            exec("for i in self.menu."+item+":\n    i.update_all()\n    surface.blit(i.image,i.pos)")
+            for i in self.menu.__dict__[item]:
+                i.update_all()
+                surface.blit(i.image, i.pos)
         for i in self.menu.options:
             if i.__class__ == widget.Letter and i.hoover:
                 surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
@@ -241,7 +243,7 @@ class Menu():
         self.print_princess = True
         txt=[(t('Choose your'),[-200,200]),(t('appearence...'),[-200,250]),(t('skin tone'),[250,420]),(t('previous'),[250,90]),(t('next'),[250,520])]
         self.reset_menu(
-            background  = data_dir+'/images/story/svg_bedroom.png',
+            background  = main_dir+'/data/images/story/svg_bedroom.png',
             action      = 'open',
             texts = [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
             buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
@@ -413,7 +415,7 @@ class Menu():
 
     def create_files(self,):
         print "Starting a New Save"
-        new_dir = data_dir+'/saves/'+self.princess.name.text
+        new_dir = saves_dir+'/'+self.princess.name.text
         os.mkdir(new_dir)
         print "Directory Created"
         db.create_save_db(
@@ -502,7 +504,7 @@ class Menu():
         self.screen.bar = self.screen.bar_right
         self.story = Story_Frame(self)
         print "Loading story background"
-        self.back_background = obj_images.image(data_dir+'/images/story/background/background.png')
+        self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
         self.action     = 'open'
         self.speed      = 0
         self.position = p([450,-600])
@@ -512,12 +514,12 @@ class Menu():
         self.texts =   self.story.texts
 
     def remove_save_directory(self, save_name):
-        for root, dirs, files in os.walk(data_dir+'/saves/'+save_name+'/', topdown=False):
+        for root, dirs, files in os.walk(saves_dir+'/'+save_name+'/', topdown=False):
             for name in files:
                 os.remove(os.path.join(root, name))
             for name in dirs:
                 os.rmdir(os.path.join(root, name))
-        os.rmdir(data_dir+'/saves/'+save_name+'/')
+        os.rmdir(saves_dir+'/'+save_name+'/')
         self.select_saved_game()
 
     def NOTSETYET(self):
@@ -526,7 +528,7 @@ class Menu():
 
 class MenuPrincess():
     def __init__(self,menu,thumbnail=None):
-        dir = data_dir+'/images/princess/'
+        dir = main_dir+'/data/images/princess/'
         self.menu = menu
         if not thumbnail:
             self.skins = ('skin_pink','skin_black','skin_tan')
@@ -569,14 +571,14 @@ class MenuPrincess():
 
 class Story_Frame():
     def __init__(self, menu):
-        directory = data_dir+'/images/story/frames/'
+        directory = main_dir+'/data/images/story/frames/'
         self.menu = menu
         image_frames = sorted(os.listdir(directory))
-        sound_frames = sorted(os.listdir(data_dir+'/sounds/story/frames/'))
+        sound_frames = sorted(os.listdir(main_dir+'/data/sounds/story/frames/'))
         self.channel = pygame.mixer.Channel(0)
         self.available_images   = [obj_images.image(directory+i) for i in image_frames]
-        self.available_sounds   = [pygame.mixer.Sound(data_dir+'/sounds/story/frames/'+i) for i in sound_frames]
-        self.flip_sound = pygame.mixer.Sound(data_dir+'/sounds/story/sflip.ogg')
+        self.available_sounds   = [pygame.mixer.Sound(main_dir+'/data/sounds/story/frames/'+i) for i in sound_frames]
+        self.flip_sound = pygame.mixer.Sound(main_dir+'/data/sounds/story/sflip.ogg')
         self.frame_number   = 0
         self.texts =    [widget.GameText(t('Use the arrows to go'),(220,150),self.menu,font_size = 25,color = (58,56,0)),
                          widget.GameText(t('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
@@ -610,22 +612,22 @@ class Story_Frame():
 
 class Credits():
     def __init__(self,menu):
-        self.background = obj_images.image(data_dir+'/images/credits/fundo.png')
+        self.background = obj_images.image(main_dir+'/data/images/credits/fundo.png')
         self.menu       = menu
         self.pos        = p((0,100))
         developers = [
-                ('isac',     data_dir+'/images/credits/isacvale.png'   ,(433,840)),
-                ('ndvo',     data_dir+'/images/credits/ndvo.png'       ,(265,631)),
-                ('raquel',   data_dir+'/images/credits/raquel.png'     ,(986,631)),
-                ('sergio',   data_dir+'/images/credits/sergio.png'     ,(810,840))
+                ('isac',     main_dir+'/data/images/credits/isacvale.png'   ,(433,840)),
+                ('ndvo',     main_dir+'/data/images/credits/ndvo.png'       ,(265,631)),
+                ('raquel',   main_dir+'/data/images/credits/raquel.png'     ,(986,631)),
+                ('sergio',   main_dir+'/data/images/credits/sergio.png'     ,(810,840))
                             ]
         rendered_texts      = [
-                ('cilda & sara',  data_dir+'/images/credits/text_cilda_e_sara.png'   ,(590,462)),
-                ('isac & sergio', data_dir+'/images/credits/text_isac_e_sergio.png'  ,(614,950)),
-                ('ndvo',        data_dir+'/images/credits/text_ndvo.png'           ,(415,790)),
-                ('ndvo & isac',   data_dir+'/images/credits/text_ndvo_e_isac.png'    ,(601,1200)),
-                ('ocastudios',  data_dir+'/images/credits/text_ocastudios.png'     ,(514,1251)),
-                ('raquel',      data_dir+'/images/credits/text_raquel.png'         ,(841,790))
+                ('cilda & sara',  main_dir+'/data/images/credits/text_cilda_e_sara.png'   ,(590,462)),
+                ('isac & sergio', main_dir+'/data/images/credits/text_isac_e_sergio.png'  ,(614,950)),
+                ('ndvo',        main_dir+'/data/images/credits/text_ndvo.png'           ,(415,790)),
+                ('ndvo & isac',   main_dir+'/data/images/credits/text_ndvo_e_isac.png'    ,(601,1200)),
+                ('ocastudios',  main_dir+'/data/images/credits/text_ocastudios.png'     ,(514,1251)),
+                ('raquel',      main_dir+'/data/images/credits/text_raquel.png'         ,(841,790))
                             ]
         texts_chopin = [
             (t('in loving memory of')  ,(713,436),44,(0,0,0,255)),

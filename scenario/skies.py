@@ -5,10 +5,10 @@ from pygame.locals import *
 from settings import *
 
 class Sky():
-    night_images = obj_images.OneSided(data_dir+'/images/scenario/skies/night2/')
+    night_images = obj_images.OneSided(main_dir+'/data/images/scenario/skies/night2/')
     def __init__(self,level):
         self.level = level
-        self.image = obj_images.image(data_dir+'/images/scenario/skies/daytime/daytime.png')
+        self.image = obj_images.image(main_dir+'/data/images/scenario/skies/daytime/daytime.png')
         self.pos = (0,0)
         self.night_image = None
         self.prev = None

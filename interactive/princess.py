@@ -17,7 +17,7 @@ It is one of the first classes written, which means that it is somewhat old and 
 Problems to be fixed in this class are:
 Princess shoes are moving weirdly when she jumps.
 """
-    directory = data_dir+'/images/princess/'
+    directory = main_dir+'/data/images/princess/'
     def __init__(self,level,INSIDE = False,xpos=None):
         print "Creating Princess"
         self.first_frame = True
@@ -41,15 +41,15 @@ Princess shoes are moving weirdly when she jumps.
         print "    creating images:"
         print "        princess images"
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
-            exec('self.'+act+'_img = obj_images.MultiPart(self.ordered_directory_list("'+act+'"))')
+            self.__dict__[act+"_img"] = obj_images.MultiPart(self.ordered_directory_list(act))
         self.run_away_img = obj_images.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
         print "        dirt images"
-        self.dirties = [Dirt(level,data_dir+'/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
+        self.dirties = [Dirt(level,main_dir+'/data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
         print "        kisses and dust images"
-        self.lips           = obj_images.TwoSided(data_dir+'/images/effects/kiss/')
-        self.dirt_cloud     = obj_images.TwoSided(data_dir+'/images/effects/dirt/')
+        self.lips           = obj_images.TwoSided(main_dir+'/data/images/effects/kiss/')
+        self.dirt_cloud     = obj_images.TwoSided(main_dir+'/data/images/effects/dirt/')
         self.gforce         = 0
         self.g_acceleration = round(3*scale)
         self.speed          = round(14*scale)
@@ -69,9 +69,9 @@ Princess shoes are moving weirdly when she jumps.
         self.inside         = INSIDE
         print "    creating sounds"
         print "        steps sounds"
-        self.steps = [pygame.mixer.Sound(data_dir+'/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,5)]
+        self.steps = [pygame.mixer.Sound(main_dir+'/data/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,5)]
         print "        jump sounds"
-        self.jumpsound      = pygame.mixer.Sound(data_dir+'/sounds/princess/pulo.ogg')
+        self.jumpsound      = pygame.mixer.Sound(main_dir+'/data/sounds/princess/pulo.ogg')
         self.channel1       = pygame.mixer.Channel(0)
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
@@ -284,17 +284,18 @@ Princess shoes are moving weirdly when she jumps.
         chosen = action[0] or action[1]
         if direction.__class__ != str:
             direction = "right"
-        exec('self.images = self.'+chosen+'_img \n'+'actual_images = self.'+chosen+'_img.'+direction)
+        self.images = self.__dict__[chosen+'_img']
+        actual_images = self.__dict__[chosen+'_img'].__dict__[direction]
         self.image = actual_images[self.images.number]
         if chosen != self.past_choice:
-            exec('self.'+chosen+'_img.number = 0')
+            self.__dict__[chosen+'_img'].number = 0
         self.past_choice = chosen
         if not self.jump:
             self.images.update_number()
 
     def change_clothes(self,part,dir):
         self.parts.pop(part.index)
-        part = PrincessPart(self,data_dir+'/images/princess/'+str(dir),part.index)
+        part = PrincessPart(self,main_dir+'/data/images/princess/'+str(dir),part.index)
 
 
 class Dirt():
@@ -303,7 +304,7 @@ class Dirt():
         self.level = level
         self.directory = directory
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
-            exec('self.'+act+' = obj_images.TwoSided(str(directory)+"/'+act+'/")')
+            self.__dict__[act] = obj_images.TwoSided(directory+'/'+act+'/')
         self.run_away = obj_images.Ad_hoc(self.walk.left[::2],self.walk.right[::2])
         self.open_door = self.stay
         self.list = self.stay
@@ -318,10 +319,10 @@ class Dirt():
         chosen = self.level.princesses[0].action[0] or self.level.princesses[0].action[1]
         if direction.__class__ != str:
             direction = "right"
-        exec('self.images = self.'+chosen+' \n'+
-             'actual_images = self.'+chosen+'.'+direction)
+        self.images = self.__dict__[chosen]
+        actual_images = self.__dict__[chosen].__dict__[direction]
         if chosen != self.past_choice:
-            exec('self.'+chosen+'.number = 0')
+            self.__dict__[chosen].number = 0
         self.past_choice = chosen
         self.image = actual_images[self.images.number]
         if not self.level.princesses[0].jump:

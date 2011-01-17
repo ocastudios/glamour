@@ -8,8 +8,8 @@ from settings import *
 class Universe():
     def __init__(self):
         default_resolution = (1440,900)
-        w = int(default_resolution[0]*scale)
-        h = int(default_resolution[1]*scale)
+        w = int(round(default_resolution[0]*scale))
+        h = int(round(default_resolution[1]*scale))
         self.clock = pygame.time.Clock()
         self.main_dir = main_dir
         self.center_x = int(-3400*scale)
@@ -26,7 +26,7 @@ class Universe():
         self.run_level = True
         self.db = None
         self.db_cursor = None
-        self.screen_surface = pygame.display.set_mode((w,h),32)#pygame.FULLSCREEN , 32)
+        self.screen_surface = pygame.display.set_mode((w,h),32)#,pygame.FULLSCREEN , 32)
         pygame.display.set_caption("Glamour - OcaStudios")
         self.level = None
 

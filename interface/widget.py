@@ -35,8 +35,8 @@ class Button():
             font       = fonte
             self.text       = dirtxt
             self.color      = color
-            self.fontA      = pygame.font.Font(data_dir+'/fonts/'+fonte,self.font_size)
-            self.fontB      = pygame.font.Font(data_dir+'/fonts/'+second_font,self.font_size+(self.font_size/3))
+            self.fontA      = pygame.font.Font(main_dir+'/data/fonts/'+fonte,self.font_size)
+            self.fontB      = pygame.font.Font(main_dir+'/data/fonts/'+second_font,self.font_size+(self.font_size/3))
             self.list_of_images= [self.fontA.render(self.text,1,self.color)]
 
         self.image      = self.list_of_images[0]
@@ -100,8 +100,8 @@ class GameText():
             self.frame_pos = 0,0
         self.text       = text
         self.color      = color
-        self.fontA      = pygame.font.Font(data_dir+'/fonts/'+fonte,font_size)
-        self.fontB      = pygame.font.Font(data_dir+'/fonts/'+second_font,font_size+(font_size/3))
+        self.fontA      = pygame.font.Font(main_dir+'/data/fonts/'+fonte,font_size)
+        self.fontB      = pygame.font.Font(main_dir+'/data/fonts/'+second_font,font_size+(font_size/3))
         self.position   = pos
         if box:
             self.box    = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
@@ -237,7 +237,7 @@ class Key(GameText):
 #Alteracao nao testada
                     elif self.key == 'Random':
                         self.frame.princess.name.text = random.choice(random_names.names)
-                        saved_games = os.listdir(data_dir+'/saves')
+                        saved_games = os.listdir(main_dir+'/data/saves')
                         counting = 0
                         while self.frame.princess.name.text in saved_games:
                             print "Oh, oh, this name is taken. I'd better choose another one for u"

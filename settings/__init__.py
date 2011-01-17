@@ -21,10 +21,15 @@ else:
 print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
 scale =0.666666667
 
-
-main_dir = "/home/nelson/glamour"
+homedir = os.path.expanduser('~')
+print homedir
+main_dir = '/home/nelson/glamour'
 data_dir = main_dir+"/data"
-saves_dir = main_dir+"/data/saves"
+saves_dir = homedir +'/.glamour'
+try:
+    os.listdir(saves_dir)
+except:
+    os.mkdir(saves_dir)
 
 import gettext
 localization_support = gettext.translation('glamour', main_dir+'/locale')

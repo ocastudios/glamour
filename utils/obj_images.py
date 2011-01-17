@@ -41,7 +41,7 @@ class OneSided(TwoSided):
         self.margin     = margin
         self.list       = self.left = find_images(directory)
         self.number     = 0
-        self.size       = self.list[self.number].get_size()
+        self.size       = self.list[0].get_size()
         self.lenght     = len(self.list)
         self.itnumber   = cycle(range(self.lenght))
 
@@ -83,6 +83,7 @@ class GrowingUngrowing(TwoSided):
         n_list = [pygame.transform.smoothscale(i,(i.get_width(),i.get_height()-(2*x))) for x in xrange(frames) for i in self.list]
         self.list.extend(n_list)
         self.list.extend(reversed(n_list))
+        del n_list
         self.lenght = len(self.list)
         self.number = 0
         self.size = self.list[self.number].get_size()
@@ -95,6 +96,7 @@ class Buttons(GrowingUngrowing):
         n_list = [pygame.transform.smoothscale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in xrange(frames) for i in self.list]
         self.list.extend(n_list)
         self.list.extend(reversed(n_list))
+        del n_list
         self.lenght = len(self.list)
         self.number = 0
         self.size = self.list[self.number].get_size()
@@ -117,7 +119,9 @@ class MultiPart():
         all_images = [i*(lcm/len(i)) for i in all_images]
         self.images = [pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha() for i in range(lcm)]
         for i in range(lcm):
-            [self.images[i].blit(img_list[i],(0,0)) for img_list in all_images]
+            for img_list in all_images:
+                self.images[i].blit(img_list[i],(0,0))
+        del all_images
         self.margin = margin
         self.left   = self.images
         self.right  = invert_images(self.left)
@@ -159,7 +163,8 @@ class Ad_hoc():
 
 def image(dir, invert = False, alpha = True):
     complete_path = re.search(main_dir, dir)
-    if not complete_path:
+    home_path = re.search(homedir, dir)
+    if not complete_path and not home_path:
         dir = main_dir+'/'+dir
     if alpha:
         prep = pygame.image.load(dir).convert_alpha()
@@ -182,7 +187,8 @@ def scale_image(prep, invert = False):
 
 def find_images(dir):
     complete_path = re.search(main_dir, dir)
-    if not complete_path:
+    home_path = re.search(homedir,dir)
+    if not complete_path and not home_path:
         dir = main_dir+'/'+dir
     return [image(dir+item) for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
 
