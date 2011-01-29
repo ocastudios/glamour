@@ -10,12 +10,10 @@ from settings import *
 class Princess():
     """Creates the princess.
 
-    Princess is a rather complex class in comparison with the enemies, for princess has many atributes called 'Princess Parts'. That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
-Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
-This class uses obj_images module for retrieving images from directories.
-It is one of the first classes written, which means that it is somewhat old and may contain som old and useless code that was not well cleaned. This will be corrected soon, I hope.
-Problems to be fixed in this class are:
-Princess shoes are moving weirdly when she jumps.
+    Princess is a rather complex class in comparison with the enemies for princess has many atributes called 'Princess Parts'.
+    That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
+
+    Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
 """
     directory = main_dir+'/data/images/princess/'
     def __init__(self,level,INSIDE = False,xpos=None):
@@ -55,16 +53,16 @@ Princess shoes are moving weirdly when she jumps.
         self.speed          = round(14*scale)
         self.rect           = Rect(self.pos,self.size)
         self.move           = False
-        self.direction      = 'left'
+        self.direction      = 'right'
         self.situation      = {"hurt":0,"excited":0,"scared":0}
         self.jump           = 0
         self.kiss           = 0
-        self.kiss_direction = 'left'
+        self.kiss_direction = 'right'
         self.kiss_rect      = ((0,0),(0,0))
         self.floor          = self.level.universe.floor - self.level.what_is_my_height(self)
         self.last_height    = round(186*scale)
         self.action         = [None,'stay']
-        self.image          = self.stay_img.left[self.stay_img.itnumber.next()]
+        self.image          = self.stay_img.right[self.stay_img.itnumber.next()]
         self.image_size     = self.image.get_size()
         self.inside         = INSIDE
         print "    creating sounds"
@@ -270,11 +268,11 @@ Princess shoes are moving weirdly when she jumps.
         if self.kiss == 1:
             self.kiss_direction = self.direction
         if self.kiss_direction == 'right':
-            kissimage = self.lips.left[self.kiss-1]
+            kissimage = self.lips.right[self.kiss-1]
             self.effects.append(Effect(kissimage,(self.pos[0],self.pos[1])))
             self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
-            kissimage = self.lips.right[self.kiss-1]
+            kissimage = self.lips.left[self.kiss-1]
             self.effects.append(Effect(kissimage,(self.pos[0]-round(200*scale),self.pos[1])))
             self.kiss_rect = Rect((self.pos[0]+round(200*scale)-((self.kiss)*round(44*scale)),self.pos[1]),((self.kiss)*round(44*scale),self.size[1]))
 

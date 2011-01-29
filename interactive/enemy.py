@@ -168,7 +168,7 @@ class Carriage():
         self.size = (full_width-self.correction, self.image.get_height())
         self.level = level
         self.speed = round(3 * scale)
-        self.floor = self.level.universe.floor-self.level.what_is_my_height(self)
+        self.floor = self.level.universe.floor-(192*scale)
         self.margin = margin
         self.pos = [self.level.universe.center_x+self.center_distance,self.floor+self.margin[2]-(self.size[1])]
         self.count = 0
@@ -390,10 +390,10 @@ class BroomingDust():
 
 
 class Lion():
-    def __init__(self, pos, level):
+    def __init__(self, level):
         print "Creating Lion"
         directory = enemy_dir+'Lion/'
-        self.center_distance = pos
+        self.center_distance = 3200*scale
         self.base  = obj_images.There_and_back_again(directory+"/base/",exclude_border = True)
         self.growl = obj_images.There_and_back_again(directory+"/growl/",exclude_border = True)
         self.kissed = obj_images.TwoSided(directory+"/kissed/")
@@ -468,10 +468,10 @@ class Tail():
         self.pos  = self.lion.pos
 
 class Elephant():
-    def __init__(self, pos, level, dirty=False):
+    def __init__(self, level):
         print "Creating Elephant"
         directory = enemy_dir+'Elephant/'
-        self.center_distance = pos
+        self.center_distance = 3600*scale
         for i in ['base','hover']:
             self.__dict__[i] = obj_images.There_and_back_again(directory+i+'/',exclude_border = True)
         self.image = self.base.left[0]
@@ -515,9 +515,9 @@ class Elephant():
 
 
 class Giraffe():
-    def __init__(self, pos, level):
+    def __init__(self,level):
         print "Creating Giraffe"
-        self.center_distance = pos
+        self.center_distance = 3800*scale
         ordered_directory_list = (enemy_dir+'giraffe/base/', enemy_dir+'giraffe/chew/')
         self.chewing_images = obj_images.MultiPart(ordered_directory_list)
         self.hover_images   = obj_images.TwoSided(enemy_dir+'giraffe/hover/')
@@ -540,11 +540,11 @@ class Giraffe():
 
 
 class Penguin():
-    def __init__(self, pos, level, dirty=False):
+    def __init__(self, level):
         print "Creating Penguin"
         directory = enemy_dir+'penguin/jump/'
         self.images = obj_images.There_and_back_again(directory,exclude_border=True)
-        self.center_distance = pos
+        self.center_distance = 3550*scale
         self.image = self.images.left[self.images.number]
         self.size = self.images.size
         self.level = level
@@ -612,10 +612,10 @@ class Penguin():
 
 
 class Monkey():
-    def __init__(self, pos, level, dirty=False):
+    def __init__(self, level):
         print "Creating Monkey"
         directory = enemy_dir+'Monkey/'
-        self.center_distance = pos
+        self.center_distance = 3500*scale
         for i in ['stay','hover','happy','throw','attack']:
             self.__dict__[i] = obj_images.TwoSided(directory+i+'/')
         self.direction = random.choice(['right','right'])
@@ -655,7 +655,7 @@ class Monkey():
                     self.action = 'attack'
 
 class Banana():
-    def __init__(self, level, monkey, dirty=True):
+    def __init__(self, level, monkey):
         print "Creating banana"
         directory = enemy_dir+'Monkey/banana/'
         self.monkey = monkey
@@ -722,7 +722,7 @@ class Banana():
                 self.center_distance = self.monkey.center_distance
 
 class VikingShip():
-    def __init__(self, pos, level, dirty=False):
+    def __init__(self, pos, level):
         print "Creating Viking Ship"
         directory = enemy_dir+'VikingShip/'
         self.center_distance = pos
@@ -734,7 +734,7 @@ class VikingShip():
         for i in self.base.right:
             i.blit(left_sailor[0], (round(490*scale),round(639*scale)))
         del sailor_body, left_sailor
-        self.direction = random.choice(['left','right'])
+        self.direction = random.choice(['right','right'])
         self.image = self.base.__dict__[self.direction][0]
         self.level = level
         self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
@@ -785,7 +785,7 @@ class VikingShip():
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.pos[1] = self.level.floor - self.image_height + round(200*scale) + self.height.next()
         
-        if -round(400*scale) < self.pos[0] < round(1490*scale):
+        if -round(1000*scale) < self.pos[0] < round(1490*scale):
             self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
             if self.wave not in self.level.floor_image:
                 self.level.floor_image.extend([self.flag,self.wave,self.head])
@@ -1059,12 +1059,12 @@ class Bird():
         if self.body    == self.walking:
             speed = round(5*scale)
             if self.size[1] + self.pos[1] < floor:
-                self.pos[1] += self.gforce
-                if self.pos[1]+self.size[1] > self.floor:
-                    self.pos[1] = self.floor-self.size[1]         #do not fall beyond the floor
                 self.gforce += self.g_acceleration
+                self.pos[1] += self.gforce
             else:
                 self.gforce = 0
+            if self.pos[1]+self.size[1] > self.floor:
+                    self.pos[1] = self.floor-self.size[1]         #do not fall beyond the floor
 
         elif self.body  == self.flying:
             speed = round(10*scale)

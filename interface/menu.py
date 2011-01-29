@@ -584,7 +584,11 @@ class Story_Frame():
                          widget.GameText(t('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
 
     def update_all(self):
-        self.images = [self.available_images[i] for i in range(0,self.frame_number)]
+        if self.frame_number:
+            self.images = [self.available_images[self.frame_number-1]]
+        else:
+            self.images = []
+
 
     def next_frame(self):
         self.channel.play(self.flip_sound)

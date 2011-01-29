@@ -104,32 +104,56 @@ class Buttons(GrowingUngrowing):
 
 
 class MultiPart():
-    def __init__(self,ordered_directory_list,margin = [0,0,0,0]):
+    def __init__(self,ordered_directory_list,margin = [0,0,0,0],loading=None):
         def gcd(a, b):
           if b: return gcd(b, a % b)
           return a
 
         def least_common_multiple(nums):
             return reduce(lambda a, b: a * b / gcd(a, b), nums)
+        def count_png(dir):
+            count = 0
+            for i in os.listdir(dir):
+                if ( i[-4:] == '.png' or i[-4:]== '.PNG'):
+                    count += 1
+            return count
+         
 
-        all_images = [find_images(dir) for dir in ordered_directory_list]
-        image_size = all_images[0][0].get_size()
-        lists_lenghts = [len(i) for i in all_images]
+        lists_lenghts = [count_png(i) for i in ordered_directory_list]
         lcm = least_common_multiple(lists_lenghts)
-        all_images = [i*(lcm/len(i)) for i in all_images]
+
+
+        base_images = find_images(ordered_directory_list[0])
+        base_images = base_images*(lcm/count_png(ordered_directory_list[0]))
+        image_size = base_images[0].get_size()
         self.images = [pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha() for i in range(lcm)]
         for i in range(lcm):
-            for img_list in all_images:
-                self.images[i].blit(img_list[i],(0,0))
-        del all_images
+            self.images[i].blit(base_images[i],(0,0))
+        if loading:
+            loading()
+
+        for img_list in ordered_directory_list[1:]:
+            images = find_images(img_list)
+            images = images*(lcm/count_png(img_list))
+            for i in range(lcm):
+                self.images[i].blit(images[i],(0,0))
+            if loading:
+                loading()
+
         self.margin = margin
         self.left   = self.images
+        if loading:
+            loading()
         self.right  = invert_images(self.left)
+        if loading:
+            loading()
         self.number = 0
         self.lenght = len(self.left)
         if self.lenght>0:
             self.size   = self.left[0].get_size()
         self.itnumber = cycle(range(self.lenght))
+        if loading:
+            loading()
 
     def update_number(self):
         if self.number < self.lenght -1:

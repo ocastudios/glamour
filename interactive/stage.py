@@ -76,7 +76,7 @@ class Stage():
         self.water_level    = 1440*scale
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
-        self.changing_stages= False
+
         self.loading_icons  = (obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon_shadow/'),
                                obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon/'),
                                obj_images.OneSided(main_dir+'/data/images/interface/loading/carriage/')
@@ -118,7 +118,8 @@ class Stage():
         events.choose_event(self)
         self.act = self.universe.action
         self.direction = self.universe.dir
-        self.blit_all()
+        if not self.ball:
+            self.blit_all()
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
         if self.paused:
@@ -132,9 +133,10 @@ class Stage():
             else:
                 if self.background[0] == self.ballroom['night']:
                     self.background = [self.ballroom['day']]
+            
             if self.clock[1].time == 'ball' and (not self.inside or (not self.inside.status == "choosing") or not self.princesses[0].inside):
                 self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
-                self.ball.update_all    ()
+                self.ball.update_all()
             else:
                 if self.ball:
                     self.ball = None
@@ -425,6 +427,7 @@ class Stage():
         self.enemies = []
         universe_cursor = self.universe.db_cursor
         row     = universe_cursor.execute("SELECT * FROM stage_enemies WHERE stage = '"+street+"'").fetchone()
+        enemy.Butterfly._registry = []
         for e in allowed_enemies:
             if int(row[e]):
                 name = e.replace('_',' ').title()
@@ -433,12 +436,12 @@ class Stage():
                     name = 'FootBoy'
                 maximum = 1
                 if name in ("Butterfly" , "Bird") :
-                    maximum = 5
+                    maximum = 2+int(self.princesses[0].points/30)
                 for i in range(0,random.randint(1,maximum)):
                     pos_x = scale*(random.randint(1400,7000))
                     self.enemies.append(enemy.__dict__[name](pos_x,self))
             self.loading()
-        self.enemies.append(enemy.Schnauzer(pos_x,self))
+#        self.enemies.append(enemy.Schnauzer(pos_x,self))
 
     def loading(self):
         if self.black.alpha_value > 100:
@@ -624,7 +627,7 @@ class Stage():
         self.loading()
         self.gates.extend([scenarios.Gate(i[0], self.maindir+'omni/gate/',self,i[1], goalpos = i[2]) for i in doors])
         self.loading()
-        self.select_enemies(('schnauzer', 'carriage', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
+        self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird'),'BathhouseSt')
         self.floor_image= [floors.Floor(c,self.directory+'floor/tile/',self) for c in range(24)]
         self.loading()
         floors.Bridge(self.directory+'floor/japanese_bridge/',5,self)
@@ -698,14 +701,19 @@ class Stage():
         self.loading()
         self.floor_image= [floors.Floor(fl,self.directory+'floor/',self) for fl in range(30)]
         self.loading()
-        self.animated_scenarios = [ enemy.Lion(3200*scale,self),
-                                    enemy.Monkey(3500*scale,self),
-                                    enemy.Elephant(3600*scale,self),
-                                    enemy.Penguin(3550*scale,self),
-                                    enemy.Giraffe(3800*scale,self),
-                                    scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self)]
+        available_animals = random.sample( (enemy.Lion, enemy.Monkey, enemy.Elephant, enemy.Penguin, enemy.Giraffe), 3 )
+        self.animated_scenarios = [ i(self) for i in available_animals]
         self.loading()
-        self.animated_scenarios.insert(1,self.animated_scenarios[0].tail)
+        self.animated_scenarios.append(scenarios.Scenario(2923*scale,self.directory+'zoo/base/',self))
+        self.loading()
+        tail = None
+        if enemy.Lion in available_animals:
+            for i in animated_scenarios:
+                if i.__class__ == enemy.Lion:
+                    tail = True
+                break
+        if tail:
+            self.animated_scenarios.insert(1,i.tail)
         self.loading()
         self.set_floor_heights(192,9400,'makeup')
         self.loading()

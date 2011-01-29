@@ -4,35 +4,52 @@ import random
 import interface.widget as widget
 import utils.save as save
 from settings import *
+from itertools import *
 
 
+delay = 150
 def p(positions):
     return [int(round(i*scale)) for i in positions ]
 
 class Ball():
     directory = main_dir+'/data/images/interface/ball/'
     def __init__(self, level, universe, princess):
+        self.level      = level
+        self.level.changing_stages_darkenning()
+        self.level.loading()
+        NewDancer.boyfriend_list = ["gentleman_decent", 
+                  "knight_reliable", 
+                  "baron_serious", 
+                  "count_loving", 
+                  "marquess_attractive", 
+                  "duke_intelligent"]
         self.position = 0,0
         self.universe   = universe
         self.boyfriend  = None
         cursor = level.universe.db_cursor
         universe.db.commit()
+        self.level.loading()
         self.texts      = []
         self.texts+= [StarBall()]
-        self.level      = level
+        self.level.loading()
         self.compute_glamour_points(level)
+        self.level.loading()
         self.background      = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
-        for file in (self.directory+'ball-back.png',self.directory+'back-bubbles.png'):
+        self.level.loading()
+        for file in (self.directory+'base.png',self.directory+'back-bubbles.png'):
             self.background.blit(obj_images.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
-        self.left_bar   = VerticalBar(self)
+            self.level.loading()
         self.princess   = princess
         self.Bar        = VerticalBar(self)
+        self.level.loading()
         self.Frame      = BallFrame(self)
-
-        self.dancers    = [Dancer(p(i)) for i in [1200,100],[200,200],[800,300],[600,400],[300,600]]
+        self.level.loading()
         self.buttons = [widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
+        self.level.loading()
         pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
+        self.level.loading()
         pygame.mixer.music.play()
+        self.level.loading()
         princesses_list      = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
         garment_list         = ['Accessory', 'Dress', 'Shoes','Makeup']
         Accessory_list       = ['crown', 'purse','ribbon','shades']
@@ -41,49 +58,71 @@ class Ball():
         Makeup_list          = ['eyelids','eyeshades','lipstick','simple']
         self.counter         = 0
         self.bigprincess = BigPrincess(self)
+        self.level.loading()
+        self.dancers = []
+        if self.boyfriend:
+            self.dancers.append(NewDancer(self.level, self.bigprincess,self.boyfriend.hard_name))
+        self.level.loading()
+        for a in self.Frame.princesses:
+            self.dancers.append(NewDancer(self.level, a))
+            self.level.loading()
+        self.foreground = pygame.Surface((universe.width,universe.height)).convert()
+        self.foreground.fill((226,226,148))
+        self.level.loading()
+        self.alpha = 0
+        self.foreground.set_alpha(self.alpha)
+        self.level.loading()
 
     def update_all(self):
-
-        self.left_bar.update_all()
-        self.level.game_mouse.update()
+#        self.level.game_mouse.update()
+        if self.level.black.alpha_value > 0:
+            self.level.changing_stages_darkenning(-1)
         self.universe.screen_surface.blit(self.background,(0,0))
         for i in self.dancers:
             self.universe.screen_surface.blit(i.image,i.position)
             i.update_all()
+        if self.counter > delay:
+            if self.alpha < 150:
+                self.alpha += 10
+                self.foreground.set_alpha(self.alpha)
+            self.universe.screen_surface.blit(self.foreground, (0,0))
         self.universe.screen_surface.blit(self.Frame.image,self.Frame.position)
         self.Frame.update_all()
         self.universe.screen_surface.blit(self.Bar.image,self.Bar.position)
         self.Bar.update_all()
-        if self.counter > 60:
+        if self.counter > delay:
             self.universe.screen_surface.blit(self.bigprincess.image,self.bigprincess.pos)
             self.bigprincess.update_all()
-        if self.counter > 90:
+        if self.counter > delay+20:
             for i in self.texts:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
         if self.boyfriend:
-            if self.counter == 100:
-                self.texts+= [widget.GameText(t("and won the heart of"), (1090,237), self,font_size = 40)]
-            if self.counter == 110:
+            if self.counter == delay+50:
+                self.texts+= [widget.GameText(t("and won the heart of")+" ", (1090,237), self,font_size = 40)]
+            if self.counter == delay+60:
                 self.texts+= [widget.GameText(".", (1300,237), self,font_size = 40)]
-            if self.counter == 120:
+            if self.counter == delay+70:
                 self.texts+= [widget.GameText(" .", (1300,237), self,font_size = 40)]
-            if self.counter == 130:
+            if self.counter == delay+80:
                 self.texts+= [widget.GameText("  .", (1300,237), self,font_size = 40)]
-            if self.counter > 150:
+            if self.counter > delay+110:
                 self.universe.screen_surface.blit(self.boyfriend.image,self.boyfriend.pos)
                 self.boyfriend.update_all()
-        if self.counter > 160:
+        if self.counter > delay+130:
             for i in self.buttons:
                 self.universe.screen_surface.blit(i.image,i.pos)
                 i.update_all()
 
-        if self.counter == 160:
+        if self.counter == delay+130:
             if self.boyfriend:
                 self.texts += [widget.GameText(self.boyfriend.name,(1156,280),self, font_size = 60,color=(58,56,0))]
 
-        if self.counter <= 160:
+        if self.counter <= delay+130:
             self.counter += 1
+        self.level.universe.screen_surface.blit(self.level.margin,(0,0))
+        self.level.universe.screen_surface.blit(self.level.black.image,(0,0))
+
 
     def compute_glamour_points(self,level):
         garments= ('face','shoes','dress','accessory')
@@ -144,15 +183,32 @@ class Ball():
             general_enemies_list = ['schnauzer', 'carriage','butterfly','old_lady','viking_ship','footboy','bird']
             print "Removing enemies from "+stage
             for i in general_enemies_list:
-                sql = 'update stage_enemies set '+i+'=0 where stage = "'+stage+'"'
+                sql = 'update stage_enemies set '+i+'= 0 where stage = "'+stage+'"'
                 cursor.execute(sql)
             print "New Enemies List for "+stage
-            enemy_number = random.randint(1,3)
+            max_enemies = 1
+            if new_glamour_points >= 30:
+                max_enemies = 2
+            if new_glamour_points >= 65:
+                max_enemies = 3
+            if new_glamour_points >= 105:
+                max_enemies = 4
+            if new_glamour_points >= 175:
+                max_enemies = 5
+            if new_glamour_points >= 255:
+                max_enemies = 6
+            if new_glamour_points >= 345:
+                max_enemies = 7
+            if new_glamour_points >= 465:
+                max_enemies = 8
+            if new_glamour_points >= 685:
+                max_enemies = 10
+            enemy_number = random.randint(1,max_enemies)
             for i in range(enemy_number):
                 chosen_enemy = random.choice(general_enemies_list)
                 general_enemies_list.remove(chosen_enemy)
                 print chosen_enemy
-                sql = 'update stage_enemies set '+chosen_enemy+'=1 where stage = "'+stage+'"'
+                sql = 'update stage_enemies set '+chosen_enemy+' = 1 where stage = "'+stage+'"'
                 cursor.execute(sql)
 
         level.universe.db.commit()
@@ -185,17 +241,20 @@ class VerticalBar():
             self.image = pygame.transform.flip(self.image, 1,0)
         self.size = self.image.get_size()
         self.position = [-self.size[0],0]
-        self.speed = 5
+        self.speed = 5*scale
         self.ready = False
+        self.countdown = 60
 
     def update_all(self):
-        if self.position[0] < round(90*scale):
-            self.position[0] += self.speed
-            self.speed += 5
+        if self.countdown == 0:
+            if self.position[0] < round(90*scale):
+                self.position[0] += self.speed
+                self.speed += 5
+            else:
+                self.position[0] = round(90*scale)
+                self.ready = True
         else:
-            self.position[0] = round(90*scale)
-            self.ready = True
-
+            self.countdown -= 1
 
 class BallFrame():
     def __init__(self, ball):
@@ -219,6 +278,7 @@ class BallFrame():
                 widget.GameText(t("Tonight's ball"),      (0,0), self, rotate = 90),
                 widget.GameText(t("Yesterday's ball"),    (0,0), self, rotate = 90)
                     ]
+        self.princesses = princesses
         for i in past_princesses:
             self.image.blit(i.image,i.pos)
         self.image.blit(background,(0,0))
@@ -229,14 +289,17 @@ class BallFrame():
             if i.symbol:
                 self.image.blit(i.symbol,(i.symbolpos,round(i.pos[1]-round(100*scale) )))
         self.set_next_ball_clothes()
+        self.ready = False
 
     def update_all(self):
-        if self.ball:
-            if self.position[1] + (self.size[1]/2) < (self.ball.universe.height/2):
-                self.speed +=2
-            else:
-                self.speed = 0
-            self.position[1] += self.speed
+        if self.ball.Bar.ready:
+            if self.ball:
+                if self.position[1] + (self.size[1]/2) < (self.ball.universe.height/2):
+                    self.speed +=2
+                else:
+                    self.speed = 0
+                    self.ready = True
+                self.position[1] += self.speed
 
     def set_next_ball_clothes(self):
         cursor = self.ball.universe.db_cursor
@@ -281,7 +344,9 @@ class FairyTalePrincess():
         if row:
             if row['hair_back'] > 0:
                 self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
-            [self.image.blit(obj_images.image(princess_directory+row[i]+'/stay/0.png'),(0,0)) for i in ('skin', 'hair', 'face', 'dress', 'accessory', 'arm', 'shoes')]
+            for i in  ('skin', 'hair', 'face', 'dress', 'accessory', 'arm', 'shoes'):
+                self.__dict__[i] = row[i]
+                self.image.blit(obj_images.image(princess_directory+row[i]+'/stay/0.png'),(0,0))
             self.image = pygame.transform.flip(self.image,1,0)
 
     def update_all(self):
@@ -331,6 +396,7 @@ class BoyFriend():
             boyfriend = "emperor_awesome"
             self.name = t('Emperor Awesome')
         print "The heart of "+boyfriend+" is yours!"
+        self.hard_name = boyfriend
         self.image= obj_images.image(main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
 #        self.name = boyfriend.replace("_"," ").title()
         self.pos = p([1000,298])
@@ -349,6 +415,7 @@ class BigPrincess():
         sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
         row = cursor.execute(sql).fetchone()
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
+            self.__dict__[part] = row[part]
             if row[part] and row[part]!="None":
                 img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()
                 big_image.blit(img, (0,0))
@@ -377,3 +444,92 @@ class Dancer():
         self.image  = self.images.list[self.images.number]
         self.images.update_number()
 
+class NewDancer():
+    square = ((400*scale,800*scale),(100*scale,500*scale))
+    steps = cycle(['a','b','c','d'])
+    boyfriend_list = ["gentleman_decent", 
+                  "knight_reliable", 
+                  "baron_serious", 
+                  "count_loving", 
+                  "marquess_attractive", 
+                  "duke_intelligent"]
+    
+    def __init__(self,level, big_princess= None, boyfriend = None):
+        princess_directory  = main_dir+'/data/images/princess/'
+        if big_princess.__class__ == BigPrincess:
+            self.player = True
+        else:
+            self.player = False
+        if not boyfriend and not self.player:
+            boyfriend = random.choice(self.boyfriend_list)
+        try:
+            self.boyfriend_list.remove(boyfriend)
+        except:
+            print Exception
+        ordered_directory_list = [main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/dance/body/']
+        for i in ('skin','dress','hair','accessory'):
+            part = None
+            if not big_princess.__dict__[i] in ('dress_pink', 'dress_plain', 'accessory_purse'):
+                    part = big_princess.__dict__[i]
+            if part:
+                ordered_directory_list.append(princess_directory+big_princess.__dict__[i]+'/dance/')
+        ordered_directory_list.append(main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/dance/head/')
+        self.images    = obj_images.MultiPart(ordered_directory_list, loading = level.loading)
+        self.image  = self.images.left[self.images.number]
+        self.images.number = random.randint(0,20)
+        self.speed = 5*scale
+
+        self.my_step = self.steps.next()
+        if not self.player:
+            if self.my_step == 'a':
+                self.position = [self.square[0][0],self.square[1][1]]
+            elif self.my_step == 'b':
+                self.position = [self.square[0][1],self.square[1][1]]
+            elif self.my_step == 'c':
+                self.position = [self.square[0][1],self.square[1][0]]
+            elif self.my_step == 'd':
+                self.position = [self.square[0][0],self.square[1][0]]
+        else:
+            self.position = (self.square[0][0]+(200*scale),self.square[1][0]+(200*scale))
+
+    def update_all(self):
+        self.image  = self.images.left[self.images.number]
+        self.images.update_number()
+        if not self.player:
+            translate = {'right':1,'left':-1,'up':-1,'down':1}
+            a = -0.0035; b = 0; c = 140
+            if self.my_step == 'a':
+                self.position[0]+= self.speed
+                x = (self.position[0]/scale) - (self.square[0][0]/scale) - 200
+                arc = (a*(x*x))+(b*x)+c 
+                self.position[1] = self.square[1][1]+(arc*scale)
+                if self.position[0] >= self.square[0][1]:
+                    self.my_step = 'b'
+                    self.position[0] = self.square[0][1]
+
+            elif self.my_step == 'b':
+                self.position[1]-= self.speed
+                x = (self.position[1]/scale) - (self.square[1][0]/scale) - 200
+                arc = (a*(x*x))+(b*x)+c
+                self.position[0] = self.square[0][1]+(arc*scale)
+                if self.position[1]<= self.square[1][0]:
+                    self.my_step = 'c'
+                    self.position[1] = self.square[1][0]
+
+            elif self.my_step == 'c':
+                self.position[0] -= self.speed
+                x = (self.position[0]/scale) - (self.square[0][0]/scale) - 200
+                arc = (a*(x*x))+(b*x)+c
+                self.position[1] = self.square[1][0]-(arc*scale)
+                if self.position[0]<= self.square[0][0]:
+                    self.my_step = 'd'
+                    self.position[0] = self.square[0][0]
+
+            elif self.my_step == 'd':
+                self.position[1]+= self.speed
+                x = (self.position[1]/scale) - (self.square[1][0]/scale) -200
+                arc = (a*(x*x))+(b*x)+c
+                self.position[0] = self.square[0][0]-(arc*scale)
+                if self.position[1] >= self.square[1][1]:
+                    self.my_step = 'a'
+                    self.position[1] = self.square[1][1]

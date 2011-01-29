@@ -19,7 +19,7 @@ class Universe():
         self.speed = 0
         self.LEVEL = 'menu'
         self.action = [None,'stay']
-        self.dir    = 0
+        self.dir    = 'right'
         self.click = False
         self.file = None
         self.frames_per_second = 20
