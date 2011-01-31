@@ -1,4 +1,5 @@
 import utils.obj_images as obj_images
+import settings.directory as directory
 import os
 import random
 import interactive.enemy as enemy
@@ -15,14 +16,13 @@ class Princess():
 
     Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
 """
-    directory = main_dir+'/data/images/princess/'
+    directory = directory.princess
     def __init__(self,level,INSIDE = False,xpos=None):
         print "Creating Princess"
         self.first_frame = True
         self.level = level
         self.effects    = []
         self.size       = (2,180*scale)
-        #Acess db save file
         print "    connecting to princess database"
         self.save_db     = level.universe.db
         self.save_cursor = level.universe.db_cursor
@@ -42,19 +42,17 @@ class Princess():
             self.__dict__[act+"_img"] = obj_images.MultiPart(self.ordered_directory_list(act))
         self.run_away_img = obj_images.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
         print "        dirt images"
-        self.dirties = [Dirt(level,main_dir+'/data/images/princess/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
+        self.dirties = [Dirt(level,directory.princess+'/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
         print "        kisses and dust images"
-        self.lips           = obj_images.TwoSided(main_dir+'/data/images/effects/kiss/')
-        self.dirt_cloud     = obj_images.TwoSided(main_dir+'/data/images/effects/dirt/')
-        self.gforce         = 0
-        self.g_acceleration = round(3*scale)
+        self.lips           = obj_images.TwoSided(directory.kiss)
+        self.dirt_cloud     = obj_images.TwoSided(directory.dirt)
+        self.gravity        = {'force':0, 'accel':round(3*scale)}
         self.speed          = round(14*scale)
         self.rect           = Rect(self.pos,self.size)
-        self.move           = False
         self.direction      = 'right'
-        self.situation      = {"hurt":0,"excited":0,"scared":0}
+        self.status      = {"hurt":0,"excited":0,"scared":0,'move':False}
         self.jump           = 0
         self.kiss           = 0
         self.kiss_direction = 'right'
@@ -102,8 +100,8 @@ class Princess():
             self.hurting(self.action)
             self.kissing()
             self.update_image(self.action,self.direction)
-            if self.situation['hurt'] > 5:
-                if self.situation['hurt']%2 == 0:
+            if self.status['hurt'] > 5:
+                if self.status['hurt']%2 == 0:
                     self.image = None
             self.debuginside = 0
         else:
@@ -114,11 +112,11 @@ class Princess():
             self.update_image(self.action,'right')
 
     def dirt_cloud_funciton(self):
-        if 0 < self.situation['hurt'] < 24:
-            if self.situation['hurt'] > len(self.dirt_cloud.left):
-                dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1-len(self.dirt_cloud.left)])
+        if 0 < self.status['hurt'] < 24:
+            if self.status['hurt'] > len(self.dirt_cloud.left):
+                dirt_cloud_image = (self.dirt_cloud.left[self.status['hurt']-1-len(self.dirt_cloud.left)])
             else:
-                dirt_cloud_image = (self.dirt_cloud.left[self.situation['hurt']-1])
+                dirt_cloud_image = (self.dirt_cloud.left[self.status['hurt']-1])
             self.effects.append(Effect(dirt_cloud_image,(self.pos)))
 
     def jumping(self,action):
@@ -146,7 +144,7 @@ class Princess():
 
     def hurting(self,action):
         if not self.inside:
-            if not self.situation['hurt']:
+            if not self.status['hurt']:
                 for e in self.level.enemies:
                     if (e.__class__ in ( enemy.Schnauzer,
                                          enemy.FootBall,
@@ -163,9 +161,9 @@ class Princess():
                         else:
                             self.speed = round(14*scale)
                     if e.__class__ == enemy.Butterfly:
-                        if self.rect.colliderect(e.rect) and self.situation['excited'] == 0:
+                        if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
                             print "Princess got excited by the Butterflies"
-                            self.situation['excited']+=1
+                            self.status['excited']+=1
                 if self.level.viking_ship:
                     if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
                         self.get_dirty()
@@ -175,29 +173,29 @@ class Princess():
                         print "Water level is "+str(self.level.water_level)
                         self.get_dirty()
             else:
-                self.situation['hurt'] +=1
-                if self.situation['hurt'] == 40:
-                    self.situation['hurt'] = 0
-            if self.situation['excited']:
-                self.situation['excited'] +=1
+                self.status['hurt'] +=1
+                if self.status['hurt'] == 40:
+                    self.status['hurt'] = 0
+            if self.status['excited']:
+                self.status['excited'] +=1
                 action[0] = 'celebrate'
-                if self.situation['excited'] == 60:
-                    self.situation['excited'] = 0
-            if self.situation['scared']:
-                self.situation['scared'] +=1
+                if self.status['excited'] == 60:
+                    self.status['excited'] = 0
+            if self.status['scared']:
+                self.status['scared'] +=1
                 action[1] = 'run_away'
-                if self.situation['scared'] == 60:
-                    self.situation['scared'] = 0
-            if self.situation['hurt'] and self.situation['hurt'] <6:
+                if self.status['scared'] == 60:
+                    self.status['scared'] = 0
+            if self.status['hurt'] and self.status['hurt'] <6:
                 action[0]='ouch'
-                self.situation['excited'] =0
-                self.situation['scared'] = 0
-            if self.situation['hurt'] >=6 and action[0] == 'ouch':
+                self.status['excited'] =0
+                self.status['scared'] = 0
+            if self.status['hurt'] >=6 and action[0] == 'ouch':
                 action[0]= None
 
     def get_dirty(self):
         if self.dirt <= 2:
-            self.situation['hurt'] += 1
+            self.status['hurt'] += 1
             self.dirt += 1
             self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
             print "Oh Dear, you've got all dirty! I need to take a record on that..."
@@ -231,7 +229,7 @@ class Princess():
             if obstacle <= int(feet_position -round(30*scale)):
                 self.center_distance -= (self.speed*towards[self.direction])
         if action[1] == 'run_away':
-            if self.center_distance < self.situation['danger']:
+            if self.center_distance < self.status['danger']:
                 self.direction = 'left'
             else:
                 self.direction = 'right'
@@ -243,18 +241,18 @@ class Princess():
         self.floor = self.level.universe.floor - new_height
         #fall
         if feet_position < self.floor:
-            new_y = self.pos[1]+self.gforce
+            new_y = self.pos[1]+self.gravity['force']
             if new_y+self.size[1] >= self.floor:
                 new_y = self.floor-self.size[1]
             self.pos[1] = new_y
-            self.gforce += self.g_acceleration
+            self.gravity['force'] += self.gravity['accel']
             
         feet_position   = self.pos[1]+self.size[1]
         #do not stay lower than floor
         if feet_position > self.floor:
             self.pos[1]= self.floor-self.size[1]
         if feet_position == self.floor:
-            self.gforce = 0
+            self.gravity['force'] = 0
                 
     def soundeffects(self,action):
         if not self.jump and (self.pos[1]+self.size[1]) == self.floor:

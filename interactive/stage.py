@@ -21,10 +21,6 @@ import interactive.events   as events
 #import gametext
 from settings import *
 
-
-
-
-
 ###Gate Positions###
 bathhousegate = p([480, 8138])
 dressgate =     p([800, 4142,8471])
@@ -76,12 +72,12 @@ class Stage():
         self.water_level    = 1440*scale
         self.mouse_pos      = pygame.mouse.get_pos()
         self.exit_sign      = None
-
         self.loading_icons  = (obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon_shadow/'),
                                obj_images.OneSided(main_dir+'/data/images/interface/loading/sun_n_moon/'),
                                obj_images.OneSided(main_dir+'/data/images/interface/loading/carriage/')
                                )
         self.margin = obj_images.image(main_dir+'/data/images/shadow-B.png')
+        self.enemy_channel = pygame.mixer.Channel(6)
 
     def dress_castle(self):
         return inside.Inside(self,'dress',('pink','plain','red','yellow'))
@@ -123,6 +119,8 @@ class Stage():
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
         if self.paused:
+            if self.enemy_channel.get_sound():
+                self.enemy_channel.fadeout(1500)
             self.update_pause()
         elif self.fairy and not self.princesses[0].inside and not self.ball:
             self.update_fairytip()
@@ -133,8 +131,10 @@ class Stage():
             else:
                 if self.background[0] == self.ballroom['night']:
                     self.background = [self.ballroom['day']]
-            
-            if self.clock[1].time == 'ball' and (not self.inside or (not self.inside.status == "choosing") or not self.princesses[0].inside):
+            if self.clock[1].time == 'ball' and not self.princesses[0].inside:
+                if self.enemy_channel.get_sound():
+                    self.enemy_channel.fadeout(1500)
+                self.enemy_channel
                 self.ball = self.ball or ball.Ball(self, self.universe, self.princesses[0])
                 self.ball.update_all()
             else:
@@ -156,6 +156,54 @@ class Stage():
                             for i in self.__dict__[att]:
                                 if i:
                                     i.update_all()
+
+                    now_playing = self.enemy_channel.get_sound()
+                    weight = 0
+                    actual_class = None
+                    for i in self.enemies:
+                        if i.music and i.music['sound'] == now_playing:
+                            weight = i.music['weight']
+                            actual_class = i.__class__
+                    set_classes = []
+                    for i in self.enemies:
+                        if i.music:
+                            distance = 0
+                            if (i.pos[0]/scale)-1440 > 0:
+                                distance = (i.pos[0]/scale)-1440
+                            elif i.pos[0]-(i.size[0]/scale) < 0:
+                                distance = ((i.pos[0]/scale)+(i.size[0]/scale))*-1
+                            if distance<1000:
+                                my_turn = True
+                                if self.enemy_channel.get_busy() and i.music['weight'] <= weight and i.music['sound']!=now_playing:
+                                    my_turn = False
+                                if my_turn:
+                                    if i.__class__ != actual_class and i.music['sound']!= now_playing:
+                                        self.enemy_channel.play(i.music['sound'])
+
+                                    if distance > 0:
+                                        volume = 1-(distance/1000)
+                                    else:
+                                        volume = 1
+                                    if volume==0 and i.__class__ not in set_classes:
+                                        self.enemy_channel.stop()
+                                    if i.__class__ not in set_classes or volume ==1:
+                                        if volume<=1:
+                                            present_volume = self.enemy_channel.get_volume()
+                                            if (1-volume)-present_volume > .2:
+                                                self.enemy_channel.set_volume(present_volume+.2)
+                                            else:
+                                                self.enemy_channel.set_volume(volume)
+                                        if 1-volume <.8:
+                                            present_volume = pygame.mixer.music.get_volume()
+                                            if (1-volume)-present_volume > .2:
+                                                pygame.mixer.music.set_volume(present_volume+.2)
+                                            else: 
+                                                pygame.mixer.music.set_volume(1-volume)
+                                        set_classes.append(i.__class__)
+                            else:
+                                if now_playing == i.music['sound'] and i.__class__ not in set_classes:
+                                    i.music['sound'].stop()
+
                 for i in self.scenarios_front+self.floor_image+self.foreground:
                     i.update_all()
                 if self.princesses[0].inside:
@@ -396,8 +444,8 @@ class Stage():
             if self.white.alpha_value < 200:
                 self.white.alpha_value += 50
                 volume = pymusic.get_volume()
-                if 1.0 >= volume > 0.2:
-                    volume -= .2
+                if 0.6 >= volume > 0.1:
+                    volume -= .01
                     pymusic.set_volume(volume)
             if self.white.alpha_value > 150:
                 self.fairy = 'speaking'
@@ -413,8 +461,10 @@ class Stage():
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
                 volume = pymusic.get_volume()
-                if 1.0 >= volume >= 0: 
-                    volume += .2
+                if .6 >= volume >= 0: 
+                    volume += .01
+                    if volume >.6:
+                        volume=.6
                     pymusic.set_volume(volume)
                 self.white.alpha_value -= 50
                 self.white.image.set_alpha(self.white.alpha_value)
@@ -570,14 +620,17 @@ class Stage():
         pygame.mixer.music.load(main_dir+"/data/sounds/music/"+intro)
         self.loading()
         pygame.mixer.music.queue(self.music)
+        pygame.mixer.music.queue(self.music)
         self.loading()
         pygame.mixer.music.play()
         self.loading()
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
-        pygame.mixer.music.set_volume(1)
+        pygame.mixer.music.set_volume(.6)
 
 
     def create_stage(self,translatable_name,goalpos,hardname):
+        if self.enemy_channel.get_sound():
+            self.enemy_channel.fadeout(1500)
         self.changing_stages_darkenning()
         self.loading()
         self.name = hardname
@@ -656,7 +709,7 @@ class Stage():
         self.loading()
         self.floor_image= [floors.Floor(c,self.directory+'floor/',self) for c in range(30)]
         self.loading()
-        self.stage_music("dress_day_intro.ogg","dress_day_intro.ogg")
+        self.stage_music("dress_day_intro.ogg","dress_day.ogg")
         self.set_floor_heights(185,9400,'dress')
 
     def AccessorySt(self,goalpos = None):
@@ -708,7 +761,7 @@ class Stage():
         self.loading()
         tail = None
         if enemy.Lion in available_animals:
-            for i in animated_scenarios:
+            for i in self.animated_scenarios:
                 if i.__class__ == enemy.Lion:
                     tail = True
                 break

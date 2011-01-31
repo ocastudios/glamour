@@ -1,0 +1,1121 @@
+#
+# nelson <nelson@ocastudios.com>, 2010, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Glamour\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-04 16:00-0300\n"
+"PO-Revision-Date: 2011-01-29 15:32-0300\n"
+"Last-Translator: nelson <nelson@ocastudios.com>\n"
+"Language-Team: pt-BR <nelson@ocastudios.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Basepath: /home/nelson/glamour\n"
+"X-Poedit-Bookmarks: 3,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: s\n"
+"X-Poedit-SearchPath-0: /home/nelson/glamour\n"
+
+#: /home/nelson/glamour/interactive/stage.py:625
+msgid "Bathhouse St"
+msgstr "R. Casa de Banho"
+
+#: /home/nelson/glamour/interactive/stage.py:653
+msgid "Dress St"
+msgstr "R. Vestidos"
+
+#: /home/nelson/glamour/interactive/stage.py:669
+msgid "Accessory St"
+msgstr "R. Acessórios"
+
+#: /home/nelson/glamour/interactive/stage.py:696
+msgid "Makeup St"
+msgstr "R. Maquiagem"
+
+#: /home/nelson/glamour/interactive/stage.py:726
+msgid "Shoes St"
+msgstr "R. Sapatos"
+
+#: /home/nelson/glamour/interactive/stage.py:799
+msgid "Resume"
+msgstr "Continuar"
+
+#: /home/nelson/glamour/interactive/stage.py:802
+msgid "Quit"
+msgstr "Sair"
+
+#: /home/nelson/glamour/interactive/stage.py:805
+msgid "Game Paused"
+msgstr "Jogo Pausado"
+
+#: /home/nelson/glamour/interactive/messages.py:9
+msgid "Look, it's a small BIRDY! It's so small and so cute... it also sings oh so happy. Don't you bother it much, though... it won't like it."
+msgstr "Olhe, é um PASSARINHO! É tão bonitinho... E também canta tão feliz. Mas não o perturbe muito... Ele não vai gostar."
+
+#: /home/nelson/glamour/interactive/messages.py:10
+msgid "Oh, oh! Look... BUTTERFLIES! Have you ever seen anything oh so pretty? Don't you waste too much time celebrating their beauty, though - we have a ball to attend."
+msgstr "Oh, oh! Olhe... BORBOLETAS! Você já viu alguma coisa tão bonita? Mas não perca muito tempo brincando com elas - temos um baile para ir."
+
+#: /home/nelson/glamour/interactive/messages.py:11
+msgid "Well, the path is blocked by a CARRIAGE. They are beautiful transportation, all right, but are oh so slow... maybe we ought to find another path."
+msgstr "Bem, o caminho está bloqueado por uma CARRUAGEM. Elas são um transporte bonito, é verdade, mas são tão lentas... talvez seja melhor ir por outro caminho."
+
+#: /home/nelson/glamour/interactive/messages.py:12
+msgid "Look, a baby loxodonta africana! Well, most people would just call it an ELEPHANT. It's oh so rude. They are cute, intelligent animals with the niftiest ears."
+msgstr "Olhe, um bebê de loxodonta africana! Bem, a maioria de nós o chamaria de ELEFANTE. Que rude! Eles são lindinhos, inteligentes e com as orelhas mais legais."
+
+#: /home/nelson/glamour/interactive/messages.py:13
+msgid "Oh, sheesh! There goes Fabrizio and his soccer ball. BOYS are so careless when they're playing. Watch out or he may get you dirty."
+msgstr "Ichi! Lá vai o Fabrizio e sua bola de futebol. GAROTOS são tão sem cuidado quando estão jogando. Cuidado ou ele pode te sujar."
+
+#: /home/nelson/glamour/interactive/messages.py:14
+msgid "A giraffa camelopardalis! People thought they were legend, and you can totally see why: so many dots, so many horns and oh so much neck. GIRAFFES are kinda cute, don't you think?"
+msgstr "Uma giraffa camelopardalis! As pessoas pensavam que eram uma lenda, e é fácil ver por que: tantas pintas, tantos chifres e tanto, tanto pescoço. GIRAFAS até que são fofas, não acha?"
+
+#: /home/nelson/glamour/interactive/messages.py:15
+msgid "My, oh my! You disturbed that fellow birdy, didn't you? Now here comes her MOMMY BIRD and she's not happy... would you care to run?"
+msgstr "Puxa, puxa vida! Você perturbou aquele passarinho, não foi? Agora lá vem a MAMÃE PÁSSARO e ela não está feliz... se importa de correr?"
+
+#: /home/nelson/glamour/interactive/messages.py:16
+msgid "Oh, I just love panthera leos - or LIONS, if you must. They are just big, fat, cute kittys for me, but I guess you people are oh so scared of them, right? Maybe a little kindness would help."
+msgstr "Oh, eu amo panthera leos - ou LEÕES, se você preferir. Eles são só gatinhos lindos, grandes e gordos para mim, mas eu acho que as pessoas têm medo deles, certo? Talvez um carinho ajude."
+
+#: /home/nelson/glamour/interactive/messages.py:17
+msgid "Watch out for that green, furry little kid up there! Oh, it's a MONKEY, you say? He seems not nice. I wonder why he has so many bananas..."
+msgstr "Cuidado com aquele garoto verde e peludo lá em cima! Oh, é um MACACO, você diz? Ele parece tão bonitinho. Pra que será que ele tem tantas bananas..."
+
+#: /home/nelson/glamour/interactive/messages.py:18
+msgid "Oh, it's MRS KLEENER. It's oh so nice to see someone cleaning and taking care of things. She deserves a kiss, but watch out for the dust."
+msgstr "Oh, é a Dona Limpa. É tão bom ver alguém limpando e tomando conta das coisas. Ela merece um beijo, mas cuidado com a sujeira."
+
+#: /home/nelson/glamour/interactive/messages.py:19
+msgid "Hey, what's that? Oh it is a fat, cute flightless bird. They call it a PENGUIN - it's a smart, friendly, stable and virus free bird with lots of great open software avaiable. Wait, am I confusing the bird with the OS? Ah, whatever, both are just great!"
+msgstr "Ei, o que é aquilo? Ah, é um pássaro fofo e gordo que não voa. Ele é chamado PINGUIM - é esperto, amigável, estável e livre de vírus, com ótimos programas livres disponíveis. Espere, estou confundindo o pássaro com o SO? Ah, de todo modo, os dois são ótimos."
+
+#: /home/nelson/glamour/interactive/messages.py:20
+msgid "Oh, what a cute little fellow, that dog! Wait, it's also appears oh so mad. SCHNAUZERS may be a little angry, but they sure love a little kindness."
+msgstr "Oh, que gracinha de amiguinho esse cachorro! Espere, ele também parece tão bravo. SCHNAUZERS podem ser um pouco hostis, mas gostam muito de carinho."
+
+#: /home/nelson/glamour/interactive/messages.py:21
+msgid "My, oh my! A VIKING SHIP! The old norse would travel anywhere on these, but you wouldn't want to listen to their filthy language. They don't care much for kindness or cuteness either, so why won't we just leave, uh? Please?"
+msgstr "Puxa, puxa vida! Um NAVIO VIKING! O velho nórdico navega para qualquer lugar nisso, mas você não vai querer ouvir suas palavras imundas. Eles não ligam muito para carinho ou para beleza, então por que não vamos embora? Por favor?"
+
+#: /home/nelson/glamour/interactive/messages.py:25
+msgid "Look, princess, it's a BATHHOUSE! When you get dirty, you should come here to clean yourself. You wouldn't want to attend the ball filthy, would you?"
+msgstr "Olhe, princesa, é uma CASA DE BANHO! Quando você ficar suja deve vir aqui para se limpar. Você não iria querer ir ao baile imunda, iria?"
+
+#: /home/nelson/glamour/interactive/messages.py:26
+msgid "Wow! Don't you just love accessories? Here, in the ACCESSORY HALL, you'll be able to decorate yourself up so you look astonishing. Many people here prefer swords and shields, but as for me, I think strenght lies on cute ribbons and cool shades."
+msgstr "Uau! Você não simplesmente ama acessórios? Aqui, no SALÃO DO ACESSÓRIO, você poderá se enfeitar e ficar incrível. Muita gente prefere espadas e escudos, mas para mim, eu acho que a força está em lindos lacinhos e óculos legais."
+
+#: /home/nelson/glamour/interactive/messages.py:27
+msgid "This is CINDERELLA'S CASTLE. It is oh so big and classy. Let's go inside say hello, and maybe ask what she will wear to the next ball. It is always bad to show up with the same clothes."
+msgstr "Este é o CASTELO DA CINDERELA. Ele é tão grande e cheio de classe. Vamos entrar e dizer um oi, e talvez perguntar o que ela vai vestir no próximo baile. É sempre ruim aparecer com roupas iguais."
+
+#: /home/nelson/glamour/interactive/messages.py:28
+msgid "Eew! These DRAINS take away the dirty water, leaving streets dry and clean. Please don't bathe on that water, or you'll get filthy. Be careful!"
+msgstr "Eca! Estes DRENOS levam a água suja embora, deixando as ruas limpas e secas. Por favor, não se banhe nessa água ou você vai ficar suja. Cuidado!"
+
+#: /home/nelson/glamour/interactive/messages.py:29
+msgid "All girls dream of coming to the DRESS TOWER. Here you will find all sorts of chic and marvelous dresses. Bet you'll take your time checking them out, right?"
+msgstr "Todas as garotas sonham em vir para a TORRE DO VESTIDO. Aqui você acha todo tipo de vestidos chiques e maravilhosos. Aposto que você vai tirar um tempinho para dar uma olhada, certo?"
+
+#: /home/nelson/glamour/interactive/messages.py:30
+msgid "This is a GATEWAY, connecting different streets on the city. Don't forget to use them to visit every street you can. Oh, it is just so exciting to visit new places!"
+msgstr "Isto é um PORTÃO, conectando diferentes ruas na cidade. Não se esqueça de usá-los para visitar todas as ruas que puder. Ah, é tão emocionante visitar novos lugares!"
+
+#: /home/nelson/glamour/interactive/messages.py:31
+msgid "Well, as you know, this is YOUR CASTLE. You may return here if you are really impatient to go to the ball, and also to see what were you wearing last night, so you don't repeat yourself."
+msgstr "Bem, como você sabe, este é o SEU CASTELO. Você pode voltar aqui quando estiver impaciente para ir para o baile, e também para ver o que você usou a noite passada para não repetir."
+
+#: /home/nelson/glamour/interactive/messages.py:32
+msgid "Princess, look! That's my favourite building - the MAGIC BEAUTY SALON! At it, you'll be able to change haircuts, and even skin tone. I don't really know how they do it... maybe that's why it's magical. It won't help you earn any glamour, though."
+msgstr "Princesa, veja! Aquele é meu prédio favorito - o SALÃO DE BELEZA MÁGICO - Lá você pode trocar de corte de cabelo. Não sei como eles fazem... talvez por isso seja mágico. Mas isso não vai te ajudar a ganhar pontos de glamour."
+
+#: /home/nelson/glamour/interactive/messages.py:33
+msgid "I just love make-up, but you totally can't tell, right? That's because I get it on the MAKE-UP TOWER, where all cosmetics are oh so great and magical! You can look like another person with them, but you young girls don't even need it, do you?"
+msgstr "Eu amo maquiagem, mas nem dá pra notar, dá? Isto é porque eu faço na TORRE DA MAQUIAGEM, onde todos os cosméticos são tão bons e mágicos! Você pode se parecer com outra pessoa com eles, mas vocês meninas nem precisam, não é?"
+
+#: /home/nelson/glamour/interactive/messages.py:34
+msgid "That's RAPUNZEL'S VILLA. She prefer ground buildings after all those towers incidents, you know? I totally envy her hair, but I guess we could drop by and say hello."
+msgstr "Esta é a MANSÃO DA RAPUNZEL. Ela prefere construções baixas depois daqueles incidentes com a torre, sabe? Eu invejo muito o cabelo dela, mas acho que a gente devia aparecer e dizer um oi."
+
+#: /home/nelson/glamour/interactive/messages.py:35
+msgid "My oh my, look at those shoes! I know I can fly, but I like style and fashion too, you know? I wouldn't mind if you decided to spend some quality time in the SHOE'S SHOP, really. You can thank me later."
+msgstr "Puxa, puxa vida, olhe estes sapatos! Eu sei que posso voar, mas eu também gosto de estilo e moda, sabe? Eu não me importaria se você decidisse passar um tempo de qualidade na LOJA DE SAPATOS. Me agradeça depois."
+
+#: /home/nelson/glamour/interactive/messages.py:36
+msgid "If this is SLEEPING BEAUTY'S PALACE, you ask? Of course, but you can call her Talia. You can tell she's oh so elegant and chic by her home, can't you? Let's go in - maybe she has some tips on what you should wear."
+msgstr "Se este é o PALÁCIO DA BELA ADORMECIDA? Certamente, mas você pode chamá-la de Talia. Você pode ver como ela é elegante e chique por sua casa, não pode? Vamos entrar - talvez ela nos dê alguma dica do que usar."
+
+#: /home/nelson/glamour/interactive/messages.py:37
+msgid "Isn't SNOW WHITE'S CASTLE oh so cute and cozy? Let's go meet her, for she is my favourite princess in the whole world... except for you dearie, of course."
+msgstr "O CASTELO DA BRANCA DE NEVE não é muito lindo e aconchegante? Vamos falar com ela, pois ela é a minha princesa favorita em todo o mundo... depois de você, querida, claro."
+
+#: /home/nelson/glamour/interactive/messages.py:38
+msgid "Look, look, a ZOO! Oh, I just love to see all kinds of animals that share this world with us. They are oh so cute and lovely. I'd prefer if they were free in the wild, but then I wouldn't get to see them, I suppose. Keep your eyes on them."
+msgstr "Olhe, olhe, um ZOO! Ah, eu amo ver todos os tipos de animais que dividem este mundo conosco. Eles são tão lindos e amáveis. Eu preferiria vê-los soltos na natureza, mas acho que nesse caso não veria nenhum. Mantenha seus olhos neles."
+
+#: /home/nelson/glamour/interactive/messages.py:42
+msgid "Ouch! Look, princess, you and your dress are now a little dirty. Getting to the ball dirty will make you lose some glamour, so try to keep yourself... higienic, ok?"
+msgstr "Ai! Olhe, princesa, você e seu vestido estão um pouco sujos agora. Ir para o baile suja fará você perder glamour, então tente se manter... higiênica, ok?"
+
+#: /home/nelson/glamour/interactive/messages.py:43
+msgid "Watch out, dearie! You got even dirtier, and I would suggest you cleaned yourself up before the ball, ok? Why don't you look for the Bathhouse?"
+msgstr "Cuidado querida! Você ficou ainda mais suja. Eu sugiro que você se limpe antes do baile, ok? Por que você não procura pela Casa de Banho?"
+
+#: /home/nelson/glamour/interactive/messages.py:44
+msgid "Come on, princess! You are now as dirty as it gets. Going to the ball like this would be oh so embarassing. No way... uh, uh. Go take a bath and stop getting filthy my little piggy princess."
+msgstr "Ora essa, princesa! Você está tão suja como se pode estar. Ir para o baile assim seria tão embaraçoso. De jeito nenhum... ãh, ãh. Vá tomar um banho e pare de se sujar minha princesa porquinha."
+
+#: /home/nelson/glamour/interactive/messages.py:45
+msgid "You can save your game by pausing and selecting the Save Game option. Neat, huh? This way you can resume from where you left off, and keep you glamour score. Ahh... technology if just great!"
+msgstr "Voce pode salvar o jogo pausando e selecionando a opção Salvar Jogo. Legal, né? Deste jeito você pode continuar de onde parou e manter seus pontos de glamour. Ahh... a tecnologia é o máximo!"
+
+#: /home/nelson/glamour/interactive/messages.py:46
+msgid "Hello again, princess! We have much to see and wear before the ball tonight. Let's get going, becouse today you will rock the ball! He, he, I always wanted to say that."
+msgstr "Olá de novo, princesa! Temos muito o quever e vestir antes do baile de hoje a noite. Vamos andando, porque hoje você vai arrebentar no baile! He, he, eu sempre quis dizer isso."
+
+#: /home/nelson/glamour/interactive/messages.py:47
+msgid "My, oh my, princess! I think you overslept. Let us go already, I have so many dresses and shoes to try on. Oh, I mean... 'you' have many things to try on."
+msgstr "Puxa, puxa vida, princesa! Acho que você dormiu demais. Vamos logo, Eu tenho tantos vestidos e sapatos para experimentar. Oh, quero dizer... 'você' tem tantas coisas para experimentar."
+
+#: /home/nelson/glamour/interactive/messages.py:48
+msgid "Did you see those boys in the ball? They are all so cute and handsome when not covered in mud and chasing a football. Oh, if I were a young fairy again..."
+msgstr "Você viu aqueles garotos no baile? Eles são tão lindos e charmosos quando não estão cobertos com lama e correndo atrás de bola. Ah se eu fosse uma jovem fada de novo..."
+
+#: /home/nelson/glamour/interactive/messages.py:49
+msgid "New day, new hope. Maybe we can make you prettier than Snow White today... oh she's so pretty. I mean... you are so pretty also!"
+msgstr "Novo dia, nova esperança. Talvez hoje a gente te deixe mais bonita do que a Branca de Neve... ah, ela é tão bonita. Quero dizer... você também é bonita!"
+
+#: /home/nelson/glamour/interactive/messages.py:50
+msgid "Hello, dearie! I'm happy because I danced all night yesterday... I bet you love valse, but you have not really tasted it until you do it flying."
+msgstr "Olá querida! Estou feliz porque dancei a noite toda ontem... Aposto que você ama valsa, mas você não viu nada até experimentar dançar voando."
+
+#: /home/nelson/glamour/interactive/messages.py:51
+msgid "Good morning, dearie! My, you look so pretty already. It's a shame you can't wear that again tonight. Why not? Well, because a glamorous woman should not repeat her outfit twice in a row. Hey! What's that about my outfit...!?"
+msgstr "Bom dia querida! Puxa, você já está tão linda. É uma pena que você não possa usar isso de novo hoje à noite. Por que não? Ora, porque uma mulher glamorosa não deve repetir seu visual duas vezes seguidas. Ei! O que você disse sobre o meu visual.. !?"
+
+#: /home/nelson/glamour/interactive/messages.py:52
+msgid "All right, all right! I 'will' take you to see new shoes, but only if today we go see those new fairy wands. I hear they are great..."
+msgstr "Tá bom, tá bom! Eu 'vou' te levar para ver novos sapatos, mas só se hoje nós formos ver aquelas novas varinhas. Eu ouvi que elas são o máximo..."
+
+#: /home/nelson/glamour/interactive/messages.py:53
+msgid "Hi, sweetie! You know, in the old days I would just make you an outfit out of mice and pumpkins, but I was threatened with a lawsuit, do you believe that? These goofy, phony property rules are just killing creativity."
+msgstr "Olá doçura! Você sabe que nos velhos tempos eu faria para você um visual a partir de abóboras e ratinhos, mas fui ameaçada com um processo na justiça, acredita? Estas regras de direitos autorais bobas e sem sentido estão matando a criatividade."
+
+#: /home/nelson/glamour/interactive/messages.py:54
+msgid "Hello, my little princess. You keep getting prettier with each passing day. I wish I was that much pretty, but I think I'll just have to be satisfed with my magic powers, flight ability and immortality."
+msgstr "Olá minha princesinha. Você está ficando mais bonita a cada dia. Eu queria ser tão bonita assim, mas acho que vou ter que me satisfazer com meus poderes mágicos, capacidade de voar e imortalidade."
+
+#: /home/nelson/glamour/interactive/messages.py:55
+msgid "Good morning, sweetie! You did look wonderful last ball, but with a few more time and training, I bet you'll just explode with glamour. Oh, no, it doesn't hurt, sweetie, I swear."
+msgstr "Bom dia, doçura! Você esteve maravilhosa no baile passado, mas com um pouco mais de trinamento e tempo aposto que você vai explodir de glamour. Ah, não, não dói, docinho, eu juro."
+
+#: /home/nelson/glamour/interactive/messages.py:56
+msgid "Hi, cutie face! You sure are glamorous enough for nobility, but want to test yourself against royalty? Maybe, some day, you'll even be a match for the fae."
+msgstr "Olá rostinho lindo! Você com certesa é glamorosa o suficiente para a nobreza, mas quer enfrentar a realeza? Talvez, um dia, você chegue até mesmo a ser páreo para as fadas."
+
+#: /home/nelson/glamour/interactive/messages.py:57
+msgid "Ok, ok. I get it... But another ball, really? Don't you want to try someting different tonight? Maybe bowling..."
+msgstr "Ok, ok. Entendi... Mas outro baile, sério? Não quer tentar algo diferente hoje à noite? Boliche, talvez..."
+
+#: /home/nelson/glamour/interactive/messages.py:58
+msgid "Hi, princess! You noticed the queen did not attend the last ball? Her magic mirror was unstable and crashing all the time, poor thing. If she had that penguin OS on it, she wouldn't have those problems. Wonder if the kernel supports divination well."
+msgstr "Olá, princesa! Você notou que a rainha não foi ao último baile? O espelho mágico dela estava instável e travando o tempo todo, coitada. Se ela tivesse aquele OS do pinguim não teria esse tipo de problema. Eu fico imaginando se o kernel também suporta advinhação."
+
+#: /home/nelson/glamour/interactive/messages.py:59
+msgid "Hello, cutest! Great ball last night, but the valse was rather lowsy. Maybe if they looked for music in jamendo.com... Oh, there are oh so many great bands there, as Ehma, Torley on Piano, Ceili Moss, Armolithae and Butterfly Tea. My oh my!"
+msgstr "Olá, lindinha! Grande baile noite passada, mas a valsa estava um tanto ruim. Talvez se eles tivessem procurado por músicas no jamendo.com... Ah, lá tem tantas bandas legais, como Ehma, Torley on Piano, Ceili Moss, Armolithae e Butterfly Tea. Puxa vida!"
+
+#: /home/nelson/glamour/interactive/messages.py:64
+msgid "Good morning, princess, and an oh so happy birthday, too! I can't believe you turned 16 already, and in such a beautiful day, too! Of course, now that that you're a lady, you should start attending the royal balls... oh, it'll be so exciting."
+msgstr "Bom dia, princesa, e um tão feliz aniversário também! Eu nem acredito que você faz 16 anos, e em um dia tão bonito! É claro, agora que você já é uma moça, deve começar a frequentar os bailes reais... ah, vai ser tão emocionante."
+
+#: /home/nelson/glamour/interactive/messages.py:65
+msgid "For these balls, you'll get to dress up elegantly, match your outfit, wear make-up and dresses. Oh, I'm so jealous. You'll get to be really, really beautiful. Well, surely you look oh so beautiful already, no doubt about it..."
+msgstr "Para estes bailes, você precisa estar elegante, combinando sua roupa, maquilagem e vestidos. Ah, estou com tanta inveja. Você vai ficar muito, muito bonita. Ora, você já é bonita, sem dúvidas quanto a isso..."
+
+#: /home/nelson/glamour/interactive/messages.py:66
+msgid "...but you know, that is not enough for the royal balls. For them, you'll have to be glamourous! Since it is your first ball ever, I was assigned to assist you in getting lovely, glamorous and stunning. And getting the hearts of the boys, too."
+msgstr "... mas sabe, isto não é suficiente para os bailes reais. Para eles, você vai precisar estar glamorosa! Como este é seu primeiro baile, vou te ajudar a ficar linda, glamorosa e impressionante. E a conquistar os corações dos meninos também."
+
+#: /home/nelson/glamour/interactive/messages.py:67
+msgid "You see, for every ball you should try to dress up wonderfully, which means selecting a nice DRESS, SHOES, MAKE-UP and ACCESSORY. You should wander around the city looking for them, and putting on those you like the best."
+msgstr "Veja, para cada baile você precisa tentar se vestir maravilhosamente, o que significa escolher um belo VESTIDO, SAPATOS, MAQUILAGEM e ACESSÓRIO. Você precisa passear pela cidade procurando por eles e vestindo aqueles que você mais gostar."
+
+#: /home/nelson/glamour/interactive/messages.py:68
+msgid "Of course, other princesses are attending the ball, too, so you should try to avoid showing up with the same things they do. Pay them a visit to learn what they will be wearing, and also try to avoid using the same outfit two balls in a row."
+msgstr "É claro, outras princesas também irão para o baile, então você deveria tentar evitar aparecer com as mesmas coisas que elas. Faça uma visita a elas e descubra o que vão usar, e também tente evitar usar as mesmas roupas em dois bailes seguidos."
+
+#: /home/nelson/glamour/interactive/messages.py:69
+msgid "But caution, many dangers await! Well, not 'real' dangers, but there are many ways to get yourself dirty before the ball, and you should avoid that. Clean yourself at the bathhouse if you need, and use you cursor and irresistable kisses to help you keep clean."
+msgstr "Mas cuidado, há muitos perigos! Bem, não perigos 'de verdade', mas há muitas formas de se sujar antes do baile, e você precisa evitar isso. Lave-se na casa de banho se necessário e use seu mouse e beijos irresistíveis para te ajudar a se manter limpa."
+
+#: /home/nelson/glamour/interactive/messages.py:70
+msgid "At the ball, you'll gain glamour points if your outfit differs from the other princesses', and you'll lose them if it doesn't. You'll loose an awful lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour for, you ask?"
+msgstr "No baile, você vai ganhar pontos de glamour se seu visual for diferente do das outras princesas, e você vai perdê-los se for repetido. Você vai perder muito glamour se estiver suja, então cuidado. Ãh, o que... ? Pra que serve glamour, você pergunta?"
+
+#: /home/nelson/glamour/interactive/messages.py:71
+msgid "Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it also draws the eyes and hearts of boys, although high-ranked nobility tends to be more used to it than lower rank. But I assure you even Prince Charming can fall for a glamorous girl."
+msgstr "Ora, princesa bobinha, Glamour é simplesmente... lindo e divino. Ah, sim, também atrai os olhares e os corações dos garotos, apesar de que a nobreza mail elevada está mais acostumada a ele do que a menos elevada. Mas eu te asseguro que até mesmo o Príncipe Encantado pode se apaixonar por uma garota glamorosa."
+
+#: /home/nelson/glamour/interactive/messages.py:72
+msgid "So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go."
+msgstr "Então vamos começar, transformando você de uma linda e amável princesinha em uma maravilhosa e glamorosa princesinha. Eu vou te ajudar no caminho, então lá vamos nós."
+
+#: /home/nelson/glamour/interactive/messages.py:76
+#, python-format
+msgid "Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns, a tiny teeny dragon."
+msgstr "Oh, %s! Você tem uma fada madrinha! Estou com tanta inveja... meu pai só me deu alguns unicórnios, e um dragãozinho pequenininho."
+
+#: /home/nelson/glamour/interactive/messages.py:77
+#, python-format
+msgid "Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"
+msgstr "Olá, %s! Sabia que haverão muitos príncipes no baile hoje? Eles virão de reinos muito, muito distantes para estarem presentes."
+
+#: /home/nelson/glamour/interactive/messages.py:78
+#, python-format
+msgid "%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."
+msgstr "%s! Há quanto tempo! Eu estava lendo sobre contos de fadas – já notou que existem muito mais animais falantes neles do que fadas? Oh, bem..."
+
+#: /home/nelson/glamour/interactive/messages.py:79
+#, python-format
+msgid "Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."
+msgstr "Ei, %s. Sabia que 'fatídico' e 'fada' têm a mesma raiz etimológica? Que isso quer dizer? Bem, quer dizer que as duas derivam da mesma palavra. 'fata', que quer dizer 'predição' em latim, mas hoje significam coisas diferentes."
+
+#: /home/nelson/glamour/interactive/messages.py:80
+#, python-format
+msgid "Have you noticed how many different architectural styles we have in this town, %s? Do you thing that maybe those are magic portals that take us to far away places?"
+msgstr "Já notou quantos estilo arquitetônicos diferentes existem nesta cidade, %s? Você acha que talvez aqueles portões sejam mágicos e nos levam para lugares muito distantes?"
+
+#: /home/nelson/glamour/interactive/messages.py:81
+#, python-format
+msgid "If we are all princesses, and we live in the same town, shouldn't we all be sisters? Gosh, I wish I was your sister, %s..."
+msgstr "Se somos todas princesas e moramos na mesma cidade, não deveríamos ser todas irmãs? Poxa, eu gostaria de ser sua irmã, %s..."
+
+#: /home/nelson/glamour/interactive/messages.py:82
+#, python-format
+msgid "My father says someday I'll marry a prince that defeated many perils to be with me... well, %s, I say let 'me' go on adventures and let him wait for me to marry him."
+msgstr "Meu pai diz que algum dia eu me casarei com um príncipe que venceu vários perigos para ficar comigo... bem, %s, eu digo que deixe 'eu' ir em aventuras e ele que espere para se casar comigo."
+
+#: /home/nelson/glamour/interactive/messages.py:83
+msgid "We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
+msgstr "Nós sempre convidamos Maria, Chapeuzinho, Belle, a Moura, Pocahontas, Henny-Penny, Mulan e tantas outras para o baile. Será que elas algum dia virão?"
+
+#: /home/nelson/glamour/interactive/messages.py:84
+#, python-format
+msgid "%s, did you know that no one dislike tenderness? From boys to lions, love seems to triumph all. I wonder how a thing that didn't like kisses would be like. I bet it'd be ugly, bearded and riding a boat."
+msgstr "%s, sabia que ninguém desgosta de carinho? De meninos a leões, o amor conquista tudo. Fico imaginando se existe alguma coisa que não gostaria de beijos – aposto que seria feio, barbudo e andaria de barco."
+
+#: /home/nelson/glamour/interactive/messages.py:85
+#, python-format
+msgid "Have you noticed how we all get princes by the end of our story, %s? But some others don't, like Little Red, Grettel and the Mermaid. They only get wolves and witches, poor folk..."
+msgstr "Já notou que todas conseguimos príncipes ao final de nossas histórias, %s? Mas algumas não, como Chapeuzinho, Maria e a Sereia. Elas só conseguem lobos e bruxas, pobrezinhas."
+
+#: /home/nelson/glamour/interactive/messages.py:86
+#, python-format
+msgid "Well, %s, we've got some pretty nice stores in town, but they don't seem to carry much variety. I mean, I never use the same dress twice on a ball, so I have dozens of each available dress already."
+msgstr "Bem, %s, nós temos boas lojas na cidade, mas elas não têm muita variedade. Quero dizer, eu nunca uso duas vezes o mesmo vestido em bailes, então eu já tenho dúzias de cada vestido disponível."
+
+#: /home/nelson/glamour/interactive/messages.py:87
+#, python-format
+msgid "Oh, dancing is so much fun! But I sure would like to fly in the air, or fight dragons, or cast spells. %s, why do you think they give us princesses the worst parts in our own stories?"
+msgstr "Oh, dançar é tão divertido! Mas eu bem que gostaria de voar no ar, ou enfrentar dragões, ou conjurar feitiços. %s, por que você acha que nós princesas ficamos sempre com os piores papeis em nossas próprias histórias?"
+
+#: /home/nelson/glamour/interactive/messages.py:88
+#, python-format
+msgid "Dancing every single night... I, mean, we have fun and all, but aren't your feet killing you, %s?"
+msgstr "Dançar toda e cada noite... quero dizer, nós nos divertimos, mas seus pés não estão te matando, %s?"
+
+#: /home/nelson/glamour/interactive/messages.py:89
+#, python-format
+msgid "Who owns that little schnauzer that won't let me walk around in peace? It is not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... even small dogs..."
+msgstr "Quem é o dono daquele pequeno schnauzer que não me deixa caminhar pela cidade em paz? Não é você, né, %s? Argh, é tãããão mal educado deixar animais sem cuidados por aí – até mesmo pequenos cachorros..."
+
+#: /home/nelson/glamour/interactive/messages.py:90
+#, python-format
+msgid "Have you visited the zoo, yet? I love the penguin and the giraffe, but that monkey just drives me crazy. Maybe we could go together someday, %s, and have a hard long talk with whoever runs that place."
+msgstr "Você já visitou o zoológico? Eu adoro o pinguim e a girafa, mas o macaco me deixa louca. Talvez um dia possamos ir juntas, %s - e ter uma longa e dura conversa com o responsável por aquele lugar."
+
+#: /home/nelson/glamour/interactive/messages.py:91
+msgid "Have you met Fabrizio, the little italian kid? He's always with that ball, but I think I've seen him somewhere before. Do you think he maybe might have a free tabletop game developed by Ocastudios?"
+msgstr "Você já conheceu o Fabrizio, o garotinho italiano? Ele está sempre com aquela bola, mas eu acho que já o vi antes. Você acha que talvez ele tenha um jogo de tabuleiro próprio desenvolvido pela Ocastudios?"
+
+#: /home/nelson/glamour/interactive/messages.py:92
+#, python-format
+msgid "Many people think that the beatiful scenery of fairy tales are stuff of legend, by they exist, %s. Next vacations, try cruising around the Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters and see for yourself."
+msgstr "Muita gente acha que os belos cenários dos contos de fada são apenas lendas, %s. Em suas próximas férias, visite as Gaeltacht, ou dê uma caminha em Veneza, ou um mergulho nas águas azuis do Caribe e veja por você mesma."
+
+#: /home/nelson/glamour/interactive/messages.py:93
+msgid "Do you know that many, many people have to worry about computer viruses, and software freezing. They don't even have access to their source-code... Thank goodness we use a Unix box."
+msgstr "Você sabia que muitas, muitas pessoas têm que se preocupar com vírus de computador e programas travando? Eles nem tem acesso ao código-fonte. Ainda bem que eu uso um Unix."
+
+#: /home/nelson/glamour/interactive/messages.py:94
+msgid "Have you seen the ball palace shaking last night? With so much dancing, do you think the structure is still stable? I think I'll call the dwarves to make some repairs."
+msgstr "Você viu o palácio de baile balançando ontem à noite? Com tanta dança, você acha que a estrutura ainda é estável? Acho que vou chamar os anões para fazerem alguns reparos."
+
+#: /home/nelson/glamour/interactive/messages.py:95
+#, python-format
+msgid "Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll tell on you to ma!"
+msgstr "Okay, %s, estão são as roupas que eu usarei mais tarde. Mas se me copiar eu conto tudo para mamãe!"
+
+#: /home/nelson/glamour/interactive/messages.py:96
+msgid "No, I won't go out today! Yesterday there were so many chicks... and their mama didn't let me even play with them. She ruined may hair!!! I'm never coming out again."
+msgstr "Não, eu não vou sair hoje! Ontem tinham tantos pintinhos – e a mãe deles nem me deixou brincar com eles. Ela arruinou meu cabelo!!! Eu nunca mais saio desse castelo de novo."
+
+#: /home/nelson/glamour/interactive/messages.py:97
+#, python-format
+msgid "%s, I won't rest until I get the heart of the prince. I mean, Gentleman Decent is kinda cute, but he falls for every girl in the kingdom!"
+msgstr "%s, eu não vou descansar até que consiga o coração do Príncipe Encantado. Quero dizer, o Fidalgo Decente é até bonitinho, mas ele se apaixona por todas as garotas do reino."
+
+#: /home/nelson/glamour/interactive/messages.py:98
+#, python-format
+msgid "There is a lot of noblemen in the balls, %s, but... do you think someone would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget about the ball for a while, of course."
+msgstr "Têm muitos nobres nos bailes, %s, mas... você acha que alguém se importaria se eu chamasse o Fabrizio hoje à noite? Quero dizer, ele 'terá' que esquecer da bola um pouquinho, claro."
+
+#: /home/nelson/glamour/interactive/messages.py:99
+msgid "Some of the princesses never eat apples or work with spindles because they are afraid of fairy tales. As for me, I just keep my distance from evil witches and refrain from talking to big bad wolves."
+msgstr "Algumas das princesas nunca comem maçãs ou trabalham com rocas porque estão assustadas com os contos de fada. Quanto a mim, eu apenas mantenho distância de bruxas malignas e lobos maus falantes."
+
+#: /home/nelson/glamour/interactive/messages.py:100
+msgid "Do you know that many countries today still have kings? Oh, I'd love to be the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an enchanted mythical kingdom of everlasting joy, but I 'really' wanted Sweeden..."
+msgstr "Você sabia que muitos países hoje ainda têm reis? Oh, eu adoraria ser a princesa da Suécia, Espanha ou Japão. Acho que tenho que me conformar com um reino mítico encantado de felicidade infinita, mas eu queria 'mesmo' é a Suécia..."
+
+#: /home/nelson/glamour/interface/inside.py:191
+msgid "Go to the Ball"
+msgstr "Ir para o Baile"
+
+#: /home/nelson/glamour/interface/inside.py:192
+msgid "It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different."
+msgstr "Não é muito bonito repetir o visual. Confira o que você usou nos bailes passados e tente encontrar algo diferente."
+
+#: /home/nelson/glamour/interface/inside.py:193
+msgid "Last Ball"
+msgstr "Baile Passado"
+
+#: /home/nelson/glamour/interface/inside.py:194
+msgid "Great Past Ball"
+msgstr "Baile Retrasado"
+
+#: /home/nelson/glamour/interface/inside.py:195
+msgid "3 Balls Ago"
+msgstr "3 Bailes Atrás"
+
+#: /home/nelson/glamour/interface/ball.py:68
+msgid "and won the heart of"
+msgstr "e ganhou o coração do"
+
+#: /home/nelson/glamour/interface/ball.py:166
+msgid "You've"
+msgstr "Você"
+
+#: /home/nelson/glamour/interface/ball.py:167
+msgid "got"
+msgstr "ganhou"
+
+#: /home/nelson/glamour/interface/ball.py:168
+msgid "glamour"
+msgstr "pontos"
+
+#: /home/nelson/glamour/interface/ball.py:169
+msgid "points"
+msgstr "de glamour"
+
+#: /home/nelson/glamour/interface/ball.py:221
+msgid "Tonight's ball"
+msgstr "Este baile"
+
+#: /home/nelson/glamour/interface/ball.py:222
+msgid "Yesterday's ball"
+msgstr "Baile passado"
+
+#: /home/nelson/glamour/interface/ball.py:313
+msgid "Gentleman Decent"
+msgstr "Fidalgo Decente"
+
+#: /home/nelson/glamour/interface/ball.py:316
+msgid "Knight Reliable"
+msgstr "Cavaleiro Confiável"
+
+#: /home/nelson/glamour/interface/ball.py:319
+msgid "Baron Serious"
+msgstr "Barão Sério"
+
+#: /home/nelson/glamour/interface/ball.py:322
+msgid "Count Loving"
+msgstr "Conde Amoroso"
+
+#: /home/nelson/glamour/interface/ball.py:325
+msgid "Marquess Attractive"
+msgstr "Marquês Atraente"
+
+#: /home/nelson/glamour/interface/ball.py:328
+msgid "Duke Intelligent"
+msgstr "Duque Inteligente"
+
+#: /home/nelson/glamour/interface/ball.py:331
+msgid "Prince Charming"
+msgstr "Príncipe Encantado"
+
+#: /home/nelson/glamour/interface/ball.py:334
+msgid "King Kindhearted"
+msgstr "Rei Bondoso"
+
+#: /home/nelson/glamour/interface/ball.py:337
+msgid "Emperor Awesome"
+msgstr "Imperador Incrível"
+
+#: /home/nelson/glamour/interface/menu.py:214
+msgid "New Game"
+msgstr "Novo Jogo"
+
+#: /home/nelson/glamour/interface/menu.py:214
+msgid "Load Game"
+msgstr "Continuar jogo"
+
+#: /home/nelson/glamour/interface/menu.py:214
+msgid "Play Story"
+msgstr "Ver a história"
+
+#: /home/nelson/glamour/interface/menu.py:214
+#: /home/nelson/glamour/interface/menu.py:632
+msgid "Credits"
+msgstr "Créditos"
+
+#: /home/nelson/glamour/interface/menu.py:216
+msgid "select one"
+msgstr "escolha um"
+
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
+msgid "Choose your"
+msgstr "Escolha sua"
+
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
+msgid "appearence..."
+msgstr "aparência"
+
+#: /home/nelson/glamour/interface/menu.py:243
+msgid "skin tone"
+msgstr "cor da pele"
+
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
+msgid "previous"
+msgstr "anterior"
+
+#: /home/nelson/glamour/interface/menu.py:243
+#: /home/nelson/glamour/interface/menu.py:256
+msgid "next"
+msgstr "próximo"
+
+#: /home/nelson/glamour/interface/menu.py:256
+msgid "hair style"
+msgstr "cabelo"
+
+#: /home/nelson/glamour/interface/menu.py:275
+msgid "< back"
+msgstr "< voltar"
+
+#: /home/nelson/glamour/interface/menu.py:276
+msgid "space >"
+msgstr "espaço >"
+
+#: /home/nelson/glamour/interface/menu.py:277
+msgid "clean up [  ]"
+msgstr "limpar  [  ]"
+
+#: /home/nelson/glamour/interface/menu.py:278
+msgid "random   ???"
+msgstr "aleatório ???"
+
+#: /home/nelson/glamour/interface/menu.py:286
+msgid "Sorry, This name is taken."
+msgstr "Desculpe, este nome está sendo usado."
+
+#: /home/nelson/glamour/interface/menu.py:287
+msgid "Please, choose another one"
+msgstr "Por favor, escolha outro"
+
+#: /home/nelson/glamour/interface/menu.py:288
+msgid "_ _ _ _ _ _ _"
+msgstr "_ _ _ _ _ _ _"
+
+#: /home/nelson/glamour/interface/menu.py:293
+msgid "... and your name."
+msgstr "... e seu nome."
+
+#: /home/nelson/glamour/interface/menu.py:464
+msgid "The "
+msgstr "O"
+
+#: /home/nelson/glamour/interface/menu.py:481
+msgid "Or go back to Main Menu"
+msgstr "Ou volte para o Menu Principal"
+
+#: /home/nelson/glamour/interface/menu.py:482
+msgid "Have you already saved a game?"
+msgstr "Você já salvou um jogo?"
+
+#: /home/nelson/glamour/interface/menu.py:483
+msgid "Then choose your saved princess:"
+msgstr "Então escolha sua princesa salva:"
+
+#: /home/nelson/glamour/interface/menu.py:491
+msgid "erase"
+msgstr "apagar"
+
+#: /home/nelson/glamour/interface/menu.py:580
+msgid "Use the arrows to go"
+msgstr "Use as setas para ir"
+
+#: /home/nelson/glamour/interface/menu.py:581
+msgid "forward and backward"
+msgstr "para frente e para trás"
+
+#: /home/nelson/glamour/interface/menu.py:630
+msgid "in loving memory of"
+msgstr "em saudosa memória de"
+
+#: /home/nelson/glamour/interface/menu.py:631
+msgid "and"
+msgstr "e"
+
+#: /home/nelson/glamour/interface/menu.py:633
+msgid "Programming"
+msgstr "Programação"
+
+#: /home/nelson/glamour/interface/menu.py:634
+msgid "Support"
+msgstr "Suporte"
+
+#: /home/nelson/glamour/interface/menu.py:635
+msgid "Design"
+msgstr "Design"
+
+#: /home/nelson/glamour/interface/menu.py:636
+msgid "Music"
+msgstr "Música"
+
+#: /home/nelson/glamour/interface/menu.py:637
+#: /home/nelson/glamour/interface/menu.py:650
+#: /home/nelson/glamour/interface/menu.py:652
+msgid "first snowfall"
+msgstr "first snowfall"
+
+#: /home/nelson/glamour/interface/menu.py:638
+msgid "endless blue"
+msgstr "endless blue"
+
+#: /home/nelson/glamour/interface/menu.py:639
+msgid "celtic cappricio"
+msgstr "celtic cappricio"
+
+#: /home/nelson/glamour/interface/menu.py:640
+msgid "the bee"
+msgstr "the bee"
+
+#: /home/nelson/glamour/interface/menu.py:641
+msgid "lonesome man's dance"
+msgstr "lonesome man's dance"
+
+#: /home/nelson/glamour/interface/menu.py:642
+msgid "dragon dance"
+msgstr "dragon dance"
+
+#: /home/nelson/glamour/interface/menu.py:643
+msgid "ship of fools"
+msgstr "ship of fools"
+
+#: /home/nelson/glamour/interface/menu.py:644
+msgid "sword fight"
+msgstr "sword fight"
+
+#: /home/nelson/glamour/interface/menu.py:645
+msgid "the foggy dew"
+msgstr "the foggy dew"
+
+#: /home/nelson/glamour/interface/menu.py:646
+msgid "revolution on resoluti on"
+msgstr "revolution on resoluti on"
+
+#: /home/nelson/glamour/interface/menu.py:647
+msgid "twilight on mountain"
+msgstr "twilight on mountain"
+
+#: /home/nelson/glamour/interface/menu.py:648
+msgid "brian boru 2"
+msgstr "brian boru 2"
+
+#: /home/nelson/glamour/interface/menu.py:649
+msgid "ignition"
+msgstr "ignition"
+
+#: /home/nelson/glamour/interface/menu.py:651
+msgid "cocci ci tini cocci"
+msgstr "cocci ci tini cocci"
+
+#: /home/nelson/glamour/interface/menu.py:653
+msgid "waltz wedley"
+msgstr "waltz wedley"
+
+#: /home/nelson/glamour/interface/menu.py:656
+msgid "All python & pygame code, written in gedit (really!)."
+msgstr "Tudo em código python & pygame, escrito em gedit (sério!)."
+
+#: /home/nelson/glamour/interface/menu.py:657
+msgid "Bureaucracy and et ceteras"
+msgstr "Burocracia e etc."
+
+#: /home/nelson/glamour/interface/menu.py:658
+msgid "Almost all Inkscape, with a touch of Blender and Gimp."
+msgstr "Quase tudo em Inkscape, com um toque de Blender e Gimp."
+
+#: /home/nelson/glamour/interface/menu.py:659
+msgid "based on the homonimous board game by"
+msgstr "baseado no jogo de tabuleiro homônimo de"
+
+#: /home/nelson/glamour/interface/menu.py:660
+msgid "available at"
+msgstr "disponível em"
+
+#: /home/nelson/glamour/interface/menu.py:661
+msgid "introduction"
+msgstr "introdução"
+
+#: /home/nelson/glamour/interface/menu.py:662
+#: /home/nelson/glamour/interface/menu.py:688
+#: /home/nelson/glamour/interface/menu.py:692
+msgid "by Torley on Piano"
+msgstr "por Torley on Piano"
+
+#: /home/nelson/glamour/interface/menu.py:663
+msgid "menu"
+msgstr "menu"
+
+#: /home/nelson/glamour/interface/menu.py:664
+#: /home/nelson/glamour/interface/menu.py:676
+#: /home/nelson/glamour/interface/menu.py:682
+#: /home/nelson/glamour/interface/menu.py:686
+msgid "by Armolithae"
+msgstr "por Armolithae"
+
+#: /home/nelson/glamour/interface/menu.py:665
+msgid "bathhouse st"
+msgstr "r. casa de banho"
+
+#: /home/nelson/glamour/interface/menu.py:666
+msgid "by armolithae"
+msgstr "por armolithae"
+
+#: /home/nelson/glamour/interface/menu.py:667
+msgid "dress st"
+msgstr "r. vestidos"
+
+#: /home/nelson/glamour/interface/menu.py:668
+#: /home/nelson/glamour/interface/menu.py:670
+#: /home/nelson/glamour/interface/menu.py:674
+#: /home/nelson/glamour/interface/menu.py:678
+msgid "by Ceili Moss"
+msgstr "por Ceili Moss"
+
+#: /home/nelson/glamour/interface/menu.py:669
+msgid "shoe's st"
+msgstr "r. sapatos"
+
+#: /home/nelson/glamour/interface/menu.py:671
+msgid "accessory st."
+msgstr "r. acessórios"
+
+#: /home/nelson/glamour/interface/menu.py:672
+msgid "by Butterfly Tea"
+msgstr "por Butterfly Tea"
+
+#: /home/nelson/glamour/interface/menu.py:673
+msgid "make-up st."
+msgstr "r. maquiagem"
+
+#: /home/nelson/glamour/interface/menu.py:675
+msgid "schnauzer"
+msgstr "schnauzer"
+
+#: /home/nelson/glamour/interface/menu.py:677
+msgid "carriage"
+msgstr "carruagem"
+
+#: /home/nelson/glamour/interface/menu.py:679
+msgid "old lady"
+msgstr "velhinha"
+
+#: /home/nelson/glamour/interface/menu.py:680
+msgid "by Torly on Piano"
+msgstr "por Torly on Piano"
+
+#: /home/nelson/glamour/interface/menu.py:681
+msgid "viking"
+msgstr "viking"
+
+#: /home/nelson/glamour/interface/menu.py:683
+msgid "butterffly"
+msgstr "borboleta"
+
+#: /home/nelson/glamour/interface/menu.py:684
+msgid "by Adragante"
+msgstr "por Adragante"
+
+#: /home/nelson/glamour/interface/menu.py:685
+msgid "hawk"
+msgstr "falcão"
+
+#: /home/nelson/glamour/interface/menu.py:687
+msgid "birdie"
+msgstr "passarinho"
+
+#: /home/nelson/glamour/interface/menu.py:689
+msgid "fabrizio"
+msgstr "fabrizio"
+
+#: /home/nelson/glamour/interface/menu.py:690
+msgid "by Picari"
+msgstr "por Picari"
+
+#: /home/nelson/glamour/interface/menu.py:691
+msgid "zoo"
+msgstr "zoo"
+
+#: /home/nelson/glamour/interface/menu.py:693
+msgid "ball"
+msgstr "baile"
+
+#: /home/nelson/glamour/interface/menu.py:694
+msgid "by strauss"
+msgstr "por strauss"
+
+#: /home/nelson/glamour/interface/menu.py:695
+msgid "Sad and unfortunate legal mambo jambo"
+msgstr "Babozeiras jurídicas tristes e lamentáveis"
+
+#: /home/nelson/glamour/interface/menu.py:696
+msgid "All programming and art are public domain, released so by us, their authors."
+msgstr "Toda a programação e a arte são disponibilizadas como domínio público pelos autores."
+
+#: /home/nelson/glamour/interface/menu.py:697
+msgid "The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."
+msgstr "As músicas, entretanto, vêm em uma variedade de licenças. Elas podem ser usadas e alteradas, mesmo comercialmente, mas o crédito DEVE ser dado. Agradecimento especial ao jamendo.com, de onde a maior parte das músicas vieram."
+
+#: /home/nelson/glamour/interface/menu.py:698
+msgid "( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"
+msgstr "(Se você é um autor e quer tirar sua música deste jogo, contate-nos e removeremos de imediato.)"
+
+#: /home/nelson/glamour/interface/menu.py:699
+msgid "And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
+msgstr "E agora as fontes: Gestesque, por Paulo Silva, tem licença OpenFonce e a Chopin Script, por Diogene, é Domínio Público (Viva!!)."
+
+#: /home/nelson/glamour/interface/menu.py:700
+msgid "If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."
+msgstr "Se você é desenvolvedor de conteúdo livre, por favor, considere as limitações que as várias \"licenças livres\" impõe sobre obras derivadas. Toneladas (ou melhor, Teras) de conteúdo cultural como imagens, música e fontes que são \"livres\" não são aproveitáveis em razão de restrições legais ou práticas (é impossível dar crédito a cada bit de dado que usamos). Licenças como \"livre para uso pessoal, mas não comercial\", \"livre para uso, mas não para alterar\" e/ou \"livre para uso, mas não para distribuição\" prejudicam a liberdade e se equivalem a \"grátis, mas não livre\". Dar crédito a uma música é justo e praticável, mas não para os sons dos passos, ou outros arquivos minúsculos, mas necessários. Por favor, publique seu trabalho em domínio público ou GPL e ajude-nos a divulgar e usar seu trabalho. Evite licenças semi-livres, sem padrão ou variadas. Elas torturam desenvolvedores com páginas de lamentáveis considerações sobre licenças... como esta."
+
+#: /home/nelson/glamour/interface/menu.py:701
+msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
+msgstr "gostaria de parabenizar ou reclamar? glamour@ocastudios.com"
+
+#: /home/nelson/glamour/interface/random_names.py:6
+msgid "Albertine"
+msgstr "Albertina"
+
+#: /home/nelson/glamour/interface/random_names.py:7
+msgid "Albinia"
+msgstr "Albínia"
+
+#: /home/nelson/glamour/interface/random_names.py:8
+msgid "Alethea"
+msgstr "Aletéia"
+
+#: /home/nelson/glamour/interface/random_names.py:9
+msgid "Allegra"
+msgstr "Alegra"
+
+#: /home/nelson/glamour/interface/random_names.py:10
+msgid "Alma"
+msgstr "Alma"
+
+#: /home/nelson/glamour/interface/random_names.py:11
+msgid "Aloisia"
+msgstr "Aloísia"
+
+#: /home/nelson/glamour/interface/random_names.py:12
+msgid "Althea"
+msgstr "Altéia"
+
+#: /home/nelson/glamour/interface/random_names.py:13
+msgid "Amanda"
+msgstr "Amanda"
+
+#: /home/nelson/glamour/interface/random_names.py:14
+msgid "Angel"
+msgstr "Ângela"
+
+#: /home/nelson/glamour/interface/random_names.py:15
+msgid "Annzella"
+msgstr "Anzélia"
+
+#: /home/nelson/glamour/interface/random_names.py:16
+msgid "Anthea"
+msgstr "Antéia"
+
+#: /home/nelson/glamour/interface/random_names.py:17
+msgid "Aquila"
+msgstr "Áquila"
+
+#: /home/nelson/glamour/interface/random_names.py:18
+msgid "Armine"
+msgstr "Armínia"
+
+#: /home/nelson/glamour/interface/random_names.py:19
+msgid "Artemisia"
+msgstr "Artemísia"
+
+#: /home/nelson/glamour/interface/random_names.py:20
+msgid "Aspasia"
+msgstr "Aspásia"
+
+#: /home/nelson/glamour/interface/random_names.py:21
+msgid "Augusta"
+msgstr "Augusta"
+
+#: /home/nelson/glamour/interface/random_names.py:22
+msgid "Aurea"
+msgstr "Áurea"
+
+#: /home/nelson/glamour/interface/random_names.py:23
+msgid "Auriol"
+msgstr "Auriol"
+
+#: /home/nelson/glamour/interface/random_names.py:24
+msgid "Aurora"
+msgstr "Aurora"
+
+#: /home/nelson/glamour/interface/random_names.py:25
+msgid "Barbara"
+msgstr "Bárbara"
+
+#: /home/nelson/glamour/interface/random_names.py:26
+msgid "Berenice"
+msgstr "Berenice"
+
+#: /home/nelson/glamour/interface/random_names.py:27
+msgid "Brilliana"
+msgstr "Briliana"
+
+#: /home/nelson/glamour/interface/random_names.py:28
+msgid "Britannia"
+msgstr "Bretanha"
+
+#: /home/nelson/glamour/interface/random_names.py:29
+msgid "Carina"
+msgstr "Carina"
+
+#: /home/nelson/glamour/interface/random_names.py:30
+msgid "Carol"
+msgstr "Carol"
+
+#: /home/nelson/glamour/interface/random_names.py:31
+msgid "Cilda"
+msgstr "Cilda"
+
+#: /home/nelson/glamour/interface/random_names.py:32
+msgid "Clorinda"
+msgstr "Clorinda"
+
+#: /home/nelson/glamour/interface/random_names.py:33
+msgid "Corisande"
+msgstr "Corisândia"
+
+#: /home/nelson/glamour/interface/random_names.py:34
+msgid "Delia"
+msgstr "Délia"
+
+#: /home/nelson/glamour/interface/random_names.py:35
+msgid "Dilliana"
+msgstr "Diliana"
+
+#: /home/nelson/glamour/interface/random_names.py:36
+msgid "Donna"
+msgstr "Dona"
+
+#: /home/nelson/glamour/interface/random_names.py:37
+msgid "Dorinda"
+msgstr "Dorinda"
+
+#: /home/nelson/glamour/interface/random_names.py:38
+msgid "Dorothy"
+msgstr "Dorotéia"
+
+#: /home/nelson/glamour/interface/random_names.py:39
+msgid "Douglas"
+msgstr "Douglas"
+
+#: /home/nelson/glamour/interface/random_names.py:40
+msgid "Elizabella"
+msgstr "Elizabela"
+
+#: /home/nelson/glamour/interface/random_names.py:41
+msgid "Elizabeth"
+msgstr "Elizabete"
+
+#: /home/nelson/glamour/interface/random_names.py:42
+msgid "Elma"
+msgstr "Elma"
+
+#: /home/nelson/glamour/interface/random_names.py:43
+msgid "Frusannah"
+msgstr "Frusana"
+
+#: /home/nelson/glamour/interface/random_names.py:44
+msgid "Helen"
+msgstr "Helena"
+
+#: /home/nelson/glamour/interface/random_names.py:45
+msgid "Jacinth"
+msgstr "Jacinta"
+
+#: /home/nelson/glamour/interface/random_names.py:46
+msgid "Jennifer"
+msgstr "Jenifer"
+
+#: /home/nelson/glamour/interface/random_names.py:47
+msgid "Karen"
+msgstr "Karen"
+
+#: /home/nelson/glamour/interface/random_names.py:48
+msgid "Kimberly"
+msgstr "Kimberly"
+
+#: /home/nelson/glamour/interface/random_names.py:49
+msgid "Laura"
+msgstr "Laura"
+
+#: /home/nelson/glamour/interface/random_names.py:50
+msgid "Linda"
+msgstr "Linda"
+
+#: /home/nelson/glamour/interface/random_names.py:51
+msgid "Lisa"
+msgstr "Lisa"
+
+#: /home/nelson/glamour/interface/random_names.py:52
+msgid "Lucasta"
+msgstr "Lucasta"
+
+#: /home/nelson/glamour/interface/random_names.py:53
+msgid "Marcia"
+msgstr "Márcia"
+
+#: /home/nelson/glamour/interface/random_names.py:54
+msgid "Margaret"
+msgstr "Margarete"
+
+#: /home/nelson/glamour/interface/random_names.py:55
+msgid "Maria"
+msgstr "Mírian"
+
+#: /home/nelson/glamour/interface/random_names.py:56
+msgid "Mariabella"
+msgstr "Mariabela"
+
+#: /home/nelson/glamour/interface/random_names.py:57
+msgid "Mary"
+msgstr "Maria"
+
+#: /home/nelson/glamour/interface/random_names.py:58
+msgid "Michelle"
+msgstr "Michele"
+
+#: /home/nelson/glamour/interface/random_names.py:59
+msgid "Nancy"
+msgstr "Nancy"
+
+#: /home/nelson/glamour/interface/random_names.py:60
+msgid "Patricia"
+msgstr "Patrícia"
+
+#: /home/nelson/glamour/interface/random_names.py:61
+msgid "Philadelphia"
+msgstr "Filadélfia"
+
+#: /home/nelson/glamour/interface/random_names.py:62
+msgid "Raquel"
+msgstr "Raquel"
+
+#: /home/nelson/glamour/interface/random_names.py:63
+msgid "Ruth"
+msgstr "Rute"
+
+#: /home/nelson/glamour/interface/random_names.py:64
+msgid "Sandra"
+msgstr "Sandra"
+
+#: /home/nelson/glamour/interface/random_names.py:65
+msgid "Sarah"
+msgstr "Sara"
+
+#: /home/nelson/glamour/interface/random_names.py:66
+msgid "Saranna"
+msgstr "Sarana"
+
+#: /home/nelson/glamour/interface/random_names.py:67
+msgid "Sharon"
+msgstr "Sharon"
+
+#: /home/nelson/glamour/interface/random_names.py:68
+msgid "Sophronia"
+msgstr "Sofrônia"
+
+#: /home/nelson/glamour/interface/random_names.py:69
+msgid "Susan"
+msgstr "Suzana"
+
+#: /home/nelson/glamour/interface/random_names.py:70
+msgid "Ulalia"
+msgstr "Ulália"
+
+#: /home/nelson/glamour/interface/random_names.py:71
+msgid "Urania"
+msgstr "Urânia"
+
+#: /home/nelson/glamour/interface/random_names.py:72
+msgid "Venetia"
+msgstr "Veneziana"
+
+#: /home/nelson/glamour/interface/random_names.py:73
+msgid "Zenobe"
+msgstr "Zenóbia"
+
+#~ msgid "bathhouse"
+#~ msgstr "casa de banho"
+#~ msgid "dress"
+#~ msgstr "vestidos"
+#~ msgid "accessory"
+#~ msgstr "acessórios"
+#~ msgid "shoes"
+#~ msgstr "sapatos"
+#~ msgid "Options"
+#~ msgstr "Opções"
+#~ msgid "done"
+#~ msgstr "pronto"
+#~ msgid "... and your name"
+#~ msgstr "... e seu nome"
+#~ msgid "And \"Ok\" for the menu."
+#~ msgstr "E \"Ok\" para o menu."
+#~ msgid "Welcome to Glamour Game"
+#~ msgstr "Bem Vindo à Versão de Testes do Glamour"
+#~ msgid "This is the very first of some pretty cool games of OCA STUDIOS"
+#~ msgstr "Este é o primeiro de alguns jogos da Oca Studios"
+

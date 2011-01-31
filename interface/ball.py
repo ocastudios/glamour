@@ -212,7 +212,6 @@ class Ball():
                 cursor.execute(sql)
 
         level.universe.db.commit()
-#        save.save_file(self.level)
         thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
         pygame.image.save(thumbnail,saves_dir+'/'+self.level.princesses[0].name+'/thumbnail.PNG')
         self.texts += [
@@ -356,12 +355,14 @@ class FairyTalePrincess():
 
 class StarBall():
     def __init__(self):
-        self.images = obj_images.OneSided(main_dir+'/data/images/interface/ball/star-score/')
-        self.image = self.images.list[0]
-        self.pos = p([1100,34])
+        self.images = obj_images.MultiPart([main_dir+'/data/images/interface/ball/star-score/backlight/',
+                                            main_dir+'/data/images/interface/ball/star-score/star/'
+                                            ],onesided = True)
+        self.image = self.images.left[0]
+        self.pos = p([1025,-50])
 
     def update_all(self):
-        self.image = self.images.list[self.images.itnumber.next()]
+        self.image = self.images.left[self.images.itnumber.next()]
 
 
 class BoyFriend():

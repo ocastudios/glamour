@@ -467,9 +467,6 @@ class Fairy():
         self.pos = p(self.paths[self.actual_path][self.path_number])
         if self.path_number < self.max_path_number:
             self.path_number +=1
-#        else:
-#            self.reached_goal = True
-#        speed = int(15*scale)
         self.images_strings = ["wings_fly","body_fly"]
         if old_pos[0] > self.pos[0]:
             self.direction = "left"
@@ -479,6 +476,7 @@ class Fairy():
 
 
 class Message():
+
     def __init__(self, level, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
         self.message    = message
         self.level      = level
@@ -516,7 +514,6 @@ class Message():
         first = True
         line = ""
         line_break  = False
-#        self.line_image      = font_object.render(self.message,1,self.color)
         while count < number_of_words:
             line        += text_list[count]
             line_size   = font_object.size(line)

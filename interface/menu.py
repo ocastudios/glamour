@@ -379,8 +379,6 @@ class Menu():
         self.screen.action = 'close'
 
     def play_credits(self):
-#        self.go_back = False
-#        self.next_menu = self.watching_credits
         self.credits = Credits(self)
 
     def choose_language(self):

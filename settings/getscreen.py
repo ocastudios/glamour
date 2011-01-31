@@ -26,41 +26,7 @@ import utils.obj_images as obj_images
 
 import os
 
-
 print 'preparing drapes'
 drape_images = obj_images.OneSided(main_dir+'/data/images/interface/omni/drapes/rendered_drapes/')
 prep_images = drape_images.list
 'done'
-
-
-######## Create Pre-rendereded drapes ##########
-#size        = 1440,900
-#right_x     = 0
-#left_x      = 645
-#drapes_dir = main_dir+'/data/images/interface/omni/drapes/drapes/'
-#drapes_tiles = [pygame.image.load(drapes_dir+frame).convert_alpha() for frame in sorted(os.listdir(drapes_dir))]
-#tile_index = 0
-#speed       = 0
-#print 'Preparing drapes'
-#name = 0
-#while right_x > -1000:
-#    drape_image = pygame.Surface(size,pygame.SRCALPHA)
-#    if tile_index < len(drapes_tiles):
-#        tile=drapes_tiles[tile_index]
-#        tile_index += 1
-#    else:
-#        tile=drapes_tiles[-1]
-#    tile_size = tile.get_size()
-#    for x in range(int(left_x),1440,100):
-#        drape_image.blit(tile,(x,0))
-#    for x in range(int(round(right_x+610)), -200,-110):
-#        drape_image.blit(pygame.transform.flip(tile,1,0),(x,0))
-#    right_x = right_x - speed
-#    left_x  = left_x  + speed
-#    if speed < 15:
-#        speed += 3
-#    prep_images.append(obj_images.scale_image(drape_image))
-##    pygame.image.save(drape_image, '/home/nelson/glamour/data/images/interface/omni/drapes/drape'+str(name)+'.png')
-##    name +=1
-#del drapes_dir, drapes_tiles, tile_index
-#pygame.time.wait(5000)

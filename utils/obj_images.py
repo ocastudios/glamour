@@ -104,7 +104,7 @@ class Buttons(GrowingUngrowing):
 
 
 class MultiPart():
-    def __init__(self,ordered_directory_list,margin = [0,0,0,0],loading=None):
+    def __init__(self,ordered_directory_list,margin = [0,0,0,0],loading=None, onesided= False):
         def gcd(a, b):
           if b: return gcd(b, a % b)
           return a
@@ -144,7 +144,10 @@ class MultiPart():
         self.left   = self.images
         if loading:
             loading()
-        self.right  = invert_images(self.left)
+        if not onesided:
+            self.right  = invert_images(self.left)
+        else:
+            self.right = None
         if loading:
             loading()
         self.number = 0
@@ -209,7 +212,7 @@ def scale_image(prep, invert = False):
     size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
     return pygame.transform.smoothscale(prep,size)
 
-def find_images(dir):
+def find_images(dir, can_yield = False):
     complete_path = re.search(main_dir, dir)
     home_path = re.search(homedir,dir)
     if not complete_path and not home_path:

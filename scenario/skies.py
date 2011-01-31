@@ -14,7 +14,7 @@ class Sky():
         self.prev = None
 
     def update_all(self):
-        if self.level.clock[1].time in ('evening', 'night'):
+        if self.level.clock[1].time in ('evening', 'night','ball'):
             self.night_image = self.night_images.list[self.night_images.number]
             if self.level.clock[1].count%2== 0 and self.level.clock[1].count != self.prev:
                 self.night_images.til_the_end()

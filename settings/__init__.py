@@ -19,13 +19,17 @@ if resolution[0] < 1440:
 else:
     scale = 1
 print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
-scale =0.666666667
+if scale < 0.3333333337:
+    scale = 0.333333337
+    
+    
+scale = 0.666666667
 
 homedir = os.path.expanduser('~')
 print homedir
-main_dir = '/home/nelson/glamour'
-data_dir = main_dir+"/data"
-saves_dir = homedir +'/.glamour'
+main_dir    = os.path.join('/','home','nelson','glamour')
+data_dir    = os.path.join(main_dir,"data")
+saves_dir   = os.path.join(homedir ,'.glamour')
 try:
     os.listdir(saves_dir)
 except:

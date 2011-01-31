@@ -50,6 +50,8 @@ enemy_dir   = main_dir+'/data/images/enemies/'
 
 
 class Schnauzer():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/schnauzer.ogg'),
+             'weight':5}
     def __init__(self, pos, level,margin=p([20,20,20,20]),dirty=False):
         print "Creating Schnauzer..."
         directory  = enemy_dir+'Schnauzer/'
@@ -156,6 +158,9 @@ class Schnauzer():
 
 
 class Carriage():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/carriage.ogg'),
+            'weight':6}
+
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         print "Creating Carriage..."
         directory = enemy_dir+'Carriage/'
@@ -209,6 +214,8 @@ class Carriage():
 
 
 class Butterfly():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/butterfly.ogg'),
+            'weight':1}
     walk = obj_images.TwoSided(enemy_dir+'Butterfly/walk/')
     _registry = []
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
@@ -220,11 +227,11 @@ class Butterfly():
         self.speed = round(4*scale)
         self.center_distance = pos
         self.image = self.walk.left[0]
-        self.size = (self.image.get_width()/2, self.image.get_height())
+        self.size = (self.image.get_width()/2, self.image.get_height()/2)
         self.level = level
-        self.pos = [self.center_distance,self.height]
+        self.pos = [self.center_distance,self.height+(self.size[1]/4)]
         self.direction = random.choice(['left','right'])
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),(level.floor-self.pos[1])),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/4)),(level.floor-self.pos[1]+(self.size[1]/4))),(self.size))
         self.gotkissed = 0
         print "done."
 
@@ -238,12 +245,12 @@ class Butterfly():
         elif self.pos[1] > round(500*scale):
             self.up = -round(5*scale)
         self.height += self.up
-        self.pos = (self.level.universe.center_x + self.center_distance, self.height)
+        self.pos = (self.level.universe.center_x + self.center_distance, self.height+(self.size[1]/4))
         if self.direction == 'right' :
             self.center_distance += self.speed
         else:
             self.center_distance -= self.speed
-        self.rect = Rect(((self.pos[0]+(self.size[0]/2)),self.height),(self.size))
+        self.rect = Rect(((self.pos[0]+(self.size[0]/4)),self.height+(self.size[1]/4)),(self.size))
         
     def set_image(self):
         self.image = self.walk.__dict__[self.direction][self.walk.number]
@@ -256,6 +263,9 @@ class Butterfly():
 
 
 class OldLady():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/old_lady.ogg'),
+             'weight':3}
+    
     def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
         print "Creating Old Lady"
         directory = enemy_dir+'OldLady/'
@@ -286,7 +296,6 @@ class OldLady():
             self.brooming()
             self.set_image()
         self.set_pos()
-
 
     def wave_to_princess(self):
         if self.action != 'wave':
@@ -337,6 +346,7 @@ class OldLady():
 
 
 class BroomingDust():
+    music = None
     def __init__(self, lady):
         print 'Creating the Brooming Dust'
         self.lady           = lady
@@ -390,6 +400,7 @@ class BroomingDust():
 
 
 class Lion():
+    music = None
     def __init__(self, level):
         print "Creating Lion"
         directory = enemy_dir+'Lion/'
@@ -455,6 +466,7 @@ class Lion():
 
 
 class Tail():
+    music = None
     def __init__(self, directory, lion):
         print "Creating Lion's tail"
         self.lion = lion
@@ -468,6 +480,7 @@ class Tail():
         self.pos  = self.lion.pos
 
 class Elephant():
+    music = None
     def __init__(self, level):
         print "Creating Elephant"
         directory = enemy_dir+'Elephant/'
@@ -515,6 +528,7 @@ class Elephant():
 
 
 class Giraffe():
+    music = None
     def __init__(self,level):
         print "Creating Giraffe"
         self.center_distance = 3800*scale
@@ -540,6 +554,7 @@ class Giraffe():
 
 
 class Penguin():
+    music = None
     def __init__(self, level):
         print "Creating Penguin"
         directory = enemy_dir+'penguin/jump/'
@@ -612,6 +627,7 @@ class Penguin():
 
 
 class Monkey():
+    music = None
     def __init__(self, level):
         print "Creating Monkey"
         directory = enemy_dir+'Monkey/'
@@ -655,6 +671,7 @@ class Monkey():
                     self.action = 'attack'
 
 class Banana():
+    music = None
     def __init__(self, level, monkey):
         print "Creating banana"
         directory = enemy_dir+'Monkey/banana/'
@@ -722,6 +739,8 @@ class Banana():
                 self.center_distance = self.monkey.center_distance
 
 class VikingShip():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/viking_ship.ogg'),
+             'weight':5}
     def __init__(self, pos, level):
         print "Creating Viking Ship"
         directory = enemy_dir+'VikingShip/'
@@ -765,11 +784,8 @@ class VikingShip():
         self.mood  = "normal"
         self.head  = self.head_list[self.mood]
         self.count = 0
-
         self.curses  = [Curse(self,i) for i in range(7)]
         self.curse_number = [random.randint(0,6),random.randint(0,6),random.randint(0,6)]
-
-
         self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
         self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
         self.balloon_curses = []
@@ -784,7 +800,6 @@ class VikingShip():
         self.center_distance += self.speed*move[self.direction]
         self.pos[0] = self.level.universe.center_x + self.center_distance
         self.pos[1] = self.level.floor - self.image_height + round(200*scale) + self.height.next()
-        
         if -round(1000*scale) < self.pos[0] < round(1490*scale):
             self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
             if self.wave not in self.level.floor_image:
@@ -844,6 +859,7 @@ class VikingShip():
 
 
 class VikingPart():
+    music = None
     def __init__(self, ship, part, pos_x = 0, pos_y = 0):
         print "Creating Viking part: "+part
         directory = main_dir+'/data/images/enemies/VikingShip/'+part+'/'
@@ -863,6 +879,7 @@ class VikingPart():
         self.image = self.actual_images[self.images.itnumber.next()]
 
 class Curse():
+    music = None
     def __init__(self,ship,index):
         print "Creating new curse"
         directory   = main_dir+"/data/images/enemies/VikingShip/curses/"
@@ -904,6 +921,8 @@ class Curse():
 
 
 class FootBoy():
+    music = {'sound':pygame.mixer.Sound(main_dir+'/data/sounds/music/fabrizio.ogg'),
+            'weight':4}
     def __init__(self, pos, level, dirty=False):
         print 'Creating Fabrizio'
         directory = enemy_dir+'FootBoy/'
@@ -961,6 +980,7 @@ class FootBoy():
             self.got_kissed +=.01
 
 class FootBall():
+    music = None
     def __init__(self, center_distance, footboy):
         print 'Creating the Ball'
         self.footboy        = footboy
@@ -1020,6 +1040,7 @@ class FootBall():
         self.rect   = pygame.Rect(self.pos, self.size)
 
 class Bird():
+    music = None
     disturbed   = {'ongoing':False, 'count':0,'spot':(0,0)}
     flying      = obj_images.There_and_back_again(main_dir+'/data/images/enemies/Birdy/fly/')
     walking     = obj_images.There_and_back_again(main_dir+'/data/images/enemies/Birdy/walk/')
@@ -1123,6 +1144,8 @@ class Bird():
 
 
 class Hawk():
+    music = {'sound': pygame.mixer.Sound(main_dir+'/data/sounds/music/hawk.ogg'),
+            'weight': 2}
     def __init__(self, pos, level, bird):
         print 'Creating Hawk'
         directory = level.enemy_dir+'Hawk/'
