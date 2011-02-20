@@ -1,34 +1,26 @@
 # -*- coding: utf-8 -*-
-import utils.obj_images as obj_images
+import utils.img
 import interactive.princess as princess
 import pygame
 import scenario.drapes as drapes
 import os
 import interface.mousepointer as mousepointer
-import sql.db as db
+import database.db as db
 import sqlite3
 import interface.widget as widget
-from settings import *
+import settings
+from settings import directory
 from pygame.locals import *
-
-
+p = settings.p
+d = settings.d # reverse of p
+t = settings.t
 
 items          = ['texts', 'options', 'buttons']
 name_taken      = False
-interface_D     = main_dir+'/data/images/interface/'
-title_screen_D  = interface_D+'title_screen/'
 
 print "Initiating menu music."
-pygame.mixer.music.load(main_dir+"/data/sounds/music/menu.ogg")
+pygame.mixer.music.load(os.path.join(directory.music,'menu.ogg'))
 pygame.mixer.music.play()
-
-from settings import *
-
-def p(positions):
-    return [int(i*scale) for i in positions ]
-
-def pn(some_number):
-    return round(some_number*scale)
 
 class MenuScreen():
     color = [230,230,230]
@@ -36,20 +28,20 @@ class MenuScreen():
         print "Creating MenuScreen"
         self.universe       = universe
         self.bar_side       = None
-        self.bar_left       = obj_images.image(interface_D+'omni/left_bar/0.png')
+        self.bar_left       = utils.img.image(os.path.join(directory.left_bar,'0.png'))
         self.bar_right      = pygame.transform.flip(self.bar_left,1,0)
         self.bar            = self.bar_left
         self.bar_size       = self.bar.get_size()
         self.bar_position   = -self.bar_size[0]
         self.menu           = Menu(self)
         self.menu.main()
-        self.speed          = pn(5)
+        self.speed          = p(5,r=False)
         self.STEP           = self.update_drape
         self.count          = 0
         self.action         = 'open'
-        self.hoover_letter  = obj_images.image(title_screen_D+'selection_letter/0.png')
+        self.hoover_letter  = utils.img.image(os.path.join(directory.title_screen,'selection_letter','0.png'))
         self.hoover_letter_size = self.hoover_letter.get_size()
-        self.hoover_large   = obj_images.image(title_screen_D+'selection_back_space/0.png')
+        self.hoover_large   = utils.img.image(os.path.join(directory.title_screen,'selection_back_space','0.png'))
         self.hoover_large_size = self.hoover_large.get_size()
         self.story_frames   = []
         self.drapes         = drapes.Drape()
@@ -85,10 +77,11 @@ class MenuScreen():
             surface.blit(self.menu.back_background,(0,0))
         if self.bar_side:
             surface.blit(self.bar,(self.bar_position,0))
+
             if self.bar_side == 'left':
                 if self.bar_position < 0:
                     self.bar_position += self.speed
-                    if self.bar_position > pn(-200):
+                    if self.bar_position > p(-200):
                         self.speed -= .5
                     else:
                         self.speed += .5
@@ -97,15 +90,15 @@ class MenuScreen():
                     self.STEP = self.update_menus ## Change the STEP
             elif self.bar_side == 'right':
                 if self.bar_position <10:
-                    self.bar_position =  pn(2000)
-                if self.bar_position+pn(516) > self.universe.width:
+                    self.bar_position =  p(2000)
+                if self.bar_position+p(516) > self.universe.width:
                     self.bar_position -= self.speed
-                    if self.bar_position < int((self.universe.width-pn(300))):
-                        self.speed += .5*scale
+                    if self.bar_position < int((self.universe.width-p(300))):
+                        self.speed += .5
                     else:
-                        self.speed -= .5*scale
+                        self.speed -= .5
                 else:
-                    self.bar_position = pn(924)
+                    self.bar_position = p(924)
                     self.STEP = self.update_menus ## Change the STEP
 
     def update_menus(self,surface):
@@ -138,13 +131,13 @@ class MenuScreen():
             self.menu.action = self.action
         else:
             if not self.menu.go_back:
-                if self.menu.position[1]<pn(1200):
+                if self.menu.position[1]<p(1200):
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
                     self.STEP = self.close_bar ## Change the STEP
             else:
-                if self.menu.position[1]>pn(-600):
+                if self.menu.position[1]>p(-600):
                     self.menu.action = 'close'
                 else:
                     self.action = 'open'
@@ -157,10 +150,10 @@ class MenuScreen():
             self.menu.credits.update_all()
 
     def close_bar(self,surface, call_bar = 'right'):
-        width = pn(1440)
-        if (pn(-800) < self.bar_position <pn(10)) or (width-self.bar_size[0] < self.bar_position < width +1):
+        width = p(1440)
+        if (p(-800) < self.bar_position <p(10)) or (width-self.bar_size[0] < self.bar_position < width +1):
             self.bar_position -= round(self.speed)
-            self.speed += 1*scale
+            self.speed += p(1,r=False)
         else:
             ####### STEP #######
             if call_bar:
@@ -177,15 +170,15 @@ class MenuScreen():
 
 
 class Menu():
-    selection_canvas = obj_images.image(title_screen_D+'selection_canvas/0.png')
+    selection_canvas = utils.img.image(os.path.join(directory.title_screen,'selection_canvas','0.png'))
     def __init__(self,screen,position= [360,200]):
         print "Creating main menu"
-        position = [round(position[0]*scale),round(position[1]*scale)]
+        position = p([position[0],position[1]])
         self.universe       = screen.universe
         self.screen         = screen
-        self.speed          = 2*scale
+        self.speed          = p(2,r =False)
         self.goal_pos       = position
-        self.position= [position[0],pn(-600)]
+        self.position= [position[0],p(-600)]
         self.background     = self.selection_canvas
         self.size           = self.background.get_size()
         self.action         = None
@@ -209,14 +202,14 @@ class Menu():
         self.back_background = None
         self.action = 'open'
         if not self.go_back:
-            self.position[1] = pn(-600)
+            self.position[1] = p(-600)
         else:
-            self.position    = [pn(450),pn(1000)]
+            self.position    = [p(450),p(1000)]
         opt = ((t('New Game'),100,self.new_game),(t('Load Game'),180,self.load_game),(t('Play Story'),260,self.play_story),(t('Credits'),340,self.play_credits))
         self.options = [ widget.Button(i[0], (300,i[1]), self, i[2], font_size=40,color = (255,84,84)) for i in opt]
         self.texts =   [ widget.GameText(t('select one'),(65,250),self, rotate=90,color = (58,56,0))]
-        self.buttons = [ widget.Button(title_screen_D+'arrow_right/',(410,450),self,self.NOTSETYET),
-                         widget.Button(title_screen_D+'arrow_right/',(200,450),self,self.NOTSETYET, invert = True)]
+        self.buttons = [ widget.Button(directory.arrow_right,(410,450),self,self.NOTSETYET),
+                         widget.Button(directory.arrow_right,(200,450),self,self.NOTSETYET, invert = True)]
 
     def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
         self.story          = None
@@ -224,15 +217,15 @@ class Menu():
         self.screen.story_frames = []
         self.background     = self.selection_canvas
         if background:
-            self.back_background    = obj_images.image(background)
+            self.back_background    = utils.img.image(background)
         self.action         = action
         self.speed          = 0
         if not self.go_back:
             print "Going Forward"
-            self.position = [pn(450),pn(-600)]
+            self.position = p([450,-600])
         else:
             print "Going Back"
-            self.position = [pn(450),pn(1000)]
+            self.position = p([450,1000])
         self.options        = options
         self.texts          = texts
         self.buttons        = buttons
@@ -243,27 +236,27 @@ class Menu():
         self.print_princess = True
         txt=[(t('Choose your'),[-200,200]),(t('appearence...'),[-200,250]),(t('skin tone'),[250,420]),(t('previous'),[250,90]),(t('next'),[250,520])]
         self.reset_menu(
-            background  = main_dir+'/data/images/story/svg_bedroom.png',
+            background  = os.path.join(directory.story,'svg_bedroom.png'),
             action      = 'open',
             texts = [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
-            buttons     =  [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
-                    (["arrow_right/",(380,430),self.change_princess,[(1,'skin')],False],
-                     ["arrow_right/",(120,430),self.change_princess,[(-1,'skin')],True],
-                     ["arrow_up/"   ,(250,-5),self.back_to_main,None,False],
-                     ["arrow_down/"  ,(250,620),self.to_select_hair,None,False])]
+            buttons = [widget.Button(os.path.join(directory.title_screen,i[0]),i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+                    (["arrow_right",(380,430),self.change_princess,[(1,'skin')],False],
+                     ["arrow_right",(120,430),self.change_princess,[(-1,'skin')],True],
+                     ["arrow_up"   ,(250,-5),self.back_to_main,None,False],
+                     ["arrow_down"  ,(250,620),self.to_select_hair,None,False])]
                     )
 
     def select_hair(self):
         txt = [(t('Choose your'), (-200,200)), (t('appearence...'),(-200,250)), (t('hair style'),(250,420)), (t('previous'),(250,90)), (t('next'),(250,520))]
         self.print_princess = True
         self.reset_menu(
-                action  = 'open',
-                texts   =  [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
-                buttons = [widget.Button(title_screen_D+i[0],i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
-                        (['arrow_right/',(380,430),self.change_princess,[(1,'hair')],False],
-                         ['arrow_right/',(120,430),self.change_princess,[(-1,'hair')],True],
-                         ['arrow_up/'   ,(250,-5),self.back_to_select_princess,None,False],
-                         ['arrow_down/' ,(250,620),self.to_name_your_princess,None,False])])
+          action  = 'open',
+          texts   =  [widget.GameText(t(i[0]),i[1],self,color = (58,56,0)) for i in txt],
+          buttons = [widget.Button(os.path.join(directory.title_screen,i[0]),i[1],self,i[2], parameter = i[3], invert = i[4]) for i in
+                  (['arrow_right',(380,430),self.change_princess,[(1,'hair')],False],
+                   ['arrow_right',(120,430),self.change_princess,[(-1,'hair')],True],
+                   ['arrow_up'   ,(250,-5),self.back_to_select_princess,None,False],
+                   ['arrow_down' ,(250,620),self.to_name_your_princess,None,False])])
 
 
     def name_your_princess(self):
@@ -279,9 +272,9 @@ class Menu():
                     widget.Key(t('random   ???'), (360,400)  ,self, 'Random')
            ])
 
-        buttom_list = [widget.Button(title_screen_D+i[0],i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
-                         ['button_ok/',   (250,620), self.start_game,    None,False],
-                         ['arrow_up/'   ,(250,-5),self.back_to_select_hair,None,False],
+        buttom_list = [widget.Button(os.path.join(directory.title_screen,i[0]),i[1],self,i[2],parameter=i[3],invert=i[4]) for i in (
+                         ['button_ok',   (250,620), self.start_game,    None,False],
+                         ['arrow_up'   ,(250,-5),self.back_to_select_hair,None,False],
                         )]
         if name_taken:
             txts = [    widget.GameText(t('Sorry, This name is taken.'),(-100,-150),self,color = (58,56,0)),
@@ -320,28 +313,28 @@ class Menu():
                 self.princess.name.text += ' '
             if keyboard == 'backspace':
                 self.princess.name.text = self.princess.name.text[:-1]
-
+        accel = p(2,r=False)
         if self.action == 'open':
             if self.position[1] != self.goal_pos[1]:
                 #Breaks
-                if self.goal_pos[1]+(pn(70)) > self.position[1] > self.goal_pos[1]-pn(70):
+                if self.goal_pos[1]+(p(70,r=False)) > self.position[1] > self.goal_pos[1]-p(70,r=False):
                     if self.speed > 0:
                         self.speed -= self.speed*.25
                     elif self.speed < 0:
                         self.speed += -self.speed*.25
                 elif self.position[1] < self.goal_pos[1]:
-                    if self.position[1] < self.goal_pos[1] - 50*scale:
-                        self.speed+=2*scale
+                    if self.position[1] < self.goal_pos[1] - p(50,r=False):
+                        self.speed+=accel
                 else:
-                    if self.position[1] > self.goal_pos[1] + 50*scale:
-                        self.speed-=2*scale
+                    if self.position[1] > self.goal_pos[1] + p(50,r=False):
+                        self.speed-=accel
         elif self.action == 'close':
             if not self.go_back:
-                if self.speed < 85*scale:
-                    self.speed += 2*scale
+                if self.speed < p(85,r=False):
+                    self.speed += accel
             else:
-                if self.speed > -85*scale:
-                    self.speed -= 2*scale
+                if self.speed > -p(85,r=False):
+                    self.speed -= accel
         self.universe.screen_surface.blit(self.game_mouse.image,self.game_mouse.pos)
 
     ### Buttons functions ###
@@ -413,11 +406,11 @@ class Menu():
 
     def create_files(self,):
         print "Starting a New Save"
-        new_dir = saves_dir+'/'+self.princess.name.text
+        new_dir = os.path.join(directory.saves,self.princess.name.text)
         os.mkdir(new_dir)
         print "Directory Created"
         db.create_save_db(
-                new_dir+'/'+self.princess.name.text+'.db',
+                os.path.join(new_dir,self.princess.name.text+'.db'),
                 name = self.princess.name.text,
                 hairback = self.princess.hairs_back[self.princess.numbers['hair']],
                 skin = self.princess.skins[self.princess.numbers['skin']],
@@ -452,15 +445,15 @@ class Menu():
         self.screen.bar = self.screen.bar_right
         saved_games = []
         print "searching for saved games"
-        for i in os.listdir(saves_dir):
+        for i in os.listdir(directory.saves):
             try:
-                D = saves_dir+'/'+i+'/'
+                D = os.path.join(directory.saves,i)
                 files = os.listdir(D)
                 if 'thumbnail.PNG' in files:
-                    saved_games.extend([{'name':i, 'file': saves_dir+'/'+i+'/'+i+'.db'}])
+                    saved_games.extend([{'name':i, 'file': os.path.join(directory.saves,i,i+'.db')}])
                     print "Saved game found: "+ i
                 else:
-                    print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ saves_dir+'/'+i)
+                    print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i)
                     for f in files:
                         file_to_remove = D+f
                         print "Removing "+file_to_remove
@@ -470,7 +463,7 @@ class Menu():
             except:
                 pass
         print "done."
-        self.back_background = obj_images.image(main_dir+'/data/images/story/svg_bedroom.png')
+        self.back_background = utils.img.image(os.path.join(directory.story,'svg_bedroom.png'))
         white_mask           = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
         white_mask.fill((255,255,255,150))
         self.back_background.blit(white_mask,(0,0))
@@ -479,30 +472,30 @@ class Menu():
         self.speed      = 0
         self.position = p([100,-600])
         self.options    = [widget.Button(t('Or go back to Main Menu'), (245,500),self,self.back_to_main,font_size=40,color = (58,56,0))]
-        self.texts =    [widget.GameText(t('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
-                         widget.GameText(t('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
+        self.texts =      [widget.GameText(t('Have you already saved a game?'),(250,-150),self,color = (58,56,0)),
+                           widget.GameText(t('Then choose your saved princess:'),(250,-100),self,color = (58,56,0))]
         ypos = 0
         xpos = 0
         self.buttons = []
         for i in saved_games:
-            print saves_dir+'/'+i['name']+'/'
-            self.buttons.extend([widget.Button(saves_dir+'/'+i['name']+'/',(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
+            print directory.saves+'/'+i['name']+'/'
+            self.buttons.extend([widget.Button(os.path.join(directory.saves,i['name']),(xpos,ypos),self, self.start_game,color = (58,56,0), parameter=([i['file']]))])
             self.options.extend([
-                                 widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
-                                 widget.Button(t('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
+              widget.Button(i['name'],  (xpos+100,ypos), self,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
+              widget.Button(t('erase'), (xpos+300,ypos) ,self,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
                                 ])
-            ypos+=round(self.buttons[0].size[1]/scale)
+            ypos += d(self.buttons[0].size[1])
             if ypos > 450:
                 ypos = 0
                 xpos += 400
 
     def watching_story(self):
         print "Let's watch the story"
-        title_dir = main_dir+'/data/images/interface/title_screen/'
+        title_dir = directory.title_screen
         self.screen.bar = self.screen.bar_right
         self.story = Story_Frame(self)
         print "Loading story background"
-        self.back_background = obj_images.image(main_dir+'/data/images/story/background/background.png')
+        #self.back_background = utils.img.image(main_dir+'/data/images/story/background/background.png')
         self.action     = 'open'
         self.speed      = 0
         self.position = p([450,-600])
@@ -512,12 +505,12 @@ class Menu():
         self.texts =   self.story.texts
 
     def remove_save_directory(self, save_name):
-        for root, dirs, files in os.walk(saves_dir+'/'+save_name+'/', topdown=False):
+        for root, dirs, files in os.walk(os.path.join(directory.saves,save_name), topdown=False):
             for name in files:
                 os.remove(os.path.join(root, name))
             for name in dirs:
                 os.rmdir(os.path.join(root, name))
-        os.rmdir(saves_dir+'/'+save_name+'/')
+        os.rmdir(os.path.join(directory.saves,save_name))
         self.select_saved_game()
 
     def NOTSETYET(self):
@@ -526,33 +519,33 @@ class Menu():
 
 class MenuPrincess():
     def __init__(self,menu,thumbnail=None):
-        dir = main_dir+'/data/images/princess/'
+        dir = directory.princess
         self.menu = menu
         if not thumbnail:
             self.skins = ('skin_pink','skin_black','skin_tan')
             self.arms  = ('arm_pink','arm_black','arm_tan')
             self.hairs = ('hair_yellow', 'hair_short', 'hair_brown', 'hair_rastafari', 'hair_red')
             self.hairs_back= (None, None, 'hair_brown_back', 'hair_rastafari_back','hair_red_back')
-            self.skin = [obj_images.image(dir+i+'/stay/0.png') for i in self.skins]
-            self.arm  = [obj_images.image(dir+i+'/stay/0.png') for i in self.arms]
-            self.hair = [obj_images.image(dir+i+'/stay/0.png') for i in self.hairs]
+            self.skin = [utils.img.image(os.path.join(dir,i,'stay','0.png')) for i in self.skins]
+            self.arm  = [utils.img.image(os.path.join(dir,i,'stay','0.png')) for i in self.arms]
+            self.hair = [utils.img.image(os.path.join(dir,i,'stay','0.png')) for i in self.hairs]
             self.hairback = [None,
                              None,
-                             obj_images.image(dir+self.hairs_back[2]+'/stay/0.png'),
-                             obj_images.image(dir+self.hairs_back[3]+'/stay/0.png'),
-                             obj_images.image(dir+self.hairs_back[4]+'/stay/0.png')]
+                             utils.img.image(os.path.join(dir,self.hairs_back[2],'stay','0.png')),
+                             utils.img.image(os.path.join(dir,self.hairs_back[3],'stay','0.png')),
+                             utils.img.image(os.path.join(dir,self.hairs_back[4],'stay','0.png'))]
             self.numbers = {'skin':1,'hair':1}
             self.images = [ self.hairback[self.numbers['hair']],
                             self.skin[self.numbers['skin']],
-                            obj_images.image(dir+'face_simple/stay/0.png'),
+                            utils.img.image(os.path.join(dir,'face_simple','stay','0.png')),
                             self.hair[self.numbers['hair']],
-                            obj_images.image(dir+'shoes_slipper/stay/0.png'),
-                            obj_images.image(dir+'dress_plain/stay/0.png'),
+                            utils.img.image(os.path.join(dir,'shoes_slipper','stay','0.png')),
+                            utils.img.image(os.path.join(dir,'dress_plain','stay','0.png')),
                             self.arm[self.numbers['skin']]
                             ]
             self.size = self.skin[0].get_size()
         else:
-            self.images = obj_images.image(thumbnail)
+            self.images = utils.img.image(thumbnail)
         self.goal_pos = p((250,250))
         self.name = widget.GameText('maddeline',(170,120),self.menu,var = True,color = (58,56,0))
         self.pos = [self.menu.position[0]+self.goal_pos[0]-(self.size[0]/2),
@@ -569,14 +562,13 @@ class MenuPrincess():
 
 class Story_Frame():
     def __init__(self, menu):
-        directory = main_dir+'/data/images/story/frames/'
         self.menu = menu
-        image_frames = sorted(os.listdir(directory))
-        sound_frames = sorted(os.listdir(main_dir+'/data/sounds/story/frames/'))
+        image_frames = sorted(os.listdir(directory.story_frames))
+        sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'story','frames')))
         self.channel = pygame.mixer.Channel(0)
-        self.available_images   = [obj_images.image(directory+i) for i in image_frames]
-        self.available_sounds   = [pygame.mixer.Sound(main_dir+'/data/sounds/story/frames/'+i) for i in sound_frames]
-        self.flip_sound = pygame.mixer.Sound(main_dir+'/data/sounds/story/sflip.ogg')
+        self.available_images   = [utils.img.image(directory+i) for i in image_frames]
+        self.available_sounds   = [pygame.mixer.Sound(os.path.join(directory.sounds,'story','frames',+i)) for i in sound_frames]
+        self.flip_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'story','sflip.ogg'))
         self.frame_number   = 0
         self.texts =    [widget.GameText(t('Use the arrows to go'),(220,150),self.menu,font_size = 25,color = (58,56,0)),
                          widget.GameText(t('forward and backward'),(220,200),self.menu,font_size = 25,color = (58,56,0))]
@@ -607,29 +599,29 @@ class Story_Frame():
         if self.frame_number == 0:
             self.menu.screen.bar_side = 'right'
             self.menu.texts = self.texts
-            self.menu.background = obj_images.image(title_screen_D+'selection_canvas/0.png')
+            self.menu.background = utils.img.image(os.path.join(directory.title_screen+'selection_canvas','0.png'))
         if self.frame_number == -1:
             self.menu.back_to_main()
 
 
 class Credits():
     def __init__(self,menu):
-        self.background = obj_images.image(main_dir+'/data/images/credits/fundo.png')
+        self.background = utils.img.image(os.path.join(directory.credits,'fundo.png'))
         self.menu       = menu
         self.pos        = p((0,100))
         developers = [
-                ('isac',     main_dir+'/data/images/credits/isacvale.png'   ,(433,840)),
-                ('ndvo',     main_dir+'/data/images/credits/ndvo.png'       ,(265,631)),
-                ('raquel',   main_dir+'/data/images/credits/raquel.png'     ,(986,631)),
-                ('sergio',   main_dir+'/data/images/credits/sergio.png'     ,(810,840))
+                ('isac',    os.path.join(directory.credits,'isacvale.png')   ,(433,840)),
+                ('ndvo',    os.path.join(directory.credits,'ndvo.png'    )   ,(265,631)),
+                ('raquel',  os.path.join(directory.credits,'raquel.png'  )   ,(986,631)),
+                ('sergio',  os.path.join(directory.credits,'sergio.png'  )   ,(810,840))
                             ]
         rendered_texts      = [
-                ('cilda & sara',  main_dir+'/data/images/credits/text_cilda_e_sara.png'   ,(590,462)),
-                ('isac & sergio', main_dir+'/data/images/credits/text_isac_e_sergio.png'  ,(614,950)),
-                ('ndvo',        main_dir+'/data/images/credits/text_ndvo.png'           ,(415,790)),
-                ('ndvo & isac',   main_dir+'/data/images/credits/text_ndvo_e_isac.png'    ,(601,1200)),
-                ('ocastudios',  main_dir+'/data/images/credits/text_ocastudios.png'     ,(514,1251)),
-                ('raquel',      main_dir+'/data/images/credits/text_raquel.png'         ,(841,790))
+                ('cilda & sara',    os.path.join(directory.credits,'text_cilda_e_sara.png' )  ,(590,462)),
+                ('isac & sergio',   os.path.join(directory.credits,'text_isac_e_sergio.png')  ,(614,950)),
+                ('ndvo',            os.path.join(directory.credits,'text_ndvo.png'         )  ,(415,790)),
+                ('ndvo & isac',     os.path.join(directory.credits,'text_ndvo_e_isac.png'  )  ,(601,1200)),
+                ('ocastudios',      os.path.join(directory.credits,'text_ocastudios.png'   )  ,(514,1251)),
+                ('raquel',          os.path.join(directory.credits,'text_raquel.png'       )  ,(841,790))
                             ]
         texts_chopin = [
             (t('in loving memory of')  ,(713,436),44,(0,0,0,255)),
@@ -658,7 +650,7 @@ class Credits():
             (t('waltz wedley'),         (972,2100),44,(128,0,0,255))
            ]
         texts_gentesque = [
-            (t('All python & pygame code, written in gedit (really!).'),(501,841),16,(180,60)),
+            (t('All python & pygame code, written in gedit.'),(501,841),16,(180,60)),
             (t('Bureaucracy and et ceteras'),(909,837),16,(110,60)),
             (t('Almost all Inkscape, with a touch of Blender and Gimp.'), (704,1027),16,(200,60)),
             (t('based on the homonimous board game by'),(699,1179),22,None),
@@ -710,14 +702,14 @@ class Credits():
                        widget.GameText(i[0],i[1],self,fonte='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
         for i in self.images:
             print i
-            self.background.blit(obj_images.image(i[1]),p(i[2]))
+            self.background.blit(utils.img.image(i[1]),p(i[2]))
         for i in self.texts:
             self.background.blit(i.image,i.pos)
 
 
     def update_all(self):
-        if self.pos[1] > -pn(3020):
-            self.pos[1]-=(1*scale)
+        if self.pos[1] > -p(3020):
+            self.pos[1]-=p(1,r=False)
         else:
-            self.pos[1] = pn(1000)
+            self.pos[1] = p(1000)
             self.menu.credits = None

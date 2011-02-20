@@ -1,18 +1,22 @@
 import pygame
-import utils.obj_images as obj_images
+import os
 import random
+import itertools
+
+import utils
 import interface.widget as widget
 import utils.save as save
-from settings import *
-from itertools import *
-
+import settings
+from settings import directory
+from settings import scale
+from settings import t
+from settings import p
+from settings import d
 
 delay = 150
-def p(positions):
-    return [int(round(i*scale)) for i in positions ]
+
 
 class Ball():
-    directory = main_dir+'/data/images/interface/ball/'
     def __init__(self, level, universe, princess):
         self.level      = level
         self.level.changing_stages_darkenning()
@@ -26,8 +30,6 @@ class Ball():
         self.position = 0,0
         self.universe   = universe
         self.boyfriend  = None
-        cursor = level.universe.db_cursor
-        universe.db.commit()
         self.level.loading()
         self.texts      = []
         self.texts+= [StarBall()]
@@ -36,17 +38,17 @@ class Ball():
         self.level.loading()
         self.background      = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
         self.level.loading()
-        for file in (self.directory+'base.png',self.directory+'back-bubbles.png'):
-            self.background.blit(obj_images.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
+        for file in (os.path.join(directory.ball,'base.png'),os.path.join(directory.ball,'back-bubbles.png')):
+            self.background.blit(utils.img.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
             self.level.loading()
         self.princess   = princess
         self.Bar        = VerticalBar(self)
         self.level.loading()
         self.Frame      = BallFrame(self)
         self.level.loading()
-        self.buttons = [widget.Button(main_dir+'/data/images/interface/title_screen/button_ok/',(1050,700), self.level,self.return_to_game)]
+        self.buttons = [widget.Button(directory.button_ok,(1050,700), self.level,self.return_to_game)]
         self.level.loading()
-        pygame.mixer.music.load(main_dir+"/data/sounds/music/strauss_waltz_wedley.ogg")
+        pygame.mixer.music.load(os.path.join(directory.music,"strauss_waltz_wedley.ogg"))
         self.level.loading()
         pygame.mixer.music.play()
         self.level.loading()
@@ -74,7 +76,6 @@ class Ball():
         self.level.loading()
 
     def update_all(self):
-#        self.level.game_mouse.update()
         if self.level.black.alpha_value > 0:
             self.level.changing_stages_darkenning(-1)
         self.universe.screen_surface.blit(self.background,(0,0))
@@ -213,7 +214,7 @@ class Ball():
 
         level.universe.db.commit()
         thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-        pygame.image.save(thumbnail,saves_dir+'/'+self.level.princesses[0].name+'/thumbnail.PNG')
+        pygame.image.save(thumbnail,os.path.join(directory.saves,self.level.princesses[0].name,'thumbnail.PNG'))
         self.texts += [
                 #Translators: consider the whole sentence: You've got X glamour points
                 widget.GameText(t("You've"),  (1064,81),  self,font_size = 40),
@@ -235,7 +236,7 @@ class Ball():
 
 class VerticalBar():
     def __init__(self, ball, right_or_left = 'left'):
-        self.image = obj_images.scale_image(pygame.image.load(main_dir+'/data/images/interface/ball/golden-bar.png').convert_alpha())
+        self.image = utils.img.image(os.path.join(directory.ball,'goldenbar.png'))
         if right_or_left == 'right':
             self.image = pygame.transform.flip(self.image, 1,0)
         self.size = self.image.get_size()
@@ -246,11 +247,11 @@ class VerticalBar():
 
     def update_all(self):
         if self.countdown == 0:
-            if self.position[0] < round(90*scale):
+            if self.position[0] < p(90):
                 self.position[0] += self.speed
                 self.speed += 5
             else:
-                self.position[0] = round(90*scale)
+                self.position[0] = p(90)
                 self.ready = True
         else:
             self.countdown -= 1
@@ -258,9 +259,9 @@ class VerticalBar():
 class BallFrame():
     def __init__(self, ball):
         self.image = pygame.Surface(p((677,673)),pygame.SRCALPHA).convert_alpha()
-        background = obj_images.image(main_dir+'/data/images/interface/ball/back-frame.png')
+        background = utils.img.image(os.path.join(directory.ball,'back-frame.png'))
         self.size = self.image.get_size()
-        self.position = [round(30*scale), -self.size[1]]
+        self.position = [p(30), -self.size[1]]
         self.speed = 5
         self.ball = ball
         princesses = [FairyTalePrincess(self, i[0], i[1], i[2], i[3], iconpos= i[5], name = i[4]) for i in (
@@ -286,7 +287,7 @@ class BallFrame():
         for i in princesses:
             self.image.blit(i.image,i.pos)
             if i.symbol:
-                self.image.blit(i.symbol,(i.symbolpos,round(i.pos[1]-round(100*scale) )))
+                self.image.blit(i.symbol,(i.symbolpos,round(i.pos[1]-p(100) )))
         self.set_next_ball_clothes()
         self.ready = False
 
@@ -324,17 +325,16 @@ class FairyTalePrincess():
            """
         skin_body       = 'skin_'+skin
         skin_arm        = 'arm_'+skin
-        princess_directory  = main_dir+'/data/images/princess/'
-        ball_directory      = main_dir+'/data/images/interface/ball/'
         self.frame      = frame
         self.file       = frame.ball.universe.file
-        self.image      = obj_images.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
+        self.image      = utils.img.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
         name_lower = name.lower()
         self.position   = p(position)
         self.symbol = None
+        self.name = name
         if name != "princess_garment":
             if icon:
-                self.symbol     =  obj_images.image(ball_directory+icon)
+                self.symbol     =  utils.img.image(os.path.join(directory.ball,icon))
                 self.symbolpos  = int(round(iconpos*scale  - (float(self.symbol.get_width())/2)))
         sql                 = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-"+str(ball)+" FROM "+name_lower+")"
         self.pos            = [self.position[0],self.position[1]]
@@ -342,21 +342,23 @@ class FairyTalePrincess():
         row    = cursor.execute(sql).fetchone()
         if row:
             if row['hair_back'] > 0:
-                self.image.blit(obj_images.image(princess_directory+row['hair']+"_back/stay/0.png"),(0,0))
+                self.image.blit(utils.img.image(os.path.join(directory.princess,row['hair']+"_back",'stay','0.png')),(0,0))
             for i in  ('skin', 'hair', 'face', 'dress', 'accessory', 'arm', 'shoes'):
                 self.__dict__[i] = row[i]
-                self.image.blit(obj_images.image(princess_directory+row[i]+'/stay/0.png'),(0,0))
+                self.image.blit(utils.img.image(os.path.join(directory.princess,row[i],'stay','0.png')),(0,0))
             self.image = pygame.transform.flip(self.image,1,0)
+        
 
     def update_all(self):
         self.pos        = [self.frame.position[0]+self.position[0],
                            self.frame.position[1]+self.position[1]]
 
 
+
 class StarBall():
     def __init__(self):
-        self.images = obj_images.MultiPart([main_dir+'/data/images/interface/ball/star-score/backlight/',
-                                            main_dir+'/data/images/interface/ball/star-score/star/'
+        self.images = utils.img.MultiPart([os.path.join(directory.ball,'star-score','backlight'),
+                                           os.path.join(directory.ball,'star-score','star')
                                             ],onesided = True)
         self.image = self.images.left[0]
         self.pos = p([1025,-50])
@@ -398,8 +400,7 @@ class BoyFriend():
             self.name = t('Emperor Awesome')
         print "The heart of "+boyfriend+" is yours!"
         self.hard_name = boyfriend
-        self.image= obj_images.image(main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/0.png')
-#        self.name = boyfriend.replace("_"," ").title()
+        self.image= utils.img.image(os.path.join(directory.boyfriends,boyfriend,'0.png'))
         self.pos = p([1000,298])
 
     def update_all(self):
@@ -408,8 +409,6 @@ class BoyFriend():
 
 class BigPrincess():
     def __init__(self, ball):
-        princess_directory  = main_dir+'/data/images/princess/'
-        ball_directory      = main_dir+'/data/images/interface/ball/'
         big_image      = pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha()
         self.pos        = p([ 670,398])
         cursor = ball.universe.db_cursor
@@ -418,12 +417,12 @@ class BigPrincess():
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
             self.__dict__[part] = row[part]
             if row[part] and row[part]!="None":
-                img = pygame.image.load(princess_directory+row[part]+"/big.png").convert_alpha()
+                img = pygame.image.load(os.path.join(directory.princess,row[part],"big.png")).convert_alpha()
                 big_image.blit(img, (0,0))
         dirt     = int(cursor.execute("SELECT * FROM save").fetchone()['dirt'])
         if dirt >0:
-            big_image.blit(pygame.image.load(princess_directory+"dirt"+str(dirt)+"/big.png").convert_alpha(),(0,0))
-        self.image = obj_images.scale_image(big_image,invert=True)
+            big_image.blit(pygame.image.load(os.path.join(directory.princess,"dirt"+str(dirt),"big.png")).convert_alpha(),(0,0))
+        self.image = utils.img.scale_image(big_image,invert=True)
 
     def update_all(self):
         pass
@@ -432,7 +431,7 @@ class BigPrincess():
 
 class Dancer():
     def __init__(self, position):
-        self.images = obj_images.There_and_back_again(main_dir+'/data/images/interface/ball/dancers/', exclude_border = True)
+        self.images = utils.img.There_and_back_again(directory.dancers, exclude_border = True)
         self.image  = self.images.list[self.images.itnumber.next()]
         self.position = position
         self.images.number = random.randint(0,20)
@@ -446,8 +445,8 @@ class Dancer():
         self.images.update_number()
 
 class NewDancer():
-    square = ((400*scale,800*scale),(100*scale,500*scale))
-    steps = cycle(['a','b','c','d'])
+    square = (p([400,800],r=False),p([100,500],r=False))
+    steps = itertools.cycle(['a','b','c','d'])
     boyfriend_list = ["gentleman_decent", 
                   "knight_reliable", 
                   "baron_serious", 
@@ -456,7 +455,7 @@ class NewDancer():
                   "duke_intelligent"]
     
     def __init__(self,level, big_princess= None, boyfriend = None):
-        princess_directory  = main_dir+'/data/images/princess/'
+        princess_directory  = directory.princess
         if big_princess.__class__ == BigPrincess:
             self.player = True
         else:
@@ -467,18 +466,18 @@ class NewDancer():
             self.boyfriend_list.remove(boyfriend)
         except:
             print Exception
-        ordered_directory_list = [main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/dance/body/']
+        ordered_directory_list = [os.path.join(directory.boyfriends,boyfriend,'dance','body')]
         for i in ('skin','dress','hair','accessory'):
             part = None
             if not big_princess.__dict__[i] in ('dress_pink', 'dress_plain', 'accessory_purse'):
                     part = big_princess.__dict__[i]
             if part:
-                ordered_directory_list.append(princess_directory+big_princess.__dict__[i]+'/dance/')
-        ordered_directory_list.append(main_dir+'/data/images/interface/ball/boyfriends/'+boyfriend+'/dance/head/')
-        self.images    = obj_images.MultiPart(ordered_directory_list, loading = level.loading)
+                ordered_directory_list.append(os.path.join(directory.princess,big_princess.__dict__[i],'dance'))
+        ordered_directory_list.append(os.path.join(directory.boyfriends,boyfriend,'dance','head'))
+        self.images    = utils.img.MultiPart(ordered_directory_list, loading = level.loading)
         self.image  = self.images.left[self.images.number]
         self.images.number = random.randint(0,20)
-        self.speed = 5*scale
+        self.speed = p(5,r=False)
 
         self.my_step = self.steps.next()
         if not self.player:
@@ -501,7 +500,7 @@ class NewDancer():
             a = -0.0035; b = 0; c = 140
             if self.my_step == 'a':
                 self.position[0]+= self.speed
-                x = (self.position[0]/scale) - (self.square[0][0]/scale) - 200
+                x = d(self.position[0]) - d(self.square[0][0]) - 200
                 arc = (a*(x*x))+(b*x)+c 
                 self.position[1] = self.square[1][1]+(arc*scale)
                 if self.position[0] >= self.square[0][1]:

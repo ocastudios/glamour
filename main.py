@@ -2,8 +2,14 @@
 # -*- coding: utf-8 -*-
 
 print "Starting Game"
-from settings.getscreen import *
-from pygame.locals import *
+import settings
+from settings import splash
+settings.welcome()
+settings.splash.splash_image()
+settings.initialize_mixer()
+import pygame
+pygame.init()
+
 import interface.menu
 import interactive.universe as universe
 import interface.menu as menu
@@ -13,7 +19,6 @@ import sqlite3
 
 
 universe = universe.Universe()
-del splash_surface, splash, os_screen
 gamemenu = menu.MenuScreen(universe)
 
 while True:

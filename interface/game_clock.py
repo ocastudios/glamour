@@ -1,10 +1,13 @@
-import utils.obj_images as obj_images
+import utils
 import pygame
-from settings import *
+import os
+import settings
+from settings import directory
+from settings import p
 
 class GameClock():
     def __init__(self,level):
-        self.image = obj_images.image(main_dir+'/data/images/interface/clock/page_border.png')
+        self.image = utils.img.image(os.path.join(directory.interface,'clock','page_border.png'))
         self.pos   =((level.universe.width-self.image.get_width()),0)
     def update_all(self):
         pass
@@ -14,7 +17,7 @@ class ClockPointer():
     def __init__(self,level):
         self.level          = level
         self.rotate_list    = [float(i)/10 for i in range(-900,5,5)]
-        self.clock_pointer_basic= obj_images.image(main_dir+'/data/images/interface/clock/clock_pointer.png')
+        self.clock_pointer_basic= utils.img.image(os.path.join(directory.interface,'clock','clock_pointer.png'))
         self.clock_pointer      = []
         self.count              = 0
         self.tick               = 0

@@ -1,14 +1,16 @@
-import utils.obj_images as obj_images
-from pygame.locals import *
-from settings import *
+import utils
+import pygame
+import settings
+import os
+p = settings.p
 
 class Floor():
     images = None
 
     def __init__(self,index,dir,level,height=0):
-        height = {'all':round((186+height)*scale)}
+        height = {'all':p(186+height)}
         self.level = level
-        self.images = self.images or obj_images.OneSided(dir)
+        self.images = self.images or utils.img.OneSided(dir)
         self.image = self.images.list[self.images.number]
         self.size = self.image.get_size()
         self.center_distance = round((self.size[0])*index)
@@ -24,9 +26,9 @@ class Floor():
 
 
 class Water(Floor):
-    height = round(101*scale)
-    max    = round(125*scale)
-    min    = round(95*scale)
+    height = p(101)
+    max    = p(125)
+    min    = p(95)
     speed = [2,1]
     direction = 'up'
 
@@ -52,26 +54,26 @@ class Water(Floor):
 
 
 class Water2(Water):
-    height = round(81*scale)
-    max =    round(90*scale)
-    min =    round(80*scale)
+    height = p(81)
+    max =    p(90)
+    min =    p(80)
     direction = 'up'
     speed = [6,1]
 
 class Bridge():
-    def __init__(self,directory,index,level,main=True):
-        if main:            self.images = obj_images.OneSided(directory+'main/')
-        else:               self.images = obj_images.OneSided(directory) 
+    def __init__(self,dir,index,level,main=True):
+        if main:            self.images = utils.img.OneSided(os.path.join(dir,'main'))
+        else:               self.images = utils.img.OneSided(dir) 
 
         if main:
-            self.left_bank = Bridge(str(directory)+'left_bank/',index-1,level,main = False)
-            self.right_bank= Bridge(str(directory)+'right_bank/',index+1,level,main = False)
+            self.left_bank = Bridge(os.path.join(str(dir),'left_bank'),index-1,level,main = False)
+            self.right_bank= Bridge(os.path.join(str(dir),'right_bank'),index+1,level,main = False)
 
         self.image_number = 0
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-        width = round(400*scale)
+        width = p(400)
         if main:            self.center_distance = round((width*index)-width)
         else:               self.center_distance = round(width*index)
 
@@ -90,13 +92,13 @@ class Bridge():
 
 class Drain():
     def __init__(self,directory,index,level):
-        self.images = obj_images.OneSided(directory) 
+        self.images = utils.img.OneSided(directory) 
         self.image_number = 0
         self.image = self.images.list[0]
         self.size = self.image.get_size()
         self.level = level
-        self.center_distance = round(scale*400)*index
-        self.pos = [self.level.universe.center_x+(self.center_distance),int(round(scale*900))-self.size[1]]
+        self.center_distance = p(400)*index
+        self.pos = [self.level.universe.center_x+(self.center_distance),int(p(900))-self.size[1]]
         level.floor_image[index]= self
 
     def update_all(self):

@@ -1,12 +1,13 @@
-import utils.obj_images as obj_images
-import settings.directory as directory
+import utils
 import os
 import random
 import interactive.enemy as enemy
 import pygame
 import sqlite3
-from pygame.locals import *
-from settings import *
+import settings
+from settings import directory
+p = settings.p
+
 
 class Princess():
     """Creates the princess.
@@ -22,16 +23,16 @@ class Princess():
         self.first_frame = True
         self.level = level
         self.effects    = []
-        self.size       = (2,180*scale)
+        self.size       = (2,p(180))
         print "    connecting to princess database"
         self.save_db     = level.universe.db
         self.save_cursor = level.universe.db_cursor
         print "    retrieving data"
         row     = self.save_cursor.execute("SELECT * FROM save").fetchone()
         self.name = row['name']
-        self.center_distance = int(int(row['center_distance'])*scale)
+        self.center_distance = p(row['center_distance'])
         if xpos:
-            self.center_distance = int(xpos*scale)
+            self.center_distance = p(xpos)
         self.dirt            = int(row['dirt'])
         self.points          = int(row['points'])
         self.pos = [int(self.level.universe.center_x) + self.center_distance,
@@ -39,18 +40,18 @@ class Princess():
         print "    creating images:"
         print "        princess images"
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
-            self.__dict__[act+"_img"] = obj_images.MultiPart(self.ordered_directory_list(act))
-        self.run_away_img = obj_images.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
+            self.__dict__[act+"_img"] = utils.img.MultiPart(self.ordered_directory_list(act))
+        self.run_away_img = utils.img.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
         print "        dirt images"
         self.dirties = [Dirt(level,directory.princess+'/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
         self.images = None
         self.open_door_img  = self.stay_img
         print "        kisses and dust images"
-        self.lips           = obj_images.TwoSided(directory.kiss)
-        self.dirt_cloud     = obj_images.TwoSided(directory.dirt)
-        self.gravity        = {'force':0, 'accel':round(3*scale)}
-        self.speed          = round(14*scale)
-        self.rect           = Rect(self.pos,self.size)
+        self.lips           = utils.img.TwoSided(directory.kiss)
+        self.dirt_cloud     = utils.img.TwoSided(directory.dirt)
+        self.gravity        = {'force':0, 'accel':p(3)}
+        self.speed          = p(14)
+        self.rect           = pygame.Rect(self.pos,self.size)
         self.direction      = 'right'
         self.status      = {"hurt":0,"excited":0,"scared":0,'move':False}
         self.jump           = 0
@@ -58,16 +59,17 @@ class Princess():
         self.kiss_direction = 'right'
         self.kiss_rect      = ((0,0),(0,0))
         self.floor          = self.level.universe.floor - self.level.what_is_my_height(self)
-        self.last_height    = round(186*scale)
+        self.last_height    = p(186)
         self.action         = [None,'stay']
         self.image          = self.stay_img.right[self.stay_img.itnumber.next()]
         self.image_size     = self.image.get_size()
         self.inside         = INSIDE
         print "    creating sounds"
         print "        steps sounds"
-        self.steps = [pygame.mixer.Sound(main_dir+'/data/sounds/princess/steps/spike_heel/street/'+str(i)+'.ogg') for i in range(0,5)]
+        self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
         print "        jump sounds"
-        self.jumpsound      = pygame.mixer.Sound(main_dir+'/data/sounds/princess/pulo.ogg')
+        self.jumpsound      = pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
+        self.kisssound      = pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
         self.channel1       = pygame.mixer.Channel(0)
         self.channel2       = pygame.mixer.Channel(1)
         self.channel3       = pygame.mixer.Channel(2)
@@ -83,7 +85,7 @@ class Princess():
         for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
             if row[part] != 'None':
                 name = part.replace('_','')
-                odl.extend([str(self.directory+row[part]+"/"+action+"/")])
+                odl.extend([os.path.join(self.directory,row[part],action)])
         return odl
 
     def update_all(self):
@@ -129,7 +131,7 @@ class Princess():
                 self.channel3.play(self.jumpsound)
                 self.images.number = 0
         if self.jump > 0 and self.jump <20:
-            self.pos[1] -= round(30*scale)
+            self.pos[1] -= p(30)
             if self.jump > 5:
                 if self.images.lenght-1 > self.images.number:
                     self.images.number += 1
@@ -159,7 +161,7 @@ class Princess():
                             self.speed = 0
                             self.action[1]= "stay"
                         else:
-                            self.speed = round(14*scale)
+                            self.speed = p(14)
                     if e.__class__ == enemy.Butterfly:
                         if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
                             print "Princess got excited by the Butterflies"
@@ -168,7 +170,7 @@ class Princess():
                     if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
                         self.get_dirty()
                 if self.level.name == "accessory":
-                    if self.pos[1]+self.size[1]-round(20*scale) > self.level.water_level:
+                    if self.pos[1]+self.size[1]-p(20) > self.level.water_level:
                         print "Princess feet are at "+str(self.pos[1]+self.size[1])
                         print "Water level is "+str(self.level.water_level)
                         self.get_dirty()
@@ -206,6 +208,7 @@ class Princess():
             self.kiss +=1
             if self.kiss == 1:
                 self.kiss_img.number = 0
+                self.channel3.play(self.kisssound)
         if self.kiss > 0:
             if self.kiss< 4:
                 self.action[0] = 'kiss'
@@ -215,7 +218,7 @@ class Princess():
                 self.throwkiss()
             else:
                 self.kiss = 0
-                self.kiss_rect = Rect ((0,0),(0,0))
+                self.kiss_rect = pygame.Rect ((0,0),(0,0))
 
     def update_pos(self,action):
 #        last_height = self.level.what_is_my_height(self)
@@ -226,14 +229,14 @@ class Princess():
         if action[1]=='walk' and action[0] != 'celebrate':
             self.center_distance += (self.speed*towards[self.direction])
             obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
-            if obstacle <= int(feet_position -round(30*scale)):
+            if obstacle <= int(feet_position - p(30)):
                 self.center_distance -= (self.speed*towards[self.direction])
         if action[1] == 'run_away':
             if self.center_distance < self.status['danger']:
                 self.direction = 'left'
             else:
                 self.direction = 'right'
-            self.center_distance += ((round(6*scale)+self.speed)*towards[self.direction])
+            self.center_distance += ((p(6)+self.speed)*towards[self.direction])
         self.pos[0] = self.level.universe.center_x+self.center_distance
 
         #set y pos
@@ -268,14 +271,14 @@ class Princess():
         if self.kiss_direction == 'right':
             kissimage = self.lips.right[self.kiss-1]
             self.effects.append(Effect(kissimage,(self.pos[0],self.pos[1])))
-            self.kiss_rect = Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
+            self.kiss_rect = pygame.Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
         else:
             kissimage = self.lips.left[self.kiss-1]
-            self.effects.append(Effect(kissimage,(self.pos[0]-round(200*scale),self.pos[1])))
-            self.kiss_rect = Rect((self.pos[0]+round(200*scale)-((self.kiss)*round(44*scale)),self.pos[1]),((self.kiss)*round(44*scale),self.size[1]))
+            self.effects.append(Effect(kissimage,(self.pos[0]-p(200),self.pos[1])))
+            self.kiss_rect = pygame.Rect((self.pos[0]+p(200)-((self.kiss)*p(44)),self.pos[1]),((self.kiss)*p(44),self.size[1]))
 
     def update_image(self,action,direction):
-        self.rect   = Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
+        self.rect   = pygame.Rect(     (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
                                 self.size)
         chosen = action[0] or action[1]
         if direction.__class__ != str:
@@ -291,7 +294,7 @@ class Princess():
 
     def change_clothes(self,part,dir):
         self.parts.pop(part.index)
-        part = PrincessPart(self,main_dir+'/data/images/princess/'+str(dir),part.index)
+        part = PrincessPart(self,directory.princess+str(dir),part.index)
 
 
 class Dirt():
@@ -300,8 +303,8 @@ class Dirt():
         self.level = level
         self.directory = directory
         for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
-            self.__dict__[act] = obj_images.TwoSided(directory+'/'+act+'/')
-        self.run_away = obj_images.Ad_hoc(self.walk.left[::2],self.walk.right[::2])
+            self.__dict__[act] = utils.img.TwoSided(directory+'/'+act+'/')
+        self.run_away = utils.img.Ad_hoc(self.walk.left[::2],self.walk.right[::2])
         self.open_door = self.stay
         self.list = self.stay
         self.actual_list = self.list.left

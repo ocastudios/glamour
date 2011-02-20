@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
 
 import interactive.princess as princess
 import os
 import datetime
 import pygame
-from settings import *
+import settings
+from settings import scale
+from settings import directory
 
 def save_file(level, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
     print "Saving progress into Database"
@@ -13,10 +14,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     princess = level.princesses[0]
     #avoid errors in case there are no saved files
     try:
-        os.mkdir(saves_dir+'/'+princess.name)
+        os.mkdir(os.path.join(directory.saves,princess.name))
     except:
         pass
-    dir = saves_dir+'/'+princess.name
+    dir = os.path.join(directory.saves,princess.name)
     day = datetime.datetime.today()
 
     if dress == "dress_yellow":
@@ -54,4 +55,4 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
     print "Save Database saved "
 #    if Ball:
 #        backupfile.close()
-    return saves_dir+'/'+princess.name+'/'+princess.name+'.glamour'
+    return os.path.join(directory.saves,princess.name,princess.name+'.glamour')

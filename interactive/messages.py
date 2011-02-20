@@ -75,7 +75,7 @@ t("Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me so
 t("Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"),
 t("%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."),
 t("Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."),
-t("Have you noticed how many different architectural styles we have in this town, %s? Do you thing that maybe those are magic portals that take us to far away places?"),
+t("Have you noticed how many different architectural styles we have in this town, %s? Do you think that maybe those are magic portals that take us to far away places?"),
 t("If we are all princesses, and we live in the same town, shouldn't we all be sisters? Gosh, I wish I was your sister, %s..."),
 t("My father says someday I'll marry a prince that defeated many perils to be with me... well, %s, I say let 'me' go on adventures and let him wait for me to marry him."),
 t("We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"),

@@ -1,14 +1,14 @@
-import utils.obj_images as obj_images
+import utils
 import pygame
 import os
 from pygame.locals import *
 from settings import *
 
 class Sky():
-    night_images = obj_images.OneSided(main_dir+'/data/images/scenario/skies/night2/')
+    night_images = utils.img.OneSided(main_dir+'/data/images/scenario/skies/night2/')
     def __init__(self,level):
         self.level = level
-        self.image = obj_images.image(main_dir+'/data/images/scenario/skies/daytime/daytime.png')
+        self.image = utils.img.image(main_dir+'/data/images/scenario/skies/daytime/daytime.png')
         self.pos = (0,0)
         self.night_image = None
         self.prev = None

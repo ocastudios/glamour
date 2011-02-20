@@ -1,23 +1,22 @@
-import utils.obj_images as obj_images
+import utils
 import pygame
 import os
 import random
-from settings import *
-import settings.getscreen as getscreen
+from settings import directory
+import settings
 
-def p(positions):
-    return [int(round(i*scale)) for i in positions ]
+p = settings.p
+
 class Drape():
-    images= getscreen.prep_images
+    drape_images = utils.img.OneSided(directory.drapes)
+    images = drape_images.list
     def __init__(self):
         size = p((1440,900))
-        directory = main_dir+'/data/images/interface/omni/drapes/drapes/'
         frames = []
         drapes_size = p([720,900])
         speed  = 0
         right_x     = 0
-        left_x      = 645*scale
-        del getscreen.prep_images
+        left_x      = p(645)
         self.image = self.images[0]
         self.action = 'stay'
         self.speed = 0
@@ -38,21 +37,13 @@ class Drape():
 
 class UperDrape():
     def __init__(self):
-#        size = (1540,356)
-#        prep = pygame.Surface(size, pygame.SRCALPHA)
-#        tile = pygame.image.load(main_dir+'/data/images/interface/omni/drapes/upper_drapes/0.png').convert_alpha()
-#        x = 0
-#        for i in range(14):
-#            prep.blit(tile,(x,0))
-#            x += 110
-#        pygame.image.save(prep, main_dir+'/data/images/interface/omni/drapes/upper_drapes/upper.png')
-        self.image = obj_images.image(main_dir+'/data/images/interface/omni/drapes/upper_drapes/upper.png')
+        self.image = utils.img.image(os.path.join(directory.upper_drapes,'upper.png'))
         self.action = 'stay'
         self.y = 0
-        self.size_y = 356*scale
+        self.size_y = p(356)
 
     def update_all(self):
         if self.action == 'open':
-            self.y -= (3*scale)
+            self.y -= p(3)
         if self.y < -self.size_y:
             self.y = -self.size_y

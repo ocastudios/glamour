@@ -4,11 +4,12 @@ import random
 import interface.random_names as random_names
 import os
 import re
-import utils.obj_images as obj_images
+import utils
 from settings import *
 
-
+channel = pygame.mixer.Channel(0)
 class Button():
+    click = pygame.mixer.Sound(main_dir+'/data/sounds/click.ogg')
     def __init__(self,dirtxt,position, level,function,parameter = None,invert = False,fonte='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
         """Creates a clickable button
 
@@ -26,7 +27,7 @@ class Button():
             self.type_of_button = 'text'
 
         if self.type_of_button == 'image':
-            self.images     = obj_images.Buttons(dirtxt,5)
+            self.images     = utils.img.Buttons(dirtxt,5)
             if invert:
                 self.images.list = self.invert_images(self.images.list)
             self.list_of_images = self.images.list
@@ -74,6 +75,7 @@ class Button():
             if self.type_of_button=="text":
                 self.image = self.fontB.render(self.text,1,self.color)
             if self.level.universe.click:
+                channel.play(self.click)
                 if self.parameter:
                     if self.parameter.__class__ in (tuple, list):
                         exec("self.function("+str(self.parameter)[1:-1]+")")
