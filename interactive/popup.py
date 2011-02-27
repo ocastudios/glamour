@@ -22,8 +22,8 @@ class Message():
         pass
 
 class Unlocking_Message():
-    image = utils.img.image(j(directory.fairy_tips,'balloon','0.png'))
     def __init__(self, level,unlocking, font_size = 16):
+        self.image = utils.img.image(j(directory.fairy_tips,'balloon','0.png'))
         self.level      = level
         self.universe   = self.level.universe
         self.size       = self.image.get_size()

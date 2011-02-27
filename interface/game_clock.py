@@ -45,7 +45,7 @@ class ClockPointer():
                 self.image  = self.clock_pointer[self.count]
                 imagesize   = self.image.get_size()
                 self.pos    = (self.level.universe.width-imagesize[0],0)
-                self.count += 1
+                self.count += 10
 
         elif self.tick > self.level.universe.frames_per_second:
             self.tick = 0

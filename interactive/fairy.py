@@ -209,7 +209,7 @@ class Message():
         self.size       = self.image.get_size()
         self.pos        = ((universe.width - self.size[0])/2, universe.height - self.size[1])
         self.text_box   = self.size[0]*.8,self.size[1]*.8
-        self.font_size  = p(16,r=False)
+        self.font_size  = p(14)
         self.text_font  = pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),int(round(self.font_size+(self.font_size/2))))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)

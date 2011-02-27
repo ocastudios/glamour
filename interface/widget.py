@@ -91,7 +91,7 @@ class Button():
 
 
 class GameText():
-    def __init__(self,text,pos,frame,fonte='Domestic_Manners.ttf', font_size=40, color=(58,56,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
+    def __init__(self,text,pos,frame=None,fonte='Domestic_Manners.ttf', font_size=40, color=(58,56,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
         font_size  = int(round(font_size*scale))
         pos = p(pos)
         self.font       = fonte
@@ -122,9 +122,11 @@ class GameText():
                 except:
                     print "the rotate parameter must be a number"
             self.size       = self.image.get_size()
-            self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-                               self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
-
+            if self.frame:
+                self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
+                                   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+            else:
+                self.pos = pos
 
         self.variable_text = var
         self.text_box   = self.size[0]*.8,self.size[1]*.8
@@ -134,8 +136,9 @@ class GameText():
             self.frame_pos = self.frame.position
         except:
             pass
-        self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-                           self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+        if self.frame:
+            self.pos        = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
+                               self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
         if self.variable_text:
             self.image = self.fontA.render(self.text,1,self.color)
 
