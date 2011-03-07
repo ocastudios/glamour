@@ -18,32 +18,29 @@ class Princess():
 	Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change.
 """
 	directory = directory.princess
-	def __init__(self,level,INSIDE = False,xpos=None):
+	def __init__(self,universe,INSIDE = False,xpos=None):
 		print "Creating Princess"
 		self.first_frame = True
-		self.level = level
+		self.universe = universe
 		self.effects	= []
 		self.size	   = (2,p(180))
-		print "	connecting to princess database"
-		self.save_db	 = level.universe.db
-		self.save_cursor = level.universe.db_cursor
 		print "	retrieving data"
-		row	 = self.save_cursor.execute("SELECT * FROM save").fetchone()
+		row	 = self.universe.db_cursor.execute("SELECT * FROM save").fetchone()
 		self.name = row['name']
 		self.center_distance = p(row['center_distance'])
 		if xpos:
 			self.center_distance = p(xpos)
 		self.dirt			= int(row['dirt'])
 		self.points		  = int(row['points'])
-		self.pos = [int(self.level.universe.center_x) + self.center_distance,
-						   self.level.universe.floor -  self.level.what_is_my_height(self) -self.size[1]]
+		self.pos = [int(self.universe.center_x) + self.center_distance,
+						self.universe.floor -  self.universe.level.what_is_my_height(self) -self.size[1]]
 		print "	creating images:"
 		print "		princess images"
 		for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
 			self.__dict__[act+"_img"] = utils.img.MultiPart(self.ordered_directory_list(act))
 		self.run_away_img = utils.img.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
 		print "		dirt images"
-		self.dirties = [Dirt(level,directory.princess+'/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
+		self.dirties = [Dirt(self.universe,directory.princess+'/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
 		self.images = None
 		self.open_door_img  = self.stay_img
 		print "		kisses and dust images"
@@ -58,7 +55,7 @@ class Princess():
 		self.kiss		   = 0
 		self.kiss_direction = 'right'
 		self.kiss_rect	  = ((0,0),(0,0))
-		self.floor		  = self.level.universe.floor - self.level.what_is_my_height(self)
+		self.floor		  = self.universe.floor - self.universe.level.what_is_my_height(self)
 		self.last_height	= p(186)
 		self.action		 = [None,'stay']
 		self.image		  = self.stay_img.right[self.stay_img.itnumber.next()]
@@ -80,7 +77,7 @@ class Princess():
 
 	def ordered_directory_list(self, action):
 		odl = []
-		cursor = self.level.universe.db_cursor
+		cursor = self.universe.db_cursor
 		row = cursor.execute("SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)").fetchone()
 		for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
 			if row[part] != 'None':
@@ -91,10 +88,10 @@ class Princess():
 	def update_all(self):
 		if self.first_frame:
 			if self.dirt > 0:
-				self.level.princesses[1] = self.dirties[self.dirt -1]
+				self.universe.level.princesses[1] = self.dirties[self.dirt -1]
 		if not self.inside:
-			self.direction  = self.level.universe.dir
-			self.action	 = self.level.universe.action
+			self.direction  = self.universe.level.universe.dir
+			self.action	 = self.universe.action
 			self.effects = []
 			self.soundeffects(self.action)
 			self.jumping(self.action)
@@ -106,7 +103,7 @@ class Princess():
 				if self.status['hurt']%2 == 0:
 					self.image = None
 		else:
-			self.pos[0] = self.level.universe.center_x+self.center_distance
+			self.pos[0] = self.universe.center_x+self.center_distance
 			self.update_image(self.action,'right')
 
 	def dirt_cloud_funciton(self):
@@ -143,7 +140,7 @@ class Princess():
 	def hurting(self,action):
 		if not self.inside:
 			if not self.status['hurt']:
-				for e in self.level.enemies:
+				for e in self.universe.level.enemies:
 					if (e.__class__ in ( enemy.Schnauzer,
 										 enemy.FootBall,
 										 enemy.Hawk,
@@ -162,13 +159,13 @@ class Princess():
 						if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
 							print "Princess got excited by the Butterflies"
 							self.status['excited']+=1
-				if self.level.viking_ship:
-					if self.rect.colliderect(self.level.viking_ship.talk_balloon_rect):
+				if self.universe.level.viking_ship:
+					if self.rect.colliderect(self.universe.level.viking_ship.talk_balloon_rect):
 						self.get_dirty()
-				if self.level.name == "accessory":
-					if self.pos[1]+self.size[1]-p(20) > self.level.water_level:
+				if self.universe.level.name == "accessory":
+					if self.pos[1]+self.size[1]-p(20) > self.universe.level.water_level:
 						print "Princess feet are at "+str(self.pos[1]+self.size[1])
-						print "Water level is "+str(self.level.water_level)
+						print "Water level is "+str(self.universe.level.water_level)
 						self.get_dirty()
 			else:
 				self.status['hurt'] +=1
@@ -195,9 +192,9 @@ class Princess():
 		if self.dirt <= 2:
 			self.status['hurt'] += 1
 			self.dirt += 1
-			self.save_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
+			self.universe.db_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
 			print "Oh Dear, you've got all dirty! I need to take a record on that..."
-			self.level.princesses[1] = self.dirties[self.dirt -1]
+			self.universe.level.princesses[1] = self.dirties[self.dirt -1]
 
 	def kissing(self):
 		if self.action[0] == 'kiss' or self.kiss > 0:
@@ -217,14 +214,13 @@ class Princess():
 				self.kiss_rect = pygame.Rect ((0,0),(0,0))
 
 	def update_pos(self,action):
-#		last_height = self.level.what_is_my_height(self)
 		feet_position   = self.pos[1]+self.size[1]
 		towards = {'right':1,'left':-1}
 
 		#set x pos
 		if action[1]=='walk' and action[0] != 'celebrate':
 			self.center_distance += (self.speed*towards[self.direction])
-			obstacle = self.level.universe.floor - self.level.what_is_my_height(self)
+			obstacle = self.universe.floor - self.universe.level.what_is_my_height(self)
 			if obstacle <= int(feet_position - p(30)):
 				self.center_distance -= (self.speed*towards[self.direction])
 		if action[1] == 'run_away':
@@ -233,11 +229,11 @@ class Princess():
 			else:
 				self.direction = 'right'
 			self.center_distance += ((p(6)+self.speed)*towards[self.direction])
-		self.pos[0] = self.level.universe.center_x+self.center_distance
+		self.pos[0] = self.universe.center_x+self.center_distance
 
 		#set y pos
-		new_height = self.level.what_is_my_height(self)
-		self.floor = self.level.universe.floor - new_height
+		new_height = self.universe.level.what_is_my_height(self)
+		self.floor = self.universe.floor - new_height
 		#fall
 		if feet_position < self.floor:
 			new_y = self.pos[1]+self.gravity['force']
@@ -295,8 +291,8 @@ class Princess():
 
 class Dirt():
 	image_number = 0
-	def __init__(self, level, directory,pos):
-		self.level = level
+	def __init__(self, universe, directory,pos):
+		self.universe = universe
 		self.directory = directory
 		for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
 			self.__dict__[act] = utils.img.TwoSided(directory+'/'+act+'/')
@@ -309,9 +305,10 @@ class Dirt():
 		self.past_choice = None
 
 	def update_all(self):
-		self.pos = self.level.princesses[0].pos
-		direction = self.level.princesses[0].direction
-		chosen = self.level.princesses[0].action[0] or self.level.princesses[0].action[1]
+		P = self.universe.level.princesses[0]
+		self.pos = P.pos
+		direction = P.direction
+		chosen = P.action[0] or P.action[1]
 		if direction.__class__ != str:
 			direction = "right"
 		self.images = self.__dict__[chosen]
@@ -320,7 +317,7 @@ class Dirt():
 			self.__dict__[chosen].number = 0
 		self.past_choice = chosen
 		self.image = actual_images[self.images.number]
-		if not self.level.princesses[0].jump:
+		if not P.jump:
 			self.images.update_number()
 
 class Effect():

@@ -116,10 +116,9 @@ class Fairy():
             )
     whistle     = pygame.mixer.Sound(j(directory.sounds,'story','frames','s03.ogg'))
     music       = j(directory.music,'1stSnowfall.ogg')
-    def __init__(self, pos, level,margin=p([10,10,10,10]),dirty=False):
+    def __init__(self, pos, universe,margin=p([10,10,10,10]),dirty=False):
         self.size               = p((10,10))
-        self.level              = level
-        self.universe           = self.level.universe
+        self.universe           = universe
         self.center_distance    = pos
         self.pos                =  p([-200,600])
         self.lists_of_images = {
@@ -201,10 +200,9 @@ class Fairy():
 
 class Message():
     button = None
-    def __init__(self, level, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
+    def __init__(self, universe, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
         self.message    = message
-        self.level      = level
-        self.universe   = universe = self.level.universe
+        self.universe      = universe
         self.image      = utils.img.image(j(fairy_dir,'balloon','0.png'))
         self.size       = self.image.get_size()
         self.pos        = ((universe.width - self.size[0])/2, universe.height - self.size[1])
@@ -213,17 +211,17 @@ class Message():
         self.text_font  = pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),int(round(self.font_size+(self.font_size/2))))
         self.color      = (0,0,0,0)
         self.image.blit(self.adjusting_fonts(), self.pos)
-        self.button     = self.button or widget.Button(directory.button_ok,(1200,800),self.level,self.end_message)
-        self.level.fae.append(self.button)
+        self.button     = self.button or widget.Button(self.universe, directory.button_ok,(1200,800),[0,0],self.end_message)
+        self.universe.level.fae.append(self.button)
 
     def update_all(self):
         pass
 
     def end_message(self):
-        self.level.fairy = 'done'
-        self.level.fae[1].path_number = 0
-        self.level.fae[1].pos =  p([-200,600])
-        self.level.fae.remove(self.button)
+        self.universe.level.fairy = 'done'
+        self.universe.level.fae[1].path_number = 0
+        self.universe.level.fae[1].pos =  p([-200,600])
+        self.universe.level.fae.remove(self.button)
 
     def adjusting_fonts(self):
         fix_x       = p(150)

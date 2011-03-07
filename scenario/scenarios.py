@@ -53,6 +53,8 @@ class Scenario():
 	def update_without_images(self):
 		self.pos[0]		 = self.level.universe.center_x+self.center_distance
 
+	def __del__(self):
+		print "Scenario destroyed"
 
 class Flower(Scenario):
 	def __init__(self,center_distance,dir,level,frames,):
@@ -93,7 +95,8 @@ class Gate(Scenario):
 		if self.rect.contains(princess.rect):
 			if princess.action[0] == 'open_door':
 				self.goal(self.goalpos)
-
+	def __del__(self):
+		print "Gate destroyed"
 
 class BuildingDoor():
 	def __init__(self,pos,directory,level,interior = None, bath = False):
@@ -149,13 +152,12 @@ class BuildingDoor():
 		self.level.princesses[0].inside = False
 
 class Background():
-	def __init__(self,pos_x,level,dir):
-		self.level = level
+	def __init__(self,pos_x,universe,dir):
 		self.images = utils.img.There_and_back_again(dir)
 		self.images.number = 0
 		self.image = self.images.list[self.images.number]
 		self.size = self.images.size
-		self.pos = (pos_x,self.level.universe.floor-self.size[1])
+		self.pos = (pos_x,universe.floor-self.size[1])
 		if self.images.lenght > 3:
 			self.update_images = self.update_with_images
 		else:

@@ -17,9 +17,10 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
 		os.mkdir(os.path.join(directory.saves,princess.name))
 	except:
 		pass
+	thumbnail = pygame.transform.flip(pygame.transform.smoothscale(princess.stay_img.left[0],(100,100)),1,0)
+	pygame.image.save(thumbnail,os.path.join(directory.saves,princess.name.encode('utf-8'),'thumbnail.PNG'))
 	dir = os.path.join(directory.saves,princess.name)
 	day = datetime.datetime.today()
-
 	if dress == "dress_yellow":
 		armdress = "sleeve_yellow"
 	elif dress == "dress_red":

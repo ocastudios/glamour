@@ -8,69 +8,71 @@ import interactive
 import interactive.popup
 
 def pn(some_number):
-    return round(some_number*scale)
+	return round(some_number*scale)
 
-def choose_event(level,starting_game=False):
-#    if level.event_counter:
-#        level.event_counter += 1
-#        if level.event_counter > 600:
-#            level.event_counter = 0
-#    else:
-    princess_pos = level.princesses[0].center_distance
-    if starting_game:
-        level.princesses[0].center_distance = pn(5220)
-        level.event_counter += 1
-        intro_first_day = database.query.message(level, 'first day a')
-        if intro_first_day[0]['count'] == 0:
-            level.Fairy = 'loading'
-            message_text = random.choice(intro_first_day)['message']
-            level.fae[0] = fairy.Message(level, message = message_text)
-            database.update.use_message(level,'intro')
-    elif level.name == "bathhouse":
-        if pn(4700) < princess_pos < pn(5000):
-            create_message(level,'maddelines house')
-        elif pn(8700) < princess_pos < pn(9000):
-            create_message(level,'magic beauty parlor')
-        elif pn(850) <princess_pos < pn(1050):
-            create_message(level,"bathhouse")
-    elif level.name == "accessory":
-        if princess_pos < pn(360):
-            create_message(level,"accessory hall")
-        elif pn(8300) < princess_pos:
-            create_message(level,"sleeping beautys palace")
-    elif level.name == "dress":
-        if princess_pos < pn(300):
-            create_message(level,"dress tower")
-        elif pn(8900) < princess_pos:
-            create_message(level,"snow-whites castle")
-    elif level.name == "makeup":
-        if princess_pos <pn(300):
-            create_message(level,"make-up tower")
-        elif pn(8900) < princess_pos:
-            create_message(level,"cinderellas castle")
-    elif level.name == "shoes":
-        if princess_pos < pn(300):
-            create_message(level,"shoes shop")
-        if princess_pos > pn(8900):
-            create_message(level,"rapunzels villa")
+def choose_event(universe,starting_game=False):
+#	if level.event_counter:
+#		level.event_counter += 1
+#		if level.event_counter > 600:
+#			level.event_counter = 0
+#	else:
+	princess = universe.level.princesses[0]
+	princess_pos = princess.center_distance
+	name = universe.level.name
+	if starting_game:
+		princess.center_distance = pn(5220)
+		universe.level.event_counter += 1
+		intro_first_day = database.query.message(universe, 'first day a')
+		if intro_first_day[0]['count'] == 0:
+			universe.level.Fairy = 'loading'
+			message_text = random.choice(intro_first_day)['message']
+			universe.level.fae[0] = fairy.Message(universe, message = message_text)
+			database.update.use_message(universe,'intro')
+	elif name == "bathhouse":
+		if pn(4700) < princess_pos < pn(5000):
+			create_message(universe,'maddelines house')
+		elif pn(8700) < princess_pos < pn(9000):
+			create_message(universe,'magic beauty parlor')
+		elif pn(850) <princess_pos < pn(1050):
+			create_message(universe,"bathhouse")
+	elif name == "accessory":
+		if princess_pos < pn(360):
+			create_message(universe,"accessory hall")
+		elif pn(8300) < princess_pos:
+			create_message(universe,"sleeping beautys palace")
+	elif name == "dress":
+		if princess_pos < pn(300):
+			create_message(universe,"dress tower")
+		elif pn(8900) < princess_pos:
+			create_message(universe,"snow-whites castle")
+	elif name == "makeup":
+		if princess_pos <pn(300):
+			create_message(universe,"make-up tower")
+		elif pn(8900) < princess_pos:
+			create_message(universe,"cinderellas castle")
+	elif name == "shoes":
+		if princess_pos < pn(300):
+			create_message(universe,"shoes shop")
+		if princess_pos > pn(8900):
+			create_message(universe,"rapunzels villa")
 
-    if level.unlocking:
-        unlock(level,level.unlocking)
+	if universe.level.unlocking:
+		unlock(universe.level,universe.level.unlocking)
 
 
-def create_message(level, name, unique=True):
-    level.event_counter +=1
-    row = database.query.message(level, name, one = True)
-    if row['count'] == 0 or unique==False:
-        print "Here comes the Fairy "+name
-        level.fairy = 'loading'
-        pygame.mixer.Channel(0).play(level.fae[1].whistle)
-        level.fae[0] = fairy.Message(level, message = row['message'])
-        database.update.use_message(level, name)
+def create_message(universe, name, unique=True):
+	universe.level.event_counter +=1
+	row = database.query.message(universe, name, one = True)
+	if row['count'] == 0 or unique==False:
+		print "Here comes the Fairy "+name
+		universe.level.fairy = 'loading'
+		pygame.mixer.Channel(0).play(universe.level.fae[1].whistle)
+		universe.level.fae[0] = fairy.Message(universe, message = row['message'])
+		database.update.use_message(universe, name)
 
 def unlock(level, unlocking):
-    if database.query.is_locked(level,unlocking['type'],unlocking['name']):
-        popup = interactive.popup.Unlocking_Message(level, unlocking)
-        level.unlocking['list'] = [popup, interactive.popup.Unlocking_Icon(level,popup,unlocking)]
-        database.update.unlock(level, unlocking['type'],unlocking['name'])
-        database.update.use_message(level,unlocking['name'])
+	if database.query.is_locked(level.universe,unlocking['type'],unlocking['name']):
+		popup = interactive.popup.Unlocking_Message(level.universe, unlocking)
+		level.unlocking['list'] = [popup, interactive.popup.Unlocking_Icon(level,popup,unlocking)]
+		database.update.unlock(level.universe, unlocking['type'],unlocking['name'])
+		database.update.use_message(level.universe,unlocking['name'])

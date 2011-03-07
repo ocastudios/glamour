@@ -26,6 +26,7 @@ import pygame
 
 print "Initializing Pygame Display"
 pygame.display.init()
+pygame.display.set_caption("Glamour - OcaStudios")
 
 #### Princesses #### 
 Snow_White      = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
@@ -41,9 +42,9 @@ os_screen = pygame.display.Info()
 resolution = os_screen.current_w,os_screen.current_h
 
 if resolution[0] < 1440:
-    scale = resolution[0]/1440
+    scale = resolution[0]/1440.0
     if 900*scale > resolution[1]:
-        scale = resolution[1]/900
+        scale = resolution[1]/900.0
 else:
     scale = 1
 print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))

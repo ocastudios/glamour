@@ -9,8 +9,8 @@ from settings import *
 
 
 
-def unlocked(stage, clothe_type, field = None, limit_n_random = False):
-	row				 = stage.universe.db_cursor.execute("""
+def unlocked(universe, clothe_type, field = None, limit_n_random = False):
+	row				 = universe.db_cursor.execute("""
 		SELECT * 
 			FROM unlock 
 			WHERE   type = '"""+clothe_type+"""'
@@ -25,7 +25,7 @@ def unlocked(stage, clothe_type, field = None, limit_n_random = False):
 				row = random.sample(row,len(row))
 	return row
 
-def street(stage, street, table):
+def street(universe, street, table):
 	db = sqlite3.connect(main_dir+'/data/'+street+'.db')
 	db.row_factory = sqlite3.Row
 	cursor = db.cursor()
@@ -33,8 +33,8 @@ def street(stage, street, table):
 	cursor.close()
 	return result
 
-def message(stage, name, one = False):
-	cursor = stage.universe.db_cursor
+def message(universe, name, one = False):
+	cursor = universe.db_cursor
 	if not one:
 		result = cursor.execute("SELECT * FROM messages WHERE name = '"+name+"'").fetchall()
 	else:
@@ -42,8 +42,8 @@ def message(stage, name, one = False):
 	cursor.close()
 	return result
 
-def is_locked(stage,clothe_type,garment):
-	row				 = stage.universe.db_cursor.execute("""
+def is_locked(universe,clothe_type,garment):
+	row				 = universe.db_cursor.execute("""
 	SELECT * 
 		FROM unlock 
 		WHERE   type = '"""+clothe_type+"""'
@@ -54,37 +54,38 @@ def is_locked(stage,clothe_type,garment):
 	else:
 		return False
 		
-def is_beaten(stage,enemy):
-	cursor = stage.universe.db_cursor
+def is_beaten(universe,enemy):
+	cursor = universe.db_cursor
 	result = cursor.execute("SELECT "+enemy+" FROM stage_enemies WHERE stage = 'Beaten'").fetchone()
+	cursor.close()
 	if int(result[0])>0:
 		return True
 	else:
 		return False
 
-def last_balls(level):
-	cursor  = level.universe.db_cursor
+def last_balls(universe):
+	cursor  = universe.db_cursor
 	sql	 = "SELECT * FROM princess_garment ORDER BY id DESC LIMIT 3 OFFSET 1"
 	result = cursor.execute(sql).fetchall()
 	cursor.close()
 	return result
 	
-def my_outfit(level, princess):
-	cursor  = level.universe.db_cursor
+def my_outfit(universe, princess):
+	cursor  = universe.db_cursor
 	sql	 = "SELECT * FROM "+princess+" WHERE id = (SELECT MAX(id) FROM "+princess+")"
 	result  = cursor.execute(sql).fetchone()
 	cursor.close()
 	return result
 
-def different_hairs_used(level):
-	cursor	= level.universe.db_cursor
+def different_hairs_used(universe):
+	cursor	= universe.db_cursor
 	sql		= "SELECT DISTINCT hair FROM princess_garment"
 	result	= cursor.execute(sql).fetchall()
 	cursor.close()
 	return len(result)
 
-def beaten_enemies(level):
-	cursor 	= level.universe.db_cursor
+def beaten_enemies(universe):
+	cursor 	= universe.db_cursor
 	sql 	= "SELECT * FROM stage_enemies WHERE stage = 'Beaten'"
 	result	= cursor.execute(sql).fetchone()
 	count = 0

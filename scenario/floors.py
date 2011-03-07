@@ -16,7 +16,6 @@ class Floor():
         self.center_distance = round((self.size[0])*index)
         self.set_pos()
 
-
     def set_pos(self):
         self.pos = [self.level.universe.center_x+(self.center_distance),self.level.universe.floor-self.size[1]]
 
