@@ -11,7 +11,7 @@ from settings import *
 
 channel = pygame.mixer.Channel(0)
 class Button():
-	click = pygame.mixer.Sound(main_dir+'/data/sounds/click.ogg')
+	click = pygame.mixer.Sound(os.path.join(directory.sounds,'click.ogg'))
 	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False,fonte='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
 		"""Creates a clickable button
 

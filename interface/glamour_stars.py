@@ -1,39 +1,41 @@
 import interactive.princess as princess
 import utils
+import os
 from pygame.locals import *
+from settings import directory
 from settings import *
 
 
 def p(positions):
-    return [int(i*scale) for i in positions ]
-    
+	return [int(i*scale) for i in positions ]
+	
 class Glamour_Stars():
-    def __init__(self,level):
-        self.level = level
-        self.image_lists = [utils.img.OneSided(main_dir+'/data/images/interface/star/star'+i+'/') for i in ('0','1','2','3')]
-        self.image = self.image_lists[0].list[0]
-        self.size = self.image.get_size()
-        self.pos = p((195,45))
+	def __init__(self,universe):
+		self.universe = universe
+		self.image_lists = [utils.img.OneSided(os.path.join(directory.star, 'star'+i)) for i in ('0','1','2','3')]
+		self.image = self.image_lists[0].list[0]
+		self.size = self.image.get_size()
+		self.pos = p((195,45))
 
-    def update_all(self):
-        actual_list = self.image_lists[self.level.princesses[0].dirt]
-        self.image = actual_list.list[actual_list.itnumber.next()]
-        
+	def update_all(self):
+		actual_list = self.image_lists[self.universe.level.princesses[0].dirt]
+		self.image = actual_list.list[actual_list.itnumber.next()]
+		
 class Lil_Stars():
-    def __init__(self,level, pos):
-        self.level = level
-        self.rotating = utils.img.There_and_back_again(main_dir+'/data/images/interface/lil_star/right/', second_dir = main_dir+'/data/images/interface/lil_star/left/')
-        self.image = self.rotating.list[0]
-        self.size = self.image.get_size()
-        self.pos = p(pos)
+	def __init__(self,universe, pos):
+		self.universe = universe
+		self.rotating = utils.img.There_and_back_again(os.path.join(directory.interface, 'lil_star','right'), second_dir = os.path.join(directory.interface,'lil_star','left'))
+		self.image = self.rotating.list[0]
+		self.size = self.image.get_size()
+		self.pos = p(pos)
 
-    def update_all(self):
-        self.image = self.rotating.list[self.rotating.itnumber.next()]
-        
+	def update_all(self):
+		self.image = self.rotating.list[self.rotating.itnumber.next()]
+		
 class Lil_Star_Back():
-    def __init__(self,level,pos):
-        self.level=level
-        self.image = utils.img.image(main_dir+'/data/images/interface/lil_star/back.png')
-        self.pos = p(pos)
-    def update_all(self):
-        pass
+	def __init__(self,universe,pos):
+		self.universe =universe
+		self.image = utils.img.image(os.path.join(directory.interface,'lil_star','back.png'))
+		self.pos = p(pos)
+	def update_all(self):
+		pass

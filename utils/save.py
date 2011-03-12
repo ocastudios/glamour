@@ -8,10 +8,9 @@ import settings
 from settings import scale
 from settings import directory
 
-def save_file(level, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
+def save_file(universe, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
 	print "Saving progress into Database"
-	universe = level.universe
-	princess = level.princesses[0]
+	princess = universe.level.princesses[0]
 	#avoid errors in case there are no saved files
 	try:
 		os.mkdir(os.path.join(directory.saves,princess.name))
@@ -36,7 +35,7 @@ def save_file(level, hairback = None, skin = None, face = None, hair = None, sho
 		hairback = hair+'_back'
 	else:
 		hairback = "None"
-	cursor = level.universe.db_cursor
+	cursor = universe.db_cursor
 	cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+princess.name+"'")
 	if hair:
 		cursor.execute("UPDATE princess_garment SET hair_back = '"+str(hairback)+"' WHERE id = (SELECT max(id) FROM princess_garment)")

@@ -9,10 +9,9 @@ from string import Template
 
 class Message():
 	button = None
-	def __init__(self, level,font_size = 16, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
+	def __init__(self, universe,font_size = 16, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
 		self.message	= message
-		self.level	  = level
-		self.universe   = self.level.universe
+		self.universe = universe
 		self.image	  = utils.img.image(j(fairy_dir,'balloon','0.png'))
 		self.size	   = self.image.get_size()
 		self.pos		= ((self.universe.width - self.size[0])/2, self.universe.height - self.size[1])
@@ -23,10 +22,9 @@ class Message():
 		pass
 	
 class Unlocking_Message():
-	def __init__(self, level,unlocking, font_size = 16):
+	def __init__(self, universe,unlocking, font_size = 16):
 		self.image = utils.img.image(j(directory.fairy_tips,'balloon','0.png'))
-		self.level		= level
-		self.universe	= self.level.universe
+		self.universe	= universe
 		self.size		= self.image.get_size()
 		self.pos		= ((self.universe.width - self.size[0])/2, self.universe.height - self.size[1])
 		self.text_box	= self.size[0]*.8,self.size[1]*.8
@@ -39,7 +37,7 @@ class Unlocking_Message():
 class Unlocking_Icon():
 	growing = utils.img.OneSided(directory.unlocking_grow)
 	running = utils.img.OneSided(directory.unlocking_run)
-	def __init__(self, level, message, unlocking):
+	def __init__(self, universe, message, unlocking):
 		self.image_size = (p(212),p(212))
 		self.image	  = pygame.Surface(self.image_size, pygame.SRCALPHA).convert_alpha()
 		self.pos		= message.pos[0]+p(10),message.pos[1]+p(10)

@@ -38,7 +38,7 @@ class Schnauzer():
 	def barf(self):
 		if self.barfing == 1:
 			self.bow.play()
-		if self.rect.collidepoint(self.universe.mouse_pos) and self.barfing == 0 or self.barfing:
+		if self.rect.collidepoint(self.universe.pointer.mouse_pos) and self.barfing == 0 or self.barfing:
 			self.barfing += 1
 		if self.barfing > 100:
 			self.barfing = 0
@@ -261,7 +261,7 @@ class OldLady():
 
 	def wave_to_princess(self):
 		if self.action != 'wave':
-			if self.rect.collidepoint(self.universe.mouse_pos):
+			if self.rect.collidepoint(self.universe.pointer.mouse_pos):
 				self.action = 'wave'
 				self.image_number = 0
 				self.count = 0
@@ -484,7 +484,7 @@ class Elephant():
 				self.base.update_number()
 				self.image = self.base.left[self.base.number]
 				if self.base.number == 0:
-					if self.rect.collidepoint(self.universe.mouse_pos):
+					if self.rect.collidepoint(self.universe.pointer.mouse_pos):
 						self.action = 'call'
 			if self.action == 'call':
 				self.image = self.hover.left[self.hover.number]
@@ -646,7 +646,7 @@ class Monkey():
 			self.image = self.stay.__dict__[self.direction][0]
 			self.pos[0] = self.universe.center_x + self.center_distance
 			self.rect = pygame.Rect(self.pos,self.size)
-			if self.rect.collidepoint(self.universe.mouse_pos):
+			if self.rect.collidepoint(self.universe.pointer.mouse_pos):
 				self.image = self.hover.left[0]
 			elif self.action == 'attack':
 				self.image = self.throw.__dict__[self.direction][self.throw.number]
@@ -814,7 +814,7 @@ class VikingShip():
 									i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
 						self.count = 0
 				self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
-				if self.sailor_rect.collidepoint(self.universe.mouse_pos):
+				if self.sailor_rect.collidepoint(self.universe.pointer.mouse_pos):
 					if not self.beaten:
 						database.update.beat_enemy(self.universe, 'viking_ship')
 						self.beaten = True
@@ -1083,7 +1083,7 @@ class Bird():
 			self.counter =0
 
 		towards = {'right':1,'left':-1}
-		obstacle = self.level.floor - self.universe.level.what_is_my_height(self,self.center_distance+(round(self.size[0])*towards[self.direction]))
+		obstacle = self.universe.level.floor - self.universe.level.what_is_my_height(self,self.center_distance+(round(self.size[0])*towards[self.direction]))
 		new_y = self.universe.level.what_is_my_height(self,pos_x = int(self.center_distance + (self.speed*towards[self.direction]))+int(round(self.size[0]/2)))
 		actual_y = self.universe.level.what_is_my_height(self)
 		obstacle = max(new_y,actual_y)-min(new_y,actual_y)

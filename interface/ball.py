@@ -17,11 +17,11 @@ from settings import d
 
 
 class Ball():
-	def __init__(self, level, universe, princess):
+	def __init__(self, universe, princess):
+		self.universe = universe
 		self.delay = 150
-		self.level	  = level
-		self.level.changing_stages_darkenning()
-		self.level.loading()
+		self.universe.level.changing_stages_darkenning()
+		self.universe.level.loading()
 		NewDancer.boyfriend_list = ["gentleman_decent", 
 				  "knight_reliable", 
 				  "baron_serious", 
@@ -31,29 +31,29 @@ class Ball():
 		self.position = 0,0
 		self.universe   = universe
 		self.boyfriend  = None
-		self.level.loading()
+		universe.level.loading()
 		self.texts	  = []
 		self.texts+= [StarBall()]
-		self.level.loading()
-		self.compute_glamour_points(level)
-		self.level.loading()
-		self.background	  = pygame.Surface((level.universe.width,level.universe.height),pygame.SRCALPHA).convert_alpha()
-		self.level.loading()
+		universe.level.loading()
+		self.compute_glamour_points(universe)
+		universe.level.loading()
+		self.background	  = pygame.Surface((universe.width,universe.height),pygame.SRCALPHA).convert_alpha()
+		universe.level.loading()
 		for file in (os.path.join(directory.ball,'base.png'),os.path.join(directory.ball,'back-bubbles.png')):
 			self.background.blit(utils.img.scale_image(pygame.image.load(file).convert_alpha()), (0,0))
-			self.level.loading()
+			universe.level.loading()
 		self.princess   = princess
 		self.Bar		= VerticalBar(self)
-		self.level.loading()
+		universe.level.loading()
 		self.Frame	  = BallFrame(self)
-		self.level.loading()
-		self.buttons = [widget.Button(directory.button_ok,(1050,700), self.level,self.return_to_game)]
-		self.level.loading()
+		universe.level.loading()
+		self.buttons = [widget.Button(directory.button_ok,(1050,700), universe,self.return_to_game)]
+		universe.level.loading()
 		pygame.mixer.music.load(os.path.join(directory.music,"strauss_waltz_wedley.ogg"))
-		self.level.loading()
+		universe.level.loading()
 		pygame.mixer.music.set_volume(.9)
 		pygame.mixer.music.play()
-		self.level.loading()
+		universe.level.loading()
 		princesses_list	  = ['Cinderella', 'Snow_White', 'Sleeping_Beauty','Rapunzel']
 		garment_list		 = ['Accessory', 'Dress', 'Shoes','Makeup']
 		Accessory_list	   = ['crown', 'purse','ribbon','shades']
@@ -62,25 +62,26 @@ class Ball():
 		Makeup_list		  = ['eyelids','eyeshades','lipstick','simple']
 		self.counter		 = 0
 		self.bigprincess = BigPrincess(self)
-		self.level.loading()
+		universe.level.loading()
 		self.dancers = []
 		if self.boyfriend:
-			self.dancers.append(NewDancer(self.level, self.bigprincess,self.boyfriend.hard_name))
-		self.level.loading()
+			self.dancers.append(NewDancer(universe, self.bigprincess,self.boyfriend.hard_name))
+		universe.level.loading()
 		for a in self.Frame.princesses:
-			self.dancers.append(NewDancer(self.level, a))
-			self.level.loading()
+			self.dancers.append(NewDancer(universe, a))
+			universe.level.loading()
 		self.foreground = pygame.Surface((universe.width,universe.height)).convert()
 		self.foreground.fill((226,226,148))
-		self.level.loading()
+		universe.level.loading()
 		self.alpha = 0
 		self.foreground.set_alpha(self.alpha)
-		self.level.loading()
-		self.locked = database.query.is_locked(self.level,'accessory','mask')
+		universe.level.loading()
+		self.locked = database.query.is_locked(universe,'accessory','mask')
+		self.universe = universe
 
 	def update_all(self):
-		if self.level.black.alpha_value > 0:
-			self.level.changing_stages_darkenning(-1)
+		if self.universe.level.black.alpha_value > 0:
+			self.universe.level.changing_stages_darkenning(-1)
 		for i in self.dancers:
 			i.update_all()
 		if self.counter > self.delay:
@@ -116,9 +117,9 @@ class Ball():
 		if self.counter <= self.delay+130:
 			self.counter += 1
 
-	def compute_glamour_points(self,level):
+	def compute_glamour_points(self,universe):
 		garments= ('face','shoes','dress','accessory')
-		cursor = level.universe.db_cursor
+		cursor = universe.db_cursor
 		princess_rows = cursor.execute("SELECT * FROM princess_garment").fetchall()
 		fairy_tale_rows = [
 				cursor.execute("SELECT * FROM "+princess_name).fetchall() for princess_name in ("cinderella","rapunzel","sleeping_beauty","snow_white")
@@ -166,7 +167,7 @@ class Ball():
 		past_glamour_points = save_table['points']
 		new_glamour_points = int(past_glamour_points)+int(glamour_points)
 
-		self.level.princesses[0].points = new_glamour_points
+		universe.level.princesses[0].points = new_glamour_points
 		cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
 		stage_list		   = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
@@ -203,30 +204,30 @@ class Ball():
 				sql = 'update stage_enemies set '+chosen_enemy+' = 1 where stage = "'+stage+'"'
 				cursor.execute(sql)
 
-		level.universe.db.commit()
-		thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-		pygame.image.save(thumbnail,os.path.join(directory.saves,self.level.princesses[0].name,'thumbnail.PNG'))
+		universe.db.commit()
+		thumbnail = pygame.transform.flip(pygame.transform.smoothscale(universe.level.princesses[0].stay_img.left[0],(100,100)),1,0)
+		pygame.image.save(thumbnail,os.path.join(directory.saves,universe.level.princesses[0].name,'thumbnail.PNG'))
 		self.texts += [
 				#Translators: consider the whole sentence: You've got X glamour points
-				widget.GameText(t("You've"),  (1064,81),  self,font_size = 40),
-				widget.GameText(t("got"),	 (1100,128), self,font_size = 40),
-				widget.GameText(t("glamour"), (1309,151), self,font_size = 40),
-				widget.GameText(t("points"),  (1309,185), self,font_size = 40),
-				widget.GameText(str(int(glamour_points)), (1200,120),self,font_size=80)
+				widget.GameText(universe, t("You've"),	(1064,81),		[0,0],font_size = 40),
+				widget.GameText(universe, t("got"),		(1100,128),		[0,0],font_size = 40),
+				widget.GameText(universe, t("glamour"),	(1309,151),		[0,0],font_size = 40),
+				widget.GameText(universe, t("points"),	(1309,185),		[0,0],font_size = 40),
+				widget.GameText(universe, str(int(glamour_points)), (1200,120),self,font_size=80)
 		]
 		total_points = int(glamour_points+accumulated_points)
 		if total_points >= 30:
 			self.boyfriend = BoyFriend(total_points)
-		level.panel[1]  = widget.GameText(str(total_points), (1000,30), self,font_size = 80, color=(58,56,0))
+		universe.level.panel[1]  = widget.GameText(universe, str(total_points), (1000,30), [0,0],font_size = 80, color=(58,56,0))
 
 	def return_to_game(self):
-		self.level.BathhouseSt(goalpos = round(5220*scale), clean_princess = True)
+		self.universe.level.BathhouseSt(goalpos = round(5220*scale), clean_princess = True)
 		if self.locked:
-				if database.query.different_hairs_used(self.level)>=3:
-					self.level.unlocking = {'type':'accessory','name':'mask'}
+				if database.query.different_hairs_used(self.universe)>=3:
+					self.universe.level.unlocking = {'type':'accessory','name':'mask'}
 					self.locked = False
-		self.level.clock[1].count = 0
-		self.level.clock[1].time = "morning"
+		self.universe.level.clock[1].count = 0
+		self.universe.level.clock[1].time = "morning"
 
 
 class VerticalBar():
@@ -449,7 +450,7 @@ class NewDancer():
 				  "marquess_attractive", 
 				  "duke_intelligent"]
 	
-	def __init__(self,level, big_princess= None, boyfriend = None):
+	def __init__(self,universe, big_princess= None, boyfriend = None):
 		princess_directory  = directory.princess
 		if big_princess.__class__ == BigPrincess:
 			self.player = True
@@ -469,7 +470,7 @@ class NewDancer():
 			if part:
 				ordered_directory_list.append(os.path.join(directory.princess,big_princess.__dict__[i],'dance'))
 		ordered_directory_list.append(os.path.join(directory.boyfriends,boyfriend,'dance','head'))
-		self.images	= utils.img.MultiPart(ordered_directory_list, loading = level.loading)
+		self.images	= utils.img.MultiPart(ordered_directory_list, loading = universe.level.loading)
 		self.image  = self.images.left[self.images.number]
 		self.images.number = random.randint(0,20)
 		self.speed = p(5,r=False)

@@ -58,9 +58,9 @@ class Inside():
 	def all_set(self):
 		self.status = 'done'
 		if self.chosen_item:
-			exec('save.save_file(self.universe.level,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
+			exec('save.save_file(self.universe,'+self.type_of_items+' = "'+self.type_of_items+"_"+self.chosen_item.name+'")')
 		else:
-			save.save_file(self.universe.level)
+			save.save_file(self.universe)
 		self.universe.level.princesses[0] = princess.Princess(self.universe, INSIDE = True)
 		if self.locked['indian']:
 			my_outfit = database.query.my_outfit(self.universe,"princess_garment")
@@ -92,7 +92,7 @@ class Inside():
 		database.update.clean_up(self.universe)
 		print "You look lovely all cleaned up!"
 		self.universe.level.princesses[1] = None
-		save.save_file(self.universe.level)
+		save.save_file(self.universe)
 		thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.universe.level.princesses[0].stay_img.left[0],(100,100)),1,0)
 		pygame.image.save(thumbnail,os.path.join(directory.saves,self.universe.level.princesses[0].name.encode('utf-8'),'thumbnail.PNG'))
 
@@ -123,7 +123,7 @@ class Item():
 			self.room.chosen_glow.update_all()
 
 	def click_detection(self):
-		if self.rect.colliderect(self.universe.level.game_mouse.rect):
+		if self.rect.colliderect(self.universe.pointer.rect):
 			self.active = True
 			if self.universe.click:
 				self.room.chosen_item = self

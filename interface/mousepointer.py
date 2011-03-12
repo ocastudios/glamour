@@ -5,18 +5,20 @@ import pygame
 import os
 	
 class MousePointer():
+	images_small = utils.img.OneSided(os.path.join(directory.interface,"mouse-icon","pointer2"))
+	images_big = utils.img.OneSided(os.path.join(directory.interface,"mouse-icon","pointer"))
 	def __init__(self, universe, type = 1):
 		self.universe = universe
 		self.mouse_pos =  pygame.mouse.get_pos()
 		if type == 2:
 			self.type = 2
-			self.images		 = utils.img.OneSided(os.path.join(directory.interface,"mouse-icon","pointer2"))
+			self.images		 = self.images_small
 			self.image		  = self.images.list[self.images.number]
 			self.size		   = self.image.get_size()
 			self.pos			= self.mouse_pos
 		else:
 			self.type = 1
-			self.images		 = utils.img.OneSided(os.path.join(directory.interface,"mouse-icon","pointer"))
+			self.images		 = self.images_big
 			self.image		  = self.images.list[self.images.number]
 			self.size		   = self.image.get_size()
 			self.pos			= (self.mouse_pos[0]+(self.size[0]/2), self.mouse_pos[1]+(self.size[1]/2))

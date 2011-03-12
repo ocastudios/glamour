@@ -57,7 +57,7 @@ def choose_event(universe,starting_game=False):
 			create_message(universe,"rapunzels villa")
 
 	if universe.level.unlocking:
-		unlock(universe.level,universe.level.unlocking)
+		unlock(universe,universe.level.unlocking)
 
 
 def create_message(universe, name, unique=True):
@@ -70,9 +70,9 @@ def create_message(universe, name, unique=True):
 		universe.level.fae[0] = fairy.Message(universe, message = row['message'])
 		database.update.use_message(universe, name)
 
-def unlock(level, unlocking):
-	if database.query.is_locked(level.universe,unlocking['type'],unlocking['name']):
-		popup = interactive.popup.Unlocking_Message(level.universe, unlocking)
-		level.unlocking['list'] = [popup, interactive.popup.Unlocking_Icon(level,popup,unlocking)]
-		database.update.unlock(level.universe, unlocking['type'],unlocking['name'])
-		database.update.use_message(level.universe,unlocking['name'])
+def unlock(universe, unlocking):
+	if database.query.is_locked(universe,unlocking['type'],unlocking['name']):
+		popup = interactive.popup.Unlocking_Message(universe, unlocking)
+		universe.level.unlocking['list'] = [popup, interactive.popup.Unlocking_Icon(universe,popup,unlocking)]
+		database.update.unlock(universe, unlocking['type'],unlocking['name'])
+		database.update.use_message(universe,unlocking['name'])

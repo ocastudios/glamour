@@ -37,7 +37,8 @@ class Menu():
 		self.universe	   = universe
 		self.vertical_bar = {
 			'image': utils.img.image(os.path.join(directory.left_bar,'0.png')),
-			'side':  None,
+			'side':  'left',
+			'call_bar': 'left',
 			'speed': p(5,r=False)
 		}
 		self.vertical_bar['size'] = self.vertical_bar['image'].get_size()
@@ -83,7 +84,7 @@ class Menu():
 		surface.blit(self.upper_drapes.image,(0,self.upper_drapes.y))
 		if self.upper_drapes.y < -self.upper_drapes.size_y+10:
 			self.STEP = self.STEP_arrive_bar ## Change the STEP
-			self.vertical_bar['side'] = 'left'
+#			self.vertical_bar['side'] = 'left'
 			self.drapes = None
 			self.upper_drapes = None
 
@@ -105,8 +106,6 @@ class Menu():
 					bar['position'] = 0
 					self.STEP = self.update_menus ## Change the STEP
 			elif bar['side'] == 'right':
-				if bar['position'] <10:
-					bar['position'] =  p(2000)
 				if bar['position']+p(516) > universe.width:
 					bar['position'] -= bar['speed']
 					if bar['position'] < int((universe.width-p(300))):
@@ -217,27 +216,34 @@ class Menu():
 			surface.blit(self.credits.background,self.credits.pos)
 			self.credits.update_all()
 
-	def close_bar(self,surface, call_bar = 'right'):
+	def close_bar(self,surface):
 		universe = self.universe
 		bar = self.vertical_bar
 		width = p(1440)
-		if (p(-800) < bar['position'] <p(10)) or (width-bar['size'][0] < bar['position'] < width +1):
-			bar['position'] -= bar['speed']
+		if (p(-520) < bar['position'] <p(10)) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1) and bar['side'] != bar['call_bar']:
+			if bar['side'] == 'left':
+				bar['position'] -= bar['speed']
+			else:
+				bar['position'] += bar['speed']
 			bar['speed'] += p(1,r=False)
 		else:
 			####### STEP #######
-			if call_bar:
-				self.STEP = self.STEP_arrive_bar
-				if call_bar == 'right':
-					if 	bar['side'] =='left':
-						bar['image'] = pygame.transform.flip(bar['image'],1,0)
-					bar['side']   = "right"
-				elif call_bar == 'left':
-					if bar['side']=='right':
-						bar['image'] = pygame.transform.flip(bar['image'],1,0)
-					universe.bar_side = "left"
-			universe.action[2] = 'open'
+			print 'bar closed'
 			self.next_menu()
+			if self.vertical_bar['call_bar']:
+				if self.vertical_bar['call_bar'] == 'right':
+					if 	self.vertical_bar['side'] =='left':
+						self.vertical_bar['image'] = pygame.transform.flip(self.vertical_bar['image'],1,0)
+						self.vertical_bar['position'] = self.universe.width+p(520)
+					self.vertical_bar['side']   = "right"
+				elif self.vertical_bar['call_bar'] == 'left':
+					if self.vertical_bar['side']=='right':
+						bar['image'] = pygame.transform.flip(self.vertical_bar['image'],1,0)
+						bar['position'] = -bar['size'][0]
+					self.vertical_bar['side'] = 'left'
+			self.STEP = self.STEP_arrive_bar
+			universe.action[2] = 'open'
+
 		if self.back_background:
 			surface.blit(self.back_background,(0,0))
 		surface.blit(bar['image'],(bar['position'],0))
@@ -245,14 +251,16 @@ class Menu():
 
 
 	def main(self):
+		self.vertical_bar['call_bar'] = 'left'
 		self.print_princess = False
 		self.background	 = self.selection_canvas
 		self.back_background = None
 		self.action = 'open'
 		if not self.go_back:
+			self.position[0] = p(360)
 			self.position[1] = p(-600)
 		else:
-			self.position[0]	= p(450)
+			self.position[0]	= p(360)
 			self.position[1]	= p(1000)
 		opt = ((t('New Game'),100,self.new_game),(t('Load Game'),180,self.load_game),(t('Play Story'),260,self.play_story),(t('Learn to play'),340,self.play_tutorial),(t('Credits'),420,self.play_credits),(t('Exit'),500,exit))
 		self.options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
@@ -282,6 +290,7 @@ class Menu():
 		self.buttons		= buttons
 
 	def select_princess(self):
+		self.vertical_bar['call_bar'] = 'right'
 		self.princess	   = MenuPrincess(self)
 		self.print_princess = True
 		txt=[(t('Choose your'),[-200,200]),(t('appearence...'),[-200,250]),(t('skin tone'),[250,420]),(t('previous'),[250,90]),(t('next'),[250,520])]
@@ -297,6 +306,7 @@ class Menu():
 					)
 
 	def select_hair(self):
+		self.vertical_bar['call_bar'] = 'right'
 		txt = [(t('Choose your'), (-200,200)), (t('appearence...'),(-200,250)), (t('hair style'),(250,420)), (t('previous'),(250,90)), (t('next'),(250,520))]
 		self.print_princess = True
 		self.reset_menu(
@@ -310,7 +320,7 @@ class Menu():
 
 
 	def name_your_princess(self):
-
+		self.vertical_bar['call_bar'] = 'right'
 		self.print_princess = False
 		opt = [widget.Letter(self.universe, i[0],i[1],self.position, self.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
 				map(chr,xrange(97,123)),
@@ -343,6 +353,7 @@ class Menu():
 
 	### Buttons functions ###
 	def back_to_main(self):
+		self.vertical_bar['call_bar'] = 'left'
 		self.story		  = None
 		self.credits		= None
 		self.tutorial	   = None
@@ -352,11 +363,13 @@ class Menu():
 		self.universe.action[2] = 'close'
 
 	def back_to_select_princess(self):
+		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = True
 		self.next_menu = self.select_princess
 		self.universe.action[2] = 'close'
 
 	def back_to_select_hair(self):
+		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = True
 		self.next_menu = self.select_hair
 		self.universe.action[2] = 'close'
@@ -372,11 +385,13 @@ class Menu():
 		self.universe.action[2] = 'close'
 
 	def play_story(self):
+		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = False
 		self.next_menu = self.watching_story
 		self.universe.action[2] = 'close'
 
 	def play_tutorial(self):
+		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = False
 		self.next_menu = self.watching_tutorial
 		self.universe.action[2] = 'close'
@@ -452,6 +467,7 @@ class Menu():
 		self.universe.action[2] = 'close'
 
 	def select_saved_game(self):
+		self.vertical_bar['call_bar'] = 'right'
 		print "Let's select a saved princess"
 		saved_games = []
 		print "searching for saved games"
@@ -502,6 +518,7 @@ class Menu():
 				xpos += 400
 
 	def watching_story(self):
+		self.vertical_bar['call_bar'] = 'right'
 		print "Let's watch the story"
 		self.story = Story_Frame(self,directory.story_frames)
 		self.action	 = 'open'
@@ -515,6 +532,7 @@ class Menu():
 
 	def watching_tutorial(self):
 		print "Let's watch the tutorial"
+		self.vertical_bar['call_bar'] = 'right'
 		self.tutorial   = Story_Frame(self,directory.tutorial_frames)
 		self.action	 = 'open'
 		self.speed	  = 0
