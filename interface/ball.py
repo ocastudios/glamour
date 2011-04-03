@@ -8,6 +8,7 @@ import interface.widget as widget
 import utils.save as save
 import settings
 import database
+import mousepointer
 from settings import directory
 from settings import scale
 from settings import t
@@ -22,6 +23,7 @@ class Ball():
 		self.delay = 150
 		self.universe.level.changing_stages_darkenning()
 		self.universe.level.loading()
+		#reset boyfriend list - so that the list can be managed by the instances
 		NewDancer.boyfriend_list = ["gentleman_decent", 
 				  "knight_reliable", 
 				  "baron_serious", 
@@ -47,7 +49,7 @@ class Ball():
 		universe.level.loading()
 		self.Frame	  = BallFrame(self)
 		universe.level.loading()
-		self.buttons = [widget.Button(directory.button_ok,(1050,700), universe,self.return_to_game)]
+		self.buttons = [widget.Button(self.universe, directory.button_ok,(1050,700), [0,0],self.return_to_game)]
 		universe.level.loading()
 		pygame.mixer.music.load(os.path.join(directory.music,"strauss_waltz_wedley.ogg"))
 		universe.level.loading()
@@ -97,13 +99,13 @@ class Ball():
 				i.update_all()
 		if self.boyfriend:
 			if self.counter == self.delay+50:
-				self.texts+= [widget.GameText(t("and won the heart of")+" ", (1090,237), self,font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, t("and won the heart of")+" ", (1090,237), [0,0],font_size = 40)]
 			if self.counter == self.delay+60:
-				self.texts+= [widget.GameText(".", (1300,237), self,font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, ".", (1300,237), [0,0],font_size = 40)]
 			if self.counter == self.delay+70:
-				self.texts+= [widget.GameText(" .", (1300,237), self,font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, " .", (1300,237), [0,0],font_size = 40)]
 			if self.counter == self.delay+80:
-				self.texts+= [widget.GameText("  .", (1300,237), self,font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, "  .", (1300,237), [0,0],font_size = 40)]
 			if self.counter > self.delay+110:
 				self.boyfriend.update_all()
 		if self.counter > self.delay+130:
@@ -112,7 +114,7 @@ class Ball():
 
 		if self.counter == self.delay+130:
 			if self.boyfriend:
-				self.texts += [widget.GameText(self.boyfriend.name,(1156,280),self, font_size = 60,color=(58,56,0))]
+				self.texts += [widget.GameText(self.universe, self.boyfriend.name,(1156,280),[0,0], font_size = 60,color=(58,56,0))]
 
 		if self.counter <= self.delay+130:
 			self.counter += 1
@@ -199,35 +201,51 @@ class Ball():
 			enemy_number = random.randint(1,max_enemies)
 			for i in range(enemy_number):
 				chosen_enemy = random.choice(general_enemies_list)
-				general_enemies_list.remove(chosen_enemy)
 				print chosen_enemy
 				sql = 'update stage_enemies set '+chosen_enemy+' = 1 where stage = "'+stage+'"'
 				cursor.execute(sql)
 
 		universe.db.commit()
-		thumbnail = pygame.transform.flip(pygame.transform.smoothscale(universe.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-		pygame.image.save(thumbnail,os.path.join(directory.saves,universe.level.princesses[0].name,'thumbnail.PNG'))
+		save.save_thumbnail(universe)
 		self.texts += [
-				#Translators: consider the whole sentence: You've got X glamour points
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("You've"),	(1064,81),		[0,0],font_size = 40),
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("got"),		(1100,128),		[0,0],font_size = 40),
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("glamour"),	(1309,151),		[0,0],font_size = 40),
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("points"),	(1309,185),		[0,0],font_size = 40),
-				widget.GameText(universe, str(int(glamour_points)), (1200,120),self,font_size=80)
+				widget.GameText(universe, str(int(glamour_points)), (1200,120),[0,0],font_size=80)
 		]
 		total_points = int(glamour_points+accumulated_points)
 		if total_points >= 30:
-			self.boyfriend = BoyFriend(total_points)
+			self.boyfriend = BoyFriend(universe, total_points)
 		universe.level.panel[1]  = widget.GameText(universe, str(total_points), (1000,30), [0,0],font_size = 80, color=(58,56,0))
 
 	def return_to_game(self):
-		self.universe.level.BathhouseSt(goalpos = round(5220*scale), clean_princess = True)
-		if self.locked:
+		if self.universe.level.princesses[0].points >=1000 and not database.query.won(self.universe):
+			self.universe.level = self.universe.menu
+			database.update.won(self.universe)
+			self.universe.stage.white.alpha_value = 0
+			utils.save.save_file(self.universe)
+			self.universe.stage.princesses = None
+			self.universe.menu.action = 'open'
+			self.universe.action[2] = 'open' 
+			self.universe.menu.watching_ending()
+#			self.universe.menu.STEP = self.universe.menu.STEP_arrive_bar
+			self.universe.LEVEL= "menu"
+			self.universe.pointer = mousepointer.MousePointer(self,type = 2)
+			pygame.mixer.music.fadeout(1500)
+		else:
+			self.universe.level.princesses[0].visited_streets = []
+			self.universe.level.BathhouseSt(goalpos = round(5220*scale), clean_princess = True)
+			if self.locked:
 				if database.query.different_hairs_used(self.universe)>=3:
 					self.universe.level.unlocking = {'type':'accessory','name':'mask'}
 					self.locked = False
-		self.universe.level.clock[1].count = 0
-		self.universe.level.clock[1].time = "morning"
+			self.universe.stage.clock[1].count = 0
+			self.universe.stage.clock[1].time = "morning"
 
 
 class VerticalBar():
@@ -254,6 +272,7 @@ class VerticalBar():
 
 class BallFrame():
 	def __init__(self, ball):
+		self.universe = ball.universe
 		self.image = pygame.Surface(p((677,673)),pygame.SRCALPHA).convert_alpha()
 		background = utils.img.image(os.path.join(directory.ball,'back-frame.png'))
 		self.size = self.image.get_size()
@@ -271,8 +290,8 @@ class BallFrame():
 				[(350,400), 'hair_rapunzel',  'pink', 'Rapunzel'],
 				[(460,400), 'hair_sleeping',  'pink', 'Sleeping_Beauty']) ]
 		frametexts = [
-				widget.GameText(t("Tonight's ball"),	  (0,0), self, rotate = 90),
-				widget.GameText(t("Yesterday's ball"),	(0,0), self, rotate = 90)
+				widget.GameText(self.universe, t("Tonight's ball"),		(0,0), [0,0], rotate = 90),
+				widget.GameText(self.universe, t("Yesterday's ball"),	(0,0), [0,0], rotate = 90)
 					]
 		self.princesses = princesses
 		for i in past_princesses:
@@ -364,7 +383,7 @@ class StarBall():
 
 
 class BoyFriend():
-	def __init__(self, points):
+	def __init__(self, universe, points):
 		print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
 		boyfriend = None
 		if points >= 30:
@@ -392,8 +411,12 @@ class BoyFriend():
 			boyfriend = "king_kindhearted"
 			self.name = t('King Kindhearted')
 		if points >= 1000:
-			boyfriend = "emperor_awesome"
-			self.name = t('Emperor Awesome')
+			if database.query.won(universe):
+				boyfriend = "fabrizio"
+				self.name = "Fabrizio"
+			else:
+				boyfriend = "emperor_awesome"
+				self.name = t('Emperor Awesome')
 		print "The heart of "+boyfriend+" is yours!"
 		self.hard_name = boyfriend
 		self.image= utils.img.image(os.path.join(directory.boyfriends,boyfriend,'0.png'))

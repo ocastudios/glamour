@@ -9,14 +9,13 @@ import settings.directory as directory
 
 
 class Scenario():
-	"""It is necessary to extend this class in order to separete several classes of Scenario. Trees, Clouds, Posts and Buildings have different atributes and different functions."""
 	def __init__(self,center_distance,dir,universe,invert = False, height = False):
 		self.lights = None
-		self.images		 = utils.img.OneSided(dir)
-		self.image		  = self.images.list[0]
+		self.images		= utils.img.OneSided(dir)
+		self.image		= self.images.list[0]
 		if invert:
-			self.image	  = pygame.transform.flip(self.image, 1,0)
-		self.size		   = self.images.size
+			self.image	= pygame.transform.flip(self.image, 1,0)
+		self.size		= self.images.size
 		self.center_distance= center_distance
 		self.universe		  = universe
 		if not height:
@@ -47,14 +46,11 @@ class Scenario():
 		self.update_pos()
 
 	def update_with_images(self):
-		self.image		  = self.images.list[self.images.itnumber.next()]
-		self.pos[0]		 = self.universe.center_x+self.center_distance
+		self.image		= self.images.list[self.images.itnumber.next()]
+		self.pos[0]		= self.universe.center_x+self.center_distance
 
 	def update_without_images(self):
 		self.pos[0]		 = self.universe.center_x+self.center_distance
-
-	def __del__(self):
-		print "Scenario destroyed"
 
 class Flower(Scenario):
 	def __init__(self,center_distance,dir,universe,frames,):
@@ -95,8 +91,6 @@ class Gate(Scenario):
 		if self.rect.contains(princess.rect):
 			if princess.action[0] == 'open_door':
 				self.goal(self.goalpos)
-	def __del__(self):
-		print "Gate destroyed"
 
 class BuildingDoor():
 	def __init__(self,pos,directory,universe,interior = None, bath = False):

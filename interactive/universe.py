@@ -30,7 +30,10 @@ class Universe():
 		self.run_level = True
 		self.db = None
 		self.db_cursor = None
-		self.screen_surface = pygame.display.set_mode((w,h),32)#,pygame.FULLSCREEN , 32)
+### Uncomment next line (and comment the following) to test the game with different resolutions
+### you will also need to edit the setting.__init__ file.
+#		self.screen_surface = pygame.display.set_mode((w,h),32)
+		self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.drapes,"drape000.png")),(0,0))
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.upper_drapes,"upper.png")),(0,0))
 		pygame.display.flip()
@@ -60,7 +63,7 @@ class Universe():
 				self.stage = self.stage or stage.Stage(self)
 				self.level = self.stage
 				self.level.paused = False
-				self.stage.BathhouseSt()
+				self.stage.BathhouseSt(goalpos = round(5220*scale))
 				
 		elif self.LEVEL == 'menu':
 			if not self.level or self.level.__class__ != menu.Menu:

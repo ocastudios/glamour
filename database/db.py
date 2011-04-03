@@ -25,7 +25,8 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 				points				INTEGER,
 				level				VARCHAR(30),
 				position			REAL,
-				center_distance	 REAL
+				center_distance		REAL,
+				won					INTEGER
 				);
 			""")
 		garment = """
@@ -102,7 +103,7 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 			[46,"intro", "first day a"],[47,"intro", "first day b"],[48,"intro", "first day c"],[49,"intro", "first day d"],
 			[50,"intro", "first day e"],[51,"intro", "first day f"],[52,"intro", "first day g"],[53,"intro", "first day h"],
 			[54,"intro", "first day i"])]
-		db_cursor.execute("INSERT INTO save VALUES('"+name+"', 0 , 0 ,'level','(0,0)',5220)")
+		db_cursor.execute("INSERT INTO save VALUES('"+name+"', 0 , 0 ,'level','(0,0)',5220, 0)")
 		db_cursor.execute("INSERT INTO princess_garment VALUES(1,'"+
 						str(hairback)+"','"+skin+"','face_simple','"+hair+"','shoes_slipper','dress_plain','"+arm+"', 'None','accessory_ribbon')")
 		db_cursor.execute("INSERT INTO cinderella VALUES(1,0,'skin_tan','face_eyeshades','hair_cinderella','shoes_crystal', 'dress_red','arm_tan',0,'accessory_shades')")

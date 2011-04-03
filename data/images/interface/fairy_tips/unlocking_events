@@ -1,10 +1,10 @@
 name		type			Event										Written		Tested
 beret		accessory		Saltar junto com o pinguim.					done		done
-mask		accessory		usar três cabelos diferentes no baile.		done		
+mask		accessory		usar três cabelos diferentes no baile.		done		done
 shades		accessory		chutar 20 pintinhos.						done		done
-indian		dress			usar três peças de gueixa.					done		
+indian		dress			usar três peças de gueixa.					done		done
 kimono		dress			ser atropelada pela carruagem.				done		done
-yellow		dress			vencer todos os inimigos disponíveis.		done
+yellow		dress			vencer todos os inimigos disponíveis.		done		done
 geisha		face			tomar banho estando limpa.					done		done
 indian		face			ao beijar o leão.							done		done
 lipstick	face			entrar no próprio castelo.					done		done
@@ -12,6 +12,6 @@ cinderella	hair			ao visitar cinderella.						done		done
 rapunzel	hair			ao visitar rapunzel.						done		done
 sleeping	hair			ao visitar sleeping.						done		done
 snowwhite	hair			ao visitar snow_white.						done		done
-boots		shoes			chegar limpa a uma das margens do esgoto.	
+boots		shoes			chegar limpa a uma das margens do esgoto.	done		done
 crystal		shoes			usar o conjuntinho do final do jogo.		done		done
-flower		shoes			ao visitar 4 ruas em um só dia.				
+flower		shoes			ao visitar 4 ruas em um só dia.				done		done

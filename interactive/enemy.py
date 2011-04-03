@@ -85,14 +85,15 @@ class Schnauzer():
 
 		if -p(400) < self.pos[0] < p(1500):
 			self.set_image()
-			if self.rect.colliderect(princess.kiss_rect):
+			if princess.kiss['rect'] \
+			and self.rect.colliderect(princess.kiss['rect']):
 				self.gotkissed += 1
 				self.move = False
 				if not self.beaten:
 					database.update.beat_enemy(self.universe, 'schnauzer')
 					self.beaten = True
 					if database.query.beaten_enemies(self.universe)>=5:
-						self.unlocking={'type':'dress','name':'yellow'}
+						self.universe.level.unlocking={'type':'dress','name':'yellow'}
 		if self.gotkissed != 0:
 			self.gotkissed += 1
 			if self.gotkissed > 250:
@@ -143,7 +144,7 @@ class Carriage():
 		self.rect = pygame.Rect((self.pos[0]+self.correction,(self.universe.level.floor-self.pos[1])),(self.size))
 		self.gotkissed = 0
 		self.image_number = 0
-		self.locked = database.query.is_locked(self.universe.level,'dress','kimono')
+		self.locked = database.query.is_locked(self.universe,'dress','kimono')
 		print "done."
 
 	def update_all(self):
@@ -269,7 +270,7 @@ class OldLady():
 					database.update.beat_enemy(self.universe, 'old_lady')
 					self.beaten = True
 					if database.query.beaten_enemies(self.universe)>=5:
-						self.unlocking={'type':'dress','name':'yellow'}
+						self.universe.level.unlocking={'type':'dress','name':'yellow'}
 		elif self.count > 33:
 			self.action = 'walk'
 			self.count = 0
@@ -423,14 +424,15 @@ class Lion():
 					self.action = "dance"
 					self.base.number = 0
 
-			if self.rect.colliderect(self.universe.level.princesses[0].kiss_rect):
+			if self.universe.level.princesses[0].kiss['rect']\
+			and self.rect.colliderect(self.universe.level.princesses[0].kiss['rect']):
 				if self.action != "kissed":
 					self.kissed.number = 0
 					if not self.beaten:
 						database.update.beat_enemy(self.universe, 'lion')
 						self.beaten = True
 						if database.query.beaten_enemies(self.universe)>=5:
-							self.unlocking={'type':'dress','name':'yellow'}
+							self.universe.level.unlocking={'type':'dress','name':'yellow'}
 				self.action = "kissed"
 				self.got_kissed = 0
 				if self.locked:
@@ -622,8 +624,6 @@ class Monkey():
 			self.__dict__[i] = utils.img.TwoSided(os.path.join(directory.enemies,'Monkey',i))
 		self.direction = random.choice(['right','right'])
 		self.image = self.stay.__dict__[self.direction][0]
-
-
 		self.size = self.stay.size
 		self.real_size = self.size
 		self.universe = universe
@@ -677,6 +677,7 @@ class Banana():
 		self.banana_size = p([29,51],r=0)
 		self.image_number = 0
 		self.status = 'held'
+		self.direction = 'left'
 		self.speed = {
 						'max': p(40),
 						'resistance': p(2,r=0),
@@ -704,10 +705,12 @@ class Banana():
 				if self.images['throwing'].number == 3 or self.monkey.throw.number == 10:
 					self.status = 'thrown'
 					self.images['throwing'].number = 0
+					self.direction = self.monkey.direction
+
 		if self.status == 'thrown':
 			self.image = self.images['thrown'].__dict__[self.monkey.direction][0]
 			self.pos[0] = self.universe.center_x + self.center_distance
-			if self.monkey.direction == 'left':
+			if self.direction == 'left':
 				self.center_distance += self.speed['actual']
 			else:
 				self.center_distance -= self.speed['actual']
@@ -725,47 +728,79 @@ class Banana():
 				self.speed['actual'] = self.speed['max']
 				self.center_distance = self.monkey.center_distance
 
+
 class VikingShip():
+	"""Viking Ship is a special enemy. It is included in front of the floor, between two layers of water.
+	It's base image is included between the waters by the function that places the waters.
+	The other images are included here"""
+
 	music = {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
 			 'weight':5}
 	def __init__(self, pos, universe):
 		print "Creating Viking Ship"
-		self.center_distance = pos
+		self.universe = universe
 		self.base = utils.img.TwoSided(os.path.join(directory.enemies,'VikingShip','base'))
 		sailor_body = utils.img.image(os.path.join(directory.enemies,'VikingShip','viking_sailor','body','0.png'))
 		left_sailor = utils.img.invert_images([sailor_body])
+
 		for i in self.base.left:
 			i.blit(sailor_body,(p(253),p(635)))
 		for i in self.base.right:
 			i.blit(left_sailor[0], (p(490),p(639)))
 		del sailor_body, left_sailor
-		self.direction = random.choice(['right','right'])
+
+		D = {
+			'right':{
+				'center_distance': p(40, r=0),
+				'flag_pos': 650,
+				'wave_pos': 200,
+				'head':  (476,518),
+				'talk':  (650,400),
+				'shout': (650,400)
+			},
+			'left':{
+				'center_distance':p(9000, r=0),
+				'flag_pos':400,
+				'wave_pos':200,
+				'head':  (262,518),
+				'talk':  (-90,400),
+				'shout': (-90,400)
+			}
+		}
+
+		self.direction = random.choice(['right','left'])
+		self.center_distance = D[self.direction]['center_distance']
 		self.image = self.base.__dict__[self.direction][0]
-		self.universe = universe
 		self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
 		self.image_height = self.image.get_height()
 		self.pos = [self.universe.center_x+self.center_distance, self.universe.level.floor - self.image_height + p(200) +self.height.next()]
-		self.gotkissed = 0
-		self.image_number = 0
-		self.speed = -p(3)
-		if self.direction == 'left':
-			self.flag = VikingPart(self,'flag',pos_x = 400)
-			self.wave = VikingPart(self,'wave',pos_x = 200)
-			self.head_list = {  "normal": VikingPart(self,os.path.join('viking_sailor','head_normal'), pos_x=262,pos_y=518),
-								"hover" : VikingPart(self,os.path.join('viking_sailor','head_hover'),  pos_x=262,pos_y=518),
-								"angry" : VikingPart(self,os.path.join('viking_sailor','head_angry'),  pos_x=262,pos_y=518),
-								"talk"  : VikingPart(self,os.path.join('viking_sailor','head_talk'),   pos_x=262,pos_y=518)}
-			self.talk_balloon	= VikingPart(self, 'talk_balloon',pos_x = -90, pos_y = 400)
-			self.shout_balloon   = VikingPart(self, 'shout_balloon',pos_x = -90, pos_y = 400)
-		else:
-			self.flag = VikingPart(self,'flag',pos_x = 650)
-			self.wave = VikingPart(self,'wave',pos_x = 850)
-			self.head_list = {  "normal": VikingPart(self,os.path.join('viking_sailor','head_normal'),  pos_x=476,pos_y=518),
-								"hover" : VikingPart(self,os.path.join('viking_sailor','head_hover'),   pos_x=476,pos_y=518),
-								"angry" : VikingPart(self,os.path.join('viking_sailor','head_angry'),   pos_x=476,pos_y=518),
-								"talk"  : VikingPart(self,os.path.join('viking_sailor','head_talk'),	pos_x=476,pos_y=518)}
-			self.talk_balloon	= VikingPart(self, 'talk_balloon',pos_x = 650, pos_y = 400)
-			self.shout_balloon   = VikingPart(self, 'shout_balloon',pos_x = 650, pos_y = 400)
+		self.gotkissed		= 0
+		self.image_number	= 0
+		self.speed = p(3)
+
+		self.flag = VikingPart(self,'flag',pos_x = D[self.direction]['flag_pos'])
+		self.wave = VikingPart(self,'wave',pos_x = D[self.direction]['wave_pos'])
+		self.head_list = {
+			"normal": VikingPart(self, os.path.join('viking_sailor','head_normal'),
+					pos_x = D[self.direction]['head'][0],
+					pos_y = D[self.direction]['head'][1]),
+			"hover": VikingPart(self, os.path.join('viking_sailor','head_hover'),
+					pos_x = D[self.direction]['head'][0],
+			 		pos_y = D[self.direction]['head'][1]),
+			"angry" : VikingPart(self,os.path.join('viking_sailor','head_angry'),
+					pos_x = D[self.direction]['head'][0],
+			 		pos_y = D[self.direction]['head'][1]),
+			"talk"  : VikingPart(self,os.path.join('viking_sailor','head_talk'),
+					pos_x = D[self.direction]['head'][0],
+			 		pos_y = D[self.direction]['head'][1]),
+		}
+		self.talk_balloon = VikingPart(self, 'talk_balloon',
+										pos_x = D[self.direction]['talk'][0],
+										pos_y = D[self.direction]['talk'][1])
+		self.shout_balloon= VikingPart(self, 'shout_balloon',
+										pos_x = D[self.direction]['shout'][0],
+										pos_y = D[self.direction]['shout'][1])
+
 		self.mood  = "normal"
 		self.head  = self.head_list[self.mood]
 		self.count = 0
@@ -778,64 +813,44 @@ class VikingShip():
 		print "done."
 
 	def update_all(self):
-		try:
-			wavesize
-		except:
-			wavesize = self.wave.size[1] -p(20)
-		move={'left':1,'right':-1}
-		self.center_distance += self.speed*move[self.direction]
-		self.pos[0] = self.universe.center_x + self.center_distance
-		self.pos[1] = self.universe.level.floor - self.image_height + p(200) + self.height.next()
-		if -p(1000) < self.pos[0] < p(1490):
-			self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
+		#take the balloon off the way, for it hurts the princess
+		#if self.mood is talk it will be reset below
+		self.talk_balloon.pos = p(-1000),p(-1000)
+		self.talk_balloon_rect	= pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
+	
+		if -p(1000) < self.pos[0] < p(1500): #check if Viking is on screen
 			if self.wave not in self.universe.level.floor_image:
+			
 				self.universe.level.floor_image.extend([self.flag,self.wave,self.head])
 			else:
-				self.head = self.head_list[self.mood]
+				self.head = self.head_list[self.mood] # change faces acording to the mood
 				self.universe.level.floor_image[-1] = self.head
-			self.flag.pos = self.pos[0]+(self.flag.pos_x-self.flag.size[0]),self.pos[1]+self.flag.pos_y
-			self.wave.pos = self.pos[0]+(self.wave.pos_x-self.wave.size[0]),self.universe.level.floor_image[-5].pos[1]-wavesize
-			self.head.pos = self.pos[0]+self.head.pos_x,self.pos[1]+self.head.pos_y
 			self.count += 1
+
 			if self.mood == "normal":
-				if self.count > 100:
-					if random.randint(0,20) == 0:
-						self.mood = "talk"
-						self.balloon_curses = [self.talk_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
-						self.universe.level.panel.extend(self.balloon_curses)
-						for i,pos in [(0,-70), (1,10), (2,90)]:
-							self.curses[self.curse_number[i]].position[0] = p(pos)
-						self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
-						for i in self.universe.level.panel:
-							if i.__class__ == Curse:
-								if self.direction == 'left':
-									i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-								else:
-									i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
-						self.count = 0
-				self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
-				if self.sailor_rect.collidepoint(self.universe.pointer.mouse_pos):
-					if not self.beaten:
-						database.update.beat_enemy(self.universe, 'viking_ship')
-						self.beaten = True
-						if database.query.beaten_enemies(self.universe)>=5:
-							self.unlocking={'type':'dress','name':'yellow'}
-					self.mood = "hover"
-					self.count = 0
+				#on normal mood Viking does nothing
+				#check if mood should be changed
+				self.check_mood_talking()
+				self.check_mood_hover()
+				self.check_mood_angry()
+
 			elif self.mood == "hover":
 				if self.count > 40:
 					self.mood = "normal"
 					self.count = 0
+
 			elif self.mood == "talk":
-				self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
+				self.talk_balloon_rect	= pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
+				self.talk_balloon.pos	= self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
+				#The balloon and the curses must appear over the boat
+				#But the last floor listing position is used by the sailor head
+				#That is why the ballon and curses will be placed on the panel list
 				for i in self.universe.level.panel:
 					if i.__class__ == Curse:
-						for i in self.universe.level.panel:
-							if i.__class__ == Curse:
-								if self.direction == 'left':
-									i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-								else:
-									i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
+						if self.direction == 'left':
+							i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
+						else:
+							i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
 						if i not in self.balloon_curses:
 							self.universe.level.panel.remove(i)
 							i.pos = (-p(100),i.position[1])
@@ -848,7 +863,89 @@ class VikingShip():
 					self.mood = "normal"
 					self.count = 0
 
+			elif self.mood == "angry":
+				self.shout_balloon.pos = self.pos[0]+self.shout_balloon.pos_x,self.pos[1]+self.shout_balloon.pos_y
+				for i in self.universe.level.panel:
+					if i.__class__ == Curse:
+						for i in self.universe.level.panel:
+							if i.__class__ == Curse:
+								if self.direction == 'left':
+									i.pos = (self.pos[0]+i.position[0]-p(80),self.pos[1]+i.position[1]+p(70))
+								else:
+									i.pos = (self.pos[0]+p(800)+i.position[0]+p(80),self.pos[1]+i.position[1]+p(70))
+						if i not in self.balloon_curses:
+							self.universe.level.panel.remove(i)
+							i.pos = (-p(100),i.position[1])
+				if self.count > 60:
+					for i in self.balloon_curses:
+						self.universe.level.panel.remove(i)
+						i.pos = p([-400,-400])
+					self.balloon_curses = []
+					self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
+					self.mood = "normal"
+					self.count = 0
+		#while not on screen Viking should only update position.
+		self.moving()
 
+
+	def moving(self):
+		if self.direction == "left":
+			self.center_distance -= self.speed
+		else:
+			self.center_distance += self.speed
+		self.pos[0] = self.universe.center_x + self.center_distance
+		self.pos[1] = self.universe.level.floor - self.image_height + p(200) + self.height.next()
+		self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
+		self.flag.pos = self.pos[0]+(self.flag.pos_x-self.flag.size[0]),self.pos[1]+self.flag.pos_y
+		self.wave.pos = self.pos[0]+(self.wave.pos_x-self.wave.size[0]),self.universe.level.floor_image[-5].pos[1]-(self.wave.size[1]-p(20))
+		self.head.pos = self.pos[0]+self.head.pos_x,self.pos[1]+self.head.pos_y
+
+	def check_mood_talking(self):
+		if self.count > 100 \
+		and random.randint(0,20) == 0:
+			self.mood = "talk"
+			self.balloon_curses = [self.talk_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
+			self.universe.level.panel.extend(self.balloon_curses)
+			for i,pos in [(0,-70), (1,10), (2,90)]:
+				self.curses[self.curse_number[i]].position[0] = p(pos)
+			self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
+			for i in self.universe.level.panel:
+				if i.__class__ == Curse:
+					if self.direction == 'left':
+						i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
+					else:
+						i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
+			self.count = 0
+
+	def check_mood_hover(self):
+		if self.sailor_rect.collidepoint(self.universe.pointer.mouse_pos):
+			if not self.beaten:
+				database.update.beat_enemy(self.universe, 'viking_ship')
+				self.beaten = True
+				if database.query.beaten_enemies(self.universe)>=5:
+					self.universe.level.unlocking={'type':'dress','name':'yellow'}
+			self.mood = "hover"
+			self.count = 0
+
+	def check_mood_angry(self):
+		if self.universe.level.princesses[0].kiss \
+		and self.sailor_rect.colliderect(self.universe.level.princesses[0].kiss['rect']):
+			self.universe.stage.princesses[0].get_dirty()
+			print "got you"
+			self.mood = "angry"
+			self.balloon_curses = [self.shout_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
+			self.universe.level.panel.extend(self.balloon_curses)
+			for i,pos in [(0,-70), (1,10), (2,90)]:
+				self.curses[self.curse_number[i]].position[0] = p(pos)
+			self.shout_balloon.pos = self.pos[0]+self.shout_balloon.pos_x,self.pos[1]+self.shout_balloon.pos_y
+			for i in self.universe.level.panel:
+				if i.__class__ == Curse:
+					if self.direction == 'left':
+						i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
+					else:
+						i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
+			self.count = 0
+			
 class VikingPart():
 	music = None
 	def __init__(self, ship, part, pos_x = 0, pos_y = 0):
@@ -927,13 +1024,15 @@ class FootBoy():
 		else:
 			self.speed = p(12)
 			self.image = self.body.right[self.body.number]
-		if not self.got_kissed and self.rect.colliderect(self.universe.level.princesses[0].kiss_rect):
+		if not self.got_kissed \
+		and self.universe.level.princesses[0].kiss['rect']\
+		and self.rect.colliderect(self.universe.level.princesses[0].kiss['rect']):
 			self.got_kissed = 1
 			if not self.beaten:
 				database.update.beat_enemy(self.universe, 'footboy')
 				self.beaten = True
 				if database.query.beaten_enemies(self.universe)>=5:
-					self.unlocking={'type':'dress','name':'yellow'}
+					self.universe.level.unlocking={'type':'dress','name':'yellow'}
 		if self.got_kissed > 0:
 			if self.got_kissed == 1:
 				self.body = self.running_kissed
@@ -1048,7 +1147,7 @@ class Bird():
 			if i.__class__ == Hawk:
 				hawks += 1
 		if not hawks:
-			self.universe.level.enemies.append(Hawk((self.universe.width+int(p(600)), int(-p(300))), self.universe.level, self))
+			self.universe.level.enemies.append(Hawk((self.universe.width+int(p(600)), int(-p(300))), self.universe, self))
 			self.original = True
 		else:
 			self.original = False

@@ -95,28 +95,22 @@ class Button():
 
 class GameText():
 	def __init__(self, universe, text,pos,frame_pos =None,fonte='Domestic_Manners.ttf', font_size=40, color=(58,56,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
-		font_size  = int(round(font_size*scale))
+		font_size  = p(font_size)
 		pos = p(pos)
 		self.font	   = fonte
-		
-		if frame_pos:
-			self.frame_pos	= frame_pos
-		else:
-			self.frame_pos = None
+		self.frame_pos = frame_pos
 		self.text	   = text
 		self.color	  = color
-		self.fontA	  = pygame.font.Font(main_dir+'/data/fonts/'+fonte,font_size)
-		self.fontB	  = pygame.font.Font(main_dir+'/data/fonts/'+second_font,font_size+(font_size/3))
+		self.fontA	  = pygame.font.Font(main_dir+'/data/fonts/'+fonte,int(round(font_size)))
+		self.fontB	  = pygame.font.Font(main_dir+'/data/fonts/'+second_font,int(round(font_size+(font_size/3))))
 		self.position   = pos
 		if box:
 			self.box	= pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
 			self.adjusting_fonts()
 			self.image  = self.box
-			self.size	   = self.image.get_size()
+			self.size		= self.image.get_size()
 			self.pos		= [self.position[0]-(self.size[0]/2),
 							   self.position[1]-(self.size[1]/2)]
-
-
 		else:
 			self.image	  = self.fontA.render(self.text,1,self.color)
 			if rotate:
@@ -129,7 +123,8 @@ class GameText():
 				self.pos		= [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
 								   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
 			else:
-				self.pos = pos
+				self.pos = [pos[0]-(self.size[0]/2),
+							pos[1]-(self.size[1]/2)]
 
 		self.variable_text = var
 		self.text_box   = self.size[0]*.8,self.size[1]*.8

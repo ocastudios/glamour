@@ -68,7 +68,8 @@ class Inside():
 			for i in my_outfit:
 				if ("geisha" in str(i)) or ('kimono' in str(i)) or ("flower" in str(i)):
 					geisha_garments+= 1
-			if geisha_garments >= 3:
+			#Indian dress should be unlocked if 3 geisha garments are used
+			if geisha_garments >= 4: #kimono will be counted twice because of the sleeves
 				self.universe.level.unlocking = {'type':'dress','name':'indian'}
 				self.locked['indian'] = False
 		if self.locked['crystal']:
@@ -93,10 +94,7 @@ class Inside():
 		print "You look lovely all cleaned up!"
 		self.universe.level.princesses[1] = None
 		save.save_file(self.universe)
-		thumbnail = pygame.transform.flip(pygame.transform.smoothscale(self.universe.level.princesses[0].stay_img.left[0],(100,100)),1,0)
-		pygame.image.save(thumbnail,os.path.join(directory.saves,self.universe.level.princesses[0].name.encode('utf-8'),'thumbnail.PNG'))
-
-
+		save.save_thumbnail(self.universe)
 
 	def NOTSETYET(self):
 		pass
@@ -146,10 +144,6 @@ class BigPrincess():
 	def __init__(self, room, pos = "left"):
 		self.room			= room
 		self.universe		= room.universe
-		if pos == "left":
-			self.pos		= p((20,270))
-		elif pos == "center":
-			self.pos		= p((room.universe.width/2,270))
 		row = database.query.my_outfit(self.universe, 'princess_garment')
 		self.image_dict = {
 						"hair_back" :0,
@@ -170,15 +164,17 @@ class BigPrincess():
 			else:
 				img = None
 			self.images += [img]
-
+		if pos == "left":
+			self.pos		= p((20,270))
+		elif pos == "center":
+			self.pos		= ((room.universe.width/2)-p(200),p(270))
 
 	def update_all(self):
 		pass
 
 	def all_set(self):
 		self.status = 'done'
-		thumbnail = pygame.transform.smoothscale(self.universe.level.princesses[0].stay_img.left[0],(100,100))
-		pygame.image.save(thumbnail,os.path.join(saves_dir,self.universe.level.princesses[0].name,'thumbnail.PNG'))
+		save.save_thumbnail(self.universe)
 
 	def update_all(self):
 		self.pos		= [self.frame.position[0]+self.position[0],
@@ -231,10 +227,7 @@ class Princess_Home():
 			print "You have unlocked "+self.name+"'s hair"
 			self.universe.level.unlocking = {'type':'hair','name':self.name}
 			self.locked = False
-
-		thumbnail = pygame.transform.smoothscale(self.universe.level.princesses[0].stay_img.left[0],(100,100))
-		pygame.image.save(thumbnail,os.path.join(directory.saves,self.universe.level.princesses[0].name,'thumbnail.PNG'))
-
+		save.save_thumbnail(self.universe)
 
 	def update_all(self):
 		self.pos		= [self.frame.position[0]+self.position[0],

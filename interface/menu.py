@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-ending
 import utils.img
 import interactive.princess as princess
 import pygame
@@ -51,9 +51,10 @@ class Menu():
 		self.action		 = None
 		self.next_menu	  = self.select_princess
 		self.print_princess = False
-		self.princess	   = None
-		self.story		  = None
-		self.tutorial	   = None
+		self.princess		= None
+		self.story			= None
+		self.tutorial		= None
+		self.ending			= None
 		self.credits		= None
 		self.go_back		= False
 		self.back_background= None
@@ -72,6 +73,7 @@ class Menu():
 	def update_all(self):
 		self.universe.screen_surface.fill([230,230,230])
 		self.STEP(self.universe.screen_surface)
+		self.universe.screen_surface.blit(self.universe.pointer.image,self.universe.pointer.mouse_pos)
 		self.count += 1
 
 	def update_drape(self,surface):
@@ -109,9 +111,9 @@ class Menu():
 				if bar['position']+p(516) > universe.width:
 					bar['position'] -= bar['speed']
 					if bar['position'] < int((universe.width-p(300))):
-						bar['speed'] += .5
-					else:
 						bar['speed'] -= .5
+					else:
+						bar['speed'] += .5
 				else:
 					bar['position'] = p(924)
 					self.STEP = self.update_menus ## Change the STEP		self.STEP			= self.level.update_drape
@@ -131,6 +133,10 @@ class Menu():
 		if self.tutorial:
 			self.tutorial.update_all()
 			[surface.blit(i,(0,0)) for i in self.tutorial.images if i]
+		if self.ending:
+			self.ending.update_all()
+			if self.ending:
+				[surface.blit(i,(0,0)) for i in self.ending.images if i]
 		for item in items:
 			for i in self.__dict__[item]:
 				i.update_all()
@@ -172,7 +178,7 @@ class Menu():
 		if self.action == 'open':
 			if self.position[1] != self.goal_pos[1]:
 				#Breaks
-				if self.goal_pos[1]+(p(70,r=False)) > self.position[1] > self.goal_pos[1]-p(70,r=False):
+				if self.goal_pos[1]+(p(60)) > self.position[1] > self.goal_pos[1]-p(60):
 					if self.speed > 0:
 						self.speed -= self.speed*.25
 					elif self.speed < 0:
@@ -190,7 +196,7 @@ class Menu():
 			else:
 				if self.speed > -p(85,r=False):
 					self.speed -= accel
-		self.universe.screen_surface.blit(self.universe.pointer.image,self.universe.pointer.mouse_pos)
+
 
 
 
@@ -242,6 +248,7 @@ class Menu():
 						bar['position'] = -bar['size'][0]
 					self.vertical_bar['side'] = 'left'
 			self.STEP = self.STEP_arrive_bar
+			self.vertical_bar['speed'] = p(5,r=False)
 			universe.action[2] = 'open'
 
 		if self.back_background:
@@ -265,12 +272,14 @@ class Menu():
 		opt = ((t('New Game'),100,self.new_game),(t('Load Game'),180,self.load_game),(t('Play Story'),260,self.play_story),(t('Learn to play'),340,self.play_tutorial),(t('Credits'),420,self.play_credits),(t('Exit'),500,exit))
 		self.options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
 		self.texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
-		self.buttons = [ widget.Button(self.universe, directory.arrow_right,(410,450),self.position,self.NOTSETYET),
-						 widget.Button(self.universe, directory.arrow_right,(200,450),self.position,self.NOTSETYET, invert = True)]
+		self.buttons = []
+#		 widget.Button(self.universe, directory.arrow_right,(410,450),self.position,self.NOTSETYET),
+#						 widget.Button(self.universe, directory.arrow_right,(200,450),self.position,self.NOTSETYET, invert = True)]
 
 	def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
-		self.story		  = None
+		self.story			= None
 		self.credits		= None
+		self.ending			= None
 		self.story_frames = []
 		self.background	 = self.selection_canvas
 		if background:
@@ -357,6 +366,7 @@ class Menu():
 		self.story		  = None
 		self.credits		= None
 		self.tutorial	   = None
+		self.ending			= None
 		self.story_frames = []
 		self.go_back = True
 		self.next_menu = self.main
@@ -385,15 +395,18 @@ class Menu():
 		self.universe.action[2] = 'close'
 
 	def play_story(self):
-		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = False
 		self.next_menu = self.watching_story
 		self.universe.action[2] = 'close'
 
 	def play_tutorial(self):
-		self.vertical_bar['call_bar'] = 'right'
 		self.go_back = False
 		self.next_menu = self.watching_tutorial
+		self.universe.action[2] = 'close'
+
+	def play_ending(self):
+		self.go_back = False
+		self.next_menu = self.watching_ending
 		self.universe.action[2] = 'close'
 
 	def play_credits(self):
@@ -472,22 +485,19 @@ class Menu():
 		saved_games = []
 		print "searching for saved games"
 		for i in os.listdir(directory.saves):
-			try:
-				D = os.path.join(directory.saves,i)
-				files = os.listdir(D)
-				if 'thumbnail.PNG' in files:
-					saved_games.extend([{'name':i, 'file': os.path.join(directory.saves,i,i+'.db')}])
-					print "Saved game found: "+ i
-				else:
-					print t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i)
-					for f in files:
-						file_to_remove = D+f
-						print "Removing "+file_to_remove
-						os.remove(file_to_remove)
-					print "removing directory "+D
-					os.rmdir(D)
-			except:
-				pass
+			D = os.path.join(directory.saves,i)
+			files = os.listdir(D)
+			if 'thumbnail.PNG' in files:
+				saved_games.extend([{'name':i.decode('utf-8'), 'file': os.path.join(directory.saves,i,i+'.db')}])
+				print "Saved game found: "+ i
+			else:
+				print t('The '+i.decode('utf-8')+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i.decode('utf-8'))
+				for f in files:
+					file_to_remove = os.path.join(D,f)
+					print "Removing "+file_to_remove
+					os.remove(file_to_remove)
+				print "removing directory "+D
+				os.rmdir(D)
 		print "done."
 		self.back_background = utils.img.image(os.path.join(directory.story,'svg_bedroom.png'))
 		white_mask		   = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
@@ -506,8 +516,8 @@ class Menu():
 		xpos = 0
 		self.buttons = []
 		for i in saved_games:
-			print directory.saves+'/'+i['name']+'/'
-			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name']),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
+			print directory.saves+'/'+i['name'].encode('utf-8')+'/'
+			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name'].encode('utf-8')),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
 			self.options.extend([
 			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
 			  widget.Button(self.universe, t('erase'), (xpos+300,ypos) ,self.position,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
@@ -542,6 +552,18 @@ class Menu():
 		self.buttons	= [widget.Button(self.universe, directory.arrow_right,(940,270), self.position, self.tutorial.next_frame,color = (58,56,0)),
 						   widget.Button(self.universe, directory.arrow_right,(-400,270), self.position, self.tutorial.past_frame, invert = True,color = (58,56,0))]
 		self.texts	  = self.tutorial.texts
+		
+	def watching_ending(self):
+		print "Congrats!! You've got emperor's heart!"
+		print "... but ..."
+		print "... is that what you really want?"
+		self.vertical_bar['call_bar'] = 'right'
+		self.ending = Story_Frame(self, os.path.join(directory.images, "ending","final"))
+		self.ending.frame_number = 0
+		self.speed  = 0
+		self.options = []
+		self.buttons = []
+		self.texts = []
 
 	def remove_save_directory(self, save_name):
 		for root, dirs, files in os.walk(os.path.join(directory.saves,save_name), topdown=False):
@@ -612,7 +634,6 @@ class Story_Frame():
 			self.available_sounds = [pygame.mixer.Sound(os.path.join(directory.sounds,'tutorial','frames',i)) for i in sound_frames]
 			GT = widget.GameText
 			frame_texts = {
-
 				0:[	GT(self.menu.universe,  t('Hi!'),(800,250),font_size =30),
 						GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218), font_size=30)],
 
@@ -676,9 +697,12 @@ class Story_Frame():
 		elif "story" in path:
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'story','frames')))
 			self.available_sounds   = [pygame.mixer.Sound(os.path.join(directory.sounds,'story','frames',i)) for i in sound_frames]
-			frame_texts = {
-				}
-
+			frame_texts = {}
+		elif "ending" in path:
+			sound_frames = sorted(os.listdir(os.path.join(directory.sounds, 'ending','frames')))
+			self.available_sounds	= [pygame.mixer.Sound(os.path.join(directory.sounds,'ending','frames',i)) for i in sound_frames]
+			frame_texts = {}
+			
 		for i in range(0,len(self.available_images)):
 			if i in frame_texts and frame_texts[i]:
 				for ii in frame_texts[i]:
@@ -693,14 +717,19 @@ class Story_Frame():
 			self.images = [self.available_images[self.frame_number-1]]
 		else:
 			self.images = []
-		
+		if self.menu.buttons == []:
+			if not self.channel.get_busy():
+				self.next_frame()
+
 
 	def next_frame(self):
 		self.channel.play(self.flip_sound)
 		if self.frame_number >= len(self.available_images):
+			self.menu.vertical_bar['side'] = 'right'
 			self.menu.back_to_main()
 		else:
-			self.channel.queue(self.available_sounds[self.frame_number])
+			if self.frame_number < len(self.available_sounds):
+				self.channel.queue(self.available_sounds[self.frame_number])
 			self.frame_number += 1
 			if self.frame_number:
 				self.menu.vertical_bar['side'] = None
@@ -747,78 +776,78 @@ class Credits():
 				('raquel',		  os.path.join(directory.credits,'text_raquel.png'	   )  ,(841,790))
 							]
 		texts_chopin = [
-			(t('in loving memory of')  ,(713,436),44,(0,0,0,255)),
-			(t('and')				  ,(701,520),24,(0,0,0,255)),
-			(t('Credits')			  ,(693,711),75,(0,0,0,255)),
-			(t('Programming')		  ,(485,769),34,(0,0,0,255)),
-			(t('Support')			  ,(934,769),34,(0,0,0,255)),
-			(t('Design')			   ,(682,930),34,(0,0,0,255)),
-			(t('Music'),				(704,1400),54,(0,0,0,255)),
-			(t('first snowfall'),	   (583,1448),44,(128,0,0,255)),
-			(t('endless blue'),		 (650,1489),44,(128,0,0,255)),
-			(t('celtic cappricio'),	 (762,1530),44,(128,0,0,255)),
-			(t('the bee'),			  (488,1572),44,(128,0,0,255)),
-			(t("lonesome man's dance"), (684,1612),44,(128,0,0,255)),
-			(t('dragon dance'),		 (754,1657),44,(128,0,0,255)),
-			(t('ship of fools'),		(829,1695),44,(128,0,0,255)),
-			(t('sword fight'),		  (684,1733),44,(128,0,0,255)),
-			(t('the foggy dew'),		(615,1778),44,(128,0,0,255)),
-			(t('revolution on resoluti on'), (828,1820),44,(128,0,0,255)),
-			(t('twilight on mountain'), (907,1858),44,(128,0,0,255)),
-			(t('brian boru 2'),		 (770,1899),44,(128,0,0,255)),
-			(t('ignition'),			 (830,1934),44,(128,0,0,255)),
-			(t('first snowfall'),	   (750,1975),44,(128,0,0,255)),
-			(t('cocci ci tini cocci'),  (780,2012),44,(128,0,0,255)),
-			(t('first snowfall'),	   (826,2053),44,(128,0,0,255)),
-			(t('waltz wedley'),		 (972,2100),44,(128,0,0,255))
+			(t('in loving memory of')	,(713,336),44,(0,0,0,255)),
+			(t('and')					,(701,420),24,(0,0,0,255)),
+			(t('Credits')				,(693,511),75,(0,0,0,255)),
+			(t('Programming')			,(485,569),34,(0,0,0,255)),
+			(t('Support')				,(934,569),34,(0,0,0,255)),
+			(t('Design')				,(682,730),34,(0,0,0,255)),
+			(t('Music')					,(704,1300),54,(0,0,0,255)),
+			(t('first snowfall')		,(583,1348),44,(128,0,0,255)),
+			(t('endless blue')			,(650,1389),44,(128,0,0,255)),
+			(t('celtic cappricio')		,(762,1430),44,(128,0,0,255)),
+			(t('the bee')				,(488,1472),44,(128,0,0,255)),
+			(t("lonesome man's dance")	,(684,1512),44,(128,0,0,255)),
+			(t('dragon dance')			,(754,1557),44,(128,0,0,255)),
+			(t('ship of fools')			,(829,1595),44,(128,0,0,255)),
+			(t('sword fight')			,(684,1633),44,(128,0,0,255)),
+			(t('the foggy dew')			,(615,1678),44,(128,0,0,255)),
+			(t('revolution on resoluti on')	,(828,1720),44,(128,0,0,255)),
+			(t('twilight on mountain')	,(907,1758),44,(128,0,0,255)),
+			(t('brian boru 2')			,(770,1799),44,(128,0,0,255)),
+			(t('ignition')				,(830,1834),44,(128,0,0,255)),
+			(t('first snowfall')		,(750,1875),44,(128,0,0,255)),
+			(t('cocci ci tini cocci')	,(780,1912),44,(128,0,0,255)),
+			(t('first snowfall')		,(826,1953),44,(128,0,0,255)),
+			(t('waltz wedley')			,(972,2000),44,(128,0,0,255))
 		   ]
 		texts_gentesque = [
-			(t('All python & pygame code, written in gedit.'),(501,841),16,(180,60)),
-			(t('Bureaucracy and et ceteras'),(909,837),16,(110,60)),
+			(t('All python & pygame code, written in gedit.'),	(501,741),16,(180,60)),
+			(t('Bureaucracy and et ceteras'),					(909,737),16,(110,60)),
 			(t('Almost all Inkscape, with a touch of Blender and Gimp.'), (704,1027),16,(200,60)),
-			(t('based on the homonimous board game by'),(699,1179),22,None),
-			(t('available at'),		(703,1237),22,None),
-			(t('introduction'),		(427,1458),14,None),
-			(t('by Torley on Piano'),  (754,1458),14,None),
-			(t('menu'),				(540,1499),14,None),
-			(t('by Armolithae'),	   (800,1499),14,None),
-			(t('bathhouse st'),		(588,1540),14,None),
-			(t('by armolithae'),	   (938,1540),14,None),
-			(t('dress st'),			(400,1582),14,None),
-			(t('by Ceili Moss'),	   (600,1582),14,None),
-			(t("shoe's st"),		   (500,1622),14,None),
-			(t("by Ceili Moss"),	   (900,1622),14,None),
-			(t('accessory st.'),	   (600,1667),14,None),
-			(t('by Butterfly Tea'),	(920,1667),14,None),
-			(t('make-up st.'),		 (700,1705),14,None),
-			(t('by Ceili Moss'),	   (961,1705),14,None),
-			(t('schnauzer'),		   (550,1743),14,None),
-			(t('by Armolithae'),	   (821,1743),14,None),
-			(t('carriage'),			(470,1788),14,None),
-			(t('by Ceili Moss'),	   (760,1788),14,None),
-			(t('old lady'),			(610,1830),14,None),
-			(t('by Torly on Piano'),   (1080,1830),14,None),
-			(t('viking'),			  (720,1868),14,None),
-			(t('by Armolithae'),	   (1100,1868),14,None),
-			(t('butterffly'),		  (620,1909),14,None),
-			(t('by Adragante'),		(920,1899),14,None),
-			(t('hawk'),				(750,1944),14,None),
-			(t('by Armolithae'),	   (950,1944),14,None),
-			(t('birdie'),			  (600,1985),14,None),
-			(t('by Torley on Piano'),  (950,1985),14,None),
-			(t('fabrizio'),			(600,2022),14,None),
-			(t('by Picari'),		   (960,2022),14,None),
-			(t('zoo'),				 (700,2063),14,None),
-			(t('by Torley on Piano'),  (980,2063),14,None),
-			(t('ball'),				(831,2110),14,None),
-			(t('by strauss'),		  (1095,2110),14,None),
-			(t('Sad and unfortunate legal mambo jambo'),(830,2290),14,None),
-			(t("All programming and art are public domain, released so by us, their authors."),(800,2335),14,None),
-			(t("The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."),(850,2375),14,(720,90)),
-			(t("( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"),(800,2385),13,None),
-			(t("And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."),(830,2415),13,(720,60)),
-			(t("If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."),(900,2525),13,(720,220)),
-			(t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2540),14,None)
+			(t('based on the homonimous board game by'),		(699,1079),22,None),
+			(t('available at'),									(703,1137),22,None),
+			(t('introduction'),									(427,1358),14,None),
+			(t('by Torley on Piano'),							(754,1358),14,None),
+			(t('menu'),											(540,1399),14,None),
+			(t('by Armolithae'),								(800,1399),14,None),
+			(t('bathhouse st'),									(588,1440),14,None),
+			(t('by armolithae'),								(938,1440),14,None),
+			(t('dress st'),										(400,1482),14,None),
+			(t('by Ceili Moss'),								(600,1482),14,None),
+			(t("shoe's st"),									(490,1522),14,None),
+			(t("by Ceili Moss"),								(900,1522),14,None),
+			(t('accessory st.'),								(600,1567),14,None),
+			(t('by Butterfly Tea'),								(920,1567),14,None),
+			(t('make-up st.'),									(700,1605),14,None),
+			(t('by Ceili Moss'),								(961,1605),14,None),
+			(t('schnauzer'),									(550,1643),14,None),
+			(t('by Armolithae'),								(821,1643),14,None),
+			(t('carriage'),										(470,1688),14,None),
+			(t('by Ceili Moss'),								(760,1688),14,None),
+			(t('old lady'),										(610,1730),14,None),
+			(t('by Torly on Piano'),							(1080,1730),14,None),
+			(t('viking'),										(720,1768),14,None),
+			(t('by Armolithae'),								(1100,1768),14,None),
+			(t('butterffly'),									(620,1809),14,None),
+			(t('by Adragante'),									(920,1799),14,None),
+			(t('hawk'),											(750,1844),14,None),
+			(t('by Armolithae'),								(950,1844),14,None),
+			(t('birdie'),										(600,1885),14,None),
+			(t('by Torley on Piano'),							(950,1885),14,None),
+			(t('fabrizio'),										(600,1922),14,None),
+			(t('by Picari'),									(960,1922),14,None),
+			(t('zoo'),											(700,1963),14,None),
+			(t('by Torley on Piano'),							(980,1963),14,None),
+			(t('ball'),											(831,2010),14,None),
+			(t('by strauss'),									(1095,2010),14,None),
+			(t('Sad and unfortunate legal mambo jambo'),		(830,2090),14,None),
+			(t("All programming and art are public domain, released so by us, their authors."),(800,2135),14,None),
+			(t("The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."),(850,2275),14,(720,90)),
+			(t("And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."),(830,2330),13,(720,60)),
+			(t("If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."),(900,2425),13,(720,220)),
+			(t("( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"),(800,2400),13,None),
+			(t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2440),14,None)
 		   ]
 		self.images = developers+rendered_texts
 		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos,fonte='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
@@ -836,3 +865,4 @@ class Credits():
 		else:
 			self.pos[1] = p(1000)
 			self.universe.level.credits = None
+		

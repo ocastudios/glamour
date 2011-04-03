@@ -10,15 +10,14 @@ from settings import directory
 
 def save_file(universe, hairback = None, skin = None, face = None, hair = None, shoes = None, dress = None, arm = None, armdress = None, accessory = None, past_ball = None, great_past_ball = None, position = None, Ball = None):
 	print "Saving progress into Database"
-	princess = universe.level.princesses[0]
+	Princess = universe.stage.princesses[0]
 	#avoid errors in case there are no saved files
 	try:
-		os.mkdir(os.path.join(directory.saves,princess.name))
+		os.mkdir(os.path.join(directory.saves,Princess.name))
 	except:
 		pass
-	thumbnail = pygame.transform.flip(pygame.transform.smoothscale(princess.stay_img.left[0],(100,100)),1,0)
-	pygame.image.save(thumbnail,os.path.join(directory.saves,princess.name.encode('utf-8'),'thumbnail.PNG'))
-	dir = os.path.join(directory.saves,princess.name)
+	save_thumbnail(universe)
+	dir = os.path.join(directory.saves,Princess.name)
 	day = datetime.datetime.today()
 	if dress == "dress_yellow":
 		armdress = "sleeve_yellow"
@@ -36,27 +35,32 @@ def save_file(universe, hairback = None, skin = None, face = None, hair = None, 
 	else:
 		hairback = "None"
 	cursor = universe.db_cursor
-	cursor.execute("UPDATE save SET center_distance = '"+str(int(princess.center_distance/scale))+"' WHERE name = '"+princess.name+"'")
+	cursor.execute("UPDATE save SET center_distance = '"+str(int(Princess.center_distance/scale))+"' WHERE name = '"+Princess.name+"'")
 	if hair:
 		cursor.execute("UPDATE princess_garment SET hair_back = '"+str(hairback)+"' WHERE id = (SELECT max(id) FROM princess_garment)")
 	if skin:
-		cursor.execute("UPDATE princess_garment SET skin	 = '"+str(skin)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-		cursor.execute("UPDATE princess_garment SET arm	  = '"+str(arm)+"'   WHERE id =  (SELECT max(id) FROM princess_garment)")
+		cursor.execute("UPDATE princess_garment SET skin	= '"+str(skin)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
+		cursor.execute("UPDATE princess_garment SET arm		= '"+str(arm)+"'   WHERE id =  (SELECT max(id) FROM princess_garment)")
 	if face:
-		cursor.execute("UPDATE princess_garment SET face	 = '"+str(face)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
+		cursor.execute("UPDATE princess_garment SET face	= '"+str(face)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
 	if hair:
-		cursor.execute("UPDATE princess_garment SET hair	 = '"+str(hair)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
+		cursor.execute("UPDATE princess_garment SET hair	= '"+str(hair)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
 	if shoes:
 		cursor.execute("UPDATE princess_garment SET shoes	= '"+str(shoes)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
 	if dress:
 		cursor.execute("UPDATE princess_garment SET dress	= '"+str(dress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-		cursor.execute("UPDATE princess_garment SET armdress = '"+str(armdress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
+		cursor.execute("UPDATE princess_garment SET armdress= '"+str(armdress)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
 	if accessory:
 		cursor.execute("UPDATE princess_garment SET accessory= '"+str(accessory)+"' WHERE id =  (SELECT max(id) FROM princess_garment)")
-	cursor.execute("UPDATE save SET dirt	 = '"+str(princess.dirt)+"' WHERE name = '"+princess.name+"'")
-	cursor.execute("UPDATE save SET points   = '"+str(princess.points)+"' WHERE name = '"+princess.name+"'")
+	cursor.execute("UPDATE save SET dirt	= '"+str(Princess.dirt)+"' WHERE name = '"	+Princess.name+"'")
+	cursor.execute("UPDATE save SET points	= '"+str(Princess.points)+"' WHERE name = '"+Princess.name+"'")
 	universe.db.commit()
 	print "Save Database saved "
 #	if Ball:
 #		backupfile.close()
-	return os.path.join(directory.saves,princess.name,princess.name+'.glamour')
+	return os.path.join(directory.saves,Princess.name,Princess.name+'.glamour')
+
+def save_thumbnail(universe):
+	Princess = universe.stage.princesses[0]
+	thumbnail = pygame.transform.flip(pygame.transform.smoothscale(Princess.stay_img.left[0],(100,100)),1,0)
+	pygame.image.save(thumbnail,os.path.join(directory.saves,Princess.name.encode('utf-8'),'thumbnail.PNG'))

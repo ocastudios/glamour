@@ -2,7 +2,7 @@ import os
 import pygame
 
 def welcome():    ####temporary hard coded scale ####
-    print "Welcome to Glamour"
+    print "###  Welcome to Glamour  ###"
     print "This is an Open Source/Public Domain game developed by Oca Studios"
     print 'The game is based on the "Glamour" table-top game by Oca Studios'
     print "in loving memory of Cilda and Patricia"
@@ -19,7 +19,7 @@ def initialize_mixer():
     pygame.mixer.set_reserved(3)
     print "Initializing Pygame"
 
-
+welcome()
 import os
 import os
 import pygame
@@ -50,8 +50,10 @@ else:
 print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
 if scale < 0.3333333337:
     scale = 0.333333337
-####temporary hard coded scale ####
-scale = 0.666666667
+####              temporary hard coded scale            ####
+#### used to develop in a different resolution in order #### 
+#scale = 0.666666667
+
 
 #### Scale function ####
 def p(positions,r=True):
@@ -91,5 +93,5 @@ except:
 
 #### Translation function ####
 import gettext
-localization_support = gettext.translation('glamour', main_dir+'/locale')
+localization_support = gettext.translation('glamour', os.path.join(main_dir,'locale'))
 t = localization_support.ugettext

@@ -2,8 +2,12 @@ import utils
 import pygame
 import os
 import settings
+import gc
 from settings import directory
 from settings import p
+import subprocess
+
+
 
 class GameClock():
 	def __init__(self,universe):
@@ -36,6 +40,10 @@ class ClockPointer():
 			if self.count %10 == 0:
 				print "Updating the time "+ str(self.count)
 				print "Music volume " +str(pygame.mixer.music.get_volume())
+				print "memory usage:"+"	"+str(int(subprocess.Popen("ps -u %s -o rss | awk '{sum+=$1} END {print sum}'" % 'nelson',
+                                        shell=True,
+                                        stdout=subprocess.PIPE,
+                                        ).communicate()[0].split('\n')[0]))
 			if self.count < 180:
 				if self.pointerpos > (len(self.rotate_list)-2):
 					self.pointerpos  =0

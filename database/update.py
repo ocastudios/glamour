@@ -18,3 +18,9 @@ def use_message(universe, name):#, name):
 def beat_enemy(universe, enemy):
 	universe.db_cursor.execute("UPDATE stage_enemies SET "+enemy+" = 1 WHERE stage = 'Beaten'")
 	universe.db.commit()
+
+def won(universe):
+	if universe.stage.princesses[0].points >= 1000:
+		universe.db_cursor.execute("UPDATE save SET won=1")
+		universe.db.commit()
+

@@ -9,12 +9,10 @@ from settings.directory import j
 def in_box(font_name, font_size, box, image, message, margin, alignment = "center"):
     font_size  = p(font_size)
     font  = pygame.font.Font(j(directory.fonts,font_name),int(round(font_size+(font_size/2))))
-    fix_x       = p(150)
-    fix_y       = p(40)
     text_list = message.split()
     number_of_words = len(text_list)
     count = 0
-    height = margin['top']
+    height = p(margin['top'])
     first = True
     line = ""
     line_break  = False
@@ -28,7 +26,7 @@ def in_box(font_name, font_size, box, image, message, margin, alignment = "cente
                 temporary_line = line + ' '+ text_list[count+1]
                 if font.size(temporary_line)[0] >= box[0]:
                     line_image = font.render(line,1, color)
-                    height += int(rount(line_size[1]*.8))
+                    height += int(round(line_size[1]*.8))
                     image.blit(font.render(line, 1, color), (line_pos,height))
                     line = ""
                 else:
@@ -43,10 +41,10 @@ def in_box(font_name, font_size, box, image, message, margin, alignment = "cente
     return image
 
 def center(box, margin, line_size):
-    return int(round((box[0]+margin['left']+margin['right']-line_size[0])/2))
+    return int(round((box[0]+p(margin['left'])+p(margin['right'])-line_size[0])/2))
 
 def left(box, margin, line_size=None):
-    return int(round(margin['left']))
+    return p(margin['left'])
 
 def right(box, margin, line_size):
-    return int(round(box[0]-margin['right']))
+    return p(box[0]-margin['right'])

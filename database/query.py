@@ -9,13 +9,16 @@ from settings import *
 
 
 
-def unlocked(universe, clothe_type, field = None, limit_n_random = False):
-	row				 = universe.db_cursor.execute("""
+def unlocked(universe, clothe_type=None, field = None, limit_n_random = False):
+	type_to_select = ""
+	if clothe_type:
+		type_to_select = "type = '"+clothe_type+"' AND "
+	sql = """
 		SELECT * 
 			FROM unlock 
-			WHERE   type = '"""+clothe_type+"""'
-			AND	 status  = 'unlocked'
-		""").fetchall()
+			WHERE   """+type_to_select+""" status  = 'unlocked'
+		"""
+	row				 = universe.db_cursor.execute(sql).fetchall()
 	if field:
 		row = [i[field] for i in row]
 		if limit_n_random:
@@ -26,7 +29,7 @@ def unlocked(universe, clothe_type, field = None, limit_n_random = False):
 	return row
 
 def street(universe, street, table):
-	db = sqlite3.connect(main_dir+'/data/'+street+'.db')
+	db = sqlite3.connect(os.path.join(main_dir,'data',street+'.db'))
 	db.row_factory = sqlite3.Row
 	cursor = db.cursor()
 	result = cursor.execute("SELECT * FROM "+table+" ORDER BY id ASC").fetchall()
@@ -94,3 +97,14 @@ def beaten_enemies(universe):
 			count += 1
 	cursor.close()
 	return count
+
+def won(universe):
+	cursor	= universe.db_cursor
+	sql		= "SELECT won FROM save LIMIT 1"
+	result	= cursor.execute(sql).fetchone()
+	cursor.close()
+	if int(result[0])>0:
+		return True
+	else:
+		return False
+

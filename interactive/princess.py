@@ -3,7 +3,7 @@ import os
 import random
 import interactive.enemy as enemy
 import pygame
-import sqlite3
+import database
 import settings
 from settings import directory
 p = settings.p
@@ -31,7 +31,7 @@ class Princess():
 		if xpos:
 			self.center_distance = p(xpos)
 		self.dirt			= int(row['dirt'])
-		self.points		  = int(row['points'])
+		self.points			= int(row['points'])
 		self.pos = [int(self.universe.center_x) + self.center_distance,
 						self.universe.floor -  self.universe.level.what_is_my_height(self) -self.size[1]]
 		print "	creating images:"
@@ -47,14 +47,18 @@ class Princess():
 		self.lips		   = utils.img.TwoSided(directory.kiss)
 		self.dirt_cloud	 = utils.img.TwoSided(directory.dirt)
 		self.gravity		= {'force':0, 'accel':p(3)}
-		self.speed		  = p(14)
-		self.rect		   = pygame.Rect(self.pos,self.size)
-		self.direction	  = 'right'
-		self.status	  = {"hurt":0,"excited":0,"scared":0,'move':False}
-		self.jump		   = 0
-		self.kiss		   = 0
-		self.kiss_direction = 'right'
-		self.kiss_rect	  = ((0,0),(0,0))
+		self.speed			= p(14)
+		self.rect			= pygame.Rect(self.pos,self.size)
+		self.direction		= 'right'
+		self.status			= {"hurt":0,"excited":0,"scared":0,'move':False}
+		self.jump			= 0
+		self.kiss = {
+						'count':0,
+						'ongoing':False,
+						'direction':'right',
+						'rect': ((0,0),(0,0)),
+						'height':None
+					}
 		self.floor		  = self.universe.floor - self.universe.level.what_is_my_height(self)
 		self.last_height	= p(186)
 		self.action		 = [None,'stay']
@@ -65,13 +69,15 @@ class Princess():
 		print "		steps sounds"
 		self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
 		print "		jump sounds"
-		self.jumpsound	  = pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
-		self.kisssound	  = pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
-		self.channel1	   = pygame.mixer.Channel(0)
-		self.channel2	   = pygame.mixer.Channel(1)
-		self.channel3	   = pygame.mixer.Channel(2)
+		self.jumpsound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
+		self.kisssound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
+		self.channel1		= pygame.mixer.Channel(0)
+		self.channel2		= pygame.mixer.Channel(1)
+		self.channel3		= pygame.mixer.Channel(2)
 		self.past_choice	= None
 		self.debuginside	=   0
+		self.visited_streets = []
+		self.locked = database.query.is_locked(self.universe,'shoes','boots')
 		print "princess created"
 		print "done."
 
@@ -146,26 +152,21 @@ class Princess():
 										 enemy.Hawk,
 										 enemy.BroomingDust,
 										 enemy.Banana) and self.rect.colliderect(e.rect)):
-						print "Princess got hurt by an enemy of the "+ str(e.__class__)+"class"
 						self.get_dirty()
 					if e.__class__ == enemy.Carriage:
 						if self.rect.colliderect(e.rect):
-							print "Princess got stuck at the Carriage"
 							self.speed = 0
 							self.action[1]= "stay"
 						else:
 							self.speed = p(14)
 					if e.__class__ == enemy.Butterfly:
 						if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
-							print "Princess got excited by the Butterflies"
 							self.status['excited']+=1
-				if self.universe.level.viking_ship:
-					if self.rect.colliderect(self.universe.level.viking_ship.talk_balloon_rect):
+				if self.universe.level.viking_ship and self.rect.colliderect(self.universe.level.viking_ship.talk_balloon_rect):
+						print "Oops, got hurt"
 						self.get_dirty()
 				if self.universe.level.name == "accessory":
 					if self.pos[1]+self.size[1]-p(20) > self.universe.level.water_level:
-						print "Princess feet are at "+str(self.pos[1]+self.size[1])
-						print "Water level is "+str(self.universe.level.water_level)
 						self.get_dirty()
 			else:
 				self.status['hurt'] +=1
@@ -197,21 +198,33 @@ class Princess():
 			self.universe.level.princesses[1] = self.dirties[self.dirt -1]
 
 	def kissing(self):
-		if self.action[0] == 'kiss' or self.kiss > 0:
-			self.kiss +=1
-			if self.kiss == 1:
+		if self.action[0] == 'kiss' and not self.kiss['ongoing']:
+			self.kiss['count'] = 'start'
+			self.kiss['ongoing'] = True
+
+		if self.kiss['ongoing']:
+			if self.kiss['count'].__class__ == str:
+				self.kiss['count'] = 1
+			else:
+				self.kiss['count'] +=1
+
+			if self.kiss['count'] == 1:
 				self.kiss_img.number = 0
 				self.channel3.play(self.kisssound)
-		if self.kiss > 0:
-			if self.kiss< 4:
-				self.action[0] = 'kiss'
+
+			if self.kiss['count'] < 4:
+				if self.action[0] != 'jump':
+					self.action[0] = 'kiss'
 			else:
-				self.action[0] = None
-			if self.kiss <9:
+				if self.action[0] == 'kiss':
+					self.action[0] = None
+
+			if self.kiss['count'] <9:
 				self.throwkiss()
 			else:
-				self.kiss = 0
-				self.kiss_rect = pygame.Rect ((0,0),(0,0))
+				self.kiss['ongoing']	= False
+				self.kiss['count']		= 0
+				self.kiss['rect']		= ((0,0),(0,0))
 
 	def update_pos(self,action):
 		feet_position   = self.pos[1]+self.size[1]
@@ -248,7 +261,15 @@ class Princess():
 			self.pos[1]= self.floor-self.size[1]
 		if feet_position == self.floor:
 			self.gravity['force'] = 0
-				
+		
+		#TODO: agregate all unlocking events in one spot to ease mainteinance
+		if self.universe.stage.name == 'accessory':
+			if self.center_distance < p(840) or self.center_distance > p(8550):
+				if not self.dirt:
+					if self.locked:
+						self.universe.level.unlocking = {'type':'shoes','name':'boots'}
+					self.locked = False
+		
 	def soundeffects(self,action):
 		if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
 			if action[1]=='walk' or action[0] == 'pos[0]celebrate':
@@ -258,25 +279,30 @@ class Princess():
 					self.channel2.play(self.steps[random.randint(2,3)])
 
 	def throwkiss(self):
-		if self.kiss == 1:
-			self.kiss_direction = self.direction
-		if self.kiss_direction == 'right':
-			kissimage = self.lips.right[self.kiss-1]
-			self.effects.append(Effect(kissimage,(self.pos[0],self.pos[1])))
-			self.kiss_rect = pygame.Rect((self.pos[0],self.pos[1]),((self.kiss)*44,self.size[1]))
-		else:
-			kissimage = self.lips.left[self.kiss-1]
-			self.effects.append(Effect(kissimage,(self.pos[0]-p(200),self.pos[1])))
-			self.kiss_rect = pygame.Rect((self.pos[0]+p(200)-((self.kiss)*p(44)),self.pos[1]),((self.kiss)*p(44),self.size[1]))
+		#The first frame of the kiss sets its direction and height
+		if self.kiss['count'] == 1:
+			self.kiss['direction'] = self.direction
+			self.kiss['height'] = self.pos[1]
+
+		# D is the differences betwwen left and right
+		D = {	'right':{'rect_correction':0,'effect_correction':0},
+				'left':	{'rect_correction': p(200)-((self.kiss['count'])*p(44)),'effect_correction':p(200)}}
+
+		# Setting the images and rect. Using D (differences)
+		kissimage = self.lips.__dict__[self.kiss['direction']][self.kiss['count']-1]
+		self.effects.append(Effect(kissimage, (self.pos[0]-D[self.kiss['direction']]['effect_correction'],self.kiss['height'])))
+		self.kiss['rect'] = pygame.Rect(
+								(self.pos[0]+D[self.kiss['direction']]['rect_correction'],self.kiss['height']),
+								(self.kiss['count']*p(44),self.size[1])
+							)
 
 	def update_image(self,action,direction):
-		self.rect   = pygame.Rect(	 (self.pos[0]+(self.image_size[0]/2),self.pos[1]-1),
-								self.size)
+		self.rect = pygame.Rect((self.pos[0]+(self.image_size[0]/2),self.pos[1]-1), self.size)
 		chosen = action[0] or action[1]
 		if direction.__class__ != str:
 			direction = "right"
-		self.images = self.__dict__[chosen+'_img']
-		actual_images = self.__dict__[chosen+'_img'].__dict__[direction]
+		self.images = 		self.__dict__[chosen+'_img']
+		actual_images =		self.__dict__[chosen+'_img'].__dict__[direction]
 		self.image = actual_images[self.images.number]
 		if chosen != self.past_choice:
 			self.__dict__[chosen+'_img'].number = 0

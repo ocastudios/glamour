@@ -30,7 +30,7 @@ class Unlocking_Message():
 		self.text_box	= self.size[0]*.8,self.size[1]*.8
 		unlock_template	= Template("you've unlocked $garment_type $name")
 		unlock_message	= unlock_template.substitute(garment_type=unlocking['type'],name=unlocking['name'])
-		self.image.blit(text.in_box('FreeSans.ttf',font_size, self.text_box, self.image, unlock_message , margin={'left':150,'top':40,'right':150,'bottom':40}, alignment = "center"), self.pos)
+		self.image.blit(text.in_box('FreeSans.ttf',font_size, self.text_box, self.image, unlock_message , margin={'left':150,'top':60,'right':150,'bottom':40}, alignment = "center"), self.pos)
 	def update_all(self):
 		pass
 

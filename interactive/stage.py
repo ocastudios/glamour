@@ -1,10 +1,10 @@
 import scenario.scenarios   as scenarios
 import utils
 import interactive.enemy	as enemy
-import scenario.skies	   as skies
+import scenario.skies		as skies
 import interactive.fairy	as fairy
-import scenario.floors	  as floors
-import interface.widget	 as widget
+import scenario.floors		as floors
+import interface.widget		as widget
 import random
 import scenario.moving_scenario as moving_scenario
 import interface.glamour_stars as glamour_stars
@@ -22,6 +22,7 @@ import database.update
 import interactive.events   as events
 import settings
 from settings import directory
+import gc
 p = settings.p
 d = settings.d
 j = os.path.join
@@ -40,12 +41,12 @@ class Stage():
 	def __init__(self,universe):
 		self.name = None
 		self.size = p(9600)
-		self.universe	   = universe
+		self.universe		= universe
 		self.cameras		=[camera.GameCamera(universe,p(-4220))]
-		self.gates		  = []
-		self.clock		  = [game_clock.GameClock(universe),game_clock.ClockPointer(universe)]
-		self.floor_heights  = {}
-		self.floor		  = universe.floor-p(186)
+		self.gates			= []
+		self.clock			= [game_clock.GameClock(universe),game_clock.ClockPointer(universe)]
+		self.floor_heights	= {}
+		self.floor			= universe.floor-p(186)
 		self.menus			= []
 		self.panel			= [None,None,glamour_stars.Glamour_Stars(universe)]
 		self.pointer		= [self.universe.pointer]
@@ -145,7 +146,10 @@ class Stage():
 						i.update_all()
 				[i.update_all() for i in self.panel if i]
 				self.exit_sign.update_all()
-
+		if not pygame.mixer.music.get_busy():
+			if self.music:
+				pygame.mixer.music.load(self.music)
+				pygame.mixer.music.play(-1)
 		for i in self.pointer:
 			i.update_all()
 
@@ -246,14 +250,21 @@ class Stage():
 		screen.blit(self.white.image,(0,0))
 		screen.blit(self.bar['down'].image,(0,self.bar['down'].pos))
 		screen.blit(self.bar['up'].image,(0,self.bar['up'].pos))
-		if self.pause.status == 'choosing':
-			for i in self.pause.buttons:
+		if self.pause.status == 'choosing' and not self.pause.closet:
+			for i in self.pause.buttons :
 				screen.blit(i.image, i.pos)
 				if self.princesses[0].image:
 					screen.blit(self.princesses[0].image,
 										((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
 										(self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
-
+		if self.pause.closet:
+			screen.blit(self.pause.closet, (0,0))
+			for i in self.pause.unlocked_items:
+				screen.blit(i.image,i.pos)
+				if i.__class__ == Closet_Icon and i.imagetxt:
+					screen.blit(i.imagetxt.image,i.imagetxt.pos)
+			screen.blit(self.pause.close_closet.image,self.pause.close_closet.pos)
+			
 	def blit_ball(self,screen):
 		screen.blit(self.ball.background,(0,0))
 		for i in self.ball.dancers:
@@ -273,8 +284,8 @@ class Stage():
 		if self.ball.counter > self.ball.delay+130:
 			for i in self.ball.buttons:
 				screen.blit(i.image,i.pos)
-		screen.blit(self.ball.level.margin,(0,0))
-		screen.blit(self.ball.level.black.image,(0,0))
+		screen.blit(self.ball.universe.level.margin,(0,0))
+		screen.blit(self.ball.universe.level.black.image,(0,0))
 
 
 	def update_insidebar(self):
@@ -455,18 +466,24 @@ class Stage():
 		self.choice_screen(self.pause,self.paused)
 		if self.enemy_channel.get_sound():
 			self.enemy_channel.fadeout(1500)
-		if self.pause.status == 'choosing':
-			for i in self.pause.buttons:
+		if self.pause.closet:
+			for i in self.pause.unlocked_items:
 				i.update_all()
-			if self.fairy:
-				for i in self.fae:
+			self.pause.close_closet.update_all()
+		else:
+			if self.pause.status == 'choosing':
+				for i in self.pause.buttons:
 					i.update_all()
-			self.keyboard_selection(self.pause)
-		elif self.pause.status == 'done':
-			pass
-		elif self.pause.status == 'finished':
-			self.pause.status = 'outside'
-			self.paused = False
+				if self.fairy:
+					for i in self.fae:
+						i.update_all()
+				self.keyboard_selection(self.pause)
+			elif self.pause.status == 'done':
+				pass
+			elif self.pause.status == 'finished':
+				self.pause.status = 'outside'
+				self.paused = False
+
 
 	def update_fairytip(self):
 		pymusic = pygame.mixer.music
@@ -517,6 +534,8 @@ class Stage():
 				maximum = 1
 				if name in ("Butterfly" , "Bird") :
 					maximum = 2+int(self.princesses[0].points/30)
+					if maximum > 20:
+						maximum = 20
 				for i in range(0,random.randint(1,maximum)):
 					pos_x = p(random.randint(1400,7000),r=False)
 					self.enemies.append(enemy.__dict__[name](pos_x,self.universe))
@@ -574,6 +593,8 @@ class Stage():
 		self.black.alpha_value += (10*darkenning)
 
 	def create_scenario(self,street):
+		self.bar['up'].pos = -self.bar['up'].size[1]
+		self.bar['down'].pos = self.universe.height
 		self.loading()
 		self.viking_ship = None
 		scenario_row		= database.query.street(self, street, 'scenario')
@@ -603,10 +624,12 @@ class Stage():
 				pass
 			self.loading()
 		self.sky			 = [skies.Sky(self.universe)]
-		self.clouds		  =   [scenarios.Cloud(self.universe) for cl in range(3)]
+		self.clouds			=   [scenarios.Cloud(self.universe) for cl in range(3)]
 		self.loading()
 		[self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 		self.loading()
+		gc.set_debug(gc.DEBUG_LEAK)
+		gc.collect()
 
 	def create_front_scenario(self,street):
 		front_row = database.query.street(self,street,'front_scenario')
@@ -636,8 +659,9 @@ class Stage():
 		self.music = j(directory.music,music)
 		pygame.mixer.music.load(j(directory.music,intro))
 		self.loading()
-		pygame.mixer.music.play(-1)
+		pygame.mixer.music.play()
 		self.loading()
+		pygame.mixer.music.queue(j(directory.music,music))
 		pygame.mixer.music.set_endevent(pygame.USEREVENT)
 		pygame.mixer.music.set_volume(.6)
 		self.loading()
@@ -649,6 +673,11 @@ class Stage():
 		self.loading()
 		self.name = hardname
 		self.princesses = self.princesses or [princess.Princess(self.universe),None]
+		if self.name not in self.princesses[0].visited_streets:
+			self.princesses[0].visited_streets.append(self.name)
+			if len(self.princesses[0].visited_streets)==5:
+				if database.query.is_locked(self.universe,'shoes','flower'):
+					self.unlocking = {'type':'shoes','name':'flower'}
 		self.animated_scenarios = []
 		self.loading()
 		if goalpos:
@@ -704,14 +733,14 @@ class Stage():
 			database.update.clean_up(self.universe)
 			print "You look lovely all cleaned up!"
 			self.princesses[1] = None
-			
+
 	def DressSt(self,goalpos = None):
 		self.create_stage(t('Dress St'), goalpos,'dress')
 		self.animated_scenarios = [scenarios.Scenario(0,j(self.directory,'Dress_Tower','flag'),self.universe)]
 		self.loading()
 		self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'footboy', 'bird','carriage'),'DressSt')
 		self.gates = [scenarios.BuildingDoor(p((155,318)),j(self.directory,'Dress_Tower','door'),self.universe,inside.Inside(self.universe,'dress',database.query.unlocked(self.universe, 'dress', 'garment',4))),
-					  scenarios.BuildingDoor(p((9194,430)),j(self.directory,'snow_white_castle','door'),self.universe, inside.Princess_Home(self.universe,settings.Snow_White)),
+					  scenarios.BuildingDoor(p((9180,430)),j(self.directory,'snow_white_castle','door'),self.universe, inside.Princess_Home(self.universe,settings.Snow_White)),
 					  scenarios.Gate(dressgate[0], self.universe, self.AccessorySt,goalpos = accessorygate[2]),
 					  scenarios.Gate(dressgate[1], self.universe, self.ShoesSt,goalpos = shoegate[1]),
 					  scenarios.Gate(dressgate[2], self.universe, self.MakeupSt,goalpos = makeupgate[0])]
@@ -724,7 +753,7 @@ class Stage():
 	def AccessorySt(self,goalpos = None):
 		self.create_stage(t('Accessory St'), goalpos,'accessory')
 		self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'bird'),'AccessorySt')
-		self.viking_ship = enemy.VikingShip(p(5000,r=0),self.universe)
+		self.viking_ship = enemy.VikingShip(p(1200,r=0),self.universe)
 		self.loading()
 		self.gates = ([
 			scenarios.BuildingDoor(p((330,428)),j(self.directory,'accessory_tower','door'),self.universe,inside.Inside(self.universe,'accessory',database.query.unlocked(self.universe,'accessory','garment',4))),
@@ -842,9 +871,9 @@ class Bar():
 
 class BigScenario():
 	def __init__(self,universe):
-		self.universe	  = universe
-		self.image	  = pygame.Surface((p(9600,r=0),universe.height), pygame.SRCALPHA).convert_alpha()
-		self.pos		= [self.universe.center_x,0]
+		self.universe		= universe
+		self.image			= pygame.Surface((p(9600,r=0),universe.height), pygame.SRCALPHA).convert_alpha()
+		self.pos			= [self.universe.center_x,0]
 
 	def update_all(self):
 		self.pos[0]		 = self.universe.center_x
@@ -861,18 +890,75 @@ class Pause():
 		cancel_pos  = d(quit.pos[0]+(quit.size[0]/2)),d(quit.pos[1]+(quit.size[1]))+50
 		cancel_button = widget.Button(self.universe, directory.button_cancel,cancel_pos,[0,0], self.exit_game)
 		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), fonte='Chopin_Script.ttf', font_size=120)
-		self.buttons	= (resume, ok_button, quit, cancel_button, title)
+		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet, font_size =34)
+		self.buttons	= (resume, ok_button, quit, cancel_button, title, check_closet)
 		self.music  = j(directory.music,'1stSnowfall.ogg')
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
 		self.chosen_number = 0
+		self.closet = None
+		self.close_closet = None
+		self.unlocked_items= []
+		self.unlocked_boyfriends = []
+		self.icons = {
+			'accessory_beret':		[p((240, 82)),	t("The beret accessory, earnd for jumping with the penguin.")],
+			'accessory_crown':		[p((350, 82)),	t("The crown accessory, unlocked from the start.")],
+			'accessory_shades':		[p((460, 82)),	t("The shades accessory, earned after trampling 20 chicks.")],
+			'accessory_mask':		[p((570, 82)),	t("The mask, earned for debuting three hairstyles in balls.")],
+			'accessory_purse':		[p((680, 82)),	t("The purse accessory, unlocked from the start.")],
+			'accessory_ribbon':		[p((790, 82)),	t("The ribbon accessory, unlocked from the start.")],
+			'dress_indian':			[p((900, 82)),	t("The indian dress, earned for dressing as a geisha.")],
+			'dress_kimono':			[p((1010,82)),	t("The kimono, earned for being crossed by the carriage.")],
+			'dress_pink':			[p((1120,82)),	t("The pink dress, unlocked from the start.")],
+			'dress_red':			[p((240, 192)),	t("The red dress, unlocked from the start.")],
+			'dress_plain':			[p((350, 192)),	t("The simple dress, unlocked from the start.")],
+			'dress_yellow':			[p((460, 192)),	t("The yellow dress, earned for beating all kinds of enemies.")],
+			'face_eyelids':			[p((570, 192)),	t("The eyelids make-up, unlocked from the start.")],
+			'face_eyeshades':		[p((680, 192)),	t("The eyeshades make-up, unlocked from the start.")],
+			'face_geisha':			[p((790, 192)),	t("The geisha look, earned for bathing while clean.")],
+			'face_indian':			[p((900, 192)),	t("The indian look, earned for kissing the lion.")],
+			'face_lipstick':		[p((1010,192)),	t("The lipstick make-up, earned for entering your own castle.")],
+			'face_simple':			[p((1120,192)),	t("The simple make-up, unlocked from the start.")],
+			'hair_black':			[p((240, 302)),	t("The black hairstyle, unlocked from the start.")],
+			'hair_braid_and_tail':	[p((350, 302)),	t("The braid and tail hairstyle, unlocked from the start.")],
+			'hair_brown':			[p((460, 302)),	t("The brown hairstyle, unlocked from the start.")],
+			'hair_cinderella':		[p((570, 302)),	t("Cinderella's hairstyle, earned for visiting her.")],
+			'hair_geisha':			[p((680, 302)),	t("The geisha hairstyle, unlocked from the start.")],
+			'hair_rapunzel':		[p((790, 302)),	t("Rapunzel's hairstyle, earned for visiting her.")],
+			'hair_rastafari':		[p((900, 302)),	t("The rastafari hairstyle, unlocked from the start.")],
+			'hair_red':				[p((1010,302)),	t("The red hairstyle, unlocked from the start.")],
+			'hair_short':			[p((1120,302)),	t("The short hairstyle, unlocked from the start.")],
+			'hair_sleeping':		[p((240, 412)),	t("Sleeping Beauty's hairstyle, earned for visiting her.")],
+			'hair_snowwhite':		[p((350, 412)),	t("Snow White's hairstyle, earned for visiting her.")],
+			'hair_yellow':			[p((460, 412)),	t("The blonde hairstyle, unlocked from the start.")],
+			'shoes_boots':			[p((570, 412)),	t("The go-go boots, earned by crossing the drains clean.")],
+			'shoes_crystal':		[p((680, 412)),	t("The glass sandals, earned for wearing the outfit in the ending.")],
+			'shoes_flower':			[p((790, 412)),	t("The flower sandals, earned for visiting all streets in one day.")],
+			'shoes_red':			[p((900, 412)),	t("The red shoes, unlocked from the start.")],
+			'shoes_slipper':		[p((1010,412)),	t("The slippers, unlocked from the start.")],
+			'shoes_white':			[p((1120,412)),	t("The white shoes, unlocked from the start.")]
+			}
 
 	def resume(self):
 		self.status = 'done'
 
+	def set_closet(self):
+		self.closet = utils.img.image(os.path.join(directory.closet,'background.png'))
+		unlocked = database.query.unlocked(self.universe)
+
+		self.unlocked_items = [Closet_Icon(self.universe, i['type'],i['garment'],self.icons[i['type']+'_'+i['garment']]) for i in unlocked]
+		self.unlocked_items.extend([Dearhearts(self.universe, self.universe.stage.princesses[0].points)])
+		self.close_closet = widget.Button(self.universe, directory.button_cancel,(1300,800),[0,0], self.clear_closet)
+
+	def clear_closet(self):
+		self.closet = None
+		self.unlocked_items = None
+		self.close_closet = None
+
 	def update_all(self):
 		pass
-	
+
 	def exit_game(self):
+		self.universe.level.white.alpha_value = 0
 		utils.save.save_file(self.universe)
 		self.universe.level.princesses = None
 		self.universe.menu.vertical_bar['position'] = -self.universe.menu.vertical_bar['size'][0]
@@ -883,3 +969,61 @@ class Pause():
 		self.universe.LEVEL= "menu"
 
 
+class Closet_Icon():
+	def __init__(self, universe, garment_type, garment, icon):
+		self.pos = icon[0]
+		self.text = widget.GameText(universe, icon[1], [720,550], font_size = 30)
+		self.name = garment_type + '_' + garment
+		self.medium = utils.img.image(os.path.join(directory.princess,self.name,'medium','0.png'))
+		self.big = utils.img.image(os.path.join(directory.princess,self.name,'big_icons','0.png'))
+		self.image = self.medium
+		self.rect  = pygame.Rect(self.pos, self.medium.get_size())
+		self.universe = universe
+		self.imagetxt = None
+		self.hover		= None
+
+	def update_all(self):
+		if self.rect.colliderect(self.universe.pointer.rect):
+			if not self.hover:
+				self.hover = True
+				self.pos[0]-= p(26)
+				self.pos[1]-= p(26)
+			self.image = self.big
+			self.imagetxt = self.text
+		elif self.image == self.big:
+			if self.hover:
+				self.hover = None
+				self.pos[0]+= p(26)
+				self.pos[1]+= p(26)
+			self.image = self.medium
+			self.imagetxt = None
+
+class Dearhearts():
+	def __init__(self, universe, points):
+		image_size = p((1200,350))
+		self.pos = p((140,527))
+		self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()
+		if points >= p(30):
+			prepimg = utils.img.image(os.path.join(directory.boyfriends,'gentleman_decent','medium','0.png'))
+			self.image.blit(prepimg,(0,0))
+		if points >= p(65):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'knight_reliable','medium','0.png')),p((82,0)))
+		if points >= p(105):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'baron_serious','medium','0.png')),p((162,0)))
+		if points >= p(175):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'count_loving','medium','0.png')),p((230,0)))
+		if points >= p(255):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'marquess_attractive','medium','0.png')),p((331,0)))
+		if points >= p(345):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'duke_intelligent','medium','0.png')),p((411,0)))
+		if points >= p(465):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'prince_charming','medium','0.png')),p((504,0)))
+		if points >= p(685):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'king_kindhearted','medium','0.png')),p((560,0)))
+		if points >= p(1000):
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'emperor_awesome','medium','0.png')),p((664,0)))
+			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'fabrizio','medium','0.png')),p((858,0)))
+	
+	def update_all(self):
+		pass
+		

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 from settings import *
+import settings
+t = settings.t
 
 
 enemy = {
