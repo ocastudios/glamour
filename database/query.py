@@ -80,6 +80,12 @@ def my_outfit(universe, princess):
 	cursor.close()
 	return result
 
+def am_i_dirt(universe):
+	cursor  = universe.db_cursor
+	result  = cursor.execute("SELECT * FROM save").fetchone()['dirt']
+	cursor.close()
+	return result
+
 def different_hairs_used(universe):
 	cursor	= universe.db_cursor
 	sql		= "SELECT DISTINCT hair FROM princess_garment"

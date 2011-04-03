@@ -37,8 +37,8 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 			  hair				VARCHAR(30),
 			  shoes				VARCHAR(30),
 			  dress				VARCHAR(30),
-			  arm				 VARCHAR(30),
-			  armdress			REAL,
+			  arm				VARCHAR(30),
+			  armdress			VARCHAR(30),
 			  accessory			VARCHAR(30)
 				"""
 		print "creating garment tables"
@@ -106,10 +106,10 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 		db_cursor.execute("INSERT INTO save VALUES('"+name+"', 0 , 0 ,'level','(0,0)',5220, 0)")
 		db_cursor.execute("INSERT INTO princess_garment VALUES(1,'"+
 						str(hairback)+"','"+skin+"','face_simple','"+hair+"','shoes_slipper','dress_plain','"+arm+"', 'None','accessory_ribbon')")
-		db_cursor.execute("INSERT INTO cinderella VALUES(1,0,'skin_tan','face_eyeshades','hair_cinderella','shoes_crystal', 'dress_red','arm_tan',0,'accessory_shades')")
-		db_cursor.execute("INSERT INTO snow_white VALUES(1,0,'skin_pink','face_eyelids','hair_snowwhite','shoes_red','dress_yellow','arm_pink',0,'accessory_purse')")
-		db_cursor.execute("INSERT INTO sleeping_beauty VALUES(1,0,'skin_pink','face_simple','hair_sleeping','shoes_slipper','dress_plain','arm_pink',0,'accessory_crown')")
-		db_cursor.execute("INSERT INTO rapunzel VALUES(1,1,'skin_pink','face_simple','hair_rapunzel','shoes_white','dress_yellow','arm_pink',0,'accessory_ribbon')")
+		db_cursor.execute("INSERT INTO cinderella VALUES(1,0,'skin_tan','face_eyeshades','hair_cinderella','shoes_crystal', 'dress_red','arm_tan','sleeve_red','accessory_shades')")
+		db_cursor.execute("INSERT INTO snow_white VALUES(1,'None','skin_pink','face_eyelids','hair_snowwhite','shoes_red','dress_yellow','arm_pink','sleeve_yellow','accessory_purse')")
+		db_cursor.execute("INSERT INTO sleeping_beauty VALUES(1,'None','skin_pink','face_simple','hair_sleeping','shoes_slipper','dress_plain','arm_pink',0,'accessory_crown')")
+		db_cursor.execute("INSERT INTO rapunzel VALUES(1,'hair_rapunzel_back','skin_pink','face_simple','hair_rapunzel','shoes_white','dress_yellow','arm_pink','sleeve_yellow','accessory_ribbon')")
 		db_cursor.execute("INSERT INTO stage_enemies VALUES(1,'BathhouseSt',0,0,0,0,0,0,0,0,0,0,0)")
 		db_cursor.execute("INSERT INTO stage_enemies VALUES(2,'AccessorySt',0,0,0,0,0,0,0,0,0,0,0)")
 		db_cursor.execute("INSERT INTO stage_enemies VALUES(3,'DressSt',	0,0,0,0,0,0,0,0,0,1,1)")

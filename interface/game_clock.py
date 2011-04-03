@@ -35,15 +35,15 @@ class ClockPointer():
 
 	def update_all(self):
 		if not self.universe.level.paused:
-			self.tick +=1
+			self.tick +=10
 		if self.tick == self.universe.fps:
 			if self.count %10 == 0:
 				print "Updating the time "+ str(self.count)
 				print "Music volume " +str(pygame.mixer.music.get_volume())
-				print "memory usage:"+"	"+str(int(subprocess.Popen("ps -u %s -o rss | awk '{sum+=$1} END {print sum}'" % 'nelson',
-                                        shell=True,
-                                        stdout=subprocess.PIPE,
-                                        ).communicate()[0].split('\n')[0]))
+#				print "memory usage:"+"	"+str(int(subprocess.Popen("ps -u %s -o rss | awk '{sum+=$1} END {print sum}'" % 'nelson',
+#                                        shell=True,
+#                                        stdout=subprocess.PIPE,
+#                                        ).communicate()[0].split('\n')[0]))
 			if self.count < 180:
 				if self.pointerpos > (len(self.rotate_list)-2):
 					self.pointerpos  =0

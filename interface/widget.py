@@ -2,6 +2,7 @@
 import pygame
 import random
 import interface.random_names as random_names
+import database
 import os
 import re
 import utils
@@ -249,5 +250,39 @@ class Key(GameText):
 			else:
 				self.hoover = False
 
+def princess_image(universe, princess, format = 'image', size = 'big', flip = True):
+	row				= database.query.my_outfit(universe,princess)
+	parts = ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]
 
+	if size == 'big':
+		filename = 'big.png'
+		imgsize = (400,400)
+	else:
+		filename = os.path.join('stay','0.png')
+		imgsize = (200,200)
+		 
+	if format=='image':
+		big_image		= pygame.Surface(imgsize,pygame.SRCALPHA).convert_alpha()
+		for part in parts:
+			if row[part] and row[part] not in ("None", 0, '0'):
+				img = pygame.image.load(os.path.join(directory.princess,row[part],filename)).convert_alpha()
+				big_image.blit(img, (0,0))
+		if princess == 'princess_garment':
+			dirt	 = int(database.query.am_i_dirt(universe))
+			if dirt >0:
+				big_image.blit(pygame.image.load(os.path.join(directory.princess,"dirt"+str(dirt),filename)).convert_alpha(),(0,0))
+		return utils.img.scale_image(big_image,invert=flip)
+	else:
+		result = []
+		for part in parts:
+			if row[part] and row[part] not in ("None", 0, '0'):
+				img = utils.img.image(os.path.join(directory.princess,row[part],filename), invert = flip)
+			else:
+				img = None
+			result.append(img)
+		if princess == 'princess_garment':
+			dirt	 = int(database.query.am_i_dirt(universe))
+			if dirt >0:
+				result.append(utils.img.image(os.path.join(directory.princess,"dirt"+str(dirt),filename),invert=flip))
+		return result
 

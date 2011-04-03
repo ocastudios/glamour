@@ -5,7 +5,7 @@ import utils.save as save
 import interactive.princess as princess
 import os
 import random
-
+import operator
 
 import interface.widget as widget
 import interactive.messages as messages
@@ -73,10 +73,10 @@ class Inside():
 				self.universe.level.unlocking = {'type':'dress','name':'indian'}
 				self.locked['indian'] = False
 		if self.locked['crystal']:
-			if my_outfit[9] == 'accessory_ribbon' and \
-					my_outfit[6] == 'dress_red' and \
-					my_outfit[3] == 'face_eyelids' and \
-					my_outfit[5] == 'shoes_red':
+			if my_outfit[9] == 'accessory_ribbon'\
+			and my_outfit[6] == 'dress_red'\
+			and my_outfit[3] == 'face_eyelids'\
+			and my_outfit[5] == 'shoes_red':
 				self.universe.level.unlocking = {'type':'shoes','name':'crystal'}
 				self.locked['crystal'] = False
 
@@ -142,32 +142,13 @@ class Item():
 
 class BigPrincess():
 	def __init__(self, room, pos = "left"):
-		self.room			= room
-		self.universe		= room.universe
-		row = database.query.my_outfit(self.universe, 'princess_garment')
-		self.image_dict = {
-						"hair_back" :0,
-						"skin"	  :1,
-						"face"	  :2,
-						"hair"	  :3,
-						"shoes"	 :4,
-						"dress"	 :5,
-						"arm"	   :6,
-						"armdress"  :7,
-						"accessory" :8
-							} 
-		garments = ["hair_back", "skin" ,"face", "hair" , "shoes", "dress", "arm", "armdress", "accessory"]
-		self.images = []
-		for i in garments:
-			if row[i] and row[i]!= "None":
-				img = utils.img.image(os.path.join(directory.princess,row[i],'big.png'), invert = True)
-			else:
-				img = None
-			self.images += [img]
+		self.universe			= room.universe
+		self.image_dict = {"hair_back":0, "skin":1, "face":2, "hair":3, "shoes":4, "dress":5, "arm":6, "armdress":7, "accessory":8}
+		self.images = widget.princess_image(self.universe, 'princess_garment', format = 'list')
 		if pos == "left":
 			self.pos		= p((20,270))
 		elif pos == "center":
-			self.pos		= ((room.universe.width/2)-p(200),p(270))
+			self.pos		= ((self.universe.width/2)-p(200),p(270))
 
 	def update_all(self):
 		pass
@@ -183,14 +164,10 @@ class BigPrincess():
 
 class Princess_Home():
 	def __init__(self, universe, princess=None):
-		print "Creating Princess Home: "+ princess['name'] 
-		painting_screen = pygame.Surface((400,400), pygame.SRCALPHA).convert_alpha()
-		if princess == settings.Rapunzel:
-			painting_screen.blit(utils.img.image(os.path.join(directory.princess,'hair_rapunzel_back','big.png')),(0,0))
-		images  = [utils.img.image(os.path.join(directory.princess,item,'big.png')) for item in ('skin_'+princess['skin'],princess['hair'])]
-		for img in images:
-			painting_screen.blit(img, (0,0))
-		self.princess_image = painting_screen#utils.img.scale_image(painting_screen)
+		print "Creating Princess Home: "+ princess['name']
+		princess_name = princess["name"].lower()
+		self.name=princess_name
+		self.princess_image = widget.princess_image(universe, princess_name, flip=False)
 		self.princess_icon  = utils.img.image(os.path.join(directory.ball,princess['icon']))
 		self.status = 'outside'
 		self.universe  = universe
@@ -207,11 +184,6 @@ class Princess_Home():
 					widget.GameText(self.universe, self.message, (850,820), font_size = 40, box = (1100,400))
 		)
 		self.menu.extend([(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__==widget.Button])
-		princess_name = princess["name"].lower()
-		row = database.query.my_outfit(self.universe,princess_name)
-		[self.princess_image.blit(utils.img.image(os.path.join(directory.princess,row[i],'big.png')),(0,0)) for i in (
-					'face', 'dress', 'arm', 'accessory', 'shoes')]
-		self.name=princess_name
 		if self.name =="sleeping_beauty":
 			self.name="sleeping"
 		elif self.name == "snow_white":
@@ -252,28 +224,18 @@ class Home():
 		last_balls = database.query.last_balls(universe)
 		if len(last_balls)>=1:
 			for i in last_balls:
-				image_dict = {  "hair_back" :0,
-								"skin"	  :1,
-								"face"	  :2,
-								"hair"	  :3,
-								"shoes"	 :4,
-								"dress"	 :5,
-								"arm"	   :6,
-								"armdress"  :7,
-								"accessory" :8
-									} 
-				garments = ["hair_back", "skin" ,"face", "hair" , "shoes", "dress", "arm", "armdress", "accessory"]
+				image_dict = {"hair_back":0, "skin":1, "face":2, "hair":3, "shoes":4, "dress":5, "arm":6, "armdress":7, "accessory":8} 
 				image = pygame.Surface(p((200,200)), pygame.SRCALPHA).convert_alpha()
-				for ii in garments:
-					if i[ii] and i[ii]!= "None":
-						image.blit(utils.img.image(os.path.join(directory.princess,i[ii],'stay','0.png')),(0,0))
+				for ii in sorted(image_dict.items(),key=operator.itemgetter(1)):
+					if i[ii[0]] and i[ii[0]]!= "None":
+						image.blit(utils.img.image(os.path.join(directory.princess,i[ii[0]],'stay','0.png')),(0,0))
 				self.past_balls += [image]
 		else:
 			print "You haven't attended any Balls yet"
 		self.locked = database.query.is_locked(self.universe,'face','lipstick')
 		self.chosen_number = 0
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
-		
+
 	def all_set(self):
 		self.status = 'done'
 		if self.locked:

@@ -25,11 +25,11 @@ class Ball():
 		self.universe.level.loading()
 		#reset boyfriend list - so that the list can be managed by the instances
 		NewDancer.boyfriend_list = ["gentleman_decent", 
-				  "knight_reliable", 
-				  "baron_serious", 
-				  "count_loving", 
-				  "marquess_attractive", 
-				  "duke_intelligent"]
+									"knight_reliable", 
+									"baron_serious", 
+									"count_loving", 
+									"marquess_attractive", 
+									"duke_intelligent"]
 		self.position = 0,0
 		self.universe   = universe
 		self.boyfriend  = None
@@ -67,10 +67,10 @@ class Ball():
 		universe.level.loading()
 		self.dancers = []
 		if self.boyfriend:
-			self.dancers.append(NewDancer(universe, self.bigprincess,self.boyfriend.hard_name))
+			self.dancers.append(NewDancer(universe, 'princess_garment',self.boyfriend.hard_name))
 		universe.level.loading()
 		for a in self.Frame.princesses:
-			self.dancers.append(NewDancer(universe, a))
+			self.dancers.append(NewDancer(universe, a.name_lower))
 			universe.level.loading()
 		self.foreground = pygame.Surface((universe.width,universe.height)).convert()
 		self.foreground.fill((226,226,148))
@@ -320,13 +320,13 @@ class BallFrame():
 		cursor = self.ball.universe.db_cursor
 		faces   = ("face_eyelids", "face_eyeshades","face_lipstick","face_simple")
 		dresses = ("dress_pink","dress_plain", "dress_red", "dress_yellow")
-		arm_dresses = (0,0,1,1)
+		arm_dresses = ('None','None','sleeve_red','sleeve_yellow')
 		accessories = ("accessory_crown","accessory_purse","accessory_ribbon","accessory_shades")
 		shoes   = ("shoes_crystal","shoes_red","shoes_slipper","shoes_white")
 		for p in ("rapunzel","cinderella","sleeping_beauty","snow_white"):
 			dress_no = random.randint(0,len(dresses)-1)
 			row = cursor.execute("SELECT * FROM "+p+" WHERE id = (SELECT MAX(id) FROM "+p+")").fetchone()
-			cursor.execute("INSERT INTO "+p+" VALUES ("+str(row['id']+1)+" , "+str(row["hair_back"])+" , '"+row["skin"]+"', '"+random.choice(faces)+"' , '"+row['hair']+"' , '"+random.choice(shoes)+"' , '"+dresses[dress_no]+"', '"+row['arm']+"', "+str(arm_dresses[dress_no])+", '"+random.choice(accessories)+"')")
+			cursor.execute("INSERT INTO "+p+" VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+random.choice(faces)+"' , '"+row['hair']+"' , '"+random.choice(shoes)+"' , '"+dresses[dress_no]+"', '"+row['arm']+"', '"+str(arm_dresses[dress_no])+"', '"+random.choice(accessories)+"')")
 		row = cursor.execute("SELECT * FROM princess_garment WHERE id = (SELECT MAX(id) FROM princess_garment)").fetchone()
 		cursor.execute("INSERT INTO princess_garment VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+row['face']+"' , '"+row['hair']+"' , '"+row['shoes']+"' , '"+row['dress']+"', '"+row['arm']+"', '"+str(row['armdress'])+"', '"+row['accessory']+"')")
 		self.ball.universe.db.commit()
@@ -343,7 +343,7 @@ class FairyTalePrincess():
 		self.frame	  = frame
 		self.file	   = frame.ball.universe.file
 		self.image	  = utils.img.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
-		name_lower = name.lower()
+		self.name_lower = name.lower()
 		self.position   = p(position)
 		self.symbol = None
 		self.name = name
@@ -351,18 +351,8 @@ class FairyTalePrincess():
 			if icon:
 				self.symbol	 =  utils.img.image(os.path.join(directory.ball,icon))
 				self.symbolpos  = int(round(iconpos*scale  - (float(self.symbol.get_width())/2)))
-		sql				 = "SELECT * FROM "+name_lower+" WHERE id = (SELECT MAX(id)-"+str(ball)+" FROM "+name_lower+")"
 		self.pos			= [self.position[0],self.position[1]]
-		cursor = self.frame.ball.universe.db_cursor
-		row	= cursor.execute(sql).fetchone()
-		if row:
-			if row['hair_back'] > 0:
-				self.image.blit(utils.img.image(os.path.join(directory.princess,row['hair']+"_back",'stay','0.png')),(0,0))
-			for i in  ('skin', 'hair', 'face', 'dress', 'accessory', 'arm', 'shoes'):
-				self.__dict__[i] = row[i]
-				self.image.blit(utils.img.image(os.path.join(directory.princess,row[i],'stay','0.png')),(0,0))
-			self.image = pygame.transform.flip(self.image,1,0)
-		
+		self.image = widget.princess_image(frame.ball.universe, self.name_lower, size = 'normal')
 
 	def update_all(self):
 		self.pos		= [self.frame.position[0]+self.position[0],
@@ -428,40 +418,11 @@ class BoyFriend():
 
 class BigPrincess():
 	def __init__(self, ball):
-		big_image	  = pygame.Surface((400,400),pygame.SRCALPHA).convert_alpha()
 		self.pos		= p([ 670,398])
-		cursor = ball.universe.db_cursor
-		sql = "SELECT * FROM princess_garment WHERE id=(SELECT MAX(id) FROM princess_garment)"
-		row = cursor.execute(sql).fetchone()
-		for part in ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]:
-			self.__dict__[part] = row[part]
-			if row[part] and row[part]!="None":
-				img = pygame.image.load(os.path.join(directory.princess,row[part],"big.png")).convert_alpha()
-				big_image.blit(img, (0,0))
-		dirt	 = int(cursor.execute("SELECT * FROM save").fetchone()['dirt'])
-		if dirt >0:
-			big_image.blit(pygame.image.load(os.path.join(directory.princess,"dirt"+str(dirt),"big.png")).convert_alpha(),(0,0))
-		self.image = utils.img.scale_image(big_image,invert=True)
+		self.image		= widget.princess_image(ball.universe, 'princess_garment')
 
 	def update_all(self):
 		pass
-
-
-
-class Dancer():
-	def __init__(self, position):
-		self.images = utils.img.There_and_back_again(directory.dancers, exclude_border = True)
-		self.image  = self.images.list[self.images.itnumber.next()]
-		self.position = position
-		self.images.number = random.randint(0,20)
-		if random.randint(0,9) < 4:
-			self.list = self.images.left
-		else:
-			self.list = self.images.right
-
-	def update_all(self):
-		self.image  = self.images.list[self.images.number]
-		self.images.update_number()
 
 class NewDancer():
 	square = (p([400,800],r=False),p([100,500],r=False))
@@ -473,9 +434,9 @@ class NewDancer():
 				  "marquess_attractive", 
 				  "duke_intelligent"]
 	
-	def __init__(self,universe, big_princess= None, boyfriend = None):
+	def __init__(self,universe, princess_name= None, boyfriend = None):
 		princess_directory  = directory.princess
-		if big_princess.__class__ == BigPrincess:
+		if princess_name == 'princess_garment':
 			self.player = True
 		else:
 			self.player = False
@@ -486,13 +447,15 @@ class NewDancer():
 		except:
 			print Exception
 		ordered_directory_list = [os.path.join(directory.boyfriends,boyfriend,'dance','body')]
+		players_outfit = database.query.my_outfit(universe,princess_name)
 		for i in ('skin','dress','hair','accessory'):
 			part = None
-			if not big_princess.__dict__[i] in ('dress_pink', 'dress_plain', 'accessory_purse'):
-					part = big_princess.__dict__[i]
+			if not players_outfit[i] in ('dress_pink', 'dress_plain', 'accessory_purse'):
+					part = players_outfit[i]
 			if part:
-				ordered_directory_list.append(os.path.join(directory.princess,big_princess.__dict__[i],'dance'))
+				ordered_directory_list.append(os.path.join(directory.princess,players_outfit[i],'dance'))
 		ordered_directory_list.append(os.path.join(directory.boyfriends,boyfriend,'dance','head'))
+
 		self.images	= utils.img.MultiPart(ordered_directory_list, loading = universe.level.loading)
 		self.image  = self.images.left[self.images.number]
 		self.images.number = random.randint(0,20)

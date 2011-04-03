@@ -628,7 +628,7 @@ class Stage():
 		self.loading()
 		[self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
 		self.loading()
-		gc.set_debug(gc.DEBUG_LEAK)
+#		gc.set_debug(gc.DEBUG_LEAK)
 		gc.collect()
 
 	def create_front_scenario(self,street):
