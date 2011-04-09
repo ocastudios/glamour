@@ -533,7 +533,7 @@ class Stage():
 					name = 'FootBoy'
 				maximum = 1
 				if name in ("Butterfly" , "Bird") :
-					maximum = 2+int(self.princesses[0].points/30)
+					maximum = 2+int(self.princesses[0].points/50)
 					if maximum > 20:
 						maximum = 20
 				for i in range(0,random.randint(1,maximum)):

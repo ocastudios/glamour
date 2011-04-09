@@ -35,7 +35,7 @@ class ClockPointer():
 
 	def update_all(self):
 		if not self.universe.level.paused:
-			self.tick +=10
+			self.tick +=1
 		if self.tick == self.universe.fps:
 			if self.count %10 == 0:
 				print "Updating the time "+ str(self.count)

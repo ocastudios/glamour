@@ -749,14 +749,14 @@ class VikingShip():
 			i.blit(left_sailor[0], (p(490),p(639)))
 		del sailor_body, left_sailor
 
-		D = {
+		D = self.D = {
 			'right':{
 				'center_distance': p(40, r=0),
 				'flag_pos': 650,
 				'wave_pos': 200,
 				'head':  (476,518),
 				'talk':  (650,400),
-				'shout': (650,400)
+				'shout': (650,250)
 			},
 			'left':{
 				'center_distance':p(9000, r=0),
@@ -764,7 +764,7 @@ class VikingShip():
 				'wave_pos':200,
 				'head':  (262,518),
 				'talk':  (-90,400),
-				'shout': (-90,400)
+				'shout': (-350,250)
 			}
 		}
 
@@ -794,30 +794,19 @@ class VikingShip():
 					pos_x = D[self.direction]['head'][0],
 			 		pos_y = D[self.direction]['head'][1]),
 		}
-		self.talk_balloon = VikingPart(self, 'talk_balloon',
-										pos_x = D[self.direction]['talk'][0],
-										pos_y = D[self.direction]['talk'][1])
-		self.shout_balloon= VikingPart(self, 'shout_balloon',
-										pos_x = D[self.direction]['shout'][0],
-										pos_y = D[self.direction]['shout'][1])
 
 		self.mood  = "normal"
 		self.head  = self.head_list[self.mood]
 		self.count = 0
-		self.curses  = [Curse(self,i) for i in range(7)]
-		self.curse_number = [random.randint(0,6),random.randint(0,6),random.randint(0,6)]
 		self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
-		self.talk_balloon_rect = pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
-		self.balloon_curses = []
+		self.talk_balloon_rect = pygame.Rect((0,0),(0,0))
+		self.balloon = Balloon(self.universe, self, brand = 'talk', pos_x = self.D[self.direction]['talk'][0], pos_y = self.D[self.direction]['talk'][1])
 		self.beaten = database.query.is_beaten(self.universe,'viking_ship')
 		print "done."
 
 	def update_all(self):
 		#take the balloon off the way, for it hurts the princess
 		#if self.mood is talk it will be reset below
-		self.talk_balloon.pos = p(-1000),p(-1000)
-		self.talk_balloon_rect	= pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
-	
 		if -p(1000) < self.pos[0] < p(1800): #check if Viking is on screen
 			if self.wave not in self.universe.level.floor_image:
 			
@@ -828,7 +817,9 @@ class VikingShip():
 			self.count += 1
 
 			if self.mood == "normal":
-				#on normal mood Viking does nothing
+				#on normal mood Viking resets balloon
+				self.reset_talk()
+				self.reset_shout()
 				#check if mood should be changed
 				self.check_mood_talking()
 				self.check_mood_hover()
@@ -840,53 +831,40 @@ class VikingShip():
 					self.count = 0
 
 			elif self.mood == "talk":
-				self.talk_balloon_rect	= pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
-				self.talk_balloon.pos	= self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
-				#The balloon and the curses must appear over the boat
+				self.check_mood_angry()
+				#The balloon must appear over the boat
 				#But the last floor listing position is used by the sailor head
-				#That is why the ballon and curses will be placed on the panel list
-				for i in self.universe.level.panel:
-					if i.__class__ == Curse:
-						if self.direction == 'left':
-							i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-						else:
-							i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
-						if i not in self.balloon_curses:
-							self.universe.level.panel.remove(i)
-							i.pos = (-p(100),i.position[1])
+				#That is why the balloon will be placed on the panel list
+
 				if self.count > 60:
-					for i in self.balloon_curses:
-						self.universe.level.panel.remove(i)
-						i.pos = p([-400,-400])
-					self.balloon_curses = []
-					self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
 					self.mood = "normal"
 					self.count = 0
+					self.reset_talk()
+				self.talk_balloon_rect	= pygame.Rect(self.balloon.pos,self.balloon.size)
 
 			elif self.mood == "angry":
-				self.shout_balloon.pos = self.pos[0]+self.shout_balloon.pos_x,self.pos[1]+self.shout_balloon.pos_y
-				for i in self.universe.level.panel:
-					if i.__class__ == Curse:
-						for i in self.universe.level.panel:
-							if i.__class__ == Curse:
-								if self.direction == 'left':
-									i.pos = (self.pos[0]+i.position[0]-p(80),self.pos[1]+i.position[1]+p(70))
-								else:
-									i.pos = (self.pos[0]+p(800)+i.position[0]+p(80),self.pos[1]+i.position[1]+p(70))
-						if i not in self.balloon_curses:
-							self.universe.level.panel.remove(i)
-							i.pos = (-p(100),i.position[1])
 				if self.count > 60:
-					for i in self.balloon_curses:
-						self.universe.level.panel.remove(i)
-						i.pos = p([-400,-400])
-					self.balloon_curses = []
-					self.curse_number = (random.randint(0,6),random.randint(0,6),random.randint(0,6))
+					self.reset_shout()
 					self.mood = "normal"
 					self.count = 0
 		#while not on screen Viking should only update position.
 		self.moving()
 
+	def reset_talk(self):
+		self.talk_balloon_rect	= pygame.Rect((0,0),(0,0))
+		self.remove_curses()
+
+	def reset_shout(self):
+		self.remove_curses()
+
+	def remove_curses(self):
+		to_remove = []
+		for i in self.universe.level.panel:
+			if i.__class__ == Balloon:
+				to_remove.append(i)
+		for i in to_remove:
+			self.universe.level.panel.remove(i)
+		del to_remove
 
 	def moving(self):
 		if self.direction == "left":
@@ -904,17 +882,9 @@ class VikingShip():
 		if self.count > 100 \
 		and random.randint(0,20) == 0:
 			self.mood = "talk"
-			self.balloon_curses = [self.talk_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
-			self.universe.level.panel.extend(self.balloon_curses)
-			for i,pos in [(0,-70), (1,10), (2,90)]:
-				self.curses[self.curse_number[i]].position[0] = p(pos)
-			self.talk_balloon.pos = self.pos[0]+self.talk_balloon.pos_x,self.pos[1]+self.talk_balloon.pos_y
-			for i in self.universe.level.panel:
-				if i.__class__ == Curse:
-					if self.direction == 'left':
-						i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-					else:
-						i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
+			self.balloon =  Balloon(self.universe, self, pos_x = self.D[self.direction]['talk'][0], pos_y = self.D[self.direction]['talk'][1] )
+			self.universe.level.panel.append(self.balloon)
+			self.balloon.pos = self.pos[0]+self.balloon.pos_x,self.pos[1]+self.balloon.pos_y
 			self.count = 0
 
 	def check_mood_hover(self):
@@ -925,6 +895,7 @@ class VikingShip():
 				if database.query.beaten_enemies(self.universe)>=5:
 					self.universe.level.unlocking={'type':'dress','name':'yellow'}
 			self.mood = "hover"
+			self.reset_talk()
 			self.count = 0
 
 	def check_mood_angry(self):
@@ -933,19 +904,13 @@ class VikingShip():
 			self.universe.stage.princesses[0].get_dirty()
 			print "got you"
 			self.mood = "angry"
-			self.balloon_curses = [self.shout_balloon]+[self.curses[self.curse_number[i]] for i in (0,1,2)]
-			self.universe.level.panel.extend(self.balloon_curses)
-			for i,pos in [(0,-70), (1,10), (2,90)]:
-				self.curses[self.curse_number[i]].position[0] = p(pos)
-			self.shout_balloon.pos = self.pos[0]+self.shout_balloon.pos_x,self.pos[1]+self.shout_balloon.pos_y
-			for i in self.universe.level.panel:
-				if i.__class__ == Curse:
-					if self.direction == 'left':
-						i.pos = (self.pos[0]+i.position[0],self.pos[1]+i.position[1])
-					else:
-						i.pos = (self.pos[0]+p(800)+i.position[0],self.pos[1]+i.position[1])
+			self.reset_talk()
+			self.balloon = Balloon(self.universe, self, brand = 'shout', pos_x = self.D[self.direction]['shout'][0], pos_y = self.D[self.direction]['shout'][1] )
+			self.universe.level.panel.append(self.balloon)
+			self.balloon.pos = self.pos[0]+self.balloon.pos_x,self.pos[1]+self.balloon.pos_y
 			self.count = 0
-			
+
+
 class VikingPart():
 	music = None
 	def __init__(self, ship, part, pos_x = 0, pos_y = 0):
@@ -965,22 +930,45 @@ class VikingPart():
 
 	def update_all(self):
 		self.image = self.actual_images[self.images.itnumber.next()]
-
-class Curse():
-	music = None
-	def __init__(self,ship,index):
-		print "Creating new curse"
-		self.image  = utils.img.image(os.path.join(directory.enemies,'VikingShip','curses',str(index)+'.png'))
-		if ship.direction =='left':
-			self.pos	= p([-70,440])
-			self.position = p([-70,440])
+		
+class Balloon():
+	talk_image_tpl = utils.img.image(os.path.join(directory.enemies,'VikingShip','talk_balloon','0.png'))
+	shout_image_tpl = utils.img.image(os.path.join(directory.enemies,'VikingShip','shout_balloon','0.png'))
+	curses = [os.path.join(directory.enemies,'VikingShip','curses',str(index)+'.png') for index in range(7)]
+	def __init__(self, universe, ship, brand = 'talk',pos_x = 0, pos_y = 0):
+		self.pos_x  = p(pos_x,r=False)
+		self.pos_y  = p(pos_y,r=False)
+		self.ship = ship
+		self.pos  = self.ship.pos[0]+pos_x,self.ship.pos[1]+pos_y
+		if brand == 'talk':
+			image_size = p([341,223])
+			self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()
+			self.image.blit(self.talk_image_tpl, (0,0))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([29,42]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([104,42]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([174,42]))
 		else:
-			self.pos	= p([500,440])
-			self.position= p([500,440])
-		print "done"
+			image_size = p([605,364])
+			self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()
+			self.image.blit(self.shout_image_tpl, (0,0))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([104,186]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([83,85]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([371,143]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([201,194]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([307,191]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([257,124]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([165,131]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([319,101]))
+			self.image.blit(utils.img.image(random.choice(self.curses)), p([245,56]))
+		if self.ship.direction == 'left':
+			pass
+		else:
+			self.image = pygame.transform.flip(self.image,1,0)
+		self.size = self.image.get_size()
+		self.real_size = self.size
 
 	def update_all(self):
-		pass
+		self.pos = self.ship.pos[0]+self.pos_x,self.ship.pos[1]+self.pos_y
 
 
 class FootBoy():
