@@ -82,10 +82,10 @@ def d(positions,r=True):
 #### Main directories ####
 
 
-homedir = os.path.expanduser('~')
-main_dir    = os.path.join('/','home','nelson','glamour')
-data_dir    = os.path.join(main_dir,"data")
-saves_dir   = os.path.join(homedir ,'.glamour')
+homedir		= os.path.expanduser('~')
+main_dir	= os.path.join('/','home','nelson','glamour')
+data_dir	= os.path.join(main_dir,"data")
+saves_dir	= os.path.join(homedir ,'.glamour')
 try:
     os.listdir(saves_dir)
 except:

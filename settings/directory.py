@@ -5,7 +5,7 @@ homedir = os.path.expanduser('~')
 
 saves			= j(homedir,'.glamour')
 
-main			= os.path.abspath(j('glamour'))
+main			= j('/','home','nelson','glamour')
 
 
 
