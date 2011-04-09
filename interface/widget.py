@@ -250,8 +250,8 @@ class Key(GameText):
 			else:
 				self.hoover = False
 
-def princess_image(universe, princess, format = 'image', size = 'big', flip = True):
-	row				= database.query.my_outfit(universe,princess)
+def princess_image(universe, princess, format = 'image', size = 'big', flip = True, previous_ball = 0):
+	row				= database.query.my_outfit(universe,princess, previous_ball)
 	parts = ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]
 
 	if size == 'big':

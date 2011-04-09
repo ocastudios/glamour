@@ -15,6 +15,7 @@ fairy_dir = j(directory.interface, 'fairy_tips')
 
 class Fairy():
 	"""This class defines the tip fairy, who helps the princess during the game."""
+	#TODO: put the paths in a database.
 	paths = (
 			((14, 22),	 (28, 44),	  (52, 68),	  (57, 80), 
 			 (75, 98),	 (85, 110),	 (97, 118),	 (111, 132), 

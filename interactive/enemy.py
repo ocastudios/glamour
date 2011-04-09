@@ -818,7 +818,7 @@ class VikingShip():
 		self.talk_balloon.pos = p(-1000),p(-1000)
 		self.talk_balloon_rect	= pygame.Rect(self.talk_balloon.pos,self.talk_balloon.size)
 	
-		if -p(1000) < self.pos[0] < p(1500): #check if Viking is on screen
+		if -p(1000) < self.pos[0] < p(1800): #check if Viking is on screen
 			if self.wave not in self.universe.level.floor_image:
 			
 				self.universe.level.floor_image.extend([self.flag,self.wave,self.head])
@@ -1126,9 +1126,10 @@ class Bird():
 	flying	  = utils.img.There_and_back_again(os.path.join(directory.enemies,'Birdy','fly'))
 	walking	 = utils.img.There_and_back_again(os.path.join(directory.enemies,'Birdy','walk'))
 	standing	= utils.img.TwoSided(os.path.join(directory.enemies,'Birdy','stay'))
-	def __init__(self, pos, universe, dirty=False):
+	def __init__(self, pos, universe, dirty=False, margin=p([5,5,5,5])):
 		print 'Creating Bird'
 		self.center_distance = int(pos+p(random.randint(3,50)))
+		self.margin = margin
 		self.body	   = self.walking
 		self.image	  = self.body.left[0]
 		self.universe	  = universe
@@ -1136,7 +1137,7 @@ class Bird():
 		self.real_size  = self.image.get_size()
 		#adjusting self.size
 		self.size[1] -= p(8)
-		self.pos		= [self.universe.center_x+self.center_distance, self.universe.level.floor-self.size[1]]
+		self.pos		= [self.universe.center_x+self.center_distance, self.universe.level.floor+self.margin[2]-self.size[1]+p(10)]
 		self.direction  = 'left'
 		self.counter	= 0
 		self.image_number = 0
@@ -1162,13 +1163,13 @@ class Bird():
 		floor = self.universe.floor - self.universe.level.what_is_my_height(self)
 		if self.body	== self.walking:
 			speed = p(5)
-			if self.size[1] + self.pos[1] < floor:
+			if self.size[1] + self.pos[1] < floor+self.margin[2]:
 				self.gforce += self.g_acceleration
 				self.pos[1] += self.gforce
 			else:
 				self.gforce = 0
-			if self.pos[1]+self.size[1] > self.floor:
-					self.pos[1] = self.floor-self.size[1]		 #do not fall beyond the floor
+			if self.pos[1]+self.size[1] > self.floor+self.margin[2]:
+					self.pos[1] = self.floor+self.margin[2] - self.size[1]		 #do not fall beyond the floor
 
 		elif self.body  == self.flying:
 			speed = p(10)

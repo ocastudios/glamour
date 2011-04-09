@@ -73,9 +73,9 @@ def last_balls(universe):
 	cursor.close()
 	return result
 	
-def my_outfit(universe, princess):
+def my_outfit(universe, princess, previous=0):
 	cursor  = universe.db_cursor
-	sql	 = "SELECT * FROM "+princess+" WHERE id = (SELECT MAX(id) FROM "+princess+")"
+	sql	 = "SELECT * FROM "+princess+" WHERE id = (SELECT MAX(id) FROM "+princess+")-"+str(previous)
 	result  = cursor.execute(sql).fetchone()
 	cursor.close()
 	return result

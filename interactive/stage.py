@@ -944,8 +944,12 @@ class Pause():
 	def set_closet(self):
 		self.closet = utils.img.image(os.path.join(directory.closet,'background.png'))
 		unlocked = database.query.unlocked(self.universe)
-
+		unlocked_names = [i['type']+'_'+i['garment'] for i in unlocked]
 		self.unlocked_items = [Closet_Icon(self.universe, i['type'],i['garment'],self.icons[i['type']+'_'+i['garment']]) for i in unlocked]
+
+		for i in self.icons:
+			if i not in unlocked_names:
+				self.unlocked_items.append(Closet_Icon(self.universe, None,None,self.icons[i], locked = True))
 		self.unlocked_items.extend([Dearhearts(self.universe, self.universe.stage.princesses[0].points)])
 		self.close_closet = widget.Button(self.universe, directory.button_cancel,(1300,800),[0,0], self.clear_closet)
 
@@ -970,12 +974,22 @@ class Pause():
 
 
 class Closet_Icon():
-	def __init__(self, universe, garment_type, garment, icon):
+	def __init__(self, universe, garment_type, garment, icon, locked=None):
 		self.pos = icon[0]
-		self.text = widget.GameText(universe, icon[1], [720,550], font_size = 30)
-		self.name = garment_type + '_' + garment
-		self.medium = utils.img.image(os.path.join(directory.princess,self.name,'medium','0.png'))
-		self.big = utils.img.image(os.path.join(directory.princess,self.name,'big_icons','0.png'))
+		self.locked = locked
+
+		if self.locked:
+			self.name = "?"
+			text	= t('This garment is locked')
+			self.medium = utils.img.image(os.path.join(directory.interface,'closet','blocked.png'))
+			self.big	= None
+		else:
+			self.name = garment_type + '_' + garment
+			text = icon[1]
+			self.medium = utils.img.image(os.path.join(directory.princess,self.name,'medium','0.png'))
+			self.big = utils.img.image(os.path.join(directory.princess,self.name,'big_icons','0.png'))
+
+		self.text = widget.GameText(universe, text, [720,550], font_size = 30)
 		self.image = self.medium
 		self.rect  = pygame.Rect(self.pos, self.medium.get_size())
 		self.universe = universe
@@ -986,13 +1000,14 @@ class Closet_Icon():
 		if self.rect.colliderect(self.universe.pointer.rect):
 			if not self.hover:
 				self.hover = True
-				self.pos[0]-= p(26)
-				self.pos[1]-= p(26)
-			self.image = self.big
+				if not self.locked:
+					self.pos[0]-= p(26)
+					self.pos[1]-= p(26)
+					self.image = self.big
 			self.imagetxt = self.text
-		elif self.image == self.big:
-			if self.hover:
-				self.hover = None
+		elif self.hover == True:
+			self.hover = None
+			if not self.locked:
 				self.pos[0]+= p(26)
 				self.pos[1]+= p(26)
 			self.image = self.medium
