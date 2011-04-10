@@ -264,7 +264,7 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 	if format=='image':
 		big_image		= pygame.Surface(imgsize,pygame.SRCALPHA).convert_alpha()
 		for part in parts:
-			if row[part] and row[part] not in ("None", 0, '0'):
+			if row and row[part] and row[part] not in ("None", 0, '0'):
 				img = pygame.image.load(os.path.join(directory.princess,row[part],filename)).convert_alpha()
 				big_image.blit(img, (0,0))
 		if princess == 'princess_garment':
@@ -275,7 +275,7 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 	else:
 		result = []
 		for part in parts:
-			if row[part] and row[part] not in ("None", 0, '0'):
+			if row and row[part] and row[part] not in ("None", 0, '0'):
 				img = utils.img.image(os.path.join(directory.princess,row[part],filename), invert = flip)
 			else:
 				img = None

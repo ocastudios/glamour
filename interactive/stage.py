@@ -597,38 +597,25 @@ class Stage():
 		self.bar['down'].pos = self.universe.height
 		self.loading()
 		self.viking_ship = None
-		scenario_row		= database.query.street(self, street, 'scenario')
 		self.loading()
-		self.scenarios_prep  = []
-		for i in scenario_row:
-			if i['invert'] == 1:
-				if i['height'] != 0:
-					img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, invert=True, height= p(i['height']))
-				else:
-					img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, invert=True)
-			else:
-				if i['height'] != 0:
-					img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, height= p(i['height']))
-				else:
-					img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe)
-			self.loading()
-			self.scenarios_prep.append(img)
-		self.scenarios = BigScenario(self.universe),
+		self.scenarios_prep = []
+		#while creating Big Scenario, the list above is filled so that it is possible to include the lights
+		self.scenarios = (BigScenario(self.universe, street),)
 		self.lights = []
 		for i in self.scenarios_prep:
-			self.scenarios[0].image.blit(i.image,i.pos)
 			try:
 				if i.lights:
 					self.lights.append(i.lights)
 			except:
 				pass
 			self.loading()
+		self.scenarios_prep = []
 		self.sky			 = [skies.Sky(self.universe)]
 		self.clouds			=   [scenarios.Cloud(self.universe) for cl in range(3)]
 		self.loading()
 		[self.sky[0].image.blit(i.image,i.pos) for i in self.clouds]
+		self.clouds = []
 		self.loading()
-#		gc.set_debug(gc.DEBUG_LEAK)
 		gc.collect()
 
 	def create_front_scenario(self,street):
@@ -870,9 +857,32 @@ class Bar():
 
 
 class BigScenario():
-	def __init__(self,universe):
+	def __init__(self,universe,street):
 		self.universe		= universe
-		self.image			= pygame.Surface((p(9600,r=0),universe.height), pygame.SRCALPHA).convert_alpha()
+		scenario_row	= database.query.street(universe, street, 'scenario')
+		cached_images = os.listdir(os.path.join(directory.cache, 'images'))
+
+		if street+str(p(1440,900)) in cached_images:
+			self.image = pygame.image.load(os.path.join(directory.cache, 'images',street+str(p([1440,900]))+'.png')).convert_alpha()
+		else:
+			self.universe.stage.scenarios_prep = []
+			self.image			= pygame.Surface((p(9600,r=0),universe.height), pygame.SRCALPHA).convert_alpha()
+			for i in scenario_row:
+				if i['invert'] == 1:
+					if i['height'] != 0:
+						img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, invert=True, height= p(i['height']))
+					else:
+						img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, invert=True)
+				else:
+					if i['height'] != 0:
+						img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe, height= p(i['height']))
+					else:
+						img = scenarios.Scenario(p(i['xpos'],r=False),j(directory.main,i['directory']),self.universe)
+				self.universe.stage.loading()
+				self.universe.stage.scenarios_prep.append(img)
+			for i in self.universe.stage.scenarios_prep:
+				self.image.blit(i.image,i.pos)
+			pygame.image.save(self.image,os.path.join(directory.cache, 'images',street+str(p([1440,900]))+'.png') )
 		self.pos			= [self.universe.center_x,0]
 
 	def update_all(self):

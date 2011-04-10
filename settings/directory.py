@@ -3,7 +3,9 @@ j = os.path.join
 
 homedir = os.path.expanduser('~')
 
-saves			= j(homedir,'.glamour')
+personal		= j(homedir,'.glamour')
+saves			= j(personal,'saves')
+cache			= j(personal, 'cache')
 
 main			= j('/','home','nelson','glamour')
 
