@@ -298,7 +298,10 @@ class Princess():
 
 	def update_image(self,action,direction):
 		self.rect = pygame.Rect((self.pos[0]+(self.image_size[0]/2),self.pos[1]-1), self.size)
-		chosen = action[0] or action[1]
+		if action[0] != 'OK':
+			chosen = action[0] or action[1]
+		else:
+			chosen = self.past_choice
 		if direction.__class__ != str:
 			direction = "right"
 		self.images = 		self.__dict__[chosen+'_img']
@@ -334,9 +337,13 @@ class Dirt():
 		P = self.universe.level.princesses[0]
 		self.pos = P.pos
 		direction = P.direction
-		chosen = P.action[0] or P.action[1]
+		if P.action[0] != 'OK':
+			chosen = P.action[0] or P.action[1]
+		else:
+			chosen = self.past_choice
 		if direction.__class__ != str:
 			direction = "right"
+		
 		self.images = self.__dict__[chosen]
 		actual_images = self.__dict__[chosen].__dict__[direction]
 		if chosen != self.past_choice:

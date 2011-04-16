@@ -21,7 +21,6 @@ def initialize_mixer():
 
 welcome()
 import os
-import os
 import pygame
 
 print "Initializing Pygame Display"
@@ -51,7 +50,7 @@ print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(
 if scale < 0.3333333337:
     scale = 0.333333337
 ####              temporary hard coded scale            ####
-#### used to develop in a different resolution in order #### 
+#### used to develop in a different resolution in order to avoid bugs#### 
 #scale = 0.666666667
 
 

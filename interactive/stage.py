@@ -15,7 +15,6 @@ import pygame
 import interactive.camera as camera
 import interface.inside as inside
 import interface.ball as ball
-import sqlite3
 import database
 import database.query
 import database.update
@@ -80,6 +79,7 @@ class Stage():
 		self.margin = utils.img.image(j(directory.images,'shadow-B.png'))
 		self.enemy_channel = pygame.mixer.Channel(6)
 		self.unlocking = False
+		self.big_princess = None
 
 	def pause_game(self):
 		return inside.Pause(self.universe)
@@ -224,10 +224,14 @@ class Stage():
 		screen.blit(self.bar['up'].image,(0,self.bar['up'].pos))
 		if self.inside.status == 'choosing':
 			[screen.blit(i.image,i.pos) for i in self.inside.items]
-			if self.inside.big_princess:
-				for i in self.inside.big_princess.images:
-					if i:
-						screen.blit(i,self.inside.big_princess.pos)
+			if self.big_princess:
+
+				if self.inside.type_of_items == "shower":
+					position	= ((self.universe.width/2)-p(200),p(270))
+				else:
+					position	= p((20,270))
+				screen.blit(self.big_princess, position)
+
 				[screen.blit(i.image,i.pos) for i in self.inside.buttons]
 			if self.inside.__class__== inside.Inside:
 				if self.inside.chosen_item:
@@ -345,6 +349,7 @@ class Stage():
 					i.outside()
 			self.inside.status = 'outside'
 			self.princesses[0].inside = False
+
 
 	def enemy_music(self):
 		enemies_arround = []
@@ -498,7 +503,7 @@ class Stage():
 			if self.white.alpha_value > 150:
 				self.fairy = 'speaking'
 		elif self.fairy == "speaking":
-			if self.universe.action[0]in ('jump','kiss'):
+			if self.universe.action[0] == 'OK':
 				self.fae[0].end_message()
 			for i in self.fae:
 				i.update_all()
@@ -694,8 +699,8 @@ class Stage():
 	def BathhouseSt(self,goalpos = None, clean_princess = False):
 		self.set_floor_heights(186,9400,'bathhouse')
 		self.create_stage(t('Bathhouse St'),goalpos,'bathhouse')
-		gates = (   [(1063,453),'bathhouse/door/',inside.Inside(self.universe,'shower', []),True],
-					[(5206,500),'home/door/', inside.Home(self.universe), False], 
+		gates = (   [(1063,453),'bathhouse/door/',	inside.Inside(self.universe,'shower', []),True],
+					[(5206,500),'home/door/', 		inside.Home(self.universe), False], 
 					[(9305,503),'magic_beauty_salon/door/',inside.Inside(self.universe,'hair',database.query.unlocked(self.universe,'hair','garment',4)),False])
 		self.loading()
 		doors = (   [bathhousegate[0], self.ShoesSt,shoegate[2]],
@@ -740,7 +745,7 @@ class Stage():
 	def AccessorySt(self,goalpos = None):
 		self.create_stage(t('Accessory St'), goalpos,'accessory')
 		self.select_enemies(('schnauzer', 'butterfly', 'old_lady', 'bird'),'AccessorySt')
-		self.viking_ship = enemy.VikingShip(p(1200,r=0),self.universe)
+		self.viking_ship = enemy.VikingShip(self.universe)
 		self.loading()
 		self.gates = ([
 			scenarios.BuildingDoor(p((330,428)),j(self.directory,'accessory_tower','door'),self.universe,inside.Inside(self.universe,'accessory',database.query.unlocked(self.universe,'accessory','garment',4))),
@@ -896,12 +901,12 @@ class Pause():
 		resume	  = widget.GameText(self.universe, t('Resume'),(360,400), font_size=80, fonte='Chopin_Script.ttf')
 		ok_pos	  = d(resume.pos[0]+(resume.size[0]/2)),d(resume.pos[1]+(resume.size[1]))+50
 		ok_button   = widget.Button(self.universe, directory.button_ok,ok_pos, [0,0],self.resume)
-		quit		= widget.GameText(self.universe, t('Quit'),(1080,400), font_size= 80, fonte='Chopin_Script.ttf')
-		cancel_pos  = d(quit.pos[0]+(quit.size[0]/2)),d(quit.pos[1]+(quit.size[1]))+50
+		leave		= widget.GameText(self.universe, t('Quit'),(1080,400), font_size= 80, fonte='Chopin_Script.ttf')
+		cancel_pos  = d(leave.pos[0]+(leave.size[0]/2)),d(leave.pos[1]+(leave.size[1]))+50
 		cancel_button = widget.Button(self.universe, directory.button_cancel,cancel_pos,[0,0], self.exit_game)
 		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), fonte='Chopin_Script.ttf', font_size=120)
 		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet, font_size =34)
-		self.buttons	= (resume, ok_button, quit, cancel_button, title, check_closet)
+		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet)
 		self.music  = j(directory.music,'1stSnowfall.ogg')
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
 		self.chosen_number = 0
@@ -960,7 +965,7 @@ class Pause():
 		for i in self.icons:
 			if i not in unlocked_names:
 				self.unlocked_items.append(Closet_Icon(self.universe, None,None,self.icons[i], locked = True))
-		self.unlocked_items.extend([Dearhearts(self.universe, self.universe.stage.princesses[0].points)])
+		self.unlocked_items.extend([Dearhearts(self.universe.stage.princesses[0].points)])
 		self.close_closet = widget.Button(self.universe, directory.button_cancel,(1300,800),[0,0], self.clear_closet)
 
 	def clear_closet(self):
@@ -1024,7 +1029,7 @@ class Closet_Icon():
 			self.imagetxt = None
 
 class Dearhearts():
-	def __init__(self, universe, points):
+	def __init__(self, points):
 		image_size = p((1200,350))
 		self.pos = p((140,527))
 		self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()

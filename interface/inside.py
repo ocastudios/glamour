@@ -16,6 +16,8 @@ p = settings.p
 d = settings.d
 t = settings.t
 
+
+
 class Inside():
 	def __init__(self, universe, item_type, item_list):
 		self.status = 'outside'
@@ -34,7 +36,7 @@ class Inside():
 				 self.chosen_glow
 								)
 			self.menu.extend([(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__==widget.Button])
-			self.big_princess = BigPrincess(self)
+			universe.stage.big_princess = universe.stage.big_princess or widget.princess_image(self.universe, 'princess_garment')
 		else:
 			self.items = []
 			shower	  = widget.GameText(self.universe, t('Take a shower'),(360,400))
@@ -46,11 +48,11 @@ class Inside():
 			title	   = widget.GameText(self.universe, t('Would you like to take a shower?'),(720,100))
 			self.buttons	= (shower, ok_button, quit, cancel_button, title)
 			self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
-			self.big_princess = BigPrincess(self, pos = "center")
+			universe.stage.big_princess = universe.stage.big_princess or widget.princess_image(self.universe, 'princess_garment')
 		self.locked = {'geisha': database.query.is_locked(self.universe,'face','geisha'),
 						'indian': database.query.is_locked(self.universe,'dress','indian'),
 						'crystal': database.query.is_locked(self.universe,'shoes','crystal')
-		}
+						}
 		self.chosen_item = None
 		self.chosen_number = 0
 		self.music = os.path.join(directory.music,'menu.ogg')
@@ -80,8 +82,6 @@ class Inside():
 				self.universe.level.unlocking = {'type':'shoes','name':'crystal'}
 				self.locked['crystal'] = False
 
-
-
 	def clean_up(self):
 		self.status = 'done'
 		if self.universe.level.princesses[0].dirt ==0:
@@ -96,10 +96,6 @@ class Inside():
 		save.save_file(self.universe)
 		save.save_thumbnail(self.universe)
 
-	def NOTSETYET(self):
-		pass
-
- 
 
 class Item():
 	def __init__(self, room, name,index):
@@ -115,6 +111,7 @@ class Item():
 		self.rect	   = pygame.Rect((self.pos),(self.size))
 		self.active	 = False
 
+
 	def update_all(self):
 		self.click_detection()
 		if self.room.chosen_item==self:
@@ -125,48 +122,17 @@ class Item():
 			self.active = True
 			if self.universe.click:
 				self.room.chosen_item = self
-				BP = self.room.big_princess
-				j = os.path.join
-				BP.images[BP.image_dict[self.type]] = utils.img.image(j(directory.princess,self.type+'_'+self.name,'big.png'), invert = True)
 				self.room.chosen_glow.pos = self.pos[0]-p(40,r=0),self.pos[1]-p(40,r=0)
-				if self.type == "hair":
-					if self.name in ("black","brown","rapunzel", "rastafari","red"):
-						BP.images[BP.image_dict["hair_back"]] = utils.img.image(j(directory.princess,self.type+'_'+self.name+"_back",'big.png'), invert = True)
-					else:
-						BP.images[BP.image_dict["hair_back"]] = None
-				elif self.type == "dress":
-					if self.name in ("yellow","red","kimono","indian"):
-						BP.images[BP.image_dict["armdress"]] = utils.img.image(j(directory.princess, 'sleeve_' + self.name,'big.png'),invert = True)
-					else:
-						BP.images[BP.image_dict["armdress"]] = None
-
-class BigPrincess():
-	def __init__(self, room, pos = "left"):
-		self.universe			= room.universe
-		self.image_dict = {"hair_back":0, "skin":1, "face":2, "hair":3, "shoes":4, "dress":5, "arm":6, "armdress":7, "accessory":8}
-		self.images = widget.princess_image(self.universe, 'princess_garment', format = 'list')
-		if pos == "left":
-			self.pos		= p((20,270))
-		elif pos == "center":
-			self.pos		= ((self.universe.width/2)-p(200),p(270))
-
-	def update_all(self):
-		pass
-
-	def all_set(self):
-		self.status = 'done'
-		save.save_thumbnail(self.universe)
-
-	def update_all(self):
-		self.pos		= [self.frame.position[0]+self.position[0],
-						   self.frame.position[1]+self.position[1]]
+				self.universe.stage.big_princess = widget.princess_image(self.universe, 'princess_garment', exception = {self.type: self.name} )
+				self.universe.click = False
 
 
 class Princess_Home():
 	def __init__(self, universe, princess=None):
 		print "Creating Princess Home: "+ princess['name']
 		princess_name = princess["name"].lower()
-		self.name=princess_name
+		self.name			= princess_name
+		self.type_of_items = 'fairy_tale'
 		self.princess_image = widget.princess_image(universe, princess_name, flip=False)
 		self.princess_icon  = utils.img.image(os.path.join(directory.ball,princess['icon']))
 		self.status = 'outside'
@@ -189,7 +155,7 @@ class Princess_Home():
 		elif self.name == "snow_white":
 			self.name="snowwhite"
 		self.locked = database.query.is_locked(self.universe,'hair',self.name)
-		self.big_princess = BigPrincess(self)
+		self.universe.stage.big_princess = self.universe.stage.big_princess or widget.princess_image(self.universe, 'princess_garment')
 		self.chosen_number = 0
 		self.music = os.path.join(directory.music,'menu.ogg')
 
@@ -210,6 +176,7 @@ class Home():
 		self.status = 'outside'
 		self.music = os.path.join(directory.music,'menu.ogg')
 		self.universe  = universe
+		self.type_of_items = 'home'
 		self.items = []
 		self.buttons = []
 		self.buttons	= (widget.Button(self.universe, directory.button_ok,(410,450),[0,0],self.all_set),
@@ -219,7 +186,7 @@ class Home():
 						   widget.GameText(self.universe, t("Great Past Ball"),	(800,350), font_size = 25),
 						   widget.GameText(self.universe, t("3 Balls Ago"),		(1000,350),font_size = 25)
 							)
-		self.big_princess = BigPrincess(self)
+		self.universe.stage.big_princess = self.universe.stage.big_princess or widget.princess_image(self.universe, 'princess_garment')
 		self.past_balls = []
 		last_balls = database.query.last_balls(universe)
 		if len(last_balls)>=1:

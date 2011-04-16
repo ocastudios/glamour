@@ -13,7 +13,6 @@ def main_menu(universe):
 			exit()
 		elif event.type == KEYDOWN:
 			if event.key == K_ESCAPE:
-				print "Escape pressed"
 				exit()
 			elif event.key == K_UP:
 				universe.action[0] = 'up'
@@ -27,7 +26,6 @@ def main_menu(universe):
 			if event.key in (K_a,K_b,K_c,K_d,K_e,K_f,K_g,K_h,K_i,K_j,K_k,K_l,K_m,K_n,K_o,K_p,K_q,K_r,K_s,K_t,K_u,K_v,K_w,K_x,K_y,K_z, K_BACKSPACE, K_SPACE):
 				universe.action[0] = pygame.key.name(event.key)
 			if event.key == K_RETURN:
-				print "Enter pressed"
 				universe.click = True
 		elif event.type == MOUSEBUTTONUP:
 			universe.click = True
@@ -56,6 +54,8 @@ def stage(universe):
 					universe.action[0] = 'kiss'
 				if event.key == K_SPACE:
 					universe.action[0] = 'jump'
+				if event.key == K_RETURN:
+					universe.action[0] = 'OK'
 				if event.key == K_UP:
 					if not universe.level.princesses[0].jump:
 						universe.action[0] ='open_door'

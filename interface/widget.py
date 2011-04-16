@@ -250,8 +250,21 @@ class Key(GameText):
 			else:
 				self.hoover = False
 
-def princess_image(universe, princess, format = 'image', size = 'big', flip = True, previous_ball = 0):
+def princess_image(universe, princess, format = 'image', size = 'big', flip = True, previous_ball = 0, exception = None):
 	row				= database.query.my_outfit(universe,princess, previous_ball)
+
+	if exception:
+		if 'hair' in exception:
+			if exception['hair'] in ("black","brown","rapunzel", "rastafari","red","braid_and_tail"):
+				exception['hair_back'] = exception['hair']
+			else:
+				exception['hair_back'] = None
+		if 'dress' in exception:
+			if exception['dress'] in ("yellow","red","kimono","indian"):
+				exception['armdress'] = exception['dress']
+			else:
+				exception['armdress'] = None
+
 	parts = ["hair_back","skin","face","hair","shoes","dress","arm","armdress","accessory"]
 
 	if size == 'big':
@@ -264,9 +277,14 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 	if format=='image':
 		big_image		= pygame.Surface(imgsize,pygame.SRCALPHA).convert_alpha()
 		for part in parts:
-			if row and row[part] and row[part] not in ("None", 0, '0'):
-				img = pygame.image.load(os.path.join(directory.princess,row[part],filename)).convert_alpha()
-				big_image.blit(img, (0,0))
+			if not exception or part not in exception:
+				if row and row[part] and row[part] not in ("None", 0, '0'):
+					img = pygame.image.load(os.path.join(directory.princess,row[part],filename)).convert_alpha()
+					big_image.blit(img, (0,0))
+			else:
+				if exception[part] and exception[part] not in ('None', 0, '0'):
+					img = pygame.image.load(os.path.join(directory.princess,part+'_'+exception[part],filename)).convert_alpha()
+					big_image.blit(img, (0,0))
 		if princess == 'princess_garment':
 			dirt	 = int(database.query.am_i_dirt(universe))
 			if dirt >0:
@@ -275,10 +293,16 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 	else:
 		result = []
 		for part in parts:
-			if row and row[part] and row[part] not in ("None", 0, '0'):
-				img = utils.img.image(os.path.join(directory.princess,row[part],filename), invert = flip)
+			if not exception or part not in exception:
+				if row and row[part] and row[part] not in ("None", 0, '0'):
+					img = utils.img.image(os.path.join(directory.princess,row[part],filename), invert = flip)
+				else:
+					img = None
 			else:
-				img = None
+				if exception[part] and exception[part] not in ("None", 0, '0'):
+					img = utils.img.image(os.path.join(directory.princess,part+'_'+exception[part],filename), invert = flip)
+				else:
+					img = None
 			result.append(img)
 		if princess == 'princess_garment':
 			dirt	 = int(database.query.am_i_dirt(universe))

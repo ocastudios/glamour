@@ -6,6 +6,7 @@ from pygame.locals import *
 from pygame.image import load
 from settings import *
 import settings.directory as directory
+import interface.widget as widget
 
 
 class Scenario():
@@ -117,6 +118,7 @@ class BuildingDoor():
 			if not princess.inside:
 				if princess.action[0] == 'open_door':
 					self.universe.level.inside = self.interior
+					self.universe.stage.big_princess = widget.princess_image(self.universe, 'princess_garment')
 					self.open = True
 		else:
 			self.open = False
