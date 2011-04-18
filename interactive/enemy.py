@@ -229,6 +229,7 @@ class OldLady():
 		self.walk   = utils.img.TwoSided(os.path.join(directory.enemies,'OldLady','walk'),margin)
 		self.wave   = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','hover'),margin)
 		self.broom  = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','act'),margin)
+		self.kissed = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','kissed'),margin)
 		self.image  = self.walk.left[0]
 		self.mouseovercount = 0
 		self.size   = (self.image.get_width()/2, self.image.get_height())
@@ -250,13 +251,32 @@ class OldLady():
 
 	def update_all(self):
 		if -p(400) < self.pos[0] < p(1490):
+			self.got_kissed()
 			self.wave_to_princess()
 			self.brooming()
+			self.count +=1
 			self.set_image()
+
 		self.set_pos()
 
+	def got_kissed(self):
+		if self.action not in ('wave', 'kissed') \
+		and self.universe.stage.princesses[0].kiss['rect'] \
+		and self.rect.colliderect(self.universe.stage.princesses[0].kiss['rect']):
+			self.action = 'kissed'
+			self.image_number = 0
+			self.count = 0
+
+		if self.action == 'kissed':
+			if 5 < self.count < 15:
+				self.image_number -= 1
+			elif self.count > 20:
+				self.action = "walk"
+				self.count = 0
+
+
 	def wave_to_princess(self):
-		if self.action != 'wave':
+		if self.action not in  ('wave', 'kissed'):
 			if self.rect.collidepoint(self.universe.pointer.mouse_pos):
 				self.action = 'wave'
 				self.image_number = 0
@@ -266,9 +286,10 @@ class OldLady():
 					self.beaten = True
 					if database.query.beaten_enemies(self.universe)>=5:
 						self.universe.level.unlocking={'type':'dress','name':'yellow'}
-		elif self.count > 33:
-			self.action = 'walk'
-			self.count = 0
+		if self.action == 'wave':
+			if self.count > 33:
+				self.action = 'walk'
+				self.count = 0
 
 	def brooming(self):
 		if self.action != 'broom' and self.count == 60:
@@ -278,7 +299,7 @@ class OldLady():
 			self.direction = random.choice(['left','right'])
 			self.action = 'walk'
 			self.count = 0
-		self.count +=1
+
 
 	def set_pos(self):
 		self.floor = self.universe.floor - self.universe.level.what_is_my_height(self)
@@ -288,14 +309,13 @@ class OldLady():
 			if self.direction == 'right':
 				self.center_distance += self.speed
 				next_height = self.universe.level.what_is_my_height(self)
-				if (self.universe.floor - next_height)  <= (self.floor-self.size[1])-30:
+				if (self.universe.floor - next_height)  <= (self.floor-self.size[1])-p(5):
 					self.center_distance += self.speed
 			else:
 				self.center_distance -= self.speed
 				next_height = self.universe.level.what_is_my_height(self)
-				if (self.universe.floor - next_height)  <= (self.floor-self.size[1]) -30:
+				if (self.universe.floor - next_height)  <= (self.floor-self.size[1]) -p(5):
 					self.center_distance -= self.speed
-
 		self.rect = pygame.Rect(((self.pos[0]+(self.size[0]/2)),(self.universe.level.floor-self.size[1])),(self.size))
 
 	def set_image(self):
@@ -749,7 +769,7 @@ class VikingShip():
 			'right':{
 				'center_distance': p(40, r=0),
 				'flag_pos': 650,
-				'wave_pos': 200,
+				'wave_pos': 820,
 				'head':  (476,518),
 				'talk':  (650,400),
 				'shout': (650,250)
@@ -805,7 +825,6 @@ class VikingShip():
 		#if self.mood is talk it will be reset below
 		if -p(1000) < self.pos[0] < p(1800): #check if Viking is on screen
 			if self.wave not in self.universe.level.floor_image:
-			
 				self.universe.level.floor_image.extend([self.flag,self.wave,self.head])
 			else:
 				self.head = self.head_list[self.mood] # change faces acording to the mood

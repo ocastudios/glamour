@@ -5,7 +5,6 @@ import os
 import interface.menu as menu
 import interface.mousepointer as mousepointer
 from settings import *
-import check
 import inspect
 import utils
 

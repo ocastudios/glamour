@@ -227,24 +227,41 @@ class Princess():
 				self.kiss['rect']		= ((0,0),(0,0))
 
 	def update_pos(self,action):
-		feet_position   = self.pos[1]+self.size[1]
-		towards = {'right':1,'left':-1}
+		"""update the position of the princesses on both axis.
+		self.center_distance is the absolute distance to the point 0 of the stage.
+		self.pos is the position relative to the screen, necessary for blitting
+		
+		receives universe.action
+		no return
+		"""
 
-		#set x pos
+		feet_position	= self.pos[1]+self.size[1]
+		towards			= {'right':1,'left':-1}
+
+		#Set center distance (relative to the point 0)
+		#	move if walking or scared
 		if action[1]=='walk' and action[0] != 'celebrate':
 			self.center_distance += (self.speed*towards[self.direction])
-			obstacle = self.universe.floor - self.universe.level.what_is_my_height(self)
-			if obstacle <= int(feet_position - p(30)):
-				self.center_distance -= (self.speed*towards[self.direction])
-		if action[1] == 'run_away':
+		elif action[1] == 'run_away':
+			boost = p(6)
 			if self.center_distance < self.status['danger']:
 				self.direction = 'left'
 			else:
 				self.direction = 'right'
-			self.center_distance += ((p(6)+self.speed)*towards[self.direction])
+			self.center_distance += ((boost+self.speed)*towards[self.direction])
+
+		#	don't move if there is an obstacle
+		obstacle = self.universe.floor - self.universe.level.what_is_my_height(self)
+		if obstacle <= int(round(feet_position - p(30))):
+			if action[1] =='walk':
+				self.center_distance -= (self.speed*towards[self.direction])
+			elif action[1] == 'run_away':
+				self.center_distance -= ((self.speed+boost)*towards[self.direction])
+
+		#Set pos[0] (relative to the screen)
 		self.pos[0] = self.universe.center_x+self.center_distance
 
-		#set y pos
+		#Set y pos
 		new_height = self.universe.level.what_is_my_height(self)
 		self.floor = self.universe.floor - new_height
 		#fall
@@ -254,7 +271,7 @@ class Princess():
 				new_y = self.floor-self.size[1]
 			self.pos[1] = new_y
 			self.gravity['force'] += self.gravity['accel']
-			
+
 		feet_position   = self.pos[1]+self.size[1]
 		#do not stay lower than floor
 		if feet_position > self.floor:
@@ -262,6 +279,7 @@ class Princess():
 		if feet_position == self.floor:
 			self.gravity['force'] = 0
 		
+		#Unlocking event
 		#TODO: agregate all unlocking events in one spot to ease mainteinance
 		if self.universe.stage.name == 'accessory':
 			if self.center_distance < p(840) or self.center_distance > p(8550):
@@ -271,6 +289,7 @@ class Princess():
 					self.locked = False
 		
 	def soundeffects(self,action):
+		"""Control the princess sound effects"""
 		if not self.jump and (self.pos[1]+self.size[1]) == self.floor:
 			if action[1]=='walk' or action[0] == 'pos[0]celebrate':
 				if self.images.number % 6 == 0:
@@ -279,16 +298,18 @@ class Princess():
 					self.channel2.play(self.steps[random.randint(2,3)])
 
 	def throwkiss(self):
+		"""Control the kiss, its direction, duration, position and so on"""
+
 		#The first frame of the kiss sets its direction and height
 		if self.kiss['count'] == 1:
 			self.kiss['direction'] = self.direction
 			self.kiss['height'] = self.pos[1]
 
-		# D is the differences betwwen left and right
+		#D is the differences betwwen left and right
 		D = {	'right':{'rect_correction':0,'effect_correction':0},
 				'left':	{'rect_correction': p(200)-((self.kiss['count'])*p(44)),'effect_correction':p(200)}}
 
-		# Setting the images and rect. Using D (differences)
+		#Setting the images and rect. Using D (differences)
 		kissimage = self.lips.__dict__[self.kiss['direction']][self.kiss['count']-1]
 		self.effects.append(Effect(kissimage, (self.pos[0]-D[self.kiss['direction']]['effect_correction'],self.kiss['height'])))
 		self.kiss['rect'] = pygame.Rect(
@@ -297,7 +318,17 @@ class Princess():
 							)
 
 	def update_image(self,action,direction):
+		"""Controls the princess images
+		
+		Princess images changes according to the action.
+		Not all the universe actions affects the princess.
+		The name of the image correspond to the name of the action plus '_img'.
+		self.past_choice keeps the previous action in order to use it if there is no action to use in the present frame.
+		"""
+
 		self.rect = pygame.Rect((self.pos[0]+(self.image_size[0]/2),self.pos[1]-1), self.size)
+
+		#filter actions that does not affects the princess
 		if action[0] != 'OK':
 			chosen = action[0] or action[1]
 		else:

@@ -25,9 +25,9 @@ class Floor():
 
 
 class Water(Floor):
-	height = p(101)
-	max	= p(125)
-	min	= p(95)
+	height = p(101,r=False)
+	max	= p(125,r=False)
+	min	= p(95,r=False)
 	speed = [2,1]
 	direction = 'up'
 
@@ -72,7 +72,7 @@ class Bridge():
 		self.image = self.images.list[0]
 		self.size = self.image.get_size()
 		self.universe = universe
-		width = p(400)
+		width = p(400,r=False)
 		if main:			self.center_distance = round((width*index)-width)
 		else:			   self.center_distance = round(width*index)
 

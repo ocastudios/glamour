@@ -277,13 +277,20 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 	if format=='image':
 		big_image		= pygame.Surface(imgsize,pygame.SRCALPHA).convert_alpha()
 		for part in parts:
+
 			if not exception or part not in exception:
 				if row and row[part] and row[part] not in ("None", 0, '0'):
 					img = pygame.image.load(os.path.join(directory.princess,row[part],filename)).convert_alpha()
 					big_image.blit(img, (0,0))
 			else:
 				if exception[part] and exception[part] not in ('None', 0, '0'):
-					img = pygame.image.load(os.path.join(directory.princess,part+'_'+exception[part],filename)).convert_alpha()
+					if part == "hair_back":
+						garment = 'hair_'+exception[part]+'_back'
+					elif part == "armdress":
+						garment = "sleeve_"+exception[part]
+					else:
+						garment = part+'_'+exception[part]
+					img = pygame.image.load(os.path.join(directory.princess,garment,filename)).convert_alpha()
 					big_image.blit(img, (0,0))
 		if princess == 'princess_garment':
 			dirt	 = int(database.query.am_i_dirt(universe))
@@ -300,7 +307,13 @@ def princess_image(universe, princess, format = 'image', size = 'big', flip = Tr
 					img = None
 			else:
 				if exception[part] and exception[part] not in ("None", 0, '0'):
-					img = utils.img.image(os.path.join(directory.princess,part+'_'+exception[part],filename), invert = flip)
+					if part == "hair_back":
+						garment = 'hair_'+exception[part]+'_back'
+					elif part == "armdress":
+						garment = "sleeve_"+exception[part]
+					else:
+						garment = part+'_'+exception[part]
+					img = utils.img.image(os.path.join(directory.princess,garment,filename), invert = flip)
 				else:
 					img = None
 			result.append(img)

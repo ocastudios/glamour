@@ -64,8 +64,8 @@ class Inside():
 		else:
 			save.save_file(self.universe)
 		self.universe.level.princesses[0] = princess.Princess(self.universe, INSIDE = True)
+		my_outfit = database.query.my_outfit(self.universe,"princess_garment")
 		if self.locked['indian']:
-			my_outfit = database.query.my_outfit(self.universe,"princess_garment")
 			geisha_garments = 0
 			for i in my_outfit:
 				if ("geisha" in str(i)) or ('kimono' in str(i)) or ("flower" in str(i)):
