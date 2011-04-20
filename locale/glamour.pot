@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-19 15:48-0300\n"
+"POT-Creation-Date: 2011-04-19 19:48-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,40 +17,188 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: interactive/stage.py:691
+#: interactive/stage.py:701
 msgid "Bathhouse St"
 msgstr ""
 
-#: interactive/stage.py:720
+#: interactive/stage.py:730
 msgid "Dress St"
 msgstr ""
 
-#: interactive/stage.py:736
+#: interactive/stage.py:746
 msgid "Accessory St"
 msgstr ""
 
-#: interactive/stage.py:762
+#: interactive/stage.py:772
 msgid "Makeup St"
 msgstr ""
 
-#: interactive/stage.py:795
+#: interactive/stage.py:805
 msgid "Shoes St"
 msgstr ""
 
-#: interactive/stage.py:868
+#: interactive/stage.py:901
 msgid "Resume"
 msgstr ""
 
-#: interactive/stage.py:871
+#: interactive/stage.py:904
 msgid "Quit"
 msgstr ""
 
-#: interactive/stage.py:874
+#: interactive/stage.py:907
 msgid "Game Paused"
 msgstr ""
 
-#: interactive/stage.py:875
+#: interactive/stage.py:908
 msgid "Check your closet"
+msgstr ""
+
+#: interactive/stage.py:918
+msgid "The beret accessory, earnd for jumping with the penguin."
+msgstr ""
+
+#: interactive/stage.py:919
+msgid "The crown accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:920
+msgid "The shades accessory, earned after trampling 20 chicks."
+msgstr ""
+
+#: interactive/stage.py:921
+msgid "The mask, earned for debuting three hairstyles in balls."
+msgstr ""
+
+#: interactive/stage.py:922
+msgid "The purse accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:923
+msgid "The ribbon accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:924
+msgid "The indian dress, earned for dressing as a geisha."
+msgstr ""
+
+#: interactive/stage.py:925
+msgid "The kimono, earned for being crossed by the carriage."
+msgstr ""
+
+#: interactive/stage.py:926
+msgid "The pink dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:927
+msgid "The red dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:928
+msgid "The simple dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:929
+msgid "The yellow dress, earned for beating all kinds of enemies."
+msgstr ""
+
+#: interactive/stage.py:930
+msgid "The eyelids make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:931
+msgid "The eyeshades make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:932
+msgid "The geisha look, earned for bathing while clean."
+msgstr ""
+
+#: interactive/stage.py:933
+msgid "The indian look, earned for kissing the lion."
+msgstr ""
+
+#: interactive/stage.py:934
+msgid "The lipstick make-up, earned for entering your own castle."
+msgstr ""
+
+#: interactive/stage.py:935
+msgid "The simple make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:936
+msgid "The black hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:937
+msgid "The braid and tail hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:938
+msgid "The brown hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:939
+msgid "Cinderella's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:940
+msgid "The geisha hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:941
+msgid "Rapunzel's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:942
+msgid "The rastafari hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:943
+msgid "The red hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:944
+msgid "The short hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:945
+msgid "Sleeping Beauty's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:946
+msgid "Snow White's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:947
+msgid "The blonde hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:948
+msgid "The go-go boots, earned by crossing the drains clean."
+msgstr ""
+
+#: interactive/stage.py:949
+msgid "The glass sandals, earned for wearing the outfit in the ending."
+msgstr ""
+
+#: interactive/stage.py:950
+msgid "The flower sandals, earned for visiting all streets in one day."
+msgstr ""
+
+#: interactive/stage.py:951
+msgid "The red shoes, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:952
+msgid "The slippers, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:953
+msgid "The white shoes, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:998
+msgid "This garment is locked"
 msgstr ""
 
 #: interactive/messages.py:9
@@ -617,45 +765,45 @@ msgid ""
 "Sweeden..."
 msgstr ""
 
-#: interface/inside.py:40
+#: interface/inside.py:42
 msgid "Take a shower"
 msgstr ""
 
-#: interface/inside.py:43
+#: interface/inside.py:45
 msgid "Leave"
 msgstr ""
 
-#: interface/inside.py:46
+#: interface/inside.py:48
 msgid "Would you like to take a shower?"
 msgstr ""
 
-#: interface/inside.py:251
+#: interface/inside.py:183
 msgid "Go to the Ball"
 msgstr ""
 
-#: interface/inside.py:252
+#: interface/inside.py:184
 msgid ""
 "It is not very cute to repeat your outfits. Check out what you wore at past "
 "Balls and try to find something different."
 msgstr ""
 
-#: interface/inside.py:253
+#: interface/inside.py:185
 msgid "Last Ball"
 msgstr ""
 
-#: interface/inside.py:254
+#: interface/inside.py:186
 msgid "Great Past Ball"
 msgstr ""
 
-#: interface/inside.py:255
+#: interface/inside.py:187
 msgid "3 Balls Ago"
 msgstr ""
 
-#: interface/ball.py:101
+#: interface/ball.py:102
 msgid "and won the heart of"
 msgstr ""
 
-#: interface/ball.py:213
+#: interface/ball.py:212
 msgid "You've"
 msgstr ""
 
@@ -663,602 +811,596 @@ msgstr ""
 msgid "got"
 msgstr ""
 
-#: interface/ball.py:215
+#: interface/ball.py:216
 msgid "glamour"
 msgstr ""
 
-#: interface/ball.py:216
+#: interface/ball.py:218
 msgid "points"
 msgstr ""
 
-#: interface/ball.py:279
+#: interface/ball.py:293
 msgid "Tonight's ball"
 msgstr ""
 
-#: interface/ball.py:280
+#: interface/ball.py:294
 msgid "Yesterday's ball"
 msgstr ""
 
-#: interface/ball.py:377
+#: interface/ball.py:407
 msgid "Gentleman Decent"
 msgstr ""
 
-#: interface/ball.py:380
+#: interface/ball.py:410
 msgid "Knight Reliable"
 msgstr ""
 
-#: interface/ball.py:383
+#: interface/ball.py:413
 msgid "Baron Serious"
 msgstr ""
 
-#: interface/ball.py:386
+#: interface/ball.py:416
 msgid "Count Loving"
 msgstr ""
 
-#: interface/ball.py:389
+#: interface/ball.py:419
 msgid "Marquess Attractive"
 msgstr ""
 
-#: interface/ball.py:392
+#: interface/ball.py:422
 msgid "Duke Intelligent"
 msgstr ""
 
-#: interface/ball.py:395
+#: interface/ball.py:425
 msgid "Prince Charming"
 msgstr ""
 
-#: interface/ball.py:398
+#: interface/ball.py:428
 msgid "King Kindhearted"
 msgstr ""
 
-#: interface/ball.py:405
+#: interface/ball.py:435
 msgid "Emperor Awesome"
 msgstr ""
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "New Game"
 msgstr ""
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Load Game"
 msgstr ""
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Play Story"
 msgstr ""
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Learn to play"
 msgstr ""
 
-#: interface/menu.py:269 interface/menu.py:772
+#: interface/menu.py:272 interface/menu.py:782
 msgid "Credits"
 msgstr ""
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Exit"
 msgstr ""
 
-#: interface/menu.py:271
+#: interface/menu.py:274
 msgid "select one"
 msgstr ""
 
-#: interface/menu.py:300 interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "Choose your"
 msgstr ""
 
-#: interface/menu.py:300 interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "appearence..."
 msgstr ""
 
-#: interface/menu.py:300
+#: interface/menu.py:305
 msgid "skin tone"
 msgstr ""
 
-#: interface/menu.py:300 interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "previous"
 msgstr ""
 
-#: interface/menu.py:300 interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "next"
 msgstr ""
 
-#: interface/menu.py:314
+#: interface/menu.py:319
 msgid "hair style"
 msgstr ""
 
-#: interface/menu.py:333
+#: interface/menu.py:338
 msgid "< back"
 msgstr ""
 
-#: interface/menu.py:334
+#: interface/menu.py:339
 msgid "space >"
 msgstr ""
 
-#: interface/menu.py:335
+#: interface/menu.py:340
 msgid "clean up [  ]"
 msgstr ""
 
-#: interface/menu.py:336
+#: interface/menu.py:341
 msgid "random   ???"
 msgstr ""
 
-#: interface/menu.py:344
+#: interface/menu.py:349
 msgid "Sorry, This name is taken."
 msgstr ""
 
-#: interface/menu.py:345
+#: interface/menu.py:350
 msgid "Please, choose another one"
 msgstr ""
 
-#: interface/menu.py:346
+#: interface/menu.py:351
 msgid "_ _ _ _ _ _ _"
 msgstr ""
 
-#: interface/menu.py:351
+#: interface/menu.py:356
 msgid "... and your name."
 msgstr ""
 
-#: interface/menu.py:486
+#: interface/menu.py:494
 msgid "The "
 msgstr ""
 
-#: interface/menu.py:506
+#: interface/menu.py:512
 msgid "Or go back to Main Menu"
 msgstr ""
 
-#: interface/menu.py:507
+#: interface/menu.py:513
 msgid "Have you already saved a game?"
 msgstr ""
 
-#: interface/menu.py:508
+#: interface/menu.py:514
 msgid "Then choose your saved princess:"
 msgstr ""
 
-#: interface/menu.py:517
+#: interface/menu.py:523
 msgid "erase"
 msgstr ""
 
-#: interface/menu.py:623
+#: interface/menu.py:627
 msgid "Use the arrows to go"
 msgstr ""
 
-#: interface/menu.py:624
+#: interface/menu.py:628
 msgid "forward and backward"
 msgstr ""
 
-#: interface/menu.py:633
+#: interface/menu.py:638
 msgid "Hi!"
 msgstr ""
 
-#: interface/menu.py:634
+#: interface/menu.py:639
 msgid ""
 "Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help "
 "to give you a superb tutorial, okay?"
 msgstr ""
 
-#: interface/menu.py:636
+#: interface/menu.py:641
 msgid "Yiipi!"
 msgstr ""
 
-#: interface/menu.py:637
+#: interface/menu.py:642
 msgid ""
 "As you'll soon find out, pressing left or right will move your princess "
 "around."
 msgstr ""
 
-#: interface/menu.py:639
+#: interface/menu.py:644
 msgid "Yey!"
 msgstr ""
 
-#: interface/menu.py:640
+#: interface/menu.py:645
 msgid "And pressing the spacebar will allow you to jump."
 msgstr ""
 
-#: interface/menu.py:642
+#: interface/menu.py:647
 msgid "x"
 msgstr ""
 
-#: interface/menu.py:643
+#: interface/menu.py:648
 msgid "And the Control key will get you a kiss."
 msgstr ""
 
-#: interface/menu.py:645
+#: interface/menu.py:650
 msgid "Ooh!"
 msgstr ""
 
-#: interface/menu.py:646
+#: interface/menu.py:651
 msgid ""
 "If you kiss enemies, they will sometimes be sooo happy as to stop bothering "
 "you... for a while."
 msgstr ""
 
-#: interface/menu.py:648
+#: interface/menu.py:653
 msgid ""
 "But be aware that some enemies will respond only to your mouse cursor, and "
 "yet others can only be dodged!"
 msgstr ""
 
-#: interface/menu.py:650
+#: interface/menu.py:655
 msgid ""
 "You'll notice that on the upper right side there's a clock. When it points "
 "down, it will be time for the ball."
 msgstr ""
 
-#: interface/menu.py:652
+#: interface/menu.py:657
 msgid "Yeah!"
 msgstr ""
 
-#: interface/menu.py:653
+#: interface/menu.py:658
 msgid "But first we need to find you a beautiful and original look."
 msgstr ""
 
-#: interface/menu.py:655
+#: interface/menu.py:660
 msgid ""
 "And in order to do that, we must visit the castles that lie in the left part "
 "of most streets."
 msgstr ""
 
-#: interface/menu.py:657
+#: interface/menu.py:662
 msgid ""
 "That's because they are shops, and in them you'll find the most wonderful "
 "dresses, make-up, shoes and accessories!"
 msgstr ""
 
-#: interface/menu.py:659
+#: interface/menu.py:664
 msgid "You got it!"
 msgstr ""
 
-#: interface/menu.py:660
+#: interface/menu.py:665
 msgid ""
 "Oh! And remember you can switch streets by pressing up when in front of a "
 "gate."
 msgstr ""
 
-#: interface/menu.py:662
+#: interface/menu.py:667
 msgid "Ookay..."
 msgstr ""
 
-#: interface/menu.py:663
+#: interface/menu.py:668
 msgid ""
 "Now, once you're at the ball, your look will be compared to those of other "
 "princesses, and even with the garments you girls used in previous balls."
 msgstr ""
 
-#: interface/menu.py:665
+#: interface/menu.py:670
 msgid "Oh, no!..."
 msgstr ""
 
-#: interface/menu.py:666
+#: interface/menu.py:671
 msgid ""
 "If you wear the same outfit as others (or repeat it ball after ball), you'll "
 "earn little to no glamour points. It would be a shame."
 msgstr ""
 
-#: interface/menu.py:668
+#: interface/menu.py:673
 msgid "All right!"
 msgstr ""
 
-#: interface/menu.py:669
+#: interface/menu.py:674
 msgid ""
 "But, on the other hand, if you show up with an original look, then you may "
 "earn lots of glamour points!"
 msgstr ""
 
-#: interface/menu.py:671
+#: interface/menu.py:676
 msgid "Who's my True Love?"
 msgstr ""
 
-#: interface/menu.py:672
+#: interface/menu.py:677
 msgid ""
 "And as you gain glamour points, more and more boys will offer you their "
 "hearts. And some day, you may even catch the eyes of Prince Charming himself."
 msgstr ""
 
-#: interface/menu.py:674
+#: interface/menu.py:679
 msgid "Oh, no!"
 msgstr ""
 
-#: interface/menu.py:675
+#: interface/menu.py:680
 msgid "Woof!"
 msgstr ""
 
-#: interface/menu.py:676
+#: interface/menu.py:681
 msgid ""
 "But beware! The enemies on your way may not hurt you, but they can make you "
 "dirty. And THAT would certainly cost you lots of glamour points!"
 msgstr ""
 
-#: interface/menu.py:678
+#: interface/menu.py:683
 msgid "So be careful."
 msgstr ""
 
-#: interface/menu.py:679
+#: interface/menu.py:684
 msgid ""
 "You can get even dirtier if you are caught a second time, and become "
 "dirtiest if hit yet again..."
 msgstr ""
 
-#: interface/menu.py:681
+#: interface/menu.py:686
 msgid "Hooray!"
 msgstr ""
 
-#: interface/menu.py:682
+#: interface/menu.py:687
 msgid ""
 "...but event then there's hope. Go back and enter the Bathhouse, and you'll "
 "be clean and perfumed in no time!"
 msgstr ""
 
-#: interface/menu.py:684
+#: interface/menu.py:689
 msgid "Neat!"
 msgstr ""
 
-#: interface/menu.py:685
+#: interface/menu.py:690
 msgid ""
 "But before you go, I've got two more tips to you. First, stay alert to the "
 "music! By it you can tell not only what is the stronger enemy around, but "
 "how far it is from you."
 msgstr ""
 
-#: interface/menu.py:687
+#: interface/menu.py:692
 msgid "Ooooh!"
 msgstr ""
 
-#: interface/menu.py:688
+#: interface/menu.py:693
 msgid ""
 "And finally, there are many secret items in the game, and you should anlock "
 "them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."
 msgstr ""
 
-#: interface/menu.py:690
+#: interface/menu.py:695
 msgid "Have fun!"
 msgstr ""
 
-#: interface/menu.py:691
+#: interface/menu.py:696
 msgid ""
 "Now you're good to go! Don't stay idle waiting your dreams come true - go "
 "get them, girl!"
 msgstr ""
 
-#: interface/menu.py:770
+#: interface/menu.py:780
 msgid "in loving memory of"
 msgstr ""
 
-#: interface/menu.py:771
+#: interface/menu.py:781
 msgid "and"
 msgstr ""
 
-#: interface/menu.py:773
+#: interface/menu.py:783
 msgid "Programming"
 msgstr ""
 
-#: interface/menu.py:774
+#: interface/menu.py:784
 msgid "Support"
 msgstr ""
 
-#: interface/menu.py:775
+#: interface/menu.py:785
 msgid "Design"
 msgstr ""
 
-#: interface/menu.py:776
+#: interface/menu.py:786
 msgid "Music"
 msgstr ""
 
-#: interface/menu.py:777 interface/menu.py:790 interface/menu.py:792
+#: interface/menu.py:787 interface/menu.py:800 interface/menu.py:802
 msgid "first snowfall"
 msgstr ""
 
-#: interface/menu.py:778
+#: interface/menu.py:788
 msgid "endless blue"
 msgstr ""
 
-#: interface/menu.py:779
+#: interface/menu.py:789
 msgid "celtic cappricio"
 msgstr ""
 
-#: interface/menu.py:780
+#: interface/menu.py:790
 msgid "the bee"
 msgstr ""
 
-#: interface/menu.py:781
+#: interface/menu.py:791
 msgid "lonesome man's dance"
 msgstr ""
 
-#: interface/menu.py:782
+#: interface/menu.py:792
 msgid "dragon dance"
 msgstr ""
 
-#: interface/menu.py:783
+#: interface/menu.py:793
 msgid "ship of fools"
 msgstr ""
 
-#: interface/menu.py:784
+#: interface/menu.py:794
 msgid "sword fight"
 msgstr ""
 
-#: interface/menu.py:785
+#: interface/menu.py:795
 msgid "the foggy dew"
 msgstr ""
 
-#: interface/menu.py:786
+#: interface/menu.py:796
 msgid "revolution on resoluti on"
 msgstr ""
 
-#: interface/menu.py:787
+#: interface/menu.py:797
 msgid "twilight on mountain"
 msgstr ""
 
-#: interface/menu.py:788
+#: interface/menu.py:798
 msgid "brian boru 2"
 msgstr ""
 
-#: interface/menu.py:789
+#: interface/menu.py:799
 msgid "ignition"
 msgstr ""
 
-#: interface/menu.py:791
+#: interface/menu.py:801
 msgid "cocci ci tini cocci"
 msgstr ""
 
-#: interface/menu.py:793
+#: interface/menu.py:803
 msgid "waltz wedley"
 msgstr ""
 
-#: interface/menu.py:796
+#: interface/menu.py:806
 msgid "All python & pygame code, written in gedit."
 msgstr ""
 
-#: interface/menu.py:797
+#: interface/menu.py:807
 msgid "Bureaucracy and et ceteras"
 msgstr ""
 
-#: interface/menu.py:798
+#: interface/menu.py:808
 msgid "Almost all Inkscape, with a touch of Blender and Gimp."
 msgstr ""
 
-#: interface/menu.py:799
+#: interface/menu.py:809
 msgid "based on the homonimous board game by"
 msgstr ""
 
-#: interface/menu.py:800
+#: interface/menu.py:810
 msgid "available at"
 msgstr ""
 
-#: interface/menu.py:801
+#: interface/menu.py:811
 msgid "introduction"
 msgstr ""
 
-#: interface/menu.py:802 interface/menu.py:828 interface/menu.py:832
+#: interface/menu.py:812 interface/menu.py:838 interface/menu.py:842
 msgid "by Torley on Piano"
 msgstr ""
 
-#: interface/menu.py:803
+#: interface/menu.py:813
 msgid "menu"
 msgstr ""
 
-#: interface/menu.py:804 interface/menu.py:816 interface/menu.py:822
-#: interface/menu.py:826
+#: interface/menu.py:814 interface/menu.py:826 interface/menu.py:832
+#: interface/menu.py:836
 msgid "by Armolithae"
 msgstr ""
 
-#: interface/menu.py:805
+#: interface/menu.py:815
 msgid "bathhouse st"
 msgstr ""
 
-#: interface/menu.py:806
+#: interface/menu.py:816
 msgid "by armolithae"
 msgstr ""
 
-#: interface/menu.py:807
+#: interface/menu.py:817
 msgid "dress st"
 msgstr ""
 
-#: interface/menu.py:808 interface/menu.py:810 interface/menu.py:814
-#: interface/menu.py:818
+#: interface/menu.py:818 interface/menu.py:820 interface/menu.py:824
+#: interface/menu.py:828
 msgid "by Ceili Moss"
 msgstr ""
 
-#: interface/menu.py:809
+#: interface/menu.py:819
 msgid "shoe's st"
 msgstr ""
 
-#: interface/menu.py:811
+#: interface/menu.py:821
 msgid "accessory st."
 msgstr ""
 
-#: interface/menu.py:812
+#: interface/menu.py:822
 msgid "by Butterfly Tea"
 msgstr ""
 
-#: interface/menu.py:813
+#: interface/menu.py:823
 msgid "make-up st."
 msgstr ""
 
-#: interface/menu.py:815
+#: interface/menu.py:825
 msgid "schnauzer"
 msgstr ""
 
-#: interface/menu.py:817
+#: interface/menu.py:827
 msgid "carriage"
 msgstr ""
 
-#: interface/menu.py:819
+#: interface/menu.py:829
 msgid "old lady"
 msgstr ""
 
-#: interface/menu.py:820
+#: interface/menu.py:830
 msgid "by Torly on Piano"
 msgstr ""
 
-#: interface/menu.py:821
+#: interface/menu.py:831
 msgid "viking"
 msgstr ""
 
-#: interface/menu.py:823
+#: interface/menu.py:833
 msgid "butterffly"
 msgstr ""
 
-#: interface/menu.py:824
+#: interface/menu.py:834
 msgid "by Adragante"
 msgstr ""
 
-#: interface/menu.py:825
+#: interface/menu.py:835
 msgid "hawk"
 msgstr ""
 
-#: interface/menu.py:827
+#: interface/menu.py:837
 msgid "birdie"
 msgstr ""
 
-#: interface/menu.py:829
+#: interface/menu.py:839
 msgid "fabrizio"
 msgstr ""
 
-#: interface/menu.py:830
+#: interface/menu.py:840
 msgid "by Picari"
 msgstr ""
 
-#: interface/menu.py:831
+#: interface/menu.py:841
 msgid "zoo"
 msgstr ""
 
-#: interface/menu.py:833
+#: interface/menu.py:843
 msgid "ball"
 msgstr ""
 
-#: interface/menu.py:834
+#: interface/menu.py:844
 msgid "by strauss"
 msgstr ""
 
-#: interface/menu.py:835
+#: interface/menu.py:845
 msgid "Sad and unfortunate legal mambo jambo"
 msgstr ""
 
-#: interface/menu.py:836
+#: interface/menu.py:846
 msgid ""
 "All programming and art are public domain, released so by us, their authors."
 msgstr ""
 
-#: interface/menu.py:837
+#: interface/menu.py:847
 msgid ""
 "The musics, however, comes in a variety of free licenses. They can be used "
 "and altered, even commercially, but credit MUST be given. Special thanks to "
 "www.jamendo.com, from where most of our music came."
 msgstr ""
 
-#: interface/menu.py:838
-msgid ""
-"( If you are an author and want your music out of this game, contact us and "
-"we'll promptly remove it. )"
-msgstr ""
-
-#: interface/menu.py:839
+#: interface/menu.py:848
 msgid ""
 "And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont "
 "License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
 msgstr ""
 
-#: interface/menu.py:840
+#: interface/menu.py:849
 msgid ""
 "If you are a developer of free content, please consider the limitations the "
 "varying \"free licenses\" impose on derivative works. Tons (or better yet, "
@@ -1275,7 +1417,13 @@ msgid ""
 "pages of sad and unfortunate license disclaimers... such as this."
 msgstr ""
 
-#: interface/menu.py:841
+#: interface/menu.py:850
+msgid ""
+"( If you are an author and want your music out of this game, contact us and "
+"we'll promptly remove it. )"
+msgstr ""
+
+#: interface/menu.py:851
 msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
 msgstr ""
 

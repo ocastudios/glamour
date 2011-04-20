@@ -144,6 +144,9 @@ class Princess():
 			action[0]='fall'
 
 	def hurting(self,action):
+		
+		self.speed = p(14) #reset speed eventually changed by Carriage
+		
 		if not self.inside:
 			if not self.status['hurt']:
 				for e in self.universe.level.enemies:
@@ -157,8 +160,6 @@ class Princess():
 						if self.rect.colliderect(e.rect):
 							self.speed = 0
 							self.action[1]= "stay"
-						else:
-							self.speed = p(14)
 					if e.__class__ == enemy.Butterfly:
 						if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
 							self.status['excited']+=1

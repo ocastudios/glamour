@@ -1,433 +1,1042 @@
-#
+# Brazilian portuguese translation file of the glamour game
+# Copyright (C) Oca Stutios
+# This file is distributed under the same license as the glamour package.
+# Nelson do Vale Oliveira <nelson@ocastudios.com>, 2011.
 # nelson <nelson@ocastudios.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Glamour\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-19 15:48-0300\n"
-"PO-Revision-Date: 2011-03-19 16:43-0300\n"
-"Last-Translator: Isac <isac@ocastudios.com>\n"
+"POT-Creation-Date: 2011-04-19 19:48-0300\n"
+"PO-Revision-Date: 2011-04-19 20:19-0300\n"
+"Last-Translator: nelson <nelson@ocastudios.com>\n"
 "Language-Team: pt-BR <nelson@ocastudios.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-Basepath: /home/nelson/glamour\n"
-"X-Poedit-Bookmarks: 3,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: utf-8\n"
 "Plural-Forms: s\n"
-"X-Poedit-SearchPath-0: /home/nelson/glamour\n"
 
-#: interactive/stage.py:691
+#: interactive/stage.py:701
 msgid "Bathhouse St"
 msgstr "R. Casa de Banho"
 
-#: interactive/stage.py:720
+#: interactive/stage.py:730
 msgid "Dress St"
 msgstr "R. Vestidos"
 
-#: interactive/stage.py:736
+#: interactive/stage.py:746
 msgid "Accessory St"
 msgstr "R. Acessórios"
 
-#: interactive/stage.py:762
+#: interactive/stage.py:772
 msgid "Makeup St"
 msgstr "R. Maquiagem"
 
-#: interactive/stage.py:795
+#: interactive/stage.py:805
 msgid "Shoes St"
 msgstr "R. Sapatos"
 
-#: interactive/stage.py:868
+#: interactive/stage.py:901
 msgid "Resume"
 msgstr "Continuar"
 
-#: interactive/stage.py:871
+#: interactive/stage.py:904
 msgid "Quit"
 msgstr "Sair"
 
-#: interactive/stage.py:874
+#: interactive/stage.py:907
 msgid "Game Paused"
 msgstr "Jogo Pausado"
 
-#: interactive/stage.py:875
+#: interactive/stage.py:908
 msgid "Check your closet"
 msgstr "Confira seu armário"
 
+#: interactive/stage.py:918
+msgid "The beret accessory, earnd for jumping with the penguin."
+msgstr "O acessório boina, ganho por saltar com o pinguim."
+
+#: interactive/stage.py:919
+msgid "The crown accessory, unlocked from the start."
+msgstr "O acessório coroa, desbloqueado desde o início."
+
+#: interactive/stage.py:920
+msgid "The shades accessory, earned after trampling 20 chicks."
+msgstr "O acessório óculos escuros, ganho por atropelar 20 pintinhos."
+
+#: interactive/stage.py:921
+msgid "The mask, earned for debuting three hairstyles in balls."
+msgstr "A máscara, ganha por usar três penteados em bailes."
+
+#: interactive/stage.py:922
+msgid "The purse accessory, unlocked from the start."
+msgstr "O acessório bolsa, desbloqueado desde o início."
+
+#: interactive/stage.py:923
+msgid "The ribbon accessory, unlocked from the start."
+msgstr "O acessório laço, desbloqueado desde o início."
+
+#: interactive/stage.py:924
+msgid "The indian dress, earned for dressing as a geisha."
+msgstr "O vestido indiano, ganho por se vestir como uma geisha."
+
+#: interactive/stage.py:925
+msgid "The kimono, earned for being crossed by the carriage."
+msgstr "O kimono, ganho por cruzar com a carruagem."
+
+#: interactive/stage.py:926
+msgid "The pink dress, unlocked from the start."
+msgstr "O vestido rosa, desbloqueado desde o início."
+
+#: interactive/stage.py:927
+msgid "The red dress, unlocked from the start."
+msgstr "O vestido vermelho, desbloqueado desde o início."
+
+#: interactive/stage.py:928
+msgid "The simple dress, unlocked from the start."
+msgstr "O vestido simples, desbloqueado desde o início."
+
+#: interactive/stage.py:929
+msgid "The yellow dress, earned for beating all kinds of enemies."
+msgstr "O vestido amarelo, ganho por vencer todos os tipos de inimigos."
+
+#: interactive/stage.py:930
+msgid "The eyelids make-up, unlocked from the start."
+msgstr "A maquiagem das pálpebras, desbloqueada desde o início."
+
+#: interactive/stage.py:931
+msgid "The eyeshades make-up, unlocked from the start."
+msgstr "A maquiagem sombra, desbloqueada desde o início."
+
+#: interactive/stage.py:932
+msgid "The geisha look, earned for bathing while clean."
+msgstr "A maquiagem gueisha, ganho por tomar banho limpa."
+
+#: interactive/stage.py:933
+msgid "The indian look, earned for kissing the lion."
+msgstr "A maquiagem indiana, ganha por beijar o leão."
+
+#: interactive/stage.py:934
+msgid "The lipstick make-up, earned for entering your own castle."
+msgstr "A maquiagem batom, ganha por entrar no próprio castelo."
+
+#: interactive/stage.py:935
+msgid "The simple make-up, unlocked from the start."
+msgstr "A maquiagem simples, desbloqueada desde o início."
+
+#: interactive/stage.py:936
+msgid "The black hairstyle, unlocked from the start."
+msgstr "O cabelo preto, desbloqueado desde o início."
+
+#: interactive/stage.py:937
+msgid "The braid and tail hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:938
+msgid "The brown hairstyle, unlocked from the start."
+msgstr "Penteado marrom, desbloqueado desde o início."
+
+#: interactive/stage.py:939
+msgid "Cinderella's hairstyle, earned for visiting her."
+msgstr "Penteado da Cinderela, ganho por visitá-la"
+
+#: interactive/stage.py:940
+msgid "The geisha hairstyle, unlocked from the start."
+msgstr "Penteado gueisha, desbloqueado desde o início."
+
+#: interactive/stage.py:941
+msgid "Rapunzel's hairstyle, earned for visiting her."
+msgstr "Penteado da Rapunzel, ganho por visitá-la"
+
+#: interactive/stage.py:942
+msgid "The rastafari hairstyle, unlocked from the start."
+msgstr "Penteado rastafari, desbloqueado desde o início."
+
+#: interactive/stage.py:943
+msgid "The red hairstyle, unlocked from the start."
+msgstr "Penteado vermelho, desbloqueado desde o início."
+
+#: interactive/stage.py:944
+msgid "The short hairstyle, unlocked from the start."
+msgstr "Penteado curto, desbloqueado desde o início."
+
+#: interactive/stage.py:945
+msgid "Sleeping Beauty's hairstyle, earned for visiting her."
+msgstr "Penteado da Bela Adormecida, ganho ao visitá-la."
+
+#: interactive/stage.py:946
+msgid "Snow White's hairstyle, earned for visiting her."
+msgstr "Penteado da Branca de Neve, ganho por visitá-la."
+
+#: interactive/stage.py:947
+msgid "The blonde hairstyle, unlocked from the start."
+msgstr "Penteado loiro, desbloqueado desde o início."
+
+#: interactive/stage.py:948
+msgid "The go-go boots, earned by crossing the drains clean."
+msgstr "As botas go-go, ganhas por atravessar os drenos limpa."
+
+#: interactive/stage.py:949
+msgid "The glass sandals, earned for wearing the outfit in the ending."
+msgstr "As sandálias de cristal, ganhas por usar o conjuntinho do final."
+
+#: interactive/stage.py:950
+msgid "The flower sandals, earned for visiting all streets in one day."
+msgstr "A sandália de flores, ganha por visitar todas as ruas em um só dia."
+
+#: interactive/stage.py:951
+msgid "The red shoes, unlocked from the start."
+msgstr "Os sapatos vermelhos, desbloqueados desde o início."
+
+#: interactive/stage.py:952
+msgid "The slippers, unlocked from the start."
+msgstr "Os chinelos, desbloqueados desde o início."
+
+#: interactive/stage.py:953
+msgid "The white shoes, unlocked from the start."
+msgstr "Os sapatos brancos, desbloqueados desde o início."
+
+#: interactive/stage.py:998
+msgid "This garment is locked"
+msgstr "Esta peça está bloqueada"
+
 #: interactive/messages.py:9
-msgid "Look, it's a small BIRDY! It's so small and so cute... it also sings oh so happy. Don't you bother it much, though... it won't like it."
-msgstr "Olhe, é um PASSARINHO! É tão bonitinho... E também canta tão feliz. Mas não o perturbe muito... Ele não vai gostar."
+msgid ""
+"Look, it's a small BIRDY! It's so small and so cute... it also sings oh so "
+"happy. Don't you bother it much, though... it won't like it."
+msgstr ""
+"Olhe, é um PASSARINHO! É tão bonitinho... E também canta tão feliz. Mas não "
+"o perturbe muito... Ele não vai gostar."
 
 #: interactive/messages.py:10
-msgid "Oh, oh! Look... BUTTERFLIES! Have you ever seen anything oh so pretty? Don't you waste too much time celebrating their beauty, though - we have a ball to attend."
-msgstr "Oh, oh! Olhe... BORBOLETAS! Você já viu alguma coisa tão bonita? Mas não perca muito tempo brincando com elas - temos um baile para ir."
+msgid ""
+"Oh, oh! Look... BUTTERFLIES! Have you ever seen anything oh so pretty? Don't "
+"you waste too much time celebrating their beauty, though - we have a ball to "
+"attend."
+msgstr ""
+"Oh, oh! Olhe... BORBOLETAS! Você já viu alguma coisa tão bonita? Mas não "
+"perca muito tempo brincando com elas - temos um baile para ir."
 
 #: interactive/messages.py:11
-msgid "Well, the path is blocked by a CARRIAGE. They are beautiful transportation, all right, but are oh so slow... maybe we ought to find another path."
-msgstr "Bem, o caminho está bloqueado por uma CARRUAGEM. Elas são um transporte bonito, é verdade, mas são tão lentas... talvez seja melhor ir por outro caminho."
+msgid ""
+"Well, the path is blocked by a CARRIAGE. They are beautiful transportation, "
+"all right, but are oh so slow... maybe we ought to find another path."
+msgstr ""
+"Bem, o caminho está bloqueado por uma CARRUAGEM. Elas são um transporte "
+"bonito, é verdade, mas são tão lentas... talvez seja melhor ir por outro "
+"caminho."
 
 #: interactive/messages.py:12
-msgid "Look, a baby loxodonta africana! Well, most people would just call it an ELEPHANT. It's oh so rude. They are cute, intelligent animals with the niftiest ears."
-msgstr "Olhe, um bebê de loxodonta africana! Bem, a maioria de nós o chamaria de ELEFANTE. Que rude! Eles são lindinhos, inteligentes e com as orelhas mais legais."
+msgid ""
+"Look, a baby loxodonta africana! Well, most people would just call it an "
+"ELEPHANT. It's oh so rude. They are cute, intelligent animals with the "
+"niftiest ears."
+msgstr ""
+"Olhe, um bebê de loxodonta africana! Bem, a maioria de nós o chamaria de "
+"ELEFANTE. Que rude! Eles são lindinhos, inteligentes e com as orelhas mais "
+"legais."
 
 #: interactive/messages.py:13
-msgid "Oh, sheesh! There goes Fabrizio and his soccer ball. BOYS are so careless when they're playing. Watch out or he may get you dirty."
-msgstr "Ichi! Lá vai o Fabrizio e sua bola de futebol. GAROTOS são tão sem cuidado quando estão jogando. Cuidado ou ele pode te sujar."
+msgid ""
+"Oh, sheesh! There goes Fabrizio and his soccer ball. BOYS are so careless "
+"when they're playing. Watch out or he may get you dirty."
+msgstr ""
+"Ichi! Lá vai o Fabrizio e sua bola de futebol. GAROTOS são tão sem cuidado "
+"quando estão jogando. Cuidado ou ele pode te sujar."
 
 #: interactive/messages.py:14
-msgid "A giraffa camelopardalis! People thought they were legend, and you can totally see why: so many dots, so many horns and oh so much neck. GIRAFFES are kinda cute, don't you think?"
-msgstr "Uma giraffa camelopardalis! As pessoas pensavam que eram uma lenda, e é fácil ver por que: tantas pintas, tantos chifres e tanto, tanto pescoço. GIRAFAS até que são fofas, não acha?"
+msgid ""
+"A giraffa camelopardalis! People thought they were legend, and you can "
+"totally see why: so many dots, so many horns and oh so much neck. GIRAFFES "
+"are kinda cute, don't you think?"
+msgstr ""
+"Uma giraffa camelopardalis! As pessoas pensavam que eram uma lenda, e é "
+"fácil ver por que: tantas pintas, tantos chifres e tanto, tanto pescoço. "
+"GIRAFAS até que são fofas, não acha?"
 
 #: interactive/messages.py:15
-msgid "My, oh my! You disturbed that fellow birdy, didn't you? Now here comes her MOMMY BIRD and she's not happy... would you care to run?"
-msgstr "Puxa, puxa vida! Você perturbou aquele passarinho, não foi? Agora lá vem a MAMÃE PÁSSARO e ela não está feliz... se importa de correr?"
+msgid ""
+"My, oh my! You disturbed that fellow birdy, didn't you? Now here comes her "
+"MOMMY BIRD and she's not happy... would you care to run?"
+msgstr ""
+"Puxa, puxa vida! Você perturbou aquele passarinho, não foi? Agora lá vem a "
+"MAMÃE PÁSSARO e ela não está feliz... se importa de correr?"
 
 #: interactive/messages.py:16
-msgid "Oh, I just love panthera leos - or LIONS, if you must. They are just big, fat, cute kittys for me, but I guess you people are oh so scared of them, right? Maybe a little kindness would help."
-msgstr "Oh, eu amo panthera leos - ou LEÕES, se você preferir. Eles são só gatinhos lindos, grandes e gordos para mim, mas eu acho que as pessoas têm medo deles, certo? Talvez um carinho ajude."
+msgid ""
+"Oh, I just love panthera leos - or LIONS, if you must. They are just big, "
+"fat, cute kittys for me, but I guess you people are oh so scared of them, "
+"right? Maybe a little kindness would help."
+msgstr ""
+"Oh, eu amo panthera leos - ou LEÕES, se você preferir. Eles são só gatinhos "
+"lindos, grandes e gordos para mim, mas eu acho que as pessoas têm medo "
+"deles, certo? Talvez um carinho ajude."
 
 #: interactive/messages.py:17
-msgid "Watch out for that green, furry little kid up there! Oh, it's a MONKEY, you say? He seems not nice. I wonder why he has so many bananas..."
-msgstr "Cuidado com aquele garoto verde e peludo lá em cima! Oh, é um MACACO, você diz? Ele parece tão bonitinho. Pra que será que ele tem tantas bananas..."
+msgid ""
+"Watch out for that green, furry little kid up there! Oh, it's a MONKEY, you "
+"say? He seems not nice. I wonder why he has so many bananas..."
+msgstr ""
+"Cuidado com aquele garoto verde e peludo lá em cima! Oh, é um MACACO, você "
+"diz? Ele parece tão bonitinho. Pra que será que ele tem tantas bananas..."
 
 #: interactive/messages.py:18
-msgid "Oh, it's MRS KLEENER. It's oh so nice to see someone cleaning and taking care of things. She deserves a kiss, but watch out for the dust."
-msgstr "Oh, é a Dona Limpa. É tão bom ver alguém limpando e tomando conta das coisas. Ela merece um beijo, mas cuidado com a sujeira."
+msgid ""
+"Oh, it's MRS KLEENER. It's oh so nice to see someone cleaning and taking "
+"care of things. She deserves a kiss, but watch out for the dust."
+msgstr ""
+"Oh, é a Dona Limpa. É tão bom ver alguém limpando e tomando conta das "
+"coisas. Ela merece um beijo, mas cuidado com a sujeira."
 
 #: interactive/messages.py:19
-msgid "Hey, what's that? Oh it is a fat, cute flightless bird. They call it a PENGUIN - it's a smart, friendly, stable and virus free bird with lots of great open software avaiable. Wait, am I confusing the bird with the OS? Ah, whatever, both are just great!"
-msgstr "Ei, o que é aquilo? Ah, é um pássaro fofo e gordo que não voa. Ele é chamado PINGUIM - é esperto, amigável, estável e livre de vírus, com ótimos programas livres disponíveis. Espere, estou confundindo o pássaro com o SO? Ah, de todo modo, os dois são ótimos."
+msgid ""
+"Hey, what's that? Oh it is a fat, cute flightless bird. They call it a "
+"PENGUIN - it's a smart, friendly, stable and virus free bird with lots of "
+"great open software avaiable. Wait, am I confusing the bird with the OS? Ah, "
+"whatever, both are just great!"
+msgstr ""
+"Ei, o que é aquilo? Ah, é um pássaro fofo e gordo que não voa. Ele é chamado "
+"PINGUIM - é esperto, amigável, estável e livre de vírus, com ótimos "
+"programas livres disponíveis. Espere, estou confundindo o pássaro com o SO? "
+"Ah, de todo modo, os dois são ótimos."
 
 #: interactive/messages.py:20
-msgid "Oh, what a cute little fellow, that dog! Wait, it's also appears oh so mad. SCHNAUZERS may be a little angry, but they sure love a little kindness."
-msgstr "Oh, que gracinha de amiguinho esse cachorro! Espere, ele também parece tão bravo. SCHNAUZERS podem ser um pouco hostis, mas gostam muito de carinho."
+msgid ""
+"Oh, what a cute little fellow, that dog! Wait, it's also appears oh so mad. "
+"SCHNAUZERS may be a little angry, but they sure love a little kindness."
+msgstr ""
+"Oh, que gracinha de amiguinho esse cachorro! Espere, ele também parece tão "
+"bravo. SCHNAUZERS podem ser um pouco hostis, mas gostam muito de carinho."
 
 #: interactive/messages.py:21
-msgid "My, oh my! A VIKING SHIP! The old norse would travel anywhere on these, but you wouldn't want to listen to their filthy language. They don't care much for kindness or cuteness either, so why won't we just leave, uh? Please?"
-msgstr "Puxa, puxa vida! Um NAVIO VIKING! O velho nórdico navega para qualquer lugar nisso, mas você não vai querer ouvir suas palavras imundas. Eles não ligam muito para carinho ou para beleza, então por que não vamos embora? Por favor?"
+msgid ""
+"My, oh my! A VIKING SHIP! The old norse would travel anywhere on these, but "
+"you wouldn't want to listen to their filthy language. They don't care much "
+"for kindness or cuteness either, so why won't we just leave, uh? Please?"
+msgstr ""
+"Puxa, puxa vida! Um NAVIO VIKING! O velho nórdico navega para qualquer lugar "
+"nisso, mas você não vai querer ouvir suas palavras imundas. Eles não ligam "
+"muito para carinho ou para beleza, então por que não vamos embora? Por favor?"
 
 #: interactive/messages.py:25
-msgid "Look, princess, it's a BATHHOUSE! When you get dirty, you should come here to clean yourself. You wouldn't want to attend the ball filthy, would you?"
-msgstr "Olhe, princesa, é uma CASA DE BANHO! Quando você ficar suja deve vir aqui para se limpar. Você não iria querer ir ao baile imunda, iria?"
+msgid ""
+"Look, princess, it's a BATHHOUSE! When you get dirty, you should come here "
+"to clean yourself. You wouldn't want to attend the ball filthy, would you?"
+msgstr ""
+"Olhe, princesa, é uma CASA DE BANHO! Quando você ficar suja deve vir aqui "
+"para se limpar. Você não iria querer ir ao baile imunda, iria?"
 
 #: interactive/messages.py:26
-msgid "Wow! Don't you just love accessories? Here, in the ACCESSORY HALL, you'll be able to decorate yourself up so you look astonishing. Many people here prefer swords and shields, but as for me, I think strenght lies on cute ribbons and cool shades."
-msgstr "Uau! Você não simplesmente ama acessórios? Aqui, no SALÃO DO ACESSÓRIO, você poderá se enfeitar e ficar incrível. Muita gente prefere espadas e escudos, mas para mim, eu acho que a força está em lindos lacinhos e óculos legais."
+msgid ""
+"Wow! Don't you just love accessories? Here, in the ACCESSORY HALL, you'll be "
+"able to decorate yourself up so you look astonishing. Many people here "
+"prefer swords and shields, but as for me, I think strenght lies on cute "
+"ribbons and cool shades."
+msgstr ""
+"Uau! Você não simplesmente ama acessórios? Aqui, no SALÃO DO ACESSÓRIO, você "
+"poderá se enfeitar e ficar incrível. Muita gente prefere espadas e escudos, "
+"mas para mim, eu acho que a força está em lindos lacinhos e óculos legais."
 
 #: interactive/messages.py:27
-msgid "This is CINDERELLA'S CASTLE. It is oh so big and classy. Let's go inside say hello, and maybe ask what she will wear to the next ball. It is always bad to show up with the same clothes."
-msgstr "Este é o CASTELO DA CINDERELA. Ele é tão grande e cheio de classe. Vamos entrar e dizer um oi, e talvez perguntar o que ela vai vestir no próximo baile. É sempre ruim aparecer com roupas iguais."
+msgid ""
+"This is CINDERELLA'S CASTLE. It is oh so big and classy. Let's go inside say "
+"hello, and maybe ask what she will wear to the next ball. It is always bad "
+"to show up with the same clothes."
+msgstr ""
+"Este é o CASTELO DA CINDERELA. Ele é tão grande e cheio de classe. Vamos "
+"entrar e dizer um oi, e talvez perguntar o que ela vai vestir no próximo "
+"baile. É sempre ruim aparecer com roupas iguais."
 
 #: interactive/messages.py:28
-msgid "Eew! These DRAINS take away the dirty water, leaving streets dry and clean. Please don't bathe on that water, or you'll get filthy. Be careful!"
-msgstr "Eca! Estes DRENOS levam a água suja embora, deixando as ruas limpas e secas. Por favor, não se banhe nessa água ou você vai ficar suja. Cuidado!"
+msgid ""
+"Eew! These DRAINS take away the dirty water, leaving streets dry and clean. "
+"Please don't bathe on that water, or you'll get filthy. Be careful!"
+msgstr ""
+"Eca! Estes DRENOS levam a água suja embora, deixando as ruas limpas e secas. "
+"Por favor, não se banhe nessa água ou você vai ficar suja. Cuidado!"
 
 #: interactive/messages.py:29
-msgid "All girls dream of coming to the DRESS TOWER. Here you will find all sorts of chic and marvelous dresses. Bet you'll take your time checking them out, right?"
-msgstr "Todas as garotas sonham em vir para a TORRE DO VESTIDO. Aqui você acha todo tipo de vestidos chiques e maravilhosos. Aposto que você vai tirar um tempinho para dar uma olhada, certo?"
+msgid ""
+"All girls dream of coming to the DRESS TOWER. Here you will find all sorts "
+"of chic and marvelous dresses. Bet you'll take your time checking them out, "
+"right?"
+msgstr ""
+"Todas as garotas sonham em vir para a TORRE DO VESTIDO. Aqui você acha todo "
+"tipo de vestidos chiques e maravilhosos. Aposto que você vai tirar um "
+"tempinho para dar uma olhada, certo?"
 
 #: interactive/messages.py:30
-msgid "This is a GATEWAY, connecting different streets on the city. Don't forget to use them to visit every street you can. Oh, it is just so exciting to visit new places!"
-msgstr "Isto é um PORTÃO, conectando diferentes ruas na cidade. Não se esqueça de usá-los para visitar todas as ruas que puder. Ah, é tão emocionante visitar novos lugares!"
+msgid ""
+"This is a GATEWAY, connecting different streets on the city. Don't forget to "
+"use them to visit every street you can. Oh, it is just so exciting to visit "
+"new places!"
+msgstr ""
+"Isto é um PORTÃO, conectando diferentes ruas na cidade. Não se esqueça de "
+"usá-los para visitar todas as ruas que puder. Ah, é tão emocionante visitar "
+"novos lugares!"
 
 #: interactive/messages.py:31
-msgid "Well, as you know, this is YOUR CASTLE. You may return here if you are really impatient to go to the ball, and also to see what were you wearing last night, so you don't repeat yourself."
-msgstr "Bem, como você sabe, este é o SEU CASTELO. Você pode voltar aqui quando estiver impaciente para ir para o baile, e também para ver o que você usou a noite passada para não repetir."
+msgid ""
+"Well, as you know, this is YOUR CASTLE. You may return here if you are "
+"really impatient to go to the ball, and also to see what were you wearing "
+"last night, so you don't repeat yourself."
+msgstr ""
+"Bem, como você sabe, este é o SEU CASTELO. Você pode voltar aqui quando "
+"estiver impaciente para ir para o baile, e também para ver o que você usou a "
+"noite passada para não repetir."
 
 #: interactive/messages.py:32
-msgid "Princess, look! That's my favourite building - the MAGIC BEAUTY SALON! At it, you'll be able to change haircuts, and even skin tone. I don't really know how they do it... maybe that's why it's magical. It won't help you earn any glamour, though."
-msgstr "Princesa, veja! Aquele é meu prédio favorito - o SALÃO DE BELEZA MÁGICO - Lá você pode trocar de corte de cabelo. Não sei como eles fazem... talvez por isso seja mágico. Mas isso não vai te ajudar a ganhar pontos de glamour."
+msgid ""
+"Princess, look! That's my favourite building - the MAGIC BEAUTY SALON! At "
+"it, you'll be able to change haircuts, and even skin tone. I don't really "
+"know how they do it... maybe that's why it's magical. It won't help you earn "
+"any glamour, though."
+msgstr ""
+"Princesa, veja! Aquele é meu prédio favorito - o SALÃO DE BELEZA MÁGICO - Lá "
+"você pode trocar de corte de cabelo. Não sei como eles fazem... talvez por "
+"isso seja mágico. Mas isso não vai te ajudar a ganhar pontos de glamour."
 
 #: interactive/messages.py:33
-msgid "I just love make-up, but you totally can't tell, right? That's because I get it on the MAKE-UP TOWER, where all cosmetics are oh so great and magical! You can look like another person with them, but you young girls don't even need it, do you?"
-msgstr "Eu amo maquiagem, mas nem dá pra notar, dá? Isto é porque eu faço na TORRE DA MAQUIAGEM, onde todos os cosméticos são tão bons e mágicos! Você pode se parecer com outra pessoa com eles, mas vocês meninas nem precisam, não é?"
+msgid ""
+"I just love make-up, but you totally can't tell, right? That's because I get "
+"it on the MAKE-UP TOWER, where all cosmetics are oh so great and magical! "
+"You can look like another person with them, but you young girls don't even "
+"need it, do you?"
+msgstr ""
+"Eu amo maquiagem, mas nem dá pra notar, dá? Isto é porque eu faço na TORRE "
+"DA MAQUIAGEM, onde todos os cosméticos são tão bons e mágicos! Você pode se "
+"parecer com outra pessoa com eles, mas vocês meninas nem precisam, não é?"
 
 #: interactive/messages.py:34
-msgid "That's RAPUNZEL'S VILLA. She prefer ground buildings after all those towers incidents, you know? I totally envy her hair, but I guess we could drop by and say hello."
-msgstr "Esta é a MANSÃO DA RAPUNZEL. Ela prefere construções baixas depois daqueles incidentes com a torre, sabe? Eu invejo muito o cabelo dela, mas acho que a gente devia aparecer e dizer um oi."
+msgid ""
+"That's RAPUNZEL'S VILLA. She prefer ground buildings after all those towers "
+"incidents, you know? I totally envy her hair, but I guess we could drop by "
+"and say hello."
+msgstr ""
+"Esta é a MANSÃO DA RAPUNZEL. Ela prefere construções baixas depois daqueles "
+"incidentes com a torre, sabe? Eu invejo muito o cabelo dela, mas acho que a "
+"gente devia aparecer e dizer um oi."
 
 #: interactive/messages.py:35
-msgid "My oh my, look at those shoes! I know I can fly, but I like style and fashion too, you know? I wouldn't mind if you decided to spend some quality time in the SHOE'S SHOP, really. You can thank me later."
-msgstr "Puxa, puxa vida, olhe estes sapatos! Eu sei que posso voar, mas eu também gosto de estilo e moda, sabe? Eu não me importaria se você decidisse passar um tempo de qualidade na LOJA DE SAPATOS. Me agradeça depois."
+msgid ""
+"My oh my, look at those shoes! I know I can fly, but I like style and "
+"fashion too, you know? I wouldn't mind if you decided to spend some quality "
+"time in the SHOE'S SHOP, really. You can thank me later."
+msgstr ""
+"Puxa, puxa vida, olhe estes sapatos! Eu sei que posso voar, mas eu também "
+"gosto de estilo e moda, sabe? Eu não me importaria se você decidisse passar "
+"um tempo de qualidade na LOJA DE SAPATOS. Me agradeça depois."
 
 #: interactive/messages.py:36
-msgid "If this is SLEEPING BEAUTY'S PALACE, you ask? Of course, but you can call her Talia. You can tell she's oh so elegant and chic by her home, can't you? Let's go in - maybe she has some tips on what you should wear."
-msgstr "Se este é o PALÁCIO DA BELA ADORMECIDA? Certamente, mas você pode chamá-la de Talia. Você pode ver como ela é elegante e chique por sua casa, não pode? Vamos entrar - talvez ela nos dê alguma dica do que usar."
+msgid ""
+"If this is SLEEPING BEAUTY'S PALACE, you ask? Of course, but you can call "
+"her Talia. You can tell she's oh so elegant and chic by her home, can't you? "
+"Let's go in - maybe she has some tips on what you should wear."
+msgstr ""
+"Se este é o PALÁCIO DA BELA ADORMECIDA? Certamente, mas você pode chamá-la "
+"de Talia. Você pode ver como ela é elegante e chique por sua casa, não pode? "
+"Vamos entrar - talvez ela nos dê alguma dica do que usar."
 
 #: interactive/messages.py:37
-msgid "Isn't SNOW WHITE'S CASTLE oh so cute and cozy? Let's go meet her, for she is my favourite princess in the whole world... except for you dearie, of course."
-msgstr "O CASTELO DA BRANCA DE NEVE não é muito lindo e aconchegante? Vamos falar com ela, pois ela é a minha princesa favorita em todo o mundo... depois de você, querida, claro."
+msgid ""
+"Isn't SNOW WHITE'S CASTLE oh so cute and cozy? Let's go meet her, for she is "
+"my favourite princess in the whole world... except for you dearie, of course."
+msgstr ""
+"O CASTELO DA BRANCA DE NEVE não é muito lindo e aconchegante? Vamos falar "
+"com ela, pois ela é a minha princesa favorita em todo o mundo... depois de "
+"você, querida, claro."
 
 #: interactive/messages.py:38
-msgid "Look, look, a ZOO! Oh, I just love to see all kinds of animals that share this world with us. They are oh so cute and lovely. I'd prefer if they were free in the wild, but then I wouldn't get to see them, I suppose. Keep your eyes on them."
-msgstr "Olhe, olhe, um ZOO! Ah, eu amo ver todos os tipos de animais que dividem este mundo conosco. Eles são tão lindos e amáveis. Eu preferiria vê-los soltos na natureza, mas acho que nesse caso não veria nenhum. Mantenha seus olhos neles."
+msgid ""
+"Look, look, a ZOO! Oh, I just love to see all kinds of animals that share "
+"this world with us. They are oh so cute and lovely. I'd prefer if they were "
+"free in the wild, but then I wouldn't get to see them, I suppose. Keep your "
+"eyes on them."
+msgstr ""
+"Olhe, olhe, um ZOO! Ah, eu amo ver todos os tipos de animais que dividem "
+"este mundo conosco. Eles são tão lindos e amáveis. Eu preferiria vê-los "
+"soltos na natureza, mas acho que nesse caso não veria nenhum. Mantenha seus "
+"olhos neles."
 
 #: interactive/messages.py:42
-msgid "Ouch! Look, princess, you and your dress are now a little dirty. Getting to the ball dirty will make you lose some glamour, so try to keep yourself... higienic, ok?"
-msgstr "Ai! Olhe, princesa, você e seu vestido estão um pouco sujos agora. Ir para o baile suja fará você perder glamour, então tente se manter... higiênica, ok?"
+msgid ""
+"Ouch! Look, princess, you and your dress are now a little dirty. Getting to "
+"the ball dirty will make you lose some glamour, so try to keep yourself... "
+"higienic, ok?"
+msgstr ""
+"Ai! Olhe, princesa, você e seu vestido estão um pouco sujos agora. Ir para o "
+"baile suja fará você perder glamour, então tente se manter... higiênica, ok?"
 
 #: interactive/messages.py:43
-msgid "Watch out, dearie! You got even dirtier, and I would suggest you cleaned yourself up before the ball, ok? Why don't you look for the Bathhouse?"
-msgstr "Cuidado querida! Você ficou ainda mais suja. Eu sugiro que você se limpe antes do baile, ok? Por que você não procura pela Casa de Banho?"
+msgid ""
+"Watch out, dearie! You got even dirtier, and I would suggest you cleaned "
+"yourself up before the ball, ok? Why don't you look for the Bathhouse?"
+msgstr ""
+"Cuidado querida! Você ficou ainda mais suja. Eu sugiro que você se limpe "
+"antes do baile, ok? Por que você não procura pela Casa de Banho?"
 
 #: interactive/messages.py:44
-msgid "Come on, princess! You are now as dirty as it gets. Going to the ball like this would be oh so embarassing. No way... uh, uh. Go take a bath and stop getting filthy my little piggy princess."
-msgstr "Ora essa, princesa! Você está tão suja como se pode estar. Ir para o baile assim seria tão embaraçoso. De jeito nenhum... ãh, ãh. Vá tomar um banho e pare de se sujar minha princesa porquinha."
+msgid ""
+"Come on, princess! You are now as dirty as it gets. Going to the ball like "
+"this would be oh so embarassing. No way... uh, uh. Go take a bath and stop "
+"getting filthy my little piggy princess."
+msgstr ""
+"Ora essa, princesa! Você está tão suja como se pode estar. Ir para o baile "
+"assim seria tão embaraçoso. De jeito nenhum... ãh, ãh. Vá tomar um banho e "
+"pare de se sujar minha princesa porquinha."
 
 #: interactive/messages.py:45
-msgid "You can save your game by pausing and selecting the Save Game option. Neat, huh? This way you can resume from where you left off, and keep you glamour score. Ahh... technology if just great!"
-msgstr "Voce pode salvar o jogo pausando e selecionando a opção Salvar Jogo. Legal, né? Deste jeito você pode continuar de onde parou e manter seus pontos de glamour. Ahh... a tecnologia é o máximo!"
+msgid ""
+"You can save your game by pausing and selecting the Save Game option. Neat, "
+"huh? This way you can resume from where you left off, and keep you glamour "
+"score. Ahh... technology if just great!"
+msgstr ""
+"Voce pode salvar o jogo pausando e selecionando a opção Salvar Jogo. Legal, "
+"né? Deste jeito você pode continuar de onde parou e manter seus pontos de "
+"glamour. Ahh... a tecnologia é o máximo!"
 
 #: interactive/messages.py:46
-msgid "Hello again, princess! We have much to see and wear before the ball tonight. Let's get going, becouse today you will rock the ball! He, he, I always wanted to say that."
-msgstr "Olá de novo, princesa! Temos muito o quever e vestir antes do baile de hoje a noite. Vamos andando, porque hoje você vai arrebentar no baile! He, he, eu sempre quis dizer isso."
+msgid ""
+"Hello again, princess! We have much to see and wear before the ball tonight. "
+"Let's get going, becouse today you will rock the ball! He, he, I always "
+"wanted to say that."
+msgstr ""
+"Olá de novo, princesa! Temos muito o quever e vestir antes do baile de hoje "
+"a noite. Vamos andando, porque hoje você vai arrebentar no baile! He, he, eu "
+"sempre quis dizer isso."
 
 #: interactive/messages.py:47
-msgid "My, oh my, princess! I think you overslept. Let us go already, I have so many dresses and shoes to try on. Oh, I mean... 'you' have many things to try on."
-msgstr "Puxa, puxa vida, princesa! Acho que você dormiu demais. Vamos logo, Eu tenho tantos vestidos e sapatos para experimentar. Oh, quero dizer... 'você' tem tantas coisas para experimentar."
+msgid ""
+"My, oh my, princess! I think you overslept. Let us go already, I have so "
+"many dresses and shoes to try on. Oh, I mean... 'you' have many things to "
+"try on."
+msgstr ""
+"Puxa, puxa vida, princesa! Acho que você dormiu demais. Vamos logo, Eu tenho "
+"tantos vestidos e sapatos para experimentar. Oh, quero dizer... 'você' tem "
+"tantas coisas para experimentar."
 
 #: interactive/messages.py:48
-msgid "Did you see those boys in the ball? They are all so cute and handsome when not covered in mud and chasing a football. Oh, if I were a young fairy again..."
-msgstr "Você viu aqueles garotos no baile? Eles são tão lindos e charmosos quando não estão cobertos com lama e correndo atrás de bola. Ah se eu fosse uma jovem fada de novo..."
+msgid ""
+"Did you see those boys in the ball? They are all so cute and handsome when "
+"not covered in mud and chasing a football. Oh, if I were a young fairy "
+"again..."
+msgstr ""
+"Você viu aqueles garotos no baile? Eles são tão lindos e charmosos quando "
+"não estão cobertos com lama e correndo atrás de bola. Ah se eu fosse uma "
+"jovem fada de novo..."
 
 #: interactive/messages.py:49
-msgid "New day, new hope. Maybe we can make you prettier than Snow White today... oh she's so pretty. I mean... you are so pretty also!"
-msgstr "Novo dia, nova esperança. Talvez hoje a gente te deixe mais bonita do que a Branca de Neve... ah, ela é tão bonita. Quero dizer... você também é bonita!"
+msgid ""
+"New day, new hope. Maybe we can make you prettier than Snow White today... "
+"oh she's so pretty. I mean... you are so pretty also!"
+msgstr ""
+"Novo dia, nova esperança. Talvez hoje a gente te deixe mais bonita do que a "
+"Branca de Neve... ah, ela é tão bonita. Quero dizer... você também é bonita!"
 
 #: interactive/messages.py:50
-msgid "Hello, dearie! I'm happy because I danced all night yesterday... I bet you love valse, but you have not really tasted it until you do it flying."
-msgstr "Olá querida! Estou feliz porque dancei a noite toda ontem... Aposto que você ama valsa, mas você não viu nada até experimentar dançar voando."
+msgid ""
+"Hello, dearie! I'm happy because I danced all night yesterday... I bet you "
+"love valse, but you have not really tasted it until you do it flying."
+msgstr ""
+"Olá querida! Estou feliz porque dancei a noite toda ontem... Aposto que você "
+"ama valsa, mas você não viu nada até experimentar dançar voando."
 
 #: interactive/messages.py:51
-msgid "Good morning, dearie! My, you look so pretty already. It's a shame you can't wear that again tonight. Why not? Well, because a glamorous woman should not repeat her outfit twice in a row. Hey! What's that about my outfit...!?"
-msgstr "Bom dia querida! Puxa, você já está tão linda. É uma pena que você não possa usar isso de novo hoje à noite. Por que não? Ora, porque uma mulher glamorosa não deve repetir seu visual duas vezes seguidas. Ei! O que você disse sobre o meu visual.. !?"
+msgid ""
+"Good morning, dearie! My, you look so pretty already. It's a shame you can't "
+"wear that again tonight. Why not? Well, because a glamorous woman should not "
+"repeat her outfit twice in a row. Hey! What's that about my outfit...!?"
+msgstr ""
+"Bom dia querida! Puxa, você já está tão linda. É uma pena que você não possa "
+"usar isso de novo hoje à noite. Por que não? Ora, porque uma mulher "
+"glamorosa não deve repetir seu visual duas vezes seguidas. Ei! O que você "
+"disse sobre o meu visual.. !?"
 
 #: interactive/messages.py:52
-msgid "All right, all right! I 'will' take you to see new shoes, but only if today we go see those new fairy wands. I hear they are great..."
-msgstr "Tá bom, tá bom! Eu 'vou' te levar para ver novos sapatos, mas só se hoje nós formos ver aquelas novas varinhas. Eu ouvi que elas são o máximo..."
+msgid ""
+"All right, all right! I 'will' take you to see new shoes, but only if today "
+"we go see those new fairy wands. I hear they are great..."
+msgstr ""
+"Tá bom, tá bom! Eu 'vou' te levar para ver novos sapatos, mas só se hoje nós "
+"formos ver aquelas novas varinhas. Eu ouvi que elas são o máximo..."
 
 #: interactive/messages.py:53
-msgid "Hi, sweetie! You know, in the old days I would just make you an outfit out of mice and pumpkins, but I was threatened with a lawsuit, do you believe that? These goofy, phony property rules are just killing creativity."
-msgstr "Olá doçura! Você sabe que nos velhos tempos eu faria para você um visual a partir de abóboras e ratinhos, mas fui ameaçada com um processo na justiça, acredita? Estas regras de direitos autorais bobas e sem sentido estão matando a criatividade."
+msgid ""
+"Hi, sweetie! You know, in the old days I would just make you an outfit out "
+"of mice and pumpkins, but I was threatened with a lawsuit, do you believe "
+"that? These goofy, phony property rules are just killing creativity."
+msgstr ""
+"Olá doçura! Você sabe que nos velhos tempos eu faria para você um visual a "
+"partir de abóboras e ratinhos, mas fui ameaçada com um processo na justiça, "
+"acredita? Estas regras de direitos autorais bobas e sem sentido estão "
+"matando a criatividade."
 
 #: interactive/messages.py:54
-msgid "Hello, my little princess. You keep getting prettier with each passing day. I wish I was that much pretty, but I think I'll just have to be satisfed with my magic powers, flight ability and immortality."
-msgstr "Olá minha princesinha. Você está ficando mais bonita a cada dia. Eu queria ser tão bonita assim, mas acho que vou ter que me satisfazer com meus poderes mágicos, capacidade de voar e imortalidade."
+msgid ""
+"Hello, my little princess. You keep getting prettier with each passing day. "
+"I wish I was that much pretty, but I think I'll just have to be satisfed "
+"with my magic powers, flight ability and immortality."
+msgstr ""
+"Olá minha princesinha. Você está ficando mais bonita a cada dia. Eu queria "
+"ser tão bonita assim, mas acho que vou ter que me satisfazer com meus "
+"poderes mágicos, capacidade de voar e imortalidade."
 
 #: interactive/messages.py:55
-msgid "Good morning, sweetie! You did look wonderful last ball, but with a few more time and training, I bet you'll just explode with glamour. Oh, no, it doesn't hurt, sweetie, I swear."
-msgstr "Bom dia, doçura! Você esteve maravilhosa no baile passado, mas com um pouco mais de trinamento e tempo aposto que você vai explodir de glamour. Ah, não, não dói, docinho, eu juro."
+msgid ""
+"Good morning, sweetie! You did look wonderful last ball, but with a few more "
+"time and training, I bet you'll just explode with glamour. Oh, no, it "
+"doesn't hurt, sweetie, I swear."
+msgstr ""
+"Bom dia, doçura! Você esteve maravilhosa no baile passado, mas com um pouco "
+"mais de trinamento e tempo aposto que você vai explodir de glamour. Ah, não, "
+"não dói, docinho, eu juro."
 
 #: interactive/messages.py:56
-msgid "Hi, cutie face! You sure are glamorous enough for nobility, but want to test yourself against royalty? Maybe, some day, you'll even be a match for the fae."
-msgstr "Olá rostinho lindo! Você com certesa é glamorosa o suficiente para a nobreza, mas quer enfrentar a realeza? Talvez, um dia, você chegue até mesmo a ser páreo para as fadas."
+msgid ""
+"Hi, cutie face! You sure are glamorous enough for nobility, but want to test "
+"yourself against royalty? Maybe, some day, you'll even be a match for the "
+"fae."
+msgstr ""
+"Olá rostinho lindo! Você com certesa é glamorosa o suficiente para a "
+"nobreza, mas quer enfrentar a realeza? Talvez, um dia, você chegue até mesmo "
+"a ser páreo para as fadas."
 
 #: interactive/messages.py:57
-msgid "Ok, ok. I get it... But another ball, really? Don't you want to try someting different tonight? Maybe bowling..."
-msgstr "Ok, ok. Entendi... Mas outro baile, sério? Não quer tentar algo diferente hoje à noite? Boliche, talvez..."
+msgid ""
+"Ok, ok. I get it... But another ball, really? Don't you want to try someting "
+"different tonight? Maybe bowling..."
+msgstr ""
+"Ok, ok. Entendi... Mas outro baile, sério? Não quer tentar algo diferente "
+"hoje à noite? Boliche, talvez..."
 
 #: interactive/messages.py:58
-msgid "Hi, princess! You noticed the queen did not attend the last ball? Her magic mirror was unstable and crashing all the time, poor thing. If she had that penguin OS on it, she wouldn't have those problems. Wonder if the kernel supports divination well."
-msgstr "Olá, princesa! Você notou que a rainha não foi ao último baile? O espelho mágico dela estava instável e travando o tempo todo, coitada. Se ela tivesse aquele OS do pinguim não teria esse tipo de problema. Eu fico imaginando se o kernel também suporta advinhação."
+msgid ""
+"Hi, princess! You noticed the queen did not attend the last ball? Her magic "
+"mirror was unstable and crashing all the time, poor thing. If she had that "
+"penguin OS on it, she wouldn't have those problems. Wonder if the kernel "
+"supports divination well."
+msgstr ""
+"Olá, princesa! Você notou que a rainha não foi ao último baile? O espelho "
+"mágico dela estava instável e travando o tempo todo, coitada. Se ela tivesse "
+"aquele OS do pinguim não teria esse tipo de problema. Eu fico imaginando se "
+"o kernel também suporta advinhação."
 
 #: interactive/messages.py:59
-msgid "Hello, cutest! Great ball last night, but the valse was rather lowsy. Maybe if they looked for music in jamendo.com... Oh, there are oh so many great bands there, as Ehma, Torley on Piano, Ceili Moss, Armolithae and Butterfly Tea. My oh my!"
-msgstr "Olá, lindinha! Grande baile noite passada, mas a valsa estava um tanto ruim. Talvez se eles tivessem procurado por músicas no jamendo.com... Ah, lá tem tantas bandas legais, como Ehma, Torley on Piano, Ceili Moss, Armolithae e Butterfly Tea. Puxa vida!"
+msgid ""
+"Hello, cutest! Great ball last night, but the valse was rather lowsy. Maybe "
+"if they looked for music in jamendo.com... Oh, there are oh so many great "
+"bands there, as Ehma, Torley on Piano, Ceili Moss, Armolithae and Butterfly "
+"Tea. My oh my!"
+msgstr ""
+"Olá, lindinha! Grande baile noite passada, mas a valsa estava um tanto ruim. "
+"Talvez se eles tivessem procurado por músicas no jamendo.com... Ah, lá tem "
+"tantas bandas legais, como Ehma, Torley on Piano, Ceili Moss, Armolithae e "
+"Butterfly Tea. Puxa vida!"
 
 #: interactive/messages.py:64
-msgid "Good morning, princess, and an oh so happy birthday, too! I can't believe you turned 16 already, and in such a beautiful day, too! Of course, now that that you're a lady, you should start attending the royal balls... oh, it'll be so exciting."
-msgstr "Bom dia, princesa, e um tão feliz aniversário também! Eu nem acredito que você faz 16 anos, e em um dia tão bonito! É claro, agora que você já é uma moça, deve começar a frequentar os bailes reais... ah, vai ser tão emocionante."
+msgid ""
+"Good morning, princess, and an oh so happy birthday, too! I can't believe "
+"you turned 16 already, and in such a beautiful day, too! Of course, now that "
+"that you're a lady, you should start attending the royal balls... oh, it'll "
+"be so exciting."
+msgstr ""
+"Bom dia, princesa, e um tão feliz aniversário também! Eu nem acredito que "
+"você faz 16 anos, e em um dia tão bonito! É claro, agora que você já é uma "
+"moça, deve começar a frequentar os bailes reais... ah, vai ser tão "
+"emocionante."
 
 #: interactive/messages.py:65
-msgid "For these balls, you'll get to dress up elegantly, match your outfit, wear make-up and dresses. Oh, I'm so jealous. You'll get to be really, really beautiful. Well, surely you look oh so beautiful already, no doubt about it..."
-msgstr "Para estes bailes, você precisa estar elegante, combinando sua roupa, maquilagem e vestidos. Ah, estou com tanta inveja. Você vai ficar muito, muito bonita. Ora, você já é bonita, sem dúvidas quanto a isso..."
+msgid ""
+"For these balls, you'll get to dress up elegantly, match your outfit, wear "
+"make-up and dresses. Oh, I'm so jealous. You'll get to be really, really "
+"beautiful. Well, surely you look oh so beautiful already, no doubt about "
+"it..."
+msgstr ""
+"Para estes bailes, você precisa estar elegante, combinando sua roupa, "
+"maquilagem e vestidos. Ah, estou com tanta inveja. Você vai ficar muito, "
+"muito bonita. Ora, você já é bonita, sem dúvidas quanto a isso..."
 
 #: interactive/messages.py:66
-msgid "...but you know, that is not enough for the royal balls. For them, you'll have to be glamourous! Since it is your first ball ever, I was assigned to assist you in getting lovely, glamorous and stunning. And getting the hearts of the boys, too."
-msgstr "... mas sabe, isto não é suficiente para os bailes reais. Para eles, você vai precisar estar glamorosa! Como este é seu primeiro baile, vou te ajudar a ficar linda, glamorosa e impressionante. E a conquistar os corações dos meninos também."
+msgid ""
+"...but you know, that is not enough for the royal balls. For them, you'll "
+"have to be glamourous! Since it is your first ball ever, I was assigned to "
+"assist you in getting lovely, glamorous and stunning. And getting the hearts "
+"of the boys, too."
+msgstr ""
+"... mas sabe, isto não é suficiente para os bailes reais. Para eles, você "
+"vai precisar estar glamorosa! Como este é seu primeiro baile, vou te ajudar "
+"a ficar linda, glamorosa e impressionante. E a conquistar os corações dos "
+"meninos também."
 
 #: interactive/messages.py:67
-msgid "You see, for every ball you should try to dress up wonderfully, which means selecting a nice DRESS, SHOES, MAKE-UP and ACCESSORY. You should wander around the city looking for them, and putting on those you like the best."
-msgstr "Veja, para cada baile você precisa tentar se vestir maravilhosamente, o que significa escolher um belo VESTIDO, SAPATOS, MAQUILAGEM e ACESSÓRIO. Você precisa passear pela cidade procurando por eles e vestindo aqueles que você mais gostar."
+msgid ""
+"You see, for every ball you should try to dress up wonderfully, which means "
+"selecting a nice DRESS, SHOES, MAKE-UP and ACCESSORY. You should wander "
+"around the city looking for them, and putting on those you like the best."
+msgstr ""
+"Veja, para cada baile você precisa tentar se vestir maravilhosamente, o que "
+"significa escolher um belo VESTIDO, SAPATOS, MAQUILAGEM e ACESSÓRIO. Você "
+"precisa passear pela cidade procurando por eles e vestindo aqueles que você "
+"mais gostar."
 
 #: interactive/messages.py:68
-msgid "Of course, other princesses are attending the ball, too, so you should try to avoid showing up with the same things they do. Pay them a visit to learn what they will be wearing, and also try to avoid using the same outfit two balls in a row."
-msgstr "É claro, outras princesas também irão para o baile, então você deveria tentar evitar aparecer com as mesmas coisas que elas. Faça uma visita a elas e descubra o que vão usar, e também tente evitar usar as mesmas roupas em dois bailes seguidos."
+msgid ""
+"Of course, other princesses are attending the ball, too, so you should try "
+"to avoid showing up with the same things they do. Pay them a visit to learn "
+"what they will be wearing, and also try to avoid using the same outfit two "
+"balls in a row."
+msgstr ""
+"É claro, outras princesas também irão para o baile, então você deveria "
+"tentar evitar aparecer com as mesmas coisas que elas. Faça uma visita a elas "
+"e descubra o que vão usar, e também tente evitar usar as mesmas roupas em "
+"dois bailes seguidos."
 
 #: interactive/messages.py:69
-msgid "But caution, many dangers await! Well, not 'real' dangers, but there are many ways to get yourself dirty before the ball, and you should avoid that. Clean yourself at the bathhouse if you need, and use you cursor and irresistable kisses to help you keep clean."
-msgstr "Mas cuidado, há muitos perigos! Bem, não perigos 'de verdade', mas há muitas formas de se sujar antes do baile, e você precisa evitar isso. Lave-se na casa de banho se necessário e use seu mouse e beijos irresistíveis para te ajudar a se manter limpa."
+msgid ""
+"But caution, many dangers await! Well, not 'real' dangers, but there are "
+"many ways to get yourself dirty before the ball, and you should avoid that. "
+"Clean yourself at the bathhouse if you need, and use you cursor and "
+"irresistable kisses to help you keep clean."
+msgstr ""
+"Mas cuidado, há muitos perigos! Bem, não perigos 'de verdade', mas há muitas "
+"formas de se sujar antes do baile, e você precisa evitar isso. Lave-se na "
+"casa de banho se necessário e use seu mouse e beijos irresistíveis para te "
+"ajudar a se manter limpa."
 
 #: interactive/messages.py:70
-msgid "At the ball, you'll gain glamour points if your outfit differs from the other princesses', and you'll lose them if it doesn't. You'll loose an awful lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour for, you ask?"
-msgstr "No baile, você vai ganhar pontos de glamour se seu visual for diferente do das outras princesas, e você vai perdê-los se for repetido. Você vai perder muito glamour se estiver suja, então cuidado. Ãh, o que... ? Pra que serve glamour, você pergunta?"
+msgid ""
+"At the ball, you'll gain glamour points if your outfit differs from the "
+"other princesses', and you'll lose them if it doesn't. You'll loose an awful "
+"lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour "
+"for, you ask?"
+msgstr ""
+"No baile, você vai ganhar pontos de glamour se seu visual for diferente do "
+"das outras princesas, e você vai perdê-los se for repetido. Você vai perder "
+"muito glamour se estiver suja, então cuidado. Ãh, o que... ? Pra que serve "
+"glamour, você pergunta?"
 
 #: interactive/messages.py:71
-msgid "Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it also draws the eyes and hearts of boys, although high-ranked nobility tends to be more used to it than lower rank. But I assure you even Prince Charming can fall for a glamorous girl."
-msgstr "Ora, princesa bobinha, Glamour é simplesmente... lindo e divino. Ah, sim, também atrai os olhares e os corações dos garotos, apesar de que a nobreza mail elevada está mais acostumada a ele do que a menos elevada. Mas eu te asseguro que até mesmo o Príncipe Encantado pode se apaixonar por uma garota glamorosa."
+msgid ""
+"Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it "
+"also draws the eyes and hearts of boys, although high-ranked nobility tends "
+"to be more used to it than lower rank. But I assure you even Prince Charming "
+"can fall for a glamorous girl."
+msgstr ""
+"Ora, princesa bobinha, Glamour é simplesmente... lindo e divino. Ah, sim, "
+"também atrai os olhares e os corações dos garotos, apesar de que a nobreza "
+"mail elevada está mais acostumada a ele do que a menos elevada. Mas eu te "
+"asseguro que até mesmo o Príncipe Encantado pode se apaixonar por uma garota "
+"glamorosa."
 
 #: interactive/messages.py:72
-msgid "So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go."
-msgstr "Então vamos começar, transformando você de uma linda e amável princesinha em uma maravilhosa e glamorosa princesinha. Eu vou te ajudar no caminho, então lá vamos nós."
+msgid ""
+"So let's get started, turning you from a cute, loving little princess into a "
+"wonderful, glamorous little princess. I'll be helping you on the way, so off "
+"we go."
+msgstr ""
+"Então vamos começar, transformando você de uma linda e amável princesinha em "
+"uma maravilhosa e glamorosa princesinha. Eu vou te ajudar no caminho, então "
+"lá vamos nós."
 
 #: interactive/messages.py:76
 #, python-format
-msgid "Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me some unicorns and a tiny teeny dragon."
-msgstr "Oh, %s! Você tem uma fada madrinha!!! Que inveja... meu pai só me deu alguns unicórnios, e um dragãozinho pequenininho."
+msgid ""
+"Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me "
+"some unicorns and a tiny teeny dragon."
+msgstr ""
+"Oh, %s! Você tem uma fada madrinha!!! Que inveja... meu pai só me deu alguns "
+"unicórnios, e um dragãozinho pequenininho."
 
 #: interactive/messages.py:77
 #, python-format
-msgid "Hello, %s! Did you know there will be a great many princes at the ball tonight? They are coming all the way from far, far away lands to attend!"
-msgstr "Olá, %s! Sabia que haverão muitos príncipes no baile hoje? Eles virão de reinos muito, muito distantes para estarem presentes."
+msgid ""
+"Hello, %s! Did you know there will be a great many princes at the ball "
+"tonight? They are coming all the way from far, far away lands to attend!"
+msgstr ""
+"Olá, %s! Sabia que haverão muitos príncipes no baile hoje? Eles virão de "
+"reinos muito, muito distantes para estarem presentes."
 
 #: interactive/messages.py:78
 #, python-format
-msgid "%s! Long time no see. I was reading about fairy-tale. Have you noticed there are far more talking animals in them than fairies? Oh, well..."
-msgstr "%s! Há quanto tempo! Eu estava lendo sobre contos de fadas – já notou que existem muito mais animais falantes neles do que fadas? Oh, bem..."
+msgid ""
+"%s! Long time no see. I was reading about fairy-tale. Have you noticed there "
+"are far more talking animals in them than fairies? Oh, well..."
+msgstr ""
+"%s! Há quanto tempo! Eu estava lendo sobre contos de fadas – já notou que "
+"existem muito mais animais falantes neles do que fadas? Oh, bem..."
 
 #: interactive/messages.py:79
 #, python-format
-msgid "Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically speaking. What it means? Well, both are derived from the same word, 'fata', that meant 'prediction' in latin, but now they mean very different things."
-msgstr "Ei, %s. Sabia que 'fatídico' e 'fada' têm a mesma raiz etimológica? Que isso quer dizer? Bem, quer dizer que as duas derivam da mesma palavra. 'fata', que quer dizer 'predição' em latim, mas hoje significam coisas diferentes."
+msgid ""
+"Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically "
+"speaking. What it means? Well, both are derived from the same word, 'fata', "
+"that meant 'prediction' in latin, but now they mean very different things."
+msgstr ""
+"Ei, %s. Sabia que 'fatídico' e 'fada' têm a mesma raiz etimológica? Que isso "
+"quer dizer? Bem, quer dizer que as duas derivam da mesma palavra. 'fata', "
+"que quer dizer 'predição' em latim, mas hoje significam coisas diferentes."
 
 #: interactive/messages.py:80
 #, python-format
-msgid "Have you noticed how many different architectural styles we have in this town, %s? Do you think that maybe those are magic portals that take us to far away places?"
-msgstr "Já notou quantos estilo arquitetônicos diferentes existem nesta cidade, %s? Você acha que talvez aqueles portões sejam mágicos e nos levam para lugares muito distantes?"
+msgid ""
+"Have you noticed how many different architectural styles we have in this "
+"town, %s? Do you think that maybe those are magic portals that take us to "
+"far away places?"
+msgstr ""
+"Já notou quantos estilo arquitetônicos diferentes existem nesta cidade, %s? "
+"Você acha que talvez aqueles portões sejam mágicos e nos levam para lugares "
+"muito distantes?"
 
 #: interactive/messages.py:81
 #, python-format
-msgid "If we are all princesses, and we live in the same town, shouldn't we all be sisters? Gosh, I wish I was your sister, %s..."
-msgstr "Se somos todas princesas e moramos na mesma cidade, não deveríamos ser todas irmãs? Poxa, eu gostaria de ser sua irmã, %s..."
+msgid ""
+"If we are all princesses, and we live in the same town, shouldn't we all be "
+"sisters? Gosh, I wish I was your sister, %s..."
+msgstr ""
+"Se somos todas princesas e moramos na mesma cidade, não deveríamos ser todas "
+"irmãs? Poxa, eu gostaria de ser sua irmã, %s..."
 
 #: interactive/messages.py:82
 #, python-format
-msgid "My father says someday I'll marry a prince that defeated many perils to be with me... well, %s, I say let 'me' go on adventures and let him wait for me to marry him."
-msgstr "Meu pai diz que algum dia eu me casarei com um príncipe que venceu vários perigos para ficar comigo... bem, %s, eu digo que deixe 'eu' ir em aventuras e ele que espere para se casar comigo."
+msgid ""
+"My father says someday I'll marry a prince that defeated many perils to be "
+"with me... well, %s, I say let 'me' go on adventures and let him wait for me "
+"to marry him."
+msgstr ""
+"Meu pai diz que algum dia eu me casarei com um príncipe que venceu vários "
+"perigos para ficar comigo... bem, %s, eu digo que deixe 'eu' ir em aventuras "
+"e ele que espere para se casar comigo."
 
 #: interactive/messages.py:83
-msgid "We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
-msgstr "Nós sempre convidamos Maria, Chapeuzinho, Belle, a Moura, Pocahontas, Henny-Penny, Mulan e tantas outras para o baile. Será que elas algum dia virão?"
+msgid ""
+"We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-"
+"Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
+msgstr ""
+"Nós sempre convidamos Maria, Chapeuzinho, Belle, a Moura, Pocahontas, Henny-"
+"Penny, Mulan e tantas outras para o baile. Será que elas algum dia virão?"
 
 #: interactive/messages.py:84
 #, python-format
-msgid "%s, did you know that no one dislike tenderness? From boys to lions, love seems to triumph all. I wonder how a thing that didn't like kisses would be like. I bet it'd be ugly, bearded and riding a boat."
-msgstr "%s, sabia que ninguém desgosta de carinho? De meninos a leões, o amor conquista tudo. Fico imaginando se existe alguma coisa que não gostaria de beijos – aposto que seria feio, barbudo e andaria de barco."
+msgid ""
+"%s, did you know that no one dislike tenderness? From boys to lions, love "
+"seems to triumph all. I wonder how a thing that didn't like kisses would be "
+"like. I bet it'd be ugly, bearded and riding a boat."
+msgstr ""
+"%s, sabia que ninguém desgosta de carinho? De meninos a leões, o amor "
+"conquista tudo. Fico imaginando se existe alguma coisa que não gostaria de "
+"beijos – aposto que seria feio, barbudo e andaria de barco."
 
 #: interactive/messages.py:85
 #, python-format
-msgid "Have you noticed how we all get princes by the end of our story, %s? But some others don't, like Little Red, Grettel and the Mermaid. They only get wolves and witches, poor folk..."
-msgstr "Já notou que todas conseguimos príncipes ao final de nossas histórias, %s? Mas algumas não, como Chapeuzinho, Maria e a Sereia. Elas só conseguem lobos e bruxas, pobrezinhas."
+msgid ""
+"Have you noticed how we all get princes by the end of our story, %s? But "
+"some others don't, like Little Red, Grettel and the Mermaid. They only get "
+"wolves and witches, poor folk..."
+msgstr ""
+"Já notou que todas conseguimos príncipes ao final de nossas histórias, %s? "
+"Mas algumas não, como Chapeuzinho, Maria e a Sereia. Elas só conseguem lobos "
+"e bruxas, pobrezinhas."
 
 #: interactive/messages.py:86
 #, python-format
-msgid "Well, %s, we've got some pretty nice stores in town, but they don't seem to carry much variety. I mean, I never use the same dress twice on a ball, so I have dozens of each available dress already."
-msgstr "Bem, %s, nós temos boas lojas na cidade, mas elas não têm muita variedade. Quero dizer, eu nunca uso duas vezes o mesmo vestido em bailes, então eu já tenho dúzias de cada vestido disponível."
+msgid ""
+"Well, %s, we've got some pretty nice stores in town, but they don't seem to "
+"carry much variety. I mean, I never use the same dress twice on a ball, so I "
+"have dozens of each available dress already."
+msgstr ""
+"Bem, %s, nós temos boas lojas na cidade, mas elas não têm muita variedade. "
+"Quero dizer, eu nunca uso duas vezes o mesmo vestido em bailes, então eu já "
+"tenho dúzias de cada vestido disponível."
 
 #: interactive/messages.py:87
 #, python-format
-msgid "Oh, dancing is so much fun! But I sure would like to fly in the air, or fight dragons, or cast spells. %s, why do you think they give us princesses the worst parts in our own stories?"
-msgstr "Oh, dançar é tão divertido! Mas eu bem que gostaria de voar no ar, ou enfrentar dragões, ou conjurar feitiços. %s, por que você acha que nós princesas ficamos sempre com os piores papeis em nossas próprias histórias?"
+msgid ""
+"Oh, dancing is so much fun! But I sure would like to fly in the air, or "
+"fight dragons, or cast spells. %s, why do you think they give us princesses "
+"the worst parts in our own stories?"
+msgstr ""
+"Oh, dançar é tão divertido! Mas eu bem que gostaria de voar no ar, ou "
+"enfrentar dragões, ou conjurar feitiços. %s, por que você acha que nós "
+"princesas ficamos sempre com os piores papeis em nossas próprias histórias?"
 
 #: interactive/messages.py:88
 #, python-format
-msgid "Dancing every single night... I, mean, we have fun and all, but aren't your feet killing you, %s?"
-msgstr "Dançar toda e cada noite... quero dizer, nós nos divertimos, mas seus pés não estão te matando, %s?"
+msgid ""
+"Dancing every single night... I, mean, we have fun and all, but aren't your "
+"feet killing you, %s?"
+msgstr ""
+"Dançar toda e cada noite... quero dizer, nós nos divertimos, mas seus pés "
+"não estão te matando, %s?"
 
 #: interactive/messages.py:89
 #, python-format
-msgid "Who owns that little schnauzer that won't let me walk around in peace? It is not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... even small dogs..."
-msgstr "Quem é o dono daquele pequeno schnauzer que não me deixa caminhar pela cidade em paz? Não é você, né, %s? Argh, é tãããão mal educado deixar animais sem cuidados por aí – até mesmo pequenos cachorros..."
+msgid ""
+"Who owns that little schnauzer that won't let me walk around in peace? It is "
+"not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... "
+"even small dogs..."
+msgstr ""
+"Quem é o dono daquele pequeno schnauzer que não me deixa caminhar pela "
+"cidade em paz? Não é você, né, %s? Argh, é tãããão mal educado deixar animais "
+"sem cuidados por aí – até mesmo pequenos cachorros..."
 
 #: interactive/messages.py:90
 #, python-format
-msgid "Have you visited the zoo, yet? I love the penguin and the giraffe, but that monkey just drives me crazy. Maybe we could go together someday, %s, and have a hard long talk with whoever runs that place."
-msgstr "Você já visitou o zoológico? Eu adoro o pinguim e a girafa, mas o macaco me deixa louca. Talvez um dia possamos ir juntas, %s - e ter uma longa e dura conversa com o responsável por aquele lugar."
+msgid ""
+"Have you visited the zoo, yet? I love the penguin and the giraffe, but that "
+"monkey just drives me crazy. Maybe we could go together someday, %s, and "
+"have a hard long talk with whoever runs that place."
+msgstr ""
+"Você já visitou o zoológico? Eu adoro o pinguim e a girafa, mas o macaco me "
+"deixa louca. Talvez um dia possamos ir juntas, %s - e ter uma longa e dura "
+"conversa com o responsável por aquele lugar."
 
 #: interactive/messages.py:91
-msgid "Have you met Fabrizio, the little italian kid? He's always with that ball, but I think I've seen him somewhere before. Do you think he maybe might have a free tabletop game developed by Ocastudios?"
-msgstr "Você já conheceu o Fabrizio, o garotinho italiano? Ele está sempre com aquela bola, mas eu acho que já o vi antes. Você acha que talvez ele tenha um jogo de tabuleiro próprio desenvolvido pela Ocastudios?"
+msgid ""
+"Have you met Fabrizio, the little italian kid? He's always with that ball, "
+"but I think I've seen him somewhere before. Do you think he maybe might have "
+"a free tabletop game developed by Ocastudios?"
+msgstr ""
+"Você já conheceu o Fabrizio, o garotinho italiano? Ele está sempre com "
+"aquela bola, mas eu acho que já o vi antes. Você acha que talvez ele tenha "
+"um jogo de tabuleiro próprio desenvolvido pela Ocastudios?"
 
 #: interactive/messages.py:92
 #, python-format
-msgid "Many people think that the beatiful scenery of fairy tales are stuff of legend, by they exist, %s. Next vacations, try cruising around the Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters and see for yourself."
-msgstr "Muita gente acha que os belos cenários dos contos de fada são apenas lendas, %s. Em suas próximas férias, visite as Gaeltacht, ou dê uma caminha em Veneza, ou um mergulho nas águas azuis do Caribe e veja por você mesma."
+msgid ""
+"Many people think that the beatiful scenery of fairy tales are stuff of "
+"legend, by they exist, %s. Next vacations, try cruising around the "
+"Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters "
+"and see for yourself."
+msgstr ""
+"Muita gente acha que os belos cenários dos contos de fada são apenas lendas, "
+"%s. Em suas próximas férias, visite as Gaeltacht, ou dê uma caminha em "
+"Veneza, ou um mergulho nas águas azuis do Caribe e veja por você mesma."
 
 #: interactive/messages.py:93
-msgid "Do you know that many, many people have to worry about computer viruses, and software freezing. They don't even have access to their source-code... Thank goodness we use a Unix box."
-msgstr "Você sabia que muitas, muitas pessoas têm que se preocupar com vírus de computador e programas travando? Eles nem tem acesso ao código-fonte. Ainda bem que eu uso um Unix."
+msgid ""
+"Do you know that many, many people have to worry about computer viruses, and "
+"software freezing. They don't even have access to their source-code... Thank "
+"goodness we use a Unix box."
+msgstr ""
+"Você sabia que muitas, muitas pessoas têm que se preocupar com vírus de "
+"computador e programas travando? Eles nem tem acesso ao código-fonte. Ainda "
+"bem que eu uso um Unix."
 
 #: interactive/messages.py:94
-msgid "Have you seen the ball palace shaking last night? With so much dancing, do you think the structure is still stable? I think I'll call the dwarves to make some repairs."
-msgstr "Você viu o palácio de baile balançando ontem à noite? Com tanta dança, você acha que a estrutura ainda é estável? Acho que vou chamar os anões para fazerem alguns reparos."
+msgid ""
+"Have you seen the ball palace shaking last night? With so much dancing, do "
+"you think the structure is still stable? I think I'll call the dwarves to "
+"make some repairs."
+msgstr ""
+"Você viu o palácio de baile balançando ontem à noite? Com tanta dança, você "
+"acha que a estrutura ainda é estável? Acho que vou chamar os anões para "
+"fazerem alguns reparos."
 
 #: interactive/messages.py:95
 #, python-format
-msgid "Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll tell on you to ma!"
-msgstr "Okay, %s, estão são as roupas que eu usarei mais tarde. Mas se me copiar eu conto tudo para mamãe!"
+msgid ""
+"Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll "
+"tell on you to ma!"
+msgstr ""
+"Okay, %s, estão são as roupas que eu usarei mais tarde. Mas se me copiar eu "
+"conto tudo para mamãe!"
 
 #: interactive/messages.py:96
-msgid "No, I won't go out today! Yesterday there were so many chicks... and their mama didn't let me even play with them. She ruined may hair!!! I'm never coming out again."
-msgstr "Não, eu não vou sair hoje! Ontem tinham tantos pintinhos – e a mãe deles nem me deixou brincar com eles. Ela arruinou meu cabelo!!! Eu nunca mais saio desse castelo de novo."
+msgid ""
+"No, I won't go out today! Yesterday there were so many chicks... and their "
+"mama didn't let me even play with them. She ruined may hair!!! I'm never "
+"coming out again."
+msgstr ""
+"Não, eu não vou sair hoje! Ontem tinham tantos pintinhos – e a mãe deles nem "
+"me deixou brincar com eles. Ela arruinou meu cabelo!!! Eu nunca mais saio "
+"desse castelo de novo."
 
 #: interactive/messages.py:97
 #, python-format
-msgid "%s, I won't rest until I get the heart of the prince. I mean, Gentleman Decent is kinda cute, but he falls for every girl in the kingdom!"
-msgstr "%s, eu não vou descansar até que consiga o coração do Príncipe Encantado. Quero dizer, o Fidalgo Decente é até bonitinho, mas ele se apaixona por todas as garotas do reino."
+msgid ""
+"%s, I won't rest until I get the heart of the prince. I mean, Gentleman "
+"Decent is kinda cute, but he falls for every girl in the kingdom!"
+msgstr ""
+"%s, eu não vou descansar até que consiga o coração do Príncipe Encantado. "
+"Quero dizer, o Fidalgo Decente é até bonitinho, mas ele se apaixona por "
+"todas as garotas do reino."
 
 #: interactive/messages.py:98
 #, python-format
-msgid "There is a lot of noblemen in the balls, %s, but... do you think someone would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget about the ball for a while, of course."
-msgstr "Têm muitos nobres nos bailes, %s, mas... você acha que alguém se importaria se eu chamasse o Fabrizio hoje à noite? Quero dizer, ele 'terá' que esquecer da bola um pouquinho, claro."
+msgid ""
+"There is a lot of noblemen in the balls, %s, but... do you think someone "
+"would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget "
+"about the ball for a while, of course."
+msgstr ""
+"Têm muitos nobres nos bailes, %s, mas... você acha que alguém se importaria "
+"se eu chamasse o Fabrizio hoje à noite? Quero dizer, ele 'terá' que esquecer "
+"da bola um pouquinho, claro."
 
 #: interactive/messages.py:99
-msgid "Some of the princesses never eat apples or work with spindles because they are afraid of fairy tales. As for me, I just keep my distance from evil witches and refrain from talking to big bad wolves."
-msgstr "Algumas das princesas nunca comem maçãs ou trabalham com rocas porque estão assustadas com os contos de fada. Quanto a mim, eu apenas mantenho distância de bruxas malignas e lobos maus falantes."
+msgid ""
+"Some of the princesses never eat apples or work with spindles because they "
+"are afraid of fairy tales. As for me, I just keep my distance from evil "
+"witches and refrain from talking to big bad wolves."
+msgstr ""
+"Algumas das princesas nunca comem maçãs ou trabalham com rocas porque estão "
+"assustadas com os contos de fada. Quanto a mim, eu apenas mantenho distância "
+"de bruxas malignas e lobos maus falantes."
 
 #: interactive/messages.py:100
-msgid "Do you know that many countries today still have kings? Oh, I'd love to be the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an enchanted mythical kingdom of everlasting joy, but I 'really' wanted Sweeden..."
-msgstr "Você sabia que muitos países hoje ainda têm reis? Oh, eu adoraria ser a princesa da Suécia, Espanha ou Japão. Acho que tenho que me conformar com um reino mítico encantado de felicidade infinita, mas eu queria 'mesmo' é a Suécia..."
+msgid ""
+"Do you know that many countries today still have kings? Oh, I'd love to be "
+"the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an "
+"enchanted mythical kingdom of everlasting joy, but I 'really' wanted "
+"Sweeden..."
+msgstr ""
+"Você sabia que muitos países hoje ainda têm reis? Oh, eu adoraria ser a "
+"princesa da Suécia, Espanha ou Japão. Acho que tenho que me conformar com um "
+"reino mítico encantado de felicidade infinita, mas eu queria 'mesmo' é a "
+"Suécia..."
 
-#: interface/inside.py:40
+#: interface/inside.py:42
 msgid "Take a shower"
 msgstr "Tome um banho"
 
-#: interface/inside.py:43
+#: interface/inside.py:45
 msgid "Leave"
 msgstr "Saia"
 
-#: interface/inside.py:46
+#: interface/inside.py:48
 msgid "Would you like to take a shower?"
 msgstr "Gostaria de tomar um banho?"
 
-#: interface/inside.py:251
+#: interface/inside.py:183
 msgid "Go to the Ball"
 msgstr "Ir para o Baile"
 
-#: interface/inside.py:252
-msgid "It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different."
-msgstr "Não é muito bonito repetir o visual. Confira o que você usou nos bailes passados e tente encontrar algo diferente."
+#: interface/inside.py:184
+msgid ""
+"It is not very cute to repeat your outfits. Check out what you wore at past "
+"Balls and try to find something different."
+msgstr ""
+"Não é muito bonito repetir o visual. Confira o que você usou nos bailes "
+"passados e tente encontrar algo diferente."
 
-#: interface/inside.py:253
+#: interface/inside.py:185
 msgid "Last Ball"
 msgstr "Baile Passado"
 
-#: interface/inside.py:254
+#: interface/inside.py:186
 msgid "Great Past Ball"
 msgstr "Baile Retrasado"
 
-#: interface/inside.py:255
+#: interface/inside.py:187
 msgid "3 Balls Ago"
 msgstr "3 Bailes Atrás"
 
-#: interface/ball.py:101
+#: interface/ball.py:102
 msgid "and won the heart of"
 msgstr "e ganhou o coração do"
 
-#: interface/ball.py:213
+#: interface/ball.py:212
 msgid "You've"
 msgstr "Você"
 
@@ -435,574 +1044,680 @@ msgstr "Você"
 msgid "got"
 msgstr "ganhou"
 
-#: interface/ball.py:215
+#: interface/ball.py:216
 msgid "glamour"
 msgstr "pontos"
 
-#: interface/ball.py:216
+#: interface/ball.py:218
 msgid "points"
 msgstr "de glamour"
 
-#: interface/ball.py:279
+#: interface/ball.py:293
 msgid "Tonight's ball"
 msgstr "Este baile"
 
-#: interface/ball.py:280
+#: interface/ball.py:294
 msgid "Yesterday's ball"
 msgstr "Baile passado"
 
-#: interface/ball.py:377
+#: interface/ball.py:407
 msgid "Gentleman Decent"
 msgstr "Fidalgo Decente"
 
-#: interface/ball.py:380
+#: interface/ball.py:410
 msgid "Knight Reliable"
 msgstr "Cavaleiro Confiável"
 
-#: interface/ball.py:383
+#: interface/ball.py:413
 msgid "Baron Serious"
 msgstr "Barão Sério"
 
-#: interface/ball.py:386
+#: interface/ball.py:416
 msgid "Count Loving"
 msgstr "Conde Amoroso"
 
-#: interface/ball.py:389
+#: interface/ball.py:419
 msgid "Marquess Attractive"
 msgstr "Marquês Atraente"
 
-#: interface/ball.py:392
+#: interface/ball.py:422
 msgid "Duke Intelligent"
 msgstr "Duque Inteligente"
 
-#: interface/ball.py:395
+#: interface/ball.py:425
 msgid "Prince Charming"
 msgstr "Príncipe Encantado"
 
-#: interface/ball.py:398
+#: interface/ball.py:428
 msgid "King Kindhearted"
 msgstr "Rei Bondoso"
 
-#: interface/ball.py:405
+#: interface/ball.py:435
 msgid "Emperor Awesome"
 msgstr "Imperador Incrível"
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "New Game"
 msgstr "Novo Jogo"
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Load Game"
 msgstr "Continuar jogo"
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Play Story"
 msgstr "Ver a história"
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Learn to play"
 msgstr "Aprenda a jogar"
 
-#: interface/menu.py:269
-#: interface/menu.py:772
+#: interface/menu.py:272 interface/menu.py:782
 msgid "Credits"
 msgstr "Créditos"
 
-#: interface/menu.py:269
+#: interface/menu.py:272
 msgid "Exit"
 msgstr "Sair"
 
-#: interface/menu.py:271
+#: interface/menu.py:274
 msgid "select one"
 msgstr "escolha um"
 
-#: interface/menu.py:300
-#: interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "Choose your"
 msgstr "Escolha sua"
 
-#: interface/menu.py:300
-#: interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "appearence..."
 msgstr "aparência"
 
-#: interface/menu.py:300
+#: interface/menu.py:305
 msgid "skin tone"
 msgstr "cor da pele"
 
-#: interface/menu.py:300
-#: interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "previous"
 msgstr "anterior"
 
-#: interface/menu.py:300
-#: interface/menu.py:314
+#: interface/menu.py:305 interface/menu.py:319
 msgid "next"
 msgstr "próximo"
 
-#: interface/menu.py:314
+#: interface/menu.py:319
 msgid "hair style"
 msgstr "cabelo"
 
-#: interface/menu.py:333
+#: interface/menu.py:338
 msgid "< back"
 msgstr "< voltar"
 
-#: interface/menu.py:334
+#: interface/menu.py:339
 msgid "space >"
 msgstr "espaço >"
 
-#: interface/menu.py:335
+#: interface/menu.py:340
 msgid "clean up [  ]"
 msgstr "limpar  [  ]"
 
-#: interface/menu.py:336
+#: interface/menu.py:341
 msgid "random   ???"
 msgstr "aleatório ???"
 
-#: interface/menu.py:344
+#: interface/menu.py:349
 msgid "Sorry, This name is taken."
 msgstr "Desculpe, este nome está sendo usado."
 
-#: interface/menu.py:345
+#: interface/menu.py:350
 msgid "Please, choose another one"
 msgstr "Por favor, escolha outro"
 
-#: interface/menu.py:346
+#: interface/menu.py:351
 msgid "_ _ _ _ _ _ _"
 msgstr "_ _ _ _ _ _ _"
 
-#: interface/menu.py:351
+#: interface/menu.py:356
 msgid "... and your name."
 msgstr "... e seu nome."
 
-#: interface/menu.py:486
+#: interface/menu.py:494
 msgid "The "
 msgstr "O"
 
-#: interface/menu.py:506
+#: interface/menu.py:512
 msgid "Or go back to Main Menu"
 msgstr "Ou volte para o Menu Principal"
 
-#: interface/menu.py:507
+#: interface/menu.py:513
 msgid "Have you already saved a game?"
 msgstr "Você já salvou um jogo?"
 
-#: interface/menu.py:508
+#: interface/menu.py:514
 msgid "Then choose your saved princess:"
 msgstr "Então escolha sua princesa salva:"
 
-#: interface/menu.py:517
+#: interface/menu.py:523
 msgid "erase"
 msgstr "apagar"
 
-#: interface/menu.py:623
+#: interface/menu.py:627
 msgid "Use the arrows to go"
 msgstr "Use as setas para ir"
 
-#: interface/menu.py:624
+#: interface/menu.py:628
 msgid "forward and backward"
 msgstr "para frente e para trás"
 
-#: interface/menu.py:633
+#: interface/menu.py:638
 msgid "Hi!"
 msgstr "Oi!"
 
-#: interface/menu.py:634
-msgid "Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"
-msgstr "Olá, querida! Eu sou uma fada madrinha, e com a ajuda da princesa Madalena vou lhe dar um tutorial magnífico, ok?"
+#: interface/menu.py:639
+msgid ""
+"Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help "
+"to give you a superb tutorial, okay?"
+msgstr ""
+"Olá, querida! Eu sou uma fada madrinha, e com a ajuda da princesa Madalena "
+"vou lhe dar um tutorial magnífico, ok?"
 
-#: interface/menu.py:636
+#: interface/menu.py:641
 msgid "Yiipi!"
 msgstr "Obaaa!"
 
-#: interface/menu.py:637
-msgid "As you'll soon find out, pressing left or right will move your princess around."
-msgstr "Como logo você verá, apertar para esquerda ou direita irá mover sua princesa."
+#: interface/menu.py:642
+msgid ""
+"As you'll soon find out, pressing left or right will move your princess "
+"around."
+msgstr ""
+"Como logo você verá, apertar para esquerda ou direita irá mover sua princesa."
 
-#: interface/menu.py:639
+#: interface/menu.py:644
 msgid "Yey!"
 msgstr "Iei!"
 
-#: interface/menu.py:640
+#: interface/menu.py:645
 msgid "And pressing the spacebar will allow you to jump."
 msgstr "E apertar a barra de espaço te permitirá saltar."
 
-#: interface/menu.py:642
+#: interface/menu.py:647
 msgid "x"
 msgstr "bj"
 
-#: interface/menu.py:643
+#: interface/menu.py:648
 msgid "And the Control key will get you a kiss."
 msgstr "E a tecla Ctrl irá lançar um beijo."
 
-#: interface/menu.py:645
+#: interface/menu.py:650
 msgid "Ooh!"
 msgstr "Ooh!"
 
-#: interface/menu.py:646
-msgid "If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."
-msgstr "Se você beijar inimigos, às vezes eles ficarão tãaao felizes que pararão de incomodá-la... por enquanto."
+#: interface/menu.py:651
+msgid ""
+"If you kiss enemies, they will sometimes be sooo happy as to stop bothering "
+"you... for a while."
+msgstr ""
+"Se você beijar inimigos, às vezes eles ficarão tãaao felizes que pararão de "
+"incomodá-la... por enquanto."
 
-#: interface/menu.py:648
-msgid "But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"
-msgstr "Mas fique ciente que alguns inimigos responderão apenas ao cursor de seu mouse, enquanto outros só podem ser esquivados."
+#: interface/menu.py:653
+msgid ""
+"But be aware that some enemies will respond only to your mouse cursor, and "
+"yet others can only be dodged!"
+msgstr ""
+"Mas fique ciente que alguns inimigos responderão apenas ao cursor de seu "
+"mouse, enquanto outros só podem ser esquivados."
 
-#: interface/menu.py:650
-msgid "You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."
-msgstr "Você notará que no canto superior direito há um relógio. Quando ele apontar para baixo, será a hora do baile."
+#: interface/menu.py:655
+msgid ""
+"You'll notice that on the upper right side there's a clock. When it points "
+"down, it will be time for the ball."
+msgstr ""
+"Você notará que no canto superior direito há um relógio. Quando ele apontar "
+"para baixo, será a hora do baile."
 
-#: interface/menu.py:652
+#: interface/menu.py:657
 msgid "Yeah!"
 msgstr "Isso!"
 
-#: interface/menu.py:653
+#: interface/menu.py:658
 msgid "But first we need to find you a beautiful and original look."
 msgstr "Mas antes precisaremos conseguir para você um look lindo e original."
 
-#: interface/menu.py:655
-msgid "And in order to do that, we must visit the castles that lie in the left part of most streets."
-msgstr "E para isso, nós devemos visitar os castelos que ficam na parte esquerda da maioria das ruas."
+#: interface/menu.py:660
+msgid ""
+"And in order to do that, we must visit the castles that lie in the left part "
+"of most streets."
+msgstr ""
+"E para isso, nós devemos visitar os castelos que ficam na parte esquerda da "
+"maioria das ruas."
 
-#: interface/menu.py:657
-msgid "That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"
-msgstr "Isso porque eles são lojas, onde você irá encontrá maravilhosos vestidos, maquiagens, sapatos e acessórios!"
+#: interface/menu.py:662
+msgid ""
+"That's because they are shops, and in them you'll find the most wonderful "
+"dresses, make-up, shoes and accessories!"
+msgstr ""
+"Isso porque eles são lojas, onde você irá encontrá maravilhosos vestidos, "
+"maquiagens, sapatos e acessórios!"
 
-#: interface/menu.py:659
+#: interface/menu.py:664
 msgid "You got it!"
 msgstr "Certo!"
 
-#: interface/menu.py:660
-msgid "Oh! And remember you can switch streets by pressing up when in front of a gate."
-msgstr "Ah! E lembre-se de que você pode trocar de rua apertando para cima quando em frente a um portão."
+#: interface/menu.py:665
+msgid ""
+"Oh! And remember you can switch streets by pressing up when in front of a "
+"gate."
+msgstr ""
+"Ah! E lembre-se de que você pode trocar de rua apertando para cima quando em "
+"frente a um portão."
 
-#: interface/menu.py:662
+#: interface/menu.py:667
 msgid "Ookay..."
 msgstr "Oooook..."
 
-#: interface/menu.py:663
-msgid "Now, once you're at the ball, your look will be compared to those of other princesses, and even with the garments you girls used in previous balls."
-msgstr "Quando no baile, seu look será comparado ao de outras princesas, e até mesmo com o que vocês usaram em bailes passados."
+#: interface/menu.py:668
+msgid ""
+"Now, once you're at the ball, your look will be compared to those of other "
+"princesses, and even with the garments you girls used in previous balls."
+msgstr ""
+"Quando no baile, seu look será comparado ao de outras princesas, e até mesmo "
+"com o que vocês usaram em bailes passados."
 
-#: interface/menu.py:665
+#: interface/menu.py:670
 msgid "Oh, no!..."
 msgstr "Ah, não!..."
 
-#: interface/menu.py:666
-msgid "If you wear the same outfit as others (or repeat it ball after ball), you'll earn little to no glamour points. It would be a shame."
-msgstr "Se você estiver igual às outras princesas (ou à si mesma nos bailes passados), você ganhará pouco ou nenhum glamour. Seria uma pena."
+#: interface/menu.py:671
+msgid ""
+"If you wear the same outfit as others (or repeat it ball after ball), you'll "
+"earn little to no glamour points. It would be a shame."
+msgstr ""
+"Se você estiver igual às outras princesas (ou à si mesma nos bailes "
+"passados), você ganhará pouco ou nenhum glamour. Seria uma pena."
 
-#: interface/menu.py:668
+#: interface/menu.py:673
 msgid "All right!"
 msgstr "Isso aí!"
 
-#: interface/menu.py:669
-msgid "But, on the other hand, if you show up with an original look, then you may earn lots of glamour points!"
-msgstr "Mas, se por outro lado você aparecer com um look original, você ganhará muitos pontos de glamour!"
+#: interface/menu.py:674
+msgid ""
+"But, on the other hand, if you show up with an original look, then you may "
+"earn lots of glamour points!"
+msgstr ""
+"Mas, se por outro lado você aparecer com um look original, você ganhará "
+"muitos pontos de glamour!"
 
-#: interface/menu.py:671
+#: interface/menu.py:676
 msgid "Who's my True Love?"
 msgstr "Quem será meu amor?"
 
-#: interface/menu.py:672
-msgid "And as you gain glamour points, more and more boys will offer you their hearts. And some day, you may even catch the eyes of Prince Charming himself."
-msgstr "Conforme você ganha pontos de glamour, mais e mais garotos lhe oferecerão seus corações. Um dia, talvez você conquistará os olhares até mesmo do príncipe Encantado."
+#: interface/menu.py:677
+msgid ""
+"And as you gain glamour points, more and more boys will offer you their "
+"hearts. And some day, you may even catch the eyes of Prince Charming himself."
+msgstr ""
+"Conforme você ganha pontos de glamour, mais e mais garotos lhe oferecerão "
+"seus corações. Um dia, talvez você conquistará os olhares até mesmo do "
+"príncipe Encantado."
 
-#: interface/menu.py:674
+#: interface/menu.py:679
 msgid "Oh, no!"
 msgstr "Ah, não!"
 
-#: interface/menu.py:675
+#: interface/menu.py:680
 msgid "Woof!"
 msgstr "Au-au!"
 
-#: interface/menu.py:676
-msgid "But beware! The enemies on your way may not hurt you, but they can make you dirty. And THAT would certainly cost you lots of glamour points!"
-msgstr "Mas cuidado! Inimigos em seu caminho não a machucarão, mas podem sujá-la. E ISSO certamente lhe custaria muitos pontos de glamour!"
+#: interface/menu.py:681
+msgid ""
+"But beware! The enemies on your way may not hurt you, but they can make you "
+"dirty. And THAT would certainly cost you lots of glamour points!"
+msgstr ""
+"Mas cuidado! Inimigos em seu caminho não a machucarão, mas podem sujá-la. E "
+"ISSO certamente lhe custaria muitos pontos de glamour!"
 
-#: interface/menu.py:678
+#: interface/menu.py:683
 msgid "So be careful."
 msgstr "Tome cuidado."
 
-#: interface/menu.py:679
-msgid "You can get even dirtier if you are caught a second time, and become dirtiest if hit yet again..."
-msgstr "Você ficará suja se pega uma segunda vez, e o mais suja possível se atingida uma vez mais..."
+#: interface/menu.py:684
+msgid ""
+"You can get even dirtier if you are caught a second time, and become "
+"dirtiest if hit yet again..."
+msgstr ""
+"Você ficará suja se pega uma segunda vez, e o mais suja possível se atingida "
+"uma vez mais..."
 
-#: interface/menu.py:681
+#: interface/menu.py:686
 msgid "Hooray!"
 msgstr "Ôbaaa!"
 
-#: interface/menu.py:682
-msgid "...but event then there's hope. Go back and enter the Bathhouse, and you'll be clean and perfumed in no time!"
-msgstr "...mas ainda assim haverá esperança. Volte e entre na Casa de Banho, e você estará limpa e perfumada logo, logo!"
+#: interface/menu.py:687
+msgid ""
+"...but event then there's hope. Go back and enter the Bathhouse, and you'll "
+"be clean and perfumed in no time!"
+msgstr ""
+"...mas ainda assim haverá esperança. Volte e entre na Casa de Banho, e você "
+"estará limpa e perfumada logo, logo!"
 
-#: interface/menu.py:684
+#: interface/menu.py:689
 msgid "Neat!"
 msgstr "Legal!"
 
-#: interface/menu.py:685
-msgid "But before you go, I've got two more tips to you. First, stay alert to the music! By it you can tell not only what is the stronger enemy around, but how far it is from you."
-msgstr "Mas antes de ir, Eu tenho mais duas dicas para você. Primeiro, fique alerta à música! Por ela você poderá saber não apenas qual o inimigo mais forte por perto, mas também quão perto ele está."
+#: interface/menu.py:690
+msgid ""
+"But before you go, I've got two more tips to you. First, stay alert to the "
+"music! By it you can tell not only what is the stronger enemy around, but "
+"how far it is from you."
+msgstr ""
+"Mas antes de ir, Eu tenho mais duas dicas para você. Primeiro, fique alerta "
+"à música! Por ela você poderá saber não apenas qual o inimigo mais forte por "
+"perto, mas também quão perto ele está."
 
-#: interface/menu.py:687
+#: interface/menu.py:692
 msgid "Ooooh!"
 msgstr "Ooooh!"
 
-#: interface/menu.py:688
-msgid "And finally, there are many secret items in the game, and you should anlock them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."
-msgstr "E finalmente, existem vários itens secretos no jogo, e você deve desbloqueá-los logo! Para começar, tente beijar o leão no zoológico da R. Maquiagem."
+#: interface/menu.py:693
+msgid ""
+"And finally, there are many secret items in the game, and you should anlock "
+"them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."
+msgstr ""
+"E finalmente, existem vários itens secretos no jogo, e você deve desbloqueá-"
+"los logo! Para começar, tente beijar o leão no zoológico da R. Maquiagem."
 
-#: interface/menu.py:690
+#: interface/menu.py:695
 msgid "Have fun!"
 msgstr "Divirta-se!"
 
-#: interface/menu.py:691
-msgid "Now you're good to go! Don't stay idle waiting your dreams come true - go get them, girl!"
-msgstr "Agora você está pronta! Não fique parada esperando seus sonhos se realizarem - vá buscá-los, garota!"
+#: interface/menu.py:696
+msgid ""
+"Now you're good to go! Don't stay idle waiting your dreams come true - go "
+"get them, girl!"
+msgstr ""
+"Agora você está pronta! Não fique parada esperando seus sonhos se realizarem "
+"- vá buscá-los, garota!"
 
-#: interface/menu.py:770
+#: interface/menu.py:780
 msgid "in loving memory of"
 msgstr "em saudosa memória de"
 
-#: interface/menu.py:771
+#: interface/menu.py:781
 msgid "and"
 msgstr "e"
 
-#: interface/menu.py:773
+#: interface/menu.py:783
 msgid "Programming"
 msgstr "Programação"
 
-#: interface/menu.py:774
+#: interface/menu.py:784
 msgid "Support"
 msgstr "Suporte"
 
-#: interface/menu.py:775
+#: interface/menu.py:785
 msgid "Design"
 msgstr "Design"
 
-#: interface/menu.py:776
+#: interface/menu.py:786
 msgid "Music"
 msgstr "Música"
 
-#: interface/menu.py:777
-#: interface/menu.py:790
-#: interface/menu.py:792
+#: interface/menu.py:787 interface/menu.py:800 interface/menu.py:802
 msgid "first snowfall"
 msgstr "first snowfall"
 
-#: interface/menu.py:778
+#: interface/menu.py:788
 msgid "endless blue"
 msgstr "endless blue"
 
-#: interface/menu.py:779
+#: interface/menu.py:789
 msgid "celtic cappricio"
 msgstr "celtic cappricio"
 
-#: interface/menu.py:780
+#: interface/menu.py:790
 msgid "the bee"
 msgstr "the bee"
 
-#: interface/menu.py:781
+#: interface/menu.py:791
 msgid "lonesome man's dance"
 msgstr "lonesome man's dance"
 
-#: interface/menu.py:782
+#: interface/menu.py:792
 msgid "dragon dance"
 msgstr "dragon dance"
 
-#: interface/menu.py:783
+#: interface/menu.py:793
 msgid "ship of fools"
 msgstr "ship of fools"
 
-#: interface/menu.py:784
+#: interface/menu.py:794
 msgid "sword fight"
 msgstr "sword fight"
 
-#: interface/menu.py:785
+#: interface/menu.py:795
 msgid "the foggy dew"
 msgstr "the foggy dew"
 
-#: interface/menu.py:786
+#: interface/menu.py:796
 msgid "revolution on resoluti on"
 msgstr "revolution on resoluti on"
 
-#: interface/menu.py:787
+#: interface/menu.py:797
 msgid "twilight on mountain"
 msgstr "twilight on mountain"
 
-#: interface/menu.py:788
+#: interface/menu.py:798
 msgid "brian boru 2"
 msgstr "brian boru 2"
 
-#: interface/menu.py:789
+#: interface/menu.py:799
 msgid "ignition"
 msgstr "ignition"
 
-#: interface/menu.py:791
+#: interface/menu.py:801
 msgid "cocci ci tini cocci"
 msgstr "cocci ci tini cocci"
 
-#: interface/menu.py:793
+#: interface/menu.py:803
 msgid "waltz wedley"
 msgstr "waltz wedley"
 
-#: interface/menu.py:796
+#: interface/menu.py:806
 msgid "All python & pygame code, written in gedit."
 msgstr "Todo código python & pygame, escrito em gedit."
 
-#: interface/menu.py:797
+#: interface/menu.py:807
 msgid "Bureaucracy and et ceteras"
 msgstr "Burocracia e etc."
 
-#: interface/menu.py:798
+#: interface/menu.py:808
 msgid "Almost all Inkscape, with a touch of Blender and Gimp."
 msgstr "Quase tudo em Inkscape, com um toque de Blender e Gimp."
 
-#: interface/menu.py:799
+#: interface/menu.py:809
 msgid "based on the homonimous board game by"
 msgstr "baseado no jogo de tabuleiro homônimo de"
 
-#: interface/menu.py:800
+#: interface/menu.py:810
 msgid "available at"
 msgstr "disponível em"
 
-#: interface/menu.py:801
+#: interface/menu.py:811
 msgid "introduction"
 msgstr "introdução"
 
-#: interface/menu.py:802
-#: interface/menu.py:828
-#: interface/menu.py:832
+#: interface/menu.py:812 interface/menu.py:838 interface/menu.py:842
 msgid "by Torley on Piano"
 msgstr "por Torley on Piano"
 
-#: interface/menu.py:803
+#: interface/menu.py:813
 msgid "menu"
 msgstr "menu"
 
-#: interface/menu.py:804
-#: interface/menu.py:816
-#: interface/menu.py:822
-#: interface/menu.py:826
+#: interface/menu.py:814 interface/menu.py:826 interface/menu.py:832
+#: interface/menu.py:836
 msgid "by Armolithae"
 msgstr "por Armolithae"
 
-#: interface/menu.py:805
+#: interface/menu.py:815
 msgid "bathhouse st"
 msgstr "r. casa de banho"
 
-#: interface/menu.py:806
+#: interface/menu.py:816
 msgid "by armolithae"
 msgstr "por armolithae"
 
-#: interface/menu.py:807
+#: interface/menu.py:817
 msgid "dress st"
 msgstr "r. vestidos"
 
-#: interface/menu.py:808
-#: interface/menu.py:810
-#: interface/menu.py:814
-#: interface/menu.py:818
+#: interface/menu.py:818 interface/menu.py:820 interface/menu.py:824
+#: interface/menu.py:828
 msgid "by Ceili Moss"
 msgstr "por Ceili Moss"
 
-#: interface/menu.py:809
+#: interface/menu.py:819
 msgid "shoe's st"
 msgstr "r. sapatos"
 
-#: interface/menu.py:811
+#: interface/menu.py:821
 msgid "accessory st."
 msgstr "r. acessórios"
 
-#: interface/menu.py:812
+#: interface/menu.py:822
 msgid "by Butterfly Tea"
 msgstr "por Butterfly Tea"
 
-#: interface/menu.py:813
+#: interface/menu.py:823
 msgid "make-up st."
 msgstr "r. maquiagem"
 
-#: interface/menu.py:815
+#: interface/menu.py:825
 msgid "schnauzer"
 msgstr "schnauzer"
 
-#: interface/menu.py:817
+#: interface/menu.py:827
 msgid "carriage"
 msgstr "carruagem"
 
-#: interface/menu.py:819
+#: interface/menu.py:829
 msgid "old lady"
 msgstr "velhinha"
 
-#: interface/menu.py:820
+#: interface/menu.py:830
 msgid "by Torly on Piano"
 msgstr "por Torly on Piano"
 
-#: interface/menu.py:821
+#: interface/menu.py:831
 msgid "viking"
 msgstr "viking"
 
-#: interface/menu.py:823
+#: interface/menu.py:833
 msgid "butterffly"
 msgstr "borboleta"
 
-#: interface/menu.py:824
+#: interface/menu.py:834
 msgid "by Adragante"
 msgstr "por Adragante"
 
-#: interface/menu.py:825
+#: interface/menu.py:835
 msgid "hawk"
 msgstr "falcão"
 
-#: interface/menu.py:827
+#: interface/menu.py:837
 msgid "birdie"
 msgstr "passarinho"
 
-#: interface/menu.py:829
+#: interface/menu.py:839
 msgid "fabrizio"
 msgstr "fabrizio"
 
-#: interface/menu.py:830
+#: interface/menu.py:840
 msgid "by Picari"
 msgstr "por Picari"
 
-#: interface/menu.py:831
+#: interface/menu.py:841
 msgid "zoo"
 msgstr "zoo"
 
-#: interface/menu.py:833
+#: interface/menu.py:843
 msgid "ball"
 msgstr "baile"
 
-#: interface/menu.py:834
+#: interface/menu.py:844
 msgid "by strauss"
 msgstr "por strauss"
 
-#: interface/menu.py:835
+#: interface/menu.py:845
 msgid "Sad and unfortunate legal mambo jambo"
 msgstr "Babozeiras jurídicas tristes e lamentáveis"
 
-#: interface/menu.py:836
-msgid "All programming and art are public domain, released so by us, their authors."
-msgstr "Toda a programação e a arte são disponibilizadas como domínio público pelos autores."
+#: interface/menu.py:846
+msgid ""
+"All programming and art are public domain, released so by us, their authors."
+msgstr ""
+"Toda a programação e a arte são disponibilizadas como domínio público pelos "
+"autores."
 
-#: interface/menu.py:837
-msgid "The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."
-msgstr "As músicas, entretanto, vêm em uma variedade de licenças. Elas podem ser usadas e alteradas, mesmo comercialmente, mas o crédito DEVE ser dado. Agradecimento especial ao jamendo.com, de onde a maior parte das músicas vieram."
+#: interface/menu.py:847
+msgid ""
+"The musics, however, comes in a variety of free licenses. They can be used "
+"and altered, even commercially, but credit MUST be given. Special thanks to "
+"www.jamendo.com, from where most of our music came."
+msgstr ""
+"As músicas, entretanto, vêm em uma variedade de licenças. Elas podem ser "
+"usadas e alteradas, mesmo comercialmente, mas o crédito DEVE ser dado. "
+"Agradecimento especial ao jamendo.com, de onde a maior parte das músicas "
+"vieram."
 
-#: interface/menu.py:838
-msgid "( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"
-msgstr "(Se você é um autor e quer tirar sua música deste jogo, contate-nos e removeremos de imediato.)"
+#: interface/menu.py:848
+msgid ""
+"And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont "
+"License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
+msgstr ""
+"E agora as fontes: Gestesque, por Paulo Silva, tem licença OpenFonce e a "
+"Chopin Script, por Diogene, é Domínio Público (Viva!!)."
 
-#: interface/menu.py:839
-msgid "And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
-msgstr "E agora as fontes: Gestesque, por Paulo Silva, tem licença OpenFonce e a Chopin Script, por Diogene, é Domínio Público (Viva!!)."
+#: interface/menu.py:849
+msgid ""
+"If you are a developer of free content, please consider the limitations the "
+"varying \"free licenses\" impose on derivative works. Tons (or better yet, "
+"Teras) of cultural content, as images, music and fonts that are \"free\" are "
+"quite unuseable due to legal and procedural restraints (we just cannot give "
+"credit to every bit of data we'll use). \"Free for personnal use, but not "
+"commercial\", \"free for use, but not to alter\" and/or \"free for use, but "
+"not to distribute\" hinders freedom, and equals \"free as in beer, not as in "
+"speech\". Giving credit to a music used is fair and doable, but not to the "
+"recording of step sounds, for example, or other minuscule but necessary "
+"files. Please help us spread and create upon your work by releasing it "
+"either in public domain or in GPL - avoid semi-free, non-standard and "
+"multiple-standard licenses. These just end up torturing developers with "
+"pages of sad and unfortunate license disclaimers... such as this."
+msgstr ""
+"Se você é desenvolvedor de conteúdo livre, por favor, considere as "
+"limitações que as várias \"licenças livres\" impõe sobre obras derivadas. "
+"Toneladas (ou melhor, Teras) de conteúdo cultural como imagens, música e "
+"fontes que são \"livres\" não são aproveitáveis em razão de restrições "
+"legais ou práticas (é impossível dar crédito a cada bit de dado que usamos). "
+"Licenças como \"livre para uso pessoal, mas não comercial\", \"livre para "
+"uso, mas não para alterar\" e/ou \"livre para uso, mas não para distribuição"
+"\" prejudicam a liberdade e se equivalem a \"grátis, mas não livre\". Dar "
+"crédito a uma música é justo e praticável, mas não para os sons dos passos, "
+"ou outros arquivos minúsculos, mas necessários. Por favor, publique seu "
+"trabalho em domínio público ou GPL e ajude-nos a divulgar e usar seu "
+"trabalho. Evite licenças semi-livres, sem padrão ou variadas. Elas torturam "
+"desenvolvedores com páginas de lamentáveis considerações sobre licenças... "
+"como esta."
 
-#: interface/menu.py:840
-msgid "If you are a developer of free content, please consider the limitations the varying \"free licenses\" impose on derivative works. Tons (or better yet, Teras) of cultural content, as images, music and fonts that are \"free\" are quite unuseable due to legal and procedural restraints (we just cannot give credit to every bit of data we'll use). \"Free for personnal use, but not commercial\", \"free for use, but not to alter\" and/or \"free for use, but not to distribute\" hinders freedom, and equals \"free as in beer, not as in speech\". Giving credit to a music used is fair and doable, but not to the recording of step sounds, for example, or other minuscule but necessary files. Please help us spread and create upon your work by releasing it either in public domain or in GPL - avoid semi-free, non-standard and multiple-standard licenses. These just end up torturing developers with pages of sad and unfortunate license disclaimers... such as this."
-msgstr "Se você é desenvolvedor de conteúdo livre, por favor, considere as limitações que as várias \"licenças livres\" impõe sobre obras derivadas. Toneladas (ou melhor, Teras) de conteúdo cultural como imagens, música e fontes que são \"livres\" não são aproveitáveis em razão de restrições legais ou práticas (é impossível dar crédito a cada bit de dado que usamos). Licenças como \"livre para uso pessoal, mas não comercial\", \"livre para uso, mas não para alterar\" e/ou \"livre para uso, mas não para distribuição\" prejudicam a liberdade e se equivalem a \"grátis, mas não livre\". Dar crédito a uma música é justo e praticável, mas não para os sons dos passos, ou outros arquivos minúsculos, mas necessários. Por favor, publique seu trabalho em domínio público ou GPL e ajude-nos a divulgar e usar seu trabalho. Evite licenças semi-livres, sem padrão ou variadas. Elas torturam desenvolvedores com páginas de lamentáveis considerações sobre licenças... como esta."
+#: interface/menu.py:850
+msgid ""
+"( If you are an author and want your music out of this game, contact us and "
+"we'll promptly remove it. )"
+msgstr ""
+"(Se você é um autor e quer tirar sua música deste jogo, contate-nos e "
+"removeremos de imediato.)"
 
-#: interface/menu.py:841
+#: interface/menu.py:851
 msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
 msgstr "gostaria de parabenizar ou reclamar? glamour@ocastudios.com"
 
@@ -1280,22 +1995,30 @@ msgstr "Zenóbia"
 
 #~ msgid "bathhouse"
 #~ msgstr "casa de banho"
+
 #~ msgid "dress"
 #~ msgstr "vestidos"
+
 #~ msgid "accessory"
 #~ msgstr "acessórios"
+
 #~ msgid "shoes"
 #~ msgstr "sapatos"
+
 #~ msgid "Options"
 #~ msgstr "Opções"
+
 #~ msgid "done"
 #~ msgstr "pronto"
+
 #~ msgid "... and your name"
 #~ msgstr "... e seu nome"
+
 #~ msgid "And \"Ok\" for the menu."
 #~ msgstr "E \"Ok\" para o menu."
+
 #~ msgid "Welcome to Glamour Game"
 #~ msgstr "Bem Vindo à Versão de Testes do Glamour"
+
 #~ msgid "This is the very first of some pretty cool games of OCA STUDIOS"
 #~ msgstr "Este é o primeiro de alguns jogos da Oca Studios"
-
