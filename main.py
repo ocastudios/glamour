@@ -1,7 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-
 
 import settings
 from settings import splash
@@ -27,4 +25,3 @@ if __name__=="__main__":
 		universe.clock.tick(universe.fps)
 		universe.update_all()
 		pygame.display.flip()
-
