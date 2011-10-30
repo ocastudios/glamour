@@ -343,12 +343,12 @@ class BroomingDust():
 	def update_all(self):
 		if (self.lady.action == 'broom' and self.lady.image_number ==1) or (self.images.number != 0):
 			if self.direction == 'left':
-				self.pos		 = [self.lady.pos[0]-p(194), self.lady.pos[1]+p(38)]
+				self.pos = [self.lady.pos[0]-p(194), self.lady.pos[1]+p(38)]
 				self.image = self.images.left[self.images.number]
 				rect_pos = (self.pos[0]+self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
 			else:
-				self.pos		= [self.lady.pos[0]+p(144), self.lady.pos[1]+p(38)]
-				self.image		= self.images.right[self.images.number]
+				self.pos = [self.lady.pos[0]+p(144), self.lady.pos[1]+p(38)]
+				self.image = self.images.right[self.images.number]
 				rect_pos = (self.pos[0]+p(144)-self.rect_list[self.images.number]['pos'][0],  self.pos[1]+self.rect_list[self.images.number]['pos'][1])
 			rect_rect = self.rect_list[self.images.number]['size']
 			self.rect = pygame.Rect(rect_pos, rect_rect)
