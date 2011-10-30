@@ -369,9 +369,10 @@ class Stage():
 					if i.__class__ not in classes_arround:
 						classes_arround.append(i.__class__)
 		for i in classes_arround:
-			if i.music['weight'] > weight or i.music['sound'] == now_playing:
-				weight = i.music['weight']
-				actual_class = i
+			if i.music:
+				if i.music['weight'] > weight or i.music['sound'] == now_playing:
+					weight = i.music['weight']
+					actual_class = i
 		for i in classes_arround:
 			distance = 1100
 			for ii in enemies_arround:

@@ -6,6 +6,7 @@ import interface.mousepointer as mousepointer
 from settings import *
 import inspect
 import utils
+from settings import directory
 
 class Universe():
 	def __init__(self):
@@ -13,7 +14,6 @@ class Universe():
 		w = int(round(default_resolution[0]*scale))
 		h = int(round(default_resolution[1]*scale))
 		self.clock = pygame.time.Clock()
-		self.main_dir = main_dir
 		self.center_x = int(-3400*scale)
 		self.center_y = 0
 		self.floor = self.height = h

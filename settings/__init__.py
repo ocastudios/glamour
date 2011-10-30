@@ -81,6 +81,10 @@ def d(positions,r=True):
 			return positions/scale
 
 
+#### Translation function ####
+import gettext
+import locale
+
 current_locale, encoding = locale.getdefaultlocale()
 for i in (	directory.personal, 
 			directory.saves, 
@@ -93,11 +97,6 @@ for i in (	directory.personal,
 	except:
 		os.mkdir(i)
 
-#### Translation function ####
-import gettext
-import locale
-
 localization_support = gettext.translation('glamour', directory.locale, [current_locale])
 t = localization_support.ugettext
-
 

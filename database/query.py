@@ -4,7 +4,6 @@ import pygame
 import os
 import db
 import sqlite3
-
 from settings import *
 
 def unlocked(universe, clothe_type=None, field = None, limit_n_random = False):
@@ -27,7 +26,7 @@ def unlocked(universe, clothe_type=None, field = None, limit_n_random = False):
 	return row
 
 def street(universe, street, table):
-	db = sqlite3.connect(os.path.join(main_dir,'data',street+'.db'))
+	db = sqlite3.connect(os.path.join(directory.data,street+'.db'))
 	db.row_factory = sqlite3.Row
 	cursor = db.cursor()
 	result = cursor.execute("SELECT * FROM "+table+" ORDER BY id ASC").fetchall()
