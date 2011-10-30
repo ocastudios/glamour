@@ -2,8 +2,7 @@ import pygame
 import interactive.universe as universe
 from pygame.locals import *
 from sys import exit
-import interactive.stage as stage
-	
+
 
 def main_menu(universe):
 	universe.click = False

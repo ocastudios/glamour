@@ -1,5 +1,6 @@
 import os
 import pygame
+import directory
 
 def welcome():	####temporary hard coded scale ####
 	print "###  Welcome to Glamour  ###"
@@ -78,26 +79,25 @@ def d(positions,r=True):
 			return round(positions/scale)
 		else:
 			return positions/scale
-#### Main directories ####
 
 
-homedir		= os.path.expanduser('~')
-main_dir	= os.path.join('/','home','nelson','glamour')
-data_dir	= os.path.join(main_dir,"data")
-personal	= os.path.join(homedir ,'.glamour')
-saves_dir	= os.path.join(personal, 'saves')
-cache		= os.path.join(personal, 'cache')
-image_cache = os.path.join(personal, 'cache', 'images')
-
-for i in (personal, saves_dir, cache, image_cache):
+current_locale, encoding = locale.getdefaultlocale()
+for i in (	directory.personal, 
+			directory.saves, 
+			directory.cache, 
+			os.path.join(directory.cache,'images'),
+			os.path.join(directory.locale,current_locale)
+			):
 	try:
 		os.listdir(i)
 	except:
 		os.mkdir(i)
 
-
-
 #### Translation function ####
 import gettext
-localization_support = gettext.translation('glamour', os.path.join(main_dir,'locale'))
+import locale
+
+localization_support = gettext.translation('glamour', directory.locale, [current_locale])
 t = localization_support.ugettext
+
+

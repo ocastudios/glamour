@@ -112,10 +112,14 @@ class Item():
 		self.active	 = False
 
 
+
 	def update_all(self):
 		self.click_detection()
 		if self.room.chosen_item==self:
 			self.room.chosen_glow.update_all()
+		elif not self.room.chosen_item:
+			if database.query.my_outfit(self.universe,'princess_garment')[self.type] == self.type+"_"+self.name:
+				self.room.chosen_item = self 
 
 	def click_detection(self):
 		if self.rect.colliderect(self.universe.pointer.rect):
@@ -129,7 +133,6 @@ class Item():
 
 class Princess_Home():
 	def __init__(self, universe, princess=None):
-		print "Creating Princess Home: "+ princess['name']
 		princess_name = princess["name"].lower()
 		self.name			= princess_name
 		self.type_of_items = 'fairy_tale'

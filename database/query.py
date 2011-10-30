@@ -7,8 +7,6 @@ import sqlite3
 
 from settings import *
 
-
-
 def unlocked(universe, clothe_type=None, field = None, limit_n_random = False):
 	type_to_select = ""
 	if clothe_type:
@@ -33,7 +31,6 @@ def street(universe, street, table):
 	db.row_factory = sqlite3.Row
 	cursor = db.cursor()
 	result = cursor.execute("SELECT * FROM "+table+" ORDER BY id ASC").fetchall()
-	cursor.close()
 	return result
 
 def message(universe, name, one = False):
@@ -42,7 +39,6 @@ def message(universe, name, one = False):
 		result = cursor.execute("SELECT * FROM messages WHERE name = '"+name+"'").fetchall()
 	else:
 		result = cursor.execute("SELECT * FROM messages WHERE name = '"+name+"'").fetchone()
-	cursor.close()
 	return result
 
 def is_locked(universe,clothe_type,garment):
@@ -60,7 +56,6 @@ def is_locked(universe,clothe_type,garment):
 def is_beaten(universe,enemy):
 	cursor = universe.db_cursor
 	result = cursor.execute("SELECT "+enemy+" FROM stage_enemies WHERE stage = 'Beaten'").fetchone()
-	cursor.close()
 	if int(result[0])>0:
 		return True
 	else:
@@ -70,27 +65,23 @@ def last_balls(universe):
 	cursor  = universe.db_cursor
 	sql	 = "SELECT * FROM princess_garment ORDER BY id DESC LIMIT 3 OFFSET 1"
 	result = cursor.execute(sql).fetchall()
-	cursor.close()
 	return result
 	
 def my_outfit(universe, princess, previous=0):
 	cursor  = universe.db_cursor
 	sql	 = "SELECT * FROM "+princess+" WHERE id = (SELECT MAX(id) FROM "+princess+")-"+str(previous)
 	result  = cursor.execute(sql).fetchone()
-	cursor.close()
 	return result
 
 def am_i_dirt(universe):
 	cursor  = universe.db_cursor
 	result  = cursor.execute("SELECT * FROM save").fetchone()['dirt']
-	cursor.close()
 	return result
 
 def different_hairs_used(universe):
 	cursor	= universe.db_cursor
 	sql		= "SELECT DISTINCT hair FROM princess_garment"
 	result	= cursor.execute(sql).fetchall()
-	cursor.close()
 	return len(result)
 
 def beaten_enemies(universe):
@@ -101,14 +92,12 @@ def beaten_enemies(universe):
 	for i in ('schnauzer','old_lady', 'lion', 'viking_ship','footboy'):
 		if result[i]:
 			count += 1
-	cursor.close()
 	return count
 
 def won(universe):
 	cursor	= universe.db_cursor
 	sql		= "SELECT won FROM save LIMIT 1"
 	result	= cursor.execute(sql).fetchone()
-	cursor.close()
 	if int(result[0])>0:
 		return True
 	else:

@@ -210,7 +210,7 @@ class Message():
 		self.pos		= ((universe.width - self.size[0])/2, universe.height-self.size[1])
 		self.text_box	= self.size[0]*.8,self.size[1]*.8
 		self.font_size	= p(14)
-		self.text_font	= pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),self.font_size)
+		self.text_font	= pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),int(self.font_size))
 		self.color		= (0,0,0,0)
 		self.image.blit(utils.text.in_box('FreeSans.ttf', self.font_size, self.text_box, self.image, message, {'top':50,'left':80,'bottom':40,'right':80}),self.pos)
 		self.button	 = self.button or widget.Button(self.universe, directory.button_ok,(1200,800),[0,0],self.end_message)

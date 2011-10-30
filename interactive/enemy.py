@@ -13,10 +13,12 @@ class Schnauzer():
 	"""Schnauzer is a dog enemy. 
 	It is kinda dirty, so the princess cannot let him touch her.
 	It runs after the princess and should not be able to fall in the sewers"""
-	music   = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5}
-	bow	 = pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg'))
+	music   = None
+	bow	 = None
 	def __init__(self, pos, universe, margin=p([20,20,20,20])):
 		print "Creating Schnauzer..."
+		self.music	= self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
+		self.bow	= self.bow or pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
 		self.universe = universe
 		self.center_distance = pos
 		for i in ['kissed', 'walk', 'stay']:
@@ -36,7 +38,7 @@ class Schnauzer():
 		self.barfing		= 0
 		self.lookside		= 0
 		self.beaten		= database.query.is_beaten(self.universe,'schnauzer')
-		print "Done."
+
 
 	def barf(self):
 		if self.barfing == 1:
@@ -115,12 +117,12 @@ class Schnauzer():
 		images.update_number()
 
 class Carriage():
-	music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
-			'weight':6,
-			'playing':False}
-
+	music = None
 	def __init__(self, pos, universe,margin=p([10,10,10,10])):
 		print "Creating Carriage..."
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
+			'weight':6,
+			'playing':False} 
 		self.universe = universe
 		self.center_distance = pos
 		self.speed = p(3)
@@ -141,7 +143,7 @@ class Carriage():
 		self.gotkissed = 0
 		self.image_number = 0
 		self.locked = database.query.is_locked(self.universe,'dress','kimono')
-		print "done."
+
 
 	def update_all(self):
 		self.move = True
@@ -169,13 +171,15 @@ class Carriage():
 
 
 class Butterfly():
-	music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
-			'weight':1,
-			'playing':False}
-	walk = utils.img.TwoSided(os.path.join(directory.enemies,'Butterfly','walk'))
+	music	= None
+	walk	= None
 	_registry = []
 	def __init__(self, pos, universe):
 		print "Creating Butterfly"
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
+			'weight':1,
+			'playing':False} 
+		self.walk = utils.img.TwoSided(os.path.join(directory.enemies,'Butterfly','walk'))
 		self._registry.append(self)
 		self.height = p(random.randint(300,600))
 		self.up_direction = 'going_down'
@@ -190,7 +194,7 @@ class Butterfly():
 		self.direction = random.choice(['left','right'])
 		self.rect = pygame.Rect(((self.pos[0]+(self.size[0]/4)),(self.universe.level.floor-self.pos[1]+(self.size[1]/4))),(self.size))
 		self.gotkissed = 0
-		print "done."
+
 
 	def update_all(self):
 		self.set_pos()
@@ -220,11 +224,11 @@ class Butterfly():
 
 
 class OldLady():
-	music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')),
-			 'weight':3}
-	
+	music = None
+
 	def __init__(self, pos, universe,margin=p([10,10,10,10])):
 		print "Creating Old Lady"
+		self.music = self.music or{'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
 		self.center_distance = pos
 		self.walk   = utils.img.TwoSided(os.path.join(directory.enemies,'OldLady','walk'),margin)
 		self.wave   = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','hover'),margin)
@@ -750,10 +754,11 @@ class VikingShip():
 	It's base image is included between the waters by the function that places the waters.
 	The other images are included here"""
 
-	music = {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
-			 'weight':5}
+	music = None 
 	def __init__(self, universe):
 		print "Creating Viking Ship"
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
+			 'weight':5}
 		self.universe = universe
 		self.base = utils.img.TwoSided(os.path.join(directory.enemies,'VikingShip','base'))
 		sailor_body = utils.img.image(os.path.join(directory.enemies,'VikingShip','viking_sailor','body','0.png'))
@@ -818,7 +823,7 @@ class VikingShip():
 		self.talk_balloon_rect = pygame.Rect((0,0),(0,0))
 		self.balloon = Balloon(self, brand = 'talk', pos_x = self.D[self.direction]['talk'][0], pos_y = self.D[self.direction]['talk'][1])
 		self.beaten = database.query.is_beaten(self.universe,'viking_ship')
-		print "done."
+
 
 	def update_all(self):
 		#take the balloon off the way, for it hurts the princess
@@ -929,7 +934,7 @@ class VikingShip():
 class VikingPart():
 	music = None
 	def __init__(self, ship, part, pos_x = 0, pos_y = 0):
-		print "Creating Viking part: "+part
+		print "	creating Viking part: "+part
 		self.pos_x  = p(pos_x,r=False)
 		self.pos_y  = p(pos_y,r=False)
 		self.ship = ship
@@ -987,11 +992,13 @@ class Balloon():
 
 
 class FootBoy():
-	music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
-			'weight':4,
-			'playing':False}
+	music = None
 	def __init__(self, pos, universe):
 		print 'Creating Fabrizio'
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
+			'weight':4,
+			'playing':False}
+		
 		self.center_distance = pos
 		self.running = utils.img.There_and_back_again(
 						os.path.join(directory.enemies,'FootBoy','walk_body','first_cycle'),
@@ -1018,7 +1025,6 @@ class FootBoy():
 		self.rect = pygame.Rect((self.pos[0]+self.size[0],self.pos[1]),self.size)
 		self.universe.level.enemies.append(FootBall(random.randint(int(p(4000)),int(p(6000))), self))
 		self.beaten = database.query.is_beaten(self.universe,'footboy')
-		print "done."
 
 	def update_all(self):
 		if self.direction == 'left':
@@ -1235,11 +1241,12 @@ class Bird():
 
 
 class Hawk():
-	music = {'sound': pygame.mixer.Sound(os.path.join(directory.music,'hawk.ogg')),
-			'weight': 2,
-			'playing':False}
+	music = None 
 	def __init__(self, pos, universe, bird):
 		print 'Creating Hawk'
+		self.music = self.music or {'sound': pygame.mixer.Sound(os.path.join(directory.music,'hawk.ogg')),
+			'weight': 2,
+			'playing':False} 
 		self.bird = bird
 		self.center_distance = pos[0]
 		self.flying	 = utils.img.There_and_back_again(os.path.join(directory.enemies,'Hawk','fly'))

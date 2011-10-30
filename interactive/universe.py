@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pygame
-import interactive.stage as stage
 import os
 import interface.menu as menu
 import interface.mousepointer as mousepointer
@@ -48,8 +47,16 @@ class Universe():
 	def update_all(self):
 		self.pointer.update()
 		self.level.update_all()
-		if (self.LEVEL == 'menu' and self.level.__class__ != menu.Menu) or (self.LEVEL == 'game' and self.level.__class__ != stage.Stage):
+		if self.LEVEL == 'menu' and self.level.__class__ != menu.Menu:
 			self.define_level()
+		if self.LEVEL == 'game':
+			try:
+				stage
+			except:
+				global stage
+				import interactive.stage as stage
+			if self.level.__class__ != stage.Stage:
+				self.define_level()
 
 
 	def define_level(self):

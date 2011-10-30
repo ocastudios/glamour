@@ -78,8 +78,6 @@ class Princess():
 		self.debuginside	=   0
 		self.visited_streets = []
 		self.locked = database.query.is_locked(self.universe,'shoes','boots')
-		print "princess created"
-		print "done."
 
 	def ordered_directory_list(self, action):
 		odl = []

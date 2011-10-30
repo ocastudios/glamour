@@ -2,10 +2,8 @@ import utils
 import pygame
 import os
 import settings
-import gc
 from settings import directory
 from settings import p
-import subprocess
 
 
 

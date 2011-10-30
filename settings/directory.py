@@ -7,8 +7,8 @@ personal		= j(homedir,'.glamour')
 saves			= j(personal,'saves')
 cache			= j(personal, 'cache')
 
-main			= j('/','home','nelson','glamour')
-
+main			= os.getcwd()
+locale			= j(main,'locale')
 
 
 data			= j(main,'data')

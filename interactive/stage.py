@@ -155,7 +155,6 @@ class Stage():
 
 	def update_unlocking(self):
 		if self.unlocking:
-			print self.unlocking
 			if not self.princesses[0].inside:
 				for i in self.unlocking['list']:
 					i.update_all()
@@ -400,7 +399,7 @@ class Stage():
 						self.enemy_channel.set_volume(present_volume-0.05)
 					else:
 						self.enemy_channel.set_volume(volume)
-				if 1-volume < 0.8:
+				if 1-volume < 0.6:
 					present_volume = pygame.mixer.music.get_volume()
 					if (1-volume)-present_volume > .05:
 						pygame.mixer.music.set_volume(present_volume +.05)
@@ -946,7 +945,7 @@ class Pause():
 			'hair_snowwhite':		[p((350, 412)),	t("Snow White's hairstyle, earned for visiting her.")],
 			'hair_yellow':			[p((460, 412)),	t("The blonde hairstyle, unlocked from the start.")],
 			'shoes_boots':			[p((570, 412)),	t("The go-go boots, earned by crossing the drains clean.")],
-			'shoes_crystal':		[p((680, 412)),	t("The glass sandals, earned for wearing the outfit in the ending.")],
+			'shoes_crystal':		[p((680, 412)),	t("The glass slippers, earned for wearing the outfit in the ending.")],
 			'shoes_flower':			[p((790, 412)),	t("The flower sandals, earned for visiting all streets in one day.")],
 			'shoes_red':			[p((900, 412)),	t("The red shoes, unlocked from the start.")],
 			'shoes_slipper':		[p((1010,412)),	t("The slippers, unlocked from the start.")],

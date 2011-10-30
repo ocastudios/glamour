@@ -30,10 +30,13 @@ class Water(Floor):
 	min	= p(95,r=False)
 	speed = [2,1]
 	direction = 'up'
+	sound = pygame.mixer.Sound(os.path.join(settings.directory.sounds,'scenario','water','Wavesloop.ogg'))
 
 	def set_pos(self):
 		self.pos = [self.universe.center_x+(self.center_distance),self.universe.floor-self.size[1]]
 	def update_all(self):
+		if self.sound.get_num_channels() ==  0:
+			self.sound.play()
 		self.center_distance += self.speed[0]
 		if self.direction == 'up':
 			self.height += self.speed[1]

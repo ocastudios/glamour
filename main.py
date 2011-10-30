@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
+
 import settings
 from settings import splash
 settings.splash.splash_image()
@@ -9,7 +10,6 @@ settings.initialize_mixer()
 import pygame
 pygame.init()
 
-import interface.menu
 import interactive.universe as universe
 import interface.menu as menu
 import control
@@ -27,3 +27,4 @@ if __name__=="__main__":
 		universe.clock.tick(universe.fps)
 		universe.update_all()
 		pygame.display.flip()
+

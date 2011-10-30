@@ -120,6 +120,7 @@ class Ball():
 			self.counter += 1
 
 	def compute_glamour_points(self,universe):
+		print "### We're at the ball. Let's count glamour points ###"
 		garments= ('face','shoes','dress','accessory')
 		cursor = universe.db_cursor
 		princess_rows = cursor.execute("SELECT * FROM princess_garment").fetchall()
@@ -141,29 +142,52 @@ class Ball():
 				others_garments["this_ball"].append(row[len(row)-1][item])
 				others_garments["last_ball"].append(row[len(row)-2][item])
 
-
-		print "Others Garments "+str(others_garments["this_ball"])
-		print "Princess Garments"+str(princess_garments["this_ball"])
-
-		present_repetitions = sum([others_garments["this_ball"].count(i) for i in princess_garments["this_ball"]])
-		last_ball_garments  = others_garments["last_ball"]+princess_garments["last_ball"]
+		present_repetitions	= sum([others_garments["this_ball"].count(i) for i in princess_garments["this_ball"]])
+		last_ball_garments	= others_garments["last_ball"]+princess_garments["last_ball"]
 		past_repetitions	= sum([last_ball_garments.count(i) for i in princess_garments["this_ball"]])
-		garments_history	= princess_rows[:-1]+fairy_tale_rows
-		number_of_balls	 = len(princess_rows)
-		history_repetitions = sum([garments_history.count(i) for i in princess_garments["this_ball"]])
+		my_garments_history	= []
+		for item in garments:
+			my_garments_history += [i[item] for i in princess_rows[:-1] ]
 
-		print "The total repetition points for the garments in this ball is "+ str(present_repetitions)
-		print "The total repetition points for the garments last ball is "+ str(past_repetitions)
-		print "Fashion points is equal to 34 - 3*repetition_points - past_repetition_points"
-		fashion = 34-(3*present_repetitions)-(past_repetitions)
+		number_of_balls		= len(princess_rows)
+		history_repetitions = sum([my_garments_history.count(i) for i in princess_garments["this_ball"]])
+
+		#Princess will be given:
+		#	up to 30 points for fashion    (not repeating clothes the last balls)
+		#	up to 30 penalty points for dirty
+		#	up to 20 points for creativity (not repeating clothes at all)
+
+		#Fashion Points
+		print "Fashion points is equal to 30 - 3*repetition_points - past_repetition_points"
+		fashion		= 30 - (3*present_repetitions) - (past_repetitions)
 		print "Your total Fashion points is " + str(fashion)
-		dirty   = (fashion * save_row['dirt'])/3
+
+		#Dirt Penalty
+		# Penalty only over fashion points:
+		# dirty		= (fashion * save_row['dirt'])/3
+		# Penalty over everything
+		dirty = save_row['dirt']*10
 		print "Your total Dirt points is "+ str(dirty)
-		creativity = fashion*(.5-(history_repetitions/number_of_balls))
+
+		#Creativity Points
+		if number_of_balls > 1:
+			creativity	= 20 - (5 *(history_repetitions / (number_of_balls-1)))
+		else:
+			creativity	= 0
 		print "Youtr total creativity points is " + str(creativity)
-		glamour_points = fashion-dirty+creativity
+		glamour_points = fashion+creativity-dirty
+		if glamour_points < 0:
+			glamour_points = 0
+		#check for fraud
+		if  number_of_balls > 2 \
+		and save_row['dirt'] < 3\
+		and princess_garments['this_ball'] == princess_garments['last_ball']:
+			glamour_points = 0
+			print "Did you try visiting other streets to renew your outfit?"
+			print "	You cannot earn glamour points unless you visit other streets in order to update your outfit."
+			print "	Sorry. No adventure, no glamour points."
+
 		print "YOUR TOTAL GLAMOUR POINTS THIS BALL IS "+ str(glamour_points)+" !!!!"
-		print "Now I am going to save your points"
 		print "YOU HAVE ACCUMULATED A TOTAL OF " +str(accumulated_points+glamour_points)+" glamour points."
 		save_table = cursor.execute("SELECT * FROM save").fetchone()
 		past_glamour_points = save_table['points']
@@ -173,7 +197,7 @@ class Ball():
 		cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
 		stage_list		   = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
-		print "Preparing the new set of enemies for each stage"
+		print "Preparing a new set of enemies for each stage"
 		for stage in stage_list:
 			general_enemies_list = ['schnauzer', 'carriage','butterfly','old_lady','viking_ship','footboy','bird']
 			print "Removing enemies from "+stage
@@ -402,38 +426,28 @@ class BoyFriend():
 	def __init__(self, universe, points):
 		print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
 		boyfriend = None
-		if points >= 30:
-			boyfriend = "gentleman_decent"
-			self.name = t('Gentleman Decent')
-		if points >= 65:
-			boyfriend = "knight_reliable"
-			self.name = t('Knight Reliable')
-		if points >= 105:
-			boyfriend = "baron_serious"
-			self.name = t('Baron Serious')
-		if points >= 175:
-			boyfriend = "count_loving"
-			self.name = t('Count Loving')
-		if points >= 255:
-			boyfriend = "marquess_attractive"
-			self.name = t('Marquess Attractive')
-		if points >= 345:
-			boyfriend = "duke_intelligent"
-			self.name = t('Duke Intelligent')
-		if points >= 465:
-			boyfriend = "prince_charming"
-			self.name = t('Prince Charming')
-		if points >= 685:
-			boyfriend = "king_kindhearted"
-			self.name = t('King Kindhearted')
-		if points >= 1000:
+		boyfriend_rank = (	[  30,  70,		'gentleman_decent', t('Gentleman Decent')],
+							[  70, 110,		'knight_reliable', t('Knight Reliable')],
+							[ 110, 150,		'baron_serious', t('Baron Serious')],
+							[ 150, 200,		'count_loving', t('Count Loving')],
+							[ 200, 250,		'marquess_attractive', t('Marquess Attractive')],
+							[ 250, 350,		'duke_intelligent', t('Duke Intelligent')],
+							[ 350, 500,		'prince_charming', t('Prince Charming')],
+							[ 500, 700,		'emperor_awesome', t('emperor_awesome')])
+		for i in boyfriend_rank:
+			if points in range(i[0], i[1]):
+				boyfriend = i[2]
+				self.name = i[3]
+		if boyfriend == 'emperor_awesome':
 			if database.query.won(universe):
 				boyfriend = "fabrizio"
 				self.name = "Fabrizio"
 			else:
 				boyfriend = "emperor_awesome"
 				self.name = t('Emperor Awesome')
+
 		print "The heart of "+boyfriend+" is yours!"
+
 		self.hard_name = boyfriend
 		self.image= utils.img.image(os.path.join(directory.boyfriends,boyfriend,'0.png'))
 		self.pos = p([1000,298])
@@ -453,12 +467,12 @@ class BigPrincess():
 class NewDancer():
 	square = (p([400,800],r=False),p([100,500],r=False))
 	steps = itertools.cycle(['a','b','c','d'])
-	boyfriend_list = ["gentleman_decent", 
-				  "knight_reliable", 
-				  "baron_serious", 
-				  "count_loving", 
-				  "marquess_attractive", 
-				  "duke_intelligent"]
+	boyfriend_list = [	"gentleman_decent", 
+						"knight_reliable", 
+						"baron_serious", 
+						"count_loving", 
+						"marquess_attractive", 
+						"duke_intelligent"]
 	
 	def __init__(self,universe, princess_name= None, boyfriend = None):
 		princess_directory  = directory.princess

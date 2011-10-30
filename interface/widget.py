@@ -102,8 +102,8 @@ class GameText():
 		self.frame_pos = frame_pos
 		self.text	   = text
 		self.color	  = color
-		self.fontA	  = pygame.font.Font(main_dir+'/data/fonts/'+fonte,int(round(font_size)))
-		self.fontB	  = pygame.font.Font(main_dir+'/data/fonts/'+second_font,int(round(font_size+(font_size/3))))
+		self.fontA	  = pygame.font.Font(os.path.join(directory.fonts,fonte),int(round(font_size)))
+		self.fontB	  = pygame.font.Font(os.path.join(directory.fonts,second_font),int(round(font_size+(font_size/3))))
 		self.position   = pos
 		if box:
 			self.box	= pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
@@ -234,18 +234,16 @@ class Key(GameText):
 						menu.princess.name.text = menu.princess.name.text[:-1]
 					elif self.key == 'Cleanup':
 						menu.princess.name.text = ""
-						
-						
-#Alteracao nao testada
 					elif self.key == 'Random':
 						menu.princess.name.text = random.choice(random_names.names)
-						saved_games = os.listdir(main_dir+'/data/saves')
+						saved_games = os.listdir(directory.saves)
 						counting = 0
-						while menu.princess.name.text in saved_games:
-							print "Oh, oh, this name is taken. I'd better choose another one for u"
-							counting += 1
-							menu.princess.name.text = random.choice(random_names.names)
-							if counting >500:
+						while True:
+							if menu.princess.name.text in saved_games:
+								print "Oh, oh, this name is taken. I'd better choose another one for u"
+								counting += 1
+								menu.princess.name.text = random.choice(random_names.names)
+							else:
 								break
 			else:
 				self.hoover = False
