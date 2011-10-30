@@ -177,7 +177,6 @@ class Butterfly():
 		self.rect = pygame.Rect(((self.pos[0]+(self.size[0]/4)),(universe.level.floor-self.pos[1]+(self.size[1]/4))),(self.size))
 		self.gotkissed = 0
 
-
 	def update_all(self):
 		self.set_pos()
 		self.set_image()
@@ -1046,7 +1045,9 @@ class FootBall():
 				self.footboy.direction = 'right'
 		if speed:
 			self.speed -= 1
-			self.image = self.images.__dict__[self.direction][self.images.itnumber.next()]
+			backwards = True if (self.direction=='left') else False
+			self.images.update_number(backwards)
+			self.image = self.images.left[self.images.number]
 		self.center_distance += speed*direction[self.direction]
 		self.pos[0] =  self.footboy.universe.center_x + self.center_distance
 		floor = (self.universe.floor - self.universe.level.what_is_my_height(self)) - (self.size[1])

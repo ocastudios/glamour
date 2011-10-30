@@ -25,11 +25,17 @@ Margin may be used to better program interaction during the game. Margin default
 			self.size   = self.left[0].get_size()
 		self.itnumber = cycle(range(self.lenght))
 
-	def update_number(self):
-		if self.number < self.lenght -1:
-			self.number +=1
+	def update_number(self, backwards = False):
+		if not backwards:
+			if self.number < self.lenght -1:
+				self.number +=1
+			else:
+				self.number = 0
 		else:
-			self.number = 0
+			if self.number > 0:
+				self.number -= 1
+			else:
+				self.number = self.lenght -1
 
 	def til_the_end(self):
 		if self.number < self.lenght -1:
@@ -160,11 +166,18 @@ class MultiPart():
 		if loading:
 			loading()
 
-	def update_number(self):
-		if self.number < self.lenght -1:
-			self.number += 1
+	def update_number(self, backwards = False):
+		if not backwards:
+			if self.number < self.lenght -1:
+				self.number +=1
+			else:
+				self.number = 0
 		else:
-			self.number = 0
+			if self.number > 0:
+				self.number -= 1
+			else:
+				self.number = self.lenght -1
+
 
 class Ad_hoc():
 	def __init__(self,left_images, right_images,margin=[0,0,0,0]):
@@ -177,11 +190,17 @@ class Ad_hoc():
 			self.size   = self.left[0].get_size()
 		self.itnumber = cycle(range(self.lenght))
 
-	def update_number(self):
-		if self.number < self.lenght -1:
-			self.number +=1
+	def update_number(self, backwards = False):
+		if not backwards:
+			if self.number < self.lenght -1:
+				self.number +=1
+			else:
+				self.number = 0
 		else:
-			self.number = 0
+			if self.number > 0:
+				self.number -= 1
+			else:
+				self.number = self.lenght -1
 
 	def til_the_end(self):
 		if self.number < self.lenght -1:
