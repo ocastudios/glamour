@@ -1,0 +1,2116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-21 18:57-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: interactive/stage.py:701
+msgid "Bathhouse St"
+msgstr ""
+
+#: interactive/stage.py:730
+msgid "Dress St"
+msgstr ""
+
+#: interactive/stage.py:746
+msgid "Accessory St"
+msgstr ""
+
+#: interactive/stage.py:772
+msgid "Makeup St"
+msgstr ""
+
+#: interactive/stage.py:805
+msgid "Shoes St"
+msgstr ""
+
+#: interactive/stage.py:901
+msgid "Resume"
+msgstr ""
+
+#: interactive/stage.py:904
+msgid "Quit"
+msgstr ""
+
+#: interactive/stage.py:907
+msgid "Game Paused"
+msgstr ""
+
+#: interactive/stage.py:908
+msgid "Check your closet"
+msgstr ""
+
+#: interactive/stage.py:918
+msgid "The beret accessory, earnd for jumping with the penguin."
+msgstr ""
+
+#: interactive/stage.py:919
+msgid "The crown accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:920
+msgid "The shades accessory, earned after trampling 20 chicks."
+msgstr ""
+
+#: interactive/stage.py:921
+msgid "The mask, earned for debuting three hairstyles in balls."
+msgstr ""
+
+#: interactive/stage.py:922
+msgid "The purse accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:923
+msgid "The ribbon accessory, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:924
+msgid "The indian dress, earned for dressing as a geisha."
+msgstr ""
+
+#: interactive/stage.py:925
+msgid "The kimono, earned for being crossed by the carriage."
+msgstr ""
+
+#: interactive/stage.py:926
+msgid "The pink dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:927
+msgid "The red dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:928
+msgid "The simple dress, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:929
+msgid "The yellow dress, earned for beating all kinds of enemies."
+msgstr ""
+
+#: interactive/stage.py:930
+msgid "The eyelids make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:931
+msgid "The eyeshades make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:932
+msgid "The geisha look, earned for bathing while clean."
+msgstr ""
+
+#: interactive/stage.py:933
+msgid "The indian look, earned for kissing the lion."
+msgstr ""
+
+#: interactive/stage.py:934
+msgid "The lipstick make-up, earned for entering your own castle."
+msgstr ""
+
+#: interactive/stage.py:935
+msgid "The simple make-up, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:936
+msgid "The black hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:937
+msgid "The braid and tail hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:938
+msgid "The brown hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:939
+msgid "Cinderella's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:940
+msgid "The geisha hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:941
+msgid "Rapunzel's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:942
+msgid "The rastafari hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:943
+msgid "The red hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:944
+msgid "The short hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:945
+msgid "Sleeping Beauty's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:946
+msgid "Snow White's hairstyle, earned for visiting her."
+msgstr ""
+
+#: interactive/stage.py:947
+msgid "The blonde hairstyle, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:948
+msgid "The go-go boots, earned by crossing the drains clean."
+msgstr ""
+
+#: interactive/stage.py:949
+msgid "The glass sandals, earned for wearing the outfit in the ending."
+msgstr ""
+
+#: interactive/stage.py:950
+msgid "The flower sandals, earned for visiting all streets in one day."
+msgstr ""
+
+#: interactive/stage.py:951
+msgid "The red shoes, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:952
+msgid "The slippers, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:953
+msgid "The white shoes, unlocked from the start."
+msgstr ""
+
+#: interactive/stage.py:998
+msgid "This garment is locked"
+msgstr ""
+
+#: interactive/messages.py:9
+msgid ""
+"Look, it's a small BIRDY! It's so small and so cute... it also sings oh so "
+"happy. Don't you bother it much, though... it won't like it."
+msgstr ""
+
+#: interactive/messages.py:10
+msgid ""
+"Oh, oh! Look... BUTTERFLIES! Have you ever seen anything oh so pretty? Don't "
+"you waste too much time celebrating their beauty, though - we have a ball to "
+"attend."
+msgstr ""
+
+#: interactive/messages.py:11
+msgid ""
+"Well, the path is blocked by a CARRIAGE. They are beautiful transportation, "
+"all right, but are oh so slow... maybe we ought to find another path."
+msgstr ""
+
+#: interactive/messages.py:12
+msgid ""
+"Look, a baby loxodonta africana! Well, most people would just call it an "
+"ELEPHANT. It's oh so rude. They are cute, intelligent animals with the "
+"niftiest ears."
+msgstr ""
+
+#: interactive/messages.py:13
+msgid ""
+"Oh, sheesh! There goes Fabrizio and his soccer ball. BOYS are so careless "
+"when they're playing. Watch out or he may get you dirty."
+msgstr ""
+
+#: interactive/messages.py:14
+msgid ""
+"A giraffa camelopardalis! People thought they were legend, and you can "
+"totally see why: so many dots, so many horns and oh so much neck. GIRAFFES "
+"are kinda cute, don't you think?"
+msgstr ""
+
+#: interactive/messages.py:15
+msgid ""
+"My, oh my! You disturbed that fellow birdy, didn't you? Now here comes her "
+"MOMMY BIRD and she's not happy... would you care to run?"
+msgstr ""
+
+#: interactive/messages.py:16
+msgid ""
+"Oh, I just love panthera leos - or LIONS, if you must. They are just big, "
+"fat, cute kittys for me, but I guess you people are oh so scared of them, "
+"right? Maybe a little kindness would help."
+msgstr ""
+
+#: interactive/messages.py:17
+msgid ""
+"Watch out for that green, furry little kid up there! Oh, it's a MONKEY, you "
+"say? He seems not nice. I wonder why he has so many bananas..."
+msgstr ""
+
+#: interactive/messages.py:18
+msgid ""
+"Oh, it's MRS KLEENER. It's oh so nice to see someone cleaning and taking "
+"care of things. She deserves a kiss, but watch out for the dust."
+msgstr ""
+
+#: interactive/messages.py:19
+msgid ""
+"Hey, what's that? Oh it is a fat, cute flightless bird. They call it a "
+"PENGUIN - it's a smart, friendly, stable and virus free bird with lots of "
+"great open software avaiable. Wait, am I confusing the bird with the OS? Ah, "
+"whatever, both are just great!"
+msgstr ""
+
+#: interactive/messages.py:20
+msgid ""
+"Oh, what a cute little fellow, that dog! Wait, it's also appears oh so mad. "
+"SCHNAUZERS may be a little angry, but they sure love a little kindness."
+msgstr ""
+
+#: interactive/messages.py:21
+msgid ""
+"My, oh my! A VIKING SHIP! The old norse would travel anywhere on these, but "
+"you wouldn't want to listen to their filthy language. They don't care much "
+"for kindness or cuteness either, so why won't we just leave, uh? Please?"
+msgstr ""
+
+#: interactive/messages.py:25
+msgid ""
+"Look, princess, it's a BATHHOUSE! When you get dirty, you should come here "
+"to clean yourself. You wouldn't want to attend the ball filthy, would you?"
+msgstr ""
+
+#: interactive/messages.py:26
+msgid ""
+"Wow! Don't you just love accessories? Here, in the ACCESSORY HALL, you'll be "
+"able to decorate yourself up so you look astonishing. Many people here "
+"prefer swords and shields, but as for me, I think strenght lies on cute "
+"ribbons and cool shades."
+msgstr ""
+
+#: interactive/messages.py:27
+msgid ""
+"This is CINDERELLA'S CASTLE. It is oh so big and classy. Let's go inside say "
+"hello, and maybe ask what she will wear to the next ball. It is always bad "
+"to show up with the same clothes."
+msgstr ""
+
+#: interactive/messages.py:28
+msgid ""
+"Eew! These DRAINS take away the dirty water, leaving streets dry and clean. "
+"Please don't bathe on that water, or you'll get filthy. Be careful!"
+msgstr ""
+
+#: interactive/messages.py:29
+msgid ""
+"All girls dream of coming to the DRESS TOWER. Here you will find all sorts "
+"of chic and marvelous dresses. Bet you'll take your time checking them out, "
+"right?"
+msgstr ""
+
+#: interactive/messages.py:30
+msgid ""
+"This is a GATEWAY, connecting different streets on the city. Don't forget to "
+"use them to visit every street you can. Oh, it is just so exciting to visit "
+"new places!"
+msgstr ""
+
+#: interactive/messages.py:31
+msgid ""
+"Well, as you know, this is YOUR CASTLE. You may return here if you are "
+"really impatient to go to the ball, and also to see what were you wearing "
+"last night, so you don't repeat yourself."
+msgstr ""
+
+#: interactive/messages.py:32
+msgid ""
+"Princess, look! That's my favourite building - the MAGIC BEAUTY SALON! At "
+"it, you'll be able to change haircuts, and even skin tone. I don't really "
+"know how they do it... maybe that's why it's magical. It won't help you earn "
+"any glamour, though."
+msgstr ""
+
+#: interactive/messages.py:33
+msgid ""
+"I just love make-up, but you totally can't tell, right? That's because I get "
+"it on the MAKE-UP TOWER, where all cosmetics are oh so great and magical! "
+"You can look like another person with them, but you young girls don't even "
+"need it, do you?"
+msgstr ""
+
+#: interactive/messages.py:34
+msgid ""
+"That's RAPUNZEL'S VILLA. She prefer ground buildings after all those towers "
+"incidents, you know? I totally envy her hair, but I guess we could drop by "
+"and say hello."
+msgstr ""
+
+#: interactive/messages.py:35
+msgid ""
+"My oh my, look at those shoes! I know I can fly, but I like style and "
+"fashion too, you know? I wouldn't mind if you decided to spend some quality "
+"time in the SHOE'S SHOP, really. You can thank me later."
+msgstr ""
+
+#: interactive/messages.py:36
+msgid ""
+"If this is SLEEPING BEAUTY'S PALACE, you ask? Of course, but you can call "
+"her Talia. You can tell she's oh so elegant and chic by her home, can't you? "
+"Let's go in - maybe she has some tips on what you should wear."
+msgstr ""
+
+#: interactive/messages.py:37
+msgid ""
+"Isn't SNOW WHITE'S CASTLE oh so cute and cozy? Let's go meet her, for she is "
+"my favourite princess in the whole world... except for you dearie, of course."
+msgstr ""
+
+#: interactive/messages.py:38
+msgid ""
+"Look, look, a ZOO! Oh, I just love to see all kinds of animals that share "
+"this world with us. They are oh so cute and lovely. I'd prefer if they were "
+"free in the wild, but then I wouldn't get to see them, I suppose. Keep your "
+"eyes on them."
+msgstr ""
+
+#: interactive/messages.py:42
+msgid ""
+"Ouch! Look, princess, you and your dress are now a little dirty. Getting to "
+"the ball dirty will make you lose some glamour, so try to keep yourself... "
+"higienic, ok?"
+msgstr ""
+
+#: interactive/messages.py:43
+msgid ""
+"Watch out, dearie! You got even dirtier, and I would suggest you cleaned "
+"yourself up before the ball, ok? Why don't you look for the Bathhouse?"
+msgstr ""
+
+#: interactive/messages.py:44
+msgid ""
+"Come on, princess! You are now as dirty as it gets. Going to the ball like "
+"this would be oh so embarassing. No way... uh, uh. Go take a bath and stop "
+"getting filthy my little piggy princess."
+msgstr ""
+
+#: interactive/messages.py:45
+msgid ""
+"You can save your game by pausing and selecting the Save Game option. Neat, "
+"huh? This way you can resume from where you left off, and keep you glamour "
+"score. Ahh... technology if just great!"
+msgstr ""
+
+#: interactive/messages.py:46
+msgid ""
+"Hello again, princess! We have much to see and wear before the ball tonight. "
+"Let's get going, becouse today you will rock the ball! He, he, I always "
+"wanted to say that."
+msgstr ""
+
+#: interactive/messages.py:47
+msgid ""
+"My, oh my, princess! I think you overslept. Let us go already, I have so "
+"many dresses and shoes to try on. Oh, I mean... 'you' have many things to "
+"try on."
+msgstr ""
+
+#: interactive/messages.py:48
+msgid ""
+"Did you see those boys in the ball? They are all so cute and handsome when "
+"not covered in mud and chasing a football. Oh, if I were a young fairy "
+"again..."
+msgstr ""
+
+#: interactive/messages.py:49
+msgid ""
+"New day, new hope. Maybe we can make you prettier than Snow White today... "
+"oh she's so pretty. I mean... you are so pretty also!"
+msgstr ""
+
+#: interactive/messages.py:50
+msgid ""
+"Hello, dearie! I'm happy because I danced all night yesterday... I bet you "
+"love valse, but you have not really tasted it until you do it flying."
+msgstr ""
+
+#: interactive/messages.py:51
+msgid ""
+"Good morning, dearie! My, you look so pretty already. It's a shame you can't "
+"wear that again tonight. Why not? Well, because a glamorous woman should not "
+"repeat her outfit twice in a row. Hey! What's that about my outfit...!?"
+msgstr ""
+
+#: interactive/messages.py:52
+msgid ""
+"All right, all right! I 'will' take you to see new shoes, but only if today "
+"we go see those new fairy wands. I hear they are great..."
+msgstr ""
+
+#: interactive/messages.py:53
+msgid ""
+"Hi, sweetie! You know, in the old days I would just make you an outfit out "
+"of mice and pumpkins, but I was threatened with a lawsuit, do you believe "
+"that? These goofy, phony property rules are just killing creativity."
+msgstr ""
+
+#: interactive/messages.py:54
+msgid ""
+"Hello, my little princess. You keep getting prettier with each passing day. "
+"I wish I was that much pretty, but I think I'll just have to be satisfed "
+"with my magic powers, flight ability and immortality."
+msgstr ""
+
+#: interactive/messages.py:55
+msgid ""
+"Good morning, sweetie! You did look wonderful last ball, but with a few more "
+"time and training, I bet you'll just explode with glamour. Oh, no, it "
+"doesn't hurt, sweetie, I swear."
+msgstr ""
+
+#: interactive/messages.py:56
+msgid ""
+"Hi, cutie face! You sure are glamorous enough for nobility, but want to test "
+"yourself against royalty? Maybe, some day, you'll even be a match for the "
+"fae."
+msgstr ""
+
+#: interactive/messages.py:57
+msgid ""
+"Ok, ok. I get it... But another ball, really? Don't you want to try someting "
+"different tonight? Maybe bowling..."
+msgstr ""
+
+#: interactive/messages.py:58
+msgid ""
+"Hi, princess! You noticed the queen did not attend the last ball? Her magic "
+"mirror was unstable and crashing all the time, poor thing. If she had that "
+"penguin OS on it, she wouldn't have those problems. Wonder if the kernel "
+"supports divination well."
+msgstr ""
+
+#: interactive/messages.py:59
+msgid ""
+"Hello, cutest! Great ball last night, but the valse was rather lowsy. Maybe "
+"if they looked for music in jamendo.com... Oh, there are oh so many great "
+"bands there, as Ehma, Torley on Piano, Ceili Moss, Armolithae and Butterfly "
+"Tea. My oh my!"
+msgstr ""
+
+#: interactive/messages.py:64
+msgid ""
+"Good morning, princess, and an oh so happy birthday, too! I can't believe "
+"you turned 16 already, and in such a beautiful day, too! Of course, now that "
+"that you're a lady, you should start attending the royal balls... oh, it'll "
+"be so exciting."
+msgstr ""
+
+#: interactive/messages.py:65
+msgid ""
+"For these balls, you'll get to dress up elegantly, match your outfit, wear "
+"make-up and dresses. Oh, I'm so jealous. You'll get to be really, really "
+"beautiful. Well, surely you look oh so beautiful already, no doubt about "
+"it..."
+msgstr ""
+
+#: interactive/messages.py:66
+msgid ""
+"...but you know, that is not enough for the royal balls. For them, you'll "
+"have to be glamourous! Since it is your first ball ever, I was assigned to "
+"assist you in getting lovely, glamorous and stunning. And getting the hearts "
+"of the boys, too."
+msgstr ""
+
+#: interactive/messages.py:67
+msgid ""
+"You see, for every ball you should try to dress up wonderfully, which means "
+"selecting a nice DRESS, SHOES, MAKE-UP and ACCESSORY. You should wander "
+"around the city looking for them, and putting on those you like the best."
+msgstr ""
+
+#: interactive/messages.py:68
+msgid ""
+"Of course, other princesses are attending the ball, too, so you should try "
+"to avoid showing up with the same things they do. Pay them a visit to learn "
+"what they will be wearing, and also try to avoid using the same outfit two "
+"balls in a row."
+msgstr ""
+
+#: interactive/messages.py:69
+msgid ""
+"But caution, many dangers await! Well, not 'real' dangers, but there are "
+"many ways to get yourself dirty before the ball, and you should avoid that. "
+"Clean yourself at the bathhouse if you need, and use you cursor and "
+"irresistable kisses to help you keep clean."
+msgstr ""
+
+#: interactive/messages.py:70
+msgid ""
+"At the ball, you'll gain glamour points if your outfit differs from the "
+"other princesses', and you'll lose them if it doesn't. You'll loose an awful "
+"lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour "
+"for, you ask?"
+msgstr ""
+
+#: interactive/messages.py:71
+msgid ""
+"Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it "
+"also draws the eyes and hearts of boys, although high-ranked nobility tends "
+"to be more used to it than lower rank. But I assure you even Prince Charming "
+"can fall for a glamorous girl."
+msgstr ""
+
+#: interactive/messages.py:72
+msgid ""
+"So let's get started, turning you from a cute, loving little princess into a "
+"wonderful, glamorous little princess. I'll be helping you on the way, so off "
+"we go."
+msgstr ""
+
+#: interactive/messages.py:76
+#, python-format
+msgid ""
+"Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me "
+"some unicorns and a tiny teeny dragon."
+msgstr ""
+
+#: interactive/messages.py:77
+#, python-format
+msgid ""
+"Hello, %s! Did you know there will be a great many princes at the ball "
+"tonight? They are coming all the way from far, far away lands to attend!"
+msgstr ""
+
+#: interactive/messages.py:78
+#, python-format
+msgid ""
+"%s! Long time no see. I was reading about fairy-tale. Have you noticed there "
+"are far more talking animals in them than fairies? Oh, well..."
+msgstr ""
+
+#: interactive/messages.py:79
+#, python-format
+msgid ""
+"Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically "
+"speaking. What it means? Well, both are derived from the same word, 'fata', "
+"that meant 'prediction' in latin, but now they mean very different things."
+msgstr ""
+
+#: interactive/messages.py:80
+#, python-format
+msgid ""
+"Have you noticed how many different architectural styles we have in this "
+"town, %s? Do you think that maybe those are magic portals that take us to "
+"far away places?"
+msgstr ""
+
+#: interactive/messages.py:81
+#, python-format
+msgid ""
+"If we are all princesses, and we live in the same town, shouldn't we all be "
+"sisters? Gosh, I wish I was your sister, %s..."
+msgstr ""
+
+#: interactive/messages.py:82
+#, python-format
+msgid ""
+"My father says someday I'll marry a prince that defeated many perils to be "
+"with me... well, %s, I say let 'me' go on adventures and let him wait for me "
+"to marry him."
+msgstr ""
+
+#: interactive/messages.py:83
+msgid ""
+"We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-"
+"Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
+msgstr ""
+
+#: interactive/messages.py:84
+#, python-format
+msgid ""
+"%s, did you know that no one dislike tenderness? From boys to lions, love "
+"seems to triumph all. I wonder how a thing that didn't like kisses would be "
+"like. I bet it'd be ugly, bearded and riding a boat."
+msgstr ""
+
+#: interactive/messages.py:85
+#, python-format
+msgid ""
+"Have you noticed how we all get princes by the end of our story, %s? But "
+"some others don't, like Little Red, Grettel and the Mermaid. They only get "
+"wolves and witches, poor folk..."
+msgstr ""
+
+#: interactive/messages.py:86
+#, python-format
+msgid ""
+"Well, %s, we've got some pretty nice stores in town, but they don't seem to "
+"carry much variety. I mean, I never use the same dress twice on a ball, so I "
+"have dozens of each available dress already."
+msgstr ""
+
+#: interactive/messages.py:87
+#, python-format
+msgid ""
+"Oh, dancing is so much fun! But I sure would like to fly in the air, or "
+"fight dragons, or cast spells. %s, why do you think they give us princesses "
+"the worst parts in our own stories?"
+msgstr ""
+
+#: interactive/messages.py:88
+#, python-format
+msgid ""
+"Dancing every single night... I, mean, we have fun and all, but aren't your "
+"feet killing you, %s?"
+msgstr ""
+
+#: interactive/messages.py:89
+#, python-format
+msgid ""
+"Who owns that little schnauzer that won't let me walk around in peace? It is "
+"not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... "
+"even small dogs..."
+msgstr ""
+
+#: interactive/messages.py:90
+#, python-format
+msgid ""
+"Have you visited the zoo, yet? I love the penguin and the giraffe, but that "
+"monkey just drives me crazy. Maybe we could go together someday, %s, and "
+"have a hard long talk with whoever runs that place."
+msgstr ""
+
+#: interactive/messages.py:91
+msgid ""
+"Have you met Fabrizio, the little italian kid? He's always with that ball, "
+"but I think I've seen him somewhere before. Do you think he maybe might have "
+"a free tabletop game developed by Ocastudios?"
+msgstr ""
+
+#: interactive/messages.py:92
+#, python-format
+msgid ""
+"Many people think that the beatiful scenery of fairy tales are stuff of "
+"legend, by they exist, %s. Next vacations, try cruising around the "
+"Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters "
+"and see for yourself."
+msgstr ""
+
+#: interactive/messages.py:93
+msgid ""
+"Do you know that many, many people have to worry about computer viruses, and "
+"software freezing. They don't even have access to their source-code... Thank "
+"goodness we use a Unix box."
+msgstr ""
+
+#: interactive/messages.py:94
+msgid ""
+"Have you seen the ball palace shaking last night? With so much dancing, do "
+"you think the structure is still stable? I think I'll call the dwarves to "
+"make some repairs."
+msgstr ""
+
+#: interactive/messages.py:95
+#, python-format
+msgid ""
+"Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll "
+"tell on you to ma!"
+msgstr ""
+
+#: interactive/messages.py:96
+msgid ""
+"No, I won't go out today! Yesterday there were so many chicks... and their "
+"mama didn't let me even play with them. She ruined may hair!!! I'm never "
+"coming out again."
+msgstr ""
+
+#: interactive/messages.py:97
+#, python-format
+msgid ""
+"%s, I won't rest until I get the heart of the prince. I mean, Gentleman "
+"Decent is kinda cute, but he falls for every girl in the kingdom!"
+msgstr ""
+
+#: interactive/messages.py:98
+#, python-format
+msgid ""
+"There is a lot of noblemen in the balls, %s, but... do you think someone "
+"would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget "
+"about the ball for a while, of course."
+msgstr ""
+
+#: interactive/messages.py:99
+msgid ""
+"Some of the princesses never eat apples or work with spindles because they "
+"are afraid of fairy tales. As for me, I just keep my distance from evil "
+"witches and refrain from talking to big bad wolves."
+msgstr ""
+
+#: interactive/messages.py:100
+msgid ""
+"Do you know that many countries today still have kings? Oh, I'd love to be "
+"the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an "
+"enchanted mythical kingdom of everlasting joy, but I 'really' wanted "
+"Sweeden..."
+msgstr ""
+
+#: interface/inside.py:42
+msgid "Take a shower"
+msgstr ""
+
+#: interface/inside.py:45
+msgid "Leave"
+msgstr ""
+
+#: interface/inside.py:48
+msgid "Would you like to take a shower?"
+msgstr ""
+
+#: interface/inside.py:183
+msgid "Go to the Ball"
+msgstr ""
+
+#: interface/inside.py:184
+msgid ""
+"It is not very cute to repeat your outfits. Check out what you wore at past "
+"Balls and try to find something different."
+msgstr ""
+
+#: interface/inside.py:185
+msgid "Last Ball"
+msgstr ""
+
+#: interface/inside.py:186
+msgid "Great Past Ball"
+msgstr ""
+
+#: interface/inside.py:187
+msgid "3 Balls Ago"
+msgstr ""
+
+#: interface/ball.py:102
+msgid "and won the heart of"
+msgstr ""
+
+#: interface/ball.py:212
+msgid "You've"
+msgstr ""
+
+#: interface/ball.py:214
+msgid "got"
+msgstr ""
+
+#: interface/ball.py:216
+msgid "glamour"
+msgstr ""
+
+#: interface/ball.py:218
+msgid "points"
+msgstr ""
+
+#: interface/ball.py:293
+msgid "Tonight's ball"
+msgstr ""
+
+#: interface/ball.py:294
+msgid "Yesterday's ball"
+msgstr ""
+
+#: interface/ball.py:407
+msgid "Gentleman Decent"
+msgstr ""
+
+#: interface/ball.py:410
+msgid "Knight Reliable"
+msgstr ""
+
+#: interface/ball.py:413
+msgid "Baron Serious"
+msgstr ""
+
+#: interface/ball.py:416
+msgid "Count Loving"
+msgstr ""
+
+#: interface/ball.py:419
+msgid "Marquess Attractive"
+msgstr ""
+
+#: interface/ball.py:422
+msgid "Duke Intelligent"
+msgstr ""
+
+#: interface/ball.py:425
+msgid "Prince Charming"
+msgstr ""
+
+#: interface/ball.py:428
+msgid "King Kindhearted"
+msgstr ""
+
+#: interface/ball.py:435
+msgid "Emperor Awesome"
+msgstr ""
+
+#: interface/menu.py:272
+msgid "New Game"
+msgstr ""
+
+#: interface/menu.py:272
+msgid "Load Game"
+msgstr ""
+
+#: interface/menu.py:272
+msgid "Play Story"
+msgstr ""
+
+#: interface/menu.py:272
+msgid "Learn to play"
+msgstr ""
+
+#: interface/menu.py:272 interface/menu.py:782
+msgid "Credits"
+msgstr ""
+
+#: interface/menu.py:272
+msgid "Exit"
+msgstr ""
+
+#: interface/menu.py:274
+msgid "select one"
+msgstr ""
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "Choose your"
+msgstr ""
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "appearence..."
+msgstr ""
+
+#: interface/menu.py:305
+msgid "skin tone"
+msgstr ""
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "previous"
+msgstr ""
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "next"
+msgstr ""
+
+#: interface/menu.py:319
+msgid "hair style"
+msgstr ""
+
+#: interface/menu.py:338
+msgid "< back"
+msgstr ""
+
+#: interface/menu.py:339
+msgid "space >"
+msgstr ""
+
+#: interface/menu.py:340
+msgid "clean up [  ]"
+msgstr ""
+
+#: interface/menu.py:341
+msgid "random   ???"
+msgstr ""
+
+#: interface/menu.py:349
+msgid "Sorry, This name is taken."
+msgstr ""
+
+#: interface/menu.py:350
+msgid "Please, choose another one"
+msgstr ""
+
+#: interface/menu.py:351
+msgid "_ _ _ _ _ _ _"
+msgstr ""
+
+#: interface/menu.py:356
+msgid "... and your name."
+msgstr ""
+
+#: interface/menu.py:494
+msgid "The "
+msgstr ""
+
+#: interface/menu.py:512
+msgid "Or go back to Main Menu"
+msgstr ""
+
+#: interface/menu.py:513
+msgid "Have you already saved a game?"
+msgstr ""
+
+#: interface/menu.py:514
+msgid "Then choose your saved princess:"
+msgstr ""
+
+#: interface/menu.py:523
+msgid "erase"
+msgstr ""
+
+#: interface/menu.py:627
+msgid "Use the arrows to go"
+msgstr ""
+
+#: interface/menu.py:628
+msgid "forward and backward"
+msgstr ""
+
+#: interface/menu.py:638
+msgid "Hi!"
+msgstr ""
+
+#: interface/menu.py:639
+msgid ""
+"Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help "
+"to give you a superb tutorial, okay?"
+msgstr ""
+
+#: interface/menu.py:641
+msgid "Yiipi!"
+msgstr ""
+
+#: interface/menu.py:642
+msgid ""
+"As you'll soon find out, pressing left or right will move your princess "
+"around."
+msgstr ""
+
+#: interface/menu.py:644
+msgid "Yey!"
+msgstr ""
+
+#: interface/menu.py:645
+msgid "And pressing the spacebar will allow you to jump."
+msgstr ""
+
+#: interface/menu.py:647
+msgid "x"
+msgstr ""
+
+#: interface/menu.py:648
+msgid "And the Control key will get you a kiss."
+msgstr ""
+
+#: interface/menu.py:650
+msgid "Ooh!"
+msgstr ""
+
+#: interface/menu.py:651
+msgid ""
+"If you kiss enemies, they will sometimes be sooo happy as to stop bothering "
+"you... for a while."
+msgstr ""
+
+#: interface/menu.py:653
+msgid ""
+"But be aware that some enemies will respond only to your mouse cursor, and "
+"yet others can only be dodged!"
+msgstr ""
+
+#: interface/menu.py:655
+msgid ""
+"You'll notice that on the upper right side there's a clock. When it points "
+"down, it will be time for the ball."
+msgstr ""
+
+#: interface/menu.py:657
+msgid "Yeah!"
+msgstr ""
+
+#: interface/menu.py:658
+msgid "But first we need to find you a beautiful and original look."
+msgstr ""
+
+#: interface/menu.py:660
+msgid ""
+"And in order to do that, we must visit the castles that lie in the left part "
+"of most streets."
+msgstr ""
+
+#: interface/menu.py:662
+msgid ""
+"That's because they are shops, and in them you'll find the most wonderful "
+"dresses, make-up, shoes and accessories!"
+msgstr ""
+
+#: interface/menu.py:664
+msgid "You got it!"
+msgstr ""
+
+#: interface/menu.py:665
+msgid ""
+"Oh! And remember you can switch streets by pressing up when in front of a "
+"gate."
+msgstr ""
+
+#: interface/menu.py:667
+msgid "Ookay..."
+msgstr ""
+
+#: interface/menu.py:668
+msgid ""
+"Now, once you're at the ball, your look will be compared to those of other "
+"princesses, and even with the garments you girls used in previous balls."
+msgstr ""
+
+#: interface/menu.py:670
+msgid "Oh, no!..."
+msgstr ""
+
+#: interface/menu.py:671
+msgid ""
+"If you wear the same outfit as others (or repeat it ball after ball), you'll "
+"earn little to no glamour points. It would be a shame."
+msgstr ""
+
+#: interface/menu.py:673
+msgid "All right!"
+msgstr ""
+
+#: interface/menu.py:674
+msgid ""
+"But, on the other hand, if you show up with an original look, then you may "
+"earn lots of glamour points!"
+msgstr ""
+
+#: interface/menu.py:676
+msgid "Who's my True Love?"
+msgstr ""
+
+#: interface/menu.py:677
+msgid ""
+"And as you gain glamour points, more and more boys will offer you their "
+"hearts. And some day, you may even catch the eyes of Prince Charming himself."
+msgstr ""
+
+#: interface/menu.py:679
+msgid "Oh, no!"
+msgstr ""
+
+#: interface/menu.py:680
+msgid "Woof!"
+msgstr ""
+
+#: interface/menu.py:681
+msgid ""
+"But beware! The enemies on your way may not hurt you, but they can make you "
+"dirty. And THAT would certainly cost you lots of glamour points!"
+msgstr ""
+
+#: interface/menu.py:683
+msgid "So be careful."
+msgstr ""
+
+#: interface/menu.py:684
+msgid ""
+"You can get even dirtier if you are caught a second time, and become "
+"dirtiest if hit yet again..."
+msgstr ""
+
+#: interface/menu.py:686
+msgid "Hooray!"
+msgstr ""
+
+#: interface/menu.py:687
+msgid ""
+"...but event then there's hope. Go back and enter the Bathhouse, and you'll "
+"be clean and perfumed in no time!"
+msgstr ""
+
+#: interface/menu.py:689
+msgid "Neat!"
+msgstr ""
+
+#: interface/menu.py:690
+msgid ""
+"But before you go, I've got two more tips to you. First, stay alert to the "
+"music! By it you can tell not only what is the stronger enemy around, but "
+"how far it is from you."
+msgstr ""
+
+#: interface/menu.py:692
+msgid "Ooooh!"
+msgstr ""
+
+#: interface/menu.py:693
+msgid ""
+"And finally, there are many secret items in the game, and you should anlock "
+"them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."
+msgstr ""
+
+#: interface/menu.py:695
+msgid "Have fun!"
+msgstr ""
+
+#: interface/menu.py:696
+msgid ""
+"Now you're good to go! Don't stay idle waiting your dreams come true - go "
+"get them, girl!"
+msgstr ""
+
+#: interface/menu.py:780
+msgid "in loving memory of"
+msgstr ""
+
+#: interface/menu.py:781
+msgid "and"
+msgstr ""
+
+#: interface/menu.py:783
+msgid "Programming"
+msgstr ""
+
+#: interface/menu.py:784
+msgid "Support"
+msgstr ""
+
+#: interface/menu.py:785
+msgid "Design"
+msgstr ""
+
+#: interface/menu.py:786
+msgid "Music"
+msgstr ""
+
+#: interface/menu.py:787 interface/menu.py:800 interface/menu.py:802
+msgid "first snowfall"
+msgstr ""
+
+#: interface/menu.py:788
+msgid "endless blue"
+msgstr ""
+
+#: interface/menu.py:789
+msgid "celtic cappricio"
+msgstr ""
+
+#: interface/menu.py:790
+msgid "the bee"
+msgstr ""
+
+#: interface/menu.py:791
+msgid "lonesome man's dance"
+msgstr ""
+
+#: interface/menu.py:792
+msgid "dragon dance"
+msgstr ""
+
+#: interface/menu.py:793
+msgid "ship of fools"
+msgstr ""
+
+#: interface/menu.py:794
+msgid "sword fight"
+msgstr ""
+
+#: interface/menu.py:795
+msgid "the foggy dew"
+msgstr ""
+
+#: interface/menu.py:796
+msgid "revolution on resoluti on"
+msgstr ""
+
+#: interface/menu.py:797
+msgid "twilight on mountain"
+msgstr ""
+
+#: interface/menu.py:798
+msgid "brian boru 2"
+msgstr ""
+
+#: interface/menu.py:799
+msgid "ignition"
+msgstr ""
+
+#: interface/menu.py:801
+msgid "cocci ci tini cocci"
+msgstr ""
+
+#: interface/menu.py:803
+msgid "waltz wedley"
+msgstr ""
+
+#: interface/menu.py:806
+msgid "All python & pygame code, written in gedit."
+msgstr ""
+
+#: interface/menu.py:807
+msgid "Bureaucracy and et ceteras"
+msgstr ""
+
+#: interface/menu.py:808
+msgid "Almost all Inkscape, with a touch of Blender and Gimp."
+msgstr ""
+
+#: interface/menu.py:809
+msgid "based on the homonimous board game by"
+msgstr ""
+
+#: interface/menu.py:810
+msgid "available at"
+msgstr ""
+
+#: interface/menu.py:811
+msgid "introduction"
+msgstr ""
+
+#: interface/menu.py:812 interface/menu.py:838 interface/menu.py:842
+msgid "by Torley on Piano"
+msgstr ""
+
+#: interface/menu.py:813
+msgid "menu"
+msgstr ""
+
+#: interface/menu.py:814 interface/menu.py:826 interface/menu.py:832
+#: interface/menu.py:836
+msgid "by Armolithae"
+msgstr ""
+
+#: interface/menu.py:815
+msgid "bathhouse st"
+msgstr ""
+
+#: interface/menu.py:816
+msgid "by armolithae"
+msgstr ""
+
+#: interface/menu.py:817
+msgid "dress st"
+msgstr ""
+
+#: interface/menu.py:818 interface/menu.py:820 interface/menu.py:824
+#: interface/menu.py:828
+msgid "by Ceili Moss"
+msgstr ""
+
+#: interface/menu.py:819
+msgid "shoe's st"
+msgstr ""
+
+#: interface/menu.py:821
+msgid "accessory st."
+msgstr ""
+
+#: interface/menu.py:822
+msgid "by Butterfly Tea"
+msgstr ""
+
+#: interface/menu.py:823
+msgid "make-up st."
+msgstr ""
+
+#: interface/menu.py:825
+msgid "schnauzer"
+msgstr ""
+
+#: interface/menu.py:827
+msgid "carriage"
+msgstr ""
+
+#: interface/menu.py:829
+msgid "old lady"
+msgstr ""
+
+#: interface/menu.py:830
+msgid "by Torly on Piano"
+msgstr ""
+
+#: interface/menu.py:831
+msgid "viking"
+msgstr ""
+
+#: interface/menu.py:833
+msgid "butterffly"
+msgstr ""
+
+#: interface/menu.py:834
+msgid "by Adragante"
+msgstr ""
+
+#: interface/menu.py:835
+msgid "hawk"
+msgstr ""
+
+#: interface/menu.py:837
+msgid "birdie"
+msgstr ""
+
+#: interface/menu.py:839
+msgid "fabrizio"
+msgstr ""
+
+#: interface/menu.py:840
+msgid "by Picari"
+msgstr ""
+
+#: interface/menu.py:841
+msgid "zoo"
+msgstr ""
+
+#: interface/menu.py:843
+msgid "ball"
+msgstr ""
+
+#: interface/menu.py:844
+msgid "by strauss"
+msgstr ""
+
+#: interface/menu.py:845
+msgid "Sad and unfortunate legal mambo jambo"
+msgstr ""
+
+#: interface/menu.py:846
+msgid ""
+"All programming and art are public domain, released so by us, their authors."
+msgstr ""
+
+#: interface/menu.py:847
+msgid ""
+"The musics, however, comes in a variety of free licenses. They can be used "
+"and altered, even commercially, but credit MUST be given. Special thanks to "
+"www.jamendo.com, from where most of our music came."
+msgstr ""
+
+#: interface/menu.py:848
+msgid ""
+"And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont "
+"License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
+msgstr ""
+
+#: interface/menu.py:849
+msgid ""
+"If you are a developer of free content, please consider the limitations the "
+"varying \"free licenses\" impose on derivative works. Tons (or better yet, "
+"Teras) of cultural content, as images, music and fonts that are \"free\" are "
+"quite unuseable due to legal and procedural restraints (we just cannot give "
+"credit to every bit of data we'll use). \"Free for personnal use, but not "
+"commercial\", \"free for use, but not to alter\" and/or \"free for use, but "
+"not to distribute\" hinders freedom, and equals \"free as in beer, not as in "
+"speech\". Giving credit to a music used is fair and doable, but not to the "
+"recording of step sounds, for example, or other minuscule but necessary "
+"files. Please help us spread and create upon your work by releasing it "
+"either in public domain or in GPL - avoid semi-free, non-standard and "
+"multiple-standard licenses. These just end up torturing developers with "
+"pages of sad and unfortunate license disclaimers... such as this."
+msgstr ""
+
+#: interface/menu.py:850
+msgid ""
+"( If you are an author and want your music out of this game, contact us and "
+"we'll promptly remove it. )"
+msgstr ""
+
+#: interface/menu.py:851
+msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
+msgstr ""
+
+#: interface/random_names.py:4
+msgid "Aaliyah"
+msgstr ""
+
+#: interface/random_names.py:5
+msgid "Abigail"
+msgstr ""
+
+#: interface/random_names.py:6
+msgid "Addison"
+msgstr ""
+
+#: interface/random_names.py:7
+msgid "Albertine"
+msgstr ""
+
+#: interface/random_names.py:8
+msgid "Albinia"
+msgstr ""
+
+#: interface/random_names.py:9
+msgid "Alethea"
+msgstr ""
+
+#: interface/random_names.py:10
+msgid "Alexa"
+msgstr ""
+
+#: interface/random_names.py:11
+msgid "Alexandra"
+msgstr ""
+
+#: interface/random_names.py:12
+msgid "Alexis"
+msgstr ""
+
+#: interface/random_names.py:13
+msgid "Allegra"
+msgstr ""
+
+#: interface/random_names.py:14
+msgid "Allison"
+msgstr ""
+
+#: interface/random_names.py:15
+msgid "Alma"
+msgstr ""
+
+#: interface/random_names.py:16
+msgid "Aloisia"
+msgstr ""
+
+#: interface/random_names.py:17
+msgid "Althea"
+msgstr ""
+
+#: interface/random_names.py:18
+msgid "Alyssa"
+msgstr ""
+
+#: interface/random_names.py:19
+msgid "Amanda"
+msgstr ""
+
+#: interface/random_names.py:20
+msgid "Amelia"
+msgstr ""
+
+#: interface/random_names.py:21
+msgid "Andrea"
+msgstr ""
+
+#: interface/random_names.py:22
+msgid "Angel"
+msgstr ""
+
+#: interface/random_names.py:23
+msgid "Angelina"
+msgstr ""
+
+#: interface/random_names.py:24
+msgid "Anna"
+msgstr ""
+
+#: interface/random_names.py:25
+msgid "Annzella"
+msgstr ""
+
+#: interface/random_names.py:26
+msgid "Anthea"
+msgstr ""
+
+#: interface/random_names.py:27
+msgid "Aquila"
+msgstr ""
+
+#: interface/random_names.py:28
+msgid "Armine"
+msgstr ""
+
+#: interface/random_names.py:29
+msgid "Artemisia"
+msgstr ""
+
+#: interface/random_names.py:30
+msgid "Ashley"
+msgstr ""
+
+#: interface/random_names.py:31
+msgid "Aspasia"
+msgstr ""
+
+#: interface/random_names.py:32
+msgid "Aubrey"
+msgstr ""
+
+#: interface/random_names.py:33
+msgid "Augusta"
+msgstr ""
+
+#: interface/random_names.py:34
+msgid "Aurea"
+msgstr ""
+
+#: interface/random_names.py:35
+msgid "Auriol"
+msgstr ""
+
+#: interface/random_names.py:36
+msgid "Aurora"
+msgstr ""
+
+#: interface/random_names.py:37
+msgid "Autumn"
+msgstr ""
+
+#: interface/random_names.py:38
+msgid "Ava"
+msgstr ""
+
+#: interface/random_names.py:39
+msgid "Avery"
+msgstr ""
+
+#: interface/random_names.py:40
+msgid "Bailey"
+msgstr ""
+
+#: interface/random_names.py:41
+msgid "Barbara"
+msgstr ""
+
+#: interface/random_names.py:42
+msgid "Bella"
+msgstr ""
+
+#: interface/random_names.py:43
+msgid "Berenice"
+msgstr ""
+
+#: interface/random_names.py:44
+msgid "Betty"
+msgstr ""
+
+#: interface/random_names.py:45
+msgid "Brianna"
+msgstr ""
+
+#: interface/random_names.py:46
+msgid "Brilliana"
+msgstr ""
+
+#: interface/random_names.py:47
+msgid "Britannia"
+msgstr ""
+
+#: interface/random_names.py:48
+msgid "Brittany"
+msgstr ""
+
+#: interface/random_names.py:49
+msgid "Brooke"
+msgstr ""
+
+#: interface/random_names.py:50
+msgid "Brooklyn"
+msgstr ""
+
+#: interface/random_names.py:51
+msgid "Camila"
+msgstr ""
+
+#: interface/random_names.py:52
+msgid "Carina"
+msgstr ""
+
+#: interface/random_names.py:53
+msgid "Carol"
+msgstr ""
+
+#: interface/random_names.py:54
+msgid "Caroline"
+msgstr ""
+
+#: interface/random_names.py:55
+msgid "Charlotte"
+msgstr ""
+
+#: interface/random_names.py:56
+msgid "Chelsea"
+msgstr ""
+
+#: interface/random_names.py:57
+msgid "Chloe"
+msgstr ""
+
+#: interface/random_names.py:58
+msgid "Cilda"
+msgstr ""
+
+#: interface/random_names.py:59
+msgid "Claire"
+msgstr ""
+
+#: interface/random_names.py:60
+msgid "Clorinda"
+msgstr ""
+
+#: interface/random_names.py:61
+msgid "Corisande"
+msgstr ""
+
+#: interface/random_names.py:62
+msgid "Courtney"
+msgstr ""
+
+#: interface/random_names.py:63
+msgid "Deborah"
+msgstr ""
+
+#: interface/random_names.py:64
+msgid "Delia"
+msgstr ""
+
+#: interface/random_names.py:65
+msgid "Destiny"
+msgstr ""
+
+#: interface/random_names.py:66
+msgid "Dilliana"
+msgstr ""
+
+#: interface/random_names.py:67
+msgid "Donna"
+msgstr ""
+
+#: interface/random_names.py:68
+msgid "Dorinda"
+msgstr ""
+
+#: interface/random_names.py:69
+msgid "Dorothy"
+msgstr ""
+
+#: interface/random_names.py:70
+msgid "Douglas"
+msgstr ""
+
+#: interface/random_names.py:71
+msgid "Elizabella"
+msgstr ""
+
+#: interface/random_names.py:72
+msgid "Elizabeth"
+msgstr ""
+
+#: interface/random_names.py:73
+msgid "Ella"
+msgstr ""
+
+#: interface/random_names.py:74
+msgid "Elma"
+msgstr ""
+
+#: interface/random_names.py:75
+msgid "Emily"
+msgstr ""
+
+#: interface/random_names.py:76
+msgid "Emma"
+msgstr ""
+
+#: interface/random_names.py:77
+msgid "Eva"
+msgstr ""
+
+#: interface/random_names.py:78
+msgid "Evelyn"
+msgstr ""
+
+#: interface/random_names.py:79
+msgid "Faith"
+msgstr ""
+
+#: interface/random_names.py:80
+msgid "Frusannah"
+msgstr ""
+
+#: interface/random_names.py:81
+msgid "Gabriella"
+msgstr ""
+
+#: interface/random_names.py:82
+msgid "Gabrielle"
+msgstr ""
+
+#: interface/random_names.py:83
+msgid "Genesis"
+msgstr ""
+
+#: interface/random_names.py:84
+msgid "Gianna"
+msgstr ""
+
+#: interface/random_names.py:85
+msgid "Grace"
+msgstr ""
+
+#: interface/random_names.py:86
+msgid "Gracie"
+msgstr ""
+
+#: interface/random_names.py:87
+msgid "Hailey"
+msgstr ""
+
+#: interface/random_names.py:88
+msgid "Haley"
+msgstr ""
+
+#: interface/random_names.py:89
+msgid "Hannah"
+msgstr ""
+
+#: interface/random_names.py:90
+msgid "Helen"
+msgstr ""
+
+#: interface/random_names.py:91
+msgid "Isabel"
+msgstr ""
+
+#: interface/random_names.py:92
+msgid "Isabella"
+msgstr ""
+
+#: interface/random_names.py:93
+msgid "Isabelle"
+msgstr ""
+
+#: interface/random_names.py:94
+msgid "Jacinth"
+msgstr ""
+
+#: interface/random_names.py:95
+msgid "Jasmine"
+msgstr ""
+
+#: interface/random_names.py:96
+msgid "Jennifer"
+msgstr ""
+
+#: interface/random_names.py:97
+msgid "Jessica"
+msgstr ""
+
+#: interface/random_names.py:98
+msgid "Jocelyn"
+msgstr ""
+
+#: interface/random_names.py:99
+msgid "Julia"
+msgstr ""
+
+#: interface/random_names.py:100
+msgid "Kaitlyn"
+msgstr ""
+
+#: interface/random_names.py:101
+msgid "Karen"
+msgstr ""
+
+#: interface/random_names.py:102
+msgid "Katelyn"
+msgstr ""
+
+#: interface/random_names.py:103
+msgid "Katherine"
+msgstr ""
+
+#: interface/random_names.py:104
+msgid "Kayla"
+msgstr ""
+
+#: interface/random_names.py:105
+msgid "Kaylee"
+msgstr ""
+
+#: interface/random_names.py:106
+msgid "Khloe"
+msgstr ""
+
+#: interface/random_names.py:107
+msgid "Kimberly"
+msgstr ""
+
+#: interface/random_names.py:108
+msgid "Kylie"
+msgstr ""
+
+#: interface/random_names.py:109
+msgid "Laura"
+msgstr ""
+
+#: interface/random_names.py:110
+msgid "Lauren"
+msgstr ""
+
+#: interface/random_names.py:111
+msgid "Layla"
+msgstr ""
+
+#: interface/random_names.py:112
+msgid "Leah"
+msgstr ""
+
+#: interface/random_names.py:113
+msgid "Lillian"
+msgstr ""
+
+#: interface/random_names.py:114
+msgid "Lily"
+msgstr ""
+
+#: interface/random_names.py:115
+msgid "Linda"
+msgstr ""
+
+#: interface/random_names.py:116
+msgid "Lisa"
+msgstr ""
+
+#: interface/random_names.py:117
+msgid "Lucasta"
+msgstr ""
+
+#: interface/random_names.py:118
+msgid "Mackenzie"
+msgstr ""
+
+#: interface/random_names.py:119
+msgid "Madeline"
+msgstr ""
+
+#: interface/random_names.py:120
+msgid "Madelyn"
+msgstr ""
+
+#: interface/random_names.py:121
+msgid "Madison"
+msgstr ""
+
+#: interface/random_names.py:122
+msgid "Makayla"
+msgstr ""
+
+#: interface/random_names.py:123
+msgid "Marcia"
+msgstr ""
+
+#: interface/random_names.py:124
+msgid "Margaret"
+msgstr ""
+
+#: interface/random_names.py:125
+msgid "Maria"
+msgstr ""
+
+#: interface/random_names.py:126
+msgid "Mariabella"
+msgstr ""
+
+#: interface/random_names.py:127
+msgid "Mariah"
+msgstr ""
+
+#: interface/random_names.py:128
+msgid "Mary"
+msgstr ""
+
+#: interface/random_names.py:129
+msgid "Maya"
+msgstr ""
+
+#: interface/random_names.py:130
+msgid "Megan"
+msgstr ""
+
+#: interface/random_names.py:131
+msgid "Melanie"
+msgstr ""
+
+#: interface/random_names.py:132
+msgid "Mia"
+msgstr ""
+
+#: interface/random_names.py:133
+msgid "Michelle"
+msgstr ""
+
+#: interface/random_names.py:134
+msgid "Molly"
+msgstr ""
+
+#: interface/random_names.py:135
+msgid "Morgan"
+msgstr ""
+
+#: interface/random_names.py:136
+msgid "Mya"
+msgstr ""
+
+#: interface/random_names.py:137
+msgid "Nancy"
+msgstr ""
+
+#: interface/random_names.py:138
+msgid "Natalie"
+msgstr ""
+
+#: interface/random_names.py:139
+msgid "Nevaeh"
+msgstr ""
+
+#: interface/random_names.py:140
+msgid "Nicole"
+msgstr ""
+
+#: interface/random_names.py:141
+msgid "Olivia"
+msgstr ""
+
+#: interface/random_names.py:142
+msgid "Paige"
+msgstr ""
+
+#: interface/random_names.py:143
+msgid "Patricia"
+msgstr ""
+
+#: interface/random_names.py:144
+msgid "Payton"
+msgstr ""
+
+#: interface/random_names.py:145
+msgid "Peyton"
+msgstr ""
+
+#: interface/random_names.py:146
+msgid "Philadelphia"
+msgstr ""
+
+#: interface/random_names.py:147
+msgid "Rachel"
+msgstr ""
+
+#: interface/random_names.py:148
+msgid "Rebecca"
+msgstr ""
+
+#: interface/random_names.py:149
+msgid "Riley"
+msgstr ""
+
+#: interface/random_names.py:150
+msgid "Ruth"
+msgstr ""
+
+#: interface/random_names.py:151
+msgid "Samantha"
+msgstr ""
+
+#: interface/random_names.py:152
+msgid "Sandra"
+msgstr ""
+
+#: interface/random_names.py:153
+msgid "Sara"
+msgstr ""
+
+#: interface/random_names.py:154
+msgid "Sarah"
+msgstr ""
+
+#: interface/random_names.py:155
+msgid "Saranna"
+msgstr ""
+
+#: interface/random_names.py:156
+msgid "Savannah"
+msgstr ""
+
+#: interface/random_names.py:157
+msgid "Serenity"
+msgstr ""
+
+#: interface/random_names.py:158
+msgid "Sharon"
+msgstr ""
+
+#: interface/random_names.py:159
+msgid "Sofia"
+msgstr ""
+
+#: interface/random_names.py:160
+msgid "Sophie"
+msgstr ""
+
+#: interface/random_names.py:161
+msgid "Sophronia"
+msgstr ""
+
+#: interface/random_names.py:162
+msgid "Stephanie"
+msgstr ""
+
+#: interface/random_names.py:163
+msgid "Susan"
+msgstr ""
+
+#: interface/random_names.py:164
+msgid "Sydney"
+msgstr ""
+
+#: interface/random_names.py:165
+msgid "Taylor"
+msgstr ""
+
+#: interface/random_names.py:166
+msgid "Trinity"
+msgstr ""
+
+#: interface/random_names.py:167
+msgid "Ulalia"
+msgstr ""
+
+#: interface/random_names.py:168
+msgid "Urania"
+msgstr ""
+
+#: interface/random_names.py:169
+msgid "Valeria"
+msgstr ""
+
+#: interface/random_names.py:170
+msgid "Vanessa"
+msgstr ""
+
+#: interface/random_names.py:171
+msgid "Venetia"
+msgstr ""
+
+#: interface/random_names.py:172
+msgid "Victoria"
+msgstr ""
+
+#: interface/random_names.py:173
+msgid "Zenobe"
+msgstr ""
+
+#: interface/random_names.py:174
+msgid "Zoe"
+msgstr ""
+
+#: interface/random_names.py:175
+msgid "Zoey"
+msgstr ""

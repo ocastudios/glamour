@@ -1,8 +1,6 @@
 import pygame
-import interactive.universe as universe
 from pygame.locals import *
 from sys import exit
-
 
 def main_menu(universe):
 	universe.click = False
@@ -13,16 +11,18 @@ def main_menu(universe):
 		elif event.type == KEYDOWN:
 			if event.key == K_ESCAPE:
 				exit()
-			elif event.key == K_UP:
+			elif event.key == (K_UP, K_w):
 				universe.action[0] = 'up'
-			elif event.key == K_DOWN:
+			elif event.key in (K_DOWN, K_s):
 				universe.action[0] = 'down'
-			elif event.key == K_LEFT:
+			elif event.key in (K_LEFT, K_a):
 				universe.action[0] = 'left'
-			elif event.key == K_RIGHT:
+			elif event.key in (K_RIGHT, K_d):
 				universe.action[0] = 'right'
 		elif event.type == KEYUP:
-			if event.key in (K_a,K_b,K_c,K_d,K_e,K_f,K_g,K_h,K_i,K_j,K_k,K_l,K_m,K_n,K_o,K_p,K_q,K_r,K_s,K_t,K_u,K_v,K_w,K_x,K_y,K_z, K_BACKSPACE, K_SPACE):
+			if event.key in (K_a,K_b,K_c,K_d,K_e,K_f,K_g,K_h,K_i,K_j,K_k,K_l,
+				K_m,K_n,K_o,K_p,K_q,K_r,K_s,K_t,K_u,K_v,K_w,K_x,K_y,K_z,
+				K_BACKSPACE, K_SPACE):
 				universe.action[0] = pygame.key.name(event.key)
 			if event.key == K_RETURN:
 				universe.click = True
@@ -43,10 +43,10 @@ def stage(universe):
 					if not universe.level.paused and not universe.level.princesses[0].inside and not universe.level.ball:
 						universe.level.pause.status = "inside"
 						universe.level.paused = True
-				if event.key == K_LEFT:
+				if event.key in (K_LEFT, K_a):
 					universe.dir = 'left'
 					universe.action[1] = 'walk'
-				if event.key == K_RIGHT:
+				if event.key in (K_RIGHT,K_d):
 					universe.dir = 'right'
 					universe.action[1] = 'walk'
 				if event.key == K_LCTRL:
@@ -55,7 +55,7 @@ def stage(universe):
 					universe.action[0] = 'jump'
 				if event.key == K_RETURN:
 					universe.action[0] = 'OK'
-				if event.key == K_UP:
+				if event.key in (K_UP,K_w):
 					if not universe.level.princesses[0].jump:
 						universe.action[0] ='open_door'
 				if event.key == K_y:
@@ -71,16 +71,13 @@ def stage(universe):
 			elif event.type == MOUSEMOTION:
 				pointersize = pointersize or universe.pointer.size
 				universe.pointer.pos = (universe.pointer.mouse_pos[0]-(pointersize[0]/2),universe.pointer.mouse_pos[1]-(pointersize[1]/2))
-
 			if event.type == MOUSEBUTTONUP:
 				universe.click = True
 			else:
 				universe.click = False
-
 			if universe.action[1] == 'walk' and universe.action[0] == 'open_door':
 				universe.action[0] = None
 		pygame.event.clear()
-
 
 def inside(universe):
 	pointersize = None
@@ -88,11 +85,7 @@ def inside(universe):
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			exit()
-		if event.type == MOUSEBUTTONUP:
-			universe.click = True
-		else:
-			universe.click = False
-
+		universe.click = True if event.type == MOUSEBUTTONUP else False
 		if event.type == KEYUP:
 			universe.action[0]=None
 			if event.key == K_LEFT:
