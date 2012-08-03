@@ -2,31 +2,8 @@ import os
 import pygame
 import directory
 
-def welcome():	####temporary hard coded scale ####
-	print "###  Welcome to Glamour  ###"
-	print "This is an Open Source/Public Domain game developed by Oca Studios"
-	print 'The game is based on the "Glamour" table-top game by Oca Studios'
-	print "in loving memory of Cilda and Patricia"
-	print "Feel free to contribute at www.ocastudios.com"
-	print "or visit the project at http://launchpad.net/glamour"
-	print "... lauching game ..."
 
-def initialize_mixer():
-	print "Setting Pygame Mixer Configuration"
-	#pygame.mixer.pre_init(44100,16,256)
-	print "Initializing Pygame Mixer"
-	pygame.mixer.init()
-	print "Setting Reserved Channels"
-	pygame.mixer.set_reserved(3)
-	print "Initializing Pygame"
 
-welcome()
-import os
-import pygame
-
-print "Initializing Pygame Display"
-pygame.display.init()
-pygame.display.set_caption("Glamour - OcaStudios")
 
 #### Princesses #### 
 Snow_White	  = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
@@ -36,11 +13,8 @@ Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping'  ,'icon': 'princess-i
 
 #### Screen Resolution ####
 print "Detecting screen resolution"
-
 os_screen = pygame.display.Info()
-
 resolution = os_screen.current_w,os_screen.current_h
-
 if resolution[0] < 1440:
 	scale = resolution[0]/1440.0
 	if 900*scale > resolution[1]:
@@ -53,7 +27,6 @@ if scale < 0.3333333337:
 ####			  temporary hard coded scale			####
 #### used to develop in a different resolution in order to avoid bugs#### 
 #scale = 0.666666667
-
 
 #### Scale function ####
 def p(positions,r=True):
@@ -80,7 +53,6 @@ def d(positions,r=True):
 		else:
 			return positions/scale
 
-
 #### Translation function ####
 import gettext
 import locale
@@ -90,13 +62,16 @@ for i in (	directory.personal,
 			directory.saves, 
 			directory.cache, 
 			os.path.join(directory.cache,'images'),
-			os.path.join(directory.locale,current_locale)
 			):
 	try:
 		os.listdir(i)
 	except:
 		os.mkdir(i)
 
-localization_support = gettext.translation('glamour', directory.locale, [current_locale])
+try:
+	localization_support = gettext.translation('glamour', directory.locale, [current_locale])
+except:
+	localization_support = gettext.translation('glamour', directory.locale, ['en_US'])
+	
+localization_support.install()
 t = localization_support.ugettext
-

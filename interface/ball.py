@@ -2,7 +2,6 @@ import pygame
 import os
 import random
 import itertools
-
 import utils
 import interface.widget as widget
 import utils.save as save
@@ -192,7 +191,6 @@ class Ball():
 		save_table = cursor.execute("SELECT * FROM save").fetchone()
 		past_glamour_points = save_table['points']
 		new_glamour_points = int(past_glamour_points)+int(glamour_points)
-
 		universe.level.princesses[0].points = new_glamour_points
 		cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
@@ -232,13 +230,13 @@ class Ball():
 		universe.db.commit()
 		save.save_thumbnail(universe)
 		self.texts += [
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("You've"),	(1064,81),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("got"),		(1100,128),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+				widget.GameText(universe, t("You"),	(1064,81),		[0,0],font_size = 40),
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+				widget.GameText(universe, t("won"),		(1100,128),		[0,0],font_size = 40),
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("glamour"),	(1309,151),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You've) (got) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
 				widget.GameText(universe, t("points"),	(1309,185),		[0,0],font_size = 40),
 				widget.GameText(universe, str(int(glamour_points)), (1200,120),[0,0],font_size=80)
 		]
@@ -248,6 +246,7 @@ class Ball():
 		universe.level.panel[1]  = widget.GameText(universe, str(total_points), (1000,30), [0,0],font_size = 80, color=(58,56,0))
 
 	def return_to_game(self):
+		self.Frame.set_next_ball_clothes()
 		if self.universe.level.princesses[0].points >=1000 and not database.query.won(self.universe):
 			self.universe.level = self.universe.menu
 			database.update.won(self.universe)
@@ -327,7 +326,6 @@ class BallFrame():
 			self.image.blit(i.image,i.pos)
 			if i.symbol:
 				self.image.blit(i.symbol,(i.symbolpos,round(i.pos[1]-p(100) )))
-		self.set_next_ball_clothes()
 		self.ready = False
 
 	def update_all(self):
@@ -476,10 +474,8 @@ class NewDancer():
 	
 	def __init__(self,universe, princess_name= None, boyfriend = None):
 		princess_directory  = directory.princess
-		if princess_name == 'princess_garment':
-			self.player = True
-		else:
-			self.player = False
+		non_dancing_outfits = ['dress_pink', 'dress_plain', 'accessory_purse', 'accessory_mask']
+		self.player = True if (princess_name == 'princess_garment') else False
 		if not boyfriend and not self.player:
 			boyfriend = random.choice(self.boyfriend_list)
 		try:
@@ -490,7 +486,7 @@ class NewDancer():
 		players_outfit = database.query.my_outfit(universe,princess_name)
 		for i in ('skin','dress','hair','accessory'):
 			part = None
-			if not players_outfit[i] in ('dress_pink', 'dress_plain', 'accessory_purse'):
+			if not players_outfit[i] in non_dancing_outfits :
 					part = players_outfit[i]
 			if part:
 				ordered_directory_list.append(os.path.join(directory.princess,players_outfit[i],'dance'))

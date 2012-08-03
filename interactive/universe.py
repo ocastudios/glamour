@@ -8,6 +8,7 @@ import inspect
 import utils
 from settings import directory
 
+
 class Universe():
 	def __init__(self):
 		default_resolution = (1440,900)

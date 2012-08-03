@@ -16,8 +16,6 @@ p = settings.p
 d = settings.d
 t = settings.t
 
-
-
 class Inside():
 	def __init__(self, universe, item_type, item_list):
 		self.status = 'outside'

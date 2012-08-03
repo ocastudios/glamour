@@ -13,11 +13,10 @@ class Schnauzer():
 	"""Schnauzer is a dog enemy. 
 	It is kinda dirty, so the princess cannot let him touch her.
 	It runs after the princess and should not be able to fall in the sewers"""
-	music   = None
-	bow	 = None
+	music = None
 	def __init__(self, pos, universe, margin=p([20,20,20,20])):
-		self.music	= self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
-		self.bow	= self.bow or pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
+		self.music	= {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
+		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
 		self.center_distance = pos
 		for i in ['kissed', 'walk', 'stay']:
 			self.__dict__[i] = utils.img.TwoSided(os.path.join(directory.enemies,'Schnauzer',i))
@@ -105,7 +104,7 @@ class Schnauzer():
 class Carriage():
 	music = None
 	def __init__(self, pos, universe,margin=p([10,10,10,10])):
-		self.music = self.music or {
+		self.music = {
 			'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
 			'weight':6,
 			'playing':False} 
@@ -161,7 +160,7 @@ class Butterfly():
 		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
 			'weight':1,
 			'playing':False} 
-		self.walk = utils.img.TwoSided(os.path.join(directory.enemies,'Butterfly','walk'))
+		self.walk = self.walk or utils.img.TwoSided(os.path.join(directory.enemies,'Butterfly','walk'))
 		self._registry.append(self)
 		self.height = p(random.randint(300,600))
 		self.up_direction = 'going_down'
@@ -207,7 +206,7 @@ class Butterfly():
 class OldLady():
 	music = None
 	def __init__(self, pos, universe,margin=p([10,10,10,10])):
-		self.music = self.music or{'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
+		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
 		self.center_distance = pos
 		self.walk   = utils.img.TwoSided(os.path.join(directory.enemies,'OldLady','walk'),margin)
 		self.wave   = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','hover'),margin)
@@ -308,6 +307,7 @@ class OldLady():
 class BroomingDust():
 	music = None
 	def __init__(self, lady):
+		self.music 			= None
 		self.lady			= lady
 		self.universe		= lady.universe
 		self.center_distance= lady.center_distance
@@ -362,6 +362,7 @@ class BroomingDust():
 class Lion():
 	music = None
 	def __init__(self, universe):
+		self.music = None
 		self.center_distance = p(3200,r=0)
 		self.base  = utils.img.There_and_back_again(os.path.join(directory.enemies,'Lion','base'),exclude_border = True)
 		self.growl = utils.img.There_and_back_again(os.path.join(directory.enemies,'Lion','growl'),exclude_border = True)
@@ -431,6 +432,7 @@ class Lion():
 class Tail():
 	music = None
 	def __init__(self, lion):
+		self.music = None
 		self.lion = lion
 		self.pos  = self.lion.pos
 		self.images = utils.img.There_and_back_again(os.path.join(directory.enemies,'Lion','tail'))
@@ -444,6 +446,7 @@ class Tail():
 class Elephant():
 	music = None
 	def __init__(self, universe):
+		self.music = None
 		self.center_distance = p(3600)
 		for i in ['base','hover']:
 			self.__dict__[i] = utils.img.There_and_back_again(os.path.join(directory.enemies,'Elephant',i),exclude_border = True)
@@ -489,6 +492,7 @@ class Elephant():
 class Giraffe():
 	music = None
 	def __init__(self,universe):
+		self.music = None
 		self.center_distance = p(3800,r=0)
 		ordered_directory_list = (os.path.join(directory.enemies,'giraffe','base'),
 								  os.path.join(directory.enemies,'giraffe','chew'))
@@ -513,6 +517,7 @@ class Giraffe():
 class Penguin():
 	music = None
 	def __init__(self, universe):
+		self.music = None
 		self.images = utils.img.There_and_back_again(os.path.join(directory.enemies,'penguin','jump'),exclude_border=True)
 		self.center_distance = p(3550,r=0)
 		self.image = self.images.left[self.images.number]
@@ -591,6 +596,7 @@ class Penguin():
 class Monkey():
 	music = None
 	def __init__(self, universe):
+		self.music = None
 		self.center_distance = p(3500,r=0)
 		for i in ['stay','hover','happy','throw','attack']:
 			self.__dict__[i] = utils.img.TwoSided(os.path.join(directory.enemies,'Monkey',i))
@@ -893,6 +899,7 @@ class Balloon():
 	talk_image_tpl = utils.img.image(os.path.join(directory.enemies, 'VikingShip', 'talk_balloon', '0.png'))
 	shout_image_tpl = utils.img.image(os.path.join(directory.enemies, 'VikingShip', 'shout_balloon', '0.png'))
 	curses = [os.path.join(directory.enemies,'VikingShip','curses',str(index)+'.png') for index in range(7)]
+	music = None
 	def __init__(self, ship, brand = 'talk', pos_x = 0, pos_y = 0):
 		self.pos_x	= p(pos_x, r=False)
 		self.pos_y	= p(pos_y, r=False)

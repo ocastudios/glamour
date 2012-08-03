@@ -1,20 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Glamour, a free girly game.
+# Copyright (C) 2011
+# Oca Studios <ocastudios@ocastudios.com>, 2011.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-19 19:48-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2011-04-21 18:57-0300\n"
+"Last-Translator: Nelson do Vale Oliveira <nelson@ocastudios.com\n"
+"Language-Team: English <nelson@ocastudios.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: interactive/stage.py:701
@@ -1428,273 +1426,689 @@ msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
 msgstr ""
 
 #: interface/random_names.py:4
-msgid "Albertine"
+msgid "Aaliyah"
 msgstr ""
 
 #: interface/random_names.py:5
-msgid "Albinia"
+msgid "Abigail"
 msgstr ""
 
 #: interface/random_names.py:6
-msgid "Alethea"
+msgid "Addison"
 msgstr ""
 
 #: interface/random_names.py:7
-msgid "Allegra"
+msgid "Albertine"
 msgstr ""
 
 #: interface/random_names.py:8
-msgid "Alma"
+msgid "Albinia"
 msgstr ""
 
 #: interface/random_names.py:9
-msgid "Aloisia"
+msgid "Alethea"
 msgstr ""
 
 #: interface/random_names.py:10
-msgid "Althea"
+msgid "Alexa"
 msgstr ""
 
 #: interface/random_names.py:11
-msgid "Amanda"
+msgid "Alexandra"
 msgstr ""
 
 #: interface/random_names.py:12
-msgid "Angel"
+msgid "Alexis"
 msgstr ""
 
 #: interface/random_names.py:13
-msgid "Annzella"
+msgid "Allegra"
 msgstr ""
 
 #: interface/random_names.py:14
-msgid "Anthea"
+msgid "Allison"
 msgstr ""
 
 #: interface/random_names.py:15
-msgid "Aquila"
+msgid "Alma"
 msgstr ""
 
 #: interface/random_names.py:16
-msgid "Armine"
+msgid "Aloisia"
 msgstr ""
 
 #: interface/random_names.py:17
-msgid "Artemisia"
+msgid "Althea"
 msgstr ""
 
 #: interface/random_names.py:18
-msgid "Aspasia"
+msgid "Alyssa"
 msgstr ""
 
 #: interface/random_names.py:19
-msgid "Augusta"
+msgid "Amanda"
 msgstr ""
 
 #: interface/random_names.py:20
-msgid "Aurea"
+msgid "Amelia"
 msgstr ""
 
 #: interface/random_names.py:21
-msgid "Auriol"
+msgid "Andrea"
 msgstr ""
 
 #: interface/random_names.py:22
-msgid "Aurora"
+msgid "Angel"
 msgstr ""
 
 #: interface/random_names.py:23
-msgid "Barbara"
+msgid "Angelina"
 msgstr ""
 
 #: interface/random_names.py:24
-msgid "Berenice"
+msgid "Anna"
 msgstr ""
 
 #: interface/random_names.py:25
-msgid "Brilliana"
+msgid "Annzella"
 msgstr ""
 
 #: interface/random_names.py:26
-msgid "Britannia"
+msgid "Anthea"
 msgstr ""
 
 #: interface/random_names.py:27
-msgid "Carina"
+msgid "Aquila"
 msgstr ""
 
 #: interface/random_names.py:28
-msgid "Carol"
+msgid "Armine"
 msgstr ""
 
 #: interface/random_names.py:29
-msgid "Cilda"
+msgid "Artemisia"
 msgstr ""
 
 #: interface/random_names.py:30
-msgid "Clorinda"
+msgid "Ashley"
 msgstr ""
 
 #: interface/random_names.py:31
-msgid "Corisande"
+msgid "Aspasia"
 msgstr ""
 
 #: interface/random_names.py:32
-msgid "Delia"
+msgid "Aubrey"
 msgstr ""
 
 #: interface/random_names.py:33
-msgid "Dilliana"
+msgid "Augusta"
 msgstr ""
 
 #: interface/random_names.py:34
-msgid "Donna"
+msgid "Aurea"
 msgstr ""
 
 #: interface/random_names.py:35
-msgid "Dorinda"
+msgid "Auriol"
 msgstr ""
 
 #: interface/random_names.py:36
-msgid "Dorothy"
+msgid "Aurora"
 msgstr ""
 
 #: interface/random_names.py:37
-msgid "Douglas"
+msgid "Autumn"
 msgstr ""
 
 #: interface/random_names.py:38
-msgid "Elizabella"
+msgid "Ava"
 msgstr ""
 
 #: interface/random_names.py:39
-msgid "Elizabeth"
+msgid "Avery"
 msgstr ""
 
 #: interface/random_names.py:40
-msgid "Elma"
+msgid "Bailey"
 msgstr ""
 
 #: interface/random_names.py:41
-msgid "Frusannah"
+msgid "Barbara"
 msgstr ""
 
 #: interface/random_names.py:42
-msgid "Helen"
+msgid "Bella"
 msgstr ""
 
 #: interface/random_names.py:43
-msgid "Jacinth"
+msgid "Berenice"
 msgstr ""
 
 #: interface/random_names.py:44
-msgid "Jennifer"
+msgid "Betty"
 msgstr ""
 
 #: interface/random_names.py:45
-msgid "Karen"
+msgid "Brianna"
 msgstr ""
 
 #: interface/random_names.py:46
-msgid "Kimberly"
+msgid "Brilliana"
 msgstr ""
 
 #: interface/random_names.py:47
-msgid "Laura"
+msgid "Britannia"
 msgstr ""
 
 #: interface/random_names.py:48
-msgid "Linda"
+msgid "Brittany"
 msgstr ""
 
 #: interface/random_names.py:49
-msgid "Lisa"
+msgid "Brooke"
 msgstr ""
 
 #: interface/random_names.py:50
-msgid "Lucasta"
+msgid "Brooklyn"
 msgstr ""
 
 #: interface/random_names.py:51
-msgid "Marcia"
+msgid "Camila"
 msgstr ""
 
 #: interface/random_names.py:52
-msgid "Margaret"
+msgid "Carina"
 msgstr ""
 
 #: interface/random_names.py:53
-msgid "Maria"
+msgid "Carol"
 msgstr ""
 
 #: interface/random_names.py:54
-msgid "Mariabella"
+msgid "Caroline"
 msgstr ""
 
 #: interface/random_names.py:55
-msgid "Mary"
+msgid "Charlotte"
 msgstr ""
 
 #: interface/random_names.py:56
-msgid "Michelle"
+msgid "Chelsea"
 msgstr ""
 
 #: interface/random_names.py:57
-msgid "Nancy"
+msgid "Chloe"
 msgstr ""
 
 #: interface/random_names.py:58
-msgid "Patricia"
+msgid "Cilda"
 msgstr ""
 
 #: interface/random_names.py:59
-msgid "Philadelphia"
+msgid "Claire"
 msgstr ""
 
 #: interface/random_names.py:60
-msgid "Raquel"
+msgid "Clorinda"
 msgstr ""
 
 #: interface/random_names.py:61
-msgid "Ruth"
+msgid "Corisande"
 msgstr ""
 
 #: interface/random_names.py:62
-msgid "Sandra"
+msgid "Courtney"
 msgstr ""
 
 #: interface/random_names.py:63
-msgid "Sarah"
+msgid "Deborah"
 msgstr ""
 
 #: interface/random_names.py:64
-msgid "Saranna"
+msgid "Delia"
 msgstr ""
 
 #: interface/random_names.py:65
-msgid "Sharon"
+msgid "Destiny"
 msgstr ""
 
 #: interface/random_names.py:66
-msgid "Sophronia"
+msgid "Dilliana"
 msgstr ""
 
 #: interface/random_names.py:67
-msgid "Susan"
+msgid "Donna"
 msgstr ""
 
 #: interface/random_names.py:68
-msgid "Ulalia"
+msgid "Dorinda"
 msgstr ""
 
 #: interface/random_names.py:69
-msgid "Urania"
+msgid "Dorothy"
 msgstr ""
 
 #: interface/random_names.py:70
-msgid "Venetia"
+msgid "Douglas"
 msgstr ""
 
 #: interface/random_names.py:71
+msgid "Elizabella"
+msgstr ""
+
+#: interface/random_names.py:72
+msgid "Elizabeth"
+msgstr ""
+
+#: interface/random_names.py:73
+msgid "Ella"
+msgstr ""
+
+#: interface/random_names.py:74
+msgid "Elma"
+msgstr ""
+
+#: interface/random_names.py:75
+msgid "Emily"
+msgstr ""
+
+#: interface/random_names.py:76
+msgid "Emma"
+msgstr ""
+
+#: interface/random_names.py:77
+msgid "Eva"
+msgstr ""
+
+#: interface/random_names.py:78
+msgid "Evelyn"
+msgstr ""
+
+#: interface/random_names.py:79
+msgid "Faith"
+msgstr ""
+
+#: interface/random_names.py:80
+msgid "Frusannah"
+msgstr ""
+
+#: interface/random_names.py:81
+msgid "Gabriella"
+msgstr ""
+
+#: interface/random_names.py:82
+msgid "Gabrielle"
+msgstr ""
+
+#: interface/random_names.py:83
+msgid "Genesis"
+msgstr ""
+
+#: interface/random_names.py:84
+msgid "Gianna"
+msgstr ""
+
+#: interface/random_names.py:85
+msgid "Grace"
+msgstr ""
+
+#: interface/random_names.py:86
+msgid "Gracie"
+msgstr ""
+
+#: interface/random_names.py:87
+msgid "Hailey"
+msgstr ""
+
+#: interface/random_names.py:88
+msgid "Haley"
+msgstr ""
+
+#: interface/random_names.py:89
+msgid "Hannah"
+msgstr ""
+
+#: interface/random_names.py:90
+msgid "Helen"
+msgstr ""
+
+#: interface/random_names.py:91
+msgid "Isabel"
+msgstr ""
+
+#: interface/random_names.py:92
+msgid "Isabella"
+msgstr ""
+
+#: interface/random_names.py:93
+msgid "Isabelle"
+msgstr ""
+
+#: interface/random_names.py:94
+msgid "Jacinth"
+msgstr ""
+
+#: interface/random_names.py:95
+msgid "Jasmine"
+msgstr ""
+
+#: interface/random_names.py:96
+msgid "Jennifer"
+msgstr ""
+
+#: interface/random_names.py:97
+msgid "Jessica"
+msgstr ""
+
+#: interface/random_names.py:98
+msgid "Jocelyn"
+msgstr ""
+
+#: interface/random_names.py:99
+msgid "Julia"
+msgstr ""
+
+#: interface/random_names.py:100
+msgid "Kaitlyn"
+msgstr ""
+
+#: interface/random_names.py:101
+msgid "Karen"
+msgstr ""
+
+#: interface/random_names.py:102
+msgid "Katelyn"
+msgstr ""
+
+#: interface/random_names.py:103
+msgid "Katherine"
+msgstr ""
+
+#: interface/random_names.py:104
+msgid "Kayla"
+msgstr ""
+
+#: interface/random_names.py:105
+msgid "Kaylee"
+msgstr ""
+
+#: interface/random_names.py:106
+msgid "Khloe"
+msgstr ""
+
+#: interface/random_names.py:107
+msgid "Kimberly"
+msgstr ""
+
+#: interface/random_names.py:108
+msgid "Kylie"
+msgstr ""
+
+#: interface/random_names.py:109
+msgid "Laura"
+msgstr ""
+
+#: interface/random_names.py:110
+msgid "Lauren"
+msgstr ""
+
+#: interface/random_names.py:111
+msgid "Layla"
+msgstr ""
+
+#: interface/random_names.py:112
+msgid "Leah"
+msgstr ""
+
+#: interface/random_names.py:113
+msgid "Lillian"
+msgstr ""
+
+#: interface/random_names.py:114
+msgid "Lily"
+msgstr ""
+
+#: interface/random_names.py:115
+msgid "Linda"
+msgstr ""
+
+#: interface/random_names.py:116
+msgid "Lisa"
+msgstr ""
+
+#: interface/random_names.py:117
+msgid "Lucasta"
+msgstr ""
+
+#: interface/random_names.py:118
+msgid "Mackenzie"
+msgstr ""
+
+#: interface/random_names.py:119
+msgid "Madeline"
+msgstr ""
+
+#: interface/random_names.py:120
+msgid "Madelyn"
+msgstr ""
+
+#: interface/random_names.py:121
+msgid "Madison"
+msgstr ""
+
+#: interface/random_names.py:122
+msgid "Makayla"
+msgstr ""
+
+#: interface/random_names.py:123
+msgid "Marcia"
+msgstr ""
+
+#: interface/random_names.py:124
+msgid "Margaret"
+msgstr ""
+
+#: interface/random_names.py:125
+msgid "Maria"
+msgstr ""
+
+#: interface/random_names.py:126
+msgid "Mariabella"
+msgstr ""
+
+#: interface/random_names.py:127
+msgid "Mariah"
+msgstr ""
+
+#: interface/random_names.py:128
+msgid "Mary"
+msgstr ""
+
+#: interface/random_names.py:129
+msgid "Maya"
+msgstr ""
+
+#: interface/random_names.py:130
+msgid "Megan"
+msgstr ""
+
+#: interface/random_names.py:131
+msgid "Melanie"
+msgstr ""
+
+#: interface/random_names.py:132
+msgid "Mia"
+msgstr ""
+
+#: interface/random_names.py:133
+msgid "Michelle"
+msgstr ""
+
+#: interface/random_names.py:134
+msgid "Molly"
+msgstr ""
+
+#: interface/random_names.py:135
+msgid "Morgan"
+msgstr ""
+
+#: interface/random_names.py:136
+msgid "Mya"
+msgstr ""
+
+#: interface/random_names.py:137
+msgid "Nancy"
+msgstr ""
+
+#: interface/random_names.py:138
+msgid "Natalie"
+msgstr ""
+
+#: interface/random_names.py:139
+msgid "Nevaeh"
+msgstr ""
+
+#: interface/random_names.py:140
+msgid "Nicole"
+msgstr ""
+
+#: interface/random_names.py:141
+msgid "Olivia"
+msgstr ""
+
+#: interface/random_names.py:142
+msgid "Paige"
+msgstr ""
+
+#: interface/random_names.py:143
+msgid "Patricia"
+msgstr ""
+
+#: interface/random_names.py:144
+msgid "Payton"
+msgstr ""
+
+#: interface/random_names.py:145
+msgid "Peyton"
+msgstr ""
+
+#: interface/random_names.py:146
+msgid "Philadelphia"
+msgstr ""
+
+#: interface/random_names.py:147
+msgid "Rachel"
+msgstr ""
+
+#: interface/random_names.py:148
+msgid "Rebecca"
+msgstr ""
+
+#: interface/random_names.py:149
+msgid "Riley"
+msgstr ""
+
+#: interface/random_names.py:150
+msgid "Ruth"
+msgstr ""
+
+#: interface/random_names.py:151
+msgid "Samantha"
+msgstr ""
+
+#: interface/random_names.py:152
+msgid "Sandra"
+msgstr ""
+
+#: interface/random_names.py:153
+msgid "Sara"
+msgstr ""
+
+#: interface/random_names.py:154
+msgid "Sarah"
+msgstr ""
+
+#: interface/random_names.py:155
+msgid "Saranna"
+msgstr ""
+
+#: interface/random_names.py:156
+msgid "Savannah"
+msgstr ""
+
+#: interface/random_names.py:157
+msgid "Serenity"
+msgstr ""
+
+#: interface/random_names.py:158
+msgid "Sharon"
+msgstr ""
+
+#: interface/random_names.py:159
+msgid "Sofia"
+msgstr ""
+
+#: interface/random_names.py:160
+msgid "Sophie"
+msgstr ""
+
+#: interface/random_names.py:161
+msgid "Sophronia"
+msgstr ""
+
+#: interface/random_names.py:162
+msgid "Stephanie"
+msgstr ""
+
+#: interface/random_names.py:163
+msgid "Susan"
+msgstr ""
+
+#: interface/random_names.py:164
+msgid "Sydney"
+msgstr ""
+
+#: interface/random_names.py:165
+msgid "Taylor"
+msgstr ""
+
+#: interface/random_names.py:166
+msgid "Trinity"
+msgstr ""
+
+#: interface/random_names.py:167
+msgid "Ulalia"
+msgstr ""
+
+#: interface/random_names.py:168
+msgid "Urania"
+msgstr ""
+
+#: interface/random_names.py:169
+msgid "Valeria"
+msgstr ""
+
+#: interface/random_names.py:170
+msgid "Vanessa"
+msgstr ""
+
+#: interface/random_names.py:171
+msgid "Venetia"
+msgstr ""
+
+#: interface/random_names.py:172
+msgid "Victoria"
+msgstr ""
+
+#: interface/random_names.py:173
 msgid "Zenobe"
+msgstr ""
+
+#: interface/random_names.py:174
+msgid "Zoe"
+msgstr ""
+
+#: interface/random_names.py:175
+msgid "Zoey"
 msgstr ""

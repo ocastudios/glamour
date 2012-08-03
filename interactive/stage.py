@@ -267,7 +267,7 @@ class Stage():
 				if i.__class__ == Closet_Icon and i.imagetxt:
 					screen.blit(i.imagetxt.image,i.imagetxt.pos)
 			screen.blit(self.pause.close_closet.image,self.pause.close_closet.pos)
-			
+
 	def blit_ball(self,screen):
 		screen.blit(self.ball.background,(0,0))
 		for i in self.ball.dancers:
@@ -488,7 +488,6 @@ class Stage():
 			elif self.pause.status == 'finished':
 				self.pause.status = 'outside'
 				self.paused = False
-
 
 	def update_fairytip(self):
 		pymusic = pygame.mixer.music
@@ -946,7 +945,7 @@ class Pause():
 			'hair_snowwhite':		[p((350, 412)),	t("Snow White's hairstyle, earned for visiting her.")],
 			'hair_yellow':			[p((460, 412)),	t("The blonde hairstyle, unlocked from the start.")],
 			'shoes_boots':			[p((570, 412)),	t("The go-go boots, earned by crossing the drains clean.")],
-			'shoes_crystal':		[p((680, 412)),	t("The glass slippers, earned for wearing the outfit in the ending.")],
+			'shoes_crystal':		[p((680, 412)),	t("The glass slippers, earned for wearing the dream outfit.")],
 			'shoes_flower':			[p((790, 412)),	t("The flower sandals, earned for visiting all streets in one day.")],
 			'shoes_red':			[p((900, 412)),	t("The red shoes, unlocked from the start.")],
 			'shoes_slipper':		[p((1010,412)),	t("The slippers, unlocked from the start.")],
