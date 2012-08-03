@@ -46,12 +46,12 @@ Margin may be used to better program interaction during the game. Margin default
 
 class OneSided(TwoSided):
 	def __init__(self,dir,margin = [0,0,0,0]):
-		self.margin	 = margin
-		self.list	   = self.left = find_images(dir)
-		self.number	 = 0
-		self.size	   = self.list[0].get_size()
-		self.lenght	 = len(self.list)
-		self.itnumber   = cycle(range(self.lenght))
+		self.margin = margin
+		self.list = self.left = find_images(dir)
+		self.number = 0
+		self.size = self.list[0].get_size()
+		self.lenght = len(self.list)
+		self.itnumber = cycle(range(self.lenght))
 
 
 class There_and_back_again(TwoSided):
@@ -210,9 +210,8 @@ class Ad_hoc():
 
 
 def image(path, invert = False, alpha = True):
-	complete_path = re.search(directory.main, path)
-	home_path = re.search(directory.homedir, path)
-	if not complete_path and not home_path:
+	if not  re.search(directory.main, path) \
+	and not re.search(directory.homedir, path):
 		path = os.path.join(directory.main,path)
 	if alpha:
 		prep = pygame.image.load(path).convert_alpha()
@@ -226,17 +225,17 @@ def image(path, invert = False, alpha = True):
 	return pygame.transform.smoothscale(prep,size)
 
 def scale_image(prep, invert = False):
-	if invert==True:
-		prep = pygame.transform.flip(prep,1,0)
 	prep_size = prep.get_size()
 	scaled_width = prep_size[0]*scale
 	size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
-	return pygame.transform.smoothscale(prep,size)
+	if invert:
+		return pygame.transform.flip(pygame.transform.smoothscale(prep,size), 1,0)
+	else:
+		return pygame.transform.smoothscale(prep,size)
 
 def find_images(dir, can_yield = False):
-	complete_path = re.search(directory.main, dir)
-	home_path = re.search(directory.homedir,dir)
-	if not complete_path and not home_path:
+	if not re.search(directory.main, dir) \
+	and not re.search(directory.homedir, dir):
 		dir = os.path.join(directory.main,dir)
 	return [image(os.path.join(dir,item)) for item in sorted(os.listdir(dir)) if ( item[-4:] == '.png' or item[-4:]== '.PNG')]
 
