@@ -39,7 +39,7 @@ def choose_event(universe,starting_game=False):
 		if princess_pos < pn(360):
 			create_message(universe,"accessory hall")
 		elif pn(8300) < princess_pos:
-			create_message(universe,"sleeping beautys palace")
+			create_message(universe,"cinderellas castle")
 	elif name == "dress":
 		if princess_pos < pn(300):
 			create_message(universe,"dress tower")
@@ -49,7 +49,7 @@ def choose_event(universe,starting_game=False):
 		if princess_pos <pn(300):
 			create_message(universe,"make-up tower")
 		elif pn(8900) < princess_pos:
-			create_message(universe,"cinderellas castle")
+			create_message(universe,"sleeping beautys palace")
 	elif name == "shoes":
 		if princess_pos < pn(300):
 			create_message(universe,"shoes shop")

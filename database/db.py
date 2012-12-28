@@ -20,26 +20,26 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 		print "creating save table"
 		universe.db_cursor.execute("""
 		  CREATE TABLE save (
-				name				VARCHAR(30)	PRIMARY KEY,
-				dirt				INTEGER,
-				points				INTEGER,
-				level				VARCHAR(30),
-				position			REAL,
-				center_distance		REAL,
-				won					INTEGER
+				name VARCHAR(30)	PRIMARY KEY,
+				dirt INTEGER,
+				points INTEGER,
+				level VARCHAR(30),
+				position REAL,
+				center_distance REAL,
+				won INTEGER
 				);
 			""")
 		garment = """
 			  id INTEGER PRIMARY KEY,
-			  hair_back			REAL,
-			  skin				VARCHAR(30),
-			  face				VARCHAR(30),
-			  hair				VARCHAR(30),
-			  shoes				VARCHAR(30),
-			  dress				VARCHAR(30),
-			  arm				VARCHAR(30),
-			  armdress			VARCHAR(30),
-			  accessory			VARCHAR(30)
+			  hair_back REAL,
+			  skin VARCHAR(30),
+			  face VARCHAR(30),
+			  hair VARCHAR(30),
+			  shoes VARCHAR(30),
+			  dress VARCHAR(30),
+			  arm VARCHAR(30),
+			  armdress VARCHAR(30),
+			  accessory VARCHAR(30)
 				"""
 		print "creating garment tables"
 		universe.db_cursor.execute("""CREATE TABLE princess_garment("""+ garment +""");""")
