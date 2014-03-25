@@ -13,13 +13,13 @@ from settings import *
 channel = pygame.mixer.Channel(0)
 class Button():
 	click = pygame.mixer.Sound(os.path.join(directory.sounds,'click.ogg'))
-	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False,fonte='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
+	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False,main_font='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
 		"""Creates a clickable button
 
 		dirtxt: if image button than directory, if text button, than text.
 		function: a button function is necessary.
 		parameter: a string or tuple with the needed parameters for the button function.
-		fonte, font_size and color: only useful to image buttons.
+		main_font, font_size and color: only useful to image buttons.
 		"""
 		self.universe = universe
 		self.level_pos = level_pos
@@ -37,10 +37,10 @@ class Button():
 			self.list_of_images = self.images.list
 		if self.type_of_button == 'text':
 			font_size  = int(font_size*scale)
-			font	   = fonte
+			font	   = main_font
 			self.text	   = dirtxt
 			self.color	  = color
-			self.fontA	  = pygame.font.Font(os.path.join(directory.fonts,fonte),self.font_size)
+			self.fontA	  = pygame.font.Font(os.path.join(directory.fonts,main_font),self.font_size)
 			self.fontB	  = pygame.font.Font(os.path.join(directory.fonts,second_font),self.font_size+(self.font_size/3))
 			self.list_of_images= [self.fontA.render(self.text,1,self.color)]
 
@@ -95,40 +95,35 @@ class Button():
 
 
 class GameText():
-	def __init__(self, universe, text,pos,frame_pos =None,fonte='Domestic_Manners.ttf', font_size=40, color=(58,56,0),second_font = 'Chopin_Script.ttf',var = False, rotate = None, box = None):
+	def __init__(self, universe, text,pos,frame_pos =None,main_font=main_font, font_size=40, color=(58,56,0),second_font =second_font,var = False, rotate = None, box = None):
 		font_size  = p(font_size)
 		pos = p(pos)
-		self.font	   = fonte
+		self.font = main_font
 		self.frame_pos = frame_pos
-		self.text	   = text
-		self.color	  = color
-		self.fontA	  = pygame.font.Font(os.path.join(directory.fonts,fonte),int(round(font_size)))
-		self.fontB	  = pygame.font.Font(os.path.join(directory.fonts,second_font),int(round(font_size+(font_size/3))))
-		self.position   = pos
+		self.text = text
+		self.color = color
+		self.fontA = pygame.font.Font(os.path.join(directory.fonts,self.font),int(round(font_size)))
+		self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),int(round(font_size+(font_size/3))))
+		self.position = pos
 		if box:
-			self.box	= pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
+			self.box = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
 			self.adjusting_fonts()
 			self.image  = self.box
-			self.size		= self.image.get_size()
-			self.pos		= [self.position[0]-(self.size[0]/2),
+			self.size = self.image.get_size()
+			self.pos = [self.position[0]-(self.size[0]/2),
 							   self.position[1]-(self.size[1]/2)]
 		else:
-			self.image	  = self.fontA.render(self.text,1,self.color)
+			self.image  = self.fontA.render(self.text,1,self.color)
 			if rotate:
-				try:
-					self.image = pygame.transform.rotate(self.image,rotate)
-				except:
-					print "the rotate parameter must be a number"
-			self.size	   = self.image.get_size()
+				self.image = pygame.transform.rotate(self.image,rotate)
+			self.size = self.image.get_size()
 			if self.frame_pos:
-				self.pos		= [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-								   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+				self.pos = [self.frame_pos[0]+self.position[0]-(self.size[0]/2), self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
 			else:
-				self.pos = [pos[0]-(self.size[0]/2),
-							pos[1]-(self.size[1]/2)]
+				self.pos = [pos[0]-(self.size[0]/2), pos[1]-(self.size[1]/2)]
 
 		self.variable_text = var
-		self.text_box   = self.size[0]*.8,self.size[1]*.8
+		self.text_box = self.size[0]*.8,self.size[1]*.8
 
 	def update_all(self):
 		if self.frame_pos:
@@ -174,13 +169,12 @@ class GameText():
 			count += 1
 
 
-
 class Letter(GameText):
 	hoover = False
-	def __init__(self,universe,text,pos,frame_pos,hoover_size,fonte='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
+	def __init__(self,universe,text,pos,frame_pos,hoover_size,main_font='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
 		self.universe = universe
 		font_size = int(font_size*scale)
-		GameText.__init__(self,universe, text,pos,frame_pos,fonte,font_size,color)
+		GameText.__init__(self,universe, text,pos,frame_pos,main_font,font_size,color)
 		self.hoover_size = hoover_size
 		self.size = p((30,30))
 		
@@ -210,7 +204,7 @@ class Key(GameText):
 	hoover = False
 	def __init__(self,universe, text,pos,frame_pos,key_type):
 		self.universe = universe
-		GameText.__init__(self,universe, text,pos,frame_pos,fonte='GentesqueRegular.otf',font_size=30, color=(83,0,0))
+		GameText.__init__(self,universe, text,pos,frame_pos,main_font='GentesqueRegular.otf',font_size=30, color=(83,0,0))
 		self.key = key_type
 
 

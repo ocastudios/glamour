@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-ending
 import utils.img
-
 import pygame
 import scenario.drapes as drapes
 import os
@@ -23,8 +22,6 @@ name_taken	  = False
 ## 2- arrive_bar
 ## 3- update_menus
 
-
-
 class Menu():
 	selection_canvas = utils.img.image(os.path.join(directory.title_screen,'selection_canvas','0.png'))
 	def __init__(self,universe,position= [360,200]):
@@ -43,31 +40,31 @@ class Menu():
 		}
 		self.vertical_bar['size'] = self.vertical_bar['image'].get_size()
 		self.vertical_bar['position'] = -self.vertical_bar['size'][0]
-		self.speed		  = p(2,r =False)
-		self.goal_pos	   = position
+		self.speed = p(2,r =False)
+		self.goal_pos = position
 		self.position= [position[0],p(-600)]
 		self.background	 = self.selection_canvas
-		self.size		   = self.background.get_size()
-		self.action		 = None
-		self.next_menu	  = self.select_princess
+		self.size = self.background.get_size()
+		self.action = None
+		self.next_menu = self.select_princess
 		self.print_princess = False
-		self.princess		= None
-		self.story			= None
-		self.tutorial		= None
-		self.ending			= None
-		self.credits		= None
-		self.go_back		= False
+		self.princess = None
+		self.story = None
+		self.tutorial = None
+		self.ending = None
+		self.credits = None
+		self.go_back = False
 		self.back_background= None
 		self.mouse_positions= []
 		self.selector = 0
-		self.hoover_letter	= utils.img.image(os.path.join(directory.title_screen,'selection_letter','0.png'))
+		self.hoover_letter = utils.img.image(os.path.join(directory.title_screen,'selection_letter','0.png'))
 		self.hoover_letter_size = self.hoover_letter.get_size()
-		self.hoover_large	= utils.img.image(os.path.join(directory.title_screen,'selection_back_space','0.png'))
+		self.hoover_large = utils.img.image(os.path.join(directory.title_screen,'selection_back_space','0.png'))
 		self.hoover_large_size = self.hoover_large.get_size()
-		self.STEP	= self.update_drape
-		self.story_frames	= []
-		self.drapes			= drapes.Drape()
-		self.upper_drapes	= drapes.UperDrape()
+		self.STEP = self.update_drape
+		self.story_frames = []
+		self.drapes = drapes.Drape()
+		self.upper_drapes = drapes.UperDrape()
 		self.count = 0
 
 	def update_all(self):
@@ -116,7 +113,7 @@ class Menu():
 						bar['speed'] += .5
 				else:
 					bar['position'] = p(924)
-					self.STEP = self.update_menus ## Change the STEP		self.STEP			= self.level.update_drape
+					self.STEP = self.update_menus ## Change the STEP self.STEP = self.level.update_drape
 
 	def update_menus(self,surface):
 		universe = self.universe
@@ -277,9 +274,9 @@ class Menu():
 #						 widget.Button(self.universe, directory.arrow_right,(200,450),self.position,self.NOTSETYET, invert = True)]
 
 	def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
-		self.story			= None
-		self.credits		= None
-		self.ending			= None
+		self.story = None
+		self.credits = None
+		self.ending = None
 		self.story_frames = []
 		self.background	 = self.selection_canvas
 		if background:
@@ -763,86 +760,86 @@ class Credits():
 		self.universe	   = universe
 		self.pos		= p((0,100))
 		developers = [
-				('isac',	os.path.join(directory.credits,'isacvale.png')   ,(433,840)),
-				('ndvo',	os.path.join(directory.credits,'ndvo.png'	)   ,(265,631)),
-				('raquel',  os.path.join(directory.credits,'raquel.png'  )   ,(986,631)),
-				('sergio',  os.path.join(directory.credits,'sergio.png'  )   ,(810,840))
+				('isac',os.path.join(directory.credits,'isacvale.png')   ,(433,840)),
+				('ndvo',os.path.join(directory.credits,'ndvo.png'	)   ,(265,631)),
+				('raquel',os.path.join(directory.credits,'raquel.png'  )   ,(986,631)),
+				('sergio',os.path.join(directory.credits,'sergio.png'  )   ,(810,840))
 							]
 		rendered_texts	  = [
-				('cilda & sara',	os.path.join(directory.credits,'text_cilda_e_sara.png' )  ,(590,462)),
-				('isac & sergio',   os.path.join(directory.credits,'text_isac_e_sergio.png')  ,(614,950)),
-				('ndvo',			os.path.join(directory.credits,'text_ndvo.png'		 )  ,(415,790)),
-				('ndvo & isac',	 os.path.join(directory.credits,'text_ndvo_e_isac.png'  )  ,(601,1200)),
-				('ocastudios',	  os.path.join(directory.credits,'text_ocastudios.png'   )  ,(514,1251)),
-				('raquel',		  os.path.join(directory.credits,'text_raquel.png'	   )  ,(841,790))
+				('cilda & sara',os.path.join(directory.credits,'text_cilda_e_sara.png' )  ,(590,462)),
+				('isac & sergio', os.path.join(directory.credits,'text_isac_e_sergio.png')  ,(614,950)),
+				('ndvo',os.path.join(directory.credits,'text_ndvo.png'		 )  ,(415,790)),
+				('ndvo & isac',os.path.join(directory.credits,'text_ndvo_e_isac.png'  )  ,(601,1200)),
+				('ocastudios',os.path.join(directory.credits,'text_ocastudios.png'   )  ,(514,1251)),
+				('raquel', os.path.join(directory.credits,'text_raquel.png'	   )  ,(841,790))
 							]
 		texts_chopin = [
-			(t('in loving memory of')	,(713,336),44,(0,0,0,255)),
-			(t('and')					,(701,420),24,(0,0,0,255)),
-			(t('Credits')				,(693,511),75,(0,0,0,255)),
-			(t('Programming')			,(485,569),34,(0,0,0,255)),
-			(t('Support')				,(934,569),34,(0,0,0,255)),
-			(t('Design')				,(682,730),34,(0,0,0,255)),
-			(t('Music')					,(704,1300),54,(0,0,0,255)),
-			(t('first snowfall')		,(583,1348),44,(128,0,0,255)),
-			(t('endless blue')			,(650,1389),44,(128,0,0,255)),
-			(t('celtic cappricio')		,(762,1430),44,(128,0,0,255)),
-			(t('the bee')				,(488,1472),44,(128,0,0,255)),
-			(t("lonesome man's dance")	,(684,1512),44,(128,0,0,255)),
-			(t('dragon dance')			,(754,1557),44,(128,0,0,255)),
-			(t('ship of fools')			,(829,1595),44,(128,0,0,255)),
-			(t('sword fight')			,(684,1633),44,(128,0,0,255)),
-			(t('the foggy dew')			,(615,1678),44,(128,0,0,255)),
-			(t('revolution on resoluti on')	,(828,1720),44,(128,0,0,255)),
-			(t('twilight on mountain')	,(907,1758),44,(128,0,0,255)),
-			(t('brian boru 2')			,(770,1799),44,(128,0,0,255)),
-			(t('ignition')				,(830,1834),44,(128,0,0,255)),
-			(t('first snowfall')		,(750,1875),44,(128,0,0,255)),
-			(t('cocci ci tini cocci')	,(780,1912),44,(128,0,0,255)),
-			(t('first snowfall')		,(826,1953),44,(128,0,0,255)),
-			(t('waltz wedley')			,(972,2000),44,(128,0,0,255))
+			(t('in loving memory of'),(713,336),44,(0,0,0,255)),
+			(t('and'),(701,420),24,(0,0,0,255)),
+			(t('Credits'),(693,511),75,(0,0,0,255)),
+			(t('Programming'),(485,569),34,(0,0,0,255)),
+			(t('Support'),(934,569),34,(0,0,0,255)),
+			(t('Design'),(682,730),34,(0,0,0,255)),
+			(t('Music'),(704,1300),54,(0,0,0,255)),
+			(t('first snowfall'),(583,1348),44,(128,0,0,255)),
+			(t('endless blue'),(650,1389),44,(128,0,0,255)),
+			(t('celtic cappricio'),(762,1430),44,(128,0,0,255)),
+			(t('the bee'),(488,1472),44,(128,0,0,255)),
+			(t("lonesome man's dance"),(684,1512),44,(128,0,0,255)),
+			(t('dragon dance'),(754,1557),44,(128,0,0,255)),
+			(t('ship of fools'),(829,1595),44,(128,0,0,255)),
+			(t('sword fight'),(684,1633),44,(128,0,0,255)),
+			(t('the foggy dew'),(615,1678),44,(128,0,0,255)),
+			(t('revolution on resoluti on'),(828,1720),44,(128,0,0,255)),
+			(t('twilight on mountain'),(907,1758),44,(128,0,0,255)),
+			(t('brian boru 2'),(770,1799),44,(128,0,0,255)),
+			(t('ignition'),(830,1834),44,(128,0,0,255)),
+			(t('first snowfall'),(750,1875),44,(128,0,0,255)),
+			(t('cocci ci tini cocci'),(780,1912),44,(128,0,0,255)),
+			(t('first snowfall'),(826,1953),44,(128,0,0,255)),
+			(t('waltz wedley'),(972,2000),44,(128,0,0,255))
 		   ]
 		texts_gentesque = [
 			(t('All python & pygame code, written in gedit.'),	(501,741),16,(180,60)),
 			(t('Bureaucracy and et ceteras'),					(909,737),16,(110,60)),
 			(t('Almost all Inkscape, with a touch of Blender and Gimp.'), (704,1027),16,(200,60)),
 			(t('based on the homonimous board game by'),		(699,1079),22,None),
-			(t('available at'),									(703,1137),22,None),
-			(t('introduction'),									(427,1358),14,None),
-			(t('by Torley on Piano'),							(754,1358),14,None),
-			(t('menu'),											(540,1399),14,None),
-			(t('by Armolithae'),								(800,1399),14,None),
-			(t('bathhouse st'),									(588,1440),14,None),
-			(t('by armolithae'),								(938,1440),14,None),
-			(t('dress st'),										(400,1482),14,None),
-			(t('by Ceili Moss'),								(600,1482),14,None),
-			(t("shoe's st"),									(490,1522),14,None),
-			(t("by Ceili Moss"),								(900,1522),14,None),
-			(t('accessory st.'),								(600,1567),14,None),
-			(t('by Butterfly Tea'),								(920,1567),14,None),
-			(t('make-up st.'),									(700,1605),14,None),
-			(t('by Ceili Moss'),								(961,1605),14,None),
-			(t('schnauzer'),									(550,1643),14,None),
-			(t('by Armolithae'),								(821,1643),14,None),
-			(t('carriage'),										(470,1688),14,None),
-			(t('by Ceili Moss'),								(760,1688),14,None),
-			(t('old lady'),										(610,1730),14,None),
-			(t('by Torly on Piano'),							(1080,1730),14,None),
-			(t('viking'),										(720,1768),14,None),
-			(t('by Armolithae'),								(1100,1768),14,None),
-			(t('butterffly'),									(620,1809),14,None),
-			(t('by Adragante'),									(920,1799),14,None),
-			(t('hawk'),											(750,1844),14,None),
-			(t('by Armolithae'),								(950,1844),14,None),
-			(t('birdie'),										(600,1885),14,None),
-			(t('by Torley on Piano'),							(950,1885),14,None),
-			(t('fabrizio'),										(600,1922),14,None),
-			(t('by Picari'),									(960,1922),14,None),
-			(t('zoo'),											(700,1963),14,None),
-			(t('by Torley on Piano'),							(980,1963),14,None),
-			(t('ball'),											(831,2010),14,None),
-			(t('by strauss'),									(1095,2010),14,None),
-			(t('Sad and unfortunate legal mambo jambo'),		(830,2090),14,None),
+			(t('available at'),(703,1137),22,None),
+			(t('introduction'),(427,1358),14,None),
+			(t('by Torley on Piano'),(754,1358),14,None),
+			(t('menu'),(540,1399),14,None),
+			(t('by Armolithae'),(800,1399),14,None),
+			(t('bathhouse st'),(588,1440),14,None),
+			(t('by armolithae'),(938,1440),14,None),
+			(t('dress st'),(400,1482),14,None),
+			(t('by Ceili Moss'),(600,1482),14,None),
+			(t("shoe's st"),(490,1522),14,None),
+			(t("by Ceili Moss"),(900,1522),14,None),
+			(t('accessory st.'),(600,1567),14,None),
+			(t('by Butterfly Tea'),(920,1567),14,None),
+			(t('make-up st.'),(700,1605),14,None),
+			(t('by Ceili Moss'),(961,1605),14,None),
+			(t('schnauzer'),(550,1643),14,None),
+			(t('by Armolithae'),(821,1643),14,None),
+			(t('carriage'),(470,1688),14,None),
+			(t('by Ceili Moss'),(760,1688),14,None),
+			(t('old lady'),(610,1730),14,None),
+			(t('by Torly on Piano'),(1080,1730),14,None),
+			(t('viking'),(720,1768),14,None),
+			(t('by Armolithae'),(1100,1768),14,None),
+			(t('butterffly'),(620,1809),14,None),
+			(t('by Adragante'),(920,1799),14,None),
+			(t('hawk'),(750,1844),14,None),
+			(t('by Armolithae'),(950,1844),14,None),
+			(t('birdie'),(600,1885),14,None),
+			(t('by Torley on Piano'),(950,1885),14,None),
+			(t('fabrizio'),(600,1922),14,None),
+			(t('by Picari'),(960,1922),14,None),
+			(t('zoo'),(700,1963),14,None),
+			(t('by Torley on Piano'),(980,1963),14,None),
+			(t('ball'),(831,2010),14,None),
+			(t('by strauss'),(1095,2010),14,None),
+			(t('Sad and unfortunate legal mambo jambo'),(830,2090),14,None),
 			(t("All programming and art are public domain, released so by us, their authors."),(800,2135),14,None),
 			(t("The musics, however, comes in a variety of free licenses. They can be used and altered, even commercially, but credit MUST be given. Special thanks to www.jamendo.com, from where most of our music came."),(850,2275),14,(720,90)),
 			(t("And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont License while Chopin Script, by Diogene, is in Public Domain (hurray!)."),(830,2330),13,(720,60)),
@@ -851,8 +848,8 @@ class Credits():
 			(t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2440),14,None)
 		   ]
 		self.images = developers+rendered_texts
-		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos,fonte='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
-						widget.GameText(self.universe,i[0],i[1],self.pos,fonte='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
+		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos,main_font='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
+						widget.GameText(self.universe,i[0],i[1],self.pos,main_font='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
 		for i in self.images:
 			print i
 			self.background.blit(utils.img.image(i[1]),p(i[2]))

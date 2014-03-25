@@ -2,19 +2,30 @@ import os
 import pygame
 import directory
 
+#### Fonts ####
+# Default fonts may be overriden when instantiating interfaces.widget.GameText class
+main_font = "Domestic_Manners.ttf"
+second_font = "Chopin_Script.ttf"
 
-
+#### Screen Resolution ####
+# Screen resolution is detected automatically if no custom_resolution is set
+custom_resolution = None
+#custom_resolution = (800,600)
 
 #### Princesses #### 
-Snow_White	  = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
-Cinderella	  = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png'   , 'name' : 'Cinderella'}
-Rapunzel		= {'skin': 'pink', 'hair': 'hair_rapunzel'  ,'icon': 'princess-icon-brush.png'  , 'name' : 'Rapunzel'}
+Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
+Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png'   , 'name' : 'Cinderella'}
+Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel'  ,'icon': 'princess-icon-brush.png'  , 'name' : 'Rapunzel'}
 Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping'  ,'icon': 'princess-icon-spindle.png', 'name' : 'Sleeping_Beauty'}
 
 #### Screen Resolution ####
 print "Detecting screen resolution"
+
 os_screen = pygame.display.Info()
-resolution = os_screen.current_w,os_screen.current_h
+if not custom_resolution:
+	resolution = os_screen.current_w,os_screen.current_h
+else:
+	resolution = custom_resolution
 if resolution[0] < 1440:
 	scale = resolution[0]/1440.0
 	if 900*scale > resolution[1]:

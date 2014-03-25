@@ -21,27 +21,19 @@ from settings import directory
 introdir = os.path.join(directory.data,'images', 'intro','quanti')
 splash =[pygame.image.load(os.path.join(introdir,i)).convert(32) for i in sorted(os.listdir(introdir))]
 splash_size = splash[0].get_size()
-print "Setting SDV_VIDEO_CENTERED to True"
 os.environ['SDL_VIDEO_CENTERED'] = '1'
-print "Creating Splash Screen"
 
-splash_surface = pygame.display.set_mode(splash_size, pygame.NOFRAME)
-print "Creating and Setting Favicon"
+splash_surface = pygame.display.set_mode(splash_size)#, pygame.NOFRAME)
 pygame.display.set_icon(pygame.image.load(os.path.join(directory.interface,'favicon.png')).convert_alpha())
-print "Showing Splash Screen"
 tempclock = pygame.time.Clock()
 for i in splash:
 	splash_surface.blit(i,(0,0))
 	pygame.display.flip()
 	tempclock.tick(40)
 del tempclock
-print "Setting Pygame Mixer Configuration"
 #pygame.mixer.pre_init(44100,16,256)
-print "Initializing Pygame Mixer"
 pygame.mixer.init()
-print "Setting Reserved Channels"
 pygame.mixer.set_reserved(3)
-print "Initializing Pygame"
 import pygame
 pygame.init()
 

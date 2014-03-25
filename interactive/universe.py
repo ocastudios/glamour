@@ -32,7 +32,7 @@ class Universe():
 ### Uncomment next line (and comment the following) to test the game with different resolutions
 ### you will also need to edit the setting.__init__ file.
 #		self.screen_surface = pygame.display.set_mode((w,h),32)
-		self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
+		self.screen_surface = pygame.display.set_mode((w,h))#,pygame.FULLSCREEN , 32)
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.drapes,"drape000.png")),(0,0))
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.upper_drapes,"upper.png")),(0,0))
 		pygame.display.flip()

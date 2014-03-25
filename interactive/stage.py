@@ -688,7 +688,7 @@ class Stage():
 		self.panel		  = [widget.GameText(self.universe, t(translatable_name), (300,20), font_size = 30),
 							   None,
 							   glamour_stars.Glamour_Stars(self.universe),
-							   widget.GameText(self.universe, self.princesses[0].name, (660,47), font_size = 70,fonte='Chopin_Script.ttf'),
+							   widget.GameText(self.universe, self.princesses[0].name, (660,47), font_size = 70,main_font='Chopin_Script.ttf'),
 							   glamour_stars.Lil_Star_Back(self.universe,(1020,0)),
 							   glamour_stars.Lil_Stars(self.universe, (1030,10)),
 							   widget.GameText(self.universe, str(self.princesses[0].points), (1000,20),font_size = 30)
@@ -897,13 +897,13 @@ class Pause():
 	def __init__(self, universe):
 		self.status = 'outside'
 		self.universe = universe
-		resume	  = widget.GameText(self.universe, t('Resume'),(360,400), font_size=80, fonte='Chopin_Script.ttf')
+		resume	  = widget.GameText(self.universe, t('Resume'),(360,400), font_size=80, main_font='Chopin_Script.ttf')
 		ok_pos	  = d(resume.pos[0]+(resume.size[0]/2)),d(resume.pos[1]+(resume.size[1]))+50
 		ok_button   = widget.Button(self.universe, directory.button_ok,ok_pos, [0,0],self.resume)
-		leave		= widget.GameText(self.universe, t('Quit'),(1080,400), font_size= 80, fonte='Chopin_Script.ttf')
+		leave		= widget.GameText(self.universe, t('Quit'),(1080,400), font_size= 80, main_font='Chopin_Script.ttf')
 		cancel_pos  = d(leave.pos[0]+(leave.size[0]/2)),d(leave.pos[1]+(leave.size[1]))+50
 		cancel_button = widget.Button(self.universe, directory.button_cancel,cancel_pos,[0,0], self.exit_game)
-		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), fonte='Chopin_Script.ttf', font_size=120)
+		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), main_font='Chopin_Script.ttf', font_size=120)
 		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet, font_size =34)
 		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet)
 		self.music  = j(directory.music,'1stSnowfall.ogg')
