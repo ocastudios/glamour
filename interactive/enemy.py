@@ -161,6 +161,7 @@ class Butterfly():
 			'weight':1,
 			'playing':False} 
 		self.walk = self.walk or utils.img.TwoSided(os.path.join(directory.enemies,'Butterfly','walk'))
+		self.walk_number=0
 		self._registry.append(self)
 		self.height = p(random.randint(300,600))
 		self.up_direction = 'going_down'
@@ -194,9 +195,11 @@ class Butterfly():
 		self.rect = pygame.Rect(((self.pos[0]+(self.size[0]/4)),self.height+(self.size[1]/4)),(self.size))
 
 	def set_image(self):
-		self.image = self.walk.__dict__[self.direction][self.walk.number]
-		if self._registry[0] == self:
-			self.walk.update_number()
+		if self.walk_number >= len(self.walk.__dict__[self.direction])-1:
+			self.walk_number=0
+		else:
+			self.walk_number+=1
+		self.image = self.walk.__dict__[self.direction][self.walk_number]
 		if self.pos[0] > p(10000):
 			self.direction = 'left'
 		elif self.pos[0] < 0:

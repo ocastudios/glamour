@@ -10,7 +10,7 @@ second_font = "Chopin_Script.ttf"
 #### Screen Resolution ####
 # Screen resolution is detected automatically if no custom_resolution is set
 custom_resolution = None
-#custom_resolution = (800,600)
+custom_resolution = (800,600)
 
 #### Princesses #### 
 Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}

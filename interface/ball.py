@@ -313,8 +313,8 @@ class BallFrame():
 				[(350,400), 'hair_rapunzel',  'pink', 'Rapunzel'],
 				[(460,400), 'hair_sleeping',  'pink', 'Sleeping_Beauty']) ]
 		frametexts = [
-				widget.GameText(self.universe, t("Tonight's ball"),		(0,0), [0,0], rotate = 90),
-				widget.GameText(self.universe, t("Yesterday's ball"),	(0,0), [0,0], rotate = 90)
+				widget.GameText(self.universe, t("Today"),		(0,0), [0,0], rotate = 90),
+				widget.GameText(self.universe, t("Yesterday"),	(0,0), [0,0], rotate = 90)
 					]
 		self.princesses = princesses
 		for i in past_princesses:
