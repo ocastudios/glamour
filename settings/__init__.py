@@ -18,6 +18,10 @@ Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-s
 Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel'  ,'icon': 'princess-icon-brush.png'  , 'name' : 'Rapunzel'}
 Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping'  ,'icon': 'princess-icon-spindle.png', 'name' : 'Sleeping_Beauty'}
 
+#### Mininum Glamour Points ####
+# For each Ball the player will earn this much Glamour points unless the player did not change any garment
+minimum_glamour_points = 1
+
 #### Screen Resolution ####
 print "Detecting screen resolution"
 

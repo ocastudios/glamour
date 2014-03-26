@@ -174,9 +174,9 @@ class Ball():
 		else:
 			creativity	= 0
 		print "Youtr total creativity points is " + str(creativity)
-		glamour_points = fashion+creativity-dirty
-		if glamour_points < 0:
-			glamour_points = 0
+		glamour_points = settings.minimum_glamour_points+fashion+creativity-dirty
+		if glamour_points < settings.minimum_glamour_points:
+			glamour_points = settings.minimum_glamour_points
 		#check for fraud
 		if  number_of_balls > 2 \
 		and save_row['dirt'] < 3\

@@ -65,12 +65,10 @@ class ClockPointer():
 			self.tick = 0
 		if self.count < balltime*0.15:
 			self.time = 'morning'
-			print 'morning'
 		elif self.count < balltime*0.55:
 			self.time = 'day'
 		elif self.count < balltime*0.65:
 			self.time = 'evening'
-			print 'evening'
 		elif self.count < balltime-1:
 			self.time = 'night'
 		else:
