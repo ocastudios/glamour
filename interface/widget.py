@@ -96,6 +96,20 @@ class Button():
 
 class GameText():
 	def __init__(self, universe, text,pos,frame_pos =None,main_font=main_font, font_size=40, color=(58,56,0),second_font =second_font,var = False, rotate = None, box = None):
+		"""Creates a GameText object
+
+		:param universe: universe of the game, an object that acts as a global variables container.
+		:param text: the text to be displayed.
+		:param pos: [x,y] the top left position of the text, relative to the screen or to the frame_pos.
+		:param frame_po: list if present, pos is relative to it.
+		:param main_font: if present replace default main_font from settings file.
+		:param font_size: if present replace default font_size (40).
+		:param color: if present replace default color 58,56,0.
+		:param second_font: if present, replace default second_font from settings file.
+		:param var: if present, creates a second image with a variable text (updated each frame).
+		:param rotate: if present, rotates self.image (in degrees)
+		:param box: [x,y] if present, adjust text to fit box.
+		"""
 		font_size  = p(font_size)
 		pos = p(pos)
 		self.font = main_font
@@ -126,14 +140,16 @@ class GameText():
 		self.text_box = self.size[0]*.8,self.size[1]*.8
 
 	def update_all(self):
+		"""Update the object for the new frame
+		"""
 		if self.frame_pos:
-			self.pos		= [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-							   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+			self.pos = [self.frame_pos[0]+self.position[0]-(self.size[0]/2), self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
 		if self.variable_text:
 			self.image = self.fontA.render(self.text,1,self.color)
 
 	def adjusting_fonts(self):
-#		print "Adjusting text: "+u(str(self.text))
+		""" Adjust self.text to fit in self.box created from box param in self.__init__
+		"""
 		fix_x	   = int(0*scale)
 		fix_y	   = int(0*scale)
 		font_object = self.fontA
@@ -209,8 +225,8 @@ class Key(GameText):
 
 
 	def update_all(self):
-		self.size	   = self.image.get_size()
-		self.pos		= [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
+		self.size = self.image.get_size()
+		self.pos = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
 						   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
 		self.rect	   = pygame.Rect(self.pos,self.size)
 		self.click_detection()
@@ -234,7 +250,6 @@ class Key(GameText):
 						counting = 0
 						while True:
 							if menu.princess.name.text in saved_games:
-								print "Oh, oh, this name is taken. I'd better choose another one for u"
 								counting += 1
 								menu.princess.name.text = random.choice(random_names.names)
 							else:

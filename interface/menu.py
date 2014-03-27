@@ -83,11 +83,13 @@ class Menu():
 		surface.blit(self.upper_drapes.image,(0,self.upper_drapes.y))
 		if self.upper_drapes.y < -self.upper_drapes.size_y+10:
 			self.STEP = self.STEP_arrive_bar ## Change the STEP
-#			self.vertical_bar['side'] = 'left'
+			#self.vertical_bar['side'] = 'left'
 			self.drapes = None
 			self.upper_drapes = None
 
 	def STEP_arrive_bar(self,surface):
+		"""Bring vertical bar that serves as background for the menu.
+		"""
 		universe = self.universe
 		bar = self.vertical_bar
 		if self.back_background:
@@ -116,6 +118,7 @@ class Menu():
 					self.STEP = self.update_menus ## Change the STEP self.STEP = self.level.update_drape
 
 	def update_menus(self,surface):
+		""" Main menu function. Blits and updates every element and deals with basic controls."""
 		universe = self.universe
 		bar = self.vertical_bar
 		if self.back_background:
@@ -127,10 +130,10 @@ class Menu():
 		if self.story:
 			self.story.update_all()
 			[surface.blit(i,(0,0)) for i in self.story.images if i]
-		if self.tutorial:
+		elif self.tutorial:
 			self.tutorial.update_all()
 			[surface.blit(i,(0,0)) for i in self.tutorial.images if i]
-		if self.ending:
+		elif self.ending:
 			self.ending.update_all()
 			if self.ending:
 				[surface.blit(i,(0,0)) for i in self.ending.images if i]
@@ -143,14 +146,11 @@ class Menu():
 				surface.blit(self.hoover_letter,(i.pos[0]-((self.hoover_letter_size[0]-i.size[0])/2),
 												 i.pos[1]-((self.hoover_letter_size[1]-i.size[1])/2) ))
 			if (i.__class__ == widget.Key) and i.hoover:
-				surface.blit(self.hoover_large,(i.pos[0]-((self.hoover_large_size[0]-i.size[0])/2),
-												i.pos[1]-((self.hoover_large_size[1]-i.size[1])/2) ))
+				surface.blit(self.hoover_large,(i.pos[0]-((self.hoover_large_size[0]-i.size[0])/2), i.pos[1]-((self.hoover_large_size[1]-i.size[1])/2) ))
 		if self.print_princess:
 			self.princess.update_all()
 			[surface.blit(i,self.princess.pos) for i in self.princess.images if i]
-
 		self.mouse_positions = [i.rect.center for i in self.options+self.buttons]
-
 		keyboard = self.universe.action[0]
 		if keyboard:
 			if keyboard in ("up","left"):
@@ -163,7 +163,6 @@ class Menu():
 					self.selector = 0
 			pygame.mouse.set_pos(self.mouse_positions[self.selector])
 		self.position[1] += round(self.speed)
-
 		if '_ _ _ _ _ _ _' in [i.text for i in self.texts]:
 			if keyboard in ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"):
 				self.princess.name.text += keyboard
@@ -193,25 +192,15 @@ class Menu():
 			else:
 				if self.speed > -p(85,r=False):
 					self.speed -= accel
-
-
-
-
 		if universe.action[2] == 'open':
 			self.action = universe.action[2]
 		else:
-			if not self.go_back:
-				if self.position[1]<p(1200):
-					self.action = 'close'
-				else:
-					universe.action[2] = 'open'
-					self.STEP = self.close_bar ## Change the STEP
+			if (not self.go_back and self.position[1] < p(1200)) \
+			or (self.go_back and self.position[1]>p(-600)):
+				self.action = 'close'
 			else:
-				if self.position[1]>p(-600):
-					self.action = 'close'
-				else:
-					universe.action[2] = 'open'
-					self.STEP = self.close_bar
+				universe.action[2] = 'open'
+				self.STEP = self.close_bar ## Change the STEP
 		if self.princess:
 			self.princess.name.text = self.princess.name.text.title()
 
@@ -251,7 +240,6 @@ class Menu():
 		if self.back_background:
 			surface.blit(self.back_background,(0,0))
 		surface.blit(bar['image'],(bar['position'],0))
-		print "done."
 
 
 	def main(self):
@@ -436,7 +424,6 @@ class Menu():
 			print "Using saved game "+ using_saved_game
 			print "Connecting to Database"
 			db.connect_db(using_saved_game, self.universe)
-			print "done."
 			self.universe.LEVEL = 'game'
 
 
@@ -495,7 +482,6 @@ class Menu():
 					os.remove(file_to_remove)
 				print "removing directory "+D
 				os.rmdir(D)
-		print "done."
 		self.back_background = utils.img.image(os.path.join(directory.story,'svg_bedroom.png'))
 		white_mask		   = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
 		white_mask.fill((255,255,255,150))
