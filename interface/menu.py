@@ -254,7 +254,15 @@ class Menu():
 		else:
 			self.position[0]	= p(360)
 			self.position[1]	= p(1000)
-		opt = ((t('New Game'),100,self.new_game),(t('Load Game'),180,self.load_game),(t('Play Story'),260,self.play_story),(t('Learn to play'),340,self.play_tutorial),(t('Credits'),420,self.play_credits),(t('Exit'),500,exit))
+		opt = (
+			(t('New Game'),100,self.new_game),
+			(t('Load Game'),170,self.load_game),
+			(t('Watch Story'),240,self.play_story),
+			(t('Learn to play'),310,self.play_tutorial),
+			(t('Options'),400,self.options_menu),
+			(t('Credits'),450,self.play_credits),
+			(t('Exit'),500,exit)
+			)
 		self.options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
 		self.texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
 		self.buttons = []
@@ -279,9 +287,9 @@ class Menu():
 			print "Going Back"
 			self.position[0] = p(450)
 			self.position[1] = p(1000)
-		self.options		= options
-		self.texts			= texts
-		self.buttons		= buttons
+		self.options = options
+		self.texts = texts
+		self.buttons = buttons
 
 	def select_princess(self):
 		self.vertical_bar['call_bar'] = 'right'
@@ -343,7 +351,21 @@ class Menu():
 						self.princess.name]
 		self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
 
-
+	def options_menu(self):
+		opt = [
+			(t('Resolution'),100,self.play_story),
+			(t('Toggle Fullscreen'),170,self.load_game),
+			(t('Toggle Fairy Tips'),240,self.play_story),
+			(t('Difficulty'),310,self.play_tutorial),
+			(t('Back'),400,self.play_tutorial),
+			]
+		texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
+		self.reset_menu(
+			background  = os.path.join(directory.story,'svg_bedroom.png'),
+			action	  = 'open',
+			texts = texts,
+			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
+		)
 
 	### Buttons functions ###
 	def back_to_main(self):
