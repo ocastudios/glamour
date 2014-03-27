@@ -86,20 +86,23 @@ class Fairy():
 
 class Message():
 	button = None
+	shut_up = None
 	def __init__(self, universe, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
 		self.message	= message
 		self.universe	= universe
-		self.image		= utils.img.image(j(fairy_dir,'balloon','0.png'))
-		self.size		= self.image.get_size()
-		self.pos		= ((universe.width - self.size[0])/2, universe.height-self.size[1])
-		self.text_box	= self.size[0]*.8,self.size[1]*.8
-		self.font_size	= p(14)
-		self.text_font	= pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),int(self.font_size))
-		self.color		= (0,0,0,0)
+		self.image = utils.img.image(j(fairy_dir,'balloon','0.png'))
+		self.size = self.image.get_size()
+		self.pos = ((universe.width - self.size[0])/2, universe.height-self.size[1])
+		self.text_box = self.size[0]*.8,self.size[1]*.8
+		self.font_size = 14
+		self.text_font = pygame.font.Font(j(directory.fonts,'FreeSans.ttf'),int(self.font_size))
+		self.color = (0,0,0,0)
 		self.image.blit(utils.text.in_box('FreeSans.ttf', self.font_size, self.text_box, self.image, message, {'top':50,'left':80,'bottom':40,'right':80}),self.pos)
-		self.button	 = self.button or widget.Button(universe, directory.button_ok,(1200,820),[0,0],self.end_message)
+		self.button  = self.button or widget.Button(universe, directory.button_ok,(1200,820),[0,0],self.end_message)
+		#self.shut_up = self.shut_up or widget.Button(universe, directory.button_cancel, (1200,850),[0,0],self.end_message)
 		if self.button not in self.universe.level.fae:
 			self.universe.level.fae.append(self.button)
+			#self.universe.level.fae.append(self.shut_up)
 
 	def update_all(self):
 		pass
@@ -108,4 +111,3 @@ class Message():
 		self.universe.level.fairy = 'done'
 		self.universe.level.fae[1].pos =  p([-200,600])
 		self.universe.level.fae.remove(self.button)
-

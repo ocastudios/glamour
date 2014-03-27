@@ -16,48 +16,51 @@ def choose_event(universe,starting_game=False):
 #		if level.event_counter > 600:
 #			level.event_counter = 0
 #	else:
-	princess = universe.level.princesses[0]
-	princess_pos = princess.center_distance
-	name = universe.level.name
-	if starting_game:
-		princess.center_distance = pn(5220)
-		universe.level.event_counter += 1
-		intro_first_day = database.query.message(universe, 'first day a')
-		if intro_first_day[0]['count'] == 0:
-			universe.level.Fairy = 'loading'
-			message_text = random.choice(intro_first_day)['message']
-			universe.level.fae[0] = fairy.Message(universe, message = message_text)
-			database.update.use_message(universe,'intro')
-	elif name == "bathhouse":
-		if pn(4700) < princess_pos < pn(5000):
-			create_message(universe,'maddelines house')
-		elif pn(8700) < princess_pos < pn(9000):
-			create_message(universe,'magic beauty parlor')
-		elif pn(850) <princess_pos < pn(1050):
-			create_message(universe,"bathhouse")
-	elif name == "accessory":
-		if princess_pos < pn(360):
-			create_message(universe,"accessory hall")
-		elif pn(8300) < princess_pos:
-			create_message(universe,"cinderellas castle")
-	elif name == "dress":
-		if princess_pos < pn(300):
-			create_message(universe,"dress tower")
-		elif pn(8900) < princess_pos:
-			create_message(universe,"snow-whites castle")
-	elif name == "makeup":
-		if princess_pos <pn(300):
-			create_message(universe,"make-up tower")
-		elif pn(8900) < princess_pos:
-			create_message(universe,"sleeping beautys palace")
-	elif name == "shoes":
-		if princess_pos < pn(300):
-			create_message(universe,"shoes shop")
-		if princess_pos > pn(8900):
-			create_message(universe,"rapunzels villa")
-
-	if universe.level.unlocking:
-		unlock(universe,universe.level.unlocking)
+	if universe.level.clock[1].count > 2:
+		princess = universe.level.princesses[0]
+		princess_pos = princess.center_distance
+		name = universe.level.name
+		intro = database.query.message(universe, 'first day a')
+		if intro[0]['count']==0:
+			#princess.center_distance = pn(5220)
+			universe.level.event_counter += 1
+			create_message(universe, 'first day a')
+			database.update.use_message(universe, 'first day a')
+			#intro_first_day = database.query.message(universe, 'first day a')
+			#if intro_first_day[0]['count'] == 0:
+			#	universe.level.Fairy = 'loading'
+			#	message_text = random.choice(intro_first_day)['message']
+			#	universe.level.fae[0] = fairy.Message(universe, message = message_text)
+			#	database.update.use_message(universe,'intro')
+		elif name == "bathhouse":
+			if pn(4700) < princess_pos < pn(5000):
+				create_message(universe,'maddelines house')
+			elif pn(8700) < princess_pos < pn(9000):
+				create_message(universe,'magic beauty parlor')
+			elif pn(850) <princess_pos < pn(1050):
+				create_message(universe,"bathhouse")
+		elif name == "accessory":
+			if princess_pos < pn(360):
+				create_message(universe,"accessory hall")
+			elif pn(8300) < princess_pos:
+				create_message(universe,"cinderellas castle")
+		elif name == "dress":
+			if princess_pos < pn(300):
+				create_message(universe,"dress tower")
+			elif pn(8900) < princess_pos:
+				create_message(universe,"snow-whites castle")
+		elif name == "makeup":
+			if princess_pos <pn(300):
+				create_message(universe,"make-up tower")
+			elif pn(8900) < princess_pos:
+				create_message(universe,"sleeping beautys palace")
+		elif name == "shoes":
+			if princess_pos < pn(300):
+				create_message(universe,"shoes shop")
+			if princess_pos > pn(8900):
+				create_message(universe,"rapunzels villa")
+		if universe.level.unlocking:
+			unlock(universe,universe.level.unlocking)
 
 
 def create_message(universe, name, unique=True):

@@ -69,7 +69,8 @@ intro = {
         "first day f": t("But caution, many dangers await! Well, not 'real' dangers, but there are many ways to get yourself dirty before the ball, and you should avoid that. Clean yourself at the bathhouse if you need, and use you cursor and irresistable kisses to help you keep clean."),
         "first day g": t("At the ball, you'll gain glamour points if your outfit differs from the other princesses', and you'll lose them if it doesn't. You'll loose an awful lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour for, you ask?"),
         "first day h": t("Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it also draws the eyes and hearts of boys, although high-ranked nobility tends to be more used to it than lower rank. But I assure you even Prince Charming can fall for a glamorous girl."),
-        "first day i": t("So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go.")
+        "first day i": t("So let's get started, turning you from a cute, loving little princess into a wonderful, glamorous little princess. I'll be helping you on the way, so off we go."),
+	"second day": t('Did you know you may pause everything using the magic word "ESC"?')
         }
 
 princesses_phrases=[

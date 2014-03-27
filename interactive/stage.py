@@ -250,16 +250,16 @@ class Stage():
 			self.keyboard_selection(self.inside)
 
 	def blit_paused(self,screen):
+		u = self.universe
+		princess=self.princesses[0]
 		screen.blit(self.white.image,(0,0))
 		screen.blit(self.bar['down'].image,(0,self.bar['down'].pos))
 		screen.blit(self.bar['up'].image,(0,self.bar['up'].pos))
 		if self.pause.status == 'choosing' and not self.pause.closet:
 			for i in self.pause.buttons :
 				screen.blit(i.image, i.pos)
-				if self.princesses[0].image:
-					screen.blit(self.princesses[0].image,
-										((self.universe.width/2)-(self.princesses[0].image_size[0]/2),
-										(self.universe.height/2)-(self.princesses[0].image_size[1]/2)))
+				if princess.image:
+					screen.blit(princess.image, ((u.width/2)-(princess.image_size[0]/2),(u.height/2)-(princess.image_size[1]/2)))
 		if self.pause.closet:
 			screen.blit(self.pause.closet, (0,0))
 			for i in self.pause.unlocked_items:
@@ -289,7 +289,6 @@ class Stage():
 				screen.blit(i.image,i.pos)
 		screen.blit(self.ball.universe.level.margin,(0,0))
 		screen.blit(self.ball.universe.level.black.image,(0,0))
-
 
 	def update_insidebar(self):
 		if self.inside.status == 'inside':
@@ -424,7 +423,6 @@ class Stage():
 			elif inside.chosen_number<0:
 				inside.chosen_number = len(inside.menu)-1
 			pygame.mouse.set_pos(inside.menu[inside.chosen_number])
-
 
 	def choice_screen(self, screen,condition):
 		if screen.status == 'inside':
