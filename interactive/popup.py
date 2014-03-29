@@ -9,20 +9,20 @@ from string import Template
 
 class Message():
 	button = None
-	def __init__(self, universe,font_size = 16, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
+	def __init__(self, universe, message = "Oops! I just forgot what I had to say... One of us should have a conversation with the programmer."):
 		self.message	= message
 		self.universe = universe
 		self.image	  = utils.img.image(j(fairy_dir,'balloon','0.png'))
 		self.size	   = self.image.get_size()
 		self.pos		= ((self.universe.width - self.size[0])/2, self.universe.height - self.size[1])
 		self.text_box   = self.size[0]*.8,self.size[1]*.8
-		self.image.blit(text.in_box('FreeSans.ttf',font_size, self.text_box, self.image, message, margin={'left':150,'top':40,'right':150,'bottom':40}, alignment = "center"), self.pos)
+		self.image.blit(text.in_box(settings.third_font,settings.third_font_size, self.text_box, self.image, message, margin={'left':150,'top':40,'right':150,'bottom':40}, alignment = "center"), self.pos)
 
 	def update_all(self):
 		pass
 	
 class Unlocking_Message():
-	def __init__(self, universe,unlocking, font_size = 16):
+	def __init__(self, universe,unlocking):
 		self.image = utils.img.image(j(directory.fairy_tips,'balloon','0.png'))
 		self.universe	= universe
 		self.size		= self.image.get_size()
@@ -30,7 +30,7 @@ class Unlocking_Message():
 		self.text_box	= self.size[0]*.8,self.size[1]*.8
 		unlock_template	= Template("you unlocked $garment_type $name")
 		unlock_message	= unlock_template.substitute(garment_type=unlocking['type'],name=unlocking['name'])
-		self.image.blit(text.in_box('FreeSans.ttf',font_size, self.text_box, self.image, unlock_message , margin={'left':150,'top':60,'right':150,'bottom':40}, alignment = "center"), self.pos)
+		self.image.blit(text.in_box(settings.third_font,settings.third_font_size, self.text_box, self.image, unlock_message , margin={'left':150,'top':60,'right':150,'bottom':40}, alignment = "center"), self.pos)
 	def update_all(self):
 		pass
 

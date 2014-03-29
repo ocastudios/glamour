@@ -263,7 +263,7 @@ class Menu():
 			(t('Credits'),450,self.play_credits),
 			(t('Exit'),500,exit)
 			)
-		self.options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
+		self.options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2],color = (255,84,84)) for i in opt]
 		self.texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
 		self.buttons = []
 #		 widget.Button(self.universe, directory.arrow_right,(410,450),self.position,self.NOTSETYET),
@@ -324,11 +324,11 @@ class Menu():
 	def name_your_princess(self):
 		self.vertical_bar['call_bar'] = 'right'
 		self.print_princess = False
-		opt = [widget.Letter(self.universe, i[0],i[1],self.position, self.hoover_letter_size, 'GentesqueRegular.otf', 40) for i in zip(
-				map(chr,xrange(97,123)),
-				zip([x for n in xrange(9) for x in xrange(int(100),int(422),int(40))],
-					[n for n in xrange(int(200),int(352),int(50)) for x in xrange(9)]))] 
-		opt.extend([widget.Key(self.universe, t('< back'),		(140,350)		,self.position, 'Backspace'),
+		opt = [widget.Letter(self.universe, i[0],i[1],self.position, self.hoover_letter_size) for i in zip(
+			map(chr,xrange(97,123)),
+			zip([x for n in xrange(9) for x in xrange(int(100),int(422),int(40))],
+			[n for n in xrange(int(200),int(352),int(50)) for x in xrange(9)]))] 
+		opt.extend([widget.Key(self.universe, t('< back'),	(140,350)		,self.position, 'Backspace'),
 					widget.Key(self.universe, t('space >'),	(360,350)			,self.position, 'Spacebar'),
 					widget.Key(self.universe, t('clean up [  ]'),(140,400)		,self.position, 'Cleanup'),
 					widget.Key(self.universe, t('random   ???'), (360,400)		,self.position, 'Random')
@@ -364,7 +364,7 @@ class Menu():
 			background  = os.path.join(directory.story,'svg_bedroom.png'),
 			action	  = 'open',
 			texts = texts,
-			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], font_size=40,color = (255,84,84)) for i in opt]
+			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], color = (255,84,84)) for i in opt]
 		)
 
 	### Buttons functions ###
@@ -514,7 +514,7 @@ class Menu():
 		self.position[0] = p(100)
 		self.position[1] = p(-600)
 		
-		self.options	= [widget.Button(self.universe,t('Or go back to Main Menu'), (245,500),self.position,self.back_to_main,font_size=40,color = (58,56,0))]
+		self.options	= [widget.Button(self.universe,t('Or go back to Main Menu'), (245,500),self.position,self.back_to_main,color = (58,56,0))]
 		self.texts =	  [widget.GameText(self.universe, t('Have you already saved a game?'),(250,-150),self.position,color = (58,56,0)),
 						   widget.GameText(self.universe, t('Then choose your saved princess:'),(250,-100),self.position,color = (58,56,0))]
 		ypos = 0
@@ -524,8 +524,8 @@ class Menu():
 			print directory.saves+'/'+i['name'].encode('utf-8')+'/'
 			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name'].encode('utf-8')),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
 			self.options.extend([
-			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, font_size=30,color = (58,56,0), parameter=([i['file']])),
-			  widget.Button(self.universe, t('erase'), (xpos+300,ypos) ,self.position,self.remove_save_directory,font_size=30,color = (58,56,0), parameter=[i['name']])
+			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, color = (58,56,0), parameter=([i['file']])),
+			  widget.Button(self.universe, t('erase'), (xpos+300,ypos) ,self.position,self.remove_save_directory,color = (58,56,0), parameter=[i['name']])
 								])
 			ypos += d(self.buttons[0].size[1])
 			if ypos > 450:
@@ -629,8 +629,8 @@ class MenuPrincess():
 class Story_Frame():
 	def __init__(self, menu, path):
 		self.menu = menu
-		self.texts = [widget.GameText(self.menu.universe,t('Use the arrows to go'),(220,150),menu.position,font_size = 25,color = (58,56,0)),
-					  widget.GameText(self.menu.universe,t('forward and backward'),(220,200),menu.position,font_size = 25,color = (58,56,0))]
+		self.texts = [widget.GameText(self.menu.universe,t('Use the arrows to go'),(220,150),menu.position,color = (58,56,0)),
+					  widget.GameText(self.menu.universe,t('forward and backward'),(220,200),menu.position,color = (58,56,0))]
 		image_frames = sorted(os.listdir(path))
 		self.channel = pygame.mixer.Channel(0)
 		self.available_images   = [utils.img.image(os.path.join(path,i)) for i in image_frames]
@@ -638,67 +638,66 @@ class Story_Frame():
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'tutorial','frames')))
 			self.available_sounds = [pygame.mixer.Sound(os.path.join(directory.sounds,'tutorial','frames',i)) for i in sound_frames]
 			GT = widget.GameText
-			tutorial_font_size = 26
 			frame_texts = {
-				0:[	GT(self.menu.universe,  t('Hi!'),(814,268),font_size =tutorial_font_size),
-						GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218), font_size=tutorial_font_size)],
+				0:[	GT(self.menu.universe,  t('Hi!'),(814,268)),
+						GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218))],
 
-				1:[	GT(self.menu.universe,  t('Yiipi!'),(795,514),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218), font_size = tutorial_font_size) ],
+				1:[	GT(self.menu.universe,  t('Yiipi!'),(795,514)),
+						GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218)) ],
 
-				2:[	GT(self.menu.universe,  t('Yey!'),(682,141),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				2:[	GT(self.menu.universe,  t('Yey!'),(682,141)),
+						GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218))],
 
-				3:[	GT(self.menu.universe,  t('x'), (585,231), font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				3:[	GT(self.menu.universe,  t('x'), (585,231)),
+						GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218))],
 
-				4:[	GT(self.menu.universe,  t('Ooh!'), (528,235),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				4:[	GT(self.menu.universe,  t('Ooh!'), (528,235)),
+						GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218))],
 
-				5:[	GT(self.menu.universe,  t("But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				5:[	GT(self.menu.universe,  t("But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"),(730,790),box=(718,218))],
 
-				6:[	GT(self.menu.universe,  t("You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				6:[	GT(self.menu.universe,  t("You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."),(730,790),box=(718,218))],
 
-				7:[	GT(self.menu.universe,  t("Yeah!"),(550,230),font_size = tutorial_font_size),
-				GT(self.menu.universe,  t("But first we need to find you a beautiful and original look."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				7:[	GT(self.menu.universe,  t("Yeah!"),(550,230)),
+				GT(self.menu.universe,  t("But first we need to find you a beautiful and original look."),(730,790),box=(718,218))],
 
-				8:[	GT(self.menu.universe,  t("And in order to do that, we must visit the castles that lie in the left part of most streets."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				8:[	GT(self.menu.universe,  t("And in order to do that, we must visit the castles that lie in the left part of most streets."),(730,790),box=(718,218))],
 
-				9:[	GT(self.menu.universe,  t("That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				9:[	GT(self.menu.universe,  t("That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"),(730,790),box=(718,218))],
 
-				10:[GT(self.menu.universe,  t("You got it!"),(585,472),font_size=26,box=(100,100)),
-						GT(self.menu.universe,  t("Oh! And remember you can switch streets by pressing up when in front of a gate."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				10:[GT(self.menu.universe,  t("You got it!"),(585,472),box=(100,100)),
+						GT(self.menu.universe,  t("Oh! And remember you can switch streets by pressing up when in front of a gate."),(730,790),box=(718,218))],
 
-				11:[GT(self.menu.universe,  t("Ookay..."),(675,475),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("Now, once you're at the ball, your look will be compared to those of other princesses, and even with the garments you girls used in previous balls."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				11:[GT(self.menu.universe,  t("Ookay..."),(675,475)),
+						GT(self.menu.universe,  t("Now, once you're at the ball, your look will be compared to those of other princesses, and even with the garments you girls used in previous balls."),(730,790),box=(718,218))],
 
-				12:[GT(self.menu.universe,  t("Oh, no!..."),(607,474),font_size = tutorial_font_size-2),
-						GT(self.menu.universe,  t("If you wear the same outfit as others (or repeat it ball after ball), you'll earn little to no glamour points. It would be a shame."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				12:[GT(self.menu.universe,  t("Oh, no!..."),(607,474)),
+						GT(self.menu.universe,  t("If you wear the same outfit as others (or repeat it ball after ball), you'll earn little to no glamour points. It would be a shame."),(730,790),box=(718,218))],
 
-				13:[GT(self.menu.universe,  t("All right!"),(607,474),font_size = tutorial_font_size,box=(100,100)),
-						GT(self.menu.universe,  t("But, on the other hand, if you show up with an original look, then you may earn lots of glamour points!"),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				13:[GT(self.menu.universe,  t("All right!"),(607,474),box=(100,100)),
+						GT(self.menu.universe,  t("But, on the other hand, if you show up with an original look, then you may earn lots of glamour points!"),(730,790),box=(718,218))],
 
-				14:[GT(self.menu.universe,  t("Who's my True Love?"),(408,460),font_size = tutorial_font_size-6,box=(120,100)),
-						GT(self.menu.universe,  t("And as you gain glamour points, more and more boys will offer you their hearts. And some day, you may even catch the eyes of Prince Charming himself."),(730,780),box=(750,218), font_size = tutorial_font_size)],
+				14:[GT(self.menu.universe,  t("Who's my True Love?"),(408,460),box=(120,100)),
+						GT(self.menu.universe,  t("And as you gain glamour points, more and more boys will offer you their hearts. And some day, you may even catch the eyes of Prince Charming himself."),(730,780),box=(750,218))],
 
-				15:[GT(self.menu.universe,  t("Oh, no!"),(531,232),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("Woof!"),(931,507),font_size=30),
-						GT(self.menu.universe,  t("But beware! The enemies on your way may not hurt you, but they can make you dirty. And THAT would certainly cost you lots of glamour points!"),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				15:[GT(self.menu.universe,  t("Oh, no!"),(531,232)),
+						GT(self.menu.universe,  t("Woof!"),(931,507)),
+						GT(self.menu.universe,  t("But beware! The enemies on your way may not hurt you, but they can make you dirty. And THAT would certainly cost you lots of glamour points!"),(730,790),box=(718,218))],
 
-				16:[GT(self.menu.universe,  t("So be careful."),(783,520),font_size = tutorial_font_size-6, box=(120,100)),
-						GT(self.menu.universe,  t("You can get even dirtier if you are caught a second time, and become dirtiest if hit yet again..."),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				16:[GT(self.menu.universe,  t("So be careful."),(783,520), box=(120,100)),
+						GT(self.menu.universe,  t("You can get even dirtier if you are caught a second time, and become dirtiest if hit yet again..."),(730,790),box=(718,218))],
 
-				17:[GT(self.menu.universe,  t("Hooray!"),(783,523),font_size = tutorial_font_size),
-						GT(self.menu.universe,  t("...but event then there's hope. Go back and enter the Bathhouse, and you'll be clean and perfumed in no time!"),(730,790),box=(718,218), font_size = tutorial_font_size)],
+				17:[GT(self.menu.universe,  t("Hooray!"),(783,523)),
+						GT(self.menu.universe,  t("...but event then there's hope. Go back and enter the Bathhouse, and you'll be clean and perfumed in no time!"),(730,790),box=(718,218))],
 
-				18:[GT(self.menu.universe,  t("Neat!"),(798,507),font_size= tutorial_font_size),
-						GT(self.menu.universe,  t("But before you go, I've got two more tips to you. First, stay alert to the music! By it you can tell not only what is the stronger enemy around, but how far it is from you."),(700,790),box=(830,218), font_size = tutorial_font_size)],
+				18:[GT(self.menu.universe,  t("Neat!"),(798,507)),
+						GT(self.menu.universe,  t("But before you go, I've got two more tips to you. First, stay alert to the music! By it you can tell not only what is the stronger enemy around, but how far it is from you."),(700,790),box=(830,218))],
 
-				19:[GT(self.menu.universe,  t("Ooooh!"),(840,430),font_size=tutorial_font_size),
-						GT(self.menu.universe,  t("And finally, there are many secret items in the game, and you should anlock them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."), (710,790),box=(800,218), font_size = tutorial_font_size)],
+				19:[GT(self.menu.universe,  t("Ooooh!"),(840,430)),
+						GT(self.menu.universe,  t("And finally, there are many secret items in the game, and you should anlock them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."), (710,790),box=(800,218))],
 
-				20:[GT(self.menu.universe,  t("Have fun!"),(825,249),font_size=tutorial_font_size-6,box=(120,100)),
-						GT(self.menu.universe,  t("Now you're good to go! Don't stay idle waiting your dreams come true - go get them, girl!"),(730,790),box=(718,218), font_size = tutorial_font_size)]
+				20:[GT(self.menu.universe,  t("Have fun!"),(825,249),box=(120,100)),
+						GT(self.menu.universe,  t("Now you're good to go! Don't stay idle waiting your dreams come true - go get them, girl!"),(730,790),box=(718,218))]
 			}
 		elif "story" in path:
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'story','frames')))
@@ -856,8 +855,8 @@ class Credits():
 			(t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2440),14,None)
 		   ]
 		self.images = developers+rendered_texts
-		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos,main_font='Chopin_Script.ttf', font_size=i[2], color=i[3]) for i in texts_chopin]+[
-						widget.GameText(self.universe,i[0],i[1],self.pos,main_font='GentesqueRegular.otf', font_size=i[2], color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
+		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos, main_font=second_font,  color=i[3]) for i in texts_chopin]+[
+						widget.GameText(self.universe,i[0],i[1],self.pos,  color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
 		for i in self.images:
 			print i
 			self.background.blit(utils.img.image(i[1]),p(i[2]))

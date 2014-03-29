@@ -98,23 +98,23 @@ class Ball():
 				i.update_all()
 		if self.boyfriend:
 			if self.counter == self.delay+50:
-				self.texts+= [widget.GameText(self.universe, t("and won the heart of")+" ", (1090,237), [0,0],font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, t("and won the heart of")+" ", (1090,237), [0,0])]
 			if self.counter == self.delay+60:
-				self.texts+= [widget.GameText(self.universe, ".", (1300,237), [0,0],font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, ".", (1300,237), [0,0])]
 			if self.counter == self.delay+70:
-				self.texts+= [widget.GameText(self.universe, " .", (1300,237), [0,0],font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, " .", (1300,237), [0,0])]
 			if self.counter == self.delay+80:
-				self.texts+= [widget.GameText(self.universe, "  .", (1300,237), [0,0],font_size = 40)]
+				self.texts+= [widget.GameText(self.universe, "  .", (1300,237), [0,0])]
 			if self.counter > self.delay+110:
 				self.boyfriend.update_all()
 		else:
-			self.texts+=[widget.GameText(self.universe, t("...but no one's heart yet."), (1090,237), [0,0], font_size=40)]
+			self.texts+=[widget.GameText(self.universe, t("...but no one's heart yet."), (1090,237), [0,0])]
 		if self.counter > self.delay+130:
 			for i in self.buttons:
 				i.update_all()
 		if self.counter == self.delay+130:
 			if self.boyfriend:
-				self.texts += [widget.GameText(self.universe, self.boyfriend.name,(1156,280),[0,0], font_size = 60,color=(58,56,0))]
+				self.texts += [widget.GameText(self.universe, self.boyfriend.name,(1156,280),[0,0],color=(58,56,0))]
 		if self.counter <= self.delay+130:
 			self.counter += 1
 
@@ -230,20 +230,20 @@ class Ball():
 		universe.db.commit()
 		save.save_thumbnail(universe)
 		self.texts += [
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("You"),	(1064,81),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("won"),		(1100,128),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("glamour"),	(1309,151),		[0,0],font_size = 40),
-				#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
-				widget.GameText(universe, t("points"),	(1309,185),		[0,0],font_size = 40),
-				widget.GameText(universe, str(int(glamour_points)), (1200,120),[0,0],font_size=80)
+			#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+			widget.GameText(universe, t("You"),	(1064,81),		[0,0]),
+			#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+			widget.GameText(universe, t("won"),		(1100,128),		[0,0]),
+			#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+			widget.GameText(universe, t("glamour"),	(1309,151),		[0,0]),
+			#TRANSLATORS: consider the whole sentence, which is divided in four parts as follows: (You) (won) X (glamour) (points). Depending on the idiom you may need to consider a non literal translation.
+			widget.GameText(universe, t("points"),	(1309,185),		[0,0]),
+			widget.GameText(universe, str(int(glamour_points)), (1200,120),[0,0])
 		]
 		total_points = int(glamour_points+accumulated_points)
 		if total_points >= 30:
 			self.boyfriend = BoyFriend(universe, total_points)
-		universe.level.panel[1]  = widget.GameText(universe, str(total_points), (1000,30), [0,0],font_size = 80, color=(58,56,0))
+		universe.level.panel[1]  = widget.GameText(universe, str(total_points), (1000,30), [0,0], color=(58,56,0))
 
 	def return_to_game(self):
 		self.Frame.set_next_ball_clothes()

@@ -13,17 +13,16 @@ from settings import *
 channel = pygame.mixer.Channel(0)
 class Button():
 	click = pygame.mixer.Sound(os.path.join(directory.sounds,'click.ogg'))
-	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False,main_font='Domestic_Manners.ttf', second_font = 'Chopin_Script.ttf', font_size=40, color=(0,0,0)):
+	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False, color=(0,0,0)):
 		"""Creates a clickable button
 
 		dirtxt: if image button than directory, if text button, than text.
 		function: a button function is necessary.
 		parameter: a string or tuple with the needed parameters for the button function.
-		main_font, font_size and color: only useful to image buttons.
+		main_font, and color: only useful to image buttons.
 		"""
 		self.universe = universe
 		self.level_pos = level_pos
-		self.font_size  = int(font_size*scale)
 		try:
 			os.listdir(dirtxt)
 			self.type_of_button = 'image'
@@ -31,36 +30,33 @@ class Button():
 			self.type_of_button = 'text'
 
 		if self.type_of_button == 'image':
-			self.images	 = utils.img.Buttons(dirtxt,5)
+			self.images = utils.img.Buttons(dirtxt,5)
 			if invert:
 				self.images.list = self.invert_images(self.images.list)
 			self.list_of_images = self.images.list
 		if self.type_of_button == 'text':
-			font_size  = int(font_size*scale)
-			font	   = main_font
-			self.text	   = dirtxt
-			self.color	  = color
-			self.fontA	  = pygame.font.Font(os.path.join(directory.fonts,main_font),self.font_size)
-			self.fontB	  = pygame.font.Font(os.path.join(directory.fonts,second_font),self.font_size+(self.font_size/3))
+			font = main_font
+			self.text = dirtxt
+			self.color = color
+			self.fontA = pygame.font.Font(os.path.join(directory.fonts,main_font),main_font_size)
+			self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),second_font_size)
 			self.list_of_images= [self.fontA.render(self.text,1,self.color)]
 
-		self.image	  = self.list_of_images[0]
-		self.size	   = self.image.get_size()
-		self.position   = p(position)
-		self.pos		= [(self.position[0]-(self.image.get_size()[0]/2)),
-						   (self.position[1]-(self.image.get_size()[1])/2)]
-		self.rect	   = pygame.Rect(self.pos,self.size)
-		self.function   = function
-		self.parameter  = parameter
+		self.image = self.list_of_images[0]
+		self.size = self.image.get_size()
+		self.position = p(position)
+		self.pos = [(self.position[0]-(self.image.get_size()[0]/2)),(self.position[1]-(self.image.get_size()[1])/2)]
+		self.rect = pygame.Rect(self.pos,self.size)
+		self.function = function
+		self.parameter = parameter
 
 	def update_all(self):
-		self.size	   = self.image.get_size()
+		self.size = self.image.get_size()
 		try:
-			self.pos		= [self.level_pos[0]+self.position[0]-(self.size[0]/2),
-							   self.level_pos[1]+self.position[1]-(self.size[1]/2)]
+			self.pos = [self.level_pos[0]+self.position[0]-(self.size[0]/2), self.level_pos[1]+self.position[1]-(self.size[1]/2)]
 		except:
 			pass
-		self.rect	   = pygame.Rect(self.pos,self.size)
+		self.rect = pygame.Rect(self.pos,self.size)
 		self.click_detection()
 
 	def invert_images(self,list):
@@ -95,7 +91,7 @@ class Button():
 
 
 class GameText():
-	def __init__(self, universe, text,pos,frame_pos =None,main_font=main_font, font_size=40, color=(58,56,0),second_font =second_font,var = False, rotate = None, box = None):
+	def __init__(self, universe, text,pos,frame_pos =None,main_font=main_font, color=(58,56,0),second_font =second_font,var = False, rotate = None, box = None):
 		"""Creates a GameText object
 
 		:param universe: universe of the game, an object that acts as a global variables container.
@@ -103,29 +99,26 @@ class GameText():
 		:param pos: [x,y] the top left position of the text, relative to the screen or to the frame_pos.
 		:param frame_po: list if present, pos is relative to it.
 		:param main_font: if present replace default main_font from settings file.
-		:param font_size: if present replace default font_size (40).
 		:param color: if present replace default color 58,56,0.
 		:param second_font: if present, replace default second_font from settings file.
 		:param var: if present, creates a second image with a variable text (updated each frame).
 		:param rotate: if present, rotates self.image (in degrees)
 		:param box: [x,y] if present, adjust text to fit box.
 		"""
-		font_size  = p(font_size)
 		pos = p(pos)
 		self.font = main_font
 		self.frame_pos = frame_pos
 		self.text = text
 		self.color = color
-		self.fontA = pygame.font.Font(os.path.join(directory.fonts,self.font),int(round(font_size)))
-		self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),int(round(font_size+(font_size/3))))
+		self.fontA = pygame.font.Font(os.path.join(directory.fonts,self.font),main_font_size)
+		self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),second_font_size)
 		self.position = pos
 		if box:
 			self.box = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
 			self.adjusting_fonts()
 			self.image  = self.box
 			self.size = self.image.get_size()
-			self.pos = [self.position[0]-(self.size[0]/2),
-							   self.position[1]-(self.size[1]/2)]
+			self.pos = [self.position[0]-(self.size[0]/2), self.position[1]-(self.size[1]/2)]
 		else:
 			self.image  = self.fontA.render(self.text,1,self.color)
 			if rotate:
@@ -187,21 +180,18 @@ class GameText():
 
 class Letter(GameText):
 	hoover = False
-	def __init__(self,universe,text,pos,frame_pos,hoover_size,main_font='Domestic_Manners.ttf',font_size=20, color=(83,0,0)):
+	def __init__(self,universe,text,pos,frame_pos,hoover_size, color=(83,0,0)):
 		self.universe = universe
-		font_size = int(font_size*scale)
-		GameText.__init__(self,universe, text,pos,frame_pos,main_font,font_size,color)
+		GameText.__init__(self,universe,text,pos,frame_pos=frame_pos,main_font=third_font,color=color)
 		self.hoover_size = hoover_size
 		self.size = p((30,30))
-		
 		self.rect = (self.pos,self.size)
 
 	def update_all(self):
-		self.size	   = self.image.get_size()
-		self.pos		= [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-						   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
-		self.rect	   = pygame.Rect(self.pos,self.size)
-		self.type	   = type
+		self.size = self.image.get_size()
+		self.pos  = [self.frame_pos[0]+self.position[0]-(self.size[0]/2), self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+		self.rect = pygame.Rect(self.pos,self.size)
+		self.type = type
 		self.click_detection()
 
 	def click_detection(self):
@@ -209,7 +199,7 @@ class Letter(GameText):
 			mouse_pos = pygame.mouse.get_pos()
 			if self.rect.collidepoint(mouse_pos):
 				self.hoover = True
-####################################### BUTTON ACTION ########################################
+				# BUTTON ACTION #
 				if self.universe.click:
 					self.universe.level.princess.name.text += self.text
 			else:
@@ -220,15 +210,13 @@ class Key(GameText):
 	hoover = False
 	def __init__(self,universe, text,pos,frame_pos,key_type):
 		self.universe = universe
-		GameText.__init__(self,universe, text,pos,frame_pos,main_font='GentesqueRegular.otf',font_size=30, color=(83,0,0))
+		GameText.__init__(self,universe, text, pos, frame_pos, color=(83,0,0))
 		self.key = key_type
-
 
 	def update_all(self):
 		self.size = self.image.get_size()
-		self.pos = [self.frame_pos[0]+self.position[0]-(self.size[0]/2),
-						   self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
-		self.rect	   = pygame.Rect(self.pos,self.size)
+		self.pos = [self.frame_pos[0]+self.position[0]-(self.size[0]/2), self.frame_pos[1]+self.position[1]-(self.size[1]/2)]
+		self.rect = pygame.Rect(self.pos,self.size)
 		self.click_detection()
 
 	def click_detection(self):

@@ -4,8 +4,12 @@ import directory
 
 #### Fonts ####
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
-main_font = "Domestic_Manners.ttf"
-second_font = "Chopin_Script.ttf"
+main_font = "ArchitectsDaughter.ttf" #Ordinary texts
+main_font_size = 30
+second_font = "GreatVibes-Regular.otf"  #Baroque texts
+second_font_size = 40
+third_font = main_font #Fairy speaches and keyboard
+third_font_size = 20
 
 #### Screen Resolution ####
 # Screen resolution is detected automatically if no custom_resolution is set
@@ -67,6 +71,13 @@ def d(positions,r=True):
 			return round(positions/scale)
 		else:
 			return positions/scale
+
+#scale font size
+if (scale!=1):
+	main_font_size = int(round(p(main_font_size)))
+	second_font_size = int(round(p(second_font_size)))
+	third_font_size = int(round(p(third_font_size)))
+
 
 #### Translation function ####
 import gettext

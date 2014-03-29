@@ -148,7 +148,7 @@ class Princess_Home():
 		self.buttons = []
 		self.buttons	= (
 					widget.Button(self.universe, directory.button_ok,(410,450), [0,0], self.all_set),
-					widget.GameText(self.universe, self.message, (850,820), font_size = 40, box = (1100,400))
+					widget.GameText(self.universe, self.message, (850,820),  box = (1100,400))
 		)
 		self.menu.extend([(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__==widget.Button])
 		if self.name =="sleeping_beauty":
@@ -183,9 +183,9 @@ class Home():
 		self.buttons	= (widget.Button(self.universe, directory.button_ok,(410,450),[0,0],self.all_set),
 						   widget.Button(self.universe, t('Go to the Ball'),(1240,550),[0,0], self.to_the_ball),
 						   widget.GameText(self.universe, t("It is not very cute to repeat your outfits. Check out what you wore at past Balls and try to find something different."), (720,750), box=(600,300)),
-						   widget.GameText(self.universe, t("Last Ball"),		(600,350), font_size = 25),
-						   widget.GameText(self.universe, t("Great Past Ball"),	(800,350), font_size = 25),
-						   widget.GameText(self.universe, t("3 Balls Ago"),		(1000,350),font_size = 25)
+						   widget.GameText(self.universe, t("Last Ball"),		(600,350)),
+						   widget.GameText(self.universe, t("Great Past Ball"),	(800,350)),
+						   widget.GameText(self.universe, t("3 Balls Ago"),		(1000,350))
 							)
 		self.universe.stage.big_princess = self.universe.stage.big_princess or widget.princess_image(self.universe, 'princess_garment')
 		self.past_balls = []

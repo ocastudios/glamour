@@ -683,22 +683,22 @@ class Stage():
 		self.loading()
 		self.create_scenario(hardname)
 		self.create_front_scenario(hardname)
-		self.panel		  = [widget.GameText(self.universe, t(translatable_name), (300,20), font_size = 30),
-							   None,
-							   glamour_stars.Glamour_Stars(self.universe),
-							   widget.GameText(self.universe, self.princesses[0].name, (660,47), font_size = 70,main_font='Chopin_Script.ttf'),
-							   glamour_stars.Lil_Star_Back(self.universe,(1020,0)),
-							   glamour_stars.Lil_Stars(self.universe, (1030,10)),
-							   widget.GameText(self.universe, str(self.princesses[0].points), (1000,20),font_size = 30)
+		self.panel = [widget.GameText(self.universe, t(translatable_name), (300,20)),
+			None,
+			glamour_stars.Glamour_Stars(self.universe),
+			widget.GameText(self.universe, self.princesses[0].name, (660,47),main_font=settings.second_font),
+			glamour_stars.Lil_Star_Back(self.universe,(1020,0)),
+			glamour_stars.Lil_Stars(self.universe, (1030,10)),
+			widget.GameText(self.universe, str(self.princesses[0].points), (1000,20))
 		]
 
 
 	def BathhouseSt(self,goalpos = None, clean_princess = False):
 		self.set_floor_heights(186,9400,'bathhouse')
 		self.create_stage(t('Bathhouse St'),goalpos,'bathhouse')
-		gates = (   [(1063,453),'bathhouse/door/',	inside.Inside(self.universe,'shower', []),True],
-					[(5206,500),'home/door/', 		inside.Home(self.universe), False], 
-					[(9305,503),'magic_beauty_salon/door/',inside.Inside(self.universe,'hair',database.query.unlocked(self.universe,'hair','garment',4)),False])
+		gates = ( [(1063,453),'bathhouse/door/',	inside.Inside(self.universe,'shower', []),True],
+			  [(5206,500),'home/door/', 		inside.Home(self.universe), False], 
+			  [(9305,503),'magic_beauty_salon/door/',inside.Inside(self.universe,'hair',database.query.unlocked(self.universe,'hair','garment',4)),False])
 		self.loading()
 		doors = (   [bathhousegate[0], self.ShoesSt,shoegate[2]],
 					[bathhousegate[1], self.AccessorySt, accessorygate[0]])
@@ -895,14 +895,14 @@ class Pause():
 	def __init__(self, universe):
 		self.status = 'outside'
 		self.universe = universe
-		resume	  = widget.GameText(self.universe, t('Resume'),(360,400), font_size=80, main_font='Chopin_Script.ttf')
+		resume	  = widget.GameText(self.universe, t('Resume'),(360,400),  main_font=settings.second_font)
 		ok_pos	  = d(resume.pos[0]+(resume.size[0]/2)),d(resume.pos[1]+(resume.size[1]))+50
 		ok_button   = widget.Button(self.universe, directory.button_ok,ok_pos, [0,0],self.resume)
-		leave		= widget.GameText(self.universe, t('Quit'),(1080,400), font_size= 80, main_font='Chopin_Script.ttf')
+		leave		= widget.GameText(self.universe, t('Quit'),(1080,400),  main_font=settings.second_font)
 		cancel_pos  = d(leave.pos[0]+(leave.size[0]/2)),d(leave.pos[1]+(leave.size[1]))+50
 		cancel_button = widget.Button(self.universe, directory.button_cancel,cancel_pos,[0,0], self.exit_game)
-		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), main_font='Chopin_Script.ttf', font_size=120)
-		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet, font_size =34)
+		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), main_font=settings.second_font)
+		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet)
 		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet)
 		self.music  = j(directory.music,'1stSnowfall.ogg')
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
@@ -1001,7 +1001,7 @@ class Closet_Icon():
 			self.medium = utils.img.image(os.path.join(directory.princess,self.name,'medium','0.png'))
 			self.big = utils.img.image(os.path.join(directory.princess,self.name,'big_icons','0.png'))
 
-		self.text = widget.GameText(universe, text, [720,550], font_size = 30)
+		self.text = widget.GameText(universe, text, [720,550])
 		self.image = self.medium
 		self.rect  = pygame.Rect(self.pos, self.medium.get_size())
 		self.universe = universe
@@ -1030,27 +1030,20 @@ class Dearhearts():
 		image_size = p((1200,350))
 		self.pos = p((140,527))
 		self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()
-		if points >= p(30):
-			prepimg = utils.img.image(os.path.join(directory.boyfriends,'gentleman_decent','medium','0.png'))
-			self.image.blit(prepimg,(0,0))
-		if points >= p(65):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'knight_reliable','medium','0.png')),p((82,0)))
-		if points >= p(105):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'baron_serious','medium','0.png')),p((162,0)))
-		if points >= p(175):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'count_loving','medium','0.png')),p((230,0)))
-		if points >= p(255):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'marquess_attractive','medium','0.png')),p((331,0)))
-		if points >= p(345):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'duke_intelligent','medium','0.png')),p((411,0)))
-		if points >= p(465):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'prince_charming','medium','0.png')),p((504,0)))
-		if points >= p(685):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'king_kindhearted','medium','0.png')),p((560,0)))
-		if points >= p(1000):
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'emperor_awesome','medium','0.png')),p((664,0)))
-			self.image.blit(utils.img.image(os.path.join(directory.boyfriends,'fabrizio','medium','0.png')),p((858,0)))
+		boyfriends_ranking = (
+			('gentleman_decent',(0,0),30),
+			('knight_reliable',(82,0),65),
+			('baron_serious',(162,0),105),
+			('count_loving',(230,0),175),
+			('marquess_attractive',(331,0),255),
+			('duke_intelligent',(411,0),345),
+			('prince_charming',(504,0),465),
+			('king_kindhearted',(560,0),685),
+			('emperor_awesome',(664,0),1000),
+			)
+		for i in boyfriends_ranking:
+			if points >= i[2]:
+				self.image.blit(utils.img.image(os.path.join(directory.boyfriends,i[0],'medium','0.png')),p(i[1]))
 	
 	def update_all(self):
 		pass
-		
