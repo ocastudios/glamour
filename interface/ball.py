@@ -24,11 +24,11 @@ class Ball():
 		self.universe.level.loading()
 		#reset boyfriend list - so that the list can be managed by the instances
 		NewDancer.boyfriend_list = ["gentleman_decent", 
-									"knight_reliable", 
-									"baron_serious", 
-									"count_loving", 
-									"marquess_attractive", 
-									"duke_intelligent"]
+								"knight_reliable", 
+								"baron_serious", 
+								"count_loving", 
+								"marquess_attractive", 
+								"duke_intelligent"]
 		self.position = 0,0
 		self.universe   = universe
 		self.boyfriend  = None
@@ -365,16 +365,16 @@ class BallFrame():
 				sleeve = arm_dresses[dress]
 			row = cursor.execute("SELECT * FROM "+p+" WHERE id = (SELECT MAX(id) FROM "+p+")").fetchone()
 			cursor.execute("INSERT INTO "+p+
-					" VALUES ("+str(row['id']+1)	+" , '"		+
-							str(row["hair_back"])	+"' , '"	+
-							str(row["skin"])		+"', '"		+
-							str(face)				+"' , '"	+
-							str(row['hair'])		+"' , '"	+
-							str(shoe)				+"' , '"	+
-							str(dress)				+"', '"		+
-							str(row['arm'])			+"', '"		+
-							str(sleeve)				+"', '"		+
-							str(accessory)			+"')")
+					" VALUES ("+str(row['id']+1)+" , '"+
+							str(row["hair_back"])+"' , '"+
+							str(row["skin"])+"', '"	+
+							str(face)+"' , '"+
+							str(row['hair'])+"' , '"+
+							str(shoe)+"' , '"+
+							str(dress)+"', '"+
+							str(row['arm'])+"', '"+
+							str(sleeve)+"', '"+
+							str(accessory)+"')")
 		row = cursor.execute("SELECT * FROM princess_garment WHERE id = (SELECT MAX(id) FROM princess_garment)").fetchone()
 		cursor.execute("INSERT INTO princess_garment VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+row['face']+"' , '"+row['hair']+"' , '"+row['shoes']+"' , '"+row['dress']+"', '"+row['arm']+"', '"+str(row['armdress'])+"', '"+row['accessory']+"')")
 		self.ball.universe.db.commit()
@@ -386,13 +386,13 @@ class FairyTalePrincess():
 
 		   The parameters are self, frame (or level), position, hair, skin, icon, name (name of the princess in the database, if no name, than player), ball (number of the ball to show - counted backwards).
 		   """
-		skin_body	   = 'skin_'+skin
-		skin_arm		= 'arm_'+skin
-		self.frame	  = frame
-		self.file	   = frame.ball.universe.file
-		self.image	  = utils.img.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
+		skin_body = 'skin_'+skin
+		skin_arm = 'arm_'+skin
+		self.frame  = frame
+		self.file  = frame.ball.universe.file
+		self.image  = utils.img.scale_image(pygame.Surface((200,200),pygame.SRCALPHA).convert_alpha())
 		self.name_lower = name.lower()
-		self.position   = p(position)
+		self.position = p(position)
 		self.symbol = None
 		self.name = name
 		if name != "princess_garment":

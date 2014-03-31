@@ -132,7 +132,7 @@ class Item():
 class Princess_Home():
 	def __init__(self, universe, princess=None):
 		princess_name = princess["name"].lower()
-		self.name			= princess_name
+		self.name = princess_name
 		self.type_of_items = 'fairy_tale'
 		self.princess_image = widget.princess_image(universe, princess_name, flip=False)
 		self.princess_icon  = utils.img.image(os.path.join(directory.ball,princess['icon']))
@@ -147,8 +147,8 @@ class Princess_Home():
 		self.menu = []
 		self.buttons = []
 		self.buttons	= (
-					widget.Button(self.universe, directory.button_ok,(410,450), [0,0], self.all_set),
-					widget.GameText(self.universe, self.message, (850,820),  box = (1100,400))
+			widget.Button(self.universe, directory.button_ok,(410,450), [0,0], self.all_set),
+			widget.GameText(self.universe, self.message, (850,820),  box = (1100,400))
 		)
 		self.menu.extend([(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__==widget.Button])
 		if self.name =="sleeping_beauty":
