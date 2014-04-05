@@ -7,8 +7,9 @@ import os
 import re
 import utils
 import settings.directory as directory
-from settings import *
-
+import settings
+p = settings.p
+scale = settings.scale
 
 channel = pygame.mixer.Channel(0)
 class Button():
@@ -35,11 +36,11 @@ class Button():
 				self.images.list = self.invert_images(self.images.list)
 			self.list_of_images = self.images.list
 		if self.type_of_button == 'text':
-			font = main_font
+			font = settings.main_font
 			self.text = dirtxt
 			self.color = color
-			self.fontA = pygame.font.Font(os.path.join(directory.fonts,main_font),main_font_size)
-			self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),second_font_size)
+			self.fontA = pygame.font.Font(os.path.join(directory.fonts,settings.main_font),settings.main_font_size)
+			self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),settings.second_font_size)
 			self.list_of_images= [self.fontA.render(self.text,1,self.color)]
 
 		self.image = self.list_of_images[0]
@@ -91,7 +92,7 @@ class Button():
 
 
 class GameText():
-	def __init__(self, universe, text,pos,frame_pos =None,main_font=main_font, color=(58,56,0),second_font =second_font,var = False, rotate = None, box = None):
+	def __init__(self, universe, text,pos,frame_pos =None,main_font=settings.main_font, color=(58,56,0),second_font =settings.second_font,var = False, rotate = None, box = None):
 		"""Creates a GameText object
 
 		:param universe: universe of the game, an object that acts as a global variables container.
@@ -110,8 +111,14 @@ class GameText():
 		self.frame_pos = frame_pos
 		self.text = text
 		self.color = color
+		if main_font==settings.second_font:
+			main_font_size=settings.second_font_size
+		elif main_font is settings.third_font:
+			main_font_size=settings.third_font_size
+		else:
+			main_font_size=settings.main_font_size
 		self.fontA = pygame.font.Font(os.path.join(directory.fonts,self.font),main_font_size)
-		self.fontB = pygame.font.Font(os.path.join(directory.fonts,second_font),second_font_size)
+		self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),settings.second_font_size)
 		self.position = pos
 		if box:
 			self.box = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
@@ -182,7 +189,7 @@ class Letter(GameText):
 	hoover = False
 	def __init__(self,universe,text,pos,frame_pos,hoover_size, color=(83,0,0)):
 		self.universe = universe
-		GameText.__init__(self,universe,text,pos,frame_pos=frame_pos,main_font=third_font,color=color)
+		GameText.__init__(self,universe,text,pos,frame_pos=frame_pos,main_font=settings.third_font,color=color)
 		self.hoover_size = hoover_size
 		self.size = p((30,30))
 		self.rect = (self.pos,self.size)
