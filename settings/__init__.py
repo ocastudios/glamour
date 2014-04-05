@@ -13,10 +13,10 @@ third_font_size = 20
 
 
 #### Princesses #### 
-Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
-Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png'   , 'name' : 'Cinderella'}
-Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel'  ,'icon': 'princess-icon-brush.png'  , 'name' : 'Rapunzel'}
-Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping'  ,'icon': 'princess-icon-spindle.png', 'name' : 'Sleeping_Beauty'}
+Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png', 'name': 'Snow_White'}
+Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png', 'name': 'Cinderella'}
+Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel', 'icon': 'princess-icon-brush.png', 'name': 'Rapunzel'}
+Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping', 'icon': 'princess-icon-spindle.png', 'name' : 'Sleeping_Beauty'}
 
 #### Mininum Glamour Points ####
 # For each Ball the player will earn this much Glamour points unless the player did not change any garment
@@ -91,11 +91,11 @@ import gettext
 import locale
 
 current_locale, encoding = locale.getdefaultlocale()
-for i in (	directory.personal, 
-			directory.saves, 
-			directory.cache, 
-			os.path.join(directory.cache,'images'),
-			):
+for i in (directory.personal, 
+	directory.saves, 
+	directory.cache, 
+	os.path.join(directory.cache,'images'),
+	):
 	try:
 		os.listdir(i)
 	except:
