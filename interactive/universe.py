@@ -11,9 +11,8 @@ from settings import directory
 
 class Universe():
 	def __init__(self):
-		default_resolution = (1440,900)
-		w = int(round(default_resolution[0]*scale))
-		h = int(round(default_resolution[1]*scale))
+		w = int(round(resolution[0]))
+		h = int(round(resolution[1]))
 		self.clock = pygame.time.Clock()
 		self.center_x = int(-3400*scale)
 		self.center_y = 0
@@ -25,7 +24,7 @@ class Universe():
 		self.dir	= 'right'
 		self.click = False
 		self.file = None
-		self.fps = 80 #fps is altered by stage and menu in their initialization
+		self.fps = 40 #fps is altered by stage and menu in their initialization
 		self.run_level = True
 		self.db = None
 		self.db_cursor = None

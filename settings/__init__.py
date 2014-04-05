@@ -5,16 +5,12 @@ import directory
 #### Fonts ####
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
 main_font = "ArchitectsDaughter.ttf" #Ordinary texts
-main_font_size = 30
+main_font_size = 28
 second_font = "GreatVibes-Regular.otf"  #Baroque texts
-second_font_size = 40
+second_font_size = 38
 third_font = main_font #Fairy speaches and keyboard
 third_font_size = 20
 
-#### Screen Resolution ####
-# Screen resolution is detected automatically if no custom_resolution is set
-custom_resolution = None
-custom_resolution = (800,600)
 
 #### Princesses #### 
 Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png',   'name' : 'Snow_White'}
@@ -29,9 +25,15 @@ minimum_glamour_points = 1
 #### Screen Resolution ####
 print "Detecting screen resolution"
 
+#### Screen Resolution ####
+# Screen resolution is detected automatically if no custom_resolution is set
+#custom_resolution = (800,600)
+custom_resolution = None
+default_screen_size_percentage = 0.8
+
 os_screen = pygame.display.Info()
 if not custom_resolution:
-	resolution = os_screen.current_w,os_screen.current_h
+	resolution = os_screen.current_w*default_screen_size_percentage,os_screen.current_h*default_screen_size_percentage
 else:
 	resolution = custom_resolution
 if resolution[0] < 1440:
@@ -60,6 +62,8 @@ def p(positions,r=True):
 		else:
 			return positions*scale
 
+
+
 def d(positions,r=True):
 	if positions.__class__ in (list, tuple):
 		if round:
@@ -71,6 +75,9 @@ def d(positions,r=True):
 			return round(positions/scale)
 		else:
 			return positions/scale
+
+# Calculating resulting resolution #
+resolution = (p(1440),p(900))
 
 #scale font size
 if (scale!=1):

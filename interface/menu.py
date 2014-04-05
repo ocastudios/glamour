@@ -763,9 +763,9 @@ class Story_Frame():
 
 class Credits():
 	def __init__(self,universe):
-		self.background = utils.img.image(os.path.join(directory.credits,'fundo.png'))
+		self.background = utils.img.image(os.path.join(directory.credits,'credits.png'))
 		self.universe	   = universe
-		self.pos		= p((0,100))
+		self.pos		= p((0,930))
 		developers = [
 				('isac',os.path.join(directory.credits,'isacvale.png')   ,(433,840)),
 				('ndvo',os.path.join(directory.credits,'ndvo.png'	)   ,(265,631)),
@@ -854,14 +854,14 @@ class Credits():
 			(t("( If you are an author and want your music out of this game, contact us and we'll promptly remove it. )"),(800,2400),13,None),
 			(t("want to congratulate or complain? do it to glamour@ocastudios.com"), (1000,2440),14,None)
 		   ]
-		self.images = developers+rendered_texts
-		self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos, main_font=second_font,  color=i[3]) for i in texts_chopin]+[
-						widget.GameText(self.universe,i[0],i[1],self.pos,  color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
-		for i in self.images:
-			print i
-			self.background.blit(utils.img.image(i[1]),p(i[2]))
-		for i in self.texts:
-			self.background.blit(i.image,i.pos)
+		#self.images = developers+rendered_texts
+		#self.texts = [widget.GameText(self.universe,i[0],i[1],self.pos, main_font=second_font,  color=i[3]) for i in texts_chopin]+[
+		#				widget.GameText(self.universe,i[0],i[1],self.pos,  color=(0,0,0,255),box = i[3]) for i in texts_gentesque]
+		#for i in self.images:
+		#	print i
+		#	self.background.blit(utils.img.image(i[1]),p(i[2]))
+		#for i in self.texts:
+		#	self.background.blit(i.image,i.pos)
 
 
 	def update_all(self):

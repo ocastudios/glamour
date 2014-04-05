@@ -40,22 +40,22 @@ class Stage():
 	def __init__(self,universe):
 		self.name = None
 		self.size = p(9600)
-		self.universe		= universe
-		self.cameras		=[camera.GameCamera(universe,p(-4220))]
-		self.gates			= []
-		self.clock			= [game_clock.GameClock(universe),game_clock.ClockPointer(universe)]
-		self.floor_heights	= {}
-		self.floor			= universe.floor-p(186)
-		self.menus			= []
-		self.panel			= [None,None,glamour_stars.Glamour_Stars(universe)]
-		self.pointer		= [self.universe.pointer]
+		self.universe = universe
+		self.cameras=[camera.GameCamera(universe,p(-4220))]
+		self.gates= []
+		self.clock= [game_clock.GameClock(universe),game_clock.ClockPointer(universe)]
+		self.floor_heights= {}
+		self.floor= universe.floor-p(186)
+		self.menus= []
+		self.panel= [None,None,glamour_stars.Glamour_Stars(universe)]
+		self.pointer= [self.universe.pointer]
 		self.scenarios_front= []
 		self.animated_scenarios =[]
-		self.blitlist		= ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
+		self.blitlist= ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
 		self.foreground	 = []
-		self.white		  = Foreground(universe)
-		self.black		  = Foreground(universe, color=(0,0,0), path= j(directory.loading,'back.png'))
-		self.bar	= {'down': Bar(universe,'down'), 'up': Bar(universe,'up'), 'left': Bar(universe,'left'), 'right': Bar(universe,'right')}
+		self.white = Foreground(universe)
+		self.black = Foreground(universe, color=(0,0,0), path= j(directory.loading,'back.png'))
+		self.bar = {'down': Bar(universe,'down'), 'up': Bar(universe,'up'), 'left': Bar(universe,'left'), 'right': Bar(universe,'right')}
 		self.bar_goal	   = self.universe.height/3
 		self.bar_speed	  = 1
 		self.inside		 = None
@@ -226,9 +226,9 @@ class Stage():
 			if self.big_princess:
 
 				if self.inside.type_of_items == "shower":
-					position	= ((self.universe.width/2)-p(200),p(270))
+					position = ((self.universe.width/2)-p(200),p(270))
 				else:
-					position	= p((20,270))
+					position = p((20,270))
 				screen.blit(self.big_princess, position)
 
 				[screen.blit(i.image,i.pos) for i in self.inside.buttons]
@@ -642,18 +642,19 @@ class Stage():
 				self.floor_heights[r]=p(row['value'],r=False)
 		self.loading()
 
-	def stage_music(self,intro, music):
+	def stage_music(self, music=None,intro=None):
 		pygame.mixer.music.fadeout(4000)
-		self.loading()
 		self.music = j(directory.music,music)
-		pygame.mixer.music.load(j(directory.music,intro))
-		self.loading()
-		pygame.mixer.music.play()
-		self.loading()
-		pygame.mixer.music.queue(j(directory.music,music))
+		if not intro:
+			pygame.mixer.music.load(j(directory.music,music))
+		else:
+			pygame.mixer.music.load(j(directory.music,intro))
+			self.loading()
+			pygame.mixer.music.queue(j(directory.music,music))
 		pygame.mixer.music.set_endevent(pygame.USEREVENT)
 		pygame.mixer.music.set_volume(.6)
 		self.loading()
+		pygame.mixer.music.play()
 
 	def create_stage(self,translatable_name,goalpos,hardname):
 		if self.enemy_channel.get_sound():
@@ -712,7 +713,7 @@ class Stage():
 		self.loading()
 		floors.Bridge(j(self.directory,'floor','japanese_bridge'),5,self.universe)
 		self.loading()
-		self.stage_music("bathhouse_day_intro.ogg","bathhouse_day.ogg")
+		self.stage_music("bathhouse.ogg")
 		self.loading()
 		if self.starting_game:
 			events.choose_event(self.universe,starting_game=True)
@@ -736,7 +737,7 @@ class Stage():
 		self.loading()
 		self.floor_image= [floors.Floor(c,j(self.directory,'floor'),self.universe) for c in range(30)]
 		self.loading()
-		self.stage_music("dress_day_intro.ogg","dress_day.ogg")
+		self.stage_music("snow-white.ogg")
 		self.set_floor_heights(185,9400,'dress')
 
 	def AccessorySt(self,goalpos = None):
@@ -762,7 +763,7 @@ class Stage():
 		self.loading()
 		[floors.Drain(j(self.directory,'floor',i[0]+'_bank_front'),i[1],self.universe) for i in [('left',2),('right',3),('left',20),('right',21)]]
 		self.loading()
-		self.stage_music("accessory_day.ogg","accessory_day.ogg")
+		self.stage_music("cinderella.ogg")
 		self.set_floor_heights(194,9400,'accessory')
 
 	def MakeupSt(self,goalpos = None):
@@ -796,7 +797,7 @@ class Stage():
 		self.loading()
 		self.set_floor_heights(192,9400,'makeup')
 		self.loading()
-		self.stage_music("makeup_day_intro.ogg","makeup_day.ogg")
+		self.stage_music("sleeping-beauty.ogg")
 
 	def ShoesSt(self,goalpos=None):
 		self.create_stage(t('Shoes St'),goalpos,'shoes')
@@ -810,7 +811,7 @@ class Stage():
 		scenarios.Gate(shoegate[2],self.universe,self.BathhouseSt, goalpos = bathhousegate[0]),]
 		self.floor_image= [floors.Floor(c,j(self.directory,'floor'),self.universe) for c in range(30)]
 		self.loading()
-		self.stage_music("shoes_day_intro.ogg","shoes_day.ogg")
+		self.stage_music("rapunzel.ogg")
 		self.set_floor_heights(192,9601,'shoes')
 		self.loading()
 
@@ -903,7 +904,8 @@ class Pause():
 		cancel_button = widget.Button(self.universe, directory.button_cancel,cancel_pos,[0,0], self.exit_game)
 		title	   = widget.GameText(self.universe, t('Game Paused'),(720,100), main_font=settings.second_font)
 		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet)
-		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet)
+		toggle = widget.Button(self.universe, t('Toggle Fullscreen'), (710,760), [0,0], self.toggle_fullscreen)
+		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet, toggle)
 		self.music  = j(directory.music,'1stSnowfall.ogg')
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
 		self.chosen_number = 0
@@ -912,43 +914,51 @@ class Pause():
 		self.unlocked_items= []
 		self.unlocked_boyfriends = []
 		self.icons = {
-			'accessory_beret':		[p((240, 82)),	t("The beret accessory, earnd for jumping with the penguin.")],
-			'accessory_crown':		[p((350, 82)),	t("The crown accessory, unlocked from the start.")],
-			'accessory_shades':		[p((460, 82)),	t("The shades accessory, earned after trampling 20 chicks.")],
-			'accessory_mask':		[p((570, 82)),	t("The mask, earned for debuting three hairstyles in balls.")],
-			'accessory_purse':		[p((680, 82)),	t("The purse accessory, unlocked from the start.")],
-			'accessory_ribbon':		[p((790, 82)),	t("The ribbon accessory, unlocked from the start.")],
-			'dress_indian':			[p((900, 82)),	t("The indian dress, earned for dressing as a geisha.")],
-			'dress_kimono':			[p((1010,82)),	t("The kimono, earned for being crossed by the carriage.")],
-			'dress_pink':			[p((1120,82)),	t("The pink dress, unlocked from the start.")],
-			'dress_red':			[p((240, 192)),	t("The red dress, unlocked from the start.")],
-			'dress_plain':			[p((350, 192)),	t("The simple dress, unlocked from the start.")],
-			'dress_yellow':			[p((460, 192)),	t("The yellow dress, earned for beating all kinds of enemies.")],
-			'face_eyelids':			[p((570, 192)),	t("The eyelids make-up, unlocked from the start.")],
-			'face_eyeshades':		[p((680, 192)),	t("The eyeshades make-up, unlocked from the start.")],
-			'face_geisha':			[p((790, 192)),	t("The geisha look, earned for bathing while clean.")],
-			'face_indian':			[p((900, 192)),	t("The indian look, earned for kissing the lion.")],
-			'face_lipstick':		[p((1010,192)),	t("The lipstick make-up, earned for entering your own castle.")],
-			'face_simple':			[p((1120,192)),	t("The simple make-up, unlocked from the start.")],
-			'hair_black':			[p((240, 302)),	t("The black hairstyle, unlocked from the start.")],
+			'accessory_beret':	[p((240, 82)),	t("The beret accessory, earnd for jumping with the penguin.")],
+			'accessory_crown':	[p((350, 82)),	t("The crown accessory, unlocked from the start.")],
+			'accessory_shades':	[p((460, 82)),	t("The shades accessory, earned after trampling 20 chicks.")],
+			'accessory_mask':	[p((570, 82)),	t("The mask, earned for debuting three hairstyles in balls.")],
+			'accessory_purse':	[p((680, 82)),	t("The purse accessory, unlocked from the start.")],
+			'accessory_ribbon':	[p((790, 82)),	t("The ribbon accessory, unlocked from the start.")],
+			'dress_indian':		[p((900, 82)),	t("The indian dress, earned for dressing as a geisha.")],
+			'dress_kimono':		[p((1010,82)),	t("The kimono, earned for being crossed by the carriage.")],
+			'dress_pink':		[p((1120,82)),	t("The pink dress, unlocked from the start.")],
+			'dress_red':		[p((240, 192)),	t("The red dress, unlocked from the start.")],
+			'dress_plain':		[p((350, 192)),	t("The simple dress, unlocked from the start.")],
+			'dress_yellow':		[p((460, 192)),	t("The yellow dress, earned for beating all kinds of enemies.")],
+			'face_eyelids':		[p((570, 192)),	t("The eyelids make-up, unlocked from the start.")],
+			'face_eyeshades':	[p((680, 192)),	t("The eyeshades make-up, unlocked from the start.")],
+			'face_geisha':		[p((790, 192)),	t("The geisha look, earned for bathing while clean.")],
+			'face_indian':		[p((900, 192)),	t("The indian look, earned for kissing the lion.")],
+			'face_lipstick':	[p((1010,192)),	t("The lipstick make-up, earned for entering your own castle.")],
+			'face_simple':		[p((1120,192)),	t("The simple make-up, unlocked from the start.")],
+			'hair_black':		[p((240, 302)),	t("The black hairstyle, unlocked from the start.")],
 			'hair_braid_and_tail':	[p((350, 302)),	t("The braid and tail hairstyle, unlocked from the start.")],
-			'hair_brown':			[p((460, 302)),	t("The brown hairstyle, unlocked from the start.")],
-			'hair_cinderella':		[p((570, 302)),	t("Cinderella's hairstyle, earned for visiting her.")],
-			'hair_geisha':			[p((680, 302)),	t("The geisha hairstyle, unlocked from the start.")],
-			'hair_rapunzel':		[p((790, 302)),	t("Rapunzel's hairstyle, earned for visiting her.")],
-			'hair_rastafari':		[p((900, 302)),	t("The rastafari hairstyle, unlocked from the start.")],
-			'hair_red':				[p((1010,302)),	t("The red hairstyle, unlocked from the start.")],
-			'hair_short':			[p((1120,302)),	t("The short hairstyle, unlocked from the start.")],
-			'hair_sleeping':		[p((240, 412)),	t("Sleeping Beauty's hairstyle, earned for visiting her.")],
-			'hair_snowwhite':		[p((350, 412)),	t("Snow White's hairstyle, earned for visiting her.")],
-			'hair_yellow':			[p((460, 412)),	t("The blonde hairstyle, unlocked from the start.")],
-			'shoes_boots':			[p((570, 412)),	t("The go-go boots, earned by crossing the drains clean.")],
-			'shoes_crystal':		[p((680, 412)),	t("The glass slippers, earned for wearing the dream outfit.")],
-			'shoes_flower':			[p((790, 412)),	t("The flower sandals, earned for visiting all streets in one day.")],
-			'shoes_red':			[p((900, 412)),	t("The red shoes, unlocked from the start.")],
-			'shoes_slipper':		[p((1010,412)),	t("The slippers, unlocked from the start.")],
-			'shoes_white':			[p((1120,412)),	t("The white shoes, unlocked from the start.")]
+			'hair_brown':		[p((460, 302)),	t("The brown hairstyle, unlocked from the start.")],
+			'hair_cinderella':	[p((570, 302)),	t("Cinderella's hairstyle, earned for visiting her.")],
+			'hair_geisha':		[p((680, 302)),	t("The geisha hairstyle, unlocked from the start.")],
+			'hair_rapunzel':	[p((790, 302)),	t("Rapunzel's hairstyle, earned for visiting her.")],
+			'hair_rastafari':	[p((900, 302)),	t("The rastafari hairstyle, unlocked from the start.")],
+			'hair_red':		[p((1010,302)),	t("The red hairstyle, unlocked from the start.")],
+			'hair_short':		[p((1120,302)),	t("The short hairstyle, unlocked from the start.")],
+			'hair_sleeping':	[p((240, 412)),	t("Sleeping Beauty's hairstyle, earned for visiting her.")],
+			'hair_snowwhite':	[p((350, 412)),	t("Snow White's hairstyle, earned for visiting her.")],
+			'hair_yellow':		[p((460, 412)),	t("The blonde hairstyle, unlocked from the start.")],
+			'shoes_boots':		[p((570, 412)),	t("The go-go boots, earned by crossing the drains clean.")],
+			'shoes_crystal':	[p((680, 412)),	t("The glass slippers, earned for wearing the dream outfit.")],
+			'shoes_flower':		[p((790, 412)),	t("The flower sandals, earned for visiting all streets in one day.")],
+			'shoes_red':		[p((900, 412)),	t("The red shoes, unlocked from the start.")],
+			'shoes_slipper':	[p((1010,412)),	t("The slippers, unlocked from the start.")],
+			'shoes_white':		[p((1120,412)),	t("The white shoes, unlocked from the start.")]
 			}
+
+
+	def toggle_fullscreen(self):
+		size = (self.universe.width, self.universe.height)
+		if self.universe.screen_surface.get_flags() & pygame.FULLSCREEN:
+			pygame.display.set_mode(size)
+		else:
+			pygame.display.set_mode(size, pygame.FULLSCREEN)
 
 	def resume(self):
 		self.status = 'done'
@@ -1047,3 +1057,4 @@ class Dearhearts():
 	
 	def update_all(self):
 		pass
+
