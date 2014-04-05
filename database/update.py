@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import random
 from settings import *
 import database.query as query
 
@@ -47,7 +47,7 @@ def won(universe):
 		universe.db_cursor.execute("UPDATE save SET won=1")
 		universe.db.commit()
 
-def set_next_ball_clothes(self, fairy_tale_princess=None, avoid=[],update=False):
+def set_next_ball_clothes(universe, fairy_tale_princess=None, avoid=[],update=False):
 	cursor = universe.db_cursor
 	if avoid:
 		avoid = random.choice(avoid)
@@ -82,20 +82,18 @@ def set_next_ball_clothes(self, fairy_tale_princess=None, avoid=[],update=False)
 		if not update:
 			row = cursor.execute("SELECT * FROM "+p+" WHERE id = (SELECT MAX(id) FROM "+p+")").fetchone()
 			cursor.execute("INSERT INTO "+p+
-					" VALUES ("+str(row['id']+1)+" , '"+
-							str(row["hair_back"])+"' , '"+
-							str(row["skin"])+"', '"	+
-							str(face)+"' , '"+
-							str(row['hair'])+"' , '"+
-							str(shoe)+"' , '"+
-							str(dress)+"', '"+
-							str(row['arm'])+"', '"+
-							str(sleeve)+"', '"+
-							str(accessory)+"')")
+				" VALUES ("+str(row['id']+1)+" , '"+
+				str(row["hair_back"])+"' , '"+
+				str(row["skin"])+"', '"	+
+				str(face)+"' , '"+
+				str(row['hair'])+"' , '"+
+				str(shoe)+"' , '"+
+				str(dress)+"', '"+
+				str(row['arm'])+"', '"+
+				str(sleeve)+"', '"+
+				str(accessory)+"')")
 		else:
-			cursor.execute("UPDATE "+p+" SET face = '"+str(face)+"', shoes = '"+str(shoe)+"', dress = '"+str(dress)+"', armdress ='"+str(sleeve)+"', accessory='"+str(accessory)+"'
-				WHERE id=(SELECT MAX(id) FROM "+p+")")
-			)
+			cursor.execute("UPDATE "+p+" SET face = '"+str(face)+"', shoes = '"+str(shoe)+"', dress = '"+str(dress)+"', armdress ='"+str(sleeve)+"', accessory='"+str(accessory)+"' WHERE id=(SELECT MAX(id) FROM "+p+")")
 	if not update:
 		row = cursor.execute("SELECT * FROM princess_garment WHERE id = (SELECT MAX(id) FROM princess_garment)").fetchone()
 		cursor.execute("INSERT INTO princess_garment VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+row['face']+"' , '"+row['hair']+"' , '"+row['shoes']+"' , '"+row['dress']+"', '"+row['arm']+"', '"+str(row['armdress'])+"', '"+row['accessory']+"')")

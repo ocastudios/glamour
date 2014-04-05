@@ -25,7 +25,7 @@ class Universe():
 		self.dir	= 'right'
 		self.click = False
 		self.file = None
-		self.fps = 40 #fps is altered by stage and menu in their initialization
+		self.fps = 80 #fps is altered by stage and menu in their initialization
 		self.run_level = True
 		self.db = None
 		self.db_cursor = None

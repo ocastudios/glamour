@@ -5,6 +5,7 @@ import settings.directory as directory
 from settings.directory import j
 from settings import p
 from string import Template
+import settings
 
 
 class Message():

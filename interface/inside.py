@@ -211,7 +211,8 @@ class Home():
 			self.locked = False
 
 	def to_the_ball(self):
-		self.universe.level.clock[1].count = 175
+		self.universe.level.clock[1].count = self.universe.level.clock[1].balltime -5
+
 		self.universe.level.clock[1].time = 'night'
 		self.status = 'done'
 

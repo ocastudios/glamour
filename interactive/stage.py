@@ -1,10 +1,10 @@
 import scenario.scenarios   as scenarios
 import utils
-import interactive.enemy	as enemy
-import scenario.skies		as skies
-import interactive.fairy	as fairy
-import scenario.floors		as floors
-import interface.widget		as widget
+import interactive.enemy as enemy
+import scenario.skies as skies
+import interactive.fairy as fairy
+import scenario.floors as floors
+import interface.widget as widget
 import random
 import scenario.moving_scenario as moving_scenario
 import interface.glamour_stars as glamour_stars

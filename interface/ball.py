@@ -339,45 +339,7 @@ class BallFrame():
 				self.position[1] += self.speed
 
 	def set_next_ball_clothes(self):
-		cursor 		= self.ball.universe.db_cursor
-		faces 		= [i['type'] + "_" + i['garment'] for i in database.query.unlocked(self.ball.universe,'face')]
-		dresses 	= [i['type'] + "_" + i['garment'] for i in database.query.unlocked(self.ball.universe,'dress')]
-		accessories = [i['type'] + "_" + i['garment'] for i in database.query.unlocked(self.ball.universe,'accessory')]
-		shoes 		=[i['type']  + "_" + i['garment'] for i in database.query.unlocked(self.ball.universe,'shoes')]
-#		faces   = ("face_eyelids", "face_eyeshades","face_lipstick","face_simple")
-#		dresses = ("dress_pink","dress_plain", "dress_red", "dress_yellow")
-		#TODO: the list below should be replaced by a definition of dresses in a database so that it would be easier to mantain.
-		arm_dresses = { 
-				"dress_indian": "sleeve_indian",
-				"dress_kimono": "sleeve_kimono",
-				"dress_red": "sleeve_red",
-				"dress_yellow":"sleeve_yellow"
-				}#('None','None','sleeve_red','sleeve_yellow')
-#		accessories = ("accessory_crown","accessory_purse","accessory_ribbon","accessory_shades")
-#		shoes   = ("shoes_crystal","shoes_red","shoes_slipper","shoes_white")
-		for p in ("rapunzel","cinderella","sleeping_beauty","snow_white"):
-			face  = 	random.choice(faces)
-			dress = 	random.choice(dresses)
-			accessory =	random.choice(accessories)
-			shoe = 		random.choice(shoes)
-			sleeve = None
-			if dress in arm_dresses:
-				sleeve = arm_dresses[dress]
-			row = cursor.execute("SELECT * FROM "+p+" WHERE id = (SELECT MAX(id) FROM "+p+")").fetchone()
-			cursor.execute("INSERT INTO "+p+
-					" VALUES ("+str(row['id']+1)+" , '"+
-							str(row["hair_back"])+"' , '"+
-							str(row["skin"])+"', '"	+
-							str(face)+"' , '"+
-							str(row['hair'])+"' , '"+
-							str(shoe)+"' , '"+
-							str(dress)+"', '"+
-							str(row['arm'])+"', '"+
-							str(sleeve)+"', '"+
-							str(accessory)+"')")
-		row = cursor.execute("SELECT * FROM princess_garment WHERE id = (SELECT MAX(id) FROM princess_garment)").fetchone()
-		cursor.execute("INSERT INTO princess_garment VALUES ("+str(row['id']+1)+" , '"+str(row["hair_back"])+"' , '"+row["skin"]+"', '"+row['face']+"' , '"+row['hair']+"' , '"+row['shoes']+"' , '"+row['dress']+"', '"+row['arm']+"', '"+str(row['armdress'])+"', '"+row['accessory']+"')")
-		self.ball.universe.db.commit()
+		database.update.set_next_ball_clothes(self.universe)		
 
 
 class FairyTalePrincess():
@@ -425,13 +387,13 @@ class BoyFriend():
 		print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
 		boyfriend = None
 		boyfriend_rank = (	[  30,  70,		'gentleman_decent', t('Gentleman Decent')],
-							[  70, 110,		'knight_reliable', t('Knight Reliable')],
-							[ 110, 150,		'baron_serious', t('Baron Serious')],
-							[ 150, 200,		'count_loving', t('Count Loving')],
-							[ 200, 250,		'marquess_attractive', t('Marquess Attractive')],
-							[ 250, 350,		'duke_intelligent', t('Duke Intelligent')],
-							[ 350, 500,		'prince_charming', t('Prince Charming')],
-							[ 500, 700,		'emperor_awesome', t('emperor_awesome')])
+				[  70, 110, 'knight_reliable', t('Knight Reliable')],
+				[ 110, 150, 'baron_serious', t('Baron Serious')],
+				[ 150, 200, 'count_loving', t('Count Loving')],
+				[ 200, 250, 'marquess_attractive', t('Marquess Attractive')],
+				[ 250, 350, 'duke_intelligent', t('Duke Intelligent')],
+				[ 350, 500, 'prince_charming', t('Prince Charming')],
+				[ 500, 700, 'emperor_awesome', t('emperor_awesome')])
 		for i in boyfriend_rank:
 			if points in range(i[0], i[1]):
 				boyfriend = i[2]
@@ -456,8 +418,8 @@ class BoyFriend():
 
 class BigPrincess():
 	def __init__(self, ball):
-		self.pos		= p([ 670,398])
-		self.image		= widget.princess_image(ball.universe, 'princess_garment')
+		self.pos = p([ 670,398])
+		self.image = widget.princess_image(ball.universe, 'princess_garment')
 
 	def update_all(self):
 		pass
