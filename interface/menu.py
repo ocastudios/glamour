@@ -639,24 +639,24 @@ class Story_Frame():
 			self.available_sounds = [pygame.mixer.Sound(os.path.join(directory.sounds,'tutorial','frames',i)) for i in sound_frames]
 			GT = widget.GameText
 			frame_texts = {
-				0:[	GT(self.menu.universe,  t('Hi!'),(814,268)),
-						GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218))],
+				0:[GT(self.menu.universe,  t('Hi!'),(814,268)),
+				   	GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218))],
 
-				1:[	GT(self.menu.universe,  t('Yiipi!'),(795,514)),
-						GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218)) ],
+				1:[GT(self.menu.universe,  t('Yiipi!'),(795,514)),
+				   	GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218)) ],
 
-				2:[	GT(self.menu.universe,  t('Yey!'),(682,141)),
-						GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218))],
+				2:[GT(self.menu.universe,  t('Yey!'),(682,141)),
+				   	GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218))],
 
-				3:[	GT(self.menu.universe,  t('x'), (585,231)),
-						GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218))],
+				3:[GT(self.menu.universe,  t('x'), (585,231)),
+				   	GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218))],
 
-				4:[	GT(self.menu.universe,  t('Ooh!'), (528,235)),
-						GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218))],
+				4:[GT(self.menu.universe,  t('Ooh!'), (528,235)),
+				   	GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218))],
 
-				5:[	GT(self.menu.universe,  t("But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"),(730,790),box=(718,218))],
+				5:[GT(self.menu.universe,  t("But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"),(730,790),box=(718,218))],
 
-				6:[	GT(self.menu.universe,  t("You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."),(730,790),box=(718,218))],
+				6:[GT(self.menu.universe,  t("You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."),(730,790),box=(718,218))],
 
 				7:[	GT(self.menu.universe,  t("Yeah!"),(550,230)),
 				GT(self.menu.universe,  t("But first we need to find you a beautiful and original look."),(730,790),box=(718,218))],
@@ -665,7 +665,7 @@ class Story_Frame():
 
 				9:[	GT(self.menu.universe,  t("That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"),(730,790),box=(718,218))],
 
-				10:[GT(self.menu.universe,  t("You got it!"),(585,472),box=(100,100)),
+				10:[GT(self.menu.universe,  t("You got it!"),(585,462),box=(100,100)),
 						GT(self.menu.universe,  t("Oh! And remember you can switch streets by pressing up when in front of a gate."),(730,790),box=(718,218))],
 
 				11:[GT(self.menu.universe,  t("Ookay..."),(675,475)),
@@ -703,6 +703,7 @@ class Story_Frame():
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'story','frames')))
 			self.available_sounds   = [pygame.mixer.Sound(os.path.join(directory.sounds,'story','frames',i)) for i in sound_frames]
 			frame_texts = {}
+
 		elif "ending" in path:
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds, 'ending','frames')))
 			self.available_sounds	= [pygame.mixer.Sound(os.path.join(directory.sounds,'ending','frames',i)) for i in sound_frames]
@@ -747,7 +748,7 @@ class Story_Frame():
 
 
 	def past_frame(self):
-		self.channel.play(self.flip_sound)
+		#self.channel.play(self.flip_sound)
 		self.frame_number -= 1
 		if self.frame_number == 0:
 			self.menu.vertical_bar['side'] = 'right'

@@ -33,7 +33,7 @@ default_screen_size_percentage = 0.8
 
 os_screen = pygame.display.Info()
 if not custom_resolution:
-	resolution = os_screen.current_w*default_screen_size_percentage,os_screen.current_h*default_screen_size_percentage
+	resolution = os_screen.current_w,os_screen.current_h
 else:
 	resolution = custom_resolution
 if resolution[0] < 1440:
