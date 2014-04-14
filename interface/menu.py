@@ -21,6 +21,7 @@ name_taken	  = False
 ## 1- update_drape
 ## 2- arrive_bar
 ## 3- update_menus
+## 4- close_bar
 
 class Menu():
 	selection_canvas = utils.img.image(os.path.join(directory.title_screen,'selection_canvas','0.png'))
@@ -46,7 +47,7 @@ class Menu():
 		self.background	 = self.selection_canvas
 		self.size = self.background.get_size()
 		self.action = None
-		self.next_menu = self.select_princess
+		self.next_menu = None
 		self.print_princess = False
 		self.princess = None
 		self.story = None
@@ -83,7 +84,6 @@ class Menu():
 		surface.blit(self.upper_drapes.image,(0,self.upper_drapes.y))
 		if self.upper_drapes.y < -self.upper_drapes.size_y+10:
 			self.STEP = self.STEP_arrive_bar ## Change the STEP
-			#self.vertical_bar['side'] = 'left'
 			self.drapes = None
 			self.upper_drapes = None
 
@@ -173,7 +173,6 @@ class Menu():
 		accel = p(2,r=False)
 		if self.action == 'open':
 			if self.position[1] != self.goal_pos[1]:
-				#Breaks
 				if self.goal_pos[1]+(p(60)) > self.position[1] > self.goal_pos[1]-p(60):
 					if self.speed > 0:
 						self.speed -= self.speed*.25
@@ -212,7 +211,7 @@ class Menu():
 		universe = self.universe
 		bar = self.vertical_bar
 		width = p(1440)
-		if (p(-520) < bar['position'] <p(10)) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1) and bar['side'] != bar['call_bar']:
+		if bar['side'] != bar['call_bar'] and (p(-520) < bar['position'] <p(10)) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1) :
 			if bar['side'] == 'left':
 				bar['position'] -= bar['speed']
 			else:
@@ -248,18 +247,17 @@ class Menu():
 		self.background	 = self.selection_canvas
 		self.back_background = None
 		self.action = 'open'
+		self.position[0] = p(360)
 		if not self.go_back:
-			self.position[0] = p(360)
 			self.position[1] = p(-600)
 		else:
-			self.position[0]	= p(360)
-			self.position[1]	= p(1000)
+			self.position[1] = p(1000)
 		opt = (
 			(t('New Game'),100,self.new_game),
 			(t('Load Game'),170,self.load_game),
 			(t('Watch Story'),240,self.play_story),
 			(t('Learn to play'),310,self.play_tutorial),
-			(t('Options'),400,self.options_menu),
+			(t('Options'),400,self.options_menu_prep),
 			(t('Credits'),450,self.play_credits),
 			(t('Exit'),500,exit)
 			)
@@ -269,23 +267,23 @@ class Menu():
 #		 widget.Button(self.universe, directory.arrow_right,(410,450),self.position,self.NOTSETYET),
 #						 widget.Button(self.universe, directory.arrow_right,(200,450),self.position,self.NOTSETYET, invert = True)]
 
-	def reset_menu(self, background = None, action = None, options = [], texts = [], buttons = []):
+	def reset_menu(self, background = None, back_background=None, action = None, options = [], texts = [], buttons = [], position=False):
 		self.story = None
 		self.credits = None
 		self.ending = None
 		self.story_frames = []
 		self.background	 = self.selection_canvas
 		if background:
-			self.back_background	= utils.img.image(background)
-		self.action		 = action
-		self.speed		  = 0
-		if not self.go_back:
-			print "Going Forward"
+			self.back_background = utils.img.image(background)
+		self.action = action
+		self.speed = 0
+		if position is False:
 			self.position[0] = p(450)
+		else:
+			self.position[0] = position
+		if not self.go_back:
 			self.position[1] = p(-600)
 		else:
-			print "Going Back"
-			self.position[0] = p(450)
 			self.position[1] = p(1000)
 		self.options = options
 		self.texts = texts
@@ -351,29 +349,34 @@ class Menu():
 						self.princess.name]
 		self.reset_menu(action  = 'open', options = opt, texts = txts, buttons = buttom_list)
 
+	def options_menu_prep(self):
+		self.vertical_bar['call_bar'] = 'left'
+		self.go_back = False
+		self.next_menu = self.options_menu
+		self.universe.action[2] = 'close'
+
 	def options_menu(self):
 		opt = [
 			(t('Resolution'),100,self.play_story),
 			(t('Toggle Fullscreen'),170,self.load_game),
 			(t('Toggle Fairy Tips'),240,self.play_story),
 			(t('Difficulty'),310,self.play_tutorial),
-			(t('Back'),400,self.play_tutorial),
+			(t('Back'),400,self.back_to_main),
 			]
 		texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
 		self.reset_menu(
-			background  = os.path.join(directory.story,'svg_bedroom.png'),
-			action	  = 'open',
 			texts = texts,
-			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], color = (255,84,84)) for i in opt]
+			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], color = (255,84,84)) for i in opt],
+			position=p(360)
 		)
 
 	### Buttons functions ###
 	def back_to_main(self):
 		self.vertical_bar['call_bar'] = 'left'
-		self.story		  = None
-		self.credits		= None
-		self.tutorial	   = None
-		self.ending			= None
+		self.story = None
+		self.credits = None
+		self.tutorial = None
+		self.ending = None
 		self.story_frames = []
 		self.go_back = True
 		self.next_menu = self.main
@@ -582,6 +585,34 @@ class Menu():
 	def NOTSETYET(self):
 		pass
 
+class MenuOptions():
+	def __init__(self, bar='left', go_back=False, category=None, background = None, back_background=None, action = None, options = [], texts = [], buttons = [], position=False):
+		self.bar = bar
+		self.go_back = go_back
+		self.options = options
+		self.texts = texts
+		self.buttons = buttons
+		self.category = category
+		self.background = background
+		if back_background:
+			self.back_background = utils.img.image(back_background)
+		self.action = action
+		self.speed = 0
+		if position is False:
+			self.position[0] = p(450)
+		else:
+			self.position[0] = position
+		if not self.go_back:
+			self.position[1] = p(-600)
+		else:
+			self.position[1] = p(1000)
+
+	def arriving(self):
+		pass
+	def leaving(self):
+		pass
+	def update(self):
+		pass
 
 class MenuPrincess():
 	def __init__(self,menu,thumbnail=None):
