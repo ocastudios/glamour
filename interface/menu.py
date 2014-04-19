@@ -670,65 +670,28 @@ class Story_Frame():
 			self.available_sounds = [pygame.mixer.Sound(os.path.join(directory.sounds,'tutorial','frames',i)) for i in sound_frames]
 			GT = widget.GameText
 			frame_texts = {
-				0:[GT(self.menu.universe,  t('Hi!'),(814,268)),
-				   	GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218))],
-
-				1:[GT(self.menu.universe,  t('Yiipi!'),(795,514)),
-				   	GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218)) ],
-
-				2:[GT(self.menu.universe,  t('Yey!'),(682,141)),
-				   	GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218))],
-
-				3:[GT(self.menu.universe,  t('x'), (585,231)),
-				   	GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218))],
-
-				4:[GT(self.menu.universe,  t('Ooh!'), (528,235)),
-				   	GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218))],
-
+				0:[GT(self.menu.universe,  t("Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help to give you a superb tutorial, okay?"),(757,790), box = (718,218))],
+				1:[GT(self.menu.universe,  t("As you'll soon find out, pressing left or right will move your princess around."),(730,790),box=(718,218)) ],
+				2:[GT(self.menu.universe,  t("And pressing the spacebar will allow you to jump."),(730,790),box=(718,218))],
+				3:[GT(self.menu.universe,  t('Ctrl'), (715,231)),
+					GT(self.menu.universe,  t("And the Control key will get you a kiss."),(730,790),box=(718,218))],
+				4:[GT(self.menu.universe,  t("If you kiss enemies, they will sometimes be sooo happy as to stop bothering you... for a while."),(730,790),box=(718,218))],
 				5:[GT(self.menu.universe,  t("But be aware that some enemies will respond only to your mouse cursor, and yet others can only be dodged!"),(730,790),box=(718,218))],
-
 				6:[GT(self.menu.universe,  t("You'll notice that on the upper right side there's a clock. When it points down, it will be time for the ball."),(730,790),box=(718,218))],
-
-				7:[	GT(self.menu.universe,  t("Yeah!"),(550,230)),
-				GT(self.menu.universe,  t("But first we need to find you a beautiful and original look."),(730,790),box=(718,218))],
-
-				8:[	GT(self.menu.universe,  t("And in order to do that, we must visit the castles that lie in the left part of most streets."),(730,790),box=(718,218))],
-
-				9:[	GT(self.menu.universe,  t("That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"),(730,790),box=(718,218))],
-
-				10:[GT(self.menu.universe,  t("You got it!"),(585,462),box=(100,100)),
-						GT(self.menu.universe,  t("Oh! And remember you can switch streets by pressing up when in front of a gate."),(730,790),box=(718,218))],
-
-				11:[GT(self.menu.universe,  t("Ookay..."),(675,475)),
-						GT(self.menu.universe,  t("Now, once you're at the ball, your look will be compared to those of other princesses, and even with the garments you girls used in previous balls."),(730,790),box=(718,218))],
-
-				12:[GT(self.menu.universe,  t("Oh, no!..."),(607,474)),
-						GT(self.menu.universe,  t("If you wear the same outfit as others (or repeat it ball after ball), you'll earn little to no glamour points. It would be a shame."),(730,790),box=(718,218))],
-
-				13:[GT(self.menu.universe,  t("All right!"),(607,474),box=(100,100)),
-						GT(self.menu.universe,  t("But, on the other hand, if you show up with an original look, then you may earn lots of glamour points!"),(730,790),box=(718,218))],
-
-				14:[GT(self.menu.universe,  t("Who's my True Love?"),(408,460),box=(120,100)),
-						GT(self.menu.universe,  t("And as you gain glamour points, more and more boys will offer you their hearts. And some day, you may even catch the eyes of Prince Charming himself."),(730,780),box=(750,218))],
-
-				15:[GT(self.menu.universe,  t("Oh, no!"),(531,232)),
-						GT(self.menu.universe,  t("Woof!"),(931,507)),
-						GT(self.menu.universe,  t("But beware! The enemies on your way may not hurt you, but they can make you dirty. And THAT would certainly cost you lots of glamour points!"),(730,790),box=(718,218))],
-
-				16:[GT(self.menu.universe,  t("So be careful."),(783,520), box=(120,100)),
-						GT(self.menu.universe,  t("You can get even dirtier if you are caught a second time, and become dirtiest if hit yet again..."),(730,790),box=(718,218))],
-
-				17:[GT(self.menu.universe,  t("Hooray!"),(783,523)),
-						GT(self.menu.universe,  t("...but event then there's hope. Go back and enter the Bathhouse, and you'll be clean and perfumed in no time!"),(730,790),box=(718,218))],
-
-				18:[GT(self.menu.universe,  t("Neat!"),(798,507)),
-						GT(self.menu.universe,  t("But before you go, I've got two more tips to you. First, stay alert to the music! By it you can tell not only what is the stronger enemy around, but how far it is from you."),(700,790),box=(830,218))],
-
-				19:[GT(self.menu.universe,  t("Ooooh!"),(840,430)),
-						GT(self.menu.universe,  t("And finally, there are many secret items in the game, and you should anlock them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."), (710,790),box=(800,218))],
-
-				20:[GT(self.menu.universe,  t("Have fun!"),(825,249),box=(120,100)),
-						GT(self.menu.universe,  t("Now you're good to go! Don't stay idle waiting your dreams come true - go get them, girl!"),(730,790),box=(718,218))]
+				7:[GT(self.menu.universe,  t("But first we need to find you a beautiful and original look."),(730,790),box=(718,218))],
+				8:[GT(self.menu.universe,  t("And in order to do that, we must visit the castles that lie in the left part of most streets."),(730,790),box=(718,218))],
+				9:[GT(self.menu.universe,  t("That's because they are shops, and in them you'll find the most wonderful dresses, make-up, shoes and accessories!"),(730,790),box=(718,218))],
+				10:[GT(self.menu.universe,  t("Oh! And remember you can switch streets by pressing up when in front of a gate."),(730,790),box=(718,218))],
+				11:[GT(self.menu.universe,  t("Now, once you're at the ball, your look will be compared to those of other princesses, and even with the garments you girls used in previous balls."),(730,790),box=(718,218))],
+				12:[GT(self.menu.universe,  t("If you wear the same outfit as others (or repeat it ball after ball), you'll earn little to no glamour points. It would be a shame."),(730,790),box=(718,218))],
+				13:[GT(self.menu.universe,  t("But, on the other hand, if you show up with an original look, then you may earn lots of glamour points!"),(730,790),box=(718,218))],
+				14:[GT(self.menu.universe,  t("And as you gain glamour points, more and more boys will offer you their hearts. And some day, you may even catch the eyes of Prince Charming himself."),(730,780),box=(750,218))],
+				15:[GT(self.menu.universe,  t("But beware! The enemies on your way may not hurt you, but they can make you dirty. And THAT would certainly cost you lots of glamour points!"),(730,790),box=(718,218))],
+				16:[GT(self.menu.universe,  t("You can get even dirtier if you are caught a second time, and become dirtiest if hit yet again..."),(730,790),box=(718,218))],
+				17:[GT(self.menu.universe,  t("...but event then there's hope. Go back and enter the Bathhouse, and you'll be clean and perfumed in no time!"),(730,790),box=(718,218))],
+				18:[GT(self.menu.universe,  t("But before you go, I've got two more tips to you. First, stay alert to the music! By it you can tell not only what is the stronger enemy around, but how far it is from you."),(700,790),box=(830,218))],
+				19:[GT(self.menu.universe,  t("And finally, there are many secret items in the game, and you should anlock them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."), (710,790),box=(800,218))],
+				20:[GT(self.menu.universe,  t("Now you're good to go! Don't stay idle waiting your dreams come true - go get them, girl!"),(730,790),box=(718,218))]
 			}
 		elif "story" in path:
 			sound_frames = sorted(os.listdir(os.path.join(directory.sounds,'story','frames')))
@@ -760,7 +723,6 @@ class Story_Frame():
 
 
 	def next_frame(self):
-		self.channel.play(self.flip_sound)
 		if self.frame_number >= len(self.available_images):
 			self.menu.vertical_bar['side'] = 'right'
 			self.menu.back_to_main()
