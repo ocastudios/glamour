@@ -4,7 +4,6 @@ import pygame
 import re
 from itertools import *
 import settings
-from settings import scale
 from settings import p
 from settings import directory
 
@@ -220,14 +219,14 @@ def image(path, invert = False, alpha = True):
 	if invert==True:
 		prep = pygame.transform.flip(prep,1,0)
 	prep_size = prep.get_size()
-	scaled_width = prep_size[0]*scale
-	size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
+	scaled_width = prep_size[0]*settings.scale
+	size = (int(round(prep_size[0]*settings.scale)),int(round(prep_size[1]*settings.scale)))
 	return pygame.transform.smoothscale(prep,size)
 
 def scale_image(prep, invert = False):
 	prep_size = prep.get_size()
-	scaled_width = prep_size[0]*scale
-	size = (int(round(prep_size[0]*scale)),int(round(prep_size[1]*scale)))
+	scaled_width = prep_size[0]*settings.scale
+	size = (int(round(prep_size[0]*settings.scale)),int(round(prep_size[1]*settings.scale)))
 	if invert:
 		return pygame.transform.flip(pygame.transform.smoothscale(prep,size), 1,0)
 	else:

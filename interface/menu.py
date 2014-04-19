@@ -32,7 +32,7 @@ class Menu():
 		pygame.mixer.music.set_volume(.9)
 		pygame.mixer.music.play(-1)
 		position = p([position[0],position[1]])
-		self.universe	   = universe
+		self.universe = universe
 		self.vertical_bar = {
 			'image': utils.img.image(os.path.join(directory.left_bar,'0.png')),
 			'side':  'left',
@@ -73,6 +73,28 @@ class Menu():
 		self.STEP(self.universe.screen_surface)
 		self.universe.screen_surface.blit(self.universe.pointer.image,self.universe.pointer.mouse_pos)
 		self.count += 1
+	
+	def reload_images(self):
+		position= [360,200]
+		position = p([position[0],position[1]])
+		self.vertical_bar = {
+			'image': utils.img.image(os.path.join(directory.left_bar,'0.png')),
+			'side':  'left',
+			'call_bar': 'left',
+			'speed': p(5,r=False)
+		}
+		self.vertical_bar['size'] = self.vertical_bar['image'].get_size()
+		self.vertical_bar['position'] = -self.vertical_bar['size'][0]
+		self.speed = p(2,r =False)
+		self.goal_pos = position
+		self.position= [position[0],p(-600)]
+		self.selection_canvas = utils.img.image(os.path.join(directory.title_screen,'selection_canvas','0.png'))
+		self.background	 = self.selection_canvas
+		self.size = self.background.get_size()
+		self.hoover_letter = utils.img.image(os.path.join(directory.title_screen,'selection_letter','0.png'))
+		self.hoover_letter_size = self.hoover_letter.get_size()
+		self.hoover_large = utils.img.image(os.path.join(directory.title_screen,'selection_back_space','0.png'))
+		self.hoover_large_size = self.hoover_large.get_size()
 
 	def update_drape(self,surface):
 		universe = self.universe
@@ -357,8 +379,8 @@ class Menu():
 
 	def options_menu(self):
 		opt = [
-			(t('Resolution'),100,self.play_story),
-			(t('Toggle Fullscreen'),170,self.load_game),
+			(t('Toggle Resolution'),100,self.toggle_resolution),
+			(t('Toggle Fullscreen'),170,self.toggle_fullscreen),
 			(t('Toggle Fairy Tips'),240,self.play_story),
 			(t('Difficulty'),310,self.play_tutorial),
 			(t('Back'),400,self.back_to_main),
@@ -369,6 +391,28 @@ class Menu():
 			options = [ widget.Button(self.universe, i[0], (300,i[1]), self.position, i[2], color = (255,84,84)) for i in opt],
 			position=p(360)
 		)
+
+	def toggle_resolution(self):
+		resolution = 'low' if settings.active_resolution == 'high' else 'high'	
+		settings.scale = settings.reset_scale(resolution)
+		flags = self.universe.screen_surface.get_flags()
+		if flags & pygame.FULLSCREEN:
+			if resolution == 'high':
+				settings.scale = 1
+		settings.resolution = (p(1440),p(900))
+		settings.active_resolution = resolution
+		self.universe.__init__(self)
+		self.reload_images()
+
+	def toggle_fullscreen(self):
+		universe = self.universe
+		w = int(round(settings.resolution[0]))
+		h = int(round(settings.resolution[1]))
+		flags = universe.screen_surface.get_flags()
+		if flags & pygame.FULLSCREEN:
+			self.universe.screen_surface = pygame.display.set_mode((w,h))
+		else:
+			self.universe.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
 
 	### Buttons functions ###
 	def back_to_main(self):

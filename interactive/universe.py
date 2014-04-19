@@ -3,18 +3,19 @@ import pygame
 import os
 import interface.menu as menu
 import interface.mousepointer as mousepointer
-from settings import *
+import settings
 import inspect
 import utils
 from settings import directory
 
 
 class Universe():
-	def __init__(self):
-		w = int(round(resolution[0]))
-		h = int(round(resolution[1]))
+	def __init__(self, level=None):
+		w = int(round(settings.resolution[0]))
+		h = int(round(settings.resolution[1]))
+		print settings.resolution
 		self.clock = pygame.time.Clock()
-		self.center_x = int(-3400*scale)
+		self.center_x = int(-3400*settings.scale)
 		self.center_y = 0
 		self.floor = self.height = h
 		self.width = w
@@ -37,12 +38,14 @@ class Universe():
 		pygame.display.flip()
 		## Interface ##
 		self.pointer	 = mousepointer.MousePointer(self,type = 2)
-		self.menu = menu.Menu(self)
 		self.stage = None
-		self.level = self.menu
-		self.level.main()
-
-
+		if not level:
+			self.menu = menu.Menu(self)
+			self.level = self.menu
+			self.level.main()
+		else:
+			self.menu = level
+			self.level = level
 
 	def update_all(self):
 		self.pointer.update()
@@ -58,7 +61,6 @@ class Universe():
 			if self.level.__class__ != stage.Stage:
 				self.define_level()
 
-
 	def define_level(self):
 		if self.LEVEL == 'game':
 			if not self.level or self.level.__class__ != stage.Stage:
@@ -69,7 +71,7 @@ class Universe():
 				self.stage = self.stage or stage.Stage(self)
 				self.level = self.stage
 				self.level.paused = False
-				self.stage.BathhouseSt(goalpos = round(5220*scale))
+				self.stage.BathhouseSt(goalpos = round(5220*settings.scale))
 				
 		elif self.LEVEL == 'menu':
 			if not self.level or self.level.__class__ != menu.Menu:
@@ -82,7 +84,7 @@ class Universe():
 				self.level.main()
 
 	def movement(self,dir):
-		max_speed = round(14*scale)
+		max_speed = round(14*settings.scale)
 		if self.speed > max_speed:
 			self.speed = max_speed
 		elif self.speed< -max_speed:

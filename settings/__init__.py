@@ -29,25 +29,32 @@ print "Detecting screen resolution"
 # Screen resolution is detected automatically if no custom_resolution is set
 #custom_resolution = (800,600)
 custom_resolution = None
-default_screen_size_percentage = 0.8
+screen_resolutions = {
+	'high' : 0.8,
+	'low' : 0.5,
+}
+active_resolution = 'high'
 
 os_screen = pygame.display.Info()
-if not custom_resolution:
-	resolution = os_screen.current_w,os_screen.current_h
-else:
-	resolution = custom_resolution
-if resolution[0] < 1440:
-	scale = resolution[0]/1440.0
-	if 900*scale > resolution[1]:
-		scale = resolution[1]/900.0
-else:
-	scale = 1
-print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
-if scale < 0.3333333337:
-	scale = 0.333333337
-####			  temporary hard coded scale			####
-#### used to develop in a different resolution in order to avoid bugs#### 
-#scale = 0.666666667
+
+def reset_scale(percentage='high'):
+	if not custom_resolution:
+		resolution = os_screen.current_w,os_screen.current_h
+	else:
+		resolution = custom_resolution
+	if resolution[0] < 1440:
+		scale = resolution[0]/1440.0
+		if 900*scale > resolution[1]:
+			scale = resolution[1]/900.0
+	else:
+		scale = 1
+	scale = scale*screen_resolutions[percentage]
+	print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
+	if scale < 0.3333333337:
+		scale = 0.333333337
+	return scale
+
+scale = reset_scale()
 
 #### Scale function ####
 def p(positions,r=True):
