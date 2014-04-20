@@ -93,9 +93,9 @@ class Message():
 		self.size = self.image.get_size()
 		self.pos = ((universe.width - self.size[0])/2, universe.height-self.size[1])
 		self.text_box = self.size[0]*.8,self.size[1]*.8
-		self.text_font = pygame.font.Font(j(directory.fonts,settings.third_font),settings.third_font_size)
+		self.text_font = pygame.font.Font(j(directory.fonts,settings.third_font),settings.fairy_font_size)
 		self.color = (0,0,0,0)
-		self.image.blit(utils.text.in_box(settings.third_font, settings.third_font_size, self.text_box, self.image, message, {'top':50,'left':80,'bottom':40,'right':80}),self.pos)
+		self.image.blit(utils.text.in_box(settings.third_font, settings.fairy_font_size, self.text_box, self.image, message, {'top':40,'left':80,'bottom':40,'right':80}),self.pos)
 		self.button  = self.button or widget.Button(universe, directory.button_ok,(1200,820),[0,0],self.end_message)
 		#self.shut_up = self.shut_up or widget.Button(universe, directory.button_cancel, (1200,850),[0,0],self.end_message)
 		if self.button not in self.universe.level.fae:

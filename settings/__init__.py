@@ -5,11 +5,12 @@ import directory
 #### Fonts ####
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
 main_font = "ArchitectsDaughter.ttf" #Ordinary texts
-main_font_size = 28
+default_main_font_size = 28
 second_font = "GreatVibes-Regular.otf"  #Baroque texts
-second_font_size = 40
+default_second_font_size = 40
 third_font = main_font #Fairy speaches and keyboard
-third_font_size = 20
+default_third_font_size = 20
+default_fairy_font_size = 14
 
 
 #### Princesses #### 
@@ -88,10 +89,17 @@ def d(positions,r=True):
 resolution = (p(1440),p(900))
 
 #scale font size
+
 if (scale!=1):
-	main_font_size = int(round(p(main_font_size)))
-	second_font_size = int(round(p(second_font_size)))
-	third_font_size = int(round(p(third_font_size)))
+	main_font_size = int(round(p(default_main_font_size)))
+	second_font_size = int(round(p(default_second_font_size)))
+	third_font_size = int(round(p(default_third_font_size)))
+	fairy_font_size = int(round(p(default_fairy_font_size)))
+else:
+	main_font_size = default_main_font_size
+	second_font_size = default_second_font_size
+	third_font_size = default_third_font_size
+	fairy_font_size = int(round(p(default_fairy_font_size)))
 
 
 #### Translation function ####

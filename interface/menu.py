@@ -393,6 +393,8 @@ class Menu():
 		)
 
 	def toggle_resolution(self):
+		self.universe.screen_surface.fill((0,0,0))
+		pygame.display.flip()
 		resolution = 'low' if settings.active_resolution == 'high' else 'high'	
 		settings.scale = settings.reset_scale(resolution)
 		flags = self.universe.screen_surface.get_flags()
@@ -404,9 +406,14 @@ class Menu():
 		self.universe.__init__(self)
 		self.reload_images()
 		self.back_to_main()
+		settings.main_font_size = int(round(p(settings.default_main_font_size)))
+		settings.second_font_size = int(round(p(settings.default_second_font_size)))
+		settings.third_font_size = int(round(p(settings.default_third_font_size)))
+		settings.fairy_font_size = int(round(p(settings.default_fairy_font_size)))
 
 	def toggle_fullscreen(self):
 		universe = self.universe
+		self.universe.screen_surface.fill((0,0,0))
 		flags = universe.screen_surface.get_flags()
 		if flags & pygame.FULLSCREEN:
 			settings.scale = settings.reset_scale(settings.active_resolution)
@@ -422,6 +429,9 @@ class Menu():
 			h = int(round(settings.resolution[1]))
 			self.universe.__init__(self)
 			self.universe.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
+		settings.main_font_size = int(round(p(settings.default_main_font_size)))
+		settings.second_font_size = int(round(p(settings.default_second_font_size)))
+		settings.fairy_font_size = int(round(p(settings.default_fairy_font_size)))
 		self.reload_images()
 		self.back_to_main()
 
