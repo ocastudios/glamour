@@ -37,7 +37,7 @@ active_resolution = 'high'
 
 os_screen = pygame.display.Info()
 
-def reset_scale(percentage='high'):
+def reset_scale(percentage='high', full_screen = False):
 	if not custom_resolution:
 		resolution = os_screen.current_w,os_screen.current_h
 	else:
@@ -48,7 +48,8 @@ def reset_scale(percentage='high'):
 			scale = resolution[1]/900.0
 	else:
 		scale = 1
-	scale = scale*screen_resolutions[percentage]
+	if not full_screen or percentage == 'low':
+		scale = scale*screen_resolutions[percentage]
 	print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
 	if scale < 0.3333333337:
 		scale = 0.333333337

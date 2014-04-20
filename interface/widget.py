@@ -9,9 +9,11 @@ import utils
 import settings.directory as directory
 import settings
 p = settings.p
-scale = settings.scale
-
 channel = pygame.mixer.Channel(0)
+
+def adjust_font(size):
+	return int(round(p(size)))
+
 class Button():
 	click = pygame.mixer.Sound(os.path.join(directory.sounds,'click.ogg'))
 	def __init__(self,universe,dirtxt,position, level_pos,function,parameter = None,invert = False, color=(0,0,0)):
@@ -39,8 +41,8 @@ class Button():
 			font = settings.main_font
 			self.text = dirtxt
 			self.color = color
-			self.fontA = pygame.font.Font(os.path.join(directory.fonts,settings.main_font),settings.main_font_size)
-			self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),settings.second_font_size)
+			self.fontA = pygame.font.Font(os.path.join(directory.fonts,settings.main_font),adjust_font(settings.main_font_size))
+			self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),adjust_font(settings.second_font_size))
 			self.list_of_images= [self.fontA.render(self.text,1,self.color)]
 
 		self.image = self.list_of_images[0]
@@ -112,13 +114,13 @@ class GameText():
 		self.text = text
 		self.color = color
 		if main_font==settings.second_font:
-			main_font_size=settings.second_font_size
+			main_font_size=adjust_font(settings.second_font_size)
 		elif main_font is settings.third_font:
-			main_font_size=settings.third_font_size
+			main_font_size=adjust_font(settings.third_font_size)
 		else:
-			main_font_size=settings.main_font_size
+			main_font_size=adjust_font(settings.main_font_size)
 		self.fontA = pygame.font.Font(os.path.join(directory.fonts,self.font),main_font_size)
-		self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),settings.second_font_size)
+		self.fontB = pygame.font.Font(os.path.join(directory.fonts,settings.second_font),adjust_font(settings.second_font_size))
 		self.position = pos
 		if box:
 			self.box = pygame.Surface(p(box), pygame.SRCALPHA).convert_alpha()
@@ -150,8 +152,8 @@ class GameText():
 	def adjusting_fonts(self):
 		""" Adjust self.text to fit in self.box created from box param in self.__init__
 		"""
-		fix_x	   = int(0*scale)
-		fix_y	   = int(0*scale)
+		fix_x	   = int(0*settings.scale)
+		fix_y	   = int(0*settings.scale)
 		font_object = self.fontA
 		box = self.box
 		text_box	= self.box.get_size()

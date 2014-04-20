@@ -403,16 +403,27 @@ class Menu():
 		settings.active_resolution = resolution
 		self.universe.__init__(self)
 		self.reload_images()
+		self.back_to_main()
 
 	def toggle_fullscreen(self):
 		universe = self.universe
-		w = int(round(settings.resolution[0]))
-		h = int(round(settings.resolution[1]))
 		flags = universe.screen_surface.get_flags()
 		if flags & pygame.FULLSCREEN:
+			settings.scale = settings.reset_scale(settings.active_resolution)
+			settings.resolution = (p(1440),p(900))
+			w = int(round(settings.resolution[0]))
+			h = int(round(settings.resolution[1]))
+			self.universe.__init__(self)
 			self.universe.screen_surface = pygame.display.set_mode((w,h))
 		else:
+			settings.scale = settings.reset_scale(settings.active_resolution, full_screen=True)
+			settings.resolution = (p(1440),p(900))
+			w = int(round(settings.resolution[0]))
+			h = int(round(settings.resolution[1]))
+			self.universe.__init__(self)
 			self.universe.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN , 32)
+		self.reload_images()
+		self.back_to_main()
 
 	### Buttons functions ###
 	def back_to_main(self):
