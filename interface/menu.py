@@ -381,8 +381,6 @@ class Menu():
 		opt = [
 			(t('Toggle Resolution'),100,self.toggle_resolution),
 			(t('Toggle Fullscreen'),170,self.toggle_fullscreen),
-			(t('Toggle Fairy Tips'),240,self.play_story),
-			(t('Difficulty'),310,self.play_tutorial),
 			(t('Back'),400,self.back_to_main),
 			]
 		texts =   [ widget.GameText(self.universe, t('select one'),(65,250),self.position, rotate=90,color = (58,56,0))]
