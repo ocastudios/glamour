@@ -23,12 +23,7 @@ class Ball():
 		self.universe.level.changing_stages_darkenning()
 		self.universe.level.loading()
 		#reset boyfriend list - so that the list can be managed by the instances
-		NewDancer.boyfriend_list = ["gentleman_decent", 
-								"knight_reliable", 
-								"baron_serious", 
-								"count_loving", 
-								"marquess_attractive", 
-								"duke_intelligent"]
+		NewDancer.boyfriend_list = ["gentleman_decent", "knight_reliable", "baron_serious", "count_loving", "marquess_attractive", "duke_intelligent"]
 		self.position = 0,0
 		self.universe   = universe
 		self.boyfriend  = None
