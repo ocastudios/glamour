@@ -177,12 +177,14 @@ class Menu():
 		if keyboard:
 			if keyboard in ("up","left"):
 				self.selector -=1
-				if self.selector <0:
-					self.selector = len(self.mouse_positions)-1
 			elif keyboard in ("down","right"):
 				self.selector +=1
-				if self.selector > len(self.mouse_positions)-1:
-					self.selector = 0
+			#test if self.selector is in range
+			#the menu items may change! Always test both min and max
+			if self.selector <0 :
+				self.selector = len(self.mouse_positions)-1
+			if self.selector > len(self.mouse_positions)-1:
+				self.selector = 0
 			pygame.mouse.set_pos(self.mouse_positions[self.selector])
 		self.position[1] += round(self.speed)
 		if '_ _ _ _ _ _ _' in [i.text for i in self.texts]:
@@ -391,16 +393,12 @@ class Menu():
 		)
 
 	def toggle_resolution(self):
-		self.universe.screen_surface.fill((0,0,0))
-		pygame.display.flip()
 		resolution = 'low' if settings.active_resolution == 'high' else 'high'	
 		settings.scale = settings.reset_scale(resolution)
 		flags = self.universe.screen_surface.get_flags()
-		if flags & pygame.FULLSCREEN:
-			if resolution == 'high':
-				settings.scale = 1
 		settings.resolution = (p(1440),p(900))
 		settings.active_resolution = resolution
+		pygame.init()
 		self.universe.__init__(self)
 		self.reload_images()
 		self.back_to_main()
@@ -408,20 +406,28 @@ class Menu():
 		settings.second_font_size = int(round(p(settings.default_second_font_size)))
 		settings.third_font_size = int(round(p(settings.default_third_font_size)))
 		settings.fairy_font_size = int(round(p(settings.default_fairy_font_size)))
+		with open(os.path.join(directory.personal, 'config'),'w') as config:
+			config.write("fullscreen:"+str(settings.active_full)+"\nresolution:"+settings.active_resolution)	
 
 	def toggle_fullscreen(self):
 		universe = self.universe
 		self.universe.screen_surface.fill((0,0,0))
 		flags = universe.screen_surface.get_flags()
 		if flags & pygame.FULLSCREEN:
-			settings.scale = settings.reset_scale(settings.active_resolution)
+			settings.active_full = False
+			with open(os.path.join(directory.personal, 'config'),'w') as config:
+				config.write("fullscreen:False\nresolution:"+settings.active_resolution)	
+			settings.scale = settings.reset_scale(settings.active_resolution, settings.active_full)
 			settings.resolution = (p(1440),p(900))
 			w = int(round(settings.resolution[0]))
 			h = int(round(settings.resolution[1]))
 			self.universe.__init__(self)
 			self.universe.screen_surface = pygame.display.set_mode((w,h))
 		else:
-			settings.scale = settings.reset_scale(settings.active_resolution, full_screen=True)
+			settings.active_full = True
+			with open(os.path.join(directory.personal, 'config'),'w') as config:
+				config.write("fullscreen:True\nresolution:"+settings.active_resolution)	
+			settings.scale = settings.reset_scale(settings.active_resolution, settings.active_full)
 			settings.resolution = (p(1440),p(900))
 			w = int(round(settings.resolution[0]))
 			h = int(round(settings.resolution[1]))
@@ -561,14 +567,11 @@ class Menu():
 			files = os.listdir(D)
 			if 'thumbnail.PNG' in files:
 				saved_games.extend([{'name':i.decode('utf-8'), 'file': os.path.join(directory.saves,i,i+'.db')}])
-				print "Saved game found: "+ i
 			else:
 				print t('The '+i.decode('utf-8')+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i.decode('utf-8'))
 				for f in files:
 					file_to_remove = os.path.join(D,f)
-					print "Removing "+file_to_remove
 					os.remove(file_to_remove)
-				print "removing directory "+D
 				os.rmdir(D)
 		self.back_background = utils.img.image(os.path.join(directory.story,'svg_bedroom.png'))
 		white_mask		   = pygame.Surface(self.back_background.get_size(),pygame.SRCALPHA).convert_alpha()
@@ -587,7 +590,6 @@ class Menu():
 		xpos = 0
 		self.buttons = []
 		for i in saved_games:
-			print directory.saves+'/'+i['name'].encode('utf-8')+'/'
 			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name'].encode('utf-8')),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
 			self.options.extend([
 			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, color = (58,56,0), parameter=([i['file']])),

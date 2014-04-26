@@ -29,15 +29,18 @@ class Universe():
 		self.run_level = True
 		self.db = None
 		self.db_cursor = None
-### Uncomment next line (and comment the following) to test the game with different resolutions
-### you will also need to edit the setting.__init__ file.
-#		self.screen_surface = pygame.display.set_mode((w,h),32)
-		self.screen_surface = pygame.display.set_mode((w,h))#,pygame.FULLSCREEN , 32)
+		try:
+			del(self.screen_surface)
+		except AttributeError:
+			pass
+		if settings.active_full:
+			self.screen_surface = pygame.display.set_mode((w,h),pygame.FULLSCREEN)
+		else:
+			self.screen_surface = pygame.display.set_mode((w,h))
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.drapes,"drape000.png")),(0,0))
 		self.screen_surface.blit(utils.img.image(os.path.join(directory.upper_drapes,"upper.png")),(0,0))
 		pygame.display.flip()
 		## Interface ##
-		self.pointer	 = mousepointer.MousePointer(self,type = 2)
 		self.stage = None
 		if not level:
 			self.menu = menu.Menu(self)
@@ -46,6 +49,7 @@ class Universe():
 		else:
 			self.menu = level
 			self.level = level
+		self.pointer	 = mousepointer.MousePointer(self,type = 2)
 
 	def update_all(self):
 		self.pointer.update()

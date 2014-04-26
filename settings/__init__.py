@@ -2,6 +2,7 @@ import os
 import pygame
 import directory
 
+
 #### Fonts ####
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
 main_font = "ArchitectsDaughter.ttf" #Ordinary texts
@@ -11,7 +12,6 @@ default_second_font_size = 40
 third_font = main_font #Fairy speaches and keyboard
 default_third_font_size = 20
 default_fairy_font_size = 14
-
 
 #### Princesses #### 
 Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png', 'name': 'Snow_White'}
@@ -35,6 +35,19 @@ screen_resolutions = {
 	'low' : 0.5,
 }
 active_resolution = 'high'
+active_full = False
+config_file = False
+configurations = {}
+if 'config' in os.listdir(directory.personal):
+	config_file = open(os.path.join(directory.personal, 'config'),'r').read().split('\n')
+	for i in config_file:
+		c = [ii.strip() for ii in i.split(':')]
+		if len(c)>1:
+			configurations[c[0].lower()] = c[1]
+if 'fullscreen' in configurations and configurations['fullscreen']=='True':
+	active_full = True
+if 'resolution' in configurations and configurations['resolution'] in ('high','low'):
+	active_resolution = configurations['resolution']
 
 os_screen = pygame.display.Info()
 
@@ -51,12 +64,12 @@ def reset_scale(percentage='high', full_screen = False):
 		scale = 1
 	if not full_screen or percentage == 'low':
 		scale = scale*screen_resolutions[percentage]
-	print "The game will run with resolution "+str(round(1440*scale))+"x"+str(round(900*scale))
 	if scale < 0.3333333337:
 		scale = 0.333333337
+	print "Game resolution: "+str(int(round(1440*scale)))+"x"+str(int(round(900*scale)))
 	return scale
 
-scale = reset_scale()
+scale = reset_scale(percentage=active_resolution, full_screen=active_full)
 
 #### Scale function ####
 def p(positions,r=True):
