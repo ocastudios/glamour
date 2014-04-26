@@ -92,7 +92,7 @@ class Button():
 
 
 class GameText():
-	def __init__(self, universe, text,pos,frame_pos =None,main_font=settings.main_font, color=(58,56,0),second_font =settings.second_font,var = False, rotate = None, box = None, size='regular'):
+	def __init__(self, universe, text,pos,frame_pos=None,main_font=settings.main_font, color=(58,56,0),second_font =settings.second_font,var = False, rotate = None, box = None, size='regular'):
 		"""Creates a GameText object
 
 		:param universe: universe of the game, an object that acts as a global variables container.

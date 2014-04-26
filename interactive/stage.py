@@ -906,7 +906,7 @@ class Pause():
 		check_closet = widget.Button(self.universe, t('Check your closet'), (720,700), [0,0], self.set_closet)
 		toggle = widget.Button(self.universe, t('Toggle Fullscreen'), (710,760), [0,0], self.toggle_fullscreen)
 		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet, toggle)
-		self.music  = j(directory.music,'1stSnowfall.ogg')
+		self.music  = j(directory.music,'pause.ogg')
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
 		self.chosen_number = 0
 		self.closet = None

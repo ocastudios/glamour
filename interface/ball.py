@@ -114,7 +114,7 @@ class Ball():
 				i.update_all()
 		if self.counter == self.delay+130:
 			if self.boyfriend:
-				self.texts += [widget.GameText(self.universe, self.boyfriend.name,(1156,280),[0,0],color=(58,56,0))]
+				self.texts += [widget.GameText(self.universe, self.boyfriend.name,(1156,280),frame_pos=[0,0],color=(58,56,0))]
 		if self.counter <= self.delay+130:
 			self.counter += 1
 
