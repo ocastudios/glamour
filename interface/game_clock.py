@@ -17,22 +17,27 @@ class GameClock():
 
 class ClockPointer():
 	def __init__(self,universe):
+		self.reset()
 		self.universe = universe
 		self.rotate_list = [float(i)/10 for i in range(-900,5,5)]
-		print len(self.rotate_list)
 		self.clock_pointer_basic= utils.img.image(os.path.join(directory.interface,'clock','clock_pointer.png'))
-		self.count = 0
-		self.tick = 0
-		self.time = 'day' #morning,day,evening,night
 		self.image = pygame.transform.rotate(self.clock_pointer_basic, self.rotate_list[0])
 		imagesize = self.image.get_size()
 		self.pos = (self.universe.width-imagesize[0],0)
+
+	def reset(self):
+		self.time = 'day' #morning,day,evening,night
+		self.count = 0
 		self.pointerpos = 0
 		self.balltime = None
+		self.tick = 0
+		self.time = 'day'
 
 	def set_balltime(self):
-		if self.universe.stage.princesses:
+		print self.time
+		if self.time != 'ball' and self.universe.stage.princesses:
 			princess = self.universe.stage.princesses[0]
+			self.count = 0
 			if (princess.points/10>120):
 				extra=120
 				self.pointerpos = 0
@@ -41,17 +46,14 @@ class ClockPointer():
 				self.pointerpos = (120-extra)/2
 			return 240+extra
 		else:
-			return None
-
+			self.count = 0
+			self.pointerpos=60
+			self.balltime = None
+			return 240
 
 	def update_all(self):
 		self.balltime = self.balltime or self.set_balltime()
-		if not self.balltime:
-			self.balltime = 240
-			balltime=self.balltime
-			self.pointerpos = 60
-		else:	
-			balltime=self.balltime
+		balltime=self.balltime
 		if not self.universe.level.paused:
 			self.tick +=1
 		if self.tick == self.universe.fps:

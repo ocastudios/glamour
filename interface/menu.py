@@ -235,7 +235,8 @@ class Menu():
 		universe = self.universe
 		bar = self.vertical_bar
 		width = p(1440)
-		if bar['side'] != bar['call_bar'] and (p(-520) < bar['position'] <p(10)) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1) :
+		print bar
+		if bar['side']!= bar['call_bar'] and (p(-520) < bar['position'] <p(10) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1)) :
 			if bar['side'] == 'left':
 				bar['position'] -= bar['speed']
 			else:
@@ -245,21 +246,19 @@ class Menu():
 			####### STEP #######
 			print 'bar closed'
 			self.next_menu()
-			if self.vertical_bar['call_bar']:
-				if self.vertical_bar['call_bar'] == 'right':
-					if 	self.vertical_bar['side'] =='left':
-						self.vertical_bar['image'] = pygame.transform.flip(self.vertical_bar['image'],1,0)
-						self.vertical_bar['position'] = self.universe.width+p(520)
-					self.vertical_bar['side']   = "right"
-				elif self.vertical_bar['call_bar'] == 'left':
-					if self.vertical_bar['side']=='right':
+			if bar['call_bar']:
+				if bar['call_bar'] == 'right':
+					if bar['side'] =='left':
+						bar['image'] = pygame.transform.flip(self.vertical_bar['image'],1,0)
+						bar['position'] = self.universe.width+p(520)
+				elif bar['call_bar'] == 'left':
+					if bar['side']=='right':
 						bar['image'] = pygame.transform.flip(self.vertical_bar['image'],1,0)
 						bar['position'] = -bar['size'][0]
-					self.vertical_bar['side'] = 'left'
+				bar['side']=bar['call_bar']
 			self.STEP = self.STEP_arrive_bar
-			self.vertical_bar['speed'] = p(5,r=False)
+			bar['speed'] = p(5,r=False)
 			universe.action[2] = 'open'
-
 		if self.back_background:
 			surface.blit(self.back_background,(0,0))
 		surface.blit(bar['image'],(bar['position'],0))
@@ -317,7 +316,13 @@ class Menu():
 		self.vertical_bar['call_bar'] = 'right'
 		self.princess	   = MenuPrincess(self)
 		self.print_princess = True
-		txt=[(t('Choose your'),[-200,200]),(t('appearence...'),[-200,250]),(t('skin tone'),[250,420]),(t('previous'),[250,90]),(t('next'),[250,520])]
+		txt=[
+			(t('Choose your'),[-200,200]),
+			(t('appearence...'),[-200,250]),
+			(t('skin tone'),[250,420]),
+			(t('previous'),[250,90]),
+			(t('next'),[250,520])
+			]
 		self.reset_menu(
 			background  = os.path.join(directory.story,'svg_bedroom.png'),
 			action	  = 'open',

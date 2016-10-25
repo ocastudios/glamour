@@ -7,7 +7,7 @@ import directory
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
 main_font = "ArchitectsDaughter.ttf" #Ordinary texts
 default_main_font_size = 28
-second_font = "GreatVibes-Regular.otf"  #Baroque texts
+second_font = "GreatVibes-Regular.ttf"  #Baroque texts
 default_second_font_size = 40
 third_font = main_font #Fairy speaches and keyboard
 default_third_font_size = 20

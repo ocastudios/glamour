@@ -8,6 +8,7 @@ import utils.save as save
 import settings
 import database
 import mousepointer
+import interactive.events as events
 from settings import directory
 from settings import scale
 from settings import t
@@ -251,7 +252,6 @@ class Ball():
 			self.universe.menu.action = 'open'
 			self.universe.action[2] = 'open' 
 			self.universe.menu.watching_ending()
-#			self.universe.menu.STEP = self.universe.menu.STEP_arrive_bar
 			self.universe.LEVEL= "menu"
 			self.universe.pointer = mousepointer.MousePointer(self,type = 2)
 			pygame.mixer.music.fadeout(1500)
@@ -260,10 +260,11 @@ class Ball():
 			self.universe.level.BathhouseSt(goalpos = round(5220*scale), clean_princess = True)
 			if self.locked:
 				if database.query.different_hairs_used(self.universe)>=3:
-					self.universe.level.unlocking = {'type':'accessory','name':'mask'}
+					unlocking = {'type':'accessory','name':'mask'}
+					self.universe.level.unlocking = unlocking
+					events.unlock(self.universe, unlocking)
 					self.locked = False
-			self.universe.stage.clock[1].count = 0
-			self.universe.stage.clock[1].time = "morning"
+			self.universe.stage.clock[1].reset()
 
 
 class VerticalBar():
