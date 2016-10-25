@@ -235,7 +235,6 @@ class Menu():
 		universe = self.universe
 		bar = self.vertical_bar
 		width = p(1440)
-		print bar
 		if bar['side']!= bar['call_bar'] and (p(-520) < bar['position'] <p(10) or (width-(bar['size'][0]+p(50)) < bar['position'] < width +1)) :
 			if bar['side'] == 'left':
 				bar['position'] -= bar['speed']
@@ -525,7 +524,6 @@ class Menu():
 			db.connect_db(using_saved_game, self.universe)
 			self.universe.LEVEL = 'game'
 
-
 	def create_files(self,):
 		print "Starting a New Save"
 		new_dir = os.path.join(directory.saves,self.princess.name.text)
@@ -627,8 +625,7 @@ class Menu():
 		self.position[0]	= p(450)
 		self.position[1]	= p(-600)
 		self.options	= []
-		self.buttons	= [widget.Button(self.universe, directory.arrow_right,(940,270), self.position, self.tutorial.next_frame,color = (58,56,0)),
-						   widget.Button(self.universe, directory.arrow_right,(-400,270), self.position, self.tutorial.past_frame, invert = True,color = (58,56,0))]
+		self.buttons	= [widget.Button(self.universe, directory.arrow_right,(940,270), self.position, self.tutorial.next_frame,color = (58,56,0)), widget.Button(self.universe, directory.arrow_right,(-400,270), self.position, self.tutorial.past_frame, invert = True,color = (58,56,0))]
 		self.texts	  = self.tutorial.texts
 		
 	def watching_ending(self):
@@ -733,8 +730,8 @@ class MenuPrincess():
 class Story_Frame():
 	def __init__(self, menu, path):
 		self.menu = menu
-		self.texts = [widget.GameText(self.menu.universe,t('Use the arrows to go'),(220,150),menu.position,color = (58,56,0)),
-					  widget.GameText(self.menu.universe,t('forward and backward'),(220,200),menu.position,color = (58,56,0))]
+		self.texts = [widget.GameText(self.menu.universe,t('Use the arrows to go'),(260,150),menu.position,color = (58,56,0)),
+					  widget.GameText(self.menu.universe,t('forward and backward'),(260,200),menu.position,color = (58,56,0))]
 		image_frames = sorted(os.listdir(path))
 		self.channel = pygame.mixer.Channel(0)
 		self.available_images   = [utils.img.image(os.path.join(path,i)) for i in image_frames]

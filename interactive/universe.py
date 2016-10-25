@@ -13,7 +13,6 @@ class Universe():
 	def __init__(self, level=None):
 		w = int(round(settings.resolution[0]))
 		h = int(round(settings.resolution[1]))
-		print settings.resolution
 		self.clock = pygame.time.Clock()
 		self.center_x = int(-3400*settings.scale)
 		self.center_y = 0

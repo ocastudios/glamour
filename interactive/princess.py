@@ -32,8 +32,7 @@ class Princess():
 			self.center_distance = p(xpos)
 		self.dirt			= int(row['dirt'])
 		self.points			= int(row['points'])
-		self.pos = [int(self.universe.center_x) + self.center_distance,
-						self.universe.floor -  self.universe.level.what_is_my_height(self) -self.size[1]]
+		self.pos = [int(universe.center_x)+self.center_distance, universe.floor-universe.level.what_is_my_height(self)-self.size[1]]
 		print "	creating images:"
 		print "		princess images"
 		for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
@@ -44,27 +43,27 @@ class Princess():
 		self.images = None
 		self.open_door_img  = self.stay_img
 		print "		kisses and dust images"
-		self.lips		   = utils.img.TwoSided(directory.kiss)
-		self.dirt_cloud	 = utils.img.TwoSided(directory.dirt)
-		self.gravity		= {'force':0, 'accel':p(3)}
-		self.speed			= p(14)
-		self.rect			= pygame.Rect(self.pos,self.size)
-		self.direction		= 'right'
-		self.status			= {"hurt":0,"excited":0,"scared":0,'move':False}
-		self.jump			= 0
+		self.lips = utils.img.TwoSided(directory.kiss)
+		self.dirt_cloud = utils.img.TwoSided(directory.dirt)
+		self.gravity = {'force':0, 'accel':p(3)}
+		self.speed = p(14)
+		self.rect = pygame.Rect(self.pos,self.size)
+		self.direction = 'right'
+		self.status = {"hurt":0,"excited":0,"scared":0,'move':False}
+		self.jump = 0
 		self.kiss = {
-						'count':0,
-						'ongoing':False,
-						'direction':'right',
-						'rect': ((0,0),(0,0)),
-						'height':None
-					}
-		self.floor		  = self.universe.floor - self.universe.level.what_is_my_height(self)
-		self.last_height	= p(186)
-		self.action		 = [None,'stay']
-		self.image		  = self.stay_img.right[self.stay_img.itnumber.next()]
-		self.image_size	 = self.image.get_size()
-		self.inside		 = INSIDE
+			'count':0,
+			'ongoing':False,
+			'direction':'right',
+			'rect': ((0,0),(0,0)),
+			'height':None
+		}
+		self.floor = self.universe.floor - self.universe.level.what_is_my_height(self)
+		self.last_height = p(186)
+		self.action = [None,'stay']
+		self.image = self.stay_img.right[self.stay_img.itnumber.next()]
+		self.image_size	= self.image.get_size()
+		self.inside = INSIDE
 		print "	creating sounds"
 		print "		steps sounds"
 		self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
@@ -142,17 +141,11 @@ class Princess():
 			action[0]='fall'
 
 	def hurting(self,action):
-		
 		self.speed = p(14) #reset speed eventually changed by Carriage
-		
 		if not self.inside:
 			if not self.status['hurt']:
 				for e in self.universe.level.enemies:
-					if (e.__class__ in ( enemy.Schnauzer,
-										 enemy.FootBall,
-										 enemy.Hawk,
-										 enemy.BroomingDust,
-										 enemy.Banana) and self.rect.colliderect(e.rect)):
+					if (e.__class__ in ( enemy.Schnauzer, enemy.FootBall, enemy.Hawk, enemy.BroomingDust, enemy.Banana) and self.rect.colliderect(e.rect)):
 						self.get_dirty()
 					if e.__class__ == enemy.Carriage:
 						if self.rect.colliderect(e.rect):
@@ -162,7 +155,6 @@ class Princess():
 						if self.rect.colliderect(e.rect) and self.status['excited'] == 0:
 							self.status['excited']+=1
 				if self.universe.level.viking_ship and self.rect.colliderect(self.universe.level.viking_ship.talk_balloon_rect):
-						print "Oops, got hurt"
 						self.get_dirty()
 				if self.universe.level.name == "accessory":
 					if self.pos[1]+self.size[1]-p(20) > self.universe.level.water_level:
@@ -200,30 +192,26 @@ class Princess():
 		if self.action[0] == 'kiss' and not self.kiss['ongoing']:
 			self.kiss['count'] = 'start'
 			self.kiss['ongoing'] = True
-
 		if self.kiss['ongoing']:
 			if self.kiss['count'].__class__ == str:
 				self.kiss['count'] = 1
 			else:
 				self.kiss['count'] +=1
-
 			if self.kiss['count'] == 1:
 				self.kiss_img.number = 0
 				self.channel3.play(self.kisssound)
-
 			if self.kiss['count'] < 4:
 				if self.action[0] != 'jump':
 					self.action[0] = 'kiss'
 			else:
 				if self.action[0] == 'kiss':
 					self.action[0] = None
-
 			if self.kiss['count'] <9:
 				self.throwkiss()
 			else:
-				self.kiss['ongoing']	= False
-				self.kiss['count']		= 0
-				self.kiss['rect']		= ((0,0),(0,0))
+				self.kiss['ongoing'] = False
+				self.kiss['count'] = 0
+				self.kiss['rect'] = ((0,0),(0,0))
 
 	def update_pos(self,action):
 		"""update the position of the princesses on both axis.
@@ -233,10 +221,8 @@ class Princess():
 		receives universe.action
 		no return
 		"""
-
-		feet_position	= self.pos[1]+self.size[1]
-		towards			= {'right':1,'left':-1}
-
+		feet_position= self.pos[1]+self.size[1]
+		towards	= {'right':1,'left':-1}
 		#Set center distance (relative to the point 0)
 		#	move if walking or scared
 		if action[1]=='walk' and action[0] != 'celebrate':
@@ -248,18 +234,15 @@ class Princess():
 			else:
 				self.direction = 'right'
 			self.center_distance += ((boost+self.speed)*towards[self.direction])
-
-		#	don't move if there is an obstacle
+		#don't move if there is an obstacle
 		obstacle = self.universe.floor - self.universe.level.what_is_my_height(self)
 		if obstacle <= int(round(feet_position - p(30))):
 			if action[1] =='walk':
 				self.center_distance -= (self.speed*towards[self.direction])
 			elif action[1] == 'run_away':
 				self.center_distance -= ((self.speed+boost)*towards[self.direction])
-
 		#Set pos[0] (relative to the screen)
 		self.pos[0] = self.universe.center_x+self.center_distance
-
 		#Set y pos
 		new_height = self.universe.level.what_is_my_height(self)
 		self.floor = self.universe.floor - new_height
@@ -270,7 +253,6 @@ class Princess():
 				new_y = self.floor-self.size[1]
 			self.pos[1] = new_y
 			self.gravity['force'] += self.gravity['accel']
-
 		feet_position   = self.pos[1]+self.size[1]
 		#do not stay lower than floor
 		if feet_position > self.floor:

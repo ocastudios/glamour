@@ -84,8 +84,6 @@ def p(positions,r=True):
 		else:
 			return positions*scale
 
-
-
 def d(positions,r=True):
 	if positions.__class__ in (list, tuple):
 		if round:

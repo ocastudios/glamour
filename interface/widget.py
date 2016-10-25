@@ -52,7 +52,7 @@ class Button():
 		self.parameter = parameter
 
 	def update_all(self):
-		self.size = self.image.get_size()
+		#self.size = self.image.get_size()
 		try:
 			self.pos = [self.level_pos[0]+self.position[0]-(self.size[0]/2), self.level_pos[1]+self.position[1]-(self.size[1]/2)]
 		except:
