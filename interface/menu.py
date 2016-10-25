@@ -637,10 +637,13 @@ class Menu():
 		print "... is that what you really want?"
 		self.vertical_bar['call_bar'] = 'right'
 		self.ending = Story_Frame(self, os.path.join(directory.images, "ending","final"))
-		self.ending.frame_number = 0
+		self.ending.frame_number = 1
 		self.speed  = 0
 		self.options = []
-		self.buttons = []
+		self.buttons	= [
+			widget.Button(self.universe, directory.arrow_right,(1140,270), self.position, self.ending.next_frame,color = (58,56,0)),
+			widget.Button(self.universe, directory.arrow_right,(100,270), self.position, self.ending.past_frame, invert = True,color = (58,56,0))
+		]
 		self.texts = []
 
 	def remove_save_directory(self, save_name):
@@ -780,6 +783,8 @@ class Story_Frame():
 
 		self.flip_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'story','sflip.ogg'))
 		self.frame_number   = 0
+		self.timer = 0
+		self.path = path
 
 
 	def update_all(self):
@@ -789,8 +794,14 @@ class Story_Frame():
 			self.images = []
 		if self.menu.buttons == []:
 			if not self.channel.get_busy():
-				self.next_frame()
-
+				if self.available_sounds == []:
+					if self.timer > 30:
+						self.timer = 0
+						self.next_frame()
+					else:
+						self.timer += 1
+				else:
+					self.next_frame()
 
 	def next_frame(self):
 		if self.frame_number >= len(self.available_images):

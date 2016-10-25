@@ -43,7 +43,7 @@ def beat_enemy(universe, enemy):
 	universe.db.commit()
 
 def won(universe):
-	if universe.stage.princesses[0].points >= 1000:
+	if universe.stage.princesses[0].points >= boyfriend_rank[-1][1]:
 		universe.db_cursor.execute("UPDATE save SET won=1")
 		universe.db.commit()
 

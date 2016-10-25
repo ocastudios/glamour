@@ -243,7 +243,7 @@ class Ball():
 
 	def return_to_game(self):
 		self.Frame.set_next_ball_clothes()
-		if self.universe.level.princesses[0].points >=1000 and not database.query.won(self.universe):
+		if self.universe.level.princesses[0].points >=settings.boyfriend_rank[-1][1] and not database.query.won(self.universe):
 			self.universe.level = self.universe.menu
 			database.update.won(self.universe)
 			self.universe.stage.white.alpha_value = 0
@@ -382,19 +382,12 @@ class BoyFriend():
 	def __init__(self, universe, points):
 		print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
 		boyfriend = None
-		boyfriend_rank = (	[  30,  70,		'gentleman_decent', t('Gentleman Decent')],
-				[  70, 110, 'knight_reliable', t('Knight Reliable')],
-				[ 110, 150, 'baron_serious', t('Baron Serious')],
-				[ 150, 200, 'count_loving', t('Count Loving')],
-				[ 200, 250, 'marquess_attractive', t('Marquess Attractive')],
-				[ 250, 350, 'duke_intelligent', t('Duke Intelligent')],
-				[ 350, 500, 'prince_charming', t('Prince Charming')],
-				[ 500, 700, 'emperor_awesome', t('emperor_awesome')])
+		boyfriend_rank = settings.boyfriend_rank
 		for i in boyfriend_rank:
-			if points in range(i[0], i[1]):
+			if points > i[0]:
 				boyfriend = i[2]
 				self.name = i[3]
-		if boyfriend == 'emperor_awesome':
+		if boyfriend == boyfriend_rank[-1][2]:
 			if database.query.won(universe):
 				boyfriend = "fabrizio"
 				self.name = "Fabrizio"

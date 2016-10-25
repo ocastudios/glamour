@@ -1040,16 +1040,17 @@ class Dearhearts():
 		image_size = p((1200,350))
 		self.pos = p((140,527))
 		self.image = pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha()
+		BFR = settings.boyfriend_rank
 		boyfriends_ranking = (
-			('gentleman_decent',(0,0),30),
-			('knight_reliable',(82,0),65),
-			('baron_serious',(162,0),105),
-			('count_loving',(230,0),175),
-			('marquess_attractive',(331,0),255),
-			('duke_intelligent',(411,0),345),
-			('prince_charming',(504,0),465),
-			('king_kindhearted',(560,0),685),
-			('emperor_awesome',(664,0),1000),
+			(BFR[0][2],(0,0),BFR[0][0]),
+			(BFR[1][2],(82,0),BFR[1][0]),
+			(BFR[2][2],(162,0),BFR[2][0]),
+			(BFR[3][2],(230,0),BFR[3][0]),
+			(BFR[4][2],(331,0),BFR[4][0]),
+			(BFR[5][2],(411,0),BFR[5][0]),
+			(BFR[6][2],(504,0),BFR[6][0]),
+			(BFR[7][2],(560,0),BFR[7][0]),
+			(BFR[8][2],(664,0),BFR[8][0]),
 			)
 		for i in boyfriends_ranking:
 			if points >= i[2]:

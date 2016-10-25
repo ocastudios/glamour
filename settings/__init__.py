@@ -137,3 +137,16 @@ except:
 	
 localization_support.install()
 t = localization_support.ugettext
+
+#### Boyfriends ####
+boyfriend_rank = (
+		[  30,  70, 'gentleman_decent', t('Gentleman Decent')],
+		[  70, 110, 'knight_reliable', t('Knight Reliable')],
+		[ 110, 150, 'baron_serious', t('Baron Serious')],
+		[ 150, 200, 'count_loving', t('Count Loving')],
+		[ 200, 250, 'marquess_attractive', t('Marquess Attractive')],
+		[ 250, 350, 'duke_intelligent', t('Duke Intelligent')],
+		[ 350, 400, 'prince_charming', t('Prince Charming')],
+		[ 400, 500, 'king_kindhearted', t('King Kindhearted')],
+		[ 500, 700, 'emperor_awesome', t('Emperor Awesome')]
+		)
