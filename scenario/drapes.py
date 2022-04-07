@@ -34,7 +34,7 @@ class Drape():
 				self.image_number -=1
 			self.image = self.images[self.image_number]
 	def __del__(self):
-		print "Drape destroyed"
+		print("Drape destroyed")
 
 class UperDrape():
 	def __init__(self):

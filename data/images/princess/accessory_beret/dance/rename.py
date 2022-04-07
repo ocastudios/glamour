@@ -34,5 +34,5 @@ for i in new:
         original = ""
         for part in i:
             original += str(part)
-    print original
+    print(original)
     os.rename(directory+original,directory+item)

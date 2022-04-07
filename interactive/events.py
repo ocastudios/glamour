@@ -1,6 +1,6 @@
 from settings import *
 import pygame
-import fairy
+from . import fairy
 import random
 import database
 import database.update
@@ -67,7 +67,7 @@ def create_message(universe, name, unique=True):
 	universe.level.event_counter +=1
 	row = database.query.message(universe, name, one = True)
 	if row['count'] == 0 or unique==False:
-		print "Here comes the Fairy "+name
+		print("Here comes the Fairy "+name)
 		universe.level.fairy = 'loading'
 		pygame.mixer.Channel(0).play(universe.level.fae[1].whistle)
 		universe.level.fae[0] = fairy.Message(universe, message = row['message'])

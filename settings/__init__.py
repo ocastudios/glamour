@@ -1,6 +1,15 @@
 import os
 import pygame
-import directory
+from . import directory
+
+# Make sure the $HOME/.glamour directories are all there.
+for i in (directory.personal,
+	directory.saves,
+	directory.cache,
+	os.path.join(directory.cache,'images'),
+	):
+	if not os.path.exists(i):
+		os.mkdir(i)
 
 
 #### Fonts ####
@@ -13,7 +22,7 @@ third_font = main_font #Fairy speaches and keyboard
 default_third_font_size = 20
 default_fairy_font_size = 14
 
-#### Princesses #### 
+#### Princesses ####
 Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png', 'name': 'Snow_White'}
 Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png', 'name': 'Cinderella'}
 Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel', 'icon': 'princess-icon-brush.png', 'name': 'Rapunzel'}
@@ -24,7 +33,7 @@ Sleeping_Beauty = {'skin': 'pink', 'hair': 'hair_sleeping', 'icon': 'princess-ic
 minimum_glamour_points = 1
 
 #### Screen Resolution ####
-print "Detecting screen resolution"
+print("Detecting screen resolution")
 
 #### Screen Resolution ####
 # Screen resolution is detected automatically if no custom_resolution is set
@@ -66,7 +75,7 @@ def reset_scale(percentage='high', full_screen = False):
 		scale = scale*screen_resolutions[percentage]
 	if scale < 0.3333333337:
 		scale = 0.333333337
-	print "Game resolution: "+str(int(round(1440*scale)))+"x"+str(int(round(900*scale)))
+	print("Game resolution: "+str(int(round(1440*scale)))+"x"+str(int(round(900*scale))))
 	return scale
 
 scale = reset_scale(percentage=active_resolution, full_screen=active_full)
@@ -118,23 +127,14 @@ import gettext
 import locale
 
 current_locale, encoding = locale.getdefaultlocale()
-for i in (directory.personal, 
-	directory.saves, 
-	directory.cache, 
-	os.path.join(directory.cache,'images'),
-	):
-	try:
-		os.listdir(i)
-	except:
-		os.mkdir(i)
 
 try:
 	localization_support = gettext.translation('glamour', directory.locale, [current_locale])
 except:
 	localization_support = gettext.translation('glamour', directory.locale, ['en_US'])
-	
+
 localization_support.install()
-t = localization_support.ugettext
+t = localization_support.gettext
 
 #### Boyfriends ####
 boyfriend_rank = (

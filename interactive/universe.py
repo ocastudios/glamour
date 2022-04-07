@@ -7,7 +7,7 @@ import settings
 import inspect
 import utils
 from settings import directory
-
+import interactive.stage as stage
 
 class Universe():
 	def __init__(self, level=None):
@@ -56,11 +56,6 @@ class Universe():
 		if self.LEVEL == 'menu' and self.level.__class__ != menu.Menu:
 			self.define_level()
 		if self.LEVEL == 'game':
-			try:
-				stage
-			except:
-				global stage
-				import interactive.stage as stage
 			if self.level.__class__ != stage.Stage:
 				self.define_level()
 

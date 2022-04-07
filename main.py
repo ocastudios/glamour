@@ -1,13 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
-print "###  Welcome to Glamour  ###"
-print "This is an Open Source/Public Domain game developed by Oca Studios"
-print 'The game is based on the "Glamour" table-top game by Oca Studios'
-print "in loving memory of Cilda and Patricia"
-print "Feel free to contribute at www.ocastudios.com"
-print "or visit the project at http://launchpad.net/glamour"
-print "... lauching game ..."
-print "Initializing Pygame Display"
+print("###  Welcome to Glamour  ###")
+print("This is an Open Source/Public Domain game developed by Oca Studios")
+print('The game is based on the "Glamour" table-top game by Oca Studios')
+print("in loving memory of Cilda and Patricia")
+print("Feel free to contribute at www.ocastudios.com")
+print("or visit the project at http://launchpad.net/glamour")
+print("... lauching game ...")
+print("Initializing Pygame Display")
 
 import os
 import pygame

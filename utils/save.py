@@ -35,10 +35,10 @@ def save_file(universe, hairback = None, skin = None, face = None, hair = None, 
 	else:
 		hairback = "None"
 	database.update.princess_garment(universe, Princess, hairback, skin, arm, face, hair, shoes, dress, armdress, accessory)
-	print "Save Database saved "
+	print("Save Database saved ")
 	return os.path.join(directory.saves,Princess.name,Princess.name+'.glamour')
 
 def save_thumbnail(universe):
 	Princess = universe.stage.princesses[0]
 	thumbnail = pygame.transform.flip(pygame.transform.smoothscale(Princess.stay_img.left[0],(100,100)),1,0)
-	pygame.image.save(thumbnail,os.path.join(directory.saves,Princess.name.encode('utf-8'),'thumbnail.PNG'))
+	pygame.image.save(thumbnail,os.path.join(directory.saves,Princess.name,'thumbnail.PNG'))

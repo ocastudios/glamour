@@ -2,7 +2,7 @@
 import interactive.princess as princess
 import pygame
 import os
-import db
+from . import db
 import sqlite3
 import interactive.messages as messages
 from pygame.locals import *
@@ -13,11 +13,11 @@ def connect_db(url, universe):
 		universe.db_cursor = db_cursor = universe.db.cursor()
 
 def create_save_db(url,name = None, hairback = None, hair = None, skin= None, arm = None, universe = None):
-		print "creating or connecting to the database"
+		print("creating or connecting to the database")
 		universe.db = sqlite3.connect(url)
 		universe.db.row_factory = sqlite3.Row
 		universe.db_cursor = universe.db.cursor()
-		print "creating save table"
+		print("creating save table")
 		universe.db_cursor.execute("""
 		  CREATE TABLE save (
 				name VARCHAR(30)	PRIMARY KEY,
@@ -41,13 +41,13 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 			  armdress VARCHAR(30),
 			  accessory VARCHAR(30)
 				"""
-		print "creating garment tables"
+		print("creating garment tables")
 		universe.db_cursor.execute("""CREATE TABLE princess_garment("""+ garment +""");""")
 		universe.db_cursor.execute("""CREATE TABLE rapunzel("""+ garment + """);""")
 		universe.db_cursor.execute("""CREATE TABLE snow_white("""+ garment + """);""")
 		universe.db_cursor.execute("""CREATE TABLE cinderella("""+ garment + """);""")
 		universe.db_cursor.execute("""CREATE TABLE sleeping_beauty("""+ garment + """);""")
-		print "creating stage enemies table"
+		print("creating stage enemies table")
 		universe.db_cursor.execute("""
 		  CREATE TABLE  stage_enemies (
 			id			  INTEGER		 PRIMARY KEY,
@@ -64,7 +64,7 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 			bird			INTEGER,
 			hawk			INTEGER);
 			""")
-		print "create messages table"
+		print("create messages table")
 		universe.db_cursor.execute("""CREATE TABLE messages(
 			id			  INTEGER	 PRIMARY KEY,
 			type			VARCHAR(30),
@@ -72,7 +72,7 @@ def create_save_db(url,name = None, hairback = None, hair = None, skin= None, ar
 			message		 VARCHAR(600),
 			count		   INTEGER);
 			""")
-		print "create unlock table"
+		print("create unlock table")
 		universe.db_cursor.execute("""CREATE TABLE unlock(
 			id			  INTEGER	 PRIMARY KEY,
 			garment		 VARCHAR(30),

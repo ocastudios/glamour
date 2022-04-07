@@ -26,8 +26,8 @@ name_taken	  = False
 class Menu():
 	selection_canvas = utils.img.image(os.path.join(directory.title_screen,'selection_canvas','0.png'))
 	def __init__(self,universe,position= [360,200]):
-		print "Creating main menu"
-		print "Initiating menu music."
+		print("Creating main menu")
+		print("Initiating menu music.")
 		pygame.mixer.music.load(os.path.join(directory.music,'menu.ogg'))
 		pygame.mixer.music.set_volume(.9)
 		pygame.mixer.music.play(-1)
@@ -243,7 +243,7 @@ class Menu():
 			bar['speed'] += p(1,r=False)
 		else:
 			####### STEP #######
-			print 'bar closed'
+			print('bar closed')
 			self.next_menu()
 			if bar['call_bar']:
 				if bar['call_bar'] == 'right':
@@ -351,9 +351,9 @@ class Menu():
 		self.vertical_bar['call_bar'] = 'right'
 		self.print_princess = False
 		opt = [widget.Letter(self.universe, i[0],i[1],self.position, self.hoover_letter_size) for i in zip(
-			map(chr,xrange(97,123)),
-			zip([x for n in xrange(9) for x in xrange(int(100),int(422),int(40))],
-			[n for n in xrange(int(200),int(352),int(50)) for x in xrange(9)]))] 
+			list(map(chr,range(97,123))),
+			list(zip([x for n in range(9) for x in range(int(100),int(422),int(40))],
+			[n for n in range(int(200),int(352),int(50)) for x in range(9)])))] 
 		opt.extend([widget.Key(self.universe, t('< back'),	(140,350)		,self.position, 'Backspace'),
 					widget.Key(self.universe, t('space >'),	(360,350)			,self.position, 'Spacebar'),
 					widget.Key(self.universe, t('clean up [  ]'),(140,400)		,self.position, 'Cleanup'),
@@ -508,9 +508,10 @@ class Menu():
 				self.create_files()
 				self.universe.LEVEL= 'game'
 				name_taken = False
-			except Exception as  (errno, strerror):
-				print "Maybe this name already existed"
-				print strerror
+			except Exception as xxx_todo_changeme:
+				(errno, strerror) = xxx_todo_changeme.args
+				print("Maybe this name already existed")
+				print(strerror)
 				if errno == 17 and start_anyway:
 					self.remove_save_directory(self.princess.name.text)
 					self.create_files()
@@ -519,16 +520,16 @@ class Menu():
 					name_taken = True
 					self.to_name_your_princess()
 		else:
-			print "Using saved game "+ using_saved_game
-			print "Connecting to Database"
+			print("Using saved game "+ using_saved_game)
+			print("Connecting to Database")
 			db.connect_db(using_saved_game, self.universe)
 			self.universe.LEVEL = 'game'
 
 	def create_files(self,):
-		print "Starting a New Save"
+		print("Starting a New Save")
 		new_dir = os.path.join(directory.saves,self.princess.name.text)
 		os.mkdir(new_dir)
-		print "Directory Created"
+		print("Directory Created")
 		db.create_save_db(
 				os.path.join(new_dir,self.princess.name.text+'.db'),
 				name = self.princess.name.text,
@@ -537,7 +538,7 @@ class Menu():
 				hair = self.princess.hairs[self.princess.numbers['hair']],
 				arm = self.princess.arms[self.princess.numbers['skin']],
 				universe = self.universe)
-		print "Database Created"
+		print("Database Created")
 
 	def change_princess(self,list):#list of: int,part
 		if list[1] == "hair":
@@ -562,16 +563,16 @@ class Menu():
 
 	def select_saved_game(self):
 		self.vertical_bar['call_bar'] = 'right'
-		print "Let's select a saved princess"
+		print("Let's select a saved princess")
 		saved_games = []
-		print "searching for saved games"
+		print("searching for saved games")
 		for i in os.listdir(directory.saves):
 			D = os.path.join(directory.saves,i)
 			files = os.listdir(D)
 			if 'thumbnail.PNG' in files:
-				saved_games.extend([{'name':i.decode('utf-8'), 'file': os.path.join(directory.saves,i,i+'.db')}])
+				saved_games.extend([{'name':i, 'file': os.path.join(directory.saves,i,i+'.db')}])
 			else:
-				print t('The '+i.decode('utf-8')+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i.decode('utf-8'))
+				print(t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i))
 				for f in files:
 					file_to_remove = os.path.join(D,f)
 					os.remove(file_to_remove)
@@ -593,7 +594,7 @@ class Menu():
 		xpos = 0
 		self.buttons = []
 		for i in saved_games:
-			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name'].encode('utf-8')),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
+			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name']),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
 			self.options.extend([
 			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, color = (58,56,0), parameter=([i['file']])),
 			  widget.Button(self.universe, t('erase'), (xpos+300,ypos) ,self.position,self.remove_save_directory,color = (58,56,0), parameter=[i['name']])
@@ -605,7 +606,7 @@ class Menu():
 
 	def watching_story(self):
 		self.vertical_bar['call_bar'] = 'right'
-		print "Let's watch the story"
+		print("Let's watch the story")
 		self.story = Story_Frame(self,directory.story_frames)
 		self.action	 = 'open'
 		self.speed	  = 0
@@ -617,7 +618,7 @@ class Menu():
 		self.texts =   self.story.texts
 
 	def watching_tutorial(self):
-		print "Let's watch the tutorial"
+		print("Let's watch the tutorial")
 		self.vertical_bar['call_bar'] = 'right'
 		self.tutorial   = Story_Frame(self,directory.tutorial_frames)
 		self.action	 = 'open'
@@ -629,9 +630,9 @@ class Menu():
 		self.texts	  = self.tutorial.texts
 		
 	def watching_ending(self):
-		print "Congrats!! You've got emperor's heart!"
-		print "... but ..."
-		print "... is that what you really want?"
+		print("Congrats!! You've got emperor's heart!")
+		print("... but ...")
+		print("... is that what you really want?")
 		self.vertical_bar['call_bar'] = 'right'
 		self.ending = Story_Frame(self, os.path.join(directory.images, "ending","final"))
 		self.ending.frame_number = 1

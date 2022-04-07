@@ -19,12 +19,12 @@ class Princess():
 """
 	directory = directory.princess
 	def __init__(self,universe,INSIDE = False,xpos=None):
-		print "Creating Princess"
+		print("Creating Princess")
 		self.first_frame = True
 		self.universe = universe
 		self.effects	= []
 		self.size	   = (2,p(180))
-		print "	retrieving data"
+		print("	retrieving data")
 		row	 = self.universe.db_cursor.execute("SELECT * FROM save").fetchone()
 		self.name = row['name']
 		self.center_distance = p(row['center_distance'])
@@ -33,16 +33,16 @@ class Princess():
 		self.dirt			= int(row['dirt'])
 		self.points			= int(row['points'])
 		self.pos = [int(universe.center_x)+self.center_distance, universe.floor-universe.level.what_is_my_height(self)-self.size[1]]
-		print "	creating images:"
-		print "		princess images"
+		print("	creating images:")
+		print("		princess images")
 		for act in ['walk','stay','kiss','fall','jump','ouch','celebrate']:
 			self.__dict__[act+"_img"] = utils.img.MultiPart(self.ordered_directory_list(act))
 		self.run_away_img = utils.img.Ad_hoc(self.walk_img.left[::2],self.walk_img.right[::2])
-		print "		dirt images"
+		print("		dirt images")
 		self.dirties = [Dirt(self.universe,directory.princess+'/'+d,self.pos) for d in ('dirt1','dirt2','dirt3')]
 		self.images = None
 		self.open_door_img  = self.stay_img
-		print "		kisses and dust images"
+		print("		kisses and dust images")
 		self.lips = utils.img.TwoSided(directory.kiss)
 		self.dirt_cloud = utils.img.TwoSided(directory.dirt)
 		self.gravity = {'force':0, 'accel':p(3)}
@@ -61,13 +61,13 @@ class Princess():
 		self.floor = self.universe.floor - self.universe.level.what_is_my_height(self)
 		self.last_height = p(186)
 		self.action = [None,'stay']
-		self.image = self.stay_img.right[self.stay_img.itnumber.next()]
+		self.image = self.stay_img.right[next(self.stay_img.itnumber)]
 		self.image_size	= self.image.get_size()
 		self.inside = INSIDE
-		print "	creating sounds"
-		print "		steps sounds"
+		print("	creating sounds")
+		print("		steps sounds")
 		self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
-		print "		jump sounds"
+		print("		jump sounds")
 		self.jumpsound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
 		self.kisssound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
 		self.channel1		= pygame.mixer.Channel(0)
@@ -185,7 +185,7 @@ class Princess():
 			self.status['hurt'] += 1
 			self.dirt += 1
 			self.universe.db_cursor.execute("UPDATE save SET dirt = "+str(self.dirt)+" WHERE name = '"+self.name+"'")
-			print "Oh Dear, you've got all dirty! I need to take a record on that..."
+			print("Oh Dear, you've got all dirty! I need to take a record on that...")
 			self.universe.level.princesses[1] = self.dirties[self.dirt -1]
 
 	def kissing(self):
