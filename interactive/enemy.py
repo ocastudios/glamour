@@ -439,11 +439,11 @@ class Tail():
 		self.lion = lion
 		self.pos  = self.lion.pos
 		self.images = utils.img.There_and_back_again(os.path.join(directory.enemies,'Lion','tail'))
-		self.image = self.images.list[self.images.itnumber.next()]
+		self.image = self.images.list[next(self.images.itnumber)]
 
 	def update_all(self):
 		if 0 < self.pos[0] < p(700):
-			self.image = self.images.list[self.images.itnumber.next()]
+			self.image = self.images.list[next(self.images.itnumber)]
 		self.pos  = self.lion.pos
 
 class Elephant():
@@ -511,7 +511,7 @@ class Giraffe():
 	def update_all(self):
 		if -p(400) < self.pos[0] < p(1490):
 			if self.count == 2:
-				self.image = self.chewing_images.left[self.chewing_images.itnumber.next()]
+				self.image = self.chewing_images.left[next(self.chewing_images.itnumber)]
 				self.count = 0
 			self.count += 1
 		self.pos[0] = self.universe.center_x + self.center_distance
@@ -748,9 +748,9 @@ class VikingShip():
 		self.direction = random.choice(['right','left'])
 		self.center_distance = D[self.direction]['center_distance']
 		self.image = self.base.__dict__[self.direction][0]
-		self.height = itertools.cycle(range(20)+ range(20)[-1:0:-1])
+		self.height = itertools.cycle(list(range(20))+ list(range(20))[-1:0:-1])
 		self.image_height = self.image.get_height()
-		self.pos = [universe.center_x+self.center_distance, universe.level.floor - self.image_height + p(200) +self.height.next()]
+		self.pos = [universe.center_x+self.center_distance, universe.level.floor - self.image_height + p(200) +next(self.height)]
 		self.gotkissed		= 0
 		self.image_number	= 0
 		self.speed = p(3)
@@ -841,7 +841,7 @@ class VikingShip():
 		else:
 			self.center_distance += self.speed
 		self.pos[0] = self.universe.center_x + self.center_distance
-		self.pos[1] = self.universe.level.floor - self.image_height + p(200) + self.height.next()
+		self.pos[1] = self.universe.level.floor - self.image_height + p(200) + next(self.height)
 		self.sailor_rect = pygame.Rect(self.head.pos,self.head.size)
 		self.flag.pos = self.pos[0]+(self.flag.pos_x-self.flag.size[0]),self.pos[1]+self.flag.pos_y
 		self.wave.pos = self.pos[0]+(self.wave.pos_x-self.wave.size[0]),self.universe.level.floor_image[-5].pos[1]-(self.wave.size[1]-p(20))
@@ -890,12 +890,12 @@ class VikingPart():
 			self.actual_images = self.images.left
 		else:
 			self.actual_images = self.images.right
-		self.image = self.actual_images[self.images.itnumber.next()]
+		self.image = self.actual_images[next(self.images.itnumber)]
 		self.size = self.image.get_size()
 		self.real_size = self.size
 
 	def update_all(self):
-		self.image = self.actual_images[self.images.itnumber.next()]
+		self.image = self.actual_images[next(self.images.itnumber)]
 
 
 class Balloon():
@@ -1062,7 +1062,7 @@ class FootBall():
 		self.pos[0] =  self.footboy.universe.center_x + self.center_distance
 		floor = (self.universe.floor - self.universe.level.what_is_my_height(self)) - (self.size[1])
 		if self.pos[1] != floor:
-			self.pos[1] = floor - self.ballheights.next()
+			self.pos[1] = floor - next(self.ballheights)
 		self.rect   = pygame.Rect(self.pos, self.size)
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 from settings import *
-import database.query as query
+from . import database.query as query
 
 def princess_garment(universe, Princess, hairback, skin, arm, face, hair, shoes, dress, armdress, accessory):
 	cursor = universe.db_cursor

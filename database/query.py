@@ -2,7 +2,7 @@
 import random
 import pygame
 import os
-import db
+from . import db
 import sqlite3
 from settings import *
 

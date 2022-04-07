@@ -26,7 +26,7 @@ class Inside():
 		self.menu = []
 		counter = itertools.count()
 		if item_type != 'shower':
-			self.items = [Item(self, i,counter.next()) for i in item_list]
+			self.items = [Item(self, i,next(counter)) for i in item_list]
 			self.menu.extend([(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.items])
 			self.chosen_glow = Chosen_Glow(self, pos = [-200,500], degree = 90)
 			self.buttons	= (
@@ -89,7 +89,7 @@ class Inside():
 
 		self.universe.level.princesses[0].dirt = 0
 		database.update.clean_up(self.universe)
-		print "You look lovely all cleaned up!"
+		print("You look lovely all cleaned up!")
 		self.universe.level.princesses[1] = None
 		save.save_file(self.universe)
 		save.save_thumbnail(self.universe)
@@ -163,7 +163,7 @@ class Princess_Home():
 	def all_set(self):
 		self.status = 'done'
 		if self.locked:
-			print "You have unlocked "+self.name+"'s hair"
+			print("You have unlocked "+self.name+"'s hair")
 			self.universe.level.unlocking = {'type':'hair','name':self.name}
 			self.locked = False
 		save.save_thumbnail(self.universe)
@@ -194,12 +194,12 @@ class Home():
 			for i in last_balls:
 				image_dict = {"hair_back":0, "skin":1, "face":2, "hair":3, "shoes":4, "dress":5, "arm":6, "armdress":7, "accessory":8} 
 				image = pygame.Surface(p((200,200)), pygame.SRCALPHA).convert_alpha()
-				for ii in sorted(image_dict.items(),key=operator.itemgetter(1)):
+				for ii in sorted(list(image_dict.items()),key=operator.itemgetter(1)):
 					if i[ii[0]] and i[ii[0]]!= "None":
 						image.blit(utils.img.image(os.path.join(directory.princess,i[ii[0]],'stay','0.png')),(0,0))
 				self.past_balls += [image]
 		else:
-			print "You haven't attended any Balls yet"
+			print("You haven't attended any Balls yet")
 		self.locked = database.query.is_locked(self.universe,'face','lipstick')
 		self.chosen_number = 0
 		self.menu = [(i.pos[0]+(i.size[0]/4),i.pos[1]+(i.size[1]/4)) for i in self.buttons if i.__class__== widget.Button]
@@ -225,4 +225,4 @@ class Chosen_Glow():
 		self.pos   = p(pos)
 
 	def update_all(self):
-		self.image = self.images.list[self.images.itnumber.next()]
+		self.image = self.images.list[next(self.images.itnumber)]

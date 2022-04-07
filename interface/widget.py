@@ -70,7 +70,7 @@ class Button():
 	def click_detection(self):
 		if (self.rect.collidepoint(self.universe.pointer.mouse_pos) and self.universe.pointer.type == 2) or (self.rect.colliderect(self.universe.pointer.rect) and self.universe.pointer.type == 1):
 			try:
-				self.image = self.list_of_images[self.images.itnumber.next()]
+				self.image = self.list_of_images[next(self.images.itnumber)]
 			except:
 				pass
 			if self.type_of_button=="text":
@@ -85,7 +85,7 @@ class Button():
 		else:
 			if self.image != self.list_of_images[0]:
 				try:
-					self.image = self.images.list[self.images.itnumber.next()]
+					self.image = self.images.list[next(self.images.itnumber)]
 				except: pass
 			if self.type_of_button=="text":
 				self.image = self.fontA.render(self.text,1,self.color)

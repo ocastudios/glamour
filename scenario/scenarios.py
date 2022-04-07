@@ -47,7 +47,7 @@ class Scenario():
 		self.update_pos()
 
 	def update_with_images(self):
-		self.image		= self.images.list[self.images.itnumber.next()]
+		self.image		= self.images.list[next(self.images.itnumber)]
 		self.pos[0]		= self.universe.center_x+self.center_distance
 
 	def update_without_images(self):
@@ -163,7 +163,7 @@ class Background():
 	def update_without_images(self):
 		pass
 	def update_with_images(self):
-		self.image		  = self.images.list[self.images.itnumber.next()]
+		self.image		  = self.images.list[next(self.images.itnumber)]
 
 
 class ExitSign():

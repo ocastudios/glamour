@@ -19,7 +19,7 @@ class Glamour_Stars():
 
 	def update_all(self):
 		actual_list = self.image_lists[self.universe.level.princesses[0].dirt]
-		self.image = actual_list.list[actual_list.itnumber.next()]
+		self.image = actual_list.list[next(actual_list.itnumber)]
 		
 class Lil_Stars():
 	def __init__(self,universe, pos):
@@ -30,7 +30,7 @@ class Lil_Stars():
 		self.pos = p(pos)
 
 	def update_all(self):
-		self.image = self.rotating.list[self.rotating.itnumber.next()]
+		self.image = self.rotating.list[next(self.rotating.itnumber)]
 		
 class Lil_Star_Back():
 	def __init__(self,universe,pos):

@@ -47,7 +47,7 @@ class Fairy():
 		self.reached_goal = False
 
 	def update_all(self):
-		for key,value in self.lists_of_images.items():
+		for key,value in list(self.lists_of_images.items()):
 			value.update_number()
 		self.action()
 

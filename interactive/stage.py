@@ -173,7 +173,7 @@ class Stage():
 					if self.clock[1].time == 'night':
 						for i in self.lights:
 							if i['status'] == 'on':
-								screen.blit(i['images'].list[i['images'].itnumber.next()],i['position'].pos)
+								screen.blit(i['images'].list[next(i['images'].itnumber)],i['position'].pos)
 				else:
 					for i in self.__dict__[att]:
 						if i and i.image:
@@ -341,7 +341,7 @@ class Stage():
 					if i.images.number >= i.images.lenght -1:
 						self.inside.status = 'closing'
 		elif self.inside.status == 'closing':
-			print 'Getting out of the door'
+			print('Getting out of the door')
 			for i in self.gates:
 				if i.rect.colliderect(self.princesses[0].rect):
 					i.outside()
@@ -721,7 +721,7 @@ class Stage():
 		if clean_princess:
 			self.princesses[0].dirt = 0
 			database.update.clean_up(self.universe)
-			print "You look lovely all cleaned up!"
+			print("You look lovely all cleaned up!")
 			self.princesses[1] = None
 
 	def DressSt(self,goalpos = None):
@@ -851,7 +851,7 @@ class Bar():
 			screen_size = 1440,900 #universe.width, universe.height
 			tile_size   = tile.get_size()
 			image_prep  = pygame.Surface((screen_size[0],tile_size[1]),pygame.SRCALPHA).convert_alpha()
-			bar_positions = range(0,(screen_size[0]/tile_size[0]+1))
+			bar_positions = list(range(0,(screen_size[0]/tile_size[0]+1)))
 			[image_prep.blit(tile,(i*tile_size[0],0)) for i in bar_positions]
 			self.tile   = utils.img.scale_image(tile)
 			self.tile_size = self.tile.get_size()

@@ -34,7 +34,7 @@ class ClockPointer():
 		self.time = 'day'
 
 	def set_balltime(self):
-		print self.time
+		print(self.time)
 		if self.time != 'ball' and self.universe.stage.princesses:
 			princess = self.universe.stage.princesses[0]
 			self.count = 0

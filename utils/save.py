@@ -35,7 +35,7 @@ def save_file(universe, hairback = None, skin = None, face = None, hair = None, 
 	else:
 		hairback = "None"
 	database.update.princess_garment(universe, Princess, hairback, skin, arm, face, hair, shoes, dress, armdress, accessory)
-	print "Save Database saved "
+	print("Save Database saved ")
 	return os.path.join(directory.saves,Princess.name,Princess.name+'.glamour')
 
 def save_thumbnail(universe):

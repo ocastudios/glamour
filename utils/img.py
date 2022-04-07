@@ -6,6 +6,7 @@ from itertools import *
 import settings
 from settings import p
 from settings import directory
+from functools import reduce
 
 ### TODO include a function reset_image, so that it will be possible to restart the image number easily.
 
@@ -22,7 +23,7 @@ Margin may be used to better program interaction during the game. Margin default
 		self.lenght = len(self.left)
 		if self.lenght>0:
 			self.size   = self.left[0].get_size()
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 	def update_number(self, backwards = False):
 		if not backwards:
@@ -50,7 +51,7 @@ class OneSided(TwoSided):
 		self.number = 0
 		self.size = self.list[0].get_size()
 		self.lenght = len(self.list)
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 
 class There_and_back_again(TwoSided):
@@ -80,34 +81,34 @@ class There_and_back_again(TwoSided):
 		self.size   = self.left[0].get_size()
 		self.lenght = len(self.left)
 		self.number = 0
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 
 class GrowingUngrowing(TwoSided):
 	def __init__(self,dir,frames,margin=[0,0,0,0]):
 		self.margin = margin
 		self.list = self.left = find_images(dir)
-		n_list = [pygame.transform.smoothscale(i,(i.get_width(),i.get_height()-(2*x))) for x in xrange(frames) for i in self.list]
+		n_list = [pygame.transform.smoothscale(i,(i.get_width(),i.get_height()-(2*x))) for x in range(frames) for i in self.list]
 		self.list.extend(n_list)
 		self.list.extend(reversed(n_list))
 		del n_list
 		self.lenght = len(self.list)
 		self.number = 0
 		self.size = self.list[self.number].get_size()
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 
 class Buttons(GrowingUngrowing):
 	def __init__(self,dir,frames):
 		self.list = self.left = find_images(dir)
-		n_list = [pygame.transform.smoothscale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in xrange(frames) for i in self.list]
+		n_list = [pygame.transform.smoothscale(i,(i.get_width()+(2*x),i.get_height()+(2*x))) for x in range(frames) for i in self.list]
 		self.list.extend(n_list)
 		self.list.extend(reversed(n_list))
 		del n_list
 		self.lenght = len(self.list)
 		self.number = 0
 		self.size = self.list[self.number].get_size()
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 
 class MultiPart():
@@ -161,7 +162,7 @@ class MultiPart():
 		self.lenght = len(self.left)
 		if self.lenght>0:
 			self.size   = self.left[0].get_size()
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 		if loading:
 			loading()
 
@@ -187,7 +188,7 @@ class Ad_hoc():
 		self.lenght = len(self.left)
 		if self.lenght>0:
 			self.size   = self.left[0].get_size()
-		self.itnumber = cycle(range(self.lenght))
+		self.itnumber = cycle(list(range(self.lenght)))
 
 	def update_number(self, backwards = False):
 		if not backwards:

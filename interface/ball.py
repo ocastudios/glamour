@@ -7,7 +7,7 @@ import interface.widget as widget
 import utils.save as save
 import settings
 import database
-import mousepointer
+from . import mousepointer
 import interactive.events as events
 from settings import directory
 from settings import scale
@@ -115,7 +115,7 @@ class Ball():
 			self.counter += 1
 
 	def compute_glamour_points(self,universe):
-		print "### We're at the ball. Let's count glamour points ###"
+		print("### We're at the ball. Let's count glamour points ###")
 		garments= ('face','shoes','dress','accessory')
 		cursor = universe.db_cursor
 		princess_rows = cursor.execute("SELECT * FROM princess_garment").fetchall()
@@ -153,23 +153,23 @@ class Ball():
 		#	up to 20 points for creativity (not repeating clothes at all)
 
 		#Fashion Points
-		print "Fashion points is equal to 30 - 3*repetition_points - past_repetition_points"
+		print("Fashion points is equal to 30 - 3*repetition_points - past_repetition_points")
 		fashion		= 30 - (3*present_repetitions) - (past_repetitions)
-		print "Your total Fashion points is " + str(fashion)
+		print("Your total Fashion points is " + str(fashion))
 
 		#Dirt Penalty
 		# Penalty only over fashion points:
 		# dirty		= (fashion * save_row['dirt'])/3
 		# Penalty over everything
 		dirty = save_row['dirt']*10
-		print "Your total Dirt points is "+ str(dirty)
+		print("Your total Dirt points is "+ str(dirty))
 
 		#Creativity Points
 		if number_of_balls > 1:
 			creativity	= 20 - (5 *(history_repetitions / (number_of_balls-1)))
 		else:
 			creativity	= 0
-		print "Youtr total creativity points is " + str(creativity)
+		print("Youtr total creativity points is " + str(creativity))
 		glamour_points = settings.minimum_glamour_points+fashion+creativity-dirty
 		if glamour_points < settings.minimum_glamour_points:
 			glamour_points = settings.minimum_glamour_points
@@ -178,12 +178,12 @@ class Ball():
 		and save_row['dirt'] < 3\
 		and princess_garments['this_ball'] == princess_garments['last_ball']:
 			glamour_points = 0
-			print "Did you try visiting other streets to renew your outfit?"
-			print "	You cannot earn glamour points unless you visit other streets in order to update your outfit."
-			print "	Sorry. No adventure, no glamour points."
+			print("Did you try visiting other streets to renew your outfit?")
+			print("	You cannot earn glamour points unless you visit other streets in order to update your outfit.")
+			print("	Sorry. No adventure, no glamour points.")
 
-		print "YOUR TOTAL GLAMOUR POINTS THIS BALL IS "+ str(glamour_points)+" !!!!"
-		print "YOU HAVE ACCUMULATED A TOTAL OF " +str(accumulated_points+glamour_points)+" glamour points."
+		print("YOUR TOTAL GLAMOUR POINTS THIS BALL IS "+ str(glamour_points)+" !!!!")
+		print("YOU HAVE ACCUMULATED A TOTAL OF " +str(accumulated_points+glamour_points)+" glamour points.")
 		save_table = cursor.execute("SELECT * FROM save").fetchone()
 		past_glamour_points = save_table['points']
 		new_glamour_points = int(past_glamour_points)+int(glamour_points)
@@ -191,14 +191,14 @@ class Ball():
 		cursor.execute("UPDATE save SET points = "+str(new_glamour_points))
 
 		stage_list		   = ['BathhouseSt', 'DressSt', 'AccessorySt', 'MakeupSt','ShoesSt']
-		print "Preparing a new set of enemies for each stage"
+		print("Preparing a new set of enemies for each stage")
 		for stage in stage_list:
 			general_enemies_list = ['schnauzer', 'carriage','butterfly','old_lady','viking_ship','footboy','bird']
-			print "Removing enemies from "+stage
+			print("Removing enemies from "+stage)
 			for i in general_enemies_list:
 				sql = 'update stage_enemies set '+i+'= 0 where stage = "'+stage+'"'
 				cursor.execute(sql)
-			print "New Enemies List for "+stage
+			print("New Enemies List for "+stage)
 			max_enemies = 1
 			if new_glamour_points >= 30:
 				max_enemies = 2
@@ -219,7 +219,7 @@ class Ball():
 			enemy_number = random.randint(1,max_enemies)
 			for i in range(enemy_number):
 				chosen_enemy = random.choice(general_enemies_list)
-				print chosen_enemy
+				print(chosen_enemy)
 				sql = 'update stage_enemies set '+chosen_enemy+' = 1 where stage = "'+stage+'"'
 				cursor.execute(sql)
 
@@ -375,12 +375,12 @@ class StarBall():
 		self.pos = p([1025,-50])
 
 	def update_all(self):
-		self.image = self.images.left[self.images.itnumber.next()]
+		self.image = self.images.left[next(self.images.itnumber)]
 
 
 class BoyFriend():
 	def __init__(self, universe, points):
-		print "Oh my! You are so beautiful that most certainly someone will fall for you tonight!"
+		print("Oh my! You are so beautiful that most certainly someone will fall for you tonight!")
 		boyfriend = None
 		boyfriend_rank = settings.boyfriend_rank
 		for i in boyfriend_rank:
@@ -395,7 +395,7 @@ class BoyFriend():
 				boyfriend = "emperor_awesome"
 				self.name = t('Emperor Awesome')
 
-		print "The heart of "+boyfriend+" is yours!"
+		print("The heart of "+boyfriend+" is yours!")
 
 		self.hard_name = boyfriend
 		self.image= utils.img.image(os.path.join(directory.boyfriends,boyfriend,'0.png'))
@@ -432,7 +432,7 @@ class NewDancer():
 		try:
 			self.boyfriend_list.remove(boyfriend)
 		except:
-			print Exception
+			print(Exception)
 		ordered_directory_list = [os.path.join(directory.boyfriends,boyfriend,'dance','body')]
 		players_outfit = database.query.my_outfit(universe,princess_name)
 		for i in ('skin','dress','hair','accessory'):
@@ -448,7 +448,7 @@ class NewDancer():
 		self.images.number = random.randint(0,20)
 		self.speed = p(5,r=False)
 
-		self.my_step = self.steps.next()
+		self.my_step = next(self.steps)
 		if not self.player:
 			if self.my_step == 'a':
 				self.position = [self.square[0][0],self.square[1][1]]
