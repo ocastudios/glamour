@@ -118,7 +118,7 @@ class MultiPart():
 		  return a
 
 		def least_common_multiple(nums):
-			return reduce(lambda a, b: a * b / gcd(a, b), nums)
+			return reduce(lambda a, b: int(a * b / gcd(a, b)), nums)
 		def count_png(dir):
 			count = 0
 			for i in os.listdir(dir):
@@ -132,7 +132,7 @@ class MultiPart():
 
 
 		base_images = find_images(ordered_directory_list[0])
-		base_images = base_images*(lcm/count_png(ordered_directory_list[0]))
+		base_images = base_images * int(lcm/count_png(ordered_directory_list[0]))
 		image_size = base_images[0].get_size()
 		self.images = [pygame.Surface(image_size, pygame.SRCALPHA).convert_alpha() for i in range(lcm)]
 		for i in range(lcm):
@@ -142,7 +142,7 @@ class MultiPart():
 
 		for img_list in ordered_directory_list[1:]:
 			images = find_images(img_list)
-			images = images*(lcm/count_png(img_list))
+			images = images * int(lcm/count_png(img_list))
 			for i in range(lcm):
 				self.images[i].blit(images[i],(0,0))
 			if loading:

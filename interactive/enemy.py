@@ -16,7 +16,7 @@ class Schnauzer():
 	music = None
 	def __init__(self, pos, universe, margin=p([20,20,20,20])):
 		self.music	= {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
-		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
+		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies_sounds,'Schnauzer_bark.ogg')) 
 		self.center_distance = pos
 		for i in ['kissed', 'walk', 'stay']:
 			self.__dict__[i] = utils.img.TwoSided(os.path.join(directory.enemies,'Schnauzer',i))
@@ -209,7 +209,7 @@ class Butterfly():
 class OldLady():
 	music = None
 	def __init__(self, pos, universe,margin=p([10,10,10,10])):
-		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
+		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.enemies_sounds,'old_lady.ogg')), 'weight':3} 
 		self.center_distance = pos
 		self.walk   = utils.img.TwoSided(os.path.join(directory.enemies,'OldLady','walk'),margin)
 		self.wave   = utils.img.There_and_back_again(os.path.join(directory.enemies,'OldLady','hover'),margin)
@@ -715,7 +715,7 @@ class VikingShip():
 	music = None 
 
 	def __init__(self, universe):
-		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies_sounds,'viking_ship.ogg')),
 			 'weight':5}
 		self.universe = universe
 		self.base = utils.img.TwoSided(os.path.join(directory.enemies,'VikingShip','base'))
@@ -942,7 +942,7 @@ class Balloon():
 class FootBoy():
 	music = None
 	def __init__(self, pos, universe):
-		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
+		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies_sounds,'fabrizio.ogg')),
 			'weight':4,
 			'playing':False}
 		self.center_distance = pos
@@ -1198,7 +1198,12 @@ class Hawk():
 		else:
 			self.speed = p(30)
 			self.image = self.body.right[self.body.number]
-		self.body = self.attack if self.bird.disturbed <= 3 else self.flying
+
+		if self.bird.disturbed['count'] <= 3:
+			self.body = self.attacking
+		else:
+			self.body = self.flying
+
 		if self.bird.disturbed['count'] == 3:
 			self.mood = 'angry'
 		if self.mood == 'angry':

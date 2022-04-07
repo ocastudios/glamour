@@ -570,9 +570,9 @@ class Menu():
 			D = os.path.join(directory.saves,i)
 			files = os.listdir(D)
 			if 'thumbnail.PNG' in files:
-				saved_games.extend([{'name':i.decode('utf-8'), 'file': os.path.join(directory.saves,i,i+'.db')}])
+				saved_games.extend([{'name':i, 'file': os.path.join(directory.saves,i,i+'.db')}])
 			else:
-				print(t('The '+i.decode('utf-8')+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i.decode('utf-8')))
+				print(t('The '+i+' file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in '+ directory.saves+'/'+i))
 				for f in files:
 					file_to_remove = os.path.join(D,f)
 					os.remove(file_to_remove)
@@ -594,7 +594,7 @@ class Menu():
 		xpos = 0
 		self.buttons = []
 		for i in saved_games:
-			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name'].encode('utf-8')),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
+			self.buttons.extend([widget.Button(self.universe,os.path.join(directory.saves,i['name']),(xpos,ypos),self.position, self.start_game,color = (58,56,0), parameter=([i['file']]))])
 			self.options.extend([
 			  widget.Button(self.universe, i['name'],  (xpos+100,ypos), self.position,self.start_game, color = (58,56,0), parameter=([i['file']])),
 			  widget.Button(self.universe, t('erase'), (xpos+300,ypos) ,self.position,self.remove_save_directory,color = (58,56,0), parameter=[i['name']])

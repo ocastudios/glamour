@@ -51,6 +51,7 @@ class Stage():
 		self.pointer= [self.universe.pointer]
 		self.scenarios_front= []
 		self.animated_scenarios =[]
+		# ordered background to foreground.
 		self.blitlist= ('sky', 'background', 'moving_scenario', 'scenarios', 'animated_scenarios' ,'gates',  'lights', 'princesses','enemies', 'menus')
 		self.foreground	 = []
 		self.white = Foreground(universe)
@@ -851,7 +852,7 @@ class Bar():
 			screen_size = 1440,900 #universe.width, universe.height
 			tile_size   = tile.get_size()
 			image_prep  = pygame.Surface((screen_size[0],tile_size[1]),pygame.SRCALPHA).convert_alpha()
-			bar_positions = list(range(0,(screen_size[0]/tile_size[0]+1)))
+			bar_positions = list(range(0,( int(screen_size[0]/tile_size[0]) + 1)))
 			[image_prep.blit(tile,(i*tile_size[0],0)) for i in bar_positions]
 			self.tile   = utils.img.scale_image(tile)
 			self.tile_size = self.tile.get_size()

@@ -2,6 +2,15 @@ import os
 import pygame
 from . import directory
 
+# Make sure the $HOME/.glamour directories are all there.
+for i in (directory.personal,
+	directory.saves,
+	directory.cache,
+	os.path.join(directory.cache,'images'),
+	):
+	if not os.path.exists(i):
+		os.mkdir(i)
+
 
 #### Fonts ####
 # Default fonts may be overriden when instantiating interfaces.widget.GameText class
@@ -13,7 +22,7 @@ third_font = main_font #Fairy speaches and keyboard
 default_third_font_size = 20
 default_fairy_font_size = 14
 
-#### Princesses #### 
+#### Princesses ####
 Snow_White = {'skin': 'pink', 'hair': 'hair_snowwhite', 'icon': 'princess-icon-apple.png', 'name': 'Snow_White'}
 Cinderella = {'skin': 'tan' , 'hair': 'hair_cinderella','icon': 'princess-icon-shoe.png', 'name': 'Cinderella'}
 Rapunzel = {'skin': 'pink', 'hair': 'hair_rapunzel', 'icon': 'princess-icon-brush.png', 'name': 'Rapunzel'}
@@ -118,23 +127,14 @@ import gettext
 import locale
 
 current_locale, encoding = locale.getdefaultlocale()
-for i in (directory.personal, 
-	directory.saves, 
-	directory.cache, 
-	os.path.join(directory.cache,'images'),
-	):
-	try:
-		os.listdir(i)
-	except:
-		os.mkdir(i)
 
 try:
 	localization_support = gettext.translation('glamour', directory.locale, [current_locale])
 except:
 	localization_support = gettext.translation('glamour', directory.locale, ['en_US'])
-	
+
 localization_support.install()
-t = localization_support.ugettext
+t = localization_support.gettext
 
 #### Boyfriends ####
 boyfriend_rank = (

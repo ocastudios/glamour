@@ -42,8 +42,8 @@ class ClockPointer():
 				extra=120
 				self.pointerpos = 0
 			else:
-				extra=princess.points/10
-				self.pointerpos = (120-extra)/2
+				extra = princess.points/10
+				self.pointerpos = int( (120-extra)/2 )
 			return 240+extra
 		else:
 			self.count = 0
