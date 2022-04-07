@@ -7,14 +7,14 @@ extension = ".png"
 separator = "([0-9]*)"
 
 original = os.listdir(directory)
-new      = []
+new = []
 
 for i in original:
     if i[-4:] == extension:
-        item= []
+        item = []
         for a in re.split(separator, i):
             try:
-                a=int(a)
+                a = int(a)
                 item.append(a)
             except:
                 item.append(a)
@@ -25,14 +25,18 @@ for i in new:
     item = ""
     for part in i:
         if part.__class__ == int:
-            if part <10:        zeros = "000"
-            elif part < 100:    zeros = "00"
-            elif part < 1000:   zeros = "0"
-            else:               zeros = ""
+            if part < 10:
+                zeros = "000"
+            elif part < 100:
+                zeros = "00"
+            elif part < 1000:
+                zeros = "0"
+            else:
+                zeros = ""
             item += zeros
-        item +=str(part)
+        item += str(part)
         original = ""
         for part in i:
             original += str(part)
     print(original)
-    os.rename(directory+original,directory+item)
+    os.rename(directory + original, directory + item)
