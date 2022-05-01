@@ -70,63 +70,64 @@ def main_menu(universe):
 
 
 def stage(universe):
-    pointersize = None
     if universe.level.princesses[0].inside or universe.level.paused:
         inside(universe)
     else:
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                exit()
-            elif event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    if (
-                        not universe.level.paused
-                        and not universe.level.princesses[0].inside
-                        and not universe.level.ball
-                    ):
-                        universe.level.pause.status = "inside"
-                        universe.level.paused = True
-                if event.key in left:
-                    universe.dir = "left"
-                    universe.action[1] = "walk"
-                if event.key in right:
-                    universe.dir = "right"
-                    universe.action[1] = "walk"
-                if event.key in kiss:
-                    universe.action[0] = "kiss"
-                if event.key in jump:
-                    universe.action[0] = "jump"
-                if event.key in ok:
-                    universe.action[0] = "OK"
-                if event.key in up:
-                    if not universe.level.princesses[0].jump:
-                        universe.action[0] = "open_door"
-                if event.key == K_y:
-                    universe.action[0] = "celebrate"
-            elif event.type == KEYUP:
-                universe.action[0] = None
-                if universe.level.princesses[0]:
-                    universe.level.princesses[0].doonce = False
+        outside(universe)
+
+
+def outside(universe):
+    pointersize = None
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
                 if (
-                    universe.dir == "left"
-                    and event.key in left
-                    or (universe.dir == "right" and event.key in right)
+                    not universe.level.paused
+                    and not universe.level.princesses[0].inside
+                    and not universe.level.ball
                 ):
-                    universe.action[1] = "stay"
-            elif event.type == USEREVENT:
-                pygame.mixer.music.queue(universe.level.music)
-            elif event.type == MOUSEMOTION:
-                pointersize = pointersize or universe.pointer.size
-                universe.pointer.pos = (
-                    universe.pointer.mouse_pos[0] - (pointersize[0] / 2),
-                    universe.pointer.mouse_pos[1] - (pointersize[1] / 2),
-                )
-            if event.type == MOUSEBUTTONUP:
-                universe.click = True
-            else:
-                universe.click = False
-            if universe.action[1] == "walk" and universe.action[0] == "open_door":
-                universe.action[0] = None
+                    universe.level.pause.status = "inside"
+                    universe.level.paused = True
+            if event.key in left:
+                universe.dir = "left"
+                universe.action[1] = "walk"
+            if event.key in right:
+                universe.dir = "right"
+                universe.action[1] = "walk"
+            if event.key in kiss:
+                universe.action[0] = "kiss"
+            if event.key in jump:
+                universe.action[0] = "jump"
+            if event.key in ok:
+                universe.action[0] = "OK"
+            if event.key in up:
+                if not universe.level.princesses[0].jump:
+                    universe.action[0] = "open_door"
+            if event.key == K_y:
+                universe.action[0] = "celebrate"
+        elif event.type == KEYUP:
+            universe.action[0] = None
+            if universe.level.princesses[0]:
+                universe.level.princesses[0].doonce = False
+            if (
+                universe.dir == "left"
+                and event.key in left
+                    or (universe.dir == "right" and event.key in right)
+            ):
+                universe.action[1] = "stay"
+        elif event.type == USEREVENT:
+            pygame.mixer.music.queue(universe.level.music)
+        elif event.type == MOUSEMOTION:
+            pointersize = pointersize or universe.pointer.size
+            universe.pointer.pos = (
+                universe.pointer.mouse_pos[0] - (pointersize[0] / 2),
+                universe.pointer.mouse_pos[1] - (pointersize[1] / 2),
+            )
+        universe.click = event.type == MOUSEBUTTONUP
+        if universe.action[1] == "walk" and universe.action[0] == "open_door":
+            universe.action[0] = None
         pygame.event.clear()
 
 
