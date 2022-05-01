@@ -51,7 +51,6 @@ pygame.mixer.pre_init(44100, 16, 256)
 settings.reset_scale()
 pygame.mixer.init()
 pygame.mixer.set_reserved(3)
-import pygame
 
 pygame.init()
 

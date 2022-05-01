@@ -123,7 +123,6 @@ class Princess:
             "accessory",
         ]:
             if row[part] != "None":
-                name = part.replace("_", "")
                 odl.extend([os.path.join(self.directory, row[part], action)])
         return odl
 
@@ -406,10 +405,6 @@ class Princess:
         self.past_choice = chosen
         if not self.jump:
             self.images.update_number()
-
-    def change_clothes(self, part, dir):
-        self.parts.pop(part.index)
-        part = PrincessPart(self, directory.princess + str(dir), part.index)
 
 
 class Dirt:

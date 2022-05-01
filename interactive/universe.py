@@ -4,7 +4,6 @@ import os
 import interface.menu as menu
 import interface.mousepointer as mousepointer
 import settings
-import inspect
 import utils
 from settings import directory
 import interactive.stage as stage
@@ -69,7 +68,6 @@ class Universe:
             if not self.level or self.level.__class__ != stage.Stage:
                 self.fps = 20
                 self.action = [None, "stay", None]
-                # 				self.del_all(self.level)
                 self.pointer.images = self.pointer.images_big
                 self.stage = self.stage or stage.Stage(self)
                 self.level = self.stage
@@ -80,7 +78,6 @@ class Universe:
             if not self.level or self.level.__class__ != menu.Menu:
                 self.fps = 40
                 self.action = ["open", "stay", "open"]
-                # 				self.del_all(self.level)
                 self.pointer.images = self.pointer.images_small
                 self.level = self.menu
                 self.level.vertical_bar["side"] = "left"
