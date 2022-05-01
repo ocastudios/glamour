@@ -13,10 +13,13 @@ p = settings.p
 class Princess:
     """Creates the princess.
 
-    Princess is a rather complex class in comparison with the enemies for princess has many atributes called 'Princess Parts'.
-    That's because princess instance is not build with a single group of images, but a bunch of groups of images that may or not be blitted to the screen.
+    Princess is a rather complex class in comparison with the enemies for
+    princess has many atributes called 'Princess Parts'.  That's because
+    princess instance is not build with a single group of images, but a bunch
+    of groups of images that may or not be blitted to the screen.
 
-    Princess Parts are her dress, her hair, her eyes, arms and everything that may move or change."""
+    Princess Parts are her dress, her hair, her eyes, arms and everything that
+    may move or change."""
 
     directory = directory.princess
 
@@ -245,7 +248,8 @@ class Princess:
                 + self.name
                 + "'"
             )
-            print("Oh Dear, you've got all dirty! I need to take a record on that...")
+            print("Oh Dear, you've got all dirty! "
+                  "I need to take a record on that...")
             self.universe.level.princesses[1] = self.dirties[self.dirt - 1]
 
     def kissing(self):
@@ -383,11 +387,13 @@ class Princess:
         Princess images changes according to the action.
         Not all the universe actions affects the princess.
         The name of the image correspond to the name of the action plus '_img'.
-        self.past_choice keeps the previous action in order to use it if there is no action to use in the present frame.
+        self.past_choice keeps the previous action in order to use it if there
+        is no action to use in the present frame.
         """
 
         self.rect = pygame.Rect(
-            (self.pos[0] + (self.image_size[0] / 2), self.pos[1] - 1), self.size
+            (self.pos[0] + (self.image_size[0] / 2), self.pos[1] - 1),
+            self.size
         )
 
         # filter actions that does not affects the princess
