@@ -593,10 +593,7 @@ class Stage:
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
-        universe_cursor = self.universe.db_cursor
-        row = universe_cursor.execute(
-            "SELECT * FROM stage_enemies WHERE stage = '" + street + "'"
-        ).fetchone()
+        row = database.query.stage_enemies(street)
         enemy.Butterfly._registry = []
         for e in allowed_enemies:
             if int(row[e]):

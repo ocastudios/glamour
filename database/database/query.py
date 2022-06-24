@@ -135,3 +135,9 @@ def won(universe):
         return True
     else:
         return False
+
+
+def stage_enemies(universe, street):
+    cursor = universe.db_cursor
+    sql = f"SELECT * FROM stage_enemies WHERE stage = '{street}'"
+    return cursor.execute(sql).fetchone()
