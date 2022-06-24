@@ -475,6 +475,7 @@ class Stage:
                 screen.status = "finished"
 
     def update_pause(self):
+        """Main loop while paused."""
         princess = self.princesses[0]
         self.choice_screen(self.pause, self.paused)
         if self.enemy_channel.get_sound():
@@ -498,6 +499,7 @@ class Stage:
                 self.paused = False
 
     def update_fairytip(self):
+        """Main loop during for fairytip."""
         pymusic = pygame.mixer.music
         if self.fairy == "loading":
             self.white.image.set_alpha(self.white.alpha_value)
