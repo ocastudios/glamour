@@ -133,60 +133,7 @@ class Stage:
         elif self.fairy and not self.princesses[0].inside and not self.ball:
             self.update_fairytip()
         else:
-            if self.clock[1].count > 160:
-                if self.background[0] == self.ballroom["day"]:
-                    self.background = [self.ballroom["night"]]
-            else:
-                if self.background[0] == self.ballroom["night"]:
-                    self.background = [self.ballroom["day"]]
-            if self.clock[1].time == "ball" and not self.princesses[0].inside:
-                if self.enemy_channel.get_sound():
-                    self.enemy_channel.fadeout(1500)
-                self.enemy_channel
-                self.ball = self.ball or ball.Ball(self.universe, self.princesses[0])
-                self.ball.update_all()
-            else:
-                if self.ball:
-                    self.ball = None
-                self.cameras[0].update_all()
-                self.universe.movement(self.direction)
-                self.update_unlocking()
-
-                if (
-                    not self.inside
-                    or (self.inside.status != "choosing")
-                    or not self.princesses[0].inside
-                ):
-                    for att in self.blitlist:
-                        if att == "lights":
-                            if self.clock[1].time == "night":
-                                for i in self.lights:
-                                    if i["status"] == "on":
-                                        i["position"].update_pos()
-                                    if (
-                                        i["status"] == "off"
-                                        and random.randint(0, 10) == 0
-                                    ):
-                                        i["status"] = "on"
-                                        i["position"].update_pos()
-                        else:
-                            for i in self.__dict__[att]:
-                                if i:
-                                    i.update_all()
-                    self.enemy_music()
-                for i in self.scenarios_front + self.floor_image + self.foreground:
-                    i.update_all()
-                if self.princesses[0].inside:
-                    self.update_insidebar()
-                if (
-                    not self.inside
-                    or (not self.inside.status == "choosing")
-                    or not self.princesses[0].inside
-                ):
-                    for i in self.clock:
-                        i.update_all()
-                [i.update_all() for i in self.panel if i]
-                self.exit_sign.update_all()
+            self.update_game()
         if not pygame.mixer.music.get_busy():
             if self.music:
                 pygame.mixer.music.load(self.music)
@@ -584,6 +531,63 @@ class Stage:
                 self.white.alpha_value = 0
                 self.fairy = None
             self.white.image.set_alpha(self.white.alpha_value)
+
+    def update_game(self):
+        """Main loop during game play."""
+        if self.clock[1].count > 160:
+            if self.background[0] == self.ballroom["day"]:
+                self.background = [self.ballroom["night"]]
+        else:
+            if self.background[0] == self.ballroom["night"]:
+                self.background = [self.ballroom["day"]]
+        if self.clock[1].time == "ball" and not self.princesses[0].inside:
+            if self.enemy_channel.get_sound():
+                self.enemy_channel.fadeout(1500)
+            self.enemy_channel
+            self.ball = self.ball or ball.Ball(self.universe, self.princesses[0])
+            self.ball.update_all()
+        else:
+            if self.ball:
+                self.ball = None
+            self.cameras[0].update_all()
+            self.universe.movement(self.direction)
+            self.update_unlocking()
+
+            if (
+                not self.inside
+                or (self.inside.status != "choosing")
+                or not self.princesses[0].inside
+            ):
+                for att in self.blitlist:
+                    if att == "lights":
+                        if self.clock[1].time == "night":
+                            for i in self.lights:
+                                if i["status"] == "on":
+                                    i["position"].update_pos()
+                                if (
+                                    i["status"] == "off"
+                                    and random.randint(0, 10) == 0
+                                ):
+                                    i["status"] = "on"
+                                    i["position"].update_pos()
+                    else:
+                        for i in self.__dict__[att]:
+                            if i:
+                                i.update_all()
+                self.enemy_music()
+            for i in self.scenarios_front + self.floor_image + self.foreground:
+                i.update_all()
+            if self.princesses[0].inside:
+                self.update_insidebar()
+            if (
+                not self.inside
+                or (not self.inside.status == "choosing")
+                or not self.princesses[0].inside
+            ):
+                for i in self.clock:
+                    i.update_all()
+            [i.update_all() for i in self.panel if i]
+            self.exit_sign.update_all()
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
