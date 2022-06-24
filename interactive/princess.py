@@ -217,19 +217,13 @@ class Princess:
                     ):
                         self.get_dirty()
             else:
-                self.status["hurt"] += 1
-                if self.status["hurt"] == 40:
-                    self.status["hurt"] = 0
+                self.status["hurt"] = (self.status["hurt"] + 1) % 40
             if self.status["excited"]:
-                self.status["excited"] += 1
+                self.status["excited"] = (self.status["excited"] + 1) % 60
                 action[0] = "celebrate"
-                if self.status["excited"] == 60:
-                    self.status["excited"] = 0
             if self.status["scared"]:
-                self.status["scared"] += 1
+                self.status["scared"] = (self.status["scared"] + 1) % 60
                 action[1] = "run_away"
-                if self.status["scared"] == 60:
-                    self.status["scared"] = 0
             if self.status["hurt"] and self.status["hurt"] < 6:
                 action[0] = "ouch"
                 self.status["excited"] = 0
