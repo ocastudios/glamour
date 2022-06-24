@@ -17,9 +17,9 @@ class TwoSided:
     Margin is the alpha space between the image and the actual drawing. You may specify margin as a list in the following format: [up,left,down,right], i.e, clockwise.
     Margin may be used to better program interaction during the game. Margin default to all zero."""
 
-    def __init__(self, dir, margin=[0, 0, 0, 0]):
+    def __init__(self, d, margin=[0, 0, 0, 0]):
         self.margin = margin
-        self.left = find_images(dir)
+        self.left = find_images(d)
         self.right = invert_images(self.left)
         self.number = 0
         self.lenght = len(self.left)
@@ -47,9 +47,9 @@ class TwoSided:
 
 
 class OneSided(TwoSided):
-    def __init__(self, dir, margin=[0, 0, 0, 0]):
+    def __init__(self, d, margin=[0, 0, 0, 0]):
         self.margin = margin
-        self.list = self.left = find_images(dir)
+        self.list = self.left = find_images(d)
         self.number = 0
         self.size = self.list[0].get_size()
         self.lenght = len(self.list)
@@ -59,7 +59,7 @@ class OneSided(TwoSided):
 class There_and_back_again(TwoSided):
     def __init__(
         self,
-        dir,
+        d,
         margin=[0, 0, 0, 0],
         exclude_border=False,
         second_dir=False,
@@ -67,7 +67,7 @@ class There_and_back_again(TwoSided):
         second_extra_part=False,
     ):
         self.margin = margin
-        preleft = find_images(dir)
+        preleft = find_images(d)
         if extra_part:
             extra = find_images(extra_part)
             for i, e in zip(preleft, extra):
@@ -95,9 +95,9 @@ class There_and_back_again(TwoSided):
 
 
 class GrowingUngrowing(TwoSided):
-    def __init__(self, dir, frames, margin=[0, 0, 0, 0]):
+    def __init__(self, d, frames, margin=[0, 0, 0, 0]):
         self.margin = margin
-        self.list = self.left = find_images(dir)
+        self.list = self.left = find_images(d)
         n_list = [
             pygame.transform.smoothscale(i, (i.get_width(), i.get_height() - (2 * x)))
             for x in range(frames)
@@ -113,8 +113,8 @@ class GrowingUngrowing(TwoSided):
 
 
 class Buttons(GrowingUngrowing):
-    def __init__(self, dir, frames):
-        self.list = self.left = find_images(dir)
+    def __init__(self, d, frames):
+        self.list = self.left = find_images(d)
         n_list = [
             pygame.transform.smoothscale(
                 i, (i.get_width() + (2 * x), i.get_height() + (2 * x))
@@ -143,9 +143,9 @@ class MultiPart:
         def least_common_multiple(nums):
             return reduce(lambda a, b: int(a * b / gcd(a, b)), nums)
 
-        def count_png(dir):
+        def count_png(d):
             count = 0
-            for i in os.listdir(dir):
+            for i in os.listdir(d):
                 if i[-4:] == ".png" or i[-4:] == ".PNG":
                     count += 1
             return count
@@ -265,12 +265,13 @@ def scale_image(prep, invert=False):
         return pygame.transform.smoothscale(prep, size)
 
 
-def find_images(dir, can_yield=False):
-    if not re.search(directory.main, dir) and not re.search(directory.homedir, dir):
-        dir = os.path.join(directory.main, dir)
+def find_images(d, can_yield=False):
+    if not re.search(directory.main, d) \
+            and not re.search(directory.homedir, d):
+        d = os.path.join(directory.main, d)
     return [
-        image(os.path.join(dir, item))
-        for item in sorted(os.listdir(dir))
+        image(os.path.join(d, item))
+        for item in sorted(os.listdir(d))
         if (item[-4:] == ".png" or item[-4:] == ".PNG")
     ]
 
