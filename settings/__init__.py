@@ -110,15 +110,16 @@ def reset_scale(percentage="high", full_screen=False):
 
 scale = reset_scale(percentage=active_resolution, full_screen=active_full)
 
+
 #### Scale function ####
 def p(positions, r=True):
     if positions.__class__ in (list, tuple):
-        if round:
+        if r:
             return [int(round(i * scale)) for i in positions]
         else:
             return [i * scale for i in positions]
     elif positions.__class__ in (int, float):
-        if round:
+        if r:
             return round(positions * scale)
         else:
             return positions * scale
@@ -126,12 +127,12 @@ def p(positions, r=True):
 
 def d(positions, r=True):
     if positions.__class__ in (list, tuple):
-        if round:
+        if r:
             return [int(round(i / scale)) for i in positions]
         else:
             return [i / scale for i in positions]
     elif positions.__class__ in (int, float):
-        if round:
+        if r:
             return round(positions / scale)
         else:
             return positions / scale
