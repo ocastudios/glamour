@@ -1,8 +1,7 @@
 import os
-import operator
 import pygame
 import re
-from itertools import *
+import itertools
 import settings
 from settings import p
 from settings import directory
@@ -25,7 +24,7 @@ class TwoSided:
         self.lenght = len(self.left)
         if self.lenght > 0:
             self.size = self.left[0].get_size()
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
     def update_number(self, backwards=False):
         if not backwards:
@@ -53,7 +52,7 @@ class OneSided(TwoSided):
         self.number = 0
         self.size = self.list[0].get_size()
         self.lenght = len(self.list)
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
 
 class There_and_back_again(TwoSided):
@@ -91,7 +90,7 @@ class There_and_back_again(TwoSided):
         self.size = self.left[0].get_size()
         self.lenght = len(self.left)
         self.number = 0
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
 
 class GrowingUngrowing(TwoSided):
@@ -109,7 +108,7 @@ class GrowingUngrowing(TwoSided):
         self.lenght = len(self.list)
         self.number = 0
         self.size = self.list[self.number].get_size()
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
 
 class Buttons(GrowingUngrowing):
@@ -128,7 +127,7 @@ class Buttons(GrowingUngrowing):
         self.lenght = len(self.list)
         self.number = 0
         self.size = self.list[self.number].get_size()
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
 
 class MultiPart:
@@ -187,7 +186,7 @@ class MultiPart:
         self.lenght = len(self.left)
         if self.lenght > 0:
             self.size = self.left[0].get_size()
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
         if loading:
             loading()
 
@@ -213,7 +212,7 @@ class Ad_hoc:
         self.lenght = len(self.left)
         if self.lenght > 0:
             self.size = self.left[0].get_size()
-        self.itnumber = cycle(list(range(self.lenght)))
+        self.itnumber = itertools.cycle(list(range(self.lenght)))
 
     def update_number(self, backwards=False):
         if not backwards:
@@ -235,16 +234,16 @@ class Ad_hoc:
 
 
 def image(path, invert=False, alpha=True):
-    if not re.search(directory.main, path) and not re.search(directory.homedir, path):
+    if not re.search(directory.main, path) \
+            and not re.search(directory.homedir, path):
         path = os.path.join(directory.main, path)
     if alpha:
         prep = pygame.image.load(path).convert_alpha()
     else:
         prep = pygame.image.load(path).convert()
-    if invert == True:
+    if invert is True:
         prep = pygame.transform.flip(prep, 1, 0)
     prep_size = prep.get_size()
-    scaled_width = prep_size[0] * settings.scale
     size = (
         int(round(prep_size[0] * settings.scale)),
         int(round(prep_size[1] * settings.scale)),
@@ -254,13 +253,13 @@ def image(path, invert=False, alpha=True):
 
 def scale_image(prep, invert=False):
     prep_size = prep.get_size()
-    scaled_width = prep_size[0] * settings.scale
     size = (
         int(round(prep_size[0] * settings.scale)),
         int(round(prep_size[1] * settings.scale)),
     )
     if invert:
-        return pygame.transform.flip(pygame.transform.smoothscale(prep, size), 1, 0)
+        return pygame.transform.flip(
+            pygame.transform.smoothscale(prep, size), 1, 0)
     else:
         return pygame.transform.smoothscale(prep, size)
 
@@ -272,7 +271,7 @@ def find_images(d, can_yield=False):
     return [
         image(os.path.join(d, item))
         for item in sorted(os.listdir(d))
-        if (item[-4:] == ".png" or item[-4:] == ".PNG")
+        if (item.endswith(".png") or item.endswith(".PNG"))
     ]
 
 
