@@ -1,37 +1,208 @@
-interactive/enemy.py:		self.music	= {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
-interactive/enemy.py:		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
-interactive/enemy.py:			'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
-interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
-interactive/enemy.py:		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
-interactive/enemy.py:		self.growl_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','lion3.ogg'))
-interactive/enemy.py:		self.call = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','elephant9.ogg'))
-interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
-interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
-interactive/enemy.py:		self.music = self.music or {'sound': pygame.mixer.Sound(os.path.join(directory.music,'hawk.ogg')),
-interactive/fairy.py:	whistle	 = pygame.mixer.Sound(j(directory.sounds,'story','frames','s03.ogg'))
-interactive/fairy.py:	music	   = j(directory.music,'1stSnowfall.ogg')
-interactive/princess.py:		self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
-interactive/princess.py:		self.jumpsound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
-interactive/princess.py:		self.kisssound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
-interactive/stage.py:		self.stage_music("bathhouse.ogg")
-interactive/stage.py:		self.stage_music("snow-white.ogg")
-interactive/stage.py:		self.stage_music("cinderella.ogg")
+# interactive/enemy.py:		self.music	= {'sound':pygame.mixer.Sound(os.path.join(directory.music,'schnauzer.ogg')), 'weight':5} 
+Schnauzer Music - https://musopen.org/music/149-waltzes-op-64/ 
+  Composer: Chopin
+  Name: Valse du petit chien - Minute Valse
+  Interpreter Olga Gurevich
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9178/
+
+# interactive/enemy.py:			'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
+Carriage Music - https://musopen.org/music/4415-waltzes-op-69/
+  Composer: Chopin
+  Name: Waltz in A flat major 'Farewell', Op. 69 no. 1
+  Interpreter Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9173/
+
+# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
+Butterfly Music - https://musopen.org/music/611-etudes-op-25/
+  Composer: Chopin
+  Name: Etude Op. 25 no. 9 in G flat major - 'Butterfly'
+  Interpreter: Edward Neeman
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9532/
+
+# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
+https://musopen.org/music/154-waltzes-op-70/
+  Composer: Chopin
+  Name: Waltz in D flat major, Op. 70 no. 3
+  Interpreter Olga Gurevich
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9177/
+# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
+  
+https://musopen.org/music/154-waltzes-op-70/
+  Composer: Chopin
+  Name: Waltz in D flat major, Op. 70 no. 3
+  Interpreter Olga Gurevich
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9177/
+
+# interactive/enemy.py:		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
+OldLady Music - https://musopen.org/music/4415-waltzes-op-69/
+  Composer: Chopin
+  Name: Waltz in B minor, Op 69, no. 2
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9174/
+
+# interactive/enemy.py:		self.growl_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','lion3.ogg'))
+Lion Music - https://musopen.org/music/149-waltzes-op-64/
+  Composer: Chopin
+  Name: Waltz in C sharp minor, Op.64 no. 2
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9179/
+
+
+# interactive/enemy.py:		self.call = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','elephant9.ogg'))
+Elephant Music
+  The same as Lion Music
+
+# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
+VikingShip Music - hhttps://musopen.org/music/4406-waltz-in-a-minor-b-150
+  Composer: Chopin
+  Name: Waltz in A minor, B. 150
+  Interpreter: Aya Higuchi
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/8003/
+
+# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
+Fabrizio - https://musopen.org/music/151-waltzes-op-34/
+  Composer: Chopin
+  Name: Waltz in A flat major, Op. 34 no. 1
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/11760/
+
+# interactive/enemy.py:		self.music = self.music or {'sound': pygame.mixer.Sound(os.path.join(directory.music,'hawk.ogg')),
+Fabrizio - https://musopen.org/music/151-waltzes-op-34/
+  Composer: Chopin
+  Name: Waltz in A flat major, Op. 34 no. 3
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9188/
+
+# interactive/fairy.py:	music	   = j(directory.music,'1stSnowfall.ogg')
+Fairy music - https://musopen.org/music/609-3-ecossaises-op-72-no-3/
+  Composer: Chopin
+  Name: Ecossaises, Op. 72 no. 3 - III. In D flat major
+  Interpreter: Aya Higuchi
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9577/
+
+# interactive/stage.py:		self.stage_music("bathhouse.ogg")
+BathhouseSt music - https://musopen.org/music/154-waltzes-op-70/
+  Composer: Chopin
+  Name: Chopin Waltzes, Op. 70, no. 3
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9177/
+
+# interactive/stage.py:		self.stage_music("snow-white.ogg")
+SnowWhite music - https://musopen.org/music/154-waltzes-op-70/
+  Composer: Chopin
+  Name: Chopin Waltzes, Op. 70 no. 2
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9176/
+
+# interactive/stage.py:		self.stage_music("cinderella.ogg")
+Cinderella Music - https://musopen.org/music/151-waltzes-op-34/
+  Composer: Chopin
+  Name: Waltz in A minor, Op. 34 no. 2
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9187/
+
 interactive/stage.py:		self.stage_music("sleeping-beauty.ogg")
+SleepingBeauty - Music - https://musopen.org/music/4412-waltz-in-e-flat-major-b-133/
+  Composer: Chopin
+  Name: Waltz in E flat major 'sostenuto', B. 133
+  Interpreter: Aya Higuchi
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/8005/
+
 interactive/stage.py:		self.stage_music("rapunzel.ogg")
-interactive/stage.py:		toggle = widget.Button(self.universe, t('Toggle Fullscreen'), (710,760), [0,0], self.toggle_fullscreen)
-interactive/stage.py:		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet, toggle)
+https://musopen.org/music/4411-waltz-in-e-flat-major-b-46/
+  Composer: Chopin
+  Name: Waltz in E flat major, B. 46
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9203/
+
 interactive/stage.py:		self.music  = j(directory.music,'pause.ogg')
-interactive/stage.py:	def toggle_fullscreen(self):
-interface/ball.py:		pygame.mixer.music.load(os.path.join(directory.music,"strauss_waltz_wedley.ogg"))
+https://musopen.org/music/4362-cantabile-in-b-flat-major-b-84/
+  Composer: Chopin
+  Name: Cantabile in B-Flat, B. 84 - Complete Score
+  Interpreter: Aya Higuchi
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/7962/
+
+Ball music - https://archive.org/details/StraussWaltz
+  Composer: Johann Strauss II
+  Name: The Blue Danube
+  Interpreter: United States Air Force Band
+  Licence: Public Domain
+  Source: Archive.org
+  https://archive.org/download/StraussWaltz/strauss_waltz_wedley.ogg
+  interface/ball.py:		pygame.mixer.music.load(os.path.join(directory.music,"strauss_waltz_wedley.ogg"))
+
 interface/inside.py:		self.music = os.path.join(directory.music,'menu.ogg')
-interface/inside.py:		self.music = os.path.join(directory.music,'menu.ogg')
-interface/inside.py:		self.music = os.path.join(directory.music,'menu.ogg')
-interface/menu.py:		pygame.mixer.music.load(os.path.join(directory.music,'menu.ogg'))
-interface/menu.py:			(t('Toggle Resolution'),100,self.toggle_resolution),
-interface/menu.py:			(t('Toggle Fullscreen'),170,self.toggle_fullscreen),
-interface/menu.py:	def toggle_resolution(self):
-interface/menu.py:	def toggle_fullscreen(self):
+Menu music - https://musopen.org/music/4353-andante-spianato-and-grande-polonaise-brillante-op-22/
+  Composer: Chopin
+  Name: Andante spianato and Grande Polonaise Brillante Op. 22
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  hhttps://musopen.org/music/download/11758/
+
+
+interactive/enemy.py:		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
+  No change
+
+interactive/fairy.py:	whistle	 = pygame.mixer.Sound(j(directory.sounds,'story','frames','s03.ogg'))
+  No Change
+
+interactive/princess.py:		self.steps = [pygame.mixer.Sound(os.path.join(directory.princess_sounds,'steps','spike_heel','street',str(i)+'.ogg')) for i in range(0,5)]
+  No Change
+
+interactive/princess.py:		self.jumpsound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'pulo.ogg'))
+  No Change
+
+interactive/princess.py:		self.kisssound		= pygame.mixer.Sound(os.path.join(directory.princess_sounds,'kiss.ogg'))
+  No Change
+
+interactive/stage.py:		toggle = widget.Button(self.universe, t('Toggle Fullscreen'), (710,760), [0,0], self.toggle_fullscreen)
+  No Change
+
+interactive/stage.py:		self.buttons	= (resume, ok_button, leave, cancel_button, title, check_closet, toggle)
+  No Change
+
 interface/menu.py:		self.flip_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'story','sflip.ogg'))
-interface/menu.py:			(t('the foggy dew'),(615,1678),44,(128,0,0,255)),
+  No Change
+
 interface/widget.py:	click = pygame.mixer.Sound(os.path.join(directory.sounds,'click.ogg'))
+  No Change
+
 scenario/floors.py:	sound = pygame.mixer.Sound(os.path.join(settings.directory.sounds,'scenario','water','Wavesloop.ogg'))
+  No Change
+
+
