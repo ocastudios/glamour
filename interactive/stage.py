@@ -141,6 +141,9 @@ class Stage:
         for i in self.pointer:
             i.update_all()
 
+    def subtick_update(self):
+        pass
+
     def update_unlocking(self):
         if self.unlocking:
             if not self.princesses[0].inside:
@@ -593,7 +596,7 @@ class Stage:
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
-        row = database.query.stage_enemies(street)
+        row = database.query.stage_enemies(self.universe, street)
         enemy.Butterfly._registry = []
         for e in allowed_enemies:
             if int(row[e]):

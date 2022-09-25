@@ -8,12 +8,13 @@ import re
 import utils
 import settings.directory as directory
 import settings
+from interactive.game_object import Updatable
 
 p = settings.p
 channel = pygame.mixer.Channel(0)
 
 
-class Button:
+class Button(Updatable):
     click = pygame.mixer.Sound(os.path.join(directory.sounds, "click.ogg"))
 
     def __init__(
@@ -36,10 +37,11 @@ class Button:
         """
         self.universe = universe
         self.level_pos = level_pos
+        self.hovered = False
         try:
             os.listdir(dirtxt)
             self.type_of_button = "image"
-        except:
+        except OSError:
             self.type_of_button = "text"
 
         if self.type_of_button == "image":
@@ -82,6 +84,10 @@ class Button:
         except:
             pass
         self.rect = pygame.Rect(self.pos, self.size)
+        if self.hovered:
+            self.wobble()
+
+    def subtick_update(self):
         self.click_detection()
 
     def invert_images(self, list):
@@ -91,6 +97,12 @@ class Button:
             inv_list.append(inv)
         return inv_list
 
+    def wobble(self):
+        try:
+            self.image = self.list_of_images[next(self.images.itnumber)]
+        except AttributeError:
+            pass
+
     def click_detection(self):
         if (
             self.rect.collidepoint(self.universe.pointer.mouse_pos)
@@ -99,10 +111,7 @@ class Button:
             self.rect.colliderect(self.universe.pointer.rect)
             and self.universe.pointer.type == 1
         ):
-            try:
-                self.image = self.list_of_images[next(self.images.itnumber)]
-            except:
-                pass
+            self.hovered = True
             if self.type_of_button == "text":
                 self.image = self.fontB.render(self.text, 1, self.color)
             if self.universe.click:
@@ -113,6 +122,7 @@ class Button:
                 else:
                     self.function()
         else:
+            self.hovered = False
             if self.image != self.list_of_images[0]:
                 try:
                     self.image = self.images.list[next(self.images.itnumber)]
@@ -122,7 +132,7 @@ class Button:
                 self.image = self.fontA.render(self.text, 1, self.color)
 
 
-class GameText:
+class GameText(Updatable):
     def __init__(
         self,
         universe,
@@ -261,7 +271,7 @@ class Letter(GameText):
         )
         self.hoover_size = hoover_size
         self.size = p((30, 30))
-        self.rect = (self.pos, self.size)
+        self.rect = pygame.Rect(self.pos, self.size)
 
     def update_all(self):
         self.size = self.image.get_size()
@@ -271,6 +281,8 @@ class Letter(GameText):
         ]
         self.rect = pygame.Rect(self.pos, self.size)
         self.type = type
+
+    def subtick_update(self):
         self.click_detection()
 
     def click_detection(self):
@@ -294,6 +306,7 @@ class Key(GameText):
             self, universe, text, pos, frame_pos, color=(83, 0, 0), size="small"
         )
         self.key = key_type
+        self.rect = pygame.Rect(self.pos, self.size)
 
     def update_all(self):
         self.size = self.image.get_size()
@@ -302,6 +315,8 @@ class Key(GameText):
             self.frame_pos[1] + self.position[1] - (self.size[1] / 2),
         ]
         self.rect = pygame.Rect(self.pos, self.size)
+
+    def subtick_update(self):
         self.click_detection()
 
     def click_detection(self):

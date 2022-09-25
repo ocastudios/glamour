@@ -85,6 +85,12 @@ class Menu:
         )
         self.count += 1
 
+    def subtick_update(self):
+        self.control_keyboard()
+        for item in items:
+            for i in self.__dict__[item]:
+                i.subtick_update()
+
     def reload_images(self):
         position = [360, 200]
         position = p([position[0], position[1]])
@@ -201,55 +207,6 @@ class Menu:
         if self.print_princess:
             self.princess.update_all()
             [surface.blit(i, self.princess.pos) for i in self.princess.images if i]
-        self.mouse_positions = [i.rect.center for i in self.options + self.buttons]
-        keyboard = self.universe.action[0]
-        if keyboard:
-            if keyboard in ("up", "left"):
-                self.selector -= 1
-            elif keyboard in ("down", "right"):
-                self.selector += 1
-            # test if self.selector is in range
-            # the menu items may change! Always test both min and max
-            if self.selector < 0:
-                self.selector = len(self.mouse_positions) - 1
-            if self.selector > len(self.mouse_positions) - 1:
-                self.selector = 0
-            pygame.mouse.set_pos(self.mouse_positions[self.selector])
-        self.position[1] += round(self.speed)
-        if "_ _ _ _ _ _ _" in [i.text for i in self.texts]:
-            if keyboard in (
-                "a",
-                "b",
-                "c",
-                "d",
-                "e",
-                "f",
-                "g",
-                "h",
-                "i",
-                "j",
-                "k",
-                "l",
-                "m",
-                "n",
-                "o",
-                "p",
-                "q",
-                "r",
-                "s",
-                "t",
-                "u",
-                "v",
-                "w",
-                "x",
-                "y",
-                "z",
-            ):
-                self.princess.name.text += keyboard
-            if keyboard == "space":
-                self.princess.name.text += " "
-            if keyboard == "backspace":
-                self.princess.name.text = self.princess.name.text[:-1]
         accel = p(2, r=False)
         if self.action == "open":
             if self.position[1] != self.goal_pos[1]:
@@ -291,6 +248,33 @@ class Menu:
         if self.credits:
             surface.blit(self.credits.background, self.credits.pos)
             self.credits.update_all()
+        self.position[1] += round(self.speed)
+
+    def control_keyboard(self):
+        self.mouse_positions = [i.rect.center for i in self.options + self.buttons]
+        keyboard = self.universe.action[0]
+        if not keyboard:
+            return
+
+        if keyboard in ("up", "left"):
+            self.selector -= 1
+        elif keyboard in ("down", "right"):
+            self.selector += 1
+        # test if self.selector is in range
+        # the menu items may change! Always test both min and max
+        if self.selector < 0:
+            self.selector = len(self.mouse_positions) - 1
+        if self.selector > len(self.mouse_positions) - 1:
+            self.selector = 0
+        pygame.mouse.set_pos(self.mouse_positions[self.selector])
+
+        if "_ _ _ _ _ _ _" in [i.text for i in self.texts]:
+            if keyboard in "abcdefghijklmnopqrstuvwxyz":
+                self.princess.name.text += keyboard
+            if keyboard == "space":
+                self.princess.name.text += " "
+            if keyboard == "backspace":
+                self.princess.name.text = self.princess.name.text[:-1]
 
     def close_bar(self, surface):
         universe = self.universe
@@ -811,6 +795,7 @@ class Menu:
             print("Connecting to Database")
             db.connect_db(using_saved_game, self.universe)
             self.universe.LEVEL = "game"
+        self.universe.define_level()
 
     def create_files(
         self,
@@ -866,12 +851,10 @@ class Menu:
             else:
                 print(
                     t(
-                        "The "
-                        + i
-                        + " file is not well formed. The thumbnail was probably not saved. The saved file will not work without a thumbnail. Please, check this out in "
-                        + directory.saves
-                        + "/"
-                        + i
+                        f"The {i} file is not well formed. "
+                        "The thumbnail was probably not saved. "
+                        "The saved file will not work without a thumbnail. "
+                        f"Please, check this out in {directory.saves}/{i}"
                     )
                 )
                 for f in files:
