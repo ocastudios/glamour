@@ -14,6 +14,8 @@ class Universe:
         w = int(round(settings.resolution[0]))
         h = int(round(settings.resolution[1]))
         self.clock = pygame.time.Clock()
+        self.milliseconds = 0.0
+        self.subtick = 0.0
         self.center_x = int(-3400 * settings.scale)
         self.center_y = 0
         self.floor = self.height = h
@@ -53,15 +55,25 @@ class Universe:
             self.menu = level
             self.level = level
         self.pointer = mousepointer.MousePointer(self, type=2)
+        self.sub_tick = 0
 
     def update_all(self):
-        self.pointer.update()
-        self.level.update_all()
+        self.sub_tick == 0 and self.pointer.update()
+        self.sub_tick == 0 and self.level.update_all()
+        self.level.subtick_update()
         if self.LEVEL == "menu" and self.level.__class__ != menu.Menu:
             self.define_level()
-        if self.LEVEL == "game":
-            if self.level.__class__ != stage.Stage:
-                self.define_level()
+        if self.LEVEL == "game" and self.level.__class__ != stage.Stage:
+            self.define_level()
+        self.track_time()
+
+    def track_time(self):
+        milliseconds = pygame.time.get_ticks()
+        self.sub_tick += milliseconds - (self.milliseconds or 0.0)
+        if self.sub_tick > 1000 / self.fps:
+            self.sub_tick = 0
+        self.clock.tick()
+        self.milliseconds = milliseconds
 
     def define_level(self):
         if self.LEVEL == "game":

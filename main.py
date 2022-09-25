@@ -68,6 +68,5 @@ if __name__ == "__main__":
             control.main_menu(universe)
         elif universe.LEVEL == "game":
             control.stage(universe)
-        universe.clock.tick(universe.fps)
         universe.update_all()
         pygame.display.flip()
