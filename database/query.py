@@ -10,16 +10,14 @@ from settings import *
 def unlocked(universe, clothe_type=None, field=None, limit_n_random=False):
     type_to_select = ""
     if clothe_type:
-        type_to_select = "type = '" + clothe_type + "' AND "
-    sql = (
-        """
-		SELECT * 
-			FROM unlock 
-			WHERE   """
-        + type_to_select
-        + """ status  = 'unlocked'
-		"""
-    )
+        type_to_select = f"type = '{clothe_type}' AND "
+    sql = (f"""
+        SELECT *
+            FROM unlock
+            WHERE
+            {type_to_select}
+            status  = 'unlocked'
+        """)
     row = universe.db_cursor.execute(sql).fetchall()
     if field:
         row = [i[field] for i in row]
@@ -32,10 +30,10 @@ def unlocked(universe, clothe_type=None, field=None, limit_n_random=False):
 
 
 def street(universe, street, table):
-    db = sqlite3.connect(os.path.join(directory.data, street + ".db"))
+    db = sqlite3.connect(os.path.join(directory.data, f"{street}.db"))
     db.row_factory = sqlite3.Row
     cursor = db.cursor()
-    result = cursor.execute("SELECT * FROM " + table + " ORDER BY id ASC").fetchall()
+    result = cursor.execute(f"SELECT * FROM {table} ORDER BY id ASC").fetchall()
     return result
 
 
@@ -43,38 +41,29 @@ def message(universe, name, one=False):
     cursor = universe.db_cursor
     if not one:
         result = cursor.execute(
-            "SELECT * FROM messages WHERE name = '" + name + "'"
+            f"SELECT * FROM messages WHERE name = '{name}'"
         ).fetchall()
     else:
         result = cursor.execute(
-            "SELECT * FROM messages WHERE name = '" + name + "'"
+            f"SELECT * FROM messages WHERE name = '{name}'"
         ).fetchone()
     return result
 
 
 def is_locked(universe, clothe_type, garment):
-    row = universe.db_cursor.execute(
-        """
-	SELECT * 
-		FROM unlock 
-		WHERE   type = '"""
-        + clothe_type
-        + """'
-		AND	 garment = '"""
-        + garment
-        + """'
-	"""
-    ).fetchone()
-    if row["status"] == "locked":
-        return True
-    else:
-        return False
+    row = universe.db_cursor.execute(f"""
+        SELECT * 
+            FROM unlock 
+            WHERE   type = '{clothe_type}'
+            AND garment = '{garment}' """
+            ).fetchone()
+    return row["status"] == "locked"
 
 
 def is_beaten(universe, enemy):
     cursor = universe.db_cursor
     result = cursor.execute(
-        "SELECT " + enemy + " FROM stage_enemies WHERE stage = 'Beaten'"
+        f"SELECT {enemy} FROM stage_enemies WHERE stage = 'Beaten'"
     ).fetchone()
     if int(result[0]) > 0:
         return True
@@ -91,14 +80,8 @@ def last_balls(universe):
 
 def my_outfit(universe, princess, previous=0):
     cursor = universe.db_cursor
-    sql = (
-        "SELECT * FROM "
-        + princess
-        + " WHERE id = (SELECT MAX(id) FROM "
-        + princess
-        + ")-"
-        + str(previous)
-    )
+    sql = (f"""SELECT * FROM {princess}
+            WHERE id = (SELECT MAX(id) FROM {princess})-{previous}""")
     result = cursor.execute(sql).fetchone()
     return result
 
@@ -135,3 +118,9 @@ def won(universe):
         return True
     else:
         return False
+
+
+def stage_enemies(universe, street):
+    cursor = universe.db_cursor
+    sql = f"SELECT * FROM stage_enemies WHERE stage = '{street}'"
+    return cursor.execute(sql).fetchone()
