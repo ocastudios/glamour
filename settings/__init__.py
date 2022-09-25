@@ -81,7 +81,11 @@ if "fullscreen" in configurations and configurations["fullscreen"] == "True":
 if "resolution" in configurations and configurations["resolution"] in ("high", "low"):
     active_resolution = configurations["resolution"]
 
-os_screen = pygame.display.Info()
+try:
+    os_screen = pygame.display.Info()
+except pygame.error:
+    pygame.init()
+    os_screen = pygame.display.Info()
 
 
 def reset_scale(percentage="high", full_screen=False):
