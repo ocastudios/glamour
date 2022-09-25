@@ -2,19 +2,21 @@
 Schnauzer Music - https://musopen.org/music/149-waltzes-op-64/ 
   Composer: Chopin
   Name: Valse du petit chien - Minute Valse
-  Interpreter Olga Gurevich
+  Interpreter: Olga Gurevich
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9178/
+  Done.
 
 # interactive/enemy.py:			'sound':pygame.mixer.Sound(os.path.join(directory.music,'carriage.ogg')),
 Carriage Music - https://musopen.org/music/4415-waltzes-op-69/
   Composer: Chopin
   Name: Waltz in A flat major 'Farewell', Op. 69 no. 1
-  Interpreter Olga Gurevitch
+  Interpreter: Olga Gurevitch
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9173/
+  Done.
 
 # interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
 Butterfly Music - https://musopen.org/music/611-etudes-op-25/
@@ -24,24 +26,7 @@ Butterfly Music - https://musopen.org/music/611-etudes-op-25/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9532/
-
-# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
-https://musopen.org/music/154-waltzes-op-70/
-  Composer: Chopin
-  Name: Waltz in D flat major, Op. 70 no. 3
-  Interpreter Olga Gurevich
-  Licence: Public Domain
-  Source: Musopen.org
-  https://musopen.org/music/download/9177/
-# interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'butterfly.ogg')),
-  
-https://musopen.org/music/154-waltzes-op-70/
-  Composer: Chopin
-  Name: Waltz in D flat major, Op. 70 no. 3
-  Interpreter Olga Gurevich
-  Licence: Public Domain
-  Source: Musopen.org
-  https://musopen.org/music/download/9177/
+  Done.
 
 # interactive/enemy.py:		self.music = {'sound':pygame.mixer.Sound(os.path.join(directory.music,'old_lady.ogg')), 'weight':3} 
 OldLady Music - https://musopen.org/music/4415-waltzes-op-69/
@@ -51,6 +36,7 @@ OldLady Music - https://musopen.org/music/4415-waltzes-op-69/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9174/
+  Done.
 
 # interactive/enemy.py:		self.growl_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','lion3.ogg'))
 Lion Music - https://musopen.org/music/149-waltzes-op-64/
@@ -205,4 +191,13 @@ interface/widget.py:	click = pygame.mixer.Sound(os.path.join(directory.sounds,'c
 scenario/floors.py:	sound = pygame.mixer.Sound(os.path.join(settings.directory.sounds,'scenario','water','Wavesloop.ogg'))
   No Change
 
+
+Not used
+https://musopen.org/music/154-waltzes-op-70/
+  Composer: Chopin
+  Name: Waltz in D flat major, Op. 70 no. 3
+  Interpreter: Olga Gurevich
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9177/
 
