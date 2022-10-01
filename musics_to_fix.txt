@@ -38,20 +38,6 @@ OldLady Music - https://musopen.org/music/4415-waltzes-op-69/
   https://musopen.org/music/download/9174/
   Done.
 
-# interactive/enemy.py:		self.growl_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','lion3.ogg'))
-Lion Music - https://musopen.org/music/149-waltzes-op-64/
-  Composer: Chopin
-  Name: Waltz in C sharp minor, Op.64 no. 2
-  Interpreter: Olga Gurevitch
-  Licence: Public Domain
-  Source: Musopen.org
-  https://musopen.org/music/download/9179/
-
-
-# interactive/enemy.py:		self.call = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','elephant9.ogg'))
-Elephant Music
-  The same as Lion Music
-
 # interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.enemies,'viking_ship.ogg')),
 VikingShip Music - hhttps://musopen.org/music/4406-waltz-in-a-minor-b-150
   Composer: Chopin
@@ -60,6 +46,7 @@ VikingShip Music - hhttps://musopen.org/music/4406-waltz-in-a-minor-b-150
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/8003/
+  Done
 
 # interactive/enemy.py:		self.music = self.music or {'sound':pygame.mixer.Sound(os.path.join(directory.music,'fabrizio.ogg')),
 Fabrizio - https://musopen.org/music/151-waltzes-op-34/
@@ -69,9 +56,10 @@ Fabrizio - https://musopen.org/music/151-waltzes-op-34/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/11760/
+  Done.
 
 # interactive/enemy.py:		self.music = self.music or {'sound': pygame.mixer.Sound(os.path.join(directory.music,'hawk.ogg')),
-Fabrizio - https://musopen.org/music/151-waltzes-op-34/
+Hawk - https://musopen.org/music/151-waltzes-op-34/
   Composer: Chopin
   Name: Waltz in A flat major, Op. 34 no. 3
   Interpreter: Olga Gurevitch
@@ -87,6 +75,7 @@ Fairy music - https://musopen.org/music/609-3-ecossaises-op-72-no-3/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9577/
+  Done
 
 # interactive/stage.py:		self.stage_music("bathhouse.ogg")
 BathhouseSt music - https://musopen.org/music/154-waltzes-op-70/
@@ -96,6 +85,7 @@ BathhouseSt music - https://musopen.org/music/154-waltzes-op-70/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9177/
+  Done
 
 # interactive/stage.py:		self.stage_music("snow-white.ogg")
 SnowWhite music - https://musopen.org/music/154-waltzes-op-70/
@@ -191,6 +181,11 @@ interface/widget.py:	click = pygame.mixer.Sound(os.path.join(directory.sounds,'c
 scenario/floors.py:	sound = pygame.mixer.Sound(os.path.join(settings.directory.sounds,'scenario','water','Wavesloop.ogg'))
   No Change
 
+# interactive/enemy.py:		self.call = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','elephant9.ogg'))
+ No Change
+
+# interactive/enemy.py:		self.growl_sound = pygame.mixer.Sound(os.path.join(directory.sounds,'enemies','lion3.ogg'))
+ No Change
 
 Not used
 https://musopen.org/music/154-waltzes-op-70/
@@ -200,4 +195,12 @@ https://musopen.org/music/154-waltzes-op-70/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9177/
+
+https://musopen.org/music/149-waltzes-op-64/
+  Composer: Chopin
+  Name: Waltz in C sharp minor, Op.64 no. 2
+  Interpreter: Olga Gurevitch
+  Licence: Public Domain
+  Source: Musopen.org
+  https://musopen.org/music/download/9179/
 

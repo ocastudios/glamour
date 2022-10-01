@@ -18,7 +18,7 @@ class Fairy:
     """This class defines the tip fairy, who helps the princess during the game."""
 
     whistle = pygame.mixer.Sound(j(directory.sounds, "story", "frames", "s03.ogg"))
-    music = j(directory.music, "1stSnowfall.ogg")
+    music = j(directory.music, "fairy.ogg")
 
     def __init__(self, pos, universe, margin=p([10, 10, 10, 10]), dirty=False):
         self.size = p((10, 10))
