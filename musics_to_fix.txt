@@ -66,6 +66,7 @@ Hawk - https://musopen.org/music/151-waltzes-op-34/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9188/
+  Done
 
 # interactive/fairy.py:	music	   = j(directory.music,'1stSnowfall.ogg')
 Fairy music - https://musopen.org/music/609-3-ecossaises-op-72-no-3/
@@ -95,6 +96,7 @@ SnowWhite music - https://musopen.org/music/154-waltzes-op-70/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9176/
+  Done
 
 # interactive/stage.py:		self.stage_music("cinderella.ogg")
 Cinderella Music - https://musopen.org/music/151-waltzes-op-34/
@@ -104,6 +106,7 @@ Cinderella Music - https://musopen.org/music/151-waltzes-op-34/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9187/
+  Done
 
 interactive/stage.py:		self.stage_music("sleeping-beauty.ogg")
 SleepingBeauty - Music - https://musopen.org/music/4412-waltz-in-e-flat-major-b-133/
@@ -131,6 +134,7 @@ https://musopen.org/music/4362-cantabile-in-b-flat-major-b-84/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/7962/
+  Done
 
 Ball music - https://archive.org/details/StraussWaltz
   Composer: Johann Strauss II
@@ -148,7 +152,7 @@ Menu music - https://musopen.org/music/4353-andante-spianato-and-grande-polonais
   Interpreter: Olga Gurevitch
   Licence: Public Domain
   Source: Musopen.org
-  hhttps://musopen.org/music/download/11758/
+  https://musopen.org/music/download/11758/
 
 
 interactive/enemy.py:		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
