@@ -116,6 +116,7 @@ SleepingBeauty - Music - https://musopen.org/music/4412-waltz-in-e-flat-major-b-
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/8005/
+  Done
 
 interactive/stage.py:		self.stage_music("rapunzel.ogg")
 https://musopen.org/music/4411-waltz-in-e-flat-major-b-46/
@@ -125,6 +126,7 @@ https://musopen.org/music/4411-waltz-in-e-flat-major-b-46/
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/9203/
+  Done
 
 interactive/stage.py:		self.music  = j(directory.music,'pause.ogg')
 https://musopen.org/music/4362-cantabile-in-b-flat-major-b-84/
@@ -153,6 +155,7 @@ Menu music - https://musopen.org/music/4353-andante-spianato-and-grande-polonais
   Licence: Public Domain
   Source: Musopen.org
   https://musopen.org/music/download/11758/
+  - downloaded
 
 
 interactive/enemy.py:		self.bow	= pygame.mixer.Sound(os.path.join(directory.enemies,'Schnauzer_bark.ogg')) 
