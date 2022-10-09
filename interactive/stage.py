@@ -124,7 +124,6 @@ class Stage:
     def update_all(self):
         events.choose_event(self.universe)
         self.act = self.universe.action
-        self.direction = self.universe.dir
         self.blit_all()
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
@@ -555,7 +554,7 @@ class Stage:
             if self.ball:
                 self.ball = None
             self.cameras[0].update_all()
-            self.universe.movement(self.direction)
+            self.universe.movement(self.universe.dir)
             self.update_unlocking()
 
             if (
