@@ -21,6 +21,7 @@ import database.update
 import interactive.events as events
 import settings
 from settings import directory
+from interactive.game_object import Updatable
 import gc
 
 p = settings.p
@@ -147,6 +148,20 @@ class Stage:
             for i in self.inside.buttons:
                 i.subtick_update()
             self.keyboard_selection(self.inside)
+        if self.paused:
+            self.keyboard_selection(self.pause)
+            if self.pause.closet:
+                for i in self.pause.unlocked_items:
+                    i.subtick_update()
+                self.pause.close_closet.subtick_update()
+            else:
+                if self.pause.status == "choosing":
+                    for i in self.pause.buttons:
+                        i.subtick_update()
+                    if self.fairy:
+                        for i in self.fae:
+                            i.subtick_update()
+
 
     def update_unlocking(self):
         if self.unlocking:
@@ -1481,7 +1496,7 @@ class Pause:
         self.universe.LEVEL = "menu"
 
 
-class Closet_Icon:
+class Closet_Icon(Updatable):
     def __init__(self, universe, garment_type, garment, icon, locked=None):
         self.pos = icon[0]
         self.locked = locked
