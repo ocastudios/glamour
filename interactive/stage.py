@@ -176,30 +176,20 @@ class Stage:
                     for i in self.__dict__[att]:
                         if i and i.image:
                             screen.blit(i.image, i.pos)
-            for i in self.princesses[0].effects:
-                screen.blit(i.image, i.pos)
-            for i in self.scenarios_front:
-                screen.blit(i.image, i.pos)
-            if self.exit_sign.image:
-                screen.blit(self.exit_sign.image, self.exit_sign.pos)
-            for i in self.floor_image:
-                screen.blit(i.image, i.pos)
-            for i in self.foreground:
-                screen.blit(i.image, i.pos)
+            self.universe.blit(self.princesses[0].effects)
+            self.universe.blit(self.scenarios_front)
+            self.universe.blit(self.exit_sign)
+            self.universe.blit(self.floor_image)
+            self.universe.blit(self.foreground)
             if self.sky[0].night_image:
                 screen.blit(self.sky[0].night_image, (0, 0))
-            for i in self.clock:
-                screen.blit(i.image, i.pos)
-            for i in self.panel:
-                if i:
-                    screen.blit(i.image, i.pos)
+            self.universe.blit(self.clock)
+            self.universe.blit(self.panel)
             if self.fairy:
-                for i in self.fae:
-                    screen.blit(i.image, i.pos)
+                self.universe.blit(self.fae)
             if self.unlocking:
                 if "list" in self.unlocking:
-                    for i in self.unlocking["list"]:
-                        screen.blit(i.image, i.pos)
+                    self.universe.blit(self.unlocking["list"])
             if self.princesses[0].inside:
                 self.blit_inside(screen)
             if self.paused:
@@ -207,8 +197,7 @@ class Stage:
             elif self.fairy and not self.princesses[0].inside and not self.ball:
                 screen.blit(self.white.image, (0, 0))
                 if self.fairy == "speaking":
-                    for i in self.fae:
-                        screen.blit(i.image, i.pos)
+                    self.universe.blit(self.fae)
         else:
             self.blit_ball(screen)
         for i in self.pointer:
