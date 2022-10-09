@@ -251,7 +251,6 @@ class Stage:
                 screen.blit(self.inside.princess_image, (x, y))
             except:
                 pass
-            self.keyboard_selection(self.inside)
 
     def blit_paused(self, screen):
         u = self.universe
@@ -502,7 +501,6 @@ class Stage:
                 if self.fairy:
                     for i in self.fae:
                         i.update_all()
-                self.keyboard_selection(self.pause)
             elif self.pause.status == "done":
                 pass
             elif self.pause.status == "finished":
