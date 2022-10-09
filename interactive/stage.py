@@ -141,6 +141,12 @@ class Stage:
     def subtick_update(self):
         events.choose_event(self.universe)
         self.act = self.universe.action
+        if self.inside and self.inside.status == "chosing":
+            for i in self.inside.items:
+                i.subtick_update()
+            for i in self.inside.buttons:
+                i.subtick_update()
+            self.keyboard_selection(self.inside)
 
     def update_unlocking(self):
         if self.unlocking:
