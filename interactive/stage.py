@@ -188,14 +188,14 @@ class Stage:
                                     i["position"].pos,
                                 )
                 else:
-                    for i in self.__dict__[att]:
-                        if i and i.image:
-                            screen.blit(i.image, i.pos)
-            self.universe.blit(self.princesses[0].effects)
-            self.universe.blit(self.scenarios_front)
-            self.universe.blit(self.exit_sign)
-            self.universe.blit(self.floor_image)
-            self.universe.blit(self.foreground)
+                    self.universe.blit(self.__dict__[att])
+            self.universe.blit((
+                self.princesses[0].effects,
+                self.scenarios_front,
+                self.exit_sign,
+                self.floor_image,
+                self.foreground,
+                ))
             if self.sky[0].night_image:
                 screen.blit(self.sky[0].night_image, (0, 0))
             self.universe.blit(self.clock)
