@@ -71,7 +71,7 @@ def create_message(universe, name, unique=True):
     if row["count"] == 0 or unique == False:
         print("Here comes the Fairy " + name)
         universe.level.fairy = "loading"
-        pygame.mixer.Channel(0).play(universe.level.fae[1].whistle)
+        universe.sound.channels.shared.play(universe.level.fae[1].whistle)
         universe.level.fae[0] = fairy.Message(universe, message=row["message"])
         database.update.use_message(universe, name)
 

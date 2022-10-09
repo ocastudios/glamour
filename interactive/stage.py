@@ -105,7 +105,7 @@ class Stage:
             utils.img.OneSided(j(directory.loading, "carriage")),
         )
         self.margin = utils.img.image(j(directory.images, "shadow-B.png"))
-        self.enemy_channel = pygame.mixer.Channel(6)
+        self.enemy_music_channel = self.universe.sound.channels.enemy_music
         self.unlocking = False
         self.big_princess = None
 
@@ -361,7 +361,7 @@ class Stage:
     def enemy_music(self):
         enemies_arround = []
         classes_arround = []
-        now_playing = self.enemy_channel.get_sound()
+        now_playing = self.enemy_music_channel.get_sound()
         weight = 0
         actual_class = None
         for i in self.enemies:
@@ -395,19 +395,19 @@ class Stage:
                         distance = thisdistance
             if distance < 500 and i == actual_class:
                 if now_playing != i.music["sound"]:
-                    self.enemy_channel.play(i.music["sound"])
+                    self.enemy_music_channel.play(i.music["sound"])
                 if distance > 0:
                     volume = 1 - (distance / 500)
                 else:
                     volume = 1
                 if volume <= 1:
-                    present_volume = self.enemy_channel.get_volume()
+                    present_volume = self.enemy_music_channel.get_volume()
                     if volume - present_volume > 0.05:
-                        self.enemy_channel.set_volume(present_volume + 0.05)
+                        self.enemy_music_channel.set_volume(present_volume + 0.05)
                     elif volume - present_volume < -0.05:
-                        self.enemy_channel.set_volume(present_volume - 0.05)
+                        self.enemy_music_channel.set_volume(present_volume - 0.05)
                     else:
-                        self.enemy_channel.set_volume(volume)
+                        self.enemy_music_channel.set_volume(volume)
                 if 1 - volume < 0.6:
                     present_volume = pygame.mixer.music.get_volume()
                     if (1 - volume) - present_volume > 0.05:
@@ -481,8 +481,8 @@ class Stage:
         """Main loop while paused."""
         princess = self.princesses[0]
         self.choice_screen(self.pause, self.paused)
-        if self.enemy_channel.get_sound():
-            self.enemy_channel.fadeout(1500)
+        if self.enemy_music_channel.get_sound():
+            self.enemy_music_channel.fadeout(1500)
         if self.pause.closet:
             for i in self.pause.unlocked_items:
                 i.update_all()
@@ -546,9 +546,9 @@ class Stage:
             if self.background[0] == self.ballroom["night"]:
                 self.background = [self.ballroom["day"]]
         if self.clock[1].time == "ball" and not self.princesses[0].inside:
-            if self.enemy_channel.get_sound():
-                self.enemy_channel.fadeout(1500)
-            self.enemy_channel
+            if self.enemy_music_channel.get_sound():
+                self.enemy_music_channel.fadeout(1500)
+            self.enemy_music_channel
             self.ball = self.ball or ball.Ball(self.universe, self.princesses[0])
             self.ball.update_all()
         else:
@@ -778,8 +778,8 @@ class Stage:
         pygame.mixer.music.play()
 
     def create_stage(self, translatable_name, goalpos, hardname):
-        if self.enemy_channel.get_sound():
-            self.enemy_channel.fadeout(1500)
+        if self.enemy_music_channel.get_sound():
+            self.enemy_music_channel.fadeout(1500)
         self.changing_stages_darkenning()
         self.loading()
         self.name = hardname

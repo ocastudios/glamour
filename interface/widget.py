@@ -11,7 +11,6 @@ import settings
 from interactive.game_object import Updatable
 
 p = settings.p
-channel = pygame.mixer.Channel(0)
 
 
 class Button(Updatable):
@@ -36,6 +35,7 @@ class Button(Updatable):
         main_font, and color: only useful to image buttons.
         """
         self.universe = universe
+        self.channel = self.universe.sound.channels.shared
         self.level_pos = level_pos
         self.hovered = False
         try:
@@ -115,7 +115,7 @@ class Button(Updatable):
             if self.type_of_button == "text":
                 self.image = self.fontB.render(self.text, 1, self.color)
             if self.universe.click:
-                channel.play(self.click)
+                self.channel.play(self.click)
                 if self.parameter:
                     if self.parameter.__class__ in (tuple, list):
                         exec("self.function(" + str(self.parameter)[1:-1] + ")")

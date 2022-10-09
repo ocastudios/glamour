@@ -31,6 +31,7 @@ class Universe:
         self.db = None
         self.db_cursor = None
         self.test = test
+        self.sound = Sound(self)
         try:
             del self.screen_surface
         except AttributeError:
@@ -121,3 +122,16 @@ class Universe:
         if self.center_x - self.width < -(self.level.size):
             self.speed = 0
             self.center_x = -(self.level.size) + self.width
+
+
+class Sound:
+    def __init__(self, universe):
+        self.channels = Channels(universe)
+
+
+class Channels:
+    def __init__(self, universe, mixer = pygame.mixer):
+        self.shared = mixer.Channel(5)
+        self.princess = [mixer.Channel(i) for i in range(1, 4)]
+        self.enemy_music = mixer.Channel(6)
+        self.enemy_noise = mixer.Channel(4)

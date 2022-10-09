@@ -100,9 +100,9 @@ class Princess:
         self.kisssound = pygame.mixer.Sound(
             os.path.join(directory.princess_sounds, "kiss.ogg")
         )
-        self.channel1 = pygame.mixer.Channel(0)
-        self.channel2 = pygame.mixer.Channel(1)
-        self.channel3 = pygame.mixer.Channel(2)
+        self.channel1 = self.universe.sound.channels.princess[0]
+        self.channel2 = self.universe.sound.channels.princess[1]
+        self.channel3 = self.universe.sound.channels.princess[2]
         self.past_choice = None
         self.debuginside = 0
         self.visited_streets = []

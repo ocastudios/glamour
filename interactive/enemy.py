@@ -512,7 +512,7 @@ class Lion:
         self.growl_sound = pygame.mixer.Sound(
             os.path.join(directory.sounds, "enemies", "lion3.ogg")
         )
-        self.channel4 = pygame.mixer.Channel(4)
+        self.noise_channel = self.universe.sound.channels.enemy_noise
         self.locked = database.query.is_locked(self.universe, "face", "indian")
         self.beaten = database.query.is_beaten(self.universe, "lion")
 
@@ -530,7 +530,7 @@ class Lion:
                     princess.status["scared"] = 1
                     princess.status["danger"] = self.center_distance
                 if self.growl.number in (0, 13):
-                    self.channel4.play(self.growl_sound)
+                    self.noise_channel.play(self.growl_sound)
                 self.image = self.growl.left[self.growl.number]
                 if self.growl.lenght - 1 == self.growl.number:
                     self.action = "dance"
@@ -612,7 +612,7 @@ class Elephant:
         self.call = pygame.mixer.Sound(
             os.path.join(directory.sounds, "enemies", "elephant9.ogg")
         )
-        self.channel = pygame.mixer.Channel(3)
+        self.noise_channel = self.universe.sound.channels.enemy_noise
         self.rect = pygame.Rect((0, 0), (0, 0))
 
     def update_all(self):
@@ -627,7 +627,7 @@ class Elephant:
             if self.action == "call":
                 self.image = self.hover.left[self.hover.number]
                 if self.hover.number in (5, 11):
-                    self.channel.play(self.call)
+                    self.noise_channel.play(self.call)
                 if self.hover.number in (6, 12):
                     self.count += 1
                     if self.count > 60:

@@ -50,7 +50,8 @@ pygame.display.set_icon(
 pygame.mixer.pre_init(44100, 16, 256)
 settings.reset_scale()
 pygame.mixer.init()
-pygame.mixer.set_reserved(3)
+pygame.mixer.set_num_channels(9)
+pygame.mixer.set_reserved(9)
 
 pygame.init()
 
