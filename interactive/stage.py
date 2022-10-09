@@ -122,8 +122,6 @@ class Stage:
         return y_height
 
     def update_all(self):
-        events.choose_event(self.universe)
-        self.act = self.universe.action
         self.blit_all()
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
@@ -141,7 +139,8 @@ class Stage:
             i.update_all()
 
     def subtick_update(self):
-        pass
+        events.choose_event(self.universe)
+        self.act = self.universe.action
 
     def update_unlocking(self):
         if self.unlocking:
