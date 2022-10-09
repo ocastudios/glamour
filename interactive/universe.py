@@ -10,7 +10,7 @@ import interactive.stage as stage
 
 
 class Universe:
-    def __init__(self, level=None):
+    def __init__(self, level=None, test=False):
         w = int(round(settings.resolution[0]))
         h = int(round(settings.resolution[1]))
         self.clock = pygame.time.Clock()
@@ -30,6 +30,7 @@ class Universe:
         self.run_level = True
         self.db = None
         self.db_cursor = None
+        self.test = test
         try:
             del self.screen_surface
         except AttributeError:

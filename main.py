@@ -59,9 +59,15 @@ import interface.menu as menu
 import control
 import settings
 import sqlite3
+import sys
+
+try:
+    test = sys.argv[1] == 'test'
+except IndexError:
+    test = False
 
 if __name__ == "__main__":
-    universe = universe.Universe()
+    universe = universe.Universe(test=test)
     pygame.mouse.set_visible(0)
     while True:
         if universe.LEVEL == "menu":

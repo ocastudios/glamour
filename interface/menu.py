@@ -84,6 +84,17 @@ class Menu:
             self.universe.pointer.image, self.universe.pointer.mouse_pos
         )
         self.count += 1
+        if (self.universe.test):
+            self.princess = MenuPrincess(self)
+            self.name = widget.GameText(
+                self.universe,
+                "test",
+                (170, 120),
+                self.position,
+                var=True,
+                color=(58, 56, 0),
+            )
+            self.start_game(start_anyway=True)
 
     def subtick_update(self):
         self.control_keyboard()
