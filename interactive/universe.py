@@ -96,6 +96,18 @@ class Universe:
                 self.level.vertical_bar["side"] = "left"
                 self.level.main()
 
+    def blit(self, sprite):
+        """Blits a blittable sprite or list of sprites"""
+        try:
+            self.screen_surface.blit(sprite.image, sprite.pos)
+        except AttributeError:
+            if isinstance(sprite, list) or isinstance(sprite, tuple):
+                for i in sprite:
+                    self.blit(i)
+        except TypeError:
+            # TypeError: argument 1 must be pygame.Surface, not None
+            pass
+
     def movement(self, dir):
         max_speed = round(14 * settings.scale)
         if self.speed > max_speed:
