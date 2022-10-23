@@ -1,0 +1,2132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Glamour 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-21 18:57-0300\n"
+"PO-Revision-Date: 2022-08-15 12:00\n"
+"Last-Translator: Karel Janda <karel1@tutanota.com>\n"
+"Language-Team: cs_CZ <karel1@@tutanota.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: interactive/stage.py:701
+msgid "Bathhouse St"
+msgstr "Lázeňská ulice"
+
+#: interactive/stage.py:730
+msgid "Dress St"
+msgstr "Oděvní ulice"
+
+#: interactive/stage.py:746
+msgid "Accessory St"
+msgstr "Ulice módních doplňků"
+
+#: interactive/stage.py:772
+msgid "Makeup St"
+msgstr "Líčidlová ulice"
+
+#: interactive/stage.py:805
+msgid "Shoes St"
+msgstr "Obuvní ulice"
+
+#: interactive/stage.py:901
+msgid "Resume"
+msgstr "Pokračovat"
+
+#: interactive/stage.py:904
+msgid "Quit"
+msgstr "Ukončit"
+
+#: interactive/stage.py:907
+msgid "Game Paused"
+msgstr "Hra pozastavena"
+
+#: interactive/stage.py:908
+msgid "Check your closet"
+msgstr "Zkontrolovat můj šatník"
+
+#: interactive/stage.py:918
+msgid "The beret accessory, earnd for jumping with the penguin."
+msgstr "Baret, získaný za skákání s tučňákem."
+
+#: interactive/stage.py:919
+msgid "The crown accessory, unlocked from the start."
+msgstr "Korunka, odemčená od začátku."
+
+#: interactive/stage.py:920
+msgid "The shades accessory, earned after trampling 20 chicks."
+msgstr "Sluneční brýle, získané šlápnutím na 20 kuřat."
+
+#: interactive/stage.py:921
+msgid "The mask, earned for debuting three hairstyles in balls."
+msgstr "Maska získaná za nošení tří účesů na tancích."
+
+#: interactive/stage.py:922
+msgid "The purse accessory, unlocked from the start."
+msgstr "Kabelka, odemčená od začátku."
+
+#: interactive/stage.py:923
+msgid "The ribbon accessory, unlocked from the start."
+msgstr "Mašle, odemčená od začátku"
+
+#: interactive/stage.py:924
+msgid "The indian dress, earned for dressing as a geisha."
+msgstr "Indické šaty, získané oblékáním jako gejša."
+
+#: interactive/stage.py:925
+msgid "The kimono, earned for being crossed by the carriage."
+msgstr "Kimono, získané za přejezd kočárem."
+
+#: interactive/stage.py:926
+msgid "The pink dress, unlocked from the start."
+msgstr "Růžové šaty, odemčené od začátku."
+
+#: interactive/stage.py:927
+msgid "The red dress, unlocked from the start."
+msgstr "Červené šaty, odemčené od začátku."
+
+#: interactive/stage.py:928
+msgid "The simple dress, unlocked from the start."
+msgstr "Jednoduché šaty, odemčené od začátku."
+
+#: interactive/stage.py:929
+msgid "The yellow dress, earned for beating all kinds of enemies."
+msgstr "Žluté šaty, získané za porážku všech druhů nepřátel."
+
+#: interactive/stage.py:930
+msgid "The eyelids make-up, unlocked from the start."
+msgstr "Make-up očních víček, odemčený od začátku."
+
+#: interactive/stage.py:931
+msgid "The eyeshades make-up, unlocked from the start."
+msgstr "Make-up očních stínů, odemčený od začátku."
+
+#: interactive/stage.py:932
+msgid "The geisha look, earned for bathing while clean."
+msgstr "Vzhled gejša, získany koupáním při očistě."
+
+#: interactive/stage.py:933
+msgid "The indian look, earned for kissing the lion."
+msgstr "Indický vzhled, získaný políbením lva."
+
+#: interactive/stage.py:934
+msgid "The lipstick make-up, earned for entering your own castle."
+msgstr "Make-up rtěnka, získaná za vstup do vlastního zámku."
+
+#: interactive/stage.py:935
+msgid "The simple make-up, unlocked from the start."
+msgstr "Jednoduchý make-up, odemčený od začátku."
+
+#: interactive/stage.py:936
+msgid "The black hairstyle, unlocked from the start."
+msgstr "Černý účes, odemčený od začátku."
+
+#: interactive/stage.py:937
+msgid "The braid and tail hairstyle, unlocked from the start."
+msgstr "Účes se splétaným copem, odemčený od začátku."
+
+#: interactive/stage.py:938
+msgid "The brown hairstyle, unlocked from the start."
+msgstr "Hnědý účes, odemčený od začátku."
+
+#: interactive/stage.py:939
+msgid "Cinderella's hairstyle, earned for visiting her."
+msgstr "Účes Popelky, získaný za její návštěvu."
+
+#: interactive/stage.py:940
+msgid "The geisha hairstyle, unlocked from the start."
+msgstr "Účes gejša, odemčený od začátku."
+
+#: interactive/stage.py:941
+msgid "Rapunzel's hairstyle, earned for visiting her."
+msgstr "Účes Lociky, získaný za její návštěvu."
+
+#: interactive/stage.py:942
+msgid "The rastafari hairstyle, unlocked from the start."
+msgstr "Rastafariánský účes, odemčený od začátku."
+
+#: interactive/stage.py:943
+msgid "The red hairstyle, unlocked from the start."
+msgstr "Červený účes, odemčený od začátku."
+
+#: interactive/stage.py:944
+msgid "The short hairstyle, unlocked from the start."
+msgstr "Krátký účes, odemčený od začátku."
+
+#: interactive/stage.py:945
+msgid "Sleeping Beauty's hairstyle, earned for visiting her."
+msgstr "Účes Šípkové Růženky, získaný za její návštěvu."
+
+#: interactive/stage.py:946
+msgid "Snow White's hairstyle, earned for visiting her."
+msgstr "Účes Sněhurky, získaný za její návštěvu."
+
+#: interactive/stage.py:947
+msgid "The blonde hairstyle, unlocked from the start."
+msgstr "Blond účes, odemčený od začátku."
+
+#: interactive/stage.py:948
+msgid "The go-go boots, earned by crossing the drains clean."
+msgstr "Go-go boty, získané za čisté překročení kanálů."
+
+#: interactive/stage.py:949
+#msgid "The glass sandals, earned for wearing the outfit in the ending."
+msgid "The glass slippers, earned for wearing the dream outfit."
+msgstr "Skleněné střevíčky, získané za nošení oblečení snů."
+
+#: interactive/stage.py:950
+msgid "The flower sandals, earned for visiting all streets in one day."
+msgstr "Květinové sandály, získané za návštěvu všech ulic za jeden den."
+
+#: interactive/stage.py:951
+msgid "The red shoes, unlocked from the start."
+msgstr "Červené boty, odemčené od začátku."
+
+#: interactive/stage.py:952
+msgid "The slippers, unlocked from the start."
+msgstr "Pantofle, odemčené od začátku."
+
+#: interactive/stage.py:953
+msgid "The white shoes, unlocked from the start."
+msgstr "Bílé boty, odemčené od začátku."
+
+#: interactive/stage.py:998
+msgid "This garment is locked"
+msgstr "Tento kus je uzamčen"
+
+#: interactive/messages.py:9
+msgid ""
+"Look, it's a small BIRDY! It's so small and so cute... it also sings oh so "
+"happy. Don't you bother it much, though... it won't like it."
+msgstr "Hele, malý ptáček. Je tak malý a milý... a taky vesele zpívá. Ale neruš ho... nelíbilo by se mu to."
+
+#: interactive/messages.py:10
+msgid ""
+"Oh, oh! Look... BUTTERFLIES! Have you ever seen anything oh so pretty? Don't "
+"you waste too much time celebrating their beauty, though - we have a ball to "
+"attend."
+msgstr "Jé, jé. Hele... MOTÝLI! Vidělas někdy něco tak hezkého? Neztrácej moc času oslavou jejich krásy - musíme navštívit ples."
+
+#: interactive/messages.py:11
+msgid ""
+"Well, the path is blocked by a CARRIAGE. They are beautiful transportation, "
+"all right, but are oh so slow... maybe we ought to find another path."
+msgstr "No jo, cestu blokuje KOČÁR. Jsou to krásná vozidla, ale tak pomalá... asi bychom měli hledat jinou cestu."
+
+#: interactive/messages.py:12
+msgid ""
+"Look, a baby loxodonta africana! Well, most people would just call it an "
+"ELEPHANT. It's oh so rude. They are cute, intelligent animals with the "
+"niftiest ears."
+msgstr "Podívej, mládě loxodonta africana! No, většina lidí by řekla SLON. Jak drzé! Je roztomilé, chytré a s nejlepšími ušima."
+
+#: interactive/messages.py:13
+msgid ""
+"Oh, sheesh! There goes Fabrizio and his soccer ball. BOYS are so careless "
+"when they're playing. Watch out or he may get you dirty."
+msgstr "Oh, jejda! Támhle jde Fabrizio se svým míčem na fotbal. CHLAPCI jsou tak neopatrní, když hrají. Dávej pozor, aby tě neušpinil."
+
+#: interactive/messages.py:14
+msgid ""
+"A giraffa camelopardalis! People thought they were legend, and you can "
+"totally see why: so many dots, so many horns and oh so much neck. GIRAFFES "
+"are kinda cute, don't you think?"
+msgstr "Žirafa camelopardalis! Lidé si dřív mysleli, že jsou legendou a je snadné pochopit proč: tolik skvrn, tolik rohů a tak velký krk. ŽIRAFY jsou roztomilé, nemyslíš?"
+
+#: interactive/messages.py:15
+msgid ""
+"My, oh my! You disturbed that fellow birdy, didn't you? Now here comes her "
+"MOMMY BIRD and she's not happy... would you care to run?"
+msgstr "Běda! Vyrušila jsi toho malého ptáčka, že? Už přichází PTAČÍ MÁMA a ta není ráda... nevadí ti běh?"
+
+#: interactive/messages.py:16
+msgid ""
+"Oh, I just love panthera leos - or LIONS, if you must. They are just big, "
+"fat, cute kittys for me, but I guess you people are oh so scared of them, "
+"right? Maybe a little kindness would help."
+msgstr "Ach, miluji panthera leos - nebo LVY, jestli chceš. Jsou to pro mě jen milá, velké a tlusté kočky, ale myslím, že se jich lidé bojí, že? Možná pomůže drobné pomazlení."
+
+#: interactive/messages.py:17
+msgid ""
+"Watch out for that green, furry little kid up there! Oh, it's a MONKEY, you "
+"say? He seems not nice. I wonder why he has so many bananas..."
+msgstr "Dávej si pozor na to chlupaté, zelené mládě tam nahoře! Ach, je to OPICE, říkáš? Vypadá tak roztomile. Na co má tolik banánů?"
+
+#: interactive/messages.py:18
+msgid ""
+"Oh, it's MRS KLEENER. It's oh so nice to see someone cleaning and taking "
+"care of things. She deserves a kiss, but watch out for the dust."
+msgstr "Ach, to je PANÍ ČISTÁ. Je tak hezké vidět někoho, kdo uklízí a stará se o věci. Zaslouží si polibek, ale pozor na špínu."
+
+#: interactive/messages.py:19
+msgid ""
+"Hey, what's that? Oh it is a fat, cute flightless bird. They call it a "
+"PENGUIN - it's a smart, friendly, stable and virus free bird with lots of "
+"great open software avaiable. Wait, am I confusing the bird with the OS? Ah, "
+"whatever, both are just great!"
+msgstr "Hej, co to je? Ach, je to roztomilý, tlustý nelétavý pták. Nazývá se TUČŇÁK - je chytrý, přátelský, stabilní a bez virů, s mnoha programy zdarma. Počkej, nepletu si ptáka s Operačním Systémem? Každopádně jsou oba skvělí."
+
+#: interactive/messages.py:20
+msgid ""
+"Oh, what a cute little fellow, that dog! Wait, it's also appears oh so mad. "
+"SCHNAUZERS may be a little angry, but they sure love a little kindness."
+msgstr "Ach, milý kamarád, tenhle pes! Počkej, vypadá trochu naštvaně. KNÍRAČI mohou být trochu zuřiví, ale milují mazlení."
+
+#: interactive/messages.py:21
+msgid ""
+"My, oh my! A VIKING SHIP! The old norse would travel anywhere on these, but "
+"you wouldn't want to listen to their filthy language. They don't care much "
+"for kindness or cuteness either, so why won't we just leave, uh? Please?"
+msgstr "Ajajaj! VIKINGSKÝ KORÁB! Staří Norové by na nich jezdili kamkoli, ale neměla bys poslouchat jejich nevymáchaný jazyk. Nestarají se příliš o laskavost nebo roztomilost, tak proč prostě neodejdeme, hm? Prosím?"
+
+#: interactive/messages.py:25
+msgid ""
+"Look, princess, it's a BATHHOUSE! When you get dirty, you should come here "
+"to clean yourself. You wouldn't want to attend the ball filthy, would you?"
+msgstr "Podívej princezno, to jsou LÁZNĚ! Když se umažeš, měla by ses sem jít umýt. Nechtěla bys jít na ples špinavá, že ano?"
+
+#: interactive/messages.py:26
+msgid ""
+"Wow! Don't you just love accessories? Here, in the ACCESSORY HALL, you'll be "
+"able to decorate yourself up so you look astonishing. Many people here "
+"prefer swords and shields, but as for me, I think strenght lies on cute "
+"ribbons and cool shades."
+msgstr "Jé! Nemiluješ snad doplňky? Tady, v SÁLE PŘÍSLUŠENSTVÍ, se můžeš zdobit, až budeš vypadat úžasně. Mnoho lidí tu má radši meče a štíty, ale já myslím, že sílu mají roztomilé stužky a boží odstíny."
+
+#: interactive/messages.py:27
+msgid ""
+"This is CINDERELLA'S CASTLE. It is oh so big and classy. Let's go inside say "
+"hello, and maybe ask what she will wear to the next ball. It is always bad "
+"to show up with the same clothes."
+msgstr "Tohle je ZÁMEK POPELKY. Je tak velký a noblesní. Běžme ji pozdravit a možná i zeptat, co si obleče na příští ples. Není dobré se ukazovat ve stejných šatech."
+
+#: interactive/messages.py:28
+msgid ""
+"Eew! These DRAINS take away the dirty water, leaving streets dry and clean. "
+"Please don't bathe on that water, or you'll get filthy. Be careful!"
+msgstr "Fuj! Tyto kanalizace odvádějí špinavou vodu a udržují ulice suché a čisté. Prosím, nekoupej se v té vodě, nebo budeš špinavá. Dávej si pozor!"
+#: interactive/messages.py:29
+msgid ""
+"All girls dream of coming to the DRESS TOWER. Here you will find all sorts "
+"of chic and marvelous dresses. Bet you'll take your time checking them out, "
+"right?"
+msgstr "Všechny dívky touží přijít do VĚŽE ŠATŮ. Tady najdeš všechny druhy elegantních a nádherných šatů. Vsadím se, že si najdeš čas na jejich vyzkoušení."
+
+#: interactive/messages.py:30
+msgid ""
+"This is a GATEWAY, connecting different streets on the city. Don't forget to "
+"use them to visit every street you can. Oh, it is just so exciting to visit "
+"new places!"
+msgstr "Tohle je BRÁNA, spojující různé ulice města. Nezapomeň je využít k návštěvě každé ulice, kterou můžeš. Ach, je tak vzrušující navštěvovat nová místa!"
+
+#: interactive/messages.py:31
+msgid ""
+"Well, as you know, this is YOUR CASTLE. You may return here if you are "
+"really impatient to go to the ball, and also to see what were you wearing "
+"last night, so you don't repeat yourself."
+msgstr "Jak dobře víš, tohle je TVŮJ ZÁMEK. Můžeš se sem vrátit, když se opravdu nemůžeš dočkat jít na ples a také pro kontrolu, co jsi měla oblečené minulý večer, aby ses neopakovala."
+
+#: interactive/messages.py:32
+msgid ""
+"Princess, look! That's my favourite building - the MAGIC BEAUTY SALON! At "
+"it, you'll be able to change haircuts, and even skin tone. I don't really "
+"know how they do it... maybe that's why it's magical. It won't help you earn "
+"any glamour, though."
+msgstr "Princezno, podívej! Tohle je moje oblíbená budova - KOUZELNÝ SALON KRÁSY! V něm můžeš měnit střih vlasů a dokonce odstín pleti. Netuším, jak to dělají... asi je to kouzly. Ale nemůžeš tím získat větší půvab."
+
+#: interactive/messages.py:33
+msgid ""
+"I just love make-up, but you totally can't tell, right? That's because I get "
+"it on the MAKE-UP TOWER, where all cosmetics are oh so great and magical! "
+"You can look like another person with them, but you young girls don't even "
+"need it, do you?"
+msgstr "Miluji make-up, ale ani to nepoznáš, že? Je to proto, že ji mám z MAKE-UP VĚŽE, kde je veškerá kosmetika tak dobrá a kouzelná! Můžeš s ní vypadat jako někdo jiný, ale vy dívky to ani nepotřebujete, že?"
+#: interactive/messages.py:34
+msgid ""
+"That's RAPUNZEL'S VILLA. She prefer ground buildings after all those towers "
+"incidents, you know? I totally envy her hair, but I guess we could drop by "
+"and say hello."
+msgstr "Tohle je VILA LOCIKY. Má radši nízké budovy po těch věžových příhodách, víte? Hodně jí závidím vlasy, ale myslím, že bychom měli přijít a pozdravit."
+
+#: interactive/messages.py:35
+msgid ""
+"My oh my, look at those shoes! I know I can fly, but I like style and "
+"fashion too, you know? I wouldn't mind if you decided to spend some quality "
+"time in the SHOE'S SHOP, really. You can thank me later."
+msgstr "No tohle, podívej se na ty boty! Vím, že umím létat, ale také mám ráda styl a módu, víš? Nevadilo by mi, kdybys chtěla strávit nějaký rozumný čas v OBCHODĚ S OBUVÍ. Později mi můžeš poděkovat."
+
+#: interactive/messages.py:36
+msgid ""
+"If this is SLEEPING BEAUTY'S PALACE, you ask? Of course, but you can call "
+"her Talia. You can tell she's oh so elegant and chic by her home, can't you? "
+"Let's go in - maybe she has some tips on what you should wear."
+msgstr "Ptáš se, je to PALÁC ŠÍPKOVÉ RŮŽENKY? Jistě, ale můžeš jí říkat Tálie. Poznáš, jak elegantní a módní je doma domě, že? Běžme dovnitř - snad má nějaké rady, co si máš vzít na sebe."
+
+#: interactive/messages.py:37
+msgid ""
+"Isn't SNOW WHITE'S CASTLE oh so cute and cozy? Let's go meet her, for she is "
+"my favourite princess in the whole world... except for you dearie, of course."
+msgstr "Není to snad ZÁMEK SNĚHURKY, tak milý a útulný? Běžme ji navštívit, je to má nejoblíbenější princezna na celém světě... kromě tebe, drahoušku, samozřejmě."
+
+#: interactive/messages.py:38
+msgid ""
+"Look, look, a ZOO! Oh, I just love to see all kinds of animals that share "
+"this world with us. They are oh so cute and lovely. I'd prefer if they were "
+"free in the wild, but then I wouldn't get to see them, I suppose. Keep your "
+"eyes on them."
+msgstr "Hele, podívej, ZOO! Ach, tak ráda vidím všechny druhy zvířat, které sdílejí náš svět. Ach jak jsou milá a krásná. Byla bych radši, kdyby byla volně v divočíně, ale pak bych je nejspíš neviděla. Nespouštěj z nich oči."
+
+#: interactive/messages.py:42
+msgid ""
+"Ouch! Look, princess, you and your dress are now a little dirty. Getting to "
+"the ball dirty will make you lose some glamour, so try to keep yourself... "
+"higienic, ok?"
+msgstr "Jejda! Podívej, princezno, ty i tvé šaty jsou nyní trochu špinavé. Když přijdeš na ples špinavá, ztratíš část půvabu, takže se snaž udržet se... čistotná, ok?"
+
+#: interactive/messages.py:43
+msgid ""
+"Watch out, dearie! You got even dirtier, and I would suggest you cleaned "
+"yourself up before the ball, ok? Why don't you look for the Bathhouse?"
+msgstr "Pozor, drahá! Jsi ještě špinavější a navrhovala bych, abys se před plesem očistila, souhlasíš? Co takhle vyhledat lázně?"
+
+#: interactive/messages.py:44
+msgid ""
+"Come on, princess! You are now as dirty as it gets. Going to the ball like "
+"this would be oh so embarassing. No way... uh, uh. Go take a bath and stop "
+"getting filthy my little piggy princess."
+msgstr "No tak, princezno! Jsi tak špinavá, jak jen můžeš být. Jít na takový ples by bylo tak trapné. To nejde... ach, ach. Jdi se osprchovat a přestaň se špinit, má malá princezno."
+
+#: interactive/messages.py:45
+msgid ""
+"You can save your game by pausing and selecting the Save Game option. Neat, "
+"huh? This way you can resume from where you left off, and keep you glamour "
+"score. Ahh... technology if just great!"
+msgstr "Hru můžeš uložit tak, že ji pozastavíš a vybereš možnost Uložit hru. Šikovné, co? Tímto způsobem můžeš pokračovat tam, kde jsi přestala a udržet si skóre půvabu. Aha... technologie je prostě skvělá!"
+
+#: interactive/messages.py:46
+msgid ""
+"Hello again, princess! We have much to see and wear before the ball tonight. "
+"Let's get going, becouse today you will rock the ball! He, he, I always "
+"wanted to say that."
+msgstr "Opět ahoj, princezno! Musíme toho hodně vidět a obléct před dnešním plesem. Jdem na to, abys dneska omráčila ples! Che, che, to jsem vždycky chtěla."
+
+#: interactive/messages.py:47
+msgid ""
+"My, oh my, princess! I think you overslept. Let us go already, I have so "
+"many dresses and shoes to try on. Oh, I mean... 'you' have many things to "
+"try on."
+msgstr "Propáníčka, princezno! Myslím, že jsi zaspala. No tak, mám tolik šatů a bot k vyzkoušení. Ach, chci říct... 'ty' máš tolik věcí k vyzkoušení."
+
+#: interactive/messages.py:48
+msgid ""
+"Did you see those boys in the ball? They are all so cute and handsome when "
+"not covered in mud and chasing a football. Oh, if I were a young fairy "
+"again..."
+msgstr "Vidělas ty kluky na plese? Jsou tak krásní a okouzlující, když nejsou zablácení a neběží za míčem. Ach, kdybych byla zase mladá víla..."
+
+#: interactive/messages.py:49
+msgid ""
+"New day, new hope. Maybe we can make you prettier than Snow White today... "
+"oh she's so pretty. I mean... you are so pretty also!"
+msgstr "Nový den, nová naděje. Možná tě dnes uděláme krásnější než Sněhurku... Ach, ona je tak hezká. Chci říct... ty jsi taky hezká!"
+
+#: interactive/messages.py:50
+msgid ""
+"Hello, dearie! I'm happy because I danced all night yesterday... I bet you "
+"love valse, but you have not really tasted it until you do it flying."
+msgstr "Dobrý den, drahá! Jsem tak ráda, že jsem včera protančila celou noc... Vsadím se, že miluješ valčík, ale takový jsi nezažila dokud ho nezkusíš za letu."
+
+#: interactive/messages.py:51
+msgid ""
+"Good morning, dearie! My, you look so pretty already. It's a shame you can't "
+"wear that again tonight. Why not? Well, because a glamorous woman should not "
+"repeat her outfit twice in a row. Hey! What's that about my outfit...!?"
+msgstr "Dobré ráno, miláčku! Páni, už vypadáš tak krásně. Škoda, že to dnes večer nemůžeš znovu nosit. Proč ne? No, protože okouzlující žena by neměla podruhé vypadat stejně. Hej! Co jsi řekla o mém vzhledu...!?"
+
+#: interactive/messages.py:52
+msgid ""
+"All right, all right! I 'will' take you to see new shoes, but only if today "
+"we go see those new fairy wands. I hear they are great..."
+msgstr "Dobře, dobře! Chci ti ukázat nové boty, ale jen když se dnes půjdeme podívat na nové hůlky pro víly. Slyšela jsem, že jsou skvělé."
+
+#: interactive/messages.py:53
+msgid ""
+"Hi, sweetie! You know, in the old days I would just make you an outfit out "
+"of mice and pumpkins, but I was threatened with a lawsuit, do you believe "
+"that? These goofy, phony property rules are just killing creativity."
+msgstr "Ahoj zlatíčko! Víš, za starých časů bych tě nutila koukat na dýně a myši, ale hrozli mi soudní žalobou, věříš tomu? Tahle hloupá a nesmyslná pravidla autorských práv zabíjejí kreativitu."
+
+#: interactive/messages.py:54
+msgid ""
+"Hello, my little princess. You keep getting prettier with each passing day. "
+"I wish I was that much pretty, but I think I'll just have to be satisfed "
+"with my magic powers, flight ability and immortality."
+msgstr "Dobrý den, má princezničko. Každým dnem jsi hezčí. Chtěla bych být taky hezká, ale myslím, že se budu muset spokojit se svými kouzly, schopností létat a nesmrtelností."
+
+#: interactive/messages.py:55
+msgid ""
+"Good morning, sweetie! You did look wonderful last ball, but with a few more "
+"time and training, I bet you'll just explode with glamour. Oh, no, it "
+"doesn't hurt, sweetie, I swear."
+msgstr "Dobré ráno, zlatíčko! Na posledním plese jsi byla úžasná, ale s trochou tréninku a času se vsadím, že vybouchneš půvabem. Ach ne, to nebolí, zlatíčko, přísahám."
+
+#: interactive/messages.py:56
+msgid ""
+"Hi, cutie face! You sure are glamorous enough for nobility, but want to test "
+"yourself against royalty? Maybe, some day, you'll even be a match for the "
+"fae."
+msgstr "Ahoj, krásná tvářičko! Jsi dost okouzlující pro šlechtu, ale chceš se porovnat s královskou rodinou? Možná, že jednoho dne budeš dokonce soupeřit s vílami."
+
+#: interactive/messages.py:57
+msgid ""
+"Ok, ok. I get it... But another ball, really? Don't you want to try someting "
+"different tonight? Maybe bowling..."
+msgstr "Dobře, dobře. Rozumím... Ale další ples, opravdu? Nechceš dnes večer zkusit něco jiného? Bowling, možná..."
+
+#: interactive/messages.py:58
+msgid ""
+"Hi, princess! You noticed the queen did not attend the last ball? Her magic "
+"mirror was unstable and crashing all the time, poor thing. If she had that "
+"penguin OS on it, she wouldn't have those problems. Wonder if the kernel "
+"supports divination well."
+msgstr "Dobrý den, princezno! Všimla sis, že královna nešla na poslední ples? Její kouzelné zrcadlo je nestabilní a stále se zamyká, ubožátko. Kdyby tam měla OS Tučňák, neměla by problémy. Možná jádro nepodporuje věštění správně."
+
+#: interactive/messages.py:59
+msgid ""
+"Hello, cutest! Great ball last night, but the valse was rather lowsy. Maybe "
+"if they looked for music in jamendo.com... Oh, there are oh so many great "
+"bands there, as Ehma, Torley on Piano, Ceili Moss, Armolithae and Butterfly "
+"Tea. My oh my!"
+msgstr "Ahoj, krásko! Skvělý ples včera v noci, ale valčík dost mizerný. Možná kdyby hledali písničky na jamendo.com... Ach, je tolik skvělých kapel jako Ehma, Torley on Piano, Ceili Moss, Armolithae a Butterfly Tea. Ach, bože!"
+
+#: interactive/messages.py:64
+msgid ""
+"Good morning, princess, and an oh so happy birthday, too! I can't believe "
+"you turned 16 already, and in such a beautiful day, too! Of course, now that "
+"that you're a lady, you should start attending the royal balls... oh, it'll "
+"be so exciting."
+msgstr "Dobré jitro, princezno, a přeju ti vše nejlepší k narozeninám! Nemůžu uvěřit, je už ti je 16 a v takový krásný den! Jistě, už jsi slečna a měla bys začít chodit na královské plesy... ach, to bude zajímavé."
+
+#: interactive/messages.py:65
+msgid ""
+"For these balls, you'll get to dress up elegantly, match your outfit, wear "
+"make-up and dresses. Oh, I'm so jealous. You'll get to be really, really "
+"beautiful. Well, surely you look oh so beautiful already, no doubt about "
+"it..."
+msgstr "Na tyhle bály se budeš moci elegantně oblékat, sladit svůj outfit, nosit make-up a oblečení. Ach, závidím ti. Budeš opravdu, opravdu krásná. No, určitě už vypadáš tak krásně, že o tom není pochyb..."
+
+#: interactive/messages.py:66
+msgid ""
+"...but you know, that is not enough for the royal balls. For them, you'll "
+"have to be glamourous! Since it is your first ball ever, I was assigned to "
+"assist you in getting lovely, glamorous and stunning. And getting the hearts "
+"of the boys, too."
+msgstr "... Ale víš, to nestačí pro královské plesy. Pro ně budeš muset být okouzlující! Vzhledem k tomu, že je to tvůj první ples, pomohu ti vypadat krásná, okouzlující a úžasná. A také získat si srdce mládenců."
+
+#: interactive/messages.py:67
+msgid ""
+"You see, for every ball you should try to dress up wonderfully, which means "
+"selecting a nice DRESS, SHOES, MAKE-UP and ACCESSORY. You should wander "
+"around the city looking for them, and putting on those you like the best."
+msgstr "Víš, pro každý ples se musíš zkusit krásně obléknout, což znamená vybrat krásné ŠATY, BOTY, MAKE-UP a PŘÍSLUŠENSTVÍ. Musíš chodit po městě a hledat je a nosit ty, které se ti nejvíce líbí."
+
+#: interactive/messages.py:68
+msgid ""
+"Of course, other princesses are attending the ball, too, so you should try "
+"to avoid showing up with the same things they do. Pay them a visit to learn "
+"what they will be wearing, and also try to avoid using the same outfit two "
+"balls in a row."
+msgstr "Ovšem, ostatní princezny také půjdou na ples, takže se snaž vyhnout tomu, aby ses se ukázala se stejnými věcmi jako oni. Navštiv je a zjisti, co budou nosit a také se vyhýbej nošení stejného oblečení na dvou plesech za sebou."
+
+#: interactive/messages.py:69
+msgid ""
+"But caution, many dangers await! Well, not 'real' dangers, but there are "
+"many ways to get yourself dirty before the ball, and you should avoid that. "
+"Clean yourself at the bathhouse if you need, and use you cursor and "
+"irresistable kisses to help you keep clean."
+msgstr "Ale pozor, číhá mnoho nebezpečí! Ne sice 'opravdové' nebezpečí, ale je mnoho způsobů, jak se před plesem ušpinit a tomu se musíš vyhnout. V případě potřeby se umyj v lázních a používej myš i neodolatelné polibky, které ti pomohou zůstat čistá."
+
+#: interactive/messages.py:70
+msgid ""
+"At the ball, you'll gain glamour points if your outfit differs from the "
+"other princesses', and you'll lose them if it doesn't. You'll loose an awful "
+"lot of glamour if you're dirty, so watch out. Uh, what...? What is glamour "
+"for, you ask?"
+msgstr "Na plese získáš body za půvab, pokud se tvůj vzhled liší od vzhledu ostatních princezen, a ztratíš je, pokud se bude opakovat. Ztratíš hodně krásy, pokud jsi špinavá, takže dávej pozor. Cože...? K čemu je půvab, ptáš se?"
+
+#: interactive/messages.py:71
+msgid ""
+"Oh, silly princess. Glamour is just... beautiful and divine. Ah, yes, it "
+"also draws the eyes and hearts of boys, although high-ranked nobility tends "
+"to be more used to it than lower rank. But I assure you even Prince Charming "
+"can fall for a glamorous girl."
+msgstr "Ach, hlupáčku. Půvab je prostě... krásné a božské. Ach ano, přitahuje také oči a srdce chlapců i když vysoká šlechta je na to víc zvyklá než nižší. Ale potvrzuji ti, že i princ Okouzlující se může zamilovat do půvabné dívky."
+
+#: interactive/messages.py:72
+msgid ""
+"So let's get started, turning you from a cute, loving little princess into a "
+"wonderful, glamorous little princess. I'll be helping you on the way, so off "
+"we go."
+msgstr "Začněme tvou proměnou z krásné, milé princezničky v nádhernou, okouzlující malou princeznu. Pomůžu ti v tom, takže jdeme."
+
+#: interactive/messages.py:73
+msgid "Did you know you may pause everything using the magic word \"ESC\"?"
+msgstr "Víš, že můžeš cokoliv zastavit kouzelným slovem \"ESC\"?"
+
+#: interactive/messages.py:76
+#, python-format
+msgid ""
+"Oh, %s! You have a fairy godmother!!! I'm so jealous... my dad only got me "
+"some unicorns and a tiny teeny dragon."
+msgstr "Ach, %s! Máš vílu kmotřičku!!! Závidím ti... Můj tátínek mi dal jen pár jednorožců a malého dráčka."
+
+#: interactive/messages.py:77
+#, python-format
+msgid ""
+"Hello, %s! Did you know there will be a great many princes at the ball "
+"tonight? They are coming all the way from far, far away lands to attend!"
+msgstr "Ahoj, %s! Věděla jsi, že dnes večer bude na plese hodně princů? Přicházejí z dalekých království, aby se účastnili."
+
+#: interactive/messages.py:78
+#, python-format
+msgid ""
+"%s! Long time no see. I was reading about fairy-tale. Have you noticed there "
+"are far more talking animals in them than fairies? Oh, well..."
+msgstr "%s! Dlouho jsem tě neviděla. Četla jsem pohádky o vílách – všimla sis, že je v nich mnohem více mluvících zvířat než víl? No, dobře..."
+
+#: interactive/messages.py:79
+#, python-format
+msgid ""
+"Hey, %s. I've just heard 'fate' and 'fairy' are linked, etymologically "
+"speaking. What it means? Well, both are derived from the same word, 'fata', "
+"that meant 'prediction' in latin, but now they mean very different things."
+msgstr "Čau, %s. Věděla jsi, že 'osud' a 'víla' mají stejný etymologický základ? Co to má znamenat? Oba pocházejí ze stejného slova. 'fata', což v latině znamená 'předpovědˇ', ale dnes znamenají různé věci."
+
+#: interactive/messages.py:80
+#, python-format
+msgid ""
+"Have you noticed how many different architectural styles we have in this "
+"town, %s? Do you think that maybe those are magic portals that take us to "
+"far away places?"
+msgstr "Všimla sis, kolik různých architektonických stylů je v tomto městě, milá %s? Nemyslíš, že by brány mohly být kouzelné a vedou do vzdálených míst?"
+
+#: interactive/messages.py:81
+#, python-format
+msgid ""
+"If we are all princesses, and we live in the same town, shouldn't we all be "
+"sisters? Gosh, I wish I was your sister, %s..."
+msgstr "Když jsme všechny princezny a žijeme ve stejném městě, neměly bychom být všechny sestry? Jé, chtěla bych být tvoje sestra, milá %s..."
+
+#: interactive/messages.py:82
+#, python-format
+msgid ""
+"My father says someday I'll marry a prince that defeated many perils to be "
+"with me... well, %s, I say let 'me' go on adventures and let him wait for me "
+"to marry him."
+msgstr "Můj otec říká, že se jednou vezmu prince, který překonal mnoho nebezpečí, aby byl se mnou... No, milá %s, sama půjdu na dobrodružství a nechám prince na sebe čekat."
+
+#: interactive/messages.py:83
+msgid ""
+"We always invite Grettel, Little Red, Belle, the Moor, Pocahontas, Henny-"
+"Penny, Mulan and what-have-you to our balls. Do you think they'll ever come?"
+msgstr "Na naše plesy vždycky zveme Mařenku, Karkulku, Belle, Mooru, Pocahontas, Henny-Penny, Mulan a další. Myslíš, že někdy přijdou?"
+
+#: interactive/messages.py:84
+#, python-format
+msgid ""
+"%s, did you know that no one dislike tenderness? From boys to lions, love "
+"seems to triumph all. I wonder how a thing that didn't like kisses would be "
+"like. I bet it'd be ugly, bearded and riding a boat."
+msgstr "Milá %s, víš, že každý má rád něžnost? Od kluků po lvy, láska vítězí. Zajímalo by mě, jestli je něco, co bych nechtěla políbit - vsadím se, že by to bylo ošklivé, vousaté a vodácké."
+
+#: interactive/messages.py:85
+#, python-format
+msgid ""
+"Have you noticed how we all get princes by the end of our story, %s? But "
+"some others don't, like Little Red, Grettel and the Mermaid. They only get "
+"wolves and witches, poor folk..."
+msgstr "Všimla sis, že my všechny dostaneme prince na konci našich příběhů, milá %s? Ale někteří ne, jako Karkulka, Mařenksa a mořská panna. Dostávají jen vlky a čarodějnice, chudé lidi."
+
+#: interactive/messages.py:86
+#, python-format
+msgid ""
+"Well, %s, we've got some pretty nice stores in town, but they don't seem to "
+"carry much variety. I mean, I never use the same dress twice on a ball, so I "
+"have dozens of each available dress already."
+msgstr "No, milá %s, ve městě jsou dobré obchody, ale nemají velký výběr. Chci říct, že na plesech nikdy nenosím dvakrát stejné šaty, takže už mám desítky všech dostupných šatů."
+
+#: interactive/messages.py:87
+#, python-format
+msgid ""
+"Oh, dancing is so much fun! But I sure would like to fly in the air, or "
+"fight dragons, or cast spells. %s, why do you think they give us princesses "
+"the worst parts in our own stories?"
+msgstr "Ach, tanec je tak zábavný! Ale přála bych si, abych mohla létat ve vzduchu, čelit drakům nebo posílat kouzla. Milá %s, proč myslíš, že my princezny vždy dostaneme nejhorší role v našich vlastních příbězích?"
+
+#: interactive/messages.py:88
+#, python-format
+msgid ""
+"Dancing every single night... I, mean, we have fun and all, but aren't your "
+"feet killing you, %s?"
+msgstr "Tancovat docela každou noc... Myslím, že jsme se pobavili, ale nezničí tě tvé nohy, milá %s?"
+
+#: interactive/messages.py:89
+#, python-format
+msgid ""
+"Who owns that little schnauzer that won't let me walk around in peace? It is "
+"not you, is it, %s? Argh, it is sooo impolite to leave pets unattended... "
+"even small dogs..."
+msgstr "Komu patří ten malý knírač, co mě nenechá chodit v klidu po městě? Nejste to vy, že, milá %s? Brrr, je tak ošklivé nechat tam venku zvířata bez dozoru - dokonce i malé pejsky..."
+
+#: interactive/messages.py:90
+#, python-format
+msgid ""
+"Have you visited the zoo, yet? I love the penguin and the giraffe, but that "
+"monkey just drives me crazy. Maybe we could go together someday, %s, and "
+"have a hard long talk with whoever runs that place."
+msgstr "Už jsi někdy navštívila zoo? Miluji tučňáka a žirafu, ale ta opice mě vytáčí. Měli bychom asi někdy jít spolu, milá %s - a tvrdě si promluvit s tím, kdo to tam má na starosti."
+
+#: interactive/messages.py:91
+msgid ""
+"Have you met Fabrizio, the little italian kid? He's always with that ball, "
+"but I think I've seen him somewhere before. Do you think he maybe might have "
+"a free tabletop game developed by Ocastudios?"
+msgstr "Setkala ses někdy s Fabriziem, malým italským klukem co chodí vždycky s míčem? Myslím, že už jsem ho předtím někde viděla. Myslíš, že má deskovou hru vyvinutou společností Ocastudios?"
+
+#: interactive/messages.py:92
+#, python-format
+msgid ""
+"Many people think that the beatiful scenery of fairy tales are stuff of "
+"legend, by they exist, %s. Next vacations, try cruising around the "
+"Gaeltacht, or taking a stroll in Venezia, or diving in caribbean blue waters "
+"and see for yourself."
+msgstr "Mnoho lidí si myslí, že krásné scénáře pohádek jsou jen legendy, milá %s. Na své příští dovolené navštiv Irsko nebo se projdi v Benátkách nebo se ponoř do modrých vod Karibiku a přesvědčíš se sama."
+
+#: interactive/messages.py:93
+msgid ""
+"Do you know that many, many people have to worry about computer viruses, and "
+"software freezing. They don't even have access to their source-code... Thank "
+"goodness we use a Unix box."
+msgstr "Jistě víš, že se mnoho lidí bojí počítačových virů a havárie programů. Nemají ani přístup ke zdrojovému kódu... Naštěstí používám Unix."
+
+#: interactive/messages.py:94
+msgid ""
+"Have you seen the ball palace shaking last night? With so much dancing, do "
+"you think the structure is still stable? I think I'll call the dwarves to "
+"make some repairs."
+msgstr "Viděla jsi, jak se včera v noci třásl plesový palác? Myslíš, že po tolika tancích má strukturu stále stabilní? Asi zavolám trpaslíky, aby udělali nějaké opravy."
+
+#: interactive/messages.py:95
+#, python-format
+msgid ""
+"Okay, %s, these are the clothes I'll be wearing. But if you copy me I'll "
+"tell on you to ma!"
+msgstr "No tak jo, milá %s, tohle jsou šaty, které si obléknu. Ale když mě napodobíš, řeknu to na tebe mamince!"
+
+#: interactive/messages.py:96
+msgid ""
+"No, I won't go out today! Yesterday there were so many chicks... and their "
+"mama didn't let me even play with them. She ruined may hair!!! I'm never "
+"coming out again."
+msgstr "Ne, dnes ven nepůjdu! Včera tam bylo tolik ptáčat... a jejich máma mi ani nedovolila si s nimi hrát. Zničila mi účes!!! Už nikdy neopustím tenhle palác."
+
+#: interactive/messages.py:97
+#, python-format
+msgid ""
+"%s, I won't rest until I get the heart of the prince. I mean, Gentleman "
+"Decent is kinda cute, but he falls for every girl in the kingdom!"
+msgstr "Milá %s, neodpočinu si, dokud nezískám srdce prince Okouzlujícího. Myslím, že pan Slušný je sice roztomilý, ale zamiluje se do každé dívky v království."
+
+#: interactive/messages.py:98
+#, python-format
+msgid ""
+"There is a lot of noblemen in the balls, %s, but... do you think someone "
+"would mind if I invite Fabrizio tonight? I mean, he 'will' have to forget "
+"about the ball for a while, of course."
+msgstr "Na plesech je spousta šlechticů, milá %s, ale... Myslíš, že by někomu vadilo, kdybych dnes večer pozvala Fabrizia? Myslím, že bude muset trochu zapomenout na míč, samozřejmě."
+
+#: interactive/messages.py:99
+msgid ""
+"Some of the princesses never eat apples or work with spindles because they "
+"are afraid of fairy tales. As for me, I just keep my distance from evil "
+"witches and refrain from talking to big bad wolves."
+msgstr "Některé princezny nikdy nejedí jablka a vyhýbají se vřeténkům, protože je děsí pohádky. Pokud jde o mě, jen si udržuji odstup od zlých čarodějnic a nemluvím s ošklivými vlky."
+
+#: interactive/messages.py:100
+msgid ""
+"Do you know that many countries today still have kings? Oh, I'd love to be "
+"the princess of Sweeden, Spain or Japan. I guess I'll have to settle for an "
+"enchanted mythical kingdom of everlasting joy, but I 'really' wanted "
+"Sweeden..."
+msgstr "Víš, že mnoho zemí má dnes stále krále? Ach, ráda bych byla princeznou Švédska, Španělska nebo Japonska. Myslím, že se musím spokojit s mýtickým kouzelným královstvím nekonečného štěstí, ale ve 'skutečnosti' chci Švédsko..."
+
+#: interactive/popup.py: 33
+msgid "you unlocked $garment_type $name"
+msgstr "odemčeno: $garment_type $name"
+
+#: interface/inside.py:42
+msgid "Take a shower"
+msgstr "Osprchovat se"
+
+#: interface/inside.py:45
+msgid "Leave"
+msgstr "Odejít"
+
+#: interface/inside.py:48
+msgid "Would you like to take a shower?"
+msgstr "Chceš si dát sprchu?"
+
+#: interface/inside.py:183
+msgid "Go to the Ball"
+msgstr "Jít na ples"
+
+#: interface/inside.py:184
+msgid ""
+"It is not very cute to repeat your outfits. Check out what you wore at past "
+"Balls and try to find something different."
+msgstr "Není moc vhodné opakovat vzhled. Podívej se, co jsi měla na minulých plesech a zkus najít něco jiného."
+
+#: interface/inside.py:185
+msgid "Last Ball"
+msgstr "minulý bál "
+
+#: interface/inside.py:186
+msgid "Great Past Ball"
+msgstr " předminulý bál "
+
+#: interface/inside.py:187
+msgid "3 Balls Ago"
+msgstr "  3 bály zpět"
+
+#: interface/ball.py:102
+msgid "and won the heart of"
+msgstr "a získala jsi srdce"
+
+#: interface/ball.py:112
+msgid "...but no one's heart yet."
+msgstr "...ale srdce zatím nikoho."
+
+#: interface/ball.py:212
+msgid "You"
+msgstr "Ty"
+
+#: interface/ball.py:214
+msgid "won"
+msgstr "máš"
+
+#: interface/ball.py:216
+msgid "glamour"
+msgstr "bodů"
+
+#: interface/ball.py:218
+msgid "points"
+msgstr "za půvab"
+
+#: interface/ball.py:293
+msgid "Today"
+msgstr "Dnes"
+
+#: interface/ball.py:294
+msgid "Yesterday"
+msgstr "Včera"
+
+#: interface/ball.py:407
+msgid "Gentleman Decent"
+msgstr "pana Slušného"
+
+#: interface/ball.py:410
+msgid "Knight Reliable"
+msgstr "rytíře Spolehlivého"
+
+#: interface/ball.py:413
+msgid "Baron Serious"
+msgstr "barona Vážného"
+
+#: interface/ball.py:416
+msgid "Count Loving"
+msgstr "hraběte Lásky"
+
+#: interface/ball.py:419
+msgid "Marquess Attractive"
+msgstr "markýze Krásného"
+
+#: interface/ball.py:422
+msgid "Duke Intelligent"
+msgstr "vévody Chytrého"
+
+#: interface/ball.py:425
+msgid "Prince Charming"
+msgstr "prince Vysněného"
+
+#: interface/ball.py:428
+msgid "King Kindhearted"
+msgstr "krále Laskavého"
+
+#: interface/ball.py:435
+msgid "Emperor Awesome"
+msgstr "císaře Úžasného"
+
+#: interface/menu.py:272
+msgid "New Game"
+msgstr "Nová hra"
+
+#: interface/menu.py:272
+msgid "Load Game"
+msgstr "Nahrát hru"
+
+#: interface/menu.py:272
+msgid "Watch Story"
+msgstr "Ukázat příběh"
+
+#: interface/menu.py:272
+msgid "Learn to play"
+msgstr "Návod ke hře"
+
+#: interface/menu.py:272 interface/menu.py:782
+msgid "Credits"
+msgstr "Zásluhy"
+
+#: interface/menu.py:272
+msgid "Exit"
+msgstr "Ukončit"
+
+#: interface/menu.py:274
+msgid "select one"
+msgstr "vyber si"
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "Choose your"
+msgstr "Zvol svůj"
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "appearence..."
+msgstr "vzhled..."
+
+#: interface/menu.py:305
+msgid "skin tone"
+msgstr "odstín pleti"
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "previous"
+msgstr "předchozí"
+
+#: interface/menu.py:305 interface/menu.py:319
+msgid "next"
+msgstr "další"
+
+#: interface/menu.py:319
+msgid "hair style"
+msgstr "účes"
+
+#: interface/menu.py:338
+msgid "< back"
+msgstr "< zpět"
+
+#: interface/menu.py:339
+msgid "space >"
+msgstr "mezera >"
+
+#: interface/menu.py:340
+msgid "clean up [  ]"
+msgstr "vymazat [  ]"
+
+#: interface/menu.py:341
+msgid "random   ???"
+msgstr "náhodné  ???"
+
+#: interface/menu.py:349
+msgid "Sorry, This name is taken."
+msgstr "LItuji, jméno se používá."
+
+#: interface/menu.py:350
+msgid "Please, choose another one"
+msgstr "Prosím, vyber si jiné"
+
+#: interface/menu.py:351
+msgid "_ _ _ _ _ _ _"
+msgstr ""
+
+#: interface/menu.py:354
+msgid "or Overwrite it."
+msgstr "nebo jej přepiš."
+
+
+#: interface/menu.py:356
+msgid "... and your name."
+msgstr "... a svoje jméno."
+
+#: interface/menu.py:494
+msgid "The "
+msgstr ""
+
+#: interface/menu.py:512
+msgid "Or go back to Main Menu"
+msgstr "Nebo jdi zpět na Hlavní menu"
+
+#: interface/menu.py:513
+msgid "Have you already saved a game?"
+msgstr "Už máš uloženou svou hru?"
+
+#: interface/menu.py:514
+msgid "Then choose your saved princess:"
+msgstr "Tak vyber svou uloženou princeznu:"
+
+#: interface/menu.py:523
+msgid "erase"
+msgstr "smazat"
+
+#: interface/menu.py:627
+msgid "Use the arrows to go"
+msgstr "Použij šipky pro pohyb"
+
+#: interface/menu.py:628
+msgid "forward and backward"
+msgstr "dopředu a dozadu"
+
+#: interface/menu.py:638
+msgid "Hi!"
+msgstr ""
+
+#: interface/menu.py:639
+msgid ""
+"Hello, dear! I'm a fairy godmother and I asked for princess Madelline's help "
+"to give you a superb tutorial, okay?"
+msgstr "Vítej, drahá! Jsem víla kmotřička a s pomocí tvojí princezny ti dám skvělý návod, ano?"
+
+#: interface/menu.py:641
+msgid "Yiipi!"
+msgstr ""
+
+#: interface/menu.py:642
+msgid ""
+"As you'll soon find out, pressing left or right will move your princess "
+"around."
+msgstr "Jak brzy zjistíš, šipkami vlevo nebo vpravo pohybuješ svou princeznou."
+
+#: interface/menu.py:644
+msgid "Yey!"
+msgstr ""
+
+#: interface/menu.py:645
+msgid "And pressing the spacebar will allow you to jump."
+msgstr "A stisknutí mezerníku ti umožní skákat."
+
+#: interface/menu.py:647
+msgid "x"
+msgstr ""
+
+#: interface/menu.py:648
+msgid "And the Control key will get you a kiss."
+msgstr "A klávesou Ctrl dáváš polibek."
+
+#: interface/menu.py:650
+msgid "Ooh!"
+msgstr ""
+
+#: interface/menu.py:651
+msgid ""
+"If you kiss enemies, they will sometimes be sooo happy as to stop bothering "
+"you... for a while."
+msgstr "Když políbíš nepřátele, budou občas tak rádi, že tě přestanou otravovat... na chvíli."
+
+#: interface/menu.py:653
+msgid ""
+"But be aware that some enemies will respond only to your mouse cursor, and "
+"yet others can only be dodged!"
+msgstr "Ale dej si pozor, někteří nepřátelé reagují jen na tvůj kurzor myši a jiným se musíš vyhýbat!"
+
+#: interface/menu.py:655
+msgid ""
+"You'll notice that on the upper right side there's a clock. When it points "
+"down, it will be time for the ball."
+msgstr "Všimni si, že vpravo nahoře jsou hodiny. Když mají ručičku dole, je čas na ples."
+
+#: interface/menu.py:657
+msgid "Yeah!"
+msgstr ""
+
+#: interface/menu.py:658
+msgid "But first we need to find you a beautiful and original look."
+msgstr "Ale nejdřív pro tebe musíme najít krásný a jedinečný vzhled."
+
+#: interface/menu.py:660
+msgid ""
+"And in order to do that, we must visit the castles that lie in the left part "
+"of most streets."
+msgstr "Abys to dokázala, musíš navštívit paláce, umístěné v levé části většiny ulic."
+
+#: interface/menu.py:662
+msgid ""
+"That's because they are shops, and in them you'll find the most wonderful "
+"dresses, make-up, shoes and accessories!"
+msgstr "Protože to jsou obchody a v nich najdeš ty nejhezčí obleky, make-upy, boty a doplňky!"
+
+#: interface/menu.py:664
+msgid "You got it!"
+msgstr ""
+
+#: interface/menu.py:665
+msgid ""
+"Oh! And remember you can switch streets by pressing up when in front of a "
+"gate."
+msgstr "Jo! A pamatuj si, že můžeš přepínat ulice šipkou mahoru když jsi před bránou."
+
+#: interface/menu.py:667
+msgid "Ookay..."
+msgstr ""
+
+#: interface/menu.py:668
+msgid ""
+"Now, once you're at the ball, your look will be compared to those of other "
+"princesses, and even with the garments you girls used in previous balls."
+msgstr "Jakmile budeš na plese, tvůj vzhled bude porovnán s ostatními princeznami a dokonce i se šaty, použitými vámi všemi dívkami na předchozích plesech."
+
+#: interface/menu.py:670
+msgid "Oh, no!..."
+msgstr ""
+
+#: interface/menu.py:671
+msgid ""
+"If you wear the same outfit as others (or repeat it ball after ball), you'll "
+"earn little to no glamour points. It would be a shame."
+msgstr "Když si oblékneš stejné vybavení jako ostatní (nebo ho zopakuješ ples od plesu), získáš málo nebo žádné body za půvab. To by byla ostuda."
+
+#: interface/menu.py:673
+msgid "All right!"
+msgstr ""
+
+#: interface/menu.py:674
+msgid ""
+"But, on the other hand, if you show up with an original look, then you may "
+"earn lots of glamour points!"
+msgstr "Ale naopak když se ukážeš v originálním vzhledu, můžeš získat hodně bodů za půvab!"
+
+#: interface/menu.py:676
+msgid "Who's my True Love?"
+msgstr ""
+
+#: interface/menu.py:677
+msgid ""
+"And as you gain glamour points, more and more boys will offer you their "
+"hearts. And some day, you may even catch the eyes of Prince Charming himself."
+msgstr "A jakmile nabereš body za půvab, víc a víc chlapců ti nabídne svá srdce. A jednoho dne se možná do tebe zahledí sám princ."
+
+#: interface/menu.py:679
+msgid "Oh, no!"
+msgstr ""
+
+#: interface/menu.py:680
+msgid "Woof!"
+msgstr ""
+
+#: interface/menu.py:681
+msgid ""
+"But beware! The enemies on your way may not hurt you, but they can make you "
+"dirty. And THAT would certainly cost you lots of glamour points!"
+msgstr "Ale pozor! Nepřátelé v tvé cestě ti nemusí ublížit, ale mohou tě ušpinit. A TOHLE by tě jistě stálo spoustu bodů půvabu!"
+
+#: interface/menu.py:683
+msgid "So be careful."
+msgstr ""
+
+#: interface/menu.py:684
+msgid ""
+"You can get even dirtier if you are caught a second time, and become "
+"dirtiest if hit yet again..."
+msgstr "Můžeš být ještě špinavější, když tě přistihnou podruhé a budeš nejšpinavější, jestli tě zasáhnou ještě jednou..."
+
+#: interface/menu.py:686
+msgid "Hooray!"
+msgstr ""
+
+#: interface/menu.py:687
+msgid ""
+"...but event then there's hope. Go back and enter the Bathhouse, and you'll "
+"be clean and perfumed in no time!"
+msgstr ".. ale i pak je naděje. Běž zpět a zajdi do lázní, pak budeš okamžitě čistá a navoněná."
+
+#: interface/menu.py:689
+msgid "Neat!"
+msgstr ""
+
+#: interface/menu.py:690
+msgid ""
+"But before you go, I've got two more tips to you. First, stay alert to the "
+"music! By it you can tell not only what is the stronger enemy around, but "
+"how far it is from you."
+msgstr "Ale než půjdeš, dám ti dvě další rady. První: stále si hlídej hudbu! Tím nejen poznáš, jak silný nepřítel je v okolí, ale i jak je od tebe daleko."
+
+#: interface/menu.py:692
+msgid "Ooooh!"
+msgstr ""
+
+#: interface/menu.py:693
+msgid ""
+"And finally, there are many secret items in the game, and you should anlock "
+"them ASAP. To get you started, try kissing the lion on Make-up Street's zoo."
+msgstr "A nakonec: ve hře je mnoho tajných věcí a něla bys je odemknout RYCHLE. Pro začátek zkus políbit lva v zoo v Líčidlové ulici."
+
+#: interface/menu.py:695
+msgid "Have fun!"
+msgstr ""
+
+#: interface/menu.py:696
+msgid ""
+"Now you're good to go! Don't stay idle waiting your dreams come true - go "
+"get them, girl!"
+msgstr "Nyní jsi připravená jít. Nečekej zbytečně na splnění svých snů - běž si je splnit, holka!"
+
+#: interface/menu.py:780
+msgid "in loving memory of"
+msgstr ""
+
+#: interface/menu.py:781
+msgid "and"
+msgstr ""
+
+#: interface/menu.py:783
+msgid "Programming"
+msgstr ""
+
+#: interface/menu.py:784
+msgid "Support"
+msgstr ""
+
+#: interface/menu.py:785
+msgid "Design"
+msgstr ""
+
+#: interface/menu.py:786
+msgid "Music"
+msgstr ""
+
+#: interface/menu.py:787 interface/menu.py:800 interface/menu.py:802
+msgid "first snowfall"
+msgstr ""
+
+#: interface/menu.py:788
+msgid "endless blue"
+msgstr ""
+
+#: interface/menu.py:789
+msgid "celtic cappricio"
+msgstr ""
+
+#: interface/menu.py:790
+msgid "the bee"
+msgstr ""
+
+#: interface/menu.py:791
+msgid "lonesome man's dance"
+msgstr ""
+
+#: interface/menu.py:792
+msgid "dragon dance"
+msgstr ""
+
+#: interface/menu.py:793
+msgid "ship of fools"
+msgstr ""
+
+#: interface/menu.py:794
+msgid "sword fight"
+msgstr ""
+
+#: interface/menu.py:795
+msgid "the foggy dew"
+msgstr ""
+
+#: interface/menu.py:796
+msgid "revolution on resoluti on"
+msgstr ""
+
+#: interface/menu.py:797
+msgid "twilight on mountain"
+msgstr ""
+
+#: interface/menu.py:798
+msgid "brian boru 2"
+msgstr ""
+
+#: interface/menu.py:799
+msgid "ignition"
+msgstr ""
+
+#: interface/menu.py:801
+msgid "cocci ci tini cocci"
+msgstr ""
+
+#: interface/menu.py:803
+msgid "waltz wedley"
+msgstr ""
+
+#: interface/menu.py:806
+msgid "All python & pygame code, written in gedit."
+msgstr ""
+
+#: interface/menu.py:807
+msgid "Bureaucracy and et ceteras"
+msgstr ""
+
+#: interface/menu.py:808
+msgid "Almost all Inkscape, with a touch of Blender and Gimp."
+msgstr ""
+
+#: interface/menu.py:809
+msgid "based on the homonimous board game by"
+msgstr ""
+
+#: interface/menu.py:810
+msgid "available at"
+msgstr ""
+
+#: interface/menu.py:811
+msgid "introduction"
+msgstr ""
+
+#: interface/menu.py:812 interface/menu.py:838 interface/menu.py:842
+msgid "by Torley on Piano"
+msgstr ""
+
+#: interface/menu.py:813
+msgid "menu"
+msgstr ""
+
+#: interface/menu.py:814 interface/menu.py:826 interface/menu.py:832
+#: interface/menu.py:836
+msgid "by Armolithae"
+msgstr ""
+
+#: interface/menu.py:815
+msgid "bathhouse st"
+msgstr ""
+
+#: interface/menu.py:816
+msgid "by armolithae"
+msgstr ""
+
+#: interface/menu.py:817
+msgid "dress st"
+msgstr ""
+
+#: interface/menu.py:818 interface/menu.py:820 interface/menu.py:824
+#: interface/menu.py:828
+msgid "by Ceili Moss"
+msgstr ""
+
+#: interface/menu.py:819
+msgid "shoe's st"
+msgstr ""
+
+#: interface/menu.py:821
+msgid "accessory st."
+msgstr ""
+
+#: interface/menu.py:822
+msgid "by Butterfly Tea"
+msgstr ""
+
+#: interface/menu.py:823
+msgid "make-up st."
+msgstr ""
+
+#: interface/menu.py:825
+msgid "schnauzer"
+msgstr ""
+
+#: interface/menu.py:827
+msgid "carriage"
+msgstr ""
+
+#: interface/menu.py:829
+msgid "old lady"
+msgstr ""
+
+#: interface/menu.py:830
+msgid "by Torly on Piano"
+msgstr ""
+
+#: interface/menu.py:831
+msgid "viking"
+msgstr ""
+
+#: interface/menu.py:833
+msgid "butterffly"
+msgstr ""
+
+#: interface/menu.py:834
+msgid "by Adragante"
+msgstr ""
+
+#: interface/menu.py:835
+msgid "hawk"
+msgstr ""
+
+#: interface/menu.py:837
+msgid "birdie"
+msgstr ""
+
+#: interface/menu.py:839
+msgid "fabrizio"
+msgstr ""
+
+#: interface/menu.py:840
+msgid "by Picari"
+msgstr ""
+
+#: interface/menu.py:841
+msgid "zoo"
+msgstr ""
+
+#: interface/menu.py:843
+msgid "ball"
+msgstr ""
+
+#: interface/menu.py:844
+msgid "by strauss"
+msgstr ""
+
+#: interface/menu.py:845
+msgid "Sad and unfortunate legal mambo jambo"
+msgstr ""
+
+#: interface/menu.py:846
+msgid ""
+"All programming and art are public domain, released so by us, their authors."
+msgstr ""
+
+#: interface/menu.py:847
+msgid ""
+"The musics, however, comes in a variety of free licenses. They can be used "
+"and altered, even commercially, but credit MUST be given. Special thanks to "
+"www.jamendo.com, from where most of our music came."
+msgstr ""
+
+#: interface/menu.py:848
+msgid ""
+"And then there are the fonts: Gentesque, by Paulo Silva, is in OpenFont "
+"License while Chopin Script, by Diogene, is in Public Domain (hurray!)."
+msgstr ""
+
+#: interface/menu.py:849
+msgid ""
+"If you are a developer of free content, please consider the limitations the "
+"varying \"free licenses\" impose on derivative works. Tons (or better yet, "
+"Teras) of cultural content, as images, music and fonts that are \"free\" are "
+"quite unuseable due to legal and procedural restraints (we just cannot give "
+"credit to every bit of data we'll use). \"Free for personnal use, but not "
+"commercial\", \"free for use, but not to alter\" and/or \"free for use, but "
+"not to distribute\" hinders freedom, and equals \"free as in beer, not as in "
+"speech\". Giving credit to a music used is fair and doable, but not to the "
+"recording of step sounds, for example, or other minuscule but necessary "
+"files. Please help us spread and create upon your work by releasing it "
+"either in public domain or in GPL - avoid semi-free, non-standard and "
+"multiple-standard licenses. These just end up torturing developers with "
+"pages of sad and unfortunate license disclaimers... such as this."
+msgstr ""
+
+#: interface/menu.py:850
+msgid ""
+"( If you are an author and want your music out of this game, contact us and "
+"we'll promptly remove it. )"
+msgstr ""
+
+#: interface/menu.py:851
+msgid "want to congratulate or complain? do it to glamour@ocastudios.com"
+msgstr ""
+
+#: interface/random_names.py:4
+msgid "Aaliyah"
+msgstr "Eliska"
+
+#: interface/random_names.py:5
+msgid "Abigail"
+msgstr "Agata"
+
+#: interface/random_names.py:6
+msgid "Addison"
+msgstr "Adela"
+
+#: interface/random_names.py:7
+msgid "Albertine"
+msgstr "Adriana"
+
+#: interface/random_names.py:8
+msgid "Albinia"
+msgstr "Albina"
+
+#: interface/random_names.py:9
+msgid "Alethea"
+msgstr "Aneta"
+
+#: interface/random_names.py:10
+msgid "Alexa"
+msgstr "Anezka"
+
+#: interface/random_names.py:11
+msgid "Alexandra"
+msgstr ""
+
+#: interface/random_names.py:12
+msgid "Alexis"
+msgstr "Alena"
+
+#: interface/random_names.py:13
+msgid "Allegra"
+msgstr "Agata"
+
+#: interface/random_names.py:14
+msgid "Allison"
+msgstr "Alice"
+
+#: interface/random_names.py:15
+msgid "Alma"
+msgstr "Irma"
+
+#: interface/random_names.py:16
+msgid "Aloisia"
+msgstr "Aloisie"
+
+#: interface/random_names.py:17
+msgid "Althea"
+msgstr "Ingrid"
+
+#: interface/random_names.py:18
+msgid "Alyssa"
+msgstr "Johana"
+
+#: interface/random_names.py:19
+msgid "Amanda"
+msgstr "Ljuba"
+
+#: interface/random_names.py:20
+msgid "Amelia"
+msgstr "Amalie"
+
+#: interface/random_names.py:21
+msgid "Andrea"
+msgstr ""
+
+#: interface/random_names.py:22
+msgid "Angel"
+msgstr "Anděla"
+
+#: interface/random_names.py:23
+msgid "Angelina"
+msgstr ""
+
+#: interface/random_names.py:24
+msgid "Anna"
+msgstr ""
+
+#: interface/random_names.py:25
+msgid "Annzella"
+msgstr "Anastazie"
+
+#: interface/random_names.py:26
+msgid "Anthea"
+msgstr "Antonie"
+
+#: interface/random_names.py:27
+msgid "Aquila"
+msgstr "Apolena"
+
+#: interface/random_names.py:28
+msgid "Armine"
+msgstr "Silvie"
+
+#: interface/random_names.py:29
+msgid "Artemisia"
+msgstr "Venceslava"
+
+#: interface/random_names.py:30
+msgid "Ashley"
+msgstr "Darja"
+
+#: interface/random_names.py:31
+msgid "Aspasia"
+msgstr "Drahomira"
+
+#: interface/random_names.py:32
+msgid "Aubrey"
+msgstr "Jana"
+
+#: interface/random_names.py:33
+msgid "Augusta"
+msgstr "Vanda"
+
+#: interface/random_names.py:34
+msgid "Aurea"
+msgstr "Nada"
+
+#: interface/random_names.py:35
+msgid "Auriol"
+msgstr "Nadezda"
+
+#: interface/random_names.py:36
+msgid "Aurora"
+msgstr "Stela"
+
+#: interface/random_names.py:37
+msgid "Autumn"
+msgstr "Vilma"
+
+#: interface/random_names.py:38
+msgid "Ava"
+msgstr "Vlasta"
+
+#: interface/random_names.py:39
+msgid "Avery"
+msgstr "Vera"
+
+#: interface/random_names.py:40
+msgid "Bailey"
+msgstr "Beata"
+
+#: interface/random_names.py:41
+msgid "Barbara"
+msgstr "Barbora"
+
+#: interface/random_names.py:42
+msgid "Bella"
+msgstr "Bela"
+
+#: interface/random_names.py:43
+msgid "Berenice"
+msgstr "Berta"
+
+#: interface/random_names.py:44
+msgid "Betty"
+msgstr "Betka"
+
+#: interface/random_names.py:45
+msgid "Brianna"
+msgstr "Blanka"
+
+#: interface/random_names.py:46
+msgid "Brilliana"
+msgstr "Blazena"
+
+#: interface/random_names.py:47
+msgid "Britannia"
+msgstr "Bohdana"
+
+#: interface/random_names.py:48
+msgid "Brittany"
+msgstr "Bohuslava"
+
+#: interface/random_names.py:49
+msgid "Brooke"
+msgstr "Bohumila"
+
+#: interface/random_names.py:50
+msgid "Brooklyn"
+msgstr "Bozena"
+
+#: interface/random_names.py:51
+msgid "Camila"
+msgstr "Kamila"
+
+#: interface/random_names.py:52
+msgid "Carina"
+msgstr "Klara"
+
+#: interface/random_names.py:53
+msgid "Carol"
+msgstr "Karla"
+
+#: interface/random_names.py:54
+msgid "Caroline"
+msgstr "Karolina"
+
+#: interface/random_names.py:55
+msgid "Charlotte"
+msgstr "Kristýna"
+
+#: interface/random_names.py:56
+msgid "Chelsea"
+msgstr ""
+
+#: interface/random_names.py:57
+msgid "Chloe"
+msgstr ""
+
+#: interface/random_names.py:58
+msgid "Cilda"
+msgstr "Cecilka"
+
+#: interface/random_names.py:59
+msgid "Claire"
+msgstr "Klára"
+
+#: interface/random_names.py:60
+msgid "Clorinda"
+msgstr "Judita"
+
+#: interface/random_names.py:61
+msgid "Corisande"
+msgstr "Jolana"
+
+#: interface/random_names.py:62
+msgid "Courtney"
+msgstr "Justyna"
+
+#: interface/random_names.py:63
+msgid "Deborah"
+msgstr "Dobromila"
+
+#: interface/random_names.py:64
+msgid "Delia"
+msgstr "Dita"
+
+#: interface/random_names.py:65
+msgid "Destiny"
+msgstr "Denisa"
+
+#: interface/random_names.py:66
+msgid "Dilliana"
+msgstr "Daniela"
+
+#: interface/random_names.py:67
+msgid "Donna"
+msgstr "Dana"
+
+#: interface/random_names.py:68
+msgid "Dorinda"
+msgstr "Darina"
+
+#: interface/random_names.py:69
+msgid "Dorothy"
+msgstr "Dorota"
+
+#: interface/random_names.py:70
+msgid "Douglas"
+msgstr "Dagmar"
+
+#: interface/random_names.py:71
+msgid "Elizabella"
+msgstr "Evelina"
+
+#: interface/random_names.py:72
+msgid "Elizabeth"
+msgstr "Alzbeta"
+
+#: interface/random_names.py:73
+msgid "Ella"
+msgstr "Edita"
+
+#: interface/random_names.py:74
+msgid "Elma"
+msgstr "Erika"
+
+#: interface/random_names.py:75
+msgid "Emily"
+msgstr "Emilie"
+
+#: interface/random_names.py:76
+msgid "Emma"
+msgstr "Ema"
+
+#: interface/random_names.py:77
+msgid "Eva"
+msgstr ""
+
+#: interface/random_names.py:78
+msgid "Evelyn"
+msgstr "Evelina"
+
+#: interface/random_names.py:79
+msgid "Faith"
+msgstr "Nora"
+
+#: interface/random_names.py:80
+msgid "Frusannah"
+msgstr "Frantiska"
+
+#: interface/random_names.py:81
+msgid "Gabriella"
+msgstr "Izabela"
+
+#: interface/random_names.py:82
+msgid "Gabrielle"
+msgstr "Gabriela"
+
+#: interface/random_names.py:83
+msgid "Genesis"
+msgstr "Gizela"
+
+#: interface/random_names.py:84
+msgid "Gianna"
+msgstr "Gita"
+
+#: interface/random_names.py:85
+msgid "Grace"
+msgstr "Zita"
+
+#: interface/random_names.py:86
+msgid "Gracie"
+msgstr "Irena"
+
+#: interface/random_names.py:87
+msgid "Hailey"
+msgstr "Hedvika"
+
+#: interface/random_names.py:88
+msgid "Haley"
+msgstr "Hermina"
+
+#: interface/random_names.py:89
+msgid "Hannah"
+msgstr "Hana"
+
+#: interface/random_names.py:90
+msgid "Helen"
+msgstr "Helena"
+
+#: interface/random_names.py:91
+msgid "Isabel"
+msgstr "Izabela"
+
+#: interface/random_names.py:92
+msgid "Isabella"
+msgstr "Iveta"
+
+#: interface/random_names.py:93
+msgid "Isabelle"
+msgstr "Ivana"
+
+#: interface/random_names.py:94
+msgid "Jacinth"
+msgstr "Jitka"
+
+#: interface/random_names.py:95
+msgid "Jasmine"
+msgstr "Jarmila"
+
+#: interface/random_names.py:96
+msgid "Jennifer"
+msgstr "Jirina"
+
+#: interface/random_names.py:97
+msgid "Jessica"
+msgstr "Jaroslava"
+
+#: interface/random_names.py:98
+msgid "Jocelyn"
+msgstr "Jirina"
+
+#: interface/random_names.py:99
+msgid "Julia"
+msgstr "Julie"
+
+#: interface/random_names.py:100
+msgid "Kaitlyn"
+msgstr "Kamila"
+
+#: interface/random_names.py:101
+msgid "Karen"
+msgstr "Kristyna"
+
+#: interface/random_names.py:102
+msgid "Katelyn"
+msgstr "Karolina"
+
+#: interface/random_names.py:103
+msgid "Katherine"
+msgstr "Katerina"
+
+#: interface/random_names.py:104
+msgid "Kayla"
+msgstr "Kveta"
+
+#: interface/random_names.py:105
+msgid "Kaylee"
+msgstr "Kvetoslava"
+
+#: interface/random_names.py:106
+msgid "Khloe"
+msgstr "Klaudie"
+
+#: interface/random_names.py:107
+msgid "Kimberly"
+msgstr "Ludmila"
+
+#: interface/random_names.py:108
+msgid "Kylie"
+msgstr "Lydie"
+
+#: interface/random_names.py:109
+msgid "Laura"
+msgstr ""
+
+#: interface/random_names.py:110
+msgid "Lauren"
+msgstr "Lada"
+
+#: interface/random_names.py:111
+msgid "Layla"
+msgstr "Lenka"
+
+#: interface/random_names.py:112
+msgid "Leah"
+msgstr "Leona"
+
+#: interface/random_names.py:113
+msgid "Lillian"
+msgstr "Liliana"
+
+#: interface/random_names.py:114
+msgid "Lily"
+msgstr "Lydie"
+
+#: interface/random_names.py:115
+msgid "Linda"
+msgstr ""
+
+#: interface/random_names.py:116
+msgid "Lisa"
+msgstr "Libuse"
+
+#: interface/random_names.py:117
+msgid "Lucasta"
+msgstr "Lucie"
+
+#: interface/random_names.py:118
+msgid "Mackenzie"
+msgstr "Tereza"
+
+#: interface/random_names.py:119
+msgid "Madeline"
+msgstr "Magdalena"
+
+#: interface/random_names.py:120
+msgid "Madelyn"
+msgstr "Magda"
+
+#: interface/random_names.py:121
+msgid "Madison"
+msgstr "Monika"
+
+#: interface/random_names.py:122
+msgid "Makayla"
+msgstr "Mahulena"
+
+#: interface/random_names.py:123
+msgid "Marcia"
+msgstr "Marcela"
+
+#: interface/random_names.py:124
+msgid "Margaret"
+msgstr "Marketa"
+
+#: interface/random_names.py:125
+msgid "Maria"
+msgstr "Marie"
+
+#: interface/random_names.py:126
+msgid "Mariabella"
+msgstr "Mariana"
+
+#: interface/random_names.py:127
+msgid "Mariah"
+msgstr "Martina"
+
+#: interface/random_names.py:128
+msgid "Mary"
+msgstr "Marta"
+
+#: interface/random_names.py:129
+msgid "Maya"
+msgstr "Marika"
+
+#: interface/random_names.py:130
+msgid "Megan"
+msgstr "Miluse"
+
+#: interface/random_names.py:131
+msgid "Melanie"
+msgstr "Milena"
+
+#: interface/random_names.py:132
+msgid "Mia"
+msgstr "Milada"
+
+#: interface/random_names.py:133
+msgid "Michelle"
+msgstr "Michaela"
+
+#: interface/random_names.py:134
+msgid "Molly"
+msgstr "Miloslava"
+
+#: interface/random_names.py:135
+msgid "Morgan"
+msgstr "Miriam"
+
+#: interface/random_names.py:136
+msgid "Mya"
+msgstr "Miroslava"
+
+#: interface/random_names.py:137
+msgid "Nancy"
+msgstr "Anicka"
+
+#: interface/random_names.py:138
+msgid "Natalie"
+msgstr ""
+
+#: interface/random_names.py:139
+msgid "Nevaeh"
+msgstr "Natasa"
+
+#: interface/random_names.py:140
+msgid "Nicole"
+msgstr "Nikola"
+
+#: interface/random_names.py:141
+msgid "Olivia"
+msgstr "Olivie"
+
+#: interface/random_names.py:142
+msgid "Paige"
+msgstr "Petra"
+
+#: interface/random_names.py:143
+msgid "Patricia"
+msgstr "Patricie"
+
+#: interface/random_names.py:144
+msgid "Payton"
+msgstr "Pavla"
+
+#: interface/random_names.py:145
+msgid "Peyton"
+msgstr "Pavlina"
+
+#: interface/random_names.py:146
+msgid "Philadelphia"
+msgstr "Olga"
+
+#: interface/random_names.py:147
+msgid "Rachel"
+msgstr "Radka"
+
+#: interface/random_names.py:148
+msgid "Rebecca"
+msgstr "Renata"
+
+#: interface/random_names.py:149
+msgid "Riley"
+msgstr "Oldriska"
+
+#: interface/random_names.py:150
+msgid "Ruth"
+msgstr "Ruzena"
+
+#: interface/random_names.py:151
+msgid "Samantha"
+msgstr "Svetlana"
+
+#: interface/random_names.py:152
+msgid "Sandra"
+msgstr ""
+
+#: interface/random_names.py:153
+msgid "Sara"
+msgstr ""
+
+#: interface/random_names.py:154
+msgid "Sarah"
+msgstr "Sarka"
+
+#: interface/random_names.py:155
+msgid "Saranna"
+msgstr "Sandra"
+
+#: interface/random_names.py:156
+msgid "Savannah"
+msgstr "Simona"
+
+#: interface/random_names.py:157
+msgid "Serenity"
+msgstr "Stanislava"
+
+#: interface/random_names.py:158
+msgid "Sharon"
+msgstr "Saskie"
+
+#: interface/random_names.py:159
+msgid "Sofia"
+msgstr "Sofie"
+
+#: interface/random_names.py:160
+msgid "Sophie"
+msgstr "Zofie"
+
+#: interface/random_names.py:161
+msgid "Sophronia"
+msgstr "Svetlana"
+
+#: interface/random_names.py:162
+msgid "Stephanie"
+msgstr "Stepanka"
+
+#: interface/random_names.py:163
+msgid "Susan"
+msgstr "Zuzana"
+
+#: interface/random_names.py:164
+msgid "Sydney"
+msgstr "Sona"
+
+#: interface/random_names.py:165
+msgid "Taylor"
+msgstr "Tatana"
+
+#: interface/random_names.py:166
+msgid "Trinity"
+msgstr "Tereza"
+
+#: interface/random_names.py:167
+msgid "Ulalia"
+msgstr "Otylie"
+
+#: interface/random_names.py:168
+msgid "Urania"
+msgstr "Ursula"
+
+#: interface/random_names.py:169
+msgid "Valeria"
+msgstr "Valerie"
+
+#: interface/random_names.py:170
+msgid "Vanessa"
+msgstr "Vendula"
+
+#: interface/random_names.py:171
+msgid "Venetia"
+msgstr "Veronika"
+
+#: interface/random_names.py:172
+msgid "Victoria"
+msgstr "Viktorie"
+
+#: interface/random_names.py:173
+msgid "Zenobe"
+msgstr "Zaneta"
+
+#: interface/random_names.py:174
+msgid "Zoe"
+msgstr "Zdena"
+
+#: interface/random_names.py:175
+msgid "Zoey"
+msgstr "Xenie"
