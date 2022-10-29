@@ -11,42 +11,14 @@ print("Initializing Pygame Display")
 
 import os
 import pygame
-
-pygame.display.init()
-pygame.display.set_caption("Glamour - OcaStudios")
 import settings
 from settings import directory
-
-os.environ["SDL_VIDEO_CENTERED"] = "1"
-
-
-def splash():
-    # splash = pygame.image.load(os.path.join(directory.data,'splash.png')).convert(32)
-    introdir = os.path.join(directory.data, "images", "intro", "quanti")
-    splash = [
-        pygame.image.load(os.path.join(introdir, i)).convert(32)
-        for i in sorted(os.listdir(introdir))
-    ]
-    splash_size = splash[0].get_size()
-    splash_surface = pygame.display.set_mode(splash_size)  # , pygame.NOFRAME)
-    pygame.display.set_icon(
-        pygame.image.load(
-            os.path.join(directory.interface, "favicon.png")
-        ).convert_alpha()
-    )
-    tempclock = pygame.time.Clock()
-    for i in splash:
-        splash_surface.blit(i, (0, 0))
-        pygame.display.flip()
-        tempclock.tick(40)
-    del tempclock
-
+from interface.splash import splash
+from interface.icon import set_icon
 
 splash()
+set_icon()
 
-pygame.display.set_icon(
-    pygame.image.load(os.path.join(directory.interface, "favicon.png")).convert_alpha()
-)
 pygame.mixer.pre_init(44100, 16, 256)
 settings.reset_scale()
 pygame.mixer.init()
