@@ -133,6 +133,11 @@ class Button(Updatable):
 
 
 class GameText(Updatable):
+
+    fontA = None
+    fontB = None
+
+
     def __init__(
         self,
         universe,
@@ -171,10 +176,10 @@ class GameText(Updatable):
             main_font_size = settings.third_font_size
         else:
             main_font_size = settings.main_font_size
-        self.fontA = pygame.font.Font(
+        self.fontA = self.fontA or pygame.font.Font(
             os.path.join(directory.fonts, self.font), main_font_size
         )
-        self.fontB = pygame.font.Font(
+        self.fontB = self.fontB or pygame.font.Font(
             os.path.join(directory.fonts, settings.second_font),
             settings.second_font_size,
         )
