@@ -799,7 +799,7 @@ class Stage:
         self.loading()
         if goalpos:
             self.princesses[0].center_distance = goalpos
-            self.universe.center_x = -goalpos + (self.universe.width / 2)
+            self.cameras[0].recenter(goalpos)
         self.gates = []
         self.directory = j(directory.scenario, hardname + "_st/")
         self.background = [self.ballroom["day"]]

@@ -9,7 +9,7 @@ class GameCamera:
         self.limit = 0.42
         self.count = 0
         if goalpos:
-            self.universe.center_x = goalpos
+            self.universe.recenter(goalpos, exact=True)
 
     def update_all(self):
         princess_pos = self.universe.level.princesses[0].pos[0]
@@ -36,3 +36,6 @@ class GameCamera:
             if princess_left < self.end_x / 2 < princess_right:
                 self.count *= 0.8
                 self.universe.speed *= 0.8
+
+    def recenter(self, goal):
+        self.universe.recenter(goal)

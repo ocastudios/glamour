@@ -123,6 +123,15 @@ class Universe:
             self.speed = 0
             self.center_x = -(self.level.size) + self.width
 
+    def recenter(self, goal, exact=False):
+        """The universe center_x position moves to the opposite direction of
+        the player.
+        It is, therefore, half the screen minus the center of the player
+        position
+        """
+        self.center_x = goal if exact else -goal + (self.width / 2)
+        return self.center_x
+
     def set_pointer(self, pointer):
         self.pointer.set_pointer(pointer)
 
