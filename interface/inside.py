@@ -94,6 +94,8 @@ class Inside:
         self.music = os.path.join(directory.music, "menu.ogg")
 
     def all_set(self):
+        if self.status == "done":
+            return
         self.status = "done"
         if self.chosen_item:
             exec(
@@ -133,6 +135,8 @@ class Inside:
                 self.locked["crystal"] = False
 
     def clean_up(self):
+        if self.status == "done":
+            return
         self.status = "done"
         if self.universe.level.princesses[0].dirt == 0:
             if self.locked["geisha"]:
