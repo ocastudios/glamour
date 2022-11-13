@@ -122,7 +122,7 @@ class Stage:
             y_height = self.floor
         return y_height
 
-    def update_all(self):
+    def render(self):
         self.blit_all()
         if self.black.alpha_value > 0:
             self.changing_stages_darkenning(-1)
@@ -137,37 +137,37 @@ class Stage:
                 pygame.mixer.music.load(self.music)
                 pygame.mixer.music.play(-1)
         for i in self.pointer:
-            i.update_all()
+            i.render()
 
-    def subtick_update(self):
+    def update(self):
         events.choose_event(self.universe)
         self.act = self.universe.action
         if self.inside:
             for i in self.inside.items:
-                i.subtick_update()
+                i.update()
             for i in self.inside.buttons:
-                i.subtick_update()
+                i.update()
             self.keyboard_selection(self.inside)
         if self.paused:
             self.keyboard_selection(self.pause)
             if self.pause.closet:
                 for i in self.pause.unlocked_items:
-                    i.subtick_update()
-                self.pause.close_closet.subtick_update()
+                    i.update()
+                self.pause.close_closet.update()
             else:
                 if self.pause.status == "choosing":
                     for i in self.pause.buttons:
-                        i.subtick_update()
+                        i.update()
                     if self.fairy:
                         for i in self.fae:
-                            i.subtick_update()
+                            i.update()
 
 
     def update_unlocking(self):
         if self.unlocking:
             if not self.princesses[0].inside:
                 for i in self.unlocking["list"]:
-                    i.update_all()
+                    i.render()
                 self.event_counter += 1
                 if self.event_counter > 210:
                     self.unlocking = False
@@ -321,17 +321,17 @@ class Stage:
                 pygame.mixer.music.load(self.inside.music)
                 pygame.mixer.music.play(-1)
         elif self.inside.status == "choosing":
-            self.princesses[0].update_all()
-            [i.update_all() for i in self.inside.items]
+            self.princesses[0].render()
+            [i.render() for i in self.inside.items]
             [
-                i.update_all()
+                i.render()
                 for i in self.inside.buttons
                 if i.__class__ == widget.Button
             ]
 
         elif self.inside.status == "done":
             pygame.mixer.music.fadeout(1500)
-            self.princesses[0].update_all()
+            self.princesses[0].render()
             self.bar["down"].pos += self.bar_speed
             self.bar["up"].pos -= self.bar_speed
             if self.bar_speed < p(20, r=False):
@@ -351,7 +351,7 @@ class Stage:
                 pygame.mixer.music.play(-1)
                 self.inside.status = "openning"
         elif self.inside.status == "openning":
-            self.princesses[0].update_all()
+            self.princesses[0].render()
             for i in self.gates:
                 if i.rect.colliderect(self.princesses[0].rect):
                     i.open = True
@@ -492,15 +492,15 @@ class Stage:
             self.enemy_music_channel.fadeout(1500)
         if self.pause.closet:
             for i in self.pause.unlocked_items:
-                i.update_all()
-            self.pause.close_closet.update_all()
+                i.render()
+            self.pause.close_closet.render()
         else:
             if self.pause.status == "choosing":
                 for i in self.pause.buttons:
-                    i.update_all()
+                    i.render()
                 if self.fairy:
                     for i in self.fae:
-                        i.update_all()
+                        i.render()
             elif self.pause.status == "done":
                 pass
             elif self.pause.status == "finished":
@@ -524,9 +524,9 @@ class Stage:
             if self.universe.action[0] == "OK":
                 self.fae[0].end_message()
             for i in self.fae:
-                i.update_all()
+                i.render()
         elif self.fairy == "done":
-            self.princesses[0].update_all()
+            self.princesses[0].render()
             if self.bar_speed < p(20):
                 self.bar_speed += self.bar_speed
             if self.white.alpha_value > 0:
@@ -556,11 +556,11 @@ class Stage:
                 self.enemy_music_channel.fadeout(1500)
             self.enemy_music_channel
             self.ball = self.ball or ball.Ball(self.universe, self.princesses[0])
-            self.ball.update_all()
+            self.ball.render()
         else:
             if self.ball:
                 self.ball = None
-            self.cameras[0].update_all()
+            self.cameras[0].render()
             self.universe.movement(self.universe.dir)
             self.update_unlocking()
 
@@ -584,10 +584,10 @@ class Stage:
                     else:
                         for i in self.__dict__[att]:
                             if i:
-                                i.update_all()
+                                i.render()
                 self.enemy_music()
             for i in self.scenarios_front + self.floor_image + self.foreground:
-                i.update_all()
+                i.render()
             if self.princesses[0].inside:
                 self.update_insidebar()
             if (
@@ -596,9 +596,9 @@ class Stage:
                 or not self.princesses[0].inside
             ):
                 for i in self.clock:
-                    i.update_all()
-            [i.update_all() for i in self.panel if i]
-            self.exit_sign.update_all()
+                    i.render()
+            [i.render() for i in self.panel if i]
+            self.exit_sign.render()
 
     def select_enemies(self, allowed_enemies, street):
         self.enemies = []
@@ -1131,7 +1131,7 @@ class Foreground:
         self.image.set_alpha(self.alpha_value)
         self.status = None
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -1228,7 +1228,7 @@ class BigScenario:
             )
         self.pos = [self.universe.center_x, 0]
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = self.universe.center_x
 
 
@@ -1475,7 +1475,7 @@ class Pause:
         self.unlocked_items = None
         self.close_closet = None
 
-    def update_all(self):
+    def render(self):
         pass
 
     def exit_game(self):
@@ -1523,7 +1523,7 @@ class Closet_Icon(Updatable):
         self.imagetxt = None
         self.hover = None
 
-    def update_all(self):
+    def render(self):
         if self.rect.colliderect(self.universe.pointer.rect):
             if not self.hover:
                 self.hover = True
@@ -1567,5 +1567,5 @@ class Dearhearts:
                     p(i[1]),
                 )
 
-    def update_all(self):
+    def render(self):
         pass

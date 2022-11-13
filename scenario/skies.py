@@ -18,7 +18,7 @@ class Sky:
         self.night_image = None
         self.prev = None
 
-    def update_all(self):
+    def render(self):
         if self.universe.level.clock[1].time in ("evening", "night", "ball"):
             self.night_image = self.night_images.list[self.night_images.number]
             if (

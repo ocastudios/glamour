@@ -129,7 +129,7 @@ class Princess:
                 odl.extend([os.path.join(self.directory, row[part], action)])
         return odl
 
-    def update_all(self):
+    def render(self):
         if self.first_frame:
             if self.dirt > 0:
                 self.universe.level.princesses[1] = self.dirties[self.dirt - 1]
@@ -423,7 +423,7 @@ class Dirt:
         self.image = self.actual_list[self.image_number]
         self.past_choice = None
 
-    def update_all(self):
+    def render(self):
         P = self.universe.level.princesses[0]
         self.pos = P.pos
         direction = P.direction

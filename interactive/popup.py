@@ -38,7 +38,7 @@ class Message:
             self.pos,
         )
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -69,7 +69,7 @@ class Unlocking_Message:
             self.pos,
         )
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -91,7 +91,7 @@ class Unlocking_Icon:
         )
         self.step = "growing"
 
-    def update_all(self):
+    def render(self):
         self.image = pygame.Surface(self.image_size, pygame.SRCALPHA).convert_alpha()
         if self.step == "growing":
             if self.growing.number <= len(self.growing.list) - 1:

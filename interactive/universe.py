@@ -60,9 +60,10 @@ class Universe:
         self.sub_tick = 0
 
     def update_all(self):
-        self.sub_tick == 0 and self.pointer.update()
-        self.sub_tick == 0 and self.level.update_all()
-        self.level.subtick_update()
+        self.sub_tick == 0 and self.pointer.render()
+        self.sub_tick == 0 and self.level.render()
+        self.pointer.update()
+        self.level.update()
         if self.LEVEL == "menu" and self.level.__class__ != menu.Menu:
             self.define_level()
         if self.LEVEL == "game" and self.level.__class__ != stage.Stage:

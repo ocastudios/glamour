@@ -168,10 +168,10 @@ class Item:
         self.rect = pygame.Rect((self.pos), (self.size))
         self.active = False
 
-    def update_all(self):
+    def render(self):
         self.click_detection()
         if self.room.chosen_item == self:
-            self.room.chosen_glow.update_all()
+            self.room.chosen_glow.render()
         elif not self.room.chosen_item:
             if (
                 database.query.my_outfit(self.universe, "princess_garment")[self.type]
@@ -247,7 +247,7 @@ class Princess_Home:
             self.locked = False
         save.save_thumbnail(self.universe)
 
-    def update_all(self):
+    def render(self):
         self.pos = [
             self.frame.position[0] + self.position[0],
             self.frame.position[1] + self.position[1],
@@ -346,5 +346,5 @@ class Chosen_Glow:
         self.image = self.images.list[0]
         self.pos = p(pos)
 
-    def update_all(self):
+    def render(self):
         self.image = self.images.list[next(self.images.itnumber)]

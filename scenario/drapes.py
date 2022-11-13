@@ -25,7 +25,7 @@ class Drape:
         self.size = self.image.get_size()
         self.counter = 0
 
-    def update_all(self):
+    def render(self):
         self.counter += 1
         if self.counter > 5:
             if self.action == "open" and self.image_number < len(self.images) - 1:
@@ -45,7 +45,7 @@ class UperDrape:
         self.y = 0
         self.size_y = p(356)
 
-    def update_all(self):
+    def render(self):
         if self.action == "open":
             self.y -= p(3)
         if self.y < -self.size_y:

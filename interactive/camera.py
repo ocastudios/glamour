@@ -11,7 +11,7 @@ class GameCamera:
         if goalpos:
             self.universe.recenter(goalpos, exact=True)
 
-    def update_all(self):
+    def render(self):
         princess_pos = self.universe.level.princesses[0].pos[0]
         princess_right = princess_pos + round(100 * scale)
         princess_left = princess_pos

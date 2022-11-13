@@ -2,8 +2,9 @@ import utils
 
 
 class Updatable:
-    def update_all(self):
+    def render(self):
+        return 
         pass
 
-    def subtick_update(self):
+    def update(self):
         pass

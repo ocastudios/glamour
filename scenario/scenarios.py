@@ -53,7 +53,7 @@ class Scenario:
         except:
             pass
 
-    def update_all(self):
+    def render(self):
         self.update_pos()
 
     def update_with_images(self):
@@ -75,7 +75,7 @@ class Flower(Scenario):
         Scenario.__init__(self, center_distance, dir, universe)
         self.images = utils.img.GrowingUngrowing(dir, frames)
 
-    def update_all(self):
+    def render(self):
         self.update_pos()
 
 
@@ -103,7 +103,7 @@ class Gate(Scenario):
             utils.img.image(icon_dir), (round(91 * scale), round(59 * scale))
         )
 
-    def update_all(self):
+    def render(self):
         self.set_level(self.universe.level.princesses[0])
         self.update_pos()
         self.rect = Rect(self.pos, self.size)
@@ -129,7 +129,7 @@ class BuildingDoor:
         self.interior = interior
         self.bath = bath
 
-    def update_all(self):
+    def render(self):
         self.indicate_exit(self.universe.level.princesses[0])
         self.pos[0] = self.universe.center_x + self.position[0]
         self.rect = Rect(self.pos, self.size)
@@ -205,7 +205,7 @@ class Background:
         else:
             self.update_images = self.update_without_images
 
-    def update_all(self):
+    def render(self):
         self.update_images()
 
     def update_without_images(self):
@@ -225,7 +225,7 @@ class ExitSign:
         self.size = self.image.get_size()
         self.rect = Rect(self.pos, self.size)
 
-    def update_all(self):
+    def render(self):
         princess = self.universe.level.princesses[0]
         control = 0
         if not princess.inside:
@@ -261,5 +261,5 @@ class Cloud:
         ]
         self.image = self.nimbus[random.randint(0, 3)]
 
-    def update_all(self):
+    def render(self):
         pass

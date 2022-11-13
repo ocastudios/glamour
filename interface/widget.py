@@ -74,7 +74,7 @@ class Button(Updatable):
         self.function = function
         self.parameter = parameter
 
-    def update_all(self):
+    def render(self):
         # self.size = self.image.get_size()
         try:
             self.pos = [
@@ -87,7 +87,7 @@ class Button(Updatable):
         if self.hovered:
             self.wobble()
 
-    def subtick_update(self):
+    def update(self):
         self.click_detection()
 
     def invert_images(self, list):
@@ -209,7 +209,7 @@ class GameText(Updatable):
         self.variable_text = var
         self.text_box = self.size[0] * 0.8, self.size[1] * 0.8
 
-    def update_all(self):
+    def render(self):
         """Update the object for the new frame"""
         if self.frame_pos:
             self.pos = [
@@ -278,7 +278,7 @@ class Letter(GameText):
         self.size = p((30, 30))
         self.rect = pygame.Rect(self.pos, self.size)
 
-    def update_all(self):
+    def render(self):
         self.size = self.image.get_size()
         self.pos = [
             self.frame_pos[0] + self.position[0] - (self.size[0] / 2),
@@ -287,7 +287,7 @@ class Letter(GameText):
         self.rect = pygame.Rect(self.pos, self.size)
         self.type = type
 
-    def subtick_update(self):
+    def update(self):
         self.click_detection()
 
     def click_detection(self):
@@ -313,7 +313,7 @@ class Key(GameText):
         self.key = key_type
         self.rect = pygame.Rect(self.pos, self.size)
 
-    def update_all(self):
+    def render(self):
         self.size = self.image.get_size()
         self.pos = [
             self.frame_pos[0] + self.position[0] - (self.size[0] / 2),
@@ -321,7 +321,7 @@ class Key(GameText):
         ]
         self.rect = pygame.Rect(self.pos, self.size)
 
-    def subtick_update(self):
+    def update(self):
         self.click_detection()
 
     def click_detection(self):

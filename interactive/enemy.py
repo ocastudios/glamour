@@ -88,7 +88,7 @@ class Schnauzer:
         ]
         self.rect = pygame.Rect(self.pos, self.size)
 
-    def update_all(self):
+    def render(self):
         princess = self.universe.level.princesses[0]
         self.set_pos()
         self.count += 1
@@ -175,7 +175,7 @@ class Carriage:
         self.universe = universe
         self.center_distance = pos
 
-    def update_all(self):
+    def render(self):
         self.set_pos()
         self.set_image()
 
@@ -239,7 +239,7 @@ class Butterfly:
         )
         self.gotkissed = 0
 
-    def update_all(self):
+    def render(self):
         self.set_pos()
         self.set_image()
 
@@ -324,7 +324,7 @@ class OldLady:
         self.universe.level.enemies.append(BroomingDust(self))
         self.beaten = database.query.is_beaten(self.universe, "old_lady")
 
-    def update_all(self):
+    def render(self):
         if -p(400) < self.pos[0] < p(1490):
             self.got_kissed()
             self.wave_to_princess()
@@ -459,7 +459,7 @@ class BroomingDust:
         self.rect = pygame.Rect(rect_pos, rect_rect)
         self.active = False
 
-    def update_all(self):
+    def render(self):
         if (self.lady.action == "broom" and self.lady.image_number == 1) or (
             self.images.number != 0
         ):
@@ -516,7 +516,7 @@ class Lion:
         self.locked = database.query.is_locked(self.universe, "face", "indian")
         self.beaten = database.query.is_beaten(self.universe, "lion")
 
-    def update_all(self):
+    def render(self):
         princess = self.universe.level.princesses[0]
         if -p(400) < self.pos[0] < p(1490):
             if self.action == "dance":
@@ -580,7 +580,7 @@ class Tail:
         )
         self.image = self.images.list[next(self.images.itnumber)]
 
-    def update_all(self):
+    def render(self):
         if 0 < self.pos[0] < p(700):
             self.image = self.images.list[next(self.images.itnumber)]
         self.pos = self.lion.pos
@@ -615,7 +615,7 @@ class Elephant:
         self.noise_channel = self.universe.sound.channels.enemy_noise
         self.rect = pygame.Rect((0, 0), (0, 0))
 
-    def update_all(self):
+    def render(self):
         if -p(400) < self.pos[0] < p(1490):
             self.rect = pygame.Rect(self.pos, self.base.size)
             if self.action == "dance":
@@ -664,7 +664,7 @@ class Giraffe:
         self.image_number = 0
         self.count = 0
 
-    def update_all(self):
+    def render(self):
         if -p(400) < self.pos[0] < p(1490):
             if self.count == 2:
                 self.image = self.chewing_images.left[
@@ -702,7 +702,7 @@ class Penguin:
         self.floor = self.universe.floor - self.universe.level.what_is_my_height(self)
         self.locked = database.query.is_locked(self.universe, "accessory", "beret")
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = self.universe.center_x + self.center_distance
         if -p(400) < self.pos[0] < p(1490):
             self.update_image()
@@ -790,7 +790,7 @@ class Monkey:
         self.universe.level.enemies.append(self.banana)
         self.rect = pygame.Rect((0, 0), (0, 0))
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = self.universe.center_x + self.center_distance
         if -p(400) < self.pos[0] < p(1490):
             if self.universe.level.princesses[0].pos[0] > self.pos[0]:
@@ -854,7 +854,7 @@ class Banana:
             self.banana_size,
         )
 
-    def update_all(self):
+    def render(self):
         self.rect = pygame.Rect(
             (
                 self.pos[0] + self.pos_correction[0],
@@ -998,7 +998,7 @@ class VikingShip:
         )
         self.beaten = database.query.is_beaten(self.universe, "viking_ship")
 
-    def update_all(self):
+    def render(self):
         # take the balloon off the way, for it hurts the princess
         # if self.mood is talk it will be reset below
         if -p(1000) < self.pos[0] < p(1800):  # check if Viking is on screen
@@ -1146,7 +1146,7 @@ class VikingPart:
         self.size = self.image.get_size()
         self.real_size = self.size
 
-    def update_all(self):
+    def render(self):
         self.image = self.actual_images[next(self.images.itnumber)]
 
 
@@ -1195,7 +1195,7 @@ class Balloon:
         self.size = self.image.get_size()
         self.real_size = self.size
 
-    def update_all(self):
+    def render(self):
         self.pos = self.ship.pos[0] + self.pos_x, self.ship.pos[1] + self.pos_y
 
 
@@ -1255,7 +1255,7 @@ class FootBoy:
         )
         self.beaten = database.query.is_beaten(self.universe, "footboy")
 
-    def update_all(self):
+    def render(self):
         if self.direction == "left":
             self.speed = -p(12)
             self.image = self.body.left[self.body.number]
@@ -1334,7 +1334,7 @@ class FootBall:
         self.direction = self.footboy.direction
 
     # itertools.cycle([i*20 for i in range(7)+list(reversed(range(6)))])
-    def update_all(self):
+    def render(self):
         direction = {"right": 1, "left": -1}
         speed = self.speed
         if self.footboy.body != self.footboy.running:
@@ -1417,7 +1417,7 @@ class Bird:
         self.disturbed["count_all"] = 0
         self.locked = database.query.is_locked(universe, "accessory", "shades")
 
-    def update_all(self, cross=30):
+    def render(self, cross=30):
         level = self.universe.level
         floor = self.universe.floor - level.what_is_my_height(self)
         if self.body == self.walking:
@@ -1523,7 +1523,7 @@ class Hawk:
         self.rect = pygame.Rect((self.pos[0] + self.size[0], self.pos[1]), self.size)
         self.mood = "calm"
 
-    def update_all(self):
+    def render(self):
         if self.direction == "left":
             self.speed = -p(30)
             self.image = self.body.left[self.body.number]

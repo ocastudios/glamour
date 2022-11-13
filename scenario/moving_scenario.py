@@ -26,7 +26,7 @@ class Billboard:
             self.universe.floor - self.image.get_size()[1],
         ]
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = ((self.size - self.universe.width) * self.universe.center_x) / (
             self.universe.level.size - self.universe.width
         )

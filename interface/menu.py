@@ -77,7 +77,7 @@ class Menu:
         self.upper_drapes = drapes.UperDrape()
         self.count = 0
 
-    def update_all(self):
+    def render(self):
         self.universe.screen_surface.fill([230, 230, 230])
         self.STEP(self.universe.screen_surface)
         self.universe.screen_surface.blit(
@@ -96,11 +96,11 @@ class Menu:
             )
             self.start_game(start_anyway=True)
 
-    def subtick_update(self):
+    def update(self):
         self.control_keyboard()
         for item in items:
             for i in self.__dict__[item]:
-                i.subtick_update()
+                i.update()
 
     def reload_images(self):
         position = [360, 200]
@@ -133,10 +133,10 @@ class Menu:
     def update_drape(self, surface):
         universe = self.universe
         self.drapes.action = universe.action[2]
-        self.drapes.update_all()
+        self.drapes.render()
         surface.blit(self.drapes.image, (0, 0))
         self.upper_drapes.action = universe.action[2]
-        self.upper_drapes.update_all()
+        self.upper_drapes.render()
         surface.blit(self.upper_drapes.image, (0, self.upper_drapes.y))
         if self.upper_drapes.y < -self.upper_drapes.size_y + 10:
             self.STEP = self.STEP_arrive_bar  ## Change the STEP
@@ -185,18 +185,18 @@ class Menu:
         if bar["side"]:
             surface.blit(bar["image"], (bar["position"], 0))
         if self.story:
-            self.story.update_all()
+            self.story.render()
             [surface.blit(i, (0, 0)) for i in self.story.images if i]
         elif self.tutorial:
-            self.tutorial.update_all()
+            self.tutorial.render()
             [surface.blit(i, (0, 0)) for i in self.tutorial.images if i]
         elif self.ending:
-            self.ending.update_all()
+            self.ending.render()
             if self.ending:
                 [surface.blit(i, (0, 0)) for i in self.ending.images if i]
         for item in items:
             for i in self.__dict__[item]:
-                i.update_all()
+                i.render()
                 surface.blit(i.image, i.pos)
         for i in self.options:
             if i.__class__ == widget.Letter and i.hoover:
@@ -216,7 +216,7 @@ class Menu:
                     ),
                 )
         if self.print_princess:
-            self.princess.update_all()
+            self.princess.render()
             [surface.blit(i, self.princess.pos) for i in self.princess.images if i]
         accel = p(2, r=False)
         if self.action == "open":
@@ -258,7 +258,7 @@ class Menu:
 
         if self.credits:
             surface.blit(self.credits.background, self.credits.pos)
-            self.credits.update_all()
+            self.credits.render()
         self.position[1] += round(self.speed)
 
     def control_keyboard(self):
@@ -1174,7 +1174,7 @@ class MenuPrincess:
             self.menu.position[1] + self.goal_pos[1] - (self.size[1] / 2),
         ]
 
-    def update_all(self):
+    def render(self):
         self.images[0] = self.hairback[self.numbers["hair"]]
         self.images[1] = self.skin[self.numbers["skin"]]
         self.images[3] = self.hair[self.numbers["hair"]]
@@ -1484,7 +1484,7 @@ class Story_Frame:
         self.timer = 0
         self.path = path
 
-    def update_all(self):
+    def render(self):
         if self.frame_number:
             self.images = [self.available_images[self.frame_number - 1]]
         else:
@@ -1703,7 +1703,7 @@ class Credits:
         # for i in self.texts:
         # 	self.background.blit(i.image,i.pos)
 
-    def update_all(self):
+    def render(self):
         if self.pos[1] > -p(3020):
             self.pos[1] -= p(1, r=False)
         else:

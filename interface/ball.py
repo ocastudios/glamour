@@ -101,22 +101,22 @@ class Ball:
         self.locked = database.query.is_locked(universe, "accessory", "mask")
         self.universe = universe
 
-    def update_all(self):
+    def render(self):
         if self.universe.level.black.alpha_value > 0:
             self.universe.level.changing_stages_darkenning(-1)
         for i in self.dancers:
-            i.update_all()
+            i.render()
         if self.counter > self.delay:
             if self.alpha < 150:
                 self.alpha += 10
                 self.foreground.set_alpha(self.alpha)
-        self.Frame.update_all()
-        self.Bar.update_all()
+        self.Frame.render()
+        self.Bar.render()
         if self.counter > self.delay:
-            self.bigprincess.update_all()
+            self.bigprincess.render()
         if self.counter > self.delay + 20:
             for i in self.texts:
-                i.update_all()
+                i.render()
         if self.boyfriend:
             if self.counter == self.delay + 50:
                 self.texts += [
@@ -138,7 +138,7 @@ class Ball:
                     widget.GameText(self.universe, "  .", (1300, 237), [0, 0])
                 ]
             if self.counter > self.delay + 110:
-                self.boyfriend.update_all()
+                self.boyfriend.render()
         else:
             self.texts += [
                 widget.GameText(
@@ -147,7 +147,7 @@ class Ball:
             ]
         if self.counter > self.delay + 130:
             for i in self.buttons:
-                i.update_all()
+                i.render()
         if self.counter == self.delay + 130:
             if self.boyfriend:
                 self.texts += [
@@ -380,7 +380,7 @@ class VerticalBar:
         self.ready = False
         self.countdown = 60
 
-    def update_all(self):
+    def render(self):
         if self.countdown == 0:
             if self.position[0] < p(90):
                 self.position[0] += self.speed
@@ -463,7 +463,7 @@ class BallFrame:
                 self.image.blit(i.symbol, (i.symbolpos, round(i.pos[1] - p(100))))
         self.ready = False
 
-    def update_all(self):
+    def render(self):
         if self.ball.Bar.ready:
             if self.ball:
                 if self.position[1] + (self.size[1] / 2) < (
@@ -517,7 +517,7 @@ class FairyTalePrincess:
             frame.ball.universe, self.name_lower, size="normal", previous_ball=ball
         )
 
-    def update_all(self):
+    def render(self):
         self.pos = [
             self.frame.position[0] + self.position[0],
             self.frame.position[1] + self.position[1],
@@ -536,7 +536,7 @@ class StarBall:
         self.image = self.images.left[0]
         self.pos = p([1025, -50])
 
-    def update_all(self):
+    def render(self):
         self.image = self.images.left[next(self.images.itnumber)]
 
 
@@ -567,7 +567,7 @@ class BoyFriend:
         )
         self.pos = p([1000, 298])
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -576,7 +576,7 @@ class BigPrincess:
         self.pos = p([670, 398])
         self.image = widget.princess_image(ball.universe, "princess_garment")
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -646,7 +646,7 @@ class NewDancer:
                 self.square[1][0] + (200 * scale),
             )
 
-    def update_all(self):
+    def render(self):
         self.image = self.images.left[self.images.number]
         self.images.update_number()
         if not self.player:

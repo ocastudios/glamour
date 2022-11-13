@@ -24,7 +24,7 @@ class Floor:
             self.universe.floor - self.size[1],
         ]
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = self.universe.center_x + (self.center_distance)
 
 
@@ -44,7 +44,7 @@ class Water(Floor):
             self.universe.floor - self.size[1],
         ]
 
-    def update_all(self):
+    def render(self):
         if self.sound.get_num_channels() == 0:
             self.sound.play()
         self.center_distance += self.speed[0]
@@ -113,7 +113,7 @@ class Bridge:
         else:
             universe.level.floor_image[index] = self
 
-    def update_all(self):
+    def render(self):
         self.update_pos()
 
     def update_pos(self):
@@ -134,5 +134,5 @@ class Drain:
         ]
         universe.level.floor_image[index] = self
 
-    def update_all(self):
+    def render(self):
         self.pos[0] = self.universe.center_x + (self.center_distance)

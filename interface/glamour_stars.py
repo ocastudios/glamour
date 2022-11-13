@@ -21,7 +21,7 @@ class Glamour_Stars:
         self.size = self.image.get_size()
         self.pos = p((195, 45))
 
-    def update_all(self):
+    def render(self):
         actual_list = self.image_lists[self.universe.level.princesses[0].dirt]
         self.image = actual_list.list[next(actual_list.itnumber)]
 
@@ -37,7 +37,7 @@ class Lil_Stars:
         self.size = self.image.get_size()
         self.pos = p(pos)
 
-    def update_all(self):
+    def render(self):
         self.image = self.rotating.list[next(self.rotating.itnumber)]
 
 
@@ -49,5 +49,5 @@ class Lil_Star_Back:
         )
         self.pos = p(pos)
 
-    def update_all(self):
+    def render(self):
         pass

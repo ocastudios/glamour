@@ -13,7 +13,7 @@ class GameClock:
         )
         self.pos = ((universe.width - self.image.get_width()), 0)
 
-    def update_all(self):
+    def render(self):
         pass
 
 
@@ -57,7 +57,7 @@ class ClockPointer:
             self.balltime = None
             return 240
 
-    def update_all(self):
+    def render(self):
         self.balltime = self.balltime or self.set_balltime()
         balltime = self.balltime
         if not self.universe.level.paused:
