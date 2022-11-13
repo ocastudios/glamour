@@ -32,6 +32,15 @@ class MousePointer:
         pygame.event.clear()
         self.rect = pygame.Rect(self.pos, self.size)
 
+
+    def set_pointer(self, pointer = 'small'):
+        if pointer == 'small':
+            self.images = self.images_small
+        elif pointer == 'big':
+            self.images = self.images_big
+        else:
+            raise Exception('Pointer can only be either "small" or "big"')
+
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()
         number_of_files = len(self.images.list) - 2
@@ -46,5 +55,5 @@ class MousePointer:
             self.pos = self.mouse_pos
         self.rect = pygame.Rect(self.pos, self.size)
 
-    def update_all(self):
+    def render(self):
         pass

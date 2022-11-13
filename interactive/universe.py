@@ -82,7 +82,7 @@ class Universe:
             if not self.level or self.level.__class__ != stage.Stage:
                 self.fps = 20
                 self.action = [None, "stay", None]
-                self.pointer.images = self.pointer.images_big
+                self.set_pointer("big")
                 self.stage = self.stage or stage.Stage(self)
                 self.level = self.stage
                 self.level.paused = False
@@ -92,7 +92,7 @@ class Universe:
             if not self.level or self.level.__class__ != menu.Menu:
                 self.fps = 40
                 self.action = ["open", "stay", "open"]
-                self.pointer.images = self.pointer.images_small
+                self.set_pointer("small")
                 self.level = self.menu
                 self.level.vertical_bar["side"] = "left"
                 self.level.main()
@@ -122,6 +122,9 @@ class Universe:
         if self.center_x - self.width < -(self.level.size):
             self.speed = 0
             self.center_x = -(self.level.size) + self.width
+
+    def set_pointer(self, pointer):
+        self.pointer.set_pointer(pointer)
 
 
 class Sound:
